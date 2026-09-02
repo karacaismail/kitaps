@@ -1,0 +1,278 @@
+---
+import '../styles/global.css';
+import data from '../data/books.json';
+import BookCard from '../components/BookCard.astro';
+import Icon from '../components/Icon.astro';
+
+const { books, sections, count } = data;
+
+/** Künye sayfasındaki alanlar — sıra ekranda göründüğü sıradır. */
+const FIELDS = [
+  { key: 'author',     label: 'Yazar',                icon: 'user' },
+  { key: 'translator', label: 'Önerilen çevirmen',    icon: 'translate' },
+  { key: 'original',   label: 'Orijinal ad',          icon: 'book-open' },
+  { key: 'turkish',    label: "Türkiye'de yayın adı", icon: 'books' },
+  { key: 'publisher',  label: 'Yayınevi',             icon: 'buildings' },
+];
+
+/**
+ * Kullanıcı durumları. Sunucu yok; her durum kullanıcının kendi tarayıcısında
+ * (localStorage) kitabın kalıcı anahtarına bağlı olarak saklanır.
+ * Bir kitap aynı anda birden çok durumda olabilir (örn. önemli + satın alındı).
+ */
+const STATES = [
+  { key: 'onemli',   label: 'Önemli',       icon: 'star' },
+  { key: 'alindi',   label: 'Satın alındı', icon: 'shopping-bag-open' },
+  { key: 'okunuyor', label: 'Okunuyor',     icon: 'book-open-text' },
+  { key: 'okundu',   label: 'Okundu',       icon: 'seal-check' },
+];
+---
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=320, initial-scale=1, viewport-fit=cover" />
+  <title>Kitaps — alınacak kitaplar</title>
+  <meta name="description" content="Alınacak kitapların künyesi: önerilen çevirmen, yayınevi ve baskı uyarıları. 320 piksel için tasarlanmış mobil arayüz." />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#faf9f7" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#14130f" media="(prefers-color-scheme: dark)" />
+</head>
+<body>
+  <a class="skip" href="#liste">İçeriğe atla</a>
+
+  <header class="head">
+    <h1 class="head__title">Kitaps</h1>
+    <p class="head__sub"><span id="sayac">{count}</span> kitap · künye ve çeviri notları</p>
+  </header>
+
+  <div class="bar">
+    <div class="chips" role="group" aria-label="Süzgeç">
+      <button class="chip is-on" type="button" data-filter="*" aria-pressed="true">
+        <Icon name="funnel-simple" size={14} />Tümü
+      </button>
+      {STATES.map(s => (
+        <button class="chip chip--state" type="button" data-filter={`state:${s.key}`} aria-pressed="false">
+          <Icon name={s.icon} size={14} />{s.label}
+        </button>
+      ))}
+      <span class="chips__sep" aria-hidden="true"></span>
+      {sections.map(s => (
+        <button class="chip" type="button" data-filter={`sec:${s.key}`} aria-pressed="false">
+          <Icon name={s.icon} size={14} />{s.label}
+        </button>
+      ))}
+    </div>
+
+    <div class="switcher" role="group" aria-label="Görünüm">
+      <button class="switcher__btn is-on" type="button" data-view-set="grid"
+              aria-pressed="true" aria-label="İki sütun görünümü">
+        <Icon name="squares-four" size={20} />
+      </button>
+      <button class="switcher__btn" type="button" data-view-set="list"
+              aria-pressed="false" aria-label="Tek satır görünümü">
+        <Icon name="rows" size={20} />
+      </button>
+    </div>
+  </div>
+
+  <main>
+    <ul id="liste" class="list" data-view="grid">
+      {books.map((book, i) => <BookCard book={book} index={i} />)}
+    </ul>
+    <p class="empty" hidden>Bu süzgeçte kitap yok.</p>
+  </main>
+
+  <footer class="foot">
+    Veri kaynağı <code>kitaplar.md</code>. Durum işaretleri yalnızca bu tarayıcıda saklanır.
+  </footer>
+
+  <!-- Tek dialog, 170 kitap için yeniden kullanılır -->
+  <dialog id="sheet" class="sheet" aria-labelledby="sheet-baslik">
+    <div class="sheet__grip" aria-hidden="true"></div>
+    <form method="dialog">
+      <button class="sheet__close" value="kapat" aria-label="Kapat"><Icon name="x" size={20} /></button>
+    </form>
+
+    <div class="sheet__scroll">
+      <p class="sheet__eyebrow" id="sheet-bolum"></p>
+      <h2 class="sheet__title" id="sheet-baslik"></h2>
+
+      <dl class="kv">
+        {FIELDS.map(f => (
+          <div class="kv__row" data-row={f.key} hidden>
+            <dt class="kv__k"><Icon name={f.icon} size={15} />{f.label}</dt>
+            <dd class="kv__v" data-val={f.key}></dd>
+          </div>
+        ))}
+      </dl>
+
+      <div class="note" data-note hidden>
+        <p class="note__k">Not</p>
+        <p class="note__v" data-note-text></p>
+      </div>
+
+      <div class="states">
+        <p class="states__k" id="durum-baslik">Durum</p>
+        <div class="states__row" role="group" aria-labelledby="durum-baslik">
+          {STATES.map(s => (
+            <button class="state" type="button" data-state={s.key} aria-pressed="false">
+              <Icon name={s.icon} size={17} />
+              <span>{s.label}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <script id="veri" type="application/json" set:html={JSON.stringify(
+    books.map(b => ({
+      key: b.key, t: b.original || b.turkish, s: b.sectionLabel,
+      author: b.author, translator: b.translator,
+      original: b.original, turkish: b.turkish, publisher: b.publisher,
+      note: b.note, st: b.status,
+    }))
+  )} />
+  <script id="durumlar" type="application/json" set:html={JSON.stringify(STATES)} />
+
+  <script>
+    const veri    = JSON.parse(document.getElementById('veri').textContent);
+    const STATES  = JSON.parse(document.getElementById('durumlar').textContent);
+    const liste   = document.getElementById('liste');
+    const sheet   = document.getElementById('sheet');
+    const sayac   = document.getElementById('sayac');
+    const bos     = document.querySelector('.empty');
+    const kartlar = [...liste.querySelectorAll('.card-item')];
+
+    /* ================= Görünüm anahtarı ================= */
+    const VIEW_KEY = 'kitaps:view';
+    function setView(v) {
+      liste.dataset.view = v;
+      document.querySelectorAll('[data-view-set]').forEach(b => {
+        const on = b.dataset.viewSet === v;
+        b.classList.toggle('is-on', on);
+        b.setAttribute('aria-pressed', String(on));
+      });
+      try { localStorage.setItem(VIEW_KEY, v); } catch {}
+    }
+    document.querySelectorAll('[data-view-set]').forEach(b =>
+      b.addEventListener('click', () => setView(b.dataset.viewSet)));
+    try {
+      const k = localStorage.getItem(VIEW_KEY);
+      if (k === 'grid' || k === 'list') setView(k);
+    } catch {}
+
+    /* ================= Kullanıcı durumları =================
+       Şema: { "<kitap-anahtarı>": ["onemli", "alindi"] }
+       Kitabın anahtarı satır sırasından bağımsız üretilir; markdown değişse de
+       daha önce işaretlenen durumlar yerinde kalır. */
+    const ST_KEY = 'kitaps:states:v1';
+    let durum = {};
+    try { durum = JSON.parse(localStorage.getItem(ST_KEY) || '{}'); } catch {}
+    const kaydet = () => { try { localStorage.setItem(ST_KEY, JSON.stringify(durum)); } catch {} };
+    const durumlarinin = k => durum[k] ?? [];
+
+    const ICON = Object.fromEntries(
+      [...document.querySelectorAll('.state')].map(b => [b.dataset.state, b.querySelector('svg').outerHTML]),
+    );
+
+    /** Kartın üzerindeki küçük durum rozetlerini yeniden çizer. */
+    function cizFlags(li) {
+      const yuva = li.querySelector('[data-flags]');
+      const list = durumlarinin(li.dataset.key);
+      yuva.innerHTML = list
+        .map(s => `<span class="flag flag--${s}">${ICON[s] ?? ''}</span>`)
+        .join('');
+      li.dataset.states = list.join(' ');
+    }
+    kartlar.forEach(cizFlags);
+
+    /* ================= Süzgeç ================= */
+    let aktifSuzgec = '*';
+    function uygula() {
+      let n = 0;
+      for (const li of kartlar) {
+        let goster = true;
+        if (aktifSuzgec.startsWith('sec:'))   goster = li.dataset.section === aktifSuzgec.slice(4);
+        else if (aktifSuzgec.startsWith('state:')) goster = durumlarinin(li.dataset.key).includes(aktifSuzgec.slice(6));
+        li.hidden = !goster;
+        if (goster) n++;
+      }
+      sayac.textContent = String(n);
+      bos.hidden = n > 0;
+    }
+    document.querySelectorAll('[data-filter]').forEach(chip =>
+      chip.addEventListener('click', () => {
+        aktifSuzgec = chip.dataset.filter;
+        document.querySelectorAll('[data-filter]').forEach(c => {
+          const on = c === chip;
+          c.classList.toggle('is-on', on);
+          c.setAttribute('aria-pressed', String(on));
+        });
+        uygula();
+        chip.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
+      }));
+
+    /* ================= Künye sayfası ================= */
+    let acan = null, acikIndex = -1;
+
+    function durumDugmeleriniTazele(k) {
+      const list = durumlarinin(k);
+      sheet.querySelectorAll('[data-state]').forEach(b => {
+        const on = list.includes(b.dataset.state);
+        b.classList.toggle('is-on', on);
+        b.setAttribute('aria-pressed', String(on));
+      });
+    }
+
+    function ac(i) {
+      const b = veri[i];
+      if (!b) return;
+      acikIndex = i;
+      sheet.querySelector('#sheet-bolum').textContent = b.s;
+      sheet.querySelector('#sheet-baslik').textContent = b.t;
+      for (const f of ['author', 'translator', 'original', 'turkish', 'publisher']) {
+        const row = sheet.querySelector(`[data-row="${f}"]`);
+        const dolu = Boolean(b[f]);
+        row.hidden = !dolu;
+        if (dolu) sheet.querySelector(`[data-val="${f}"]`).textContent = b[f];
+      }
+      const not = sheet.querySelector('[data-note]');
+      not.hidden = !b.note;
+      if (b.note) sheet.querySelector('[data-note-text]').textContent = b.note;
+      not.dataset.tone = b.st.includes('avoid') ? 'avoid' : b.st.includes('warn') ? 'warn'
+                       : b.st.includes('unverified') ? 'unverified' : 'ok';
+      durumDugmeleriniTazele(b.key);
+      sheet.querySelector('.sheet__scroll').scrollTop = 0;
+      sheet.showModal();
+    }
+
+    liste.addEventListener('click', e => {
+      const btn = e.target.closest('[data-book]');
+      if (!btn) return;
+      acan = btn;
+      ac(Number(btn.dataset.book));
+    });
+
+    /* Durum aç/kapa — anında kaydedilir, karttaki rozet hemen güncellenir. */
+    sheet.querySelectorAll('[data-state]').forEach(btn =>
+      btn.addEventListener('click', () => {
+        const b = veri[acikIndex];
+        if (!b) return;
+        const s = btn.dataset.state;
+        const list = new Set(durumlarinin(b.key));
+        list.has(s) ? list.delete(s) : list.add(s);
+        if (list.size) durum[b.key] = [...list]; else delete durum[b.key];
+        kaydet();
+        durumDugmeleriniTazele(b.key);
+        const li = kartlar.find(x => x.dataset.key === b.key);
+        if (li) cizFlags(li);
+        if (aktifSuzgec.startsWith('state:')) uygula();
+      }));
+
+    sheet.addEventListener('click', e => { if (e.target === sheet) sheet.close(); });
+    sheet.addEventListener('close', () => { acan?.focus(); acan = null; acikIndex = -1; });
+  </script>
+</body>
+</html>

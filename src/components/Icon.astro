@@ -1,0 +1,39 @@
+---
+/**
+ * Phosphor ikonu — build sırasında SVG dosyasını okuyup satır içine gömer.
+ * Emoji kullanılmaz; her görsel işaret bu bileşenden gelir.
+ * CDN yok, runtime fetch yok: tek dosya HTML içinde kendi kendine yeter.
+ */
+import { readFileSync } from 'node:fs';
+
+interface Props {
+  name: string;
+  size?: number;
+  weight?: 'thin' | 'light' | 'regular' | 'bold' | 'fill' | 'duotone';
+  label?: string;   // verilirse img rolü + erişilebilir ad; verilmezse dekoratif
+  class?: string;
+}
+
+const { name, size = 20, weight = 'regular', label, class: cls = '' } = Astro.props;
+
+const file = new URL(
+  `../../node_modules/@phosphor-icons/core/assets/${weight}/${name}${weight === 'regular' ? '' : '-' + weight}.svg`,
+  import.meta.url,
+);
+
+let inner = '';
+try {
+  inner = readFileSync(file, 'utf8').replace(/^[\s\S]*?<svg[^>]*>/, '').replace(/<\/svg>\s*$/, '');
+} catch {
+  throw new Error(`Phosphor ikonu bulunamadı: ${weight}/${name}. Ad için node_modules/@phosphor-icons/core/assets/ altına bak.`);
+}
+---
+<svg
+  class={`ph ${cls}`}
+  width={size} height={size} viewBox="0 0 256 256"
+  fill="currentColor"
+  aria-hidden={label ? undefined : 'true'}
+  role={label ? 'img' : undefined}
+  focusable="false"
+  set:html={label ? `<title>${label}</title>${inner}` : inner}
+/>

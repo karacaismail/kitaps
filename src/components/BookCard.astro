@@ -1,0 +1,54 @@
+---
+/**
+ * Liste kartı. Tek bileşen, iki görünüm:
+ *   [data-view="grid"] -> 2 sütun, dikey kart
+ *   [data-view="list"] -> tek sütun, yatay satır
+ * Görünüm ebeveyn üzerindeki data-view ile değişir; ayrı bileşen yok,
+ * böylece geçişte DOM yeniden kurulmaz ve kaydırma konumu korunur.
+ *
+ * Kartta yalnızca kapak + orijinal ad var (spesifikasyon gereği).
+ * Geri kalan künye dokununca açılan sayfaya (dialog) düşer.
+ */
+import BookCover from './BookCover.astro';
+import Icon from './Icon.astro';
+
+interface Props { book: any; index: number }
+const { book, index } = Astro.props;
+
+/** Kartta gösterilen ad: orijinal ad varsa o, yoksa Türkçe ad. */
+const heading = book.original || book.turkish;
+/** Yatay görünümde ikinci satır: Türkçe ad varsa o, yoksa yazar. */
+const second = book.turkish || book.author;
+
+const STATUS_ICON: Record<string, { icon: string; label: string }> = {
+  avoid:      { icon: 'prohibit',     label: 'Bu baskıdan kaçın' },
+  warn:       { icon: 'warning',      label: 'Dikkat edilmesi gereken bir nokta var' },
+  unverified: { icon: 'question',     label: 'Künye doğrulanmadı' },
+  ok:         { icon: 'check-circle', label: 'Künye doğrulandı' },
+};
+/** En kritik durum kartta rozet olur: kaçın > uyarı > doğrulanmadı > tamam. */
+const primary = ['avoid', 'warn', 'unverified', 'ok'].find(s => book.status.includes(s));
+---
+<li class="card-item" data-section={book.section} data-key={book.key}>
+  <button
+    class="card"
+    type="button"
+    data-book={index}
+    aria-haspopup="dialog"
+    aria-label={`${heading} — künyeyi aç`}
+  >
+    <span class="card__media">
+      <BookCover id={book.id} title={heading} sub={book.author} eager={index < 6} />
+      {primary && (
+        <span class={`badge badge--${primary}`}>
+          <Icon name={STATUS_ICON[primary].icon} size={13} label={STATUS_ICON[primary].label} />
+        </span>
+      )}
+      <span class="flags" data-flags aria-hidden="true"></span>
+    </span>
+    <span class="card__body">
+      <span class="card__title">{heading}</span>
+      {second && <span class="card__second">{second}</span>}
+    </span>
+  </button>
+</li>

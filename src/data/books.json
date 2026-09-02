@@ -1,0 +1,3167 @@
+{
+ "generatedFrom": "data/kitaplar.md",
+ "count": 170,
+ "sections": [
+  {
+   "key": "A",
+   "label": "Strateji klasikleri",
+   "icon": "strategy",
+   "count": 11
+  },
+  {
+   "key": "B",
+   "label": "Strateji: eklenecek",
+   "icon": "plus-circle",
+   "count": 9
+  },
+  {
+   "key": "C",
+   "label": "Davranış bilimi",
+   "icon": "brain",
+   "count": 5
+  },
+  {
+   "key": "D",
+   "label": "Scrum / yalın üretim",
+   "icon": "gear",
+   "count": 3
+  },
+  {
+   "key": "E",
+   "label": "Çocuk: alınacaklar",
+   "icon": "baby",
+   "count": 7
+  },
+  {
+   "key": "F",
+   "label": "Tarih ve edebiyat",
+   "icon": "scroll",
+   "count": 10
+  },
+  {
+   "key": "G",
+   "label": "Rus klasikleri",
+   "icon": "snowflake",
+   "count": 8
+  },
+  {
+   "key": "H",
+   "label": "Dünyaya Yön Verenler",
+   "icon": "users-three",
+   "count": 52
+  },
+  {
+   "key": "K",
+   "label": "Musashi külliyatı",
+   "icon": "sword",
+   "count": 9
+  },
+  {
+   "key": "M",
+   "label": "Kriz stratejisi",
+   "icon": "lightning",
+   "count": 6
+  },
+  {
+   "key": "N",
+   "label": "İrade ve iletişim",
+   "icon": "chats-circle",
+   "count": 10
+  },
+  {
+   "key": "P",
+   "label": "Çocuk: 10 yaş programı",
+   "icon": "student",
+   "count": 34
+  },
+  {
+   "key": "R",
+   "label": "Geleceğe hazırlık",
+   "icon": "rocket-launch",
+   "count": 6
+  }
+ ],
+ "books": [
+  {
+   "id": "A1",
+   "key": "sunzi-bingfa-sun-tzu-sun-zi",
+   "section": "A",
+   "sectionLabel": "Strateji klasikleri",
+   "sub": "",
+   "alsoIn": [
+    "A"
+   ],
+   "original": "孫子兵法 (Sunzi Bingfa)",
+   "turkish": "Savaş Sanatı",
+   "author": "Sun Tzu (Sun Zi)",
+   "translator": "Pulat Otkan, Giray Fidan",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları (Hasan Âli Yücel Klasikler)",
+   "note": "Çince aslından. Diğer baskılar İngilizce üzerinden.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "A2",
+   "key": "il-principe-niccolo-machiavelli",
+   "section": "A",
+   "sectionLabel": "Strateji klasikleri",
+   "sub": "",
+   "alsoIn": [
+    "A"
+   ],
+   "original": "Il Principe",
+   "turkish": "Prens (bazı baskılarda Hükümdar)",
+   "author": "Niccolò Machiavelli",
+   "translator": "Kemal Atakay",
+   "publisher": "Can Yayınları (Klasikler)",
+   "note": "İtalyanca aslından, açıklamalı. Alternatif: Betül Parlak çevirisi.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "A3",
+   "key": "vom-kriege-carl-von-clausewitz",
+   "section": "A",
+   "sectionLabel": "Strateji klasikleri",
+   "sub": "",
+   "alsoIn": [
+    "A"
+   ],
+   "original": "Vom Kriege",
+   "turkish": "Savaş Üzerine",
+   "author": "Carl von Clausewitz",
+   "translator": "H. Fahri Çeliker",
+   "publisher": "Özne Yayınları (1999) / aynı çeviri Alfa baskısında",
+   "note": "Tam metin şart. Şiar Yalçın / Spartaküs (1997): 4-5-6-7. Kitaplar eksik. Dorlion \"Savaş Üzerine & Savaşın Esasları\" birleştirilmiş baskı tam Vom Kriege değil.",
+   "status": [
+    "warn",
+    "avoid"
+   ]
+  },
+  {
+   "id": "A4",
+   "key": "go-rin-no-sho-miyamoto-musashi",
+   "section": "A",
+   "sectionLabel": "Strateji klasikleri",
+   "sub": "",
+   "alsoIn": [
+    "A"
+   ],
+   "original": "五輪書 (Go Rin No Sho)",
+   "turkish": "Beş Çember Kitabı",
+   "author": "Miyamoto Musashi",
+   "translator": "Erdal Küçükyalçın",
+   "publisher": "İthaki Yayınları (2024)",
+   "note": "Japonca aslından, 216 s. Diğerleri (Anahtar, Urzeni, Kopernik, Dorlion) ara dilden ve kısaltılmış.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "A5",
+   "key": "hagakure-yamamoto-tsunetomo",
+   "section": "A",
+   "sectionLabel": "Strateji klasikleri",
+   "sub": "",
+   "alsoIn": [
+    "A"
+   ],
+   "original": "葉隠 (Hagakure)",
+   "turkish": "Hagakure: Saklı Yapraklar",
+   "author": "Yamamoto Tsunetomo",
+   "translator": "Hüseyin Can Erkin",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "Japonca aslından. Arion \"Hagakure – Savaşçının Yüreği\" (çev. \"kolektif\").",
+   "status": [
+    "ok",
+    "avoid"
+   ]
+  },
+  {
+   "id": "A6",
+   "key": "arthasastra-kautilya",
+   "section": "A",
+   "sectionLabel": "Strateji klasikleri",
+   "sub": "",
+   "alsoIn": [
+    "A"
+   ],
+   "original": "अर्थशास्त्र (Arthaśāstra)",
+   "turkish": "Arthaşastra",
+   "author": "Kautilya",
+   "translator": "Utku U. Bulsun",
+   "publisher": "Kırmızı Kedi (2018)",
+   "note": "888 s. L. N. Rangarajan'ın İngilizce edisyonu üzerinden — Sanskritçe aslından değil.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "A7",
+   "key": "strategy-the-indirect-approach-b-h-liddell-hart",
+   "section": "A",
+   "sectionLabel": "Strateji klasikleri",
+   "sub": "",
+   "alsoIn": [
+    "A"
+   ],
+   "original": "Strategy: The Indirect Approach",
+   "turkish": "Strateji: Dolaylı Tutum",
+   "author": "B. H. Liddell Hart",
+   "translator": "Selma Koçak",
+   "publisher": "Doruk Yayınları (2015/2018, 607 s.)",
+   "note": "Alternatif: Cemal Enginsoy, ASAM (2002, 349 s.). Doruk baskısı daha kapsamlı ve satışta.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "A8",
+   "key": "good-strategy-bad-strategy-richard-p-rumelt",
+   "section": "A",
+   "sectionLabel": "Strateji klasikleri",
+   "sub": "",
+   "alsoIn": [
+    "A"
+   ],
+   "original": "Good Strategy Bad Strategy",
+   "turkish": "İyi Strateji / Kötü Strateji",
+   "author": "Richard P. Rumelt",
+   "translator": "Cengiz Yücel (ed. Cihat Erbil)",
+   "publisher": "Nobel Yaşam (2020)",
+   "note": "Çeviri ağır eleştiri alıyor (makine çevirisine benzetiliyor). İngilizcesini oku.",
+   "status": [
+    "warn"
+   ]
+  },
+  {
+   "id": "A9",
+   "key": "blue-ocean-strategy-w-chan-kim-renee-mauborgne",
+   "section": "A",
+   "sectionLabel": "Strateji klasikleri",
+   "sub": "",
+   "alsoIn": [
+    "A"
+   ],
+   "original": "Blue Ocean Strategy",
+   "turkish": "Mavi Okyanus Stratejisi",
+   "author": "W. Chan Kim, Renée Mauborgne",
+   "translator": "Şükrü Alpagut",
+   "publisher": "CSA Yayın Ajansı",
+   "note": "Şemalar ağırlıklı olduğu için çeviri riski düşük.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "A10",
+   "key": "the-48-laws-of-power-robert-greene-joost-elffers-ile",
+   "section": "A",
+   "sectionLabel": "Strateji klasikleri",
+   "sub": "",
+   "alsoIn": [
+    "A"
+   ],
+   "original": "The 48 Laws of Power",
+   "turkish": "İktidar: Güç Sahibi Olmanın 48 Yasası",
+   "author": "Robert Greene (Joost Elffers ile)",
+   "translator": "Zeliha İyidoğan Babayiğit",
+   "publisher": "Altın Kitaplar",
+   "note": "İlk baskı 2000, 2023'te 32. baskı.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "A11",
+   "key": "the-33-strategies-of-war-robert-greene-joost-elffers-ile",
+   "section": "A",
+   "sectionLabel": "Strateji klasikleri",
+   "sub": "",
+   "alsoIn": [
+    "A"
+   ],
+   "original": "The 33 Strategies of War",
+   "turkish": "33 Stratejide Savaş",
+   "author": "Robert Greene (Joost Elffers ile)",
+   "translator": "Füsun Doruker",
+   "publisher": "Altın Kitaplar (768 s., ISBN 9789752109148)",
+   "note": "A10'un devamı ve stratejik olarak daha ağırı: Clausewitz, Sun Tzu, Musashi ve Napolyon'u tek çerçevede toplar. A3/A4/A7 ile doğrudan konuşur.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "B1",
+   "key": "peloponnesos-savasi-tarihi-thukydides",
+   "section": "B",
+   "sectionLabel": "Strateji: eklenecek",
+   "sub": "",
+   "alsoIn": [
+    "B"
+   ],
+   "original": "Ἱστορίαι (Peloponnesos Savaşı Tarihi)",
+   "turkish": "Peloponnesos Savaşları",
+   "author": "Thukydides",
+   "translator": "Furkan Akderin",
+   "publisher": "Belge Yayınları (2010; 2017, 2019)",
+   "note": "Antik Yunanca aslından, çeviri iyi; editörlük/dizgi zayıf.",
+   "status": [
+    "warn"
+   ]
+  },
+  {
+   "id": "B2",
+   "key": "mukaddime-ibn-haldun",
+   "section": "B",
+   "sectionLabel": "Strateji: eklenecek",
+   "sub": "",
+   "alsoIn": [
+    "B"
+   ],
+   "original": "مقدّمة ابن خلدون (Mukaddime)",
+   "turkish": "Mukaddime",
+   "author": "İbn Haldun",
+   "translator": "Süleyman Uludağ",
+   "publisher": "Dergâh Yayınları (1982, 2 cilt)",
+   "note": "Sade ve akıcı ama metne müdahale/ekleme var. Alt.: Zakir Kadiri Ugan, MEB (1954-57, 3 c.) — dili eski, bulması zor. Turan Dursun (Onur) yarım. Sevim Belli: Fransızcadan (Monteil üzerinden).",
+   "status": [
+    "warn",
+    "avoid"
+   ]
+  },
+  {
+   "id": "B3",
+   "key": "competitive-strategy-michael-e-porter",
+   "section": "B",
+   "sectionLabel": "Strateji: eklenecek",
+   "sub": "",
+   "alsoIn": [
+    "B"
+   ],
+   "original": "Competitive Strategy",
+   "turkish": "Rekabet Stratejisi: Sektör ve Rakip Analizi Teknikleri",
+   "author": "Michael E. Porter",
+   "translator": "Gülen Ulubilgen",
+   "publisher": "Sistem Yayıncılık (2000) / Aura (2015, 496 s.)",
+   "note": "Akademik literatürün standart atıf ettiği çeviri.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "B4",
+   "key": "on-competition-michael-e-porter",
+   "section": "B",
+   "sectionLabel": "Strateji: eklenecek",
+   "sub": "",
+   "alsoIn": [
+    "B"
+   ],
+   "original": "On Competition",
+   "turkish": "Rekabet Üstüne",
+   "author": "Michael E. Porter",
+   "translator": "Kıvanç Tanrıyar",
+   "publisher": "Optimist Yayınları (2008)",
+   "note": "B3'ün tamamlayıcısı.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "B5",
+   "key": "playing-to-win-a-g-lafley-roger-l-martin",
+   "section": "B",
+   "sectionLabel": "Strateji: eklenecek",
+   "sub": "",
+   "alsoIn": [
+    "B"
+   ],
+   "original": "Playing to Win",
+   "turkish": "Kazanmak İçin Oynamak: Strateji Nasıl Yaratılır ve Uygulanır",
+   "author": "A. G. Lafley, Roger L. Martin",
+   "translator": "Meriç Aydonat",
+   "publisher": "Modus Kitap (2021)",
+   "note": "",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "B6",
+   "key": "strategy-safari-henry-mintzberg-bruce-ahlstrand-joseph-lampe",
+   "section": "B",
+   "sectionLabel": "Strateji: eklenecek",
+   "sub": "",
+   "alsoIn": [
+    "B"
+   ],
+   "original": "Strategy Safari",
+   "turkish": "",
+   "author": "Henry Mintzberg, Bruce Ahlstrand, Joseph Lampel",
+   "translator": "",
+   "publisher": "",
+   "note": "Türkçe baskısı teyit edilemedi. İngilizce oku.",
+   "status": [
+    "unverified"
+   ]
+  },
+  {
+   "id": "B7",
+   "key": "the-strategy-of-conflict-thomas-c-schelling",
+   "section": "B",
+   "sectionLabel": "Strateji: eklenecek",
+   "sub": "",
+   "alsoIn": [
+    "B"
+   ],
+   "original": "The Strategy of Conflict",
+   "turkish": "",
+   "author": "Thomas C. Schelling",
+   "translator": "",
+   "publisher": "",
+   "note": "İngilizce okunacak.",
+   "status": []
+  },
+  {
+   "id": "B8",
+   "key": "strategy-the-logic-of-war-and-peace-edward-n-luttwak",
+   "section": "B",
+   "sectionLabel": "Strateji: eklenecek",
+   "sub": "",
+   "alsoIn": [
+    "B"
+   ],
+   "original": "Strategy: The Logic of War and Peace",
+   "turkish": "",
+   "author": "Edward N. Luttwak",
+   "translator": "",
+   "publisher": "",
+   "note": "Luttwak'ın Türkçedeki mevcut kitapları: Bizans İmparatorluğu'nun Büyük Stratejisi (648 s.) ve Doruk'tan bir başlık daha. Çevirmenleri doğrulanmadı.",
+   "status": [
+    "unverified"
+   ]
+  },
+  {
+   "id": "B9",
+   "key": "askeri-stratejinin-temelleri-kuramcilar-emrah-ozdemir-ali-bi",
+   "section": "B",
+   "sectionLabel": "Strateji: eklenecek",
+   "sub": "",
+   "alsoIn": [
+    "B"
+   ],
+   "original": "",
+   "turkish": "Askeri Stratejinin Temelleri: Kuramcılar",
+   "author": "Emrah Özdemir, Ali Bilgin Varlık",
+   "translator": "— (telif Türkçe)",
+   "publisher": "Kronik Kitap (2024, 512 s.)",
+   "note": "Clausewitz–Jomini–Liddell Hart–Luttwak hattını tek ciltte veren Türkçe kaynak.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "C1",
+   "key": "nudge-richard-h-thaler-cass-r-sunstein",
+   "section": "C",
+   "sectionLabel": "Davranış bilimi",
+   "sub": "",
+   "alsoIn": [
+    "C"
+   ],
+   "original": "Nudge",
+   "turkish": "Dürtme",
+   "author": "Richard H. Thaler, Cass R. Sunstein",
+   "translator": "Enver Günsel",
+   "publisher": "Pegasus Yayınları (2013, 336 s.)",
+   "note": "Çeviri ciddi eleştiri alıyor; teknik dil ve argümanlar kayboluyor. Önerilen: Nudge: The Final Edition (Penguin, 2021) — yazarların baştan yazdığı sürüm, Türkçesi yok.",
+   "status": [
+    "warn"
+   ]
+  },
+  {
+   "id": "C2",
+   "key": "psychologie-des-foules-gustave-le-bon",
+   "section": "C",
+   "sectionLabel": "Davranış bilimi",
+   "sub": "",
+   "alsoIn": [
+    "C"
+   ],
+   "original": "Psychologie des Foules",
+   "turkish": "Kitleler Psikolojisi",
+   "author": "Gustave Le Bon",
+   "translator": "Hasan İlhan",
+   "publisher": "Alter Yayınları",
+   "note": "En yaygın atıf alan baskı bu; ancak Fransızca aslından mı olduğu . Dorlion (2020) baskısı çeviri kalitesi nedeniyle eleştiriliyor.",
+   "status": [
+    "warn",
+    "unverified",
+    "avoid"
+   ]
+  },
+  {
+   "id": "C3",
+   "key": "dialektik-der-aufklarung-max-horkheimer-theodor-w-adorno",
+   "section": "C",
+   "sectionLabel": "Davranış bilimi",
+   "sub": "",
+   "alsoIn": [
+    "C"
+   ],
+   "original": "Dialektik der Aufklärung",
+   "turkish": "Aydınlanmanın Diyalektiği",
+   "author": "Max Horkheimer, Theodor W. Adorno",
+   "translator": "Nihat Ülner (Elif Öztarhan Karadoğan ile)",
+   "publisher": "Kabalcı Yayınevi",
+   "note": "Almanca aslından. Piyasada M. Sezai Durgun–Adnan Gümüş çevirisi de var.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "C4",
+   "key": "the-presentation-of-self-in-everyday-life-erving-goffman",
+   "section": "C",
+   "sectionLabel": "Davranış bilimi",
+   "sub": "",
+   "alsoIn": [
+    "C"
+   ],
+   "original": "The Presentation of Self in Everyday Life",
+   "turkish": "Günlük Yaşamda Benliğin Sunumu",
+   "author": "Erving Goffman",
+   "translator": "Barış Cezar",
+   "publisher": "Metis Yayınları",
+   "note": "",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "C5",
+   "key": "the-power-of-positive-thinking-1952-norman-vincent-peale",
+   "section": "C",
+   "sectionLabel": "Davranış bilimi",
+   "sub": "",
+   "alsoIn": [
+    "C"
+   ],
+   "original": "The Power of Positive Thinking (1952)",
+   "turkish": "Olumlu Düşünmenin Gücü",
+   "author": "Norman Vincent Peale",
+   "translator": "Cem Küçük",
+   "publisher": "Profil Kitap",
+   "note": "Eski baskı: çev. Şahin Cüceloğlu, Sistem Yayıncılık (1997). Bilimsel bir kitap değil — C1 (Thaler/Sunstein) ve C4 (Goffman) gibi araştırmaya dayanmıyor; 1952 tarihli, dinî tonlu popüler bir telkin kitabı. Amerikan \"olumlu düşünme\" kültürünün kurucu belgesi olarak okunur; davranış bilimi kaynağı olarak değil.",
+   "status": [
+    "ok",
+    "warn"
+   ]
+  },
+  {
+   "id": "D1",
+   "key": "scrum-the-art-of-doing-twice-the-work-in-half-the-time-jeff-",
+   "section": "D",
+   "sectionLabel": "Scrum / yalın üretim",
+   "sub": "",
+   "alsoIn": [
+    "D"
+   ],
+   "original": "Scrum: The Art of Doing Twice the Work in Half the Time",
+   "turkish": "Scrum: İki Katı İşi Yarı Zamanda Yapma Sanatı",
+   "author": "Jeff Sutherland",
+   "translator": "Ali Atav",
+   "publisher": "Buzdağı Yayınevi (2015/2017, 288 s.)",
+   "note": "",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "D2",
+   "key": "toyota-production-system-taiichi-ohno",
+   "section": "D",
+   "sectionLabel": "Scrum / yalın üretim",
+   "sub": "",
+   "alsoIn": [
+    "D"
+   ],
+   "original": "トヨタ生産方式 (Toyota Production System)",
+   "turkish": "Toyota Ruhu",
+   "author": "Taiichi Ohno",
+   "translator": "Canan Feyyat",
+   "publisher": "Scala Yayıncılık (203 s., 6. baskı 2015)",
+   "note": "Sutherland'ın Scrum'da atıf verdiği kaynak. Muda / Mura / Muri buradan gelir.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "D3",
+   "key": "workplace-management-taiichi-ohno",
+   "section": "D",
+   "sectionLabel": "Scrum / yalın üretim",
+   "sub": "",
+   "alsoIn": [
+    "D"
+   ],
+   "original": "Workplace Management",
+   "turkish": "",
+   "author": "Taiichi Ohno",
+   "translator": "",
+   "publisher": "",
+   "note": "İngilizce okunacak.",
+   "status": []
+  },
+  {
+   "id": "E1",
+   "key": "ronja-rovardotter-astrid-lindgren",
+   "section": "E",
+   "sectionLabel": "Çocuk: alınacaklar",
+   "sub": "",
+   "alsoIn": [
+    "E"
+   ],
+   "original": "Ronja Rövardotter",
+   "turkish": "Ronja Haydut Kızı",
+   "author": "Astrid Lindgren",
+   "translator": "Ali Arda",
+   "publisher": "İthaki Yayınları",
+   "note": "İsveççe aslından.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "E2",
+   "key": "alla-vi-barn-i-bullerbyn-astrid-lindgren",
+   "section": "E",
+   "sectionLabel": "Çocuk: alınacaklar",
+   "sub": "",
+   "alsoIn": [
+    "E"
+   ],
+   "original": "Alla vi barn i Bullerbyn",
+   "turkish": "Şamatalı Köyün Çocukları",
+   "author": "Astrid Lindgren",
+   "translator": "Ali Arda",
+   "publisher": "İthaki Yayınları",
+   "note": "Devamı: Şamatalı Köy'de Eğlence, Şamatalı Köy'de Neler Oluyor. Lindgren'in Türkçedeki tamamı İthaki + Ali Arda.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "E3",
+   "key": "abartma-tozu-sermin-yasar",
+   "section": "E",
+   "sectionLabel": "Çocuk: alınacaklar",
+   "sub": "",
+   "alsoIn": [
+    "E"
+   ],
+   "original": "",
+   "turkish": "Abartma Tozu",
+   "author": "Şermin Yaşar",
+   "translator": "— (telif Türkçe)",
+   "publisher": "Taze Kitap (2019, 160 s.)",
+   "note": "Resimleyen: Mert Tugen. 9 yaş+.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "E4",
+   "key": "the-tale-of-despereaux-kate-dicamillo",
+   "section": "E",
+   "sectionLabel": "Çocuk: alınacaklar",
+   "sub": "",
+   "alsoIn": [
+    "E"
+   ],
+   "original": "The Tale of Despereaux",
+   "turkish": "Despero'nun Öyküsü",
+   "author": "Kate DiCamillo",
+   "translator": "Duygu Kayadelen",
+   "publisher": "Arkadaş Yayıncılık (224 s.)",
+   "note": "Newbery Ödüllü.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "E5",
+   "key": "konrad-oder-das-kind-aus-der-konservenbuchse-christine-nostl",
+   "section": "E",
+   "sectionLabel": "Çocuk: alınacaklar",
+   "sub": "",
+   "alsoIn": [
+    "E"
+   ],
+   "original": "Konrad oder das Kind aus der Konservenbüchse",
+   "turkish": "Konrad ya da Konserve Kutusundan Çıkan Çocuk",
+   "author": "Christine Nöstlinger",
+   "translator": "Mine Kazmaoğlu",
+   "publisher": "Günışığı Kitaplığı (176 s.)",
+   "note": "Resimleyen: Gözde Bitir. Yayın editörü: Müren Beykan.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "E6",
+   "key": "yilankale-miyase-sertbarut",
+   "section": "E",
+   "sectionLabel": "Çocuk: alınacaklar",
+   "sub": "",
+   "alsoIn": [
+    "E"
+   ],
+   "original": "",
+   "turkish": "Yılankale",
+   "author": "Miyase Sertbarut",
+   "translator": "— (telif Türkçe)",
+   "publisher": "Tudem Yayınevi",
+   "note": "9-12 yaş.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "E7",
+   "key": "bilimin-yildizlari-serisi-10-kitap-usta-fikirler",
+   "section": "E",
+   "sectionLabel": "Çocuk: alınacaklar",
+   "sub": "",
+   "alsoIn": [
+    "E"
+   ],
+   "original": "",
+   "turkish": "Bilimin Yıldızları serisi (10 kitap) — Usta Fikirler",
+   "author": "",
+   "translator": "",
+   "publisher": "Minik Ada Yayınları (Erdem Yayın Grubu)",
+   "note": "Tekil kitabın yazar/çevirmen künyesi doğrulanamadı.",
+   "status": [
+    "unverified"
+   ]
+  },
+  {
+   "id": "F1",
+   "key": "v-lyudyah-maksim-gorki",
+   "section": "F",
+   "sectionLabel": "Tarih ve edebiyat",
+   "sub": "",
+   "alsoIn": [
+    "F"
+   ],
+   "original": "В людях (V lyudyah)",
+   "turkish": "Ekmeğimi Kazanırken",
+   "author": "Maksim Gorki",
+   "translator": "Mazlum Beyhan",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları (Modern Klasikler)",
+   "note": "Otobiyografik üçlemenin 2. kitabı. Rusça aslından.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "F2",
+   "key": "the-prophet-halil-cibran-kahlil-gibran",
+   "section": "F",
+   "sectionLabel": "Tarih ve edebiyat",
+   "sub": "",
+   "alsoIn": [
+    "F"
+   ],
+   "original": "The Prophet",
+   "turkish": "Ermiş",
+   "author": "Halil Cibran (Kahlil Gibran)",
+   "translator": "Aytunç Altındal",
+   "publisher": "E Yayınları / Anahtar Kitaplar",
+   "note": "Klasik ve en çok övülen çeviri. Yeni alternatif: Mehmet Hakkı Suçin, Kırmızı Yayınları (2016) — Cibran'ın kendi çizimleri renkli basımlı.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "F3",
+   "key": "suyu-arayan-adam-sevket-sureyya-aydemir",
+   "section": "F",
+   "sectionLabel": "Tarih ve edebiyat",
+   "sub": "",
+   "alsoIn": [
+    "F"
+   ],
+   "original": "",
+   "turkish": "Suyu Arayan Adam",
+   "author": "Şevket Süreyya Aydemir",
+   "translator": "— (telif Türkçe)",
+   "publisher": "Remzi Kitabevi (son baskı 2024, 408 s.)",
+   "note": "Tek kanonik yayıncı Remzi.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "F4",
+   "key": "infographic-world-war-ii-la-seconde-guerre-mondiale-infograp",
+   "section": "F",
+   "sectionLabel": "Tarih ve edebiyat",
+   "sub": "",
+   "alsoIn": [
+    "F"
+   ],
+   "original": "Infographic World War II (La Seconde Guerre mondiale: Infographie)",
+   "turkish": "İkinci Dünya Savaşı: İnfografik 1939-1945",
+   "author": "Jean Lopez, Nicolas Aubin, Vincent Bernard, Nicolas Guillerat",
+   "translator": "Okan Doğan",
+   "publisher": "Kronik Kitap (2023, 192 s., 23×29,5 cm ciltli)",
+   "note": "Aradığın infografik kitap bu.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "F5",
+   "key": "brave-new-world-aldous-huxley",
+   "section": "F",
+   "sectionLabel": "Tarih ve edebiyat",
+   "sub": "",
+   "alsoIn": [
+    "F"
+   ],
+   "original": "Brave New World",
+   "turkish": "Cesur Yeni Dünya",
+   "author": "Aldous Huxley",
+   "translator": "Ümit Tosun",
+   "publisher": "İthaki Yayınları",
+   "note": "Atwood önsözü + Huxley'nin 14 yıl sonra yazdığı önsöz + Bradshaw sonsözü ile. Alt.: Orhan Burian (MEB) — dili Osmanlıca ağırlıklı.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "F6",
+   "key": "the-time-machine-h-g-wells",
+   "section": "F",
+   "sectionLabel": "Tarih ve edebiyat",
+   "sub": "",
+   "alsoIn": [
+    "F"
+   ],
+   "original": "The Time Machine",
+   "turkish": "Zaman Makinesi",
+   "author": "H. G. Wells",
+   "translator": "Volkan Gürses",
+   "publisher": "İthaki Yayınları (Bilimkurgu Klasikleri)",
+   "note": "Patrick Parrinder'ın makalesiyle zenginleştirilmiş.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "F7",
+   "key": "les-origines-de-l-empire-ottoman-mehmet-fuad-koprulu",
+   "section": "F",
+   "sectionLabel": "Tarih ve edebiyat",
+   "sub": "",
+   "alsoIn": [
+    "F"
+   ],
+   "original": "Les Origines de l'Empire Ottoman",
+   "turkish": "Osmanlı İmparatorluğunun Kuruluşu",
+   "author": "Mehmet Fuad Köprülü",
+   "translator": "— (Köprülü'nün kendi Türkçe metni, 1959)",
+   "publisher": "Alfa Yayınları (Köprülü Külliyat 8, 2015)",
+   "note": "1934 Sorbonne konferansları; Fransızca 1935, Türkçesi 1959.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "F8",
+   "key": "turk-mitolojisi-atlasi-bartu-bolukbasi",
+   "section": "F",
+   "sectionLabel": "Tarih ve edebiyat",
+   "sub": "",
+   "alsoIn": [
+    "F"
+   ],
+   "original": "",
+   "turkish": "Türk Mitolojisi Atlası",
+   "author": "Bartu Bölükbaşı",
+   "translator": "— (telif Türkçe)",
+   "publisher": "Presstij Kitap (2022)",
+   "note": "Sert kapak baskısı mevcut, 7. baskıda.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "F9",
+   "key": "agir-roman-metin-kacan",
+   "section": "F",
+   "sectionLabel": "Tarih ve edebiyat",
+   "sub": "",
+   "alsoIn": [
+    "F"
+   ],
+   "original": "",
+   "turkish": "Ağır Roman",
+   "author": "Metin Kaçan",
+   "translator": "— (telif Türkçe)",
+   "publisher": "Everest Yayınları (8. baskı, 2024)",
+   "note": "İlk baskı Metis (1990'lar); güncel hakları Everest'te.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "F10",
+   "key": "the-ballad-of-reading-gaol-oscar-wilde",
+   "section": "F",
+   "sectionLabel": "Tarih ve edebiyat",
+   "sub": "",
+   "alsoIn": [
+    "F"
+   ],
+   "original": "The Ballad of Reading Gaol",
+   "turkish": "Reading Zindanı Baladı",
+   "author": "Oscar Wilde",
+   "translator": "Oğuz Baykara (şiirsel) veya Piyale Perver (karşılaştırmalı)",
+   "publisher": "Everest Yayınları / Dedalus Kitap",
+   "note": "Ayrıntı için aşağıdaki Bölüm I'e bak.",
+   "status": []
+  },
+  {
+   "id": "G1",
+   "key": "fyodor-mihaylovic-dostoyevski",
+   "section": "G",
+   "sectionLabel": "Rus klasikleri",
+   "sub": "Dostoyevski",
+   "alsoIn": [
+    "G"
+   ],
+   "original": "Преступление и наказание",
+   "turkish": "Suç ve Ceza",
+   "author": "Fyodor Mihayloviç Dostoyevski",
+   "translator": "Mazlum Beyhan",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "Alt.: Ergin Altay, İletişim.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "G2",
+   "key": "fyodor-mihaylovic-dostoyevski-2",
+   "section": "G",
+   "sectionLabel": "Rus klasikleri",
+   "sub": "Dostoyevski",
+   "alsoIn": [
+    "G"
+   ],
+   "original": "Братья Карамазовы",
+   "turkish": "Karamazov Kardeşler",
+   "author": "Fyodor Mihayloviç Dostoyevski",
+   "translator": "Nihal Yalaza Taluy",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları (1008 s.)",
+   "note": "Okur karşılaştırmalarında Ergin Altay (İletişim, 795 s.) çevirisinin bir tık önünde.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "G3",
+   "key": "fyodor-mihaylovic-dostoyevski-3",
+   "section": "G",
+   "sectionLabel": "Rus klasikleri",
+   "sub": "Dostoyevski",
+   "alsoIn": [
+    "G"
+   ],
+   "original": "Записки из подполья",
+   "turkish": "Yeraltından Notlar",
+   "author": "Fyodor Mihayloviç Dostoyevski",
+   "translator": "Nihal Yalaza Taluy",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "Alt.: Ergin Altay, İletişim.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "G4",
+   "key": "fyodor-mihaylovic-dostoyevski-4",
+   "section": "G",
+   "sectionLabel": "Rus klasikleri",
+   "sub": "Dostoyevski",
+   "alsoIn": [
+    "G"
+   ],
+   "original": "Идиот",
+   "turkish": "Budala",
+   "author": "Fyodor Mihayloviç Dostoyevski",
+   "translator": "Ergin Altay",
+   "publisher": "İletişim Yayınları",
+   "note": "İş Bankası baskısı (Mazlum Beyhan) da güçlü — künyeden teyit et.",
+   "status": [
+    "unverified"
+   ]
+  },
+  {
+   "id": "G5",
+   "key": "lev-nikolayevic-tolstoy",
+   "section": "G",
+   "sectionLabel": "Rus klasikleri",
+   "sub": "Tolstoy",
+   "alsoIn": [
+    "G"
+   ],
+   "original": "Война и мир",
+   "turkish": "Savaş ve Barış",
+   "author": "Lev Nikolayeviç Tolstoy",
+   "translator": "Zeki Baştımar (Nazım Hikmet katkısıyla)",
+   "publisher": "Can Yayınları",
+   "note": "Tolstoy'un üslubunu koruma stratejisiyle yapılmış. Alt.: Tanju Akgün (İş Bankası), Leyla Soykut (Cem, 1968 — anlamı üsluba tercih eder).",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "G6",
+   "key": "lev-nikolayevic-tolstoy-2",
+   "section": "G",
+   "sectionLabel": "Rus klasikleri",
+   "sub": "Tolstoy",
+   "alsoIn": [
+    "G"
+   ],
+   "original": "Анна Каренина",
+   "turkish": "Anna Karenina",
+   "author": "Lev Nikolayeviç Tolstoy",
+   "translator": "Ergin Altay",
+   "publisher": "İletişim Yayınları",
+   "note": "İş Bankası baskısı da yaygın — künyeden teyit et.",
+   "status": [
+    "unverified"
+   ]
+  },
+  {
+   "id": "G7",
+   "key": "lev-nikolayevic-tolstoy-3",
+   "section": "G",
+   "sectionLabel": "Rus klasikleri",
+   "sub": "Tolstoy",
+   "alsoIn": [
+    "G"
+   ],
+   "original": "Смерть Ивана Ильича",
+   "turkish": "İvan İlyiç'in Ölümü",
+   "author": "Lev Nikolayeviç Tolstoy",
+   "translator": "Mehmet Özgül",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "Çevirmen künyeden teyit edilmeli.",
+   "status": [
+    "unverified"
+   ]
+  },
+  {
+   "id": "G8",
+   "key": "lev-nikolayevic-tolstoy-4",
+   "section": "G",
+   "sectionLabel": "Rus klasikleri",
+   "sub": "Tolstoy",
+   "alsoIn": [
+    "G"
+   ],
+   "original": "Чем люди живы",
+   "turkish": "İnsan Ne İle Yaşar",
+   "author": "Lev Nikolayeviç Tolstoy",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "Çevirmen doğrulanamadı.",
+   "status": [
+    "unverified"
+   ]
+  },
+  {
+   "id": "1",
+   "key": "churchill-martin-gilbert",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Churchill",
+   "turkish": "",
+   "author": "Martin Gilbert",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "2",
+   "key": "john-stuart-mill-nicholas-capaldi",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "John Stuart Mill",
+   "turkish": "",
+   "author": "Nicholas Capaldi",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "3",
+   "key": "simon-bolivar-john-lynch",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Simon Bolivar",
+   "turkish": "",
+   "author": "John Lynch",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "4",
+   "key": "jean-jacques-rousseau-leo-damrosch",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Jean-Jacques Rousseau",
+   "turkish": "",
+   "author": "Leo Damrosch",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "5",
+   "key": "immanuel-kant-manfred-kuehn",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Immanuel Kant",
+   "turkish": "",
+   "author": "Manfred Kuehn",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "6",
+   "key": "charles-darwin-adrian-desmond",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Charles Darwin",
+   "turkish": "",
+   "author": "Adrian Desmond",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "7",
+   "key": "john-locke-roger-woolhouse",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "John Locke",
+   "turkish": "",
+   "author": "Roger Woolhouse",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "8",
+   "key": "korkunc-ivan-isabel-de-madariaga",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Korkunç İvan",
+   "turkish": "",
+   "author": "Isabel de Madariaga",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "9",
+   "key": "hammurabi-marc-van-de-mieroop",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Hammurabi",
+   "turkish": "",
+   "author": "Marc Van De Mieroop",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "10",
+   "key": "olof-palme-henrik-berggren",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Olof Palme",
+   "turkish": "",
+   "author": "Henrik Berggren",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "11",
+   "key": "gabriel-garcia-marquez-gerald-martin",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Gabriel García Márquez",
+   "turkish": "",
+   "author": "Gerald Martin",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "12",
+   "key": "rimbaud-graham-robb",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Rimbaud",
+   "turkish": "",
+   "author": "Graham Robb",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "13",
+   "key": "jack-london-james-l-haley",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Jack London",
+   "turkish": "",
+   "author": "James L. Haley",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "14",
+   "key": "budha-hajime-nakamura",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Budha",
+   "turkish": "",
+   "author": "Hajime Nakamura",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "15",
+   "key": "hegel-terry-pinkard",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Hegel",
+   "turkish": "",
+   "author": "Terry Pinkard",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "16",
+   "key": "leibniz-maria-rosa-antognazza",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Leibniz",
+   "turkish": "",
+   "author": "Maria Rosa Antognazza",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "17",
+   "key": "afrikali-leo-natalie-zemon-davis",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Afrikalı Leo",
+   "turkish": "",
+   "author": "Natalie Zemon Davis",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "18",
+   "key": "thomas-hobbes-a-p-martinich",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Thomas Hobbes",
+   "turkish": "",
+   "author": "A. P. Martinich",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "19",
+   "key": "sarah-bernhardt-arthur-gold-robert-fizdale",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Sarah Bernhardt",
+   "turkish": "",
+   "author": "Arthur Gold, Robert Fizdale",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "20",
+   "key": "mithradates-adrienne-mayor",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Mithradates",
+   "turkish": "",
+   "author": "Adrienne Mayor",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "21",
+   "key": "konstantinos-paleologos-donald-m-nicol",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Konstantinos Paleologos",
+   "turkish": "",
+   "author": "Donald M. Nicol",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "22",
+   "key": "kierkegaard-alastair-hannay",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Kierkegaard",
+   "turkish": "",
+   "author": "Alastair Hannay",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "23",
+   "key": "beethoven-lewis-lockwood",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Beethoven",
+   "turkish": "",
+   "author": "Lewis Lockwood",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "24",
+   "key": "caesar-adrian-goldsworthy",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Caesar",
+   "turkish": "",
+   "author": "Adrian Goldsworthy",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "25",
+   "key": "schopenhauer-david-e-cartwright",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Schopenhauer",
+   "turkish": "",
+   "author": "David E. Cartwright",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "26",
+   "key": "paul-dirac-graham-farmelo",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Paul Dirac",
+   "turkish": "",
+   "author": "Graham Farmelo",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "27",
+   "key": "benjamin-franklin-walter-isaacson",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Benjamin Franklin",
+   "turkish": "",
+   "author": "Walter Isaacson",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "28",
+   "key": "jane-austen-claire-tomalin",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Jane Austen",
+   "turkish": "",
+   "author": "Claire Tomalin",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "29",
+   "key": "robespierre-peter-mcphee",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Robespierre",
+   "turkish": "",
+   "author": "Peter McPhee",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "30",
+   "key": "nietzsche-julian-young",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Nietzsche",
+   "turkish": "",
+   "author": "Julian Young",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "31",
+   "key": "bismarck-jonathan-steinberg",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Bismarck",
+   "turkish": "",
+   "author": "Jonathan Steinberg",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "32",
+   "key": "kubilay-han-morris-rossabi",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Kubilay Han",
+   "turkish": "",
+   "author": "Morris Rossabi",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "33",
+   "key": "irak-krali-i-faysal-ali-a-allawi",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Irak Kralı I. Faysal",
+   "turkish": "",
+   "author": "Ali A. Allawi",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "34",
+   "key": "buyuk-konstantin-paul-stephenson",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Büyük Konstantin",
+   "turkish": "",
+   "author": "Paul Stephenson",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "35",
+   "key": "descartes-desmond-m-clarke",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Descartes",
+   "turkish": "",
+   "author": "Desmond M. Clarke",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "36",
+   "key": "mozart-maynard-solomon",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Mozart",
+   "turkish": "",
+   "author": "Maynard Solomon",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "37",
+   "key": "tolkien-humphrey-carpenter",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Tolkien",
+   "turkish": "",
+   "author": "Humphrey Carpenter",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "38",
+   "key": "marco-polo-laurence-bergreen",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Marco Polo",
+   "turkish": "",
+   "author": "Laurence Bergreen",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "39",
+   "key": "buyuk-petro-robert-k-massie",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Büyük Petro",
+   "turkish": "",
+   "author": "Robert K. Massie",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "40",
+   "key": "macellan-laurence-bergreen",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Macellan",
+   "turkish": "",
+   "author": "Laurence Bergreen",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "41",
+   "key": "carice-katerina-robert-k-massie",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Çariçe Katerina",
+   "turkish": "",
+   "author": "Robert K. Massie",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "42",
+   "key": "perikles-thomas-r-martin",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Perikles",
+   "turkish": "",
+   "author": "Thomas R. Martin",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "43",
+   "key": "theodora-david-potter",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Theodora",
+   "turkish": "",
+   "author": "David Potter",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "44",
+   "key": "selahaddin-eyyubi-anne-marie-edde",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Selahaddin Eyyubi",
+   "turkish": "",
+   "author": "Anne-Marie Eddé",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "45",
+   "key": "cengiz-han-frank-mclynn",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Cengiz Han",
+   "turkish": "",
+   "author": "Frank McLynn",
+   "translator": "",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "H-98",
+   "key": "ataturk-modern-turkiye-nin-kurucusu-andrew-mango",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "H.2 — Eklenmeliydi: eksik isimler ve başka yayınevlerinden alınabilecek karşılıkları",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Atatürk: Modern Türkiye'nin Kurucusu",
+   "turkish": "",
+   "author": "Andrew Mango",
+   "translator": "Füsun Doruker",
+   "publisher": "Remzi Kitabevi",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "H-99",
+   "key": "fatih-sultan-mehmed-ve-zamani-franz-babinger",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "H.2 — Eklenmeliydi: eksik isimler ve başka yayınevlerinden alınabilecek karşılıkları",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Fatih Sultan Mehmed ve Zamanı",
+   "turkish": "",
+   "author": "Franz Babinger",
+   "translator": "Dost Körpe",
+   "publisher": "Alfa Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "H-100",
+   "key": "napoleon-hayati-andrew-roberts",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "H.2 — Eklenmeliydi: eksik isimler ve başka yayınevlerinden alınabilecek karşılıkları",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Napoleon: Hayatı",
+   "turkish": "",
+   "author": "Andrew Roberts",
+   "translator": "Barbaros Uzunköprü",
+   "publisher": "Kronik Kitap (2023, 1024 s.)",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "H-101",
+   "key": "einstein-yasami-ve-evreni-walter-isaacson",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "H.2 — Eklenmeliydi: eksik isimler ve başka yayınevlerinden alınabilecek karşılıkları",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Einstein: Yaşamı ve Evreni",
+   "turkish": "",
+   "author": "Walter Isaacson",
+   "translator": "Tufan Göbekçin",
+   "publisher": "DeliDolu (2013, 679 s.)",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "H-102",
+   "key": "leonardo-da-vinci-walter-isaacson",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "H.2 — Eklenmeliydi: eksik isimler ve başka yayınevlerinden alınabilecek karşılıkları",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Leonardo da Vinci",
+   "turkish": "",
+   "author": "Walter Isaacson",
+   "translator": "Emre Gözgü",
+   "publisher": "Domingo Yayınevi (2019)",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "H-103",
+   "key": "marie-curie-bir-bilim-kadininin-olaganustu-yasamoykusu-eve-c",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "H.2 — Eklenmeliydi: eksik isimler ve başka yayınevlerinden alınabilecek karşılıkları",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Marie Curie: Bir Bilim Kadınının Olağanüstü Yaşamöyküsü",
+   "turkish": "",
+   "author": "Ève Curie",
+   "translator": "",
+   "publisher": "Bilim ve Gelecek Kitaplığı (2014, 392 s.)",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "H-104",
+   "key": "lenin-robert-service",
+   "section": "H",
+   "sectionLabel": "Dünyaya Yön Verenler",
+   "sub": "H.2 — Eklenmeliydi: eksik isimler ve başka yayınevlerinden alınabilecek karşılıkları",
+   "alsoIn": [
+    "H"
+   ],
+   "original": "Lenin",
+   "turkish": "",
+   "author": "Robert Service",
+   "translator": "Suat Kaya",
+   "publisher": "Abis Yayınları (2014, 624 s.)",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "K1",
+   "key": "the-complete-musashi-the-book-of-five-rings-and-other-works-",
+   "section": "K",
+   "sectionLabel": "Musashi külliyatı",
+   "sub": "",
+   "alsoIn": [
+    "K"
+   ],
+   "original": "The Complete Musashi: The Book of Five Rings and Other Works",
+   "turkish": "",
+   "author": "Miyamoto Musashi",
+   "translator": "Alexander Bennett, Graham Sayer",
+   "publisher": "Tuttle Publishing",
+   "note": "İngilizce için en iyi tek alım. Japonya'nın önde gelen Musashi uzmanının yeniden kurduğu metinden; mevcut nüshalar arasındaki farkları saptayıp 150'den fazla hatalı karakteri düzeltiyor. Dokkōdō dâhil Musashi'nin diğer yazıları da içinde.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "K2",
+   "key": "miyamoto-musashi-s-book-of-five-rings-a-completely-new-trans",
+   "section": "K",
+   "sectionLabel": "Musashi külliyatı",
+   "sub": "",
+   "alsoIn": [
+    "K"
+   ],
+   "original": "Miyamoto Musashi's Book of Five Rings: A Completely New Translation",
+   "turkish": "",
+   "author": "Miyamoto Musashi",
+   "translator": "Alex Bennett",
+   "publisher": "Tuttle Publishing",
+   "note": "K1'in yalnız Go Rin no Sho içeren, daha ince sürümü. Sadece Beş Çember istiyorsan bu.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "K3",
+   "key": "the-book-of-five-rings-shambhala-kodansha-miyamoto-musashi",
+   "section": "K",
+   "sectionLabel": "Musashi külliyatı",
+   "sub": "",
+   "alsoIn": [
+    "K"
+   ],
+   "original": "The Book of Five Rings (Shambhala / Kodansha)",
+   "turkish": "",
+   "author": "Miyamoto Musashi",
+   "translator": "William Scott Wilson",
+   "publisher": "Shambhala",
+   "note": "Edebî olarak en akıcı ve tonu en iyi koruyan çeviri. Japonca-İngilizce karşılıklı basımı da var.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "K4",
+   "key": "the-book-of-five-rings-cleary-cevirisi-miyamoto-musashi",
+   "section": "K",
+   "sectionLabel": "Musashi külliyatı",
+   "sub": "",
+   "alsoIn": [
+    "K"
+   ],
+   "original": "The Book of Five Rings (Cleary çevirisi)",
+   "turkish": "",
+   "author": "Miyamoto Musashi",
+   "translator": "Thomas Cleary",
+   "publisher": "Shambhala",
+   "note": "Zen ve dövüş kavramlarını en iyi açıklayan dipnot ve giriş yazıları. Anlamak için en yardımcı sürüm.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "K5",
+   "key": "the-book-of-five-rings-harris-cevirisi-miyamoto-musashi",
+   "section": "K",
+   "sectionLabel": "Musashi külliyatı",
+   "sub": "",
+   "alsoIn": [
+    "K"
+   ],
+   "original": "The Book of Five Rings (Harris çevirisi)",
+   "turkish": "",
+   "author": "Miyamoto Musashi",
+   "translator": "Victor Harris",
+   "publisher": "Overlook / Allison & Busby",
+   "note": "1974 tarihli; akıcı ama eskimiş ve bugün aşıldı. Omnibus baskılarda genelde bu kullanılıyor.",
+   "status": [
+    "warn"
+   ]
+  },
+  {
+   "id": "K6",
+   "key": "the-book-of-five-rings-a-graphic-novel-illustrated-miyamoto-",
+   "section": "K",
+   "sectionLabel": "Musashi külliyatı",
+   "sub": "",
+   "alsoIn": [
+    "K"
+   ],
+   "original": "The Book of Five Rings: A Graphic Novel (illustrated)",
+   "turkish": "",
+   "author": "Miyamoto Musashi",
+   "translator": "Uyarlama: Sean Michael Wilson · Çizim: Chie Kutsuwada · Metin çevirisi: William Scott Wilson",
+   "publisher": "Shambhala (2012, 144 s.)",
+   "note": "Aradığın \"illustrated\" baskı bu. Metin sadık ama damıtılmış — ana metnin yerine değil, yanına.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "K7",
+   "key": "the-way-of-the-warrior-the-way-of-the-samurai-the-art-of-war",
+   "section": "K",
+   "sectionLabel": "Musashi külliyatı",
+   "sub": "",
+   "alsoIn": [
+    "K"
+   ],
+   "original": "The Way of the Warrior: The Way of the Samurai, The Art of War, The Book of Five Rings",
+   "turkish": "",
+   "author": "Sun Tzu, Inazo Nitobe, Miyamoto Musashi",
+   "translator": "Lionel Giles (Art of War), Victor Harris (Five Rings)",
+   "publisher": "Arcturus, Gilded Classics (ISBN 9781398844742)",
+   "note": "Dikkat: buradaki \"The Way of the Samurai\" Hagakure DEĞİL — Inazo Nitobe'nin Bushido: The Soul of Japan kitabı. Yani A5'in İngilizcesi değil, ayrı bir eser. Ayrıca Five Rings çevirisi eskimiş Harris sürümü. Hediyelik/dekoratif olarak iyi, çalışma metni olarak zayıf — üç metnin de daha iyi Türkçesi zaten A1, A4, A5'te. Kutu seti sürümü: The Path of the Warrior Ornate Box Set (Arcturus).",
+   "status": [
+    "warn"
+   ]
+  },
+  {
+   "id": "K8",
+   "key": "dokkodo-the-way-of-walking-alone-miyamoto-musashi",
+   "section": "K",
+   "sectionLabel": "Musashi külliyatı",
+   "sub": "",
+   "alsoIn": [
+    "K"
+   ],
+   "original": "独行道 Dokkōdō (The Way of Walking Alone)",
+   "turkish": "",
+   "author": "Miyamoto Musashi",
+   "translator": "",
+   "publisher": "",
+   "note": "Musashi'nin ölümünden bir hafta önce yazdığı 21 ilke. Müstakil kitap olarak alınmaz; K1 The Complete Musashi içinde tam metin var — en temiz yol bu. Yorumlu müstakil baskı: Musashi's Dokkodo (The Way of Walking Alone): Half Crazy, Half Genius (Burrese, Kane, Wilder v.d.). İthaki baskısının (A4) Dokkōdō'yu ek olarak içerip içermediği künyeden kontrol edilmeli.",
+   "status": [
+    "unverified"
+   ]
+  },
+  {
+   "id": "K9",
+   "key": "musashi-roman-eiji-yoshikawa",
+   "section": "K",
+   "sectionLabel": "Musashi külliyatı",
+   "sub": "",
+   "alsoIn": [
+    "K"
+   ],
+   "original": "Musashi (roman)",
+   "turkish": "",
+   "author": "Eiji Yoshikawa",
+   "translator": "Fatma Çelik İto",
+   "publisher": "Can Yayınları",
+   "note": "Türkçesi var. Çok ciltli: Musashi I. Kitap: Kılıç ve Delikanlı ile başlıyor. Musashi'yi bir karakter olarak tanımanın yolu; Beş Çember'in tarihsel-duygusal arka planı. İngilizce: Charles S. Terry çevirisi (Kodansha, tek cilt ~970 s.) veya yeni kısaltmasız Alexander Bennett çevirisi (Tuttle).",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "M1",
+   "key": "antifragile-nassim-nicholas-taleb",
+   "section": "M",
+   "sectionLabel": "Kriz stratejisi",
+   "sub": "",
+   "alsoIn": [
+    "M"
+   ],
+   "original": "Antifragile",
+   "turkish": "Antikırılganlık: Düzensizlikten Kazanç Sağlayan Şeyler",
+   "author": "Nassim Nicholas Taleb",
+   "translator": "Derya Yüksek",
+   "publisher": "Varlık Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "M2",
+   "key": "only-the-paranoid-survive-andrew-s-grove",
+   "section": "M",
+   "sectionLabel": "Kriz stratejisi",
+   "sub": "",
+   "alsoIn": [
+    "M"
+   ],
+   "original": "Only the Paranoid Survive",
+   "turkish": "Yalnızca Paranoidler Ayakta Kalır",
+   "author": "Andrew S. Grove",
+   "translator": "",
+   "publisher": "Sistem Yayıncılık (228 s.)",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "M3",
+   "key": "the-innovator-s-dilemma-clayton-m-christensen",
+   "section": "M",
+   "sectionLabel": "Kriz stratejisi",
+   "sub": "",
+   "alsoIn": [
+    "M"
+   ],
+   "original": "The Innovator's Dilemma",
+   "turkish": "Yenilikçinin İkilemi: Yeni Teknolojiler Şirketleri Nasıl Başarısızlığa Sürüklüyor",
+   "author": "Clayton M. Christensen",
+   "translator": "Korkmaz Haktanır",
+   "publisher": "Koridor Yayıncılık",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "M4",
+   "key": "good-to-great-jim-collins",
+   "section": "M",
+   "sectionLabel": "Kriz stratejisi",
+   "sub": "",
+   "alsoIn": [
+    "M"
+   ],
+   "original": "Good to Great",
+   "turkish": "İyiden Mükemmel Şirkete: Kalıcı Başarıya Ulaşmanın Yolları",
+   "author": "Jim Collins",
+   "translator": "",
+   "publisher": "Boyner Yayınları",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "M5",
+   "key": "the-shock-doctrine-naomi-klein",
+   "section": "M",
+   "sectionLabel": "Kriz stratejisi",
+   "sub": "",
+   "alsoIn": [
+    "M"
+   ],
+   "original": "The Shock Doctrine",
+   "turkish": "Şok Doktrini: Felaket Kapitalizminin Yükselişi",
+   "author": "Naomi Klein",
+   "translator": "Selim Özgül",
+   "publisher": "Agora Kitaplığı (2010, 686 s.)",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "M6",
+   "key": "the-obstacle-is-the-way-ryan-holiday",
+   "section": "M",
+   "sectionLabel": "Kriz stratejisi",
+   "sub": "",
+   "alsoIn": [
+    "M"
+   ],
+   "original": "The Obstacle Is the Way",
+   "turkish": "Engel Yolun Kendisidir",
+   "author": "Ryan Holiday",
+   "translator": "Özlem Koşar",
+   "publisher": "CEO Plus (2015, 192 s.)",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "N1",
+   "key": "thinking-fast-and-slow-daniel-kahneman",
+   "section": "N",
+   "sectionLabel": "İrade ve iletişim",
+   "sub": "N.1 — Bireysel irade ve öz-strateji",
+   "alsoIn": [
+    "N"
+   ],
+   "original": "Thinking, Fast and Slow",
+   "turkish": "Hızlı ve Yavaş Düşünme",
+   "author": "Daniel Kahneman",
+   "translator": "Osman Deniztekin, Filiz Nayır Deniztekin",
+   "publisher": "Varlık Yayınları (568 s.)",
+   "note": "Bu listenin temel kitabı. İrade sorununun kaynağı istek eksikliği değil, Sistem 1'in Sistem 2'yi ele geçirmesi. Kendi kararlarındaki sistematik hataları görmeden strateji kuramazsın.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "N2",
+   "key": "drive-daniel-h-pink",
+   "section": "N",
+   "sectionLabel": "İrade ve iletişim",
+   "sub": "N.1 — Bireysel irade ve öz-strateji",
+   "alsoIn": [
+    "N"
+   ],
+   "original": "Drive",
+   "turkish": "Drive: Nasıl Motive Oluruz, Nasıl Motive Ederiz",
+   "author": "Daniel H. Pink",
+   "translator": "Levent Göktem",
+   "publisher": "MediaCat Yayıncılık (2010)",
+   "note": "Motivasyonun üç ayağı: özerklik, ustalık, amaç. Hem kendine hem ekibine uygulanır — bu yüzden N.1 ile N.3 arasında köprü.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "N3",
+   "key": "meditations-marcus-aurelius",
+   "section": "N",
+   "sectionLabel": "İrade ve iletişim",
+   "sub": "N.1 — Bireysel irade ve öz-strateji",
+   "alsoIn": [
+    "N"
+   ],
+   "original": "Τὰ εἰς ἑαυτόν (Meditations)",
+   "turkish": "Kendime Düşünceler",
+   "author": "Marcus Aurelius",
+   "translator": "Yunus Emre Ceren",
+   "publisher": "Türkiye İş Bankası Kültür Yayınları (Hasan Âli Yücel Klasikler)",
+   "note": "İrade edebiyatının kurucu metni ve M6'nın (Holiday) kaynağı. Alternatif: Düşünceler, çev. Şadan Karadeniz, Yapı Kredi Yayınları.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "N4",
+   "key": "atomic-habits-james-clear",
+   "section": "N",
+   "sectionLabel": "İrade ve iletişim",
+   "sub": "N.1 — Bireysel irade ve öz-strateji",
+   "alsoIn": [
+    "N"
+   ],
+   "original": "Atomic Habits",
+   "turkish": "Atomik Alışkanlıklar",
+   "author": "James Clear",
+   "translator": "Sevinç Seyla Tezcan",
+   "publisher": "Pegasus Yayınları (2020)",
+   "note": "İradeyi sisteme çeviren pratik kitap. Teorik derinliği yok ama uygulama tarafı listedeki en somut olanı.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "N5",
+   "key": "influence-the-psychology-of-persuasion-robert-b-cialdini",
+   "section": "N",
+   "sectionLabel": "İrade ve iletişim",
+   "sub": "N.3 — Çalışanlar ve üst yönetimle iletişim",
+   "alsoIn": [
+    "N"
+   ],
+   "original": "Influence: The Psychology of Persuasion",
+   "turkish": "İknanın Psikolojisi",
+   "author": "Robert B. Cialdini",
+   "translator": "❓ (baskıya göre Yasemin Fletcher veya Fevzi Yalım)",
+   "publisher": "MediaCat Yayıncılık",
+   "note": "Karşılıklılık, tutarlılık, sosyal kanıt, otorite, beğeni, kıtlık. Hem ikna etmek hem ikna edilmemek için.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "N6",
+   "key": "nonviolent-communication-remzi-baskisi",
+   "section": "N",
+   "sectionLabel": "İrade ve iletişim",
+   "sub": "N.3 — Çalışanlar ve üst yönetimle iletişim",
+   "alsoIn": [
+    "N"
+   ],
+   "original": "Nonviolent Communication",
+   "turkish": "Şiddetsiz İletişim: Bir Yaşam Dili",
+   "author": "❓ (Remzi baskısı)",
+   "translator": "Remzi Kitabevi (2019)",
+   "publisher": "✅ Çalışanla zor konuşmanın en sağlam yöntemi: gözlem → duygu → ihtiyaç → rica. Suçlamadan sonuç almanın tekniği. Eski baskı: çev. Mahmut Tuna, Sistem Yayıncılık.",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "N7",
+   "key": "never-split-the-difference-chris-voss-tahl-raz",
+   "section": "N",
+   "sectionLabel": "İrade ve iletişim",
+   "sub": "N.3 — Çalışanlar ve üst yönetimle iletişim",
+   "alsoIn": [
+    "N"
+   ],
+   "original": "Never Split the Difference",
+   "turkish": "Sen Bitti Dediğinde: Müzakere ve Arabuluculuk Sanatı",
+   "author": "Chris Voss, Tahl Raz",
+   "translator": "Aynur Özcan Gümüş",
+   "publisher": "Sola Unitas (2017, 336 s.)",
+   "note": "FBI rehine müzakerecisinin yöntemi. Üst yönetimle konuşurken en işe yarayanı — \"taktiksel empati\", etiketleme, kalibre edilmiş sorular.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "N8",
+   "key": "radical-candor-kim-scott",
+   "section": "N",
+   "sectionLabel": "İrade ve iletişim",
+   "sub": "N.3 — Çalışanlar ve üst yönetimle iletişim",
+   "alsoIn": [
+    "N"
+   ],
+   "original": "Radical Candor",
+   "turkish": "Radikal Samimiyet: İnsanlığınızı Kaybetmeden İyi Lider Olun",
+   "author": "Kim Scott",
+   "translator": "Mehmet Mazı",
+   "publisher": "Buzdağı Yayınevi",
+   "note": "Doğrudan geri bildirim ile kişisel ilgiyi aynı anda tutmak. Yıkıcı empati (söyleyememe) ile saldırgan samimiyet (kırıcı olma) arasındaki dar yol.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "N9",
+   "key": "the-five-dysfunctions-of-a-team-patrick-lencioni",
+   "section": "N",
+   "sectionLabel": "İrade ve iletişim",
+   "sub": "N.3 — Çalışanlar ve üst yönetimle iletişim",
+   "alsoIn": [
+    "N"
+   ],
+   "original": "The Five Dysfunctions of a Team",
+   "turkish": "Ekiplerin Beş Temel Aksaklığı",
+   "author": "Patrick Lencioni",
+   "translator": "Ekim Duru",
+   "publisher": "Optimist Yayınevi (2008, 216 s.)",
+   "note": "Roman biçiminde. Güven yokluğu → çatışma korkusu → bağlılık eksikliği → hesap verebilirlikten kaçınma → sonuçlara kayıtsızlık zinciri. Ekip teşhisi için hızlı araç.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "N10",
+   "key": "getting-to-yes-roger-fisher-william-ury-bruce-patton",
+   "section": "N",
+   "sectionLabel": "İrade ve iletişim",
+   "sub": "N.3 — Çalışanlar ve üst yönetimle iletişim",
+   "alsoIn": [
+    "N"
+   ],
+   "original": "Getting to Yes",
+   "turkish": "Evet'e Ulaşmak (bazı baskılarda \"Evet Dedirtme Sanatı\")",
+   "author": "Roger Fisher, William Ury, Bruce Patton",
+   "translator": "",
+   "publisher": "Nova Kitap / İthaki Yayın Grubu (2024)",
+   "note": "Harvard müzakere yönteminin klasiği: pozisyon değil çıkar üzerinden pazarlık, BATNA kavramı. Türkçe ad ve künye baskıya göre değişiyor — kontrol et.",
+   "status": [
+    "warn",
+    "unverified"
+   ]
+  },
+  {
+   "id": "1",
+   "key": "kucuk-prens-antoine-de-saint-exupery",
+   "section": "P",
+   "sectionLabel": "Çocuk: 10 yaş programı",
+   "sub": "P.1 — Çekirdek 12: bunlar bitmeden gerisine geçme",
+   "alsoIn": [
+    "P"
+   ],
+   "original": "Küçük Prens",
+   "turkish": "",
+   "author": "Antoine de Saint-Exupéry",
+   "translator": "Cemal Süreya, Tomris Uyar",
+   "publisher": "Can Yayınları",
+   "note": "7+",
+   "status": []
+  },
+  {
+   "id": "2",
+   "key": "samatali-koyun-cocuklari-e2-astrid-lindgren",
+   "section": "P",
+   "sectionLabel": "Çocuk: 10 yaş programı",
+   "sub": "P.1 — Çekirdek 12: bunlar bitmeden gerisine geçme",
+   "alsoIn": [
+    "P"
+   ],
+   "original": "Şamatalı Köyün Çocukları (E2)",
+   "turkish": "",
+   "author": "Astrid Lindgren",
+   "translator": "Ali Arda",
+   "publisher": "İthaki",
+   "note": "7+",
+   "status": []
+  },
+  {
+   "id": "3",
+   "key": "charlie-nin-cikolata-fabrikasi-roald-dahl",
+   "section": "P",
+   "sectionLabel": "Çocuk: 10 yaş programı",
+   "sub": "P.1 — Çekirdek 12: bunlar bitmeden gerisine geçme",
+   "alsoIn": [
+    "P"
+   ],
+   "original": "Charlie'nin Çikolata Fabrikası",
+   "turkish": "",
+   "author": "Roald Dahl",
+   "translator": "Celal Üster",
+   "publisher": "Can Çocuk",
+   "note": "8+",
+   "status": []
+  },
+  {
+   "id": "4",
+   "key": "matilda-roald-dahl",
+   "section": "P",
+   "sectionLabel": "Çocuk: 10 yaş programı",
+   "sub": "P.1 — Çekirdek 12: bunlar bitmeden gerisine geçme",
+   "alsoIn": [
+    "P"
+   ],
+   "original": "Matilda",
+   "turkish": "",
+   "author": "Roald Dahl",
+   "translator": "",
+   "publisher": "Can Çocuk",
+   "note": "8+",
+   "status": []
+  },
+  {
+   "id": "5",
+   "key": "kucuk-kara-balik-samed-behrengi",
+   "section": "P",
+   "sectionLabel": "Çocuk: 10 yaş programı",
+   "sub": "P.1 — Çekirdek 12: bunlar bitmeden gerisine geçme",
+   "alsoIn": [
+    "P"
+   ],
+   "original": "Küçük Kara Balık",
+   "turkish": "",
+   "author": "Samed Behrengi",
+   "translator": "Haşim Hüsrevşahi",
+   "publisher": "Can Çocuk",
+   "note": "8+",
+   "status": []
+  },
+  {
+   "id": "6",
+   "key": "ronja-haydut-kizi-e1-astrid-lindgren",
+   "section": "P",
+   "sectionLabel": "Çocuk: 10 yaş programı",
+   "sub": "P.1 — Çekirdek 12: bunlar bitmeden gerisine geçme",
+   "alsoIn": [
+    "P"
+   ],
+   "original": "Ronja Haydut Kızı (E1)",
+   "turkish": "",
+   "author": "Astrid Lindgren",
+   "translator": "Ali Arda",
+   "publisher": "İthaki",
+   "note": "9+",
+   "status": []
+  },
+  {
+   "id": "7",
+   "key": "ucan-sinif-erich-kastner",
+   "section": "P",
+   "sectionLabel": "Çocuk: 10 yaş programı",
+   "sub": "P.1 — Çekirdek 12: bunlar bitmeden gerisine geçme",
+   "alsoIn": [
+    "P"
+   ],
+   "original": "Uçan Sınıf",
+   "turkish": "",
+   "author": "Erich Kästner",
+   "translator": "Şebnem Sunar",
+   "publisher": "Can Çocuk",
+   "note": "9+",
+   "status": []
+  },
+  {
+   "id": "8",
+   "key": "despero-nun-oykusu-e4-kate-dicamillo",
+   "section": "P",
+   "sectionLabel": "Çocuk: 10 yaş programı",
+   "sub": "P.1 — Çekirdek 12: bunlar bitmeden gerisine geçme",
+   "alsoIn": [
+    "P"
+   ],
+   "original": "Despero'nun Öyküsü (E4)",
+   "turkish": "",
+   "author": "Kate DiCamillo",
+   "translator": "Duygu Kayadelen",
+   "publisher": "Arkadaş",
+   "note": "9+",
+   "status": []
+  },
+  {
+   "id": "9",
+   "key": "charlotte-un-sevgi-agi-e-b-white",
+   "section": "P",
+   "sectionLabel": "Çocuk: 10 yaş programı",
+   "sub": "P.1 — Çekirdek 12: bunlar bitmeden gerisine geçme",
+   "alsoIn": [
+    "P"
+   ],
+   "original": "Charlotte'un Sevgi Ağı",
+   "turkish": "",
+   "author": "E. B. White",
+   "translator": "",
+   "publisher": "",
+   "note": "9+",
+   "status": []
+  },
+  {
+   "id": "10",
+   "key": "seker-portakali-jose-mauro-de-vasconcelos",
+   "section": "P",
+   "sectionLabel": "Çocuk: 10 yaş programı",
+   "sub": "P.1 — Çekirdek 12: bunlar bitmeden gerisine geçme",
+   "alsoIn": [
+    "P"
+   ],
+   "original": "Şeker Portakalı",
+   "turkish": "",
+   "author": "José Mauro de Vasconcelos",
+   "translator": "Emrah İmre (Portekizce aslından)",
+   "publisher": "Can Yayınları",
+   "note": "10+",
+   "status": []
+  },
+  {
+   "id": "11",
+   "key": "yilankale-e6-miyase-sertbarut",
+   "section": "P",
+   "sectionLabel": "Çocuk: 10 yaş programı",
+   "sub": "P.1 — Çekirdek 12: bunlar bitmeden gerisine geçme",
+   "alsoIn": [
+    "P"
+   ],
+   "original": "Yılankale (E6)",
+   "turkish": "",
+   "author": "Miyase Sertbarut",
+   "translator": "— (telif Türkçe)",
+   "publisher": "Tudem",
+   "note": "10+",
+   "status": []
+  },
+  {
+   "id": "12",
+   "key": "harry-potter-ve-felsefe-tasi-j-k-rowling",
+   "section": "P",
+   "sectionLabel": "Çocuk: 10 yaş programı",
+   "sub": "P.1 — Çekirdek 12: bunlar bitmeden gerisine geçme",
+   "alsoIn": [
+    "P"
+   ],
+   "original": "Harry Potter ve Felsefe Taşı",
+   "turkish": "",
+   "author": "J. K. Rowling",
+   "translator": "Ülkü Tamer",
+   "publisher": "Yapı Kredi Yayınları",
+   "note": "9+",
+   "status": []
+  },
+  {
+   "id": "P-142",
+   "key": "oz-buyucusu-l-frank-baum",
+   "section": "P",
+   "sectionLabel": "Çocuk: 10 yaş programı",
+   "sub": "P.2 — Klasik çocuk edebiyatı",
+   "alsoIn": [
+    "P"
+   ],
+   "original": "Oz Büyücüsü",
+   "turkish": "",
+   "author": "L. Frank Baum",
+   "translator": "",
+   "publisher": "",
+   "note": "Künye doğrulanmadı",
+   "status": [
+    "unverified"
+   ]
+  },
+  {
+   "id": "P-143",
+   "key": "alice-harikalar-diyarinda-lewis-carroll",
+   "section": "P",
+   "sectionLabel": "Çocuk: 10 yaş programı",
+   "sub": "P.2 — Klasik çocuk edebiyatı",
+   "alsoIn": [
+    "P"
+   ],
+   "original": "Alice Harikalar Diyarında",
+   "turkish": "",
+   "author": "Lewis Carroll",
+   "translator": "",
+   "publisher": "",
+   "note": "Can Çocuk ve İş Bankası baskıları var; kelime oyunları yüzünden çevirmen kritik — künyeye mutlaka bak",
+   "status": [
+    "unverified"
+   ]
+  },
+  {
+   "id": "P-144",
+   "key": "heidi-johanna-spyri",
+   "section": "P",
+   "sectionLabel": "Çocuk: 10 yaş programı",
+   "sub": "P.2 — Klasik çocuk edebiyatı",
+   "alsoIn": [
+    "P"
+   ],
+   "original": "Heidi",
+   "turkish": "",
+   "author": "Johanna Spyri",
+   "translator": "",
+   "publisher": "",
+   "note": "",
+   "status": [
+    "unverified"
+   ]
+  },
+  {
+   "id": "P-145",
+   "key": "cocuk-kalbi-edmondo-de-amicis",
+   "section": "P",
+   "sectionLabel": "Çocuk: 10 yaş programı",
+   "sub": "P.2 — Klasik çocuk edebiyatı",
+   "alsoIn": [
+    "P"
+   ],
+   "original": "Çocuk Kalbi",
+   "turkish": "",
+   "author": "Edmondo De Amicis",
+   "translator": "",
+   "publisher": "",
+   "note": "",
+   "status": [
+    "unverified"
+   ]
+  },
+  {
+   "id": "P-146",
+   "key": "ayi-paddington-michael-bond",
+   "section": "P",
+   "sectionLabel": "Çocuk: 10 yaş programı",
+   "sub": "P.2 — Klasik çocuk edebiyatı",
+   "alsoIn": [
+    "P"
+   ],
+   "original": "Ayı Paddington",
+   "turkish": "",
+   "author": "Michael Bond",
+   "translator": "",
+   "publisher": "",
+   "note": "",
+   "status": [
+    "unverified"
+   ]
+  },
+  {
+   "id": "P-147",
+   "key": "robinson-crusoe-cocuk-uyarlamasi-daniel-defoe",
+   "section": "P",
+   "sectionLabel": "Çocuk: 10 yaş programı",
+   "sub": "P.2 — Klasik çocuk edebiyatı",
+   "alsoIn": [
+    "P"
+   ],
+   "original": "Robinson Crusoe (çocuk uyarlaması)",
+   "turkish": "",
+   "author": "Daniel Defoe",
+   "translator": "",
+   "publisher": "",
+   "note": "Uyarlama al, tam metin 10 yaş için ağır",
+   "status": [
+    "warn"
+   ]
+  },
+  {
+   "id": "P-148",
+   "key": "define-adasi-cocuk-uyarlamasi-r-l-stevenson",
+   "section": "P",
+   "sectionLabel": "Çocuk: 10 yaş programı",
+   "sub": "P.2 — Klasik çocuk edebiyatı",
+   "alsoIn": [
+    "P"
+   ],
+   "original": "Define Adası (çocuk uyarlaması)",
+   "turkish": "",
+   "author": "R. L. Stevenson",
+   "translator": "",
+   "publisher": "",
+   "note": "Aynı uyarı",
+   "status": [
+    "warn"
+   ]
+  },
+  {
+   "id": "P-149",
+   "key": "gizli-yediler-serisi-enid-blyton",
+   "section": "P",
+   "sectionLabel": "Çocuk: 10 yaş programı",
+   "sub": "P.2 — Klasik çocuk edebiyatı",
+   "alsoIn": [
+    "P"
+   ],
+   "original": "Gizli Yediler serisi",
+   "turkish": "",
+   "author": "Enid Blyton",
+   "translator": "",
+   "publisher": "",
+   "note": "",
+   "status": [
+    "unverified"
+   ]
+  },
+  {
+   "id": "P-150",
+   "key": "fadis-gulten-dayioglu",
+   "section": "P",
+   "sectionLabel": "Çocuk: 10 yaş programı",
+   "sub": "P.3 — Türk çocuk edebiyatı",
+   "alsoIn": [
+    "P"
+   ],
+   "original": "Fadiş",
+   "turkish": "",
+   "author": "Gülten Dayıoğlu",
+   "translator": "",
+   "publisher": "",
+   "note": "Türk çocuk edebiyatının klasiği",
+   "status": []
+  },
+  {
+   "id": "P-151",
+   "key": "masal-masal-icinde-aytul-akal",
+   "section": "P",
+   "sectionLabel": "Çocuk: 10 yaş programı",
+   "sub": "P.3 — Türk çocuk edebiyatı",
+   "alsoIn": [
+    "P"
+   ],
+   "original": "Masal Masal İçinde",
+   "turkish": "",
+   "author": "Aytül Akal",
+   "translator": "",
+   "publisher": "",
+   "note": "",
+   "status": [
+    "unverified"
+   ]
+  },
+  {
+   "id": "P-152",
+   "key": "dede-korkut-cocuk-uyarlamasi-eflatun-cem-guney-uyarlama",
+   "section": "P",
+   "sectionLabel": "Çocuk: 10 yaş programı",
+   "sub": "P.3 — Türk çocuk edebiyatı",
+   "alsoIn": [
+    "P"
+   ],
+   "original": "Dede Korkut (çocuk uyarlaması)",
+   "turkish": "",
+   "author": "Eflatun Cem Güney (uyarlama)",
+   "translator": "",
+   "publisher": "",
+   "note": "Sözlü gelenek girişi",
+   "status": []
+  },
+  {
+   "id": "P-153",
+   "key": "anadolu-masallari-eflatun-cem-guney",
+   "section": "P",
+   "sectionLabel": "Çocuk: 10 yaş programı",
+   "sub": "P.3 — Türk çocuk edebiyatı",
+   "alsoIn": [
+    "P"
+   ],
+   "original": "Anadolu Masalları",
+   "turkish": "",
+   "author": "Eflatun Cem Güney",
+   "translator": "",
+   "publisher": "",
+   "note": "",
+   "status": [
+    "unverified"
+   ]
+  },
+  {
+   "id": "P-154",
+   "key": "arkadasim-balina-zeynep-cemali",
+   "section": "P",
+   "sectionLabel": "Çocuk: 10 yaş programı",
+   "sub": "P.3 — Türk çocuk edebiyatı",
+   "alsoIn": [
+    "P"
+   ],
+   "original": "Arkadaşım Balina",
+   "turkish": "",
+   "author": "Zeynep Cemali",
+   "translator": "",
+   "publisher": "",
+   "note": "",
+   "status": [
+    "unverified"
+   ]
+  },
+  {
+   "id": "P-155",
+   "key": "kar-tanesi-masali-cahit-ucuk",
+   "section": "P",
+   "sectionLabel": "Çocuk: 10 yaş programı",
+   "sub": "P.3 — Türk çocuk edebiyatı",
+   "alsoIn": [
+    "P"
+   ],
+   "original": "Kar Tanesi Masalı",
+   "turkish": "",
+   "author": "Cahit Uçuk",
+   "translator": "",
+   "publisher": "",
+   "note": "Cahit Uçuk daha çok Türk İkizleri ile bilinir — künye kontrol et",
+   "status": [
+    "unverified"
+   ]
+  },
+  {
+   "id": "P-156",
+   "key": "kaplumbaga-terbiyecisi-tulin-kozikoglu",
+   "section": "P",
+   "sectionLabel": "Çocuk: 10 yaş programı",
+   "sub": "P.3 — Türk çocuk edebiyatı",
+   "alsoIn": [
+    "P"
+   ],
+   "original": "Kaplumbağa Terbiyecisi",
+   "turkish": "",
+   "author": "Tülin Kozikoğlu",
+   "translator": "",
+   "publisher": "",
+   "note": "Yazar-eser eşleşmesi doğrulanmadı",
+   "status": [
+    "unverified"
+   ]
+  },
+  {
+   "id": "P-157",
+   "key": "dostluk-ekmegi-sara-sahinkanat",
+   "section": "P",
+   "sectionLabel": "Çocuk: 10 yaş programı",
+   "sub": "P.3 — Türk çocuk edebiyatı",
+   "alsoIn": [
+    "P"
+   ],
+   "original": "Dostluk Ekmeği",
+   "turkish": "",
+   "author": "Sara Şahinkanat",
+   "translator": "",
+   "publisher": "",
+   "note": "Aynı uyarı",
+   "status": [
+    "unverified"
+   ]
+  },
+  {
+   "id": "P-158",
+   "key": "bir-seftali-bin-seftali-samed-behrengi",
+   "section": "P",
+   "sectionLabel": "Çocuk: 10 yaş programı",
+   "sub": "P.4 — Duygusal gelişim ve hayat dersleri",
+   "alsoIn": [
+    "P"
+   ],
+   "original": "Bir Şeftali Bin Şeftali",
+   "turkish": "",
+   "author": "Samed Behrengi",
+   "translator": "",
+   "publisher": "Can Çocuk",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "P-159",
+   "key": "savas-ati-michael-morpurgo",
+   "section": "P",
+   "sectionLabel": "Çocuk: 10 yaş programı",
+   "sub": "P.4 — Duygusal gelişim ve hayat dersleri",
+   "alsoIn": [
+    "P"
+   ],
+   "original": "Savaş Atı",
+   "turkish": "",
+   "author": "Michael Morpurgo",
+   "translator": "",
+   "publisher": "",
+   "note": "",
+   "status": []
+  },
+  {
+   "id": "P-160",
+   "key": "ezop-masallari-ezop",
+   "section": "P",
+   "sectionLabel": "Çocuk: 10 yaş programı",
+   "sub": "P.5 — Masal ve mitoloji",
+   "alsoIn": [
+    "P"
+   ],
+   "original": "Ezop Masalları",
+   "turkish": "",
+   "author": "Ezop",
+   "translator": "",
+   "publisher": "",
+   "note": "İş Bankası'nın baskısı var",
+   "status": [
+    "unverified"
+   ]
+  },
+  {
+   "id": "P-161",
+   "key": "grimm-masallari-grimm-kardesler",
+   "section": "P",
+   "sectionLabel": "Çocuk: 10 yaş programı",
+   "sub": "P.5 — Masal ve mitoloji",
+   "alsoIn": [
+    "P"
+   ],
+   "original": "Grimm Masalları",
+   "turkish": "",
+   "author": "Grimm Kardeşler",
+   "translator": "",
+   "publisher": "",
+   "note": "Kısaltılmamış baskılar 8 yaş için sert olabilir — yaşa uygun derlemeyi seç",
+   "status": [
+    "warn"
+   ]
+  },
+  {
+   "id": "P-162",
+   "key": "andersen-masallari-h-c-andersen",
+   "section": "P",
+   "sectionLabel": "Çocuk: 10 yaş programı",
+   "sub": "P.5 — Masal ve mitoloji",
+   "alsoIn": [
+    "P"
+   ],
+   "original": "Andersen Masalları",
+   "turkish": "",
+   "author": "H. C. Andersen",
+   "translator": "",
+   "publisher": "",
+   "note": "",
+   "status": [
+    "unverified"
+   ]
+  },
+  {
+   "id": "P-163",
+   "key": "cocuklar-icin-yunan-mitolojisi-geraldine-mccaughrean",
+   "section": "P",
+   "sectionLabel": "Çocuk: 10 yaş programı",
+   "sub": "P.5 — Masal ve mitoloji",
+   "alsoIn": [
+    "P"
+   ],
+   "original": "Çocuklar İçin Yunan Mitolojisi",
+   "turkish": "",
+   "author": "Geraldine McCaughrean",
+   "translator": "",
+   "publisher": "",
+   "note": "",
+   "status": [
+    "unverified"
+   ]
+  },
+  {
+   "id": "R-164",
+   "key": "durdurulamayan-insanlik-dunyanin-hakimiyetini-nasil-ele-geci",
+   "section": "R",
+   "sectionLabel": "Geleceğe hazırlık",
+   "sub": "R.1 — Kitaplar",
+   "alsoIn": [
+    "R"
+   ],
+   "original": "Durdurulamayan İnsanlık: Dünyanın Hakimiyetini Nasıl Ele Geçirdik",
+   "turkish": "",
+   "author": "Yuval Noah Harari",
+   "translator": "",
+   "publisher": "Kolektif Kitap (2022)",
+   "note": "Bu listedeki en değerli kitap. Sapiens'in kısaltması değil, çocuklar için baştan yazılmış. \"Neden biz?\" sorusunun cevabı.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "R-165",
+   "key": "george-ve-evren-e-acilan-gizli-anahtar-seri-lucy-hawking-ste",
+   "section": "R",
+   "sectionLabel": "Geleceğe hazırlık",
+   "sub": "R.1 — Kitaplar",
+   "alsoIn": [
+    "R"
+   ],
+   "original": "George ve Evren'e Açılan Gizli Anahtar (seri)",
+   "turkish": "",
+   "author": "Lucy Hawking, Stephen Hawking",
+   "translator": "",
+   "publisher": "Doğan Egmont",
+   "note": "Astrofizik + macera. Devamı: George'un Kozmik Hazine Avı.",
+   "status": [
+    "ok"
+   ]
+  },
+  {
+   "id": "R-166",
+   "key": "ada-twist-bilim-insani-andrea-beaty",
+   "section": "R",
+   "sectionLabel": "Geleceğe hazırlık",
+   "sub": "R.1 — Kitaplar",
+   "alsoIn": [
+    "R"
+   ],
+   "original": "Ada Twist, Bilim İnsanı",
+   "turkish": "",
+   "author": "Andrea Beaty",
+   "translator": "",
+   "publisher": "",
+   "note": "Merak duygusunu besleyen resimli seri; 5-8 yaş",
+   "status": [
+    "unverified"
+   ]
+  },
+  {
+   "id": "R-167",
+   "key": "buyuk-sorular-kitabi-gemma-elwin-harris",
+   "section": "R",
+   "sectionLabel": "Geleceğe hazırlık",
+   "sub": "R.1 — Kitaplar",
+   "alsoIn": [
+    "R"
+   ],
+   "original": "Büyük Sorular Kitabı",
+   "turkish": "",
+   "author": "Gemma Elwin Harris",
+   "translator": "",
+   "publisher": "",
+   "note": "Çocuk sorularına uzmanların cevabı",
+   "status": [
+    "unverified"
+   ]
+  },
+  {
+   "id": "R-168",
+   "key": "big-ideas-for-curious-minds-the-school-of-life",
+   "section": "R",
+   "sectionLabel": "Geleceğe hazırlık",
+   "sub": "R.1 — Kitaplar",
+   "alsoIn": [
+    "R"
+   ],
+   "original": "Big Ideas for Curious Minds",
+   "turkish": "",
+   "author": "The School of Life",
+   "translator": "",
+   "publisher": "",
+   "note": "Türkçe baskısı doğrulanmadı",
+   "status": [
+    "unverified"
+   ]
+  },
+  {
+   "id": "R-169",
+   "key": "plastik-deniz-anita-ganeri",
+   "section": "R",
+   "sectionLabel": "Geleceğe hazırlık",
+   "sub": "R.1 — Kitaplar",
+   "alsoIn": [
+    "R"
+   ],
+   "original": "Plastik Deniz",
+   "turkish": "",
+   "author": "Anita Ganeri",
+   "translator": "",
+   "publisher": "",
+   "note": "Çevre farkındalığı",
+   "status": [
+    "unverified"
+   ]
+  }
+ ]
+}

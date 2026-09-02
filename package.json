@@ -1,0 +1,17 @@
+{
+  "name": "kitaps",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Mobil-öncelikli (320px) kitap listeleme arayüzü — kitaplar.md verisi",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "data": "node scripts/build-data.mjs"
+  },
+  "dependencies": {
+    "@phosphor-icons/core": "^2.1.1",
+    "astro": "^5.18.2"
+  }
+}
