@@ -1,7 +1,8 @@
 {
  "generatedFrom": "data/kitaplar.md",
  "count": 170,
- "withCover": 132,
+ "withCover": 131,
+ "withAlt": 13,
  "sections": [
   {
    "key": "A",
@@ -101,6 +102,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı · Özgün dilden"
+   },
+   "alt": null,
    "coverId": 12119112
   },
   {
@@ -121,6 +127,15 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı · Özgün dilden"
+   },
+   "alt": {
+    "name": "Betül Parlak",
+    "publisher": "",
+    "score": 4
+   },
    "coverId": 6600736
   },
   {
@@ -142,6 +157,11 @@
     "warn",
     "avoid"
    ],
+   "trust": {
+    "score": 3,
+    "why": "Notta uyarı var"
+   },
+   "alt": null,
    "coverId": 9933109
   },
   {
@@ -162,6 +182,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı · Özgün dilden"
+   },
+   "alt": null,
    "coverId": 12264449
   },
   {
@@ -183,6 +208,11 @@
     "ok",
     "avoid"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı · Özgün dilden"
+   },
+   "alt": null,
    "coverId": 874678
   },
   {
@@ -203,6 +233,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 4,
+    "why": "Künye doğrulandı · Ara dilden çevrilmiş"
+   },
+   "alt": null,
    "coverId": 8401284
   },
   {
@@ -223,6 +258,15 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": {
+    "name": "Cemal Enginsoy",
+    "publisher": "ASAM",
+    "score": 4
+   },
    "coverId": 10956853
   },
   {
@@ -243,6 +287,11 @@
    "status": [
     "warn"
    ],
+   "trust": {
+    "score": 1,
+    "why": "Notta uyarı var · İngilizce okunması öneriliyor · Çeviri eleştiriliyor"
+   },
+   "alt": null,
    "coverId": 6954850
   },
   {
@@ -263,6 +312,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": null,
    "coverId": 876869
   },
   {
@@ -283,6 +337,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": null,
    "coverId": 6424160
   },
   {
@@ -303,6 +362,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": null,
    "coverId": 1119676
   },
   {
@@ -323,6 +387,11 @@
    "status": [
     "warn"
    ],
+   "trust": {
+    "score": 3,
+    "why": "Notta uyarı var · Editörlük/dil sorunu · Özgün dilden"
+   },
+   "alt": null,
    "coverId": null
   },
   {
@@ -344,6 +413,15 @@
     "warn",
     "avoid"
    ],
+   "trust": {
+    "score": 2,
+    "why": "Notta uyarı var · Editörlük/dil sorunu"
+   },
+   "alt": {
+    "name": "Zakir Kadiri Ugan",
+    "publisher": "MEB",
+    "score": 1
+   },
    "coverId": 12309649
   },
   {
@@ -364,6 +442,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": null,
    "coverId": 19091
   },
   {
@@ -384,6 +467,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": null,
    "coverId": 668127
   },
   {
@@ -404,6 +492,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": null,
    "coverId": 10460776
   },
   {
@@ -424,6 +517,8 @@
    "status": [
     "unverified"
    ],
+   "trust": null,
+   "alt": null,
    "coverId": 474736
   },
   {
@@ -442,6 +537,8 @@
    "publisher": "",
    "note": "İngilizce okunacak.",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 414074
   },
   {
@@ -462,6 +559,8 @@
    "status": [
     "unverified"
    ],
+   "trust": null,
+   "alt": null,
    "coverId": null
   },
   {
@@ -482,6 +581,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": null,
    "coverId": null
   },
   {
@@ -502,6 +606,11 @@
    "status": [
     "warn"
    ],
+   "trust": {
+    "score": 2,
+    "why": "Notta uyarı var · Çeviri eleştiriliyor"
+   },
+   "alt": null,
    "coverId": 6402116
   },
   {
@@ -524,6 +633,11 @@
     "unverified",
     "avoid"
    ],
+   "trust": {
+    "score": 3,
+    "why": "Künye doğrulanmadı · Özgün dilden"
+   },
+   "alt": null,
    "coverId": 788435
   },
   {
@@ -544,6 +658,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı · Özgün dilden"
+   },
+   "alt": null,
    "coverId": 8314551
   },
   {
@@ -564,6 +683,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": null,
    "coverId": 6553478
   },
   {
@@ -585,6 +709,15 @@
     "ok",
     "warn"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": {
+    "name": "Şahin Cüceloğlu",
+    "publisher": "Sistem Yayıncılık",
+    "score": 4
+   },
    "coverId": 12354998
   },
   {
@@ -605,6 +738,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": null,
    "coverId": null
   },
   {
@@ -625,6 +763,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": null,
    "coverId": 1895789
   },
   {
@@ -643,6 +786,8 @@
    "publisher": "",
    "note": "İngilizce okunacak.",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 1724660
   },
   {
@@ -663,6 +808,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı · Özgün dilden"
+   },
+   "alt": null,
    "coverId": 1026597
   },
   {
@@ -683,6 +833,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": null,
    "coverId": 2203363
   },
   {
@@ -703,6 +858,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": null,
    "coverId": 10742198
   },
   {
@@ -723,6 +883,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": null,
    "coverId": 541143
   },
   {
@@ -743,6 +908,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": null,
    "coverId": 11195728
   },
   {
@@ -763,6 +933,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": null,
    "coverId": 12292448
   },
   {
@@ -783,6 +958,8 @@
    "status": [
     "unverified"
    ],
+   "trust": null,
+   "alt": null,
    "coverId": null
   },
   {
@@ -803,6 +980,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı · Özgün dilden"
+   },
+   "alt": null,
    "coverId": 10853162
   },
   {
@@ -823,6 +1005,15 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": {
+    "name": "Mehmet Hakkı Suçin",
+    "publisher": "Kırmızı Yayınları",
+    "score": 4
+   },
    "coverId": 418324
   },
   {
@@ -843,6 +1034,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": null,
    "coverId": 10398104
   },
   {
@@ -863,6 +1059,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": null,
    "coverId": 10521836
   },
   {
@@ -883,6 +1084,15 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": {
+    "name": "Orhan Burian",
+    "publisher": "MEB",
+    "score": 4
+   },
    "coverId": 8231823
   },
   {
@@ -903,6 +1113,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": null,
    "coverId": 9009316
   },
   {
@@ -923,6 +1138,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": null,
    "coverId": 12207559
   },
   {
@@ -943,6 +1163,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": null,
    "coverId": null
   },
   {
@@ -963,6 +1188,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": null,
    "coverId": 12205936
   },
   {
@@ -977,10 +1207,15 @@
    "original": "The Ballad of Reading Gaol",
    "turkish": "Reading Zindanı Baladı",
    "author": "Oscar Wilde",
-   "translator": "Oğuz Baykara (şiirsel) veya Piyale Perver (karşılaştırmalı)",
+   "translator": "Oğuz Baykara",
    "publisher": "Everest Yayınları / Dedalus Kitap",
    "note": "Ayrıntı için aşağıdaki Bölüm I'e bak.",
    "status": [],
+   "trust": {
+    "score": 3,
+    "why": "Ek bilgi yok"
+   },
+   "alt": null,
    "coverId": 1990809
   },
   {
@@ -1001,6 +1236,15 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": {
+    "name": "Ergin Altay",
+    "publisher": "İletişim",
+    "score": 4
+   },
    "coverId": 10736127
   },
   {
@@ -1021,6 +1265,15 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": {
+    "name": "Ergin Altay",
+    "publisher": "İletişim",
+    "score": 4
+   },
    "coverId": 12236237
   },
   {
@@ -1041,6 +1294,15 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": {
+    "name": "Ergin Altay",
+    "publisher": "İletişim",
+    "score": 4
+   },
    "coverId": 12358359
   },
   {
@@ -1061,6 +1323,15 @@
    "status": [
     "unverified"
    ],
+   "trust": {
+    "score": 2,
+    "why": "Künye doğrulanmadı"
+   },
+   "alt": {
+    "name": "Mazlum Beyhan",
+    "publisher": "",
+    "score": 1
+   },
    "coverId": 12200263
   },
   {
@@ -1081,6 +1352,15 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": {
+    "name": "Tanju Akgün",
+    "publisher": "İş Bankası",
+    "score": 4
+   },
    "coverId": 12222770
   },
   {
@@ -1101,6 +1381,11 @@
    "status": [
     "unverified"
    ],
+   "trust": {
+    "score": 2,
+    "why": "Künye doğrulanmadı"
+   },
+   "alt": null,
    "coverId": 7740257
   },
   {
@@ -1121,6 +1406,11 @@
    "status": [
     "unverified"
    ],
+   "trust": {
+    "score": 2,
+    "why": "Künye doğrulanmadı"
+   },
+   "alt": null,
    "coverId": 12122757
   },
   {
@@ -1141,6 +1431,8 @@
    "status": [
     "unverified"
    ],
+   "trust": null,
+   "alt": null,
    "coverId": 12259468
   },
   {
@@ -1159,6 +1451,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 3926150
   },
   {
@@ -1177,6 +1471,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 12510228
   },
   {
@@ -1195,6 +1491,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 162716
   },
   {
@@ -1213,6 +1511,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 394576
   },
   {
@@ -1231,6 +1531,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 2053225
   },
   {
@@ -1249,6 +1551,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 1137943
   },
   {
@@ -1267,6 +1571,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 12226022
   },
   {
@@ -1285,6 +1591,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 12318041
   },
   {
@@ -1303,6 +1611,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 754989
   },
   {
@@ -1321,6 +1631,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 12318044
   },
   {
@@ -1339,6 +1651,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 8330012
   },
   {
@@ -1357,6 +1671,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 247572
   },
   {
@@ -1375,6 +1691,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 12226129
   },
   {
@@ -1393,6 +1711,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 12125650
   },
   {
@@ -1411,6 +1731,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 342716
   },
   {
@@ -1429,6 +1751,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 5060712
   },
   {
@@ -1447,6 +1771,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": null
   },
   {
@@ -1465,6 +1791,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 3853822
   },
   {
@@ -1483,6 +1811,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 7229094
   },
   {
@@ -1501,6 +1831,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 12226215
   },
   {
@@ -1519,6 +1851,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": null
   },
   {
@@ -1537,6 +1871,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 4272280
   },
   {
@@ -1555,6 +1891,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 247667
   },
   {
@@ -1573,6 +1911,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 162904
   },
   {
@@ -1591,6 +1931,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 12122771
   },
   {
@@ -1609,6 +1951,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 12222323
   },
   {
@@ -1627,6 +1971,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 541092
   },
   {
@@ -1645,6 +1991,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 4913746
   },
   {
@@ -1663,6 +2011,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 7364858
   },
   {
@@ -1681,6 +2031,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 12771362
   },
   {
@@ -1699,6 +2051,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 7132908
   },
   {
@@ -1717,6 +2071,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 12222576
   },
   {
@@ -1735,6 +2091,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 12222641
   },
   {
@@ -1753,6 +2111,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 12222656
   },
   {
@@ -1771,6 +2131,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 357638
   },
   {
@@ -1789,6 +2151,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 4939876
   },
   {
@@ -1807,6 +2171,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 3327791
   },
   {
@@ -1825,6 +2191,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 4796334
   },
   {
@@ -1843,6 +2211,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 12272552
   },
   {
@@ -1861,6 +2231,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 12272175
   },
   {
@@ -1879,6 +2251,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": null
   },
   {
@@ -1897,6 +2271,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 12253363
   },
   {
@@ -1915,6 +2291,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 13300091
   },
   {
@@ -1933,6 +2311,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 12360096
   },
   {
@@ -1951,6 +2331,8 @@
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 12276380
   },
   {
@@ -1969,6 +2351,11 @@
    "publisher": "Remzi Kitabevi",
    "note": "",
    "status": [],
+   "trust": {
+    "score": 3,
+    "why": "Ek bilgi yok"
+   },
+   "alt": null,
    "coverId": 12301069
   },
   {
@@ -1987,6 +2374,11 @@
    "publisher": "Alfa Yayınları",
    "note": "",
    "status": [],
+   "trust": {
+    "score": 3,
+    "why": "Ek bilgi yok"
+   },
+   "alt": null,
    "coverId": 12254335
   },
   {
@@ -2005,6 +2397,11 @@
    "publisher": "Kronik Kitap (2023, 1024 s.)",
    "note": "",
    "status": [],
+   "trust": {
+    "score": 3,
+    "why": "Ek bilgi yok"
+   },
+   "alt": null,
    "coverId": null
   },
   {
@@ -2023,6 +2420,11 @@
    "publisher": "DeliDolu (2013, 679 s.)",
    "note": "",
    "status": [],
+   "trust": {
+    "score": 3,
+    "why": "Ek bilgi yok"
+   },
+   "alt": null,
    "coverId": null
   },
   {
@@ -2041,6 +2443,11 @@
    "publisher": "Domingo Yayınevi (2019)",
    "note": "",
    "status": [],
+   "trust": {
+    "score": 3,
+    "why": "Ek bilgi yok"
+   },
+   "alt": null,
    "coverId": 8087691
   },
   {
@@ -2058,7 +2465,11 @@
    "translator": "",
    "publisher": "Bilim ve Gelecek Kitaplığı (2014, 392 s.)",
    "note": "",
-   "status": [],
+   "status": [
+    "unverified"
+   ],
+   "trust": null,
+   "alt": null,
    "coverId": null
   },
   {
@@ -2077,6 +2488,11 @@
    "publisher": "Abis Yayınları (2014, 624 s.)",
    "note": "",
    "status": [],
+   "trust": {
+    "score": 3,
+    "why": "Ek bilgi yok"
+   },
+   "alt": null,
    "coverId": 9353665
   },
   {
@@ -2097,6 +2513,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": null,
    "coverId": null
   },
   {
@@ -2117,6 +2538,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": null,
    "coverId": null
   },
   {
@@ -2137,6 +2563,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": null,
    "coverId": null
   },
   {
@@ -2157,6 +2588,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": null,
    "coverId": null
   },
   {
@@ -2177,6 +2613,11 @@
    "status": [
     "warn"
    ],
+   "trust": {
+    "score": 3,
+    "why": "Notta uyarı var"
+   },
+   "alt": null,
    "coverId": null
   },
   {
@@ -2197,6 +2638,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": null,
    "coverId": 9345484
   },
   {
@@ -2217,6 +2663,11 @@
    "status": [
     "warn"
    ],
+   "trust": {
+    "score": 3,
+    "why": "Notta uyarı var"
+   },
+   "alt": null,
    "coverId": null
   },
   {
@@ -2237,6 +2688,8 @@
    "status": [
     "unverified"
    ],
+   "trust": null,
+   "alt": null,
    "coverId": null
   },
   {
@@ -2257,6 +2710,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": null,
    "coverId": 2132494
   },
   {
@@ -2275,6 +2733,11 @@
    "publisher": "Varlık Yayınları",
    "note": "",
    "status": [],
+   "trust": {
+    "score": 3,
+    "why": "Ek bilgi yok"
+   },
+   "alt": null,
    "coverId": 9180157
   },
   {
@@ -2292,7 +2755,11 @@
    "translator": "",
    "publisher": "Sistem Yayıncılık (228 s.)",
    "note": "",
-   "status": [],
+   "status": [
+    "unverified"
+   ],
+   "trust": null,
+   "alt": null,
    "coverId": 241061
   },
   {
@@ -2311,6 +2778,11 @@
    "publisher": "Koridor Yayıncılık",
    "note": "",
    "status": [],
+   "trust": {
+    "score": 3,
+    "why": "Ek bilgi yok"
+   },
+   "alt": null,
    "coverId": 9274687
   },
   {
@@ -2328,7 +2800,11 @@
    "translator": "",
    "publisher": "Boyner Yayınları",
    "note": "",
-   "status": [],
+   "status": [
+    "unverified"
+   ],
+   "trust": null,
+   "alt": null,
    "coverId": 7431270
   },
   {
@@ -2347,6 +2823,11 @@
    "publisher": "Agora Kitaplığı (2010, 686 s.)",
    "note": "",
    "status": [],
+   "trust": {
+    "score": 3,
+    "why": "Ek bilgi yok"
+   },
+   "alt": null,
    "coverId": 13748432
   },
   {
@@ -2365,6 +2846,11 @@
    "publisher": "CEO Plus (2015, 192 s.)",
    "note": "",
    "status": [],
+   "trust": {
+    "score": 3,
+    "why": "Ek bilgi yok"
+   },
+   "alt": null,
    "coverId": 14428233
   },
   {
@@ -2385,6 +2871,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": null,
    "coverId": 13290711
   },
   {
@@ -2405,6 +2896,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": null,
    "coverId": 6404786
   },
   {
@@ -2425,6 +2921,15 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": {
+    "name": "Şadan Karadeniz",
+    "publisher": "Yapı Kredi Yayınları",
+    "score": 4
+   },
    "coverId": 211529
   },
   {
@@ -2445,6 +2950,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": null,
    "coverId": 12539702
   },
   {
@@ -2459,17 +2969,20 @@
    "original": "Influence: The Psychology of Persuasion",
    "turkish": "İknanın Psikolojisi",
    "author": "Robert B. Cialdini",
-   "translator": "❓ (baskıya göre Yasemin Fletcher veya Fevzi Yalım)",
+   "translator": "",
    "publisher": "MediaCat Yayıncılık",
    "note": "Karşılıklılık, tutarlılık, sosyal kanıt, otorite, beğeni, kıtlık. Hem ikna etmek hem ikna edilmemek için.",
    "status": [
-    "ok"
+    "ok",
+    "unverified"
    ],
+   "trust": null,
+   "alt": null,
    "coverId": 12128201
   },
   {
    "id": "N6",
-   "key": "nonviolent-communication-remzi-baskisi",
+   "key": "nonviolent-communication-marshall-b-rosenberg",
    "section": "N",
    "sectionLabel": "İrade ve iletişim",
    "sub": "N.3 — Çalışanlar ve üst yönetimle iletişim",
@@ -2478,12 +2991,21 @@
    ],
    "original": "Nonviolent Communication",
    "turkish": "Şiddetsiz İletişim: Bir Yaşam Dili",
-   "author": "❓ (Remzi baskısı)",
-   "translator": "Remzi Kitabevi (2019)",
-   "publisher": "✅ Çalışanla zor konuşmanın en sağlam yöntemi: gözlem → duygu → ihtiyaç → rica. Suçlamadan sonuç almanın tekniği. Eski baskı: çev. Mahmut Tuna, Sistem Yayıncılık.",
-   "note": "",
-   "status": [],
-   "coverId": 940686
+   "author": "Marshall B. Rosenberg",
+   "translator": "",
+   "publisher": "Remzi Kitabevi (2019)",
+   "note": "Çalışanla zor konuşmanın en sağlam yöntemi: gözlem → duygu → ihtiyaç → rica. Suçlamadan sonuç almanın tekniği. Eski baskı: çev. Mahmut Tuna, Sistem Yayıncılık.",
+   "status": [
+    "ok",
+    "unverified"
+   ],
+   "trust": null,
+   "alt": {
+    "name": "Mahmut Tuna",
+    "publisher": "Sistem Yayıncılık",
+    "score": 2
+   },
+   "coverId": null
   },
   {
    "id": "N7",
@@ -2503,6 +3025,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": null,
    "coverId": 8365942
   },
   {
@@ -2523,6 +3050,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": null,
    "coverId": 8088432
   },
   {
@@ -2543,6 +3075,11 @@
    "status": [
     "ok"
    ],
+   "trust": {
+    "score": 5,
+    "why": "Künye doğrulandı"
+   },
+   "alt": null,
    "coverId": 549590
   },
   {
@@ -2564,6 +3101,8 @@
     "warn",
     "unverified"
    ],
+   "trust": null,
+   "alt": null,
    "coverId": 96165
   },
   {
@@ -2582,6 +3121,11 @@
    "publisher": "Can Yayınları",
    "note": "7+",
    "status": [],
+   "trust": {
+    "score": 3,
+    "why": "Ek bilgi yok"
+   },
+   "alt": null,
    "coverId": 12307643
   },
   {
@@ -2600,6 +3144,11 @@
    "publisher": "İthaki",
    "note": "7+",
    "status": [],
+   "trust": {
+    "score": 3,
+    "why": "Ek bilgi yok"
+   },
+   "alt": null,
    "coverId": null
   },
   {
@@ -2618,6 +3167,11 @@
    "publisher": "Can Çocuk",
    "note": "8+",
    "status": [],
+   "trust": {
+    "score": 3,
+    "why": "Ek bilgi yok"
+   },
+   "alt": null,
    "coverId": null
   },
   {
@@ -2635,7 +3189,11 @@
    "translator": "",
    "publisher": "Can Çocuk",
    "note": "8+",
-   "status": [],
+   "status": [
+    "unverified"
+   ],
+   "trust": null,
+   "alt": null,
    "coverId": 12889769
   },
   {
@@ -2654,6 +3212,11 @@
    "publisher": "Can Çocuk",
    "note": "8+",
    "status": [],
+   "trust": {
+    "score": 3,
+    "why": "Ek bilgi yok"
+   },
+   "alt": null,
    "coverId": 12240683
   },
   {
@@ -2672,6 +3235,11 @@
    "publisher": "İthaki",
    "note": "9+",
    "status": [],
+   "trust": {
+    "score": 3,
+    "why": "Ek bilgi yok"
+   },
+   "alt": null,
    "coverId": null
   },
   {
@@ -2690,6 +3258,11 @@
    "publisher": "Can Çocuk",
    "note": "9+",
    "status": [],
+   "trust": {
+    "score": 3,
+    "why": "Ek bilgi yok"
+   },
+   "alt": null,
    "coverId": 12320459
   },
   {
@@ -2708,6 +3281,11 @@
    "publisher": "Arkadaş",
    "note": "9+",
    "status": [],
+   "trust": {
+    "score": 3,
+    "why": "Ek bilgi yok"
+   },
+   "alt": null,
    "coverId": null
   },
   {
@@ -2725,7 +3303,11 @@
    "translator": "",
    "publisher": "",
    "note": "9+",
-   "status": [],
+   "status": [
+    "unverified"
+   ],
+   "trust": null,
+   "alt": null,
    "coverId": null
   },
   {
@@ -2744,6 +3326,11 @@
    "publisher": "Can Yayınları",
    "note": "10+",
    "status": [],
+   "trust": {
+    "score": 3,
+    "why": "Ek bilgi yok"
+   },
+   "alt": null,
    "coverId": 10950908
   },
   {
@@ -2762,6 +3349,11 @@
    "publisher": "Tudem",
    "note": "10+",
    "status": [],
+   "trust": {
+    "score": 3,
+    "why": "Ek bilgi yok"
+   },
+   "alt": null,
    "coverId": null
   },
   {
@@ -2780,6 +3372,11 @@
    "publisher": "Yapı Kredi Yayınları",
    "note": "9+",
    "status": [],
+   "trust": {
+    "score": 3,
+    "why": "Ek bilgi yok"
+   },
+   "alt": null,
    "coverId": null
   },
   {
@@ -2800,6 +3397,8 @@
    "status": [
     "unverified"
    ],
+   "trust": null,
+   "alt": null,
    "coverId": 12222824
   },
   {
@@ -2820,6 +3419,8 @@
    "status": [
     "unverified"
    ],
+   "trust": null,
+   "alt": null,
    "coverId": 12252693
   },
   {
@@ -2840,6 +3441,8 @@
    "status": [
     "unverified"
    ],
+   "trust": null,
+   "alt": null,
    "coverId": 2668686
   },
   {
@@ -2860,6 +3463,8 @@
    "status": [
     "unverified"
    ],
+   "trust": null,
+   "alt": null,
    "coverId": 10854002
   },
   {
@@ -2880,6 +3485,8 @@
    "status": [
     "unverified"
    ],
+   "trust": null,
+   "alt": null,
    "coverId": 12292782
   },
   {
@@ -2898,8 +3505,11 @@
    "publisher": "",
    "note": "Uyarlama al, tam metin 10 yaş için ağır",
    "status": [
-    "warn"
+    "warn",
+    "unverified"
    ],
+   "trust": null,
+   "alt": null,
    "coverId": null
   },
   {
@@ -2918,8 +3528,11 @@
    "publisher": "",
    "note": "Aynı uyarı",
    "status": [
-    "warn"
+    "warn",
+    "unverified"
    ],
+   "trust": null,
+   "alt": null,
    "coverId": null
   },
   {
@@ -2940,6 +3553,8 @@
    "status": [
     "unverified"
    ],
+   "trust": null,
+   "alt": null,
    "coverId": null
   },
   {
@@ -2958,6 +3573,8 @@
    "publisher": "",
    "note": "Türk çocuk edebiyatının klasiği",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": 12279606
   },
   {
@@ -2978,6 +3595,8 @@
    "status": [
     "unverified"
    ],
+   "trust": null,
+   "alt": null,
    "coverId": 10461204
   },
   {
@@ -2996,6 +3615,8 @@
    "publisher": "",
    "note": "Sözlü gelenek girişi",
    "status": [],
+   "trust": null,
+   "alt": null,
    "coverId": null
   },
   {
@@ -3016,6 +3637,8 @@
    "status": [
     "unverified"
    ],
+   "trust": null,
+   "alt": null,
    "coverId": 12317198
   },
   {
@@ -3036,6 +3659,8 @@
    "status": [
     "unverified"
    ],
+   "trust": null,
+   "alt": null,
    "coverId": 12230898
   },
   {
@@ -3056,6 +3681,8 @@
    "status": [
     "unverified"
    ],
+   "trust": null,
+   "alt": null,
    "coverId": null
   },
   {
@@ -3076,6 +3703,8 @@
    "status": [
     "unverified"
    ],
+   "trust": null,
+   "alt": null,
    "coverId": 12229147
   },
   {
@@ -3096,6 +3725,8 @@
    "status": [
     "unverified"
    ],
+   "trust": null,
+   "alt": null,
    "coverId": 12287531
   },
   {
@@ -3113,7 +3744,11 @@
    "translator": "",
    "publisher": "Can Çocuk",
    "note": "",
-   "status": [],
+   "status": [
+    "unverified"
+   ],
+   "trust": null,
+   "alt": null,
    "coverId": 12216001
   },
   {
@@ -3131,7 +3766,11 @@
    "translator": "",
    "publisher": "",
    "note": "",
-   "status": [],
+   "status": [
+    "unverified"
+   ],
+   "trust": null,
+   "alt": null,
    "coverId": null
   },
   {
@@ -3152,6 +3791,8 @@
    "status": [
     "unverified"
    ],
+   "trust": null,
+   "alt": null,
    "coverId": 12243958
   },
   {
@@ -3172,6 +3813,8 @@
    "status": [
     "warn"
    ],
+   "trust": null,
+   "alt": null,
    "coverId": 12219760
   },
   {
@@ -3192,6 +3835,8 @@
    "status": [
     "unverified"
    ],
+   "trust": null,
+   "alt": null,
    "coverId": 12282976
   },
   {
@@ -3212,6 +3857,8 @@
    "status": [
     "unverified"
    ],
+   "trust": null,
+   "alt": null,
    "coverId": null
   },
   {
@@ -3232,6 +3879,8 @@
    "status": [
     "ok"
    ],
+   "trust": null,
+   "alt": null,
    "coverId": null
   },
   {
@@ -3252,6 +3901,8 @@
    "status": [
     "ok"
    ],
+   "trust": null,
+   "alt": null,
    "coverId": null
   },
   {
@@ -3272,6 +3923,8 @@
    "status": [
     "unverified"
    ],
+   "trust": null,
+   "alt": null,
    "coverId": null
   },
   {
@@ -3292,6 +3945,8 @@
    "status": [
     "unverified"
    ],
+   "trust": null,
+   "alt": null,
    "coverId": null
   },
   {
@@ -3312,6 +3967,8 @@
    "status": [
     "unverified"
    ],
+   "trust": null,
+   "alt": null,
    "coverId": 9095127
   },
   {
@@ -3332,6 +3989,8 @@
    "status": [
     "unverified"
    ],
+   "trust": null,
+   "alt": null,
    "coverId": null
   }
  ]

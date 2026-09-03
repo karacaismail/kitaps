@@ -8,11 +8,19 @@ const { books, sections, count } = data;
 
 /** Künye sayfasındaki alanlar — sıra ekranda göründüğü sıradır. */
 const FIELDS = [
-  { key: 'author',     label: 'Yazar',                icon: 'user' },
-  { key: 'translator', label: 'Önerilen çevirmen',    icon: 'translate' },
-  { key: 'original',   label: 'Orijinal ad',          icon: 'book-open' },
-  { key: 'turkish',    label: "Türkiye'de yayın adı", icon: 'books' },
-  { key: 'publisher',  label: 'Yayınevi',             icon: 'buildings' },
+  { key: 'author',    label: 'Yazar',                icon: 'user' },
+  { key: 'original',  label: 'Orijinal ad',          icon: 'book-open' },
+  { key: 'turkish',   label: "Türkiye'de yayın adı", icon: 'books' },
+  { key: 'publisher', label: 'Yayınevi',             icon: 'buildings' },
+];
+
+/**
+ * Çevirmen satırları ayrı, çünkü yanlarında güven göstergesi taşıyorlar.
+ * Gösterge yıldız değil beş nokta; 5 yeşil, 3 sarı, 1 magenta.
+ */
+const TRANSLATOR_ROWS = [
+  { key: 'trans',    label: 'Önerilen çevirmen', icon: 'translate' },
+  { key: 'transAlt', label: 'İkinci seçenek',    icon: 'arrows-left-right' },
 ];
 
 /**
@@ -22,10 +30,18 @@ const FIELDS = [
  */
 const STATES = [
   { key: 'onemli',   label: 'Önemli',       icon: 'star' },
+  { key: 'alinacak', label: 'Alınacak',     icon: 'shopping-cart-simple' },
   { key: 'alindi',   label: 'Satın alındı', icon: 'shopping-bag-open' },
   { key: 'okunuyor', label: 'Okunuyor',     icon: 'book-open-text' },
   { key: 'okundu',   label: 'Okundu',       icon: 'seal-check' },
 ];
+
+/**
+ * Birbirini dışlayan durumlar: bir kitap aynı anda hem alınacak hem alınmış
+ * olamaz. Satın alındı işaretlenince alınacak listesinden düşer, tersi de olur.
+ * Diğer durumlar serbest (önemli + okunuyor birlikte olabilir).
+ */
+const ZIT = { alinacak: 'alindi', alindi: 'alinacak' };
 ---
 <!doctype html>
 <html lang="tr">
@@ -99,13 +115,37 @@ const STATES = [
       <h2 class="sheet__title" id="sheet-baslik"></h2>
 
       <dl class="kv">
-        {FIELDS.map(f => (
+        <div class="kv__row" data-row="author" hidden>
+          <dt class="kv__k"><Icon name="user" size={15} />Yazar</dt>
+          <dd class="kv__v" data-val="author"></dd>
+        </div>
+
+        {TRANSLATOR_ROWS.map(r => (
+          <div class="kv__row" data-row={r.key} hidden>
+            <dt class="kv__k"><Icon name={r.icon} size={15} />{r.label}</dt>
+            <dd class="kv__v">
+              <span data-val={r.key}></span>
+              <span class="trust">
+                <span class="dots" data-dots={r.key} role="img">
+                  <i></i><i></i><i></i><i></i><i></i>
+                </span>
+                <span class="trust__why" data-why={r.key}></span>
+              </span>
+            </dd>
+          </div>
+        ))}
+
+        {FIELDS.filter(f => f.key !== 'author').map(f => (
           <div class="kv__row" data-row={f.key} hidden>
             <dt class="kv__k"><Icon name={f.icon} size={15} />{f.label}</dt>
             <dd class="kv__v" data-val={f.key}></dd>
           </div>
         ))}
       </dl>
+
+      <p class="trust__legend">
+        Güven oranı bu dosyadaki nota göre hesaplanır, dış bir kaynağa dayanmaz.
+      </p>
 
       <div class="note" data-note hidden>
         <p class="note__k">Not</p>
@@ -132,6 +172,7 @@ const STATES = [
       author: b.author, translator: b.translator,
       original: b.original, turkish: b.turkish, publisher: b.publisher,
       note: b.note, st: b.status,
+      trust: b.trust, alt: b.alt,
     }))
   )} />
   <script id="durumlar" type="application/json" set:html={JSON.stringify(STATES)} />
@@ -225,6 +266,23 @@ const STATES = [
     /* ================= Künye sayfası ================= */
     let acan = null, acikIndex = -1;
 
+    /**
+     * Bir çevirmen satırını doldurur. Puan yoksa (çevirmeni bilinmeyen kitap)
+     * satır tamamen gizlenir — boş nokta dizisi göstermek yanıltıcı olurdu.
+     */
+    function cizGuven(alan, ad, puan, neden) {
+      const row = sheet.querySelector(`[data-row="${alan}"]`);
+      row.hidden = !ad;
+      if (!ad) return;
+      sheet.querySelector(`[data-val="${alan}"]`).textContent = ad;
+      const dots = sheet.querySelector(`[data-dots="${alan}"]`);
+      const p = puan ?? 0;
+      dots.dataset.score = String(p);
+      dots.hidden = !p;
+      dots.setAttribute('aria-label', p ? `Güven: 5 üzerinden ${p}` : '');
+      sheet.querySelector(`[data-why="${alan}"]`).textContent = neden ?? '';
+    }
+
     function durumDugmeleriniTazele(k) {
       const list = durumlarinin(k);
       sheet.querySelectorAll('[data-state]').forEach(b => {
@@ -240,12 +298,19 @@ const STATES = [
       acikIndex = i;
       sheet.querySelector('#sheet-bolum').textContent = b.s;
       sheet.querySelector('#sheet-baslik').textContent = b.t;
-      for (const f of ['author', 'translator', 'original', 'turkish', 'publisher']) {
+      for (const f of ['author', 'original', 'turkish', 'publisher']) {
         const row = sheet.querySelector(`[data-row="${f}"]`);
         const dolu = Boolean(b[f]);
         row.hidden = !dolu;
         if (dolu) sheet.querySelector(`[data-val="${f}"]`).textContent = b[f];
       }
+
+      /* Çevirmen satırları: ad + beş noktalı güven göstergesi + gerekçe. */
+      cizGuven('trans', b.translator, b.trust?.score, b.trust?.why);
+      cizGuven('transAlt',
+        b.alt ? b.alt.name + (b.alt.publisher ? ' · ' + b.alt.publisher : '') : '',
+        b.alt?.score,
+        b.alt ? 'Dosyanın ikinci sırada önerdiği çeviri' : '');
       const not = sheet.querySelector('[data-note]');
       not.hidden = !b.note;
       if (b.note) sheet.querySelector('[data-note-text]').textContent = b.note;
@@ -269,8 +334,14 @@ const STATES = [
         const b = veri[acikIndex];
         if (!b) return;
         const s = btn.dataset.state;
+        const ZIT = { alinacak: 'alindi', alindi: 'alinacak' };
         const list = new Set(durumlarinin(b.key));
-        list.has(s) ? list.delete(s) : list.add(s);
+        if (list.has(s)) {
+          list.delete(s);
+        } else {
+          list.add(s);
+          if (ZIT[s]) list.delete(ZIT[s]);   // alınacak <-> satın alındı birlikte olamaz
+        }
         if (list.size) durum[b.key] = [...list]; else delete durum[b.key];
         kaydet();
         durumDugmeleriniTazele(b.key);

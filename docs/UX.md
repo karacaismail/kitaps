@@ -71,11 +71,17 @@ DOM'u gereksiz yere şişirirdi.
 
 ## 5. Kullanıcı durumları
 
-Dört durum: **önemli**, **satın alındı**, **okunuyor**, **okundu**.
+Beş durum: **önemli**, **alınacak**, **satın alındı**, **okunuyor**, **okundu**.
 
-- **Çoklu seçim**, çünkü ortogonaller: bir kitap hem önemli hem satın alınmış
+*Alınacak* ile *satın alındı* birbirini dışlar (`ZIT` eşlemesi): bir kitap aynı
+anda hem alınacaklar hem alınmışlar listesinde olamaz. Satın alındı
+işaretlendiğinde alınacak kendiliğinden düşer, tersi de geçerli. Kullanıcının
+iki adım atmasını beklemek yerine ikinci adımı arayüz atıyor. Diğer üç durum
+serbest: bir kitap hem önemli hem okunuyor olabilir.
+
+- **Çoklu seçim**, çünkü çoğu ortogonal: bir kitap hem önemli hem satın alınmış
   olabilir. Tek seçim olsaydı kullanıcı hangisini feda edeceğini seçmek
-  zorunda kalırdı.
+  zorunda kalırdı. Tek istisna yukarıdaki alınacak/alındı çifti.
 - **Kartta rozet olarak görünür**, çünkü işaretlemenin karşılığı listede
   görünmezse işaretlemenin anlamı kalmaz.
 - **Satın alınmış kitap geri plana çekilir**: kapak soluklaşır, başlık üstü
@@ -93,7 +99,33 @@ değiştirse de işaretler yerinde kalır.
 verisi silinirse işaretler gider. Bu, statik bir sitede sunucusuz çözümün
 bedeli; alternatifi hesap açtırmaktı, bu ölçekteki bir liste için ağır kaçardı.
 
-## 6. Kapaklar: iki katman
+## 6. Çevirmen güveni: beş nokta, yıldız değil
+
+Her çevirmenin yanında 5 üzerinden bir gösterge var. Üç karar:
+
+**Neden yıldız değil nokta.** Yıldız "beğeni" çağrıştırıyor — okurun kitaba
+verdiği puan gibi okunur. Buradaki sayı bir beğeni değil, *künyenin ne kadar
+doğrulandığı*. Nötr bir biçim (küçük daireler) bu farkı koruyor. Noktalar
+7 pikselde kalıyor; 320 pikselde çevirmen adının altında yer kaplamıyor.
+
+**Neden renk de var.** Yalnız dolu nokta sayısıyla 4 ile 5'i ayırmak için
+saymak gerekir. Renk farkı sayıya gerek bırakmıyor: 5 yeşil, 4 yeşil-sarı,
+3 sarı, 2 sarı-magenta arası, 1 magenta. İstenen üç uç (5 yeşil / 3 sarı /
+1 magenta) sabit, aradaki iki değer geçiş rengi.
+
+**Neden gerekçe her zaman yanında.** Çıplak bir sayı, arkasında bir otorite
+varmış izlenimi verir. Yoktur: puan tamamen `kitaplar.md` içindeki nottan
+hesaplanıyor. Bu yüzden her puanın yanında nasıl hesaplandığı yazıyor
+("Künye doğrulandı · Özgün dilden") ve künye listesinin altında bir satır
+uyarı duruyor. Kural `docs/VERI.md` içinde tam olarak yazılı; sonuç
+denetlenebilir olsun diye.
+
+**İkinci seçenek** ayrı bir satır. Nottaki "Alt.: ...", "Alternatif: ...",
+"Eski baskı: ..." kalıplarından çıkarılıyor ve her zaman ana öneriden bir
+kademe düşük sayılıyor — dosya onu ikinci sıraya koymuşsa göstergesi de bunu
+söylemeli. 170 kitabın 13'ünde ikinci seçenek var.
+
+## 7. Kapaklar: iki katman
 
 Kapak her zaman iki katman:
 
@@ -124,7 +156,7 @@ dağıtmamak için tercih edilmedi.
 Kendi kapağını koymak isteyen `public/covers/<id>.jpg` koyar; yerel dosya her
 ikisini de ezer.
 
-## 7. Emoji yok, Phosphor var
+## 8. Emoji yok, Phosphor var
 
 Emoji platforma göre farklı çizilir, boyutu ve hizası kontrol edilemez, rengi
 metin rengini almaz. Her görsel işaret Phosphor ikonu ve build sırasında SVG
@@ -135,7 +167,7 @@ Kaynak markdown'daki durum emojileri (`✅ ⚠️ ❓ 🚫`) veri üretilirken m
 sökülüp ayrı bir `status` alanına çevriliyor; arayüzde karşılıkları
 `check-circle`, `warning`, `question`, `prohibit`.
 
-## 8. Erişilebilirlik
+## 9. Erişilebilirlik
 
 - Her dokunma hedefi en az 44×44 piksel. Görünüm anahtarı düğmeleri görsel
   olarak 32 piksel yüksekliğinde ama `::after` ile dokunma alanı 44'e
@@ -151,7 +183,7 @@ sökülüp ayrı bir `status` alanına çevriliyor; arayüzde karşılıkları
 - 320 pikselde yatay kaydırma yok; uzun başlıklar `overflow-wrap: anywhere` ile
   kırılıyor, kartta `-webkit-line-clamp` ile sınırlanıyor.
 
-## 9. Bilinçli olarak yapılmayanlar
+## 10. Bilinçli olarak yapılmayanlar
 
 | | Neden |
 |---|---|

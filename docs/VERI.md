@@ -55,7 +55,16 @@ Sütun adları şu alanlara eşlenir:
   "publisher": "Özne Yayınları (1999) / aynı çeviri Alfa baskısında",
   "note": "Tam metin şart. Şiar Yalçın / Spartaküs (1997): 4-5-6-7. Kitaplar eksik...",
   "status": ["warn", "avoid"],
-  "coverId": 8231990                // Open Library kapak kimliği; yoksa null
+  "coverId": 8231990,               // Open Library kapak kimliği; yoksa null
+  "trust": {                        // çevirmen yoksa null
+    "score": 3,                     // 1-5
+    "why": "Notta uyarı var"        // puanın nasıl çıktığı
+  },
+  "alt": {                          // nottan çıkarılan ikinci çeviri; yoksa null
+    "name": "Cemal Enginsoy",
+    "publisher": "ASAM",
+    "score": 4
+  }
 }
 ```
 
@@ -88,6 +97,72 @@ Bir kitapta birden çok durum olabilir. Kartta yalnızca en kritiği gösterilir
 - Kalın/italik/bağlantı işaretleri sökülür.
 - Aynı kitap birden çok bölümde geçiyorsa tek kayıt olur; eksik alanlar
   diğer geçişlerden tamamlanır, bölümler `alsoIn`'e eklenir.
+
+## Çevirmen güven oranı
+
+**Bu bir dış otorite puanı değildir.** Tamamen `kitaplar.md` içindeki nottan ve
+durum işaretinden hesaplanır. Kural `scripts/build-data.mjs` içinde açık
+yazılmıştır, sonuç elle denetlenebilir.
+
+### Taban
+
+| Durum işareti | Puan |
+|---|---|
+| ✅ künye doğrulandı | 5 |
+| ⚠️ uyarı var | 3 |
+| ❓ doğrulanmadı | 2 |
+| işaret yok | 3 |
+
+### Düzeltmeler
+
+| Notta geçen | Değişim |
+|---|---|
+| "İngilizcesini oku", makine çevirisi | −2 |
+| ağır/ciddi eleştiri, argümanların kaybolması | −1 |
+| ara dilden çevrilmiş ("üzerinden", "aslından değil") | −1 |
+| editörlük/dizgi zayıf, metne müdahale, dili eski | −1 |
+| özgün dilden çevrilmiş ("aslından") | +1 |
+
+Sonuç 1-5 arasına sıkıştırılır ve gerekçe `why` alanında birleştirilir.
+
+### Neden yalnızca notun ilk bölümü okunuyor
+
+Notlar çoğu zaman birden çok baskıdan söz eder: önce önerilen baskı, sonra
+"Alt.: ...", "Kaçın: ...". Puanlama notu `Alternatif | Alt. | Eski baskı |
+Piyasada | Diğer | Kaçın` kelimelerinden birinde keser ve **yalnızca ilk
+bölüme** bakar.
+
+Bu kural olmadan sonuç yanlış çıkıyordu: Mukaddime'nin notundaki "Fransızcadan
+(Monteil üzerinden)" ifadesi kaçınılması gereken *Sevim Belli* çevirisini
+anlatıyor, ama önerilen *Süleyman Uludağ* çevirisinin puanını 1'e düşürüyordu.
+Kesme kuralıyla doğru değere (2) çıktı.
+
+### İkinci seçenek
+
+`alt` alanı nottaki şu kalıplardan çıkarılır: `Alternatif:`, `Alt.:`,
+`Yeni alternatif:`, `Eski baskı:`, `Piyasada ... çevirisi de var`, ve çevirmen
+alanının `X veya Y` biçimi. Ayıklayıcı yıl ve sayfa bilgisini yayınevi
+sanmaz, `Kitap adı, çev. İsim, Yayınevi` biçiminde adı `çev.`ten sonra arar,
+baştaki küçük harfli kelimeleri atar.
+
+Alternatif her zaman ana öneriden **bir kademe düşük** sayılır: dosya onu
+ikinci sıraya koymuşsa gösterge de bunu söylemeli. Şu an 13 kitapta var.
+
+## Satır doğrulaması
+
+Dönüştürücü, hücre sayısı başlık satırıyla uyuşmayan her satır için uyarı
+basar. Sessizce yanlış veri üretmemek için: bir kez gerçekten oldu — `N6`
+satırında yazar hücresi eksikti, yayınevi çevirmen sütununa kaymıştı ve
+"Remzi Kitabevi" çevirmen olarak görünüyordu.
+
+```
+UYARI — 1 satırda hücre sayısı başlıkla uyuşmuyor:
+  N. Bireysel irade... · N6 — 6 hücre, beklenen 7
+```
+
+Künye hücrelerindeki emojiler de sökülür; geriye yalnız parantez içi bir not
+kalıyorsa (`❓ (Remzi baskısında çevirmen künyede)`) alan boş sayılır ve
+çevirmen bilinmiyor kabul edilir — güven oranı da gösterilmez.
 
 ## Kapaklar
 

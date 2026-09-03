@@ -308,7 +308,11 @@ body {
   display: grid; place-items: center;
   width: var(--tap); height: var(--tap);
   border: 0; border-radius: 999px;
-  background: transparent; color: var(--ink-3); cursor: pointer;
+  color: var(--ink-3); cursor: pointer;
+  /* İçerik altından kayarak geçtiği için düğmenin kendi zemini olmalı,
+     yoksa metnin üstünde okunmaz hale geliyor. */
+  background: color-mix(in srgb, var(--bg-2) 86%, transparent);
+  backdrop-filter: blur(8px);
 }
 .sheet__scroll {
   padding: 6px 16px calc(20px + env(safe-area-inset-bottom));
@@ -445,3 +449,63 @@ body {
   .badge { width: 16px; height: 16px; inset-block-start: 3px; inset-inline-end: 3px; }
   .badge svg { width: 11px; height: 11px; }
 }
+
+/* =====================================================================
+   Çevirmen güven göstergesi
+   Beş nokta, yıldız değil. Renk puana bağlı: 5 yeşil -> 3 sarı -> 1 magenta.
+   Ara değerler (4, 2) iki uç arasında geçiş rengi alır ki sıralama
+   yalnız dolu nokta sayısından değil renkten de okunabilsin.
+   ================================================================== */
+:root {
+  --tr-5: #2f9e5c;   /* yeşil   */
+  --tr-4: #7ba528;   /* yeşil-sarı */
+  --tr-3: #c9970f;   /* sarı    */
+  --tr-2: #cf5f6b;   /* sarı-magenta arası */
+  --tr-1: #c8258f;   /* magenta */
+  --tr-bos: var(--line);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --tr-5: #6cc98d;
+    --tr-4: #a8cc5e;
+    --tr-3: #e8bf5a;
+    --tr-2: #ee8b96;
+    --tr-1: #f272c2;
+    --tr-bos: #3d3934;
+  }
+}
+
+.trust { display: flex; align-items: center; gap: 7px; margin-top: 5px; flex-wrap: wrap; }
+
+.dots { display: inline-flex; gap: 4px; align-items: center; flex: none; }
+.dots[hidden] { display: none; }
+.dots i {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--tr-bos);
+}
+/* Puana kadar olan noktalar dolu ve puanın rengini alır. */
+.dots[data-score="5"] i:nth-child(-n+5) { background: var(--tr-5); }
+.dots[data-score="4"] i:nth-child(-n+4) { background: var(--tr-4); }
+.dots[data-score="3"] i:nth-child(-n+3) { background: var(--tr-3); }
+.dots[data-score="2"] i:nth-child(-n+2) { background: var(--tr-2); }
+.dots[data-score="1"] i:nth-child(-n+1) { background: var(--tr-1); }
+
+.trust__why {
+  font-size: 11px; line-height: 1.35; font-weight: 400; color: var(--ink-3);
+  min-width: 0; overflow-wrap: anywhere;
+}
+.trust__legend {
+  margin: 8px 2px 0; font-size: 10.5px; line-height: 1.4; color: var(--ink-3);
+}
+
+/* "Alınacak" durumu: sepet rengi, satın alındıdan ayrışsın. */
+:root { --st-alinacak: #9a5b1f; }
+@media (prefers-color-scheme: dark) { :root { --st-alinacak: #e0a86a; } }
+.flag--alinacak { color: var(--st-alinacak); }
+.state[data-state="alinacak"].is-on {
+  color: var(--st-alinacak);
+  border-color: color-mix(in srgb, var(--st-alinacak) 55%, var(--line));
+  background: color-mix(in srgb, var(--st-alinacak) 12%, var(--bg-2));
+}
+/* Beş durum var: tek sütunda son satır tek kalmasın diye ilk düğme tam genişlik. */
+.states__row > .state:first-child { grid-column: 1 / -1; }

@@ -18,8 +18,10 @@ dilden, bazıları eksik. Bu arayüz o farkı görünür kılar.
 |---|---|
 | **Liste** | Her kitap bir kart: kapak + orijinal ad. Tablo değil, e-ticaret listeleme sayfası mantığı. |
 | **Görünüm anahtarı** | İki düğme: iki sütun yan yana / tek satır yatay. Seçim tarayıcıda hatırlanır. |
-| **Künye sayfası** | Karta dokununca alttan açılır: yazar, önerilen çevirmen, orijinal ad, Türkiye'de yayın adı, yayınevi, not. |
-| **Durumlar** | Her kitap **önemli / satın alındı / okunuyor / okundu** olarak işaretlenebilir. Aynı anda birden çoğu seçilebilir. |
+| **Künye sayfası** | Karta dokununca alttan açılır: yazar, önerilen çevirmen, ikinci seçenek, orijinal ad, Türkiye'de yayın adı, yayınevi, not. |
+| **Çevirmen güveni** | Her çevirmen için 5 üzerinden bir güven göstergesi ve gerekçesi. Yıldız değil beş nokta: **5 yeşil, 3 sarı, 1 magenta**. |
+| **İkinci seçenek** | Nottaki alternatif çeviri ayrı bir satır olarak çıkarılır (13 kitapta var). |
+| **Durumlar** | **önemli / alınacak / satın alındı / okunuyor / okundu**. Birden çoğu birlikte seçilebilir; *alınacak* ile *satın alındı* birbirini dışlar — birini işaretleyince diğeri düşer. |
 | **Süzgeç** | Duruma veya bölüme göre. |
 | **Durum işaretleri** | Künyenin doğrulanıp doğrulanmadığı, uyarı olup olmadığı, kaçınılacak baskı olup olmadığı. Emoji değil, Phosphor ikonu. |
 | **Akışkan düzen** | 320 pikselde iki sütun sığar; genişlik arttıkça kartlar, yazı ve kapaklar birlikte büyür. 560 pikselde durur ve ortalanır. |
@@ -103,6 +105,10 @@ Yerel dosya her ikisini de ezer.
   ikonudur (`@phosphor-icons/core`, `Icon.astro` ile satır içi).
 - **Durumlar tarayıcıda saklanır** (`localStorage`). Sunucu olmadığı için
   cihazlar arasında eşitlenmez; tarayıcı verisi silinirse gider.
+- **Güven oranı dış bir kaynak değil.** Tamamen `kitaplar.md` içindeki nottan
+  ve durum işaretinden hesaplanır; kural `scripts/build-data.mjs` içinde açık
+  yazılıdır ve gerekçe arayüzde puanın yanında gösterilir. Ayrıntı:
+  [`docs/VERI.md`](docs/VERI.md).
 
 ## Yayın
 
