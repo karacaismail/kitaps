@@ -1,16 +1,21 @@
 /* ============================================================================
-   Kitaps — 320 piksel mobil arayüz
+   Kitaps — mobil arayüz, 320 pikselden başlayarak akışkan
    ----------------------------------------------------------------------------
-   Tek hedef genişlik: 320px. Tüm ölçüler bu genişlikten türetilir.
-   Daha geniş ekranlarda gövde ortalanır; düzen esnemez, çünkü tasarım
-   kararları (kapak oranı, satır uzunluğu, dokunma alanı) 320 için verildi.
-   Daha geniş bir sürüm istenirse tek değişiklik: --app.
+   Taban 320px: her karar en dar telefonda çalışacak şekilde verildi.
+   Ama düzen oraya çivilenmiş değil — genişlik, boşluk, yazı ve kapak ölçüleri
+   görünen alana göre esner. Üst sınır --app: ondan sonra gövde ortalanır,
+   çünkü iki sütunlu kart düzeni sınırsız genişlikte anlamını yitirir.
+
+   Akışkanlık iki araca dayanır:
+     clamp(en az, akışkan, en çok)  -> görünen alana bağlı ölçüler
+     cqw / @container               -> kartın kendi genişliğine bağlı ölçüler
+                                       (aynı kural iki görünümde de çalışır)
    ========================================================================= */
 
 :root {
-  --app: 320px;
-  --pad: 12px;
-  --gap: 10px;
+  --app: 560px;                          /* üst sınır; altında tamamen akışkan */
+  --pad: clamp(12px, 3.6vw, 20px);
+  --gap: clamp(10px, 2.6vw, 14px);
 
   /* Açık tema */
   --bg:        #faf9f7;
@@ -68,6 +73,7 @@ body {
   margin: 0 auto;
   width: 100%;
   max-width: var(--app);
+  min-width: 320px;                      /* taban: bunun altında düzen bozulur */
   background: var(--bg);
   color: var(--ink);
   font: 400 15px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -97,11 +103,11 @@ body {
 }
 .head__title {
   margin: 0;
-  font-size: 26px; line-height: 1.1; font-weight: 700; letter-spacing: -.02em;
+  font-size: clamp(26px, 7.6vw, 34px); line-height: 1.1; font-weight: 700; letter-spacing: -.02em;
 }
 .head__sub {
   margin: 3px 0 0;
-  font-size: 12px; color: var(--ink-2);
+  font-size: clamp(12px, 3.4vw, 14px); color: var(--ink-2);
 }
 
 /* ----------------------------------------------------------- araç çubuğu -- */
@@ -190,20 +196,23 @@ body {
 [data-view="grid"] .card { flex-direction: column; }
 [data-view="grid"] .card__media { width: 100%; aspect-ratio: 2 / 3; }
 [data-view="grid"] .card__body  { padding: 8px 8px 10px; text-align: start; }
-[data-view="grid"] .card__title { font-size: 12.5px; line-height: 1.3; -webkit-line-clamp: 3; }
-[data-view="grid"] .card__second{ font-size: 11px; -webkit-line-clamp: 2; }
+[data-view="grid"] .card__title { font-size: clamp(12.5px, 3.6vw, 15px); line-height: 1.3; -webkit-line-clamp: 3; }
+[data-view="grid"] .card__second{ font-size: clamp(11px, 3.1vw, 13px); -webkit-line-clamp: 2; }
 
 /* -- tek satır yatay görünümü: kapak solda, ad sağda -- */
-[data-view="list"] .card { flex-direction: row; align-items: stretch; min-height: 78px; }
-[data-view="list"] .card__media { width: 52px; flex: none; aspect-ratio: 2 / 3; }
+[data-view="list"] .card { flex-direction: row; align-items: stretch; min-height: clamp(78px, 24vw, 126px); }
+[data-view="list"] .card__media { width: clamp(52px, 16vw, 84px); flex: none; aspect-ratio: 2 / 3; }
 [data-view="list"] .card__body {
   padding: 9px 10px; text-align: start;
   display: flex; flex-direction: column; justify-content: center; min-width: 0;
 }
-[data-view="list"] .card__title { font-size: 13.5px; line-height: 1.3; -webkit-line-clamp: 2; }
-[data-view="list"] .card__second{ font-size: 11.5px; -webkit-line-clamp: 1; }
+[data-view="list"] .card__title { font-size: clamp(13.5px, 3.9vw, 16px); line-height: 1.3; -webkit-line-clamp: 2; }
+[data-view="list"] .card__second{ font-size: clamp(11.5px, 3.3vw, 14px); -webkit-line-clamp: 2; }
 
-.card__media { position: relative; display: block; background: var(--bg-3); }
+.card__media {
+  position: relative; display: block; background: var(--bg-3);
+  container-type: inline-size;          /* kapak içindeki ölçüler buna göre esner */
+}
 .card__body  { display: block; min-width: 0; }
 
 .card__title, .card__second {
@@ -226,11 +235,14 @@ body {
 .badge--avoid      { color: var(--avoid); }
 
 /* ----------------------------------------------------------------- kapak -- */
-.cover { display: block; width: 100%; height: 100%; object-fit: cover; }
-.cover--gen {
+/* İki katman: altta üretilen monogram kapak, üstünde varsa gerçek kapak görseli.
+   Görsel yüklenemezse JS onu siler; altındaki kapak zaten yerinde olduğu için
+   ne boşluk kalır ne de düzen kayar. */
+.cover {
   position: relative; overflow: hidden;
   display: flex; flex-direction: column; justify-content: flex-end;
-  padding: 7px 8px;
+  width: 100%; height: 100%;
+  padding: 7cqw 8cqw;
   background:
     radial-gradient(120% 90% at 78% 8%, hsl(var(--h) 40% 52% / .55) 0%, transparent 60%),
     linear-gradient(158deg, hsl(var(--h) 32% 40%) 0%, hsl(calc(var(--h) + 26) 30% 25%) 100%);
@@ -238,26 +250,37 @@ body {
 }
 .cover__band {
   position: absolute; inset-block: 0; inset-inline-start: 0;
-  width: 5px; background: rgb(0 0 0 / .22);
+  width: 3.5cqw; min-width: 2px; background: rgb(0 0 0 / .22);
 }
-/* Monogram: kapağın kimliği. Başlık kartın altında olduğu için burada tekrar edilmez. */
+/* Monogram kapağın kimliği. Başlık kartın altında olduğu için burada tekrar edilmez.
+   cqw sayesinde iki sütunda da, tek satırda da doğru oranda büyür. */
 .cover__mark {
   position: absolute; inset-block-start: 46%; inset-inline-start: 50%;
   transform: translate(-50%, -50%) rotate(var(--tilt));
-  font-size: 62px; line-height: 1; font-weight: 700; letter-spacing: -.04em;
+  font-size: 44cqw; line-height: 1; font-weight: 700; letter-spacing: -.04em;
   color: rgb(255 255 255 / .92);
   text-shadow: 0 2px 10px rgb(0 0 0 / .28);
   pointer-events: none;
 }
 .cover__sub {
   position: relative;
-  font-size: 9.5px; line-height: 1.25; font-weight: 500;
+  font-size: clamp(9px, 7cqw, 12px); line-height: 1.25; font-weight: 500;
   color: rgb(255 255 255 / .82);
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
   text-shadow: 0 1px 3px rgb(0 0 0 / .45);
 }
-[data-view="list"] .cover__mark { font-size: 26px; inset-block-start: 50%; }
-[data-view="list"] .cover__sub  { display: none; }
+/* Gerçek kapak: üretilen kapağın tam üstünü kaplar. */
+.cover--photo {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  background: var(--bg-3);
+}
+
+/* Kapak dar olduğunda (tek satır görünümü, küçük ekran) yazar adı sığmıyor. */
+@container (max-width: 74px) {
+  .cover__sub { display: none; }
+  .cover { padding: 4px; }
+}
 
 .empty { padding: 24px var(--pad); color: var(--ink-2); font-size: 13px; text-align: center; }
 
@@ -413,9 +436,12 @@ body {
 .state[data-state="okunuyor"].is-on { color: var(--st-okunuyor); border-color: color-mix(in srgb, var(--st-okunuyor) 55%, var(--line)); background: color-mix(in srgb, var(--st-okunuyor) 12%, var(--bg-2)); }
 .state[data-state="okundu"].is-on   { color: var(--st-okundu);   border-color: color-mix(in srgb, var(--st-okundu) 55%, var(--line));   background: color-mix(in srgb, var(--st-okundu) 12%, var(--bg-2)); }
 
-/* Yatay görünümde kapak 52px; rozetler buna göre küçülür. */
-[data-view="list"] .flag { width: 15px; height: 15px; }
-[data-view="list"] .flag svg { width: 10px; height: 10px; }
-[data-view="list"] .flags { gap: 2px; inset-block-end: 3px; inset-inline-start: 3px; }
-[data-view="list"] .badge { width: 16px; height: 16px; inset-block-start: 3px; inset-inline-end: 3px; }
-[data-view="list"] .badge svg { width: 11px; height: 11px; }
+/* Rozet ölçüsü görünüme değil kapağın genişliğine bağlı: aynı kural
+   tek satır görünümünde de, dar ekranda iki sütunda da doğru çalışır. */
+@container (max-width: 96px) {
+  .flag { width: 15px; height: 15px; }
+  .flag svg { width: 10px; height: 10px; }
+  .flags { gap: 2px; inset-block-end: 3px; inset-inline-start: 3px; }
+  .badge { width: 16px; height: 16px; inset-block-start: 3px; inset-inline-end: 3px; }
+  .badge svg { width: 11px; height: 11px; }
+}

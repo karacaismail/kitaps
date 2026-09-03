@@ -1,6 +1,7 @@
 {
  "generatedFrom": "data/kitaplar.md",
  "count": 170,
+ "withCover": 132,
  "sections": [
   {
    "key": "A",
@@ -99,7 +100,8 @@
    "note": "Çince aslından. Diğer baskılar İngilizce üzerinden.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 12119112
   },
   {
    "id": "A2",
@@ -118,7 +120,8 @@
    "note": "İtalyanca aslından, açıklamalı. Alternatif: Betül Parlak çevirisi.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 6600736
   },
   {
    "id": "A3",
@@ -138,7 +141,8 @@
    "status": [
     "warn",
     "avoid"
-   ]
+   ],
+   "coverId": 9933109
   },
   {
    "id": "A4",
@@ -157,7 +161,8 @@
    "note": "Japonca aslından, 216 s. Diğerleri (Anahtar, Urzeni, Kopernik, Dorlion) ara dilden ve kısaltılmış.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 12264449
   },
   {
    "id": "A5",
@@ -177,7 +182,8 @@
    "status": [
     "ok",
     "avoid"
-   ]
+   ],
+   "coverId": 874678
   },
   {
    "id": "A6",
@@ -196,7 +202,8 @@
    "note": "888 s. L. N. Rangarajan'ın İngilizce edisyonu üzerinden — Sanskritçe aslından değil.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 8401284
   },
   {
    "id": "A7",
@@ -215,7 +222,8 @@
    "note": "Alternatif: Cemal Enginsoy, ASAM (2002, 349 s.). Doruk baskısı daha kapsamlı ve satışta.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 10956853
   },
   {
    "id": "A8",
@@ -234,7 +242,8 @@
    "note": "Çeviri ağır eleştiri alıyor (makine çevirisine benzetiliyor). İngilizcesini oku.",
    "status": [
     "warn"
-   ]
+   ],
+   "coverId": 6954850
   },
   {
    "id": "A9",
@@ -253,7 +262,8 @@
    "note": "Şemalar ağırlıklı olduğu için çeviri riski düşük.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 876869
   },
   {
    "id": "A10",
@@ -272,7 +282,8 @@
    "note": "İlk baskı 2000, 2023'te 32. baskı.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 6424160
   },
   {
    "id": "A11",
@@ -291,7 +302,8 @@
    "note": "A10'un devamı ve stratejik olarak daha ağırı: Clausewitz, Sun Tzu, Musashi ve Napolyon'u tek çerçevede toplar. A3/A4/A7 ile doğrudan konuşur.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 1119676
   },
   {
    "id": "B1",
@@ -310,7 +322,8 @@
    "note": "Antik Yunanca aslından, çeviri iyi; editörlük/dizgi zayıf.",
    "status": [
     "warn"
-   ]
+   ],
+   "coverId": null
   },
   {
    "id": "B2",
@@ -330,7 +343,8 @@
    "status": [
     "warn",
     "avoid"
-   ]
+   ],
+   "coverId": 12309649
   },
   {
    "id": "B3",
@@ -349,7 +363,8 @@
    "note": "Akademik literatürün standart atıf ettiği çeviri.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 19091
   },
   {
    "id": "B4",
@@ -368,7 +383,8 @@
    "note": "B3'ün tamamlayıcısı.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 668127
   },
   {
    "id": "B5",
@@ -387,7 +403,8 @@
    "note": "",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 10460776
   },
   {
    "id": "B6",
@@ -406,7 +423,8 @@
    "note": "Türkçe baskısı teyit edilemedi. İngilizce oku.",
    "status": [
     "unverified"
-   ]
+   ],
+   "coverId": 474736
   },
   {
    "id": "B7",
@@ -423,7 +441,8 @@
    "translator": "",
    "publisher": "",
    "note": "İngilizce okunacak.",
-   "status": []
+   "status": [],
+   "coverId": 414074
   },
   {
    "id": "B8",
@@ -442,7 +461,8 @@
    "note": "Luttwak'ın Türkçedeki mevcut kitapları: Bizans İmparatorluğu'nun Büyük Stratejisi (648 s.) ve Doruk'tan bir başlık daha. Çevirmenleri doğrulanmadı.",
    "status": [
     "unverified"
-   ]
+   ],
+   "coverId": null
   },
   {
    "id": "B9",
@@ -461,7 +481,8 @@
    "note": "Clausewitz–Jomini–Liddell Hart–Luttwak hattını tek ciltte veren Türkçe kaynak.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": null
   },
   {
    "id": "C1",
@@ -480,7 +501,8 @@
    "note": "Çeviri ciddi eleştiri alıyor; teknik dil ve argümanlar kayboluyor. Önerilen: Nudge: The Final Edition (Penguin, 2021) — yazarların baştan yazdığı sürüm, Türkçesi yok.",
    "status": [
     "warn"
-   ]
+   ],
+   "coverId": 6402116
   },
   {
    "id": "C2",
@@ -501,7 +523,8 @@
     "warn",
     "unverified",
     "avoid"
-   ]
+   ],
+   "coverId": 788435
   },
   {
    "id": "C3",
@@ -520,7 +543,8 @@
    "note": "Almanca aslından. Piyasada M. Sezai Durgun–Adnan Gümüş çevirisi de var.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 8314551
   },
   {
    "id": "C4",
@@ -539,7 +563,8 @@
    "note": "",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 6553478
   },
   {
    "id": "C5",
@@ -559,7 +584,8 @@
    "status": [
     "ok",
     "warn"
-   ]
+   ],
+   "coverId": 12354998
   },
   {
    "id": "D1",
@@ -578,7 +604,8 @@
    "note": "",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": null
   },
   {
    "id": "D2",
@@ -597,7 +624,8 @@
    "note": "Sutherland'ın Scrum'da atıf verdiği kaynak. Muda / Mura / Muri buradan gelir.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 1895789
   },
   {
    "id": "D3",
@@ -614,7 +642,8 @@
    "translator": "",
    "publisher": "",
    "note": "İngilizce okunacak.",
-   "status": []
+   "status": [],
+   "coverId": 1724660
   },
   {
    "id": "E1",
@@ -633,7 +662,8 @@
    "note": "İsveççe aslından.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 1026597
   },
   {
    "id": "E2",
@@ -652,7 +682,8 @@
    "note": "Devamı: Şamatalı Köy'de Eğlence, Şamatalı Köy'de Neler Oluyor. Lindgren'in Türkçedeki tamamı İthaki + Ali Arda.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 2203363
   },
   {
    "id": "E3",
@@ -671,7 +702,8 @@
    "note": "Resimleyen: Mert Tugen. 9 yaş+.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 10742198
   },
   {
    "id": "E4",
@@ -690,7 +722,8 @@
    "note": "Newbery Ödüllü.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 541143
   },
   {
    "id": "E5",
@@ -709,7 +742,8 @@
    "note": "Resimleyen: Gözde Bitir. Yayın editörü: Müren Beykan.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 11195728
   },
   {
    "id": "E6",
@@ -728,7 +762,8 @@
    "note": "9-12 yaş.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 12292448
   },
   {
    "id": "E7",
@@ -747,7 +782,8 @@
    "note": "Tekil kitabın yazar/çevirmen künyesi doğrulanamadı.",
    "status": [
     "unverified"
-   ]
+   ],
+   "coverId": null
   },
   {
    "id": "F1",
@@ -766,7 +802,8 @@
    "note": "Otobiyografik üçlemenin 2. kitabı. Rusça aslından.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 10853162
   },
   {
    "id": "F2",
@@ -785,7 +822,8 @@
    "note": "Klasik ve en çok övülen çeviri. Yeni alternatif: Mehmet Hakkı Suçin, Kırmızı Yayınları (2016) — Cibran'ın kendi çizimleri renkli basımlı.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 418324
   },
   {
    "id": "F3",
@@ -804,7 +842,8 @@
    "note": "Tek kanonik yayıncı Remzi.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 10398104
   },
   {
    "id": "F4",
@@ -823,7 +862,8 @@
    "note": "Aradığın infografik kitap bu.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 10521836
   },
   {
    "id": "F5",
@@ -842,7 +882,8 @@
    "note": "Atwood önsözü + Huxley'nin 14 yıl sonra yazdığı önsöz + Bradshaw sonsözü ile. Alt.: Orhan Burian (MEB) — dili Osmanlıca ağırlıklı.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 8231823
   },
   {
    "id": "F6",
@@ -861,7 +902,8 @@
    "note": "Patrick Parrinder'ın makalesiyle zenginleştirilmiş.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 9009316
   },
   {
    "id": "F7",
@@ -880,7 +922,8 @@
    "note": "1934 Sorbonne konferansları; Fransızca 1935, Türkçesi 1959.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 12207559
   },
   {
    "id": "F8",
@@ -899,7 +942,8 @@
    "note": "Sert kapak baskısı mevcut, 7. baskıda.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": null
   },
   {
    "id": "F9",
@@ -918,7 +962,8 @@
    "note": "İlk baskı Metis (1990'lar); güncel hakları Everest'te.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 12205936
   },
   {
    "id": "F10",
@@ -935,7 +980,8 @@
    "translator": "Oğuz Baykara (şiirsel) veya Piyale Perver (karşılaştırmalı)",
    "publisher": "Everest Yayınları / Dedalus Kitap",
    "note": "Ayrıntı için aşağıdaki Bölüm I'e bak.",
-   "status": []
+   "status": [],
+   "coverId": 1990809
   },
   {
    "id": "G1",
@@ -954,7 +1000,8 @@
    "note": "Alt.: Ergin Altay, İletişim.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 10736127
   },
   {
    "id": "G2",
@@ -973,7 +1020,8 @@
    "note": "Okur karşılaştırmalarında Ergin Altay (İletişim, 795 s.) çevirisinin bir tık önünde.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 12236237
   },
   {
    "id": "G3",
@@ -992,7 +1040,8 @@
    "note": "Alt.: Ergin Altay, İletişim.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 12358359
   },
   {
    "id": "G4",
@@ -1011,7 +1060,8 @@
    "note": "İş Bankası baskısı (Mazlum Beyhan) da güçlü — künyeden teyit et.",
    "status": [
     "unverified"
-   ]
+   ],
+   "coverId": 12200263
   },
   {
    "id": "G5",
@@ -1030,7 +1080,8 @@
    "note": "Tolstoy'un üslubunu koruma stratejisiyle yapılmış. Alt.: Tanju Akgün (İş Bankası), Leyla Soykut (Cem, 1968 — anlamı üsluba tercih eder).",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 12222770
   },
   {
    "id": "G6",
@@ -1049,7 +1100,8 @@
    "note": "İş Bankası baskısı da yaygın — künyeden teyit et.",
    "status": [
     "unverified"
-   ]
+   ],
+   "coverId": 7740257
   },
   {
    "id": "G7",
@@ -1068,7 +1120,8 @@
    "note": "Çevirmen künyeden teyit edilmeli.",
    "status": [
     "unverified"
-   ]
+   ],
+   "coverId": 12122757
   },
   {
    "id": "G8",
@@ -1087,7 +1140,8 @@
    "note": "Çevirmen doğrulanamadı.",
    "status": [
     "unverified"
-   ]
+   ],
+   "coverId": 12259468
   },
   {
    "id": "1",
@@ -1104,7 +1158,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 3926150
   },
   {
    "id": "2",
@@ -1121,7 +1176,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 12510228
   },
   {
    "id": "3",
@@ -1138,7 +1194,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 162716
   },
   {
    "id": "4",
@@ -1155,7 +1212,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 394576
   },
   {
    "id": "5",
@@ -1172,7 +1230,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 2053225
   },
   {
    "id": "6",
@@ -1189,7 +1248,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 1137943
   },
   {
    "id": "7",
@@ -1206,7 +1266,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 12226022
   },
   {
    "id": "8",
@@ -1223,7 +1284,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 12318041
   },
   {
    "id": "9",
@@ -1240,7 +1302,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 754989
   },
   {
    "id": "10",
@@ -1257,7 +1320,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 12318044
   },
   {
    "id": "11",
@@ -1274,7 +1338,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 8330012
   },
   {
    "id": "12",
@@ -1291,7 +1356,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 247572
   },
   {
    "id": "13",
@@ -1308,7 +1374,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 12226129
   },
   {
    "id": "14",
@@ -1325,7 +1392,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 12125650
   },
   {
    "id": "15",
@@ -1342,7 +1410,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 342716
   },
   {
    "id": "16",
@@ -1359,7 +1428,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 5060712
   },
   {
    "id": "17",
@@ -1376,7 +1446,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": null
   },
   {
    "id": "18",
@@ -1393,7 +1464,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 3853822
   },
   {
    "id": "19",
@@ -1410,7 +1482,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 7229094
   },
   {
    "id": "20",
@@ -1427,7 +1500,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 12226215
   },
   {
    "id": "21",
@@ -1444,7 +1518,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": null
   },
   {
    "id": "22",
@@ -1461,7 +1536,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 4272280
   },
   {
    "id": "23",
@@ -1478,7 +1554,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 247667
   },
   {
    "id": "24",
@@ -1495,7 +1572,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 162904
   },
   {
    "id": "25",
@@ -1512,7 +1590,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 12122771
   },
   {
    "id": "26",
@@ -1529,7 +1608,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 12222323
   },
   {
    "id": "27",
@@ -1546,7 +1626,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 541092
   },
   {
    "id": "28",
@@ -1563,7 +1644,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 4913746
   },
   {
    "id": "29",
@@ -1580,7 +1662,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 7364858
   },
   {
    "id": "30",
@@ -1597,7 +1680,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 12771362
   },
   {
    "id": "31",
@@ -1614,7 +1698,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 7132908
   },
   {
    "id": "32",
@@ -1631,7 +1716,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 12222576
   },
   {
    "id": "33",
@@ -1648,7 +1734,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 12222641
   },
   {
    "id": "34",
@@ -1665,7 +1752,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 12222656
   },
   {
    "id": "35",
@@ -1682,7 +1770,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 357638
   },
   {
    "id": "36",
@@ -1699,7 +1788,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 4939876
   },
   {
    "id": "37",
@@ -1716,7 +1806,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 3327791
   },
   {
    "id": "38",
@@ -1733,7 +1824,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 4796334
   },
   {
    "id": "39",
@@ -1750,7 +1842,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 12272552
   },
   {
    "id": "40",
@@ -1767,7 +1860,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 12272175
   },
   {
    "id": "41",
@@ -1784,7 +1878,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": null
   },
   {
    "id": "42",
@@ -1801,7 +1896,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 12253363
   },
   {
    "id": "43",
@@ -1818,7 +1914,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 13300091
   },
   {
    "id": "44",
@@ -1835,7 +1932,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 12360096
   },
   {
    "id": "45",
@@ -1852,7 +1950,8 @@
    "translator": "",
    "publisher": "Türkiye İş Bankası Kültür Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 12276380
   },
   {
    "id": "H-98",
@@ -1869,7 +1968,8 @@
    "translator": "Füsun Doruker",
    "publisher": "Remzi Kitabevi",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 12301069
   },
   {
    "id": "H-99",
@@ -1886,7 +1986,8 @@
    "translator": "Dost Körpe",
    "publisher": "Alfa Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 12254335
   },
   {
    "id": "H-100",
@@ -1903,7 +2004,8 @@
    "translator": "Barbaros Uzunköprü",
    "publisher": "Kronik Kitap (2023, 1024 s.)",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": null
   },
   {
    "id": "H-101",
@@ -1920,7 +2022,8 @@
    "translator": "Tufan Göbekçin",
    "publisher": "DeliDolu (2013, 679 s.)",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": null
   },
   {
    "id": "H-102",
@@ -1937,7 +2040,8 @@
    "translator": "Emre Gözgü",
    "publisher": "Domingo Yayınevi (2019)",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 8087691
   },
   {
    "id": "H-103",
@@ -1954,7 +2058,8 @@
    "translator": "",
    "publisher": "Bilim ve Gelecek Kitaplığı (2014, 392 s.)",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": null
   },
   {
    "id": "H-104",
@@ -1971,7 +2076,8 @@
    "translator": "Suat Kaya",
    "publisher": "Abis Yayınları (2014, 624 s.)",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 9353665
   },
   {
    "id": "K1",
@@ -1990,7 +2096,8 @@
    "note": "İngilizce için en iyi tek alım. Japonya'nın önde gelen Musashi uzmanının yeniden kurduğu metinden; mevcut nüshalar arasındaki farkları saptayıp 150'den fazla hatalı karakteri düzeltiyor. Dokkōdō dâhil Musashi'nin diğer yazıları da içinde.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": null
   },
   {
    "id": "K2",
@@ -2009,7 +2116,8 @@
    "note": "K1'in yalnız Go Rin no Sho içeren, daha ince sürümü. Sadece Beş Çember istiyorsan bu.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": null
   },
   {
    "id": "K3",
@@ -2028,7 +2136,8 @@
    "note": "Edebî olarak en akıcı ve tonu en iyi koruyan çeviri. Japonca-İngilizce karşılıklı basımı da var.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": null
   },
   {
    "id": "K4",
@@ -2047,7 +2156,8 @@
    "note": "Zen ve dövüş kavramlarını en iyi açıklayan dipnot ve giriş yazıları. Anlamak için en yardımcı sürüm.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": null
   },
   {
    "id": "K5",
@@ -2066,7 +2176,8 @@
    "note": "1974 tarihli; akıcı ama eskimiş ve bugün aşıldı. Omnibus baskılarda genelde bu kullanılıyor.",
    "status": [
     "warn"
-   ]
+   ],
+   "coverId": null
   },
   {
    "id": "K6",
@@ -2085,7 +2196,8 @@
    "note": "Aradığın \"illustrated\" baskı bu. Metin sadık ama damıtılmış — ana metnin yerine değil, yanına.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 9345484
   },
   {
    "id": "K7",
@@ -2104,7 +2216,8 @@
    "note": "Dikkat: buradaki \"The Way of the Samurai\" Hagakure DEĞİL — Inazo Nitobe'nin Bushido: The Soul of Japan kitabı. Yani A5'in İngilizcesi değil, ayrı bir eser. Ayrıca Five Rings çevirisi eskimiş Harris sürümü. Hediyelik/dekoratif olarak iyi, çalışma metni olarak zayıf — üç metnin de daha iyi Türkçesi zaten A1, A4, A5'te. Kutu seti sürümü: The Path of the Warrior Ornate Box Set (Arcturus).",
    "status": [
     "warn"
-   ]
+   ],
+   "coverId": null
   },
   {
    "id": "K8",
@@ -2123,7 +2236,8 @@
    "note": "Musashi'nin ölümünden bir hafta önce yazdığı 21 ilke. Müstakil kitap olarak alınmaz; K1 The Complete Musashi içinde tam metin var — en temiz yol bu. Yorumlu müstakil baskı: Musashi's Dokkodo (The Way of Walking Alone): Half Crazy, Half Genius (Burrese, Kane, Wilder v.d.). İthaki baskısının (A4) Dokkōdō'yu ek olarak içerip içermediği künyeden kontrol edilmeli.",
    "status": [
     "unverified"
-   ]
+   ],
+   "coverId": null
   },
   {
    "id": "K9",
@@ -2142,7 +2256,8 @@
    "note": "Türkçesi var. Çok ciltli: Musashi I. Kitap: Kılıç ve Delikanlı ile başlıyor. Musashi'yi bir karakter olarak tanımanın yolu; Beş Çember'in tarihsel-duygusal arka planı. İngilizce: Charles S. Terry çevirisi (Kodansha, tek cilt ~970 s.) veya yeni kısaltmasız Alexander Bennett çevirisi (Tuttle).",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 2132494
   },
   {
    "id": "M1",
@@ -2159,7 +2274,8 @@
    "translator": "Derya Yüksek",
    "publisher": "Varlık Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 9180157
   },
   {
    "id": "M2",
@@ -2176,7 +2292,8 @@
    "translator": "",
    "publisher": "Sistem Yayıncılık (228 s.)",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 241061
   },
   {
    "id": "M3",
@@ -2193,7 +2310,8 @@
    "translator": "Korkmaz Haktanır",
    "publisher": "Koridor Yayıncılık",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 9274687
   },
   {
    "id": "M4",
@@ -2210,7 +2328,8 @@
    "translator": "",
    "publisher": "Boyner Yayınları",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 7431270
   },
   {
    "id": "M5",
@@ -2227,7 +2346,8 @@
    "translator": "Selim Özgül",
    "publisher": "Agora Kitaplığı (2010, 686 s.)",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 13748432
   },
   {
    "id": "M6",
@@ -2244,7 +2364,8 @@
    "translator": "Özlem Koşar",
    "publisher": "CEO Plus (2015, 192 s.)",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 14428233
   },
   {
    "id": "N1",
@@ -2263,7 +2384,8 @@
    "note": "Bu listenin temel kitabı. İrade sorununun kaynağı istek eksikliği değil, Sistem 1'in Sistem 2'yi ele geçirmesi. Kendi kararlarındaki sistematik hataları görmeden strateji kuramazsın.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 13290711
   },
   {
    "id": "N2",
@@ -2282,7 +2404,8 @@
    "note": "Motivasyonun üç ayağı: özerklik, ustalık, amaç. Hem kendine hem ekibine uygulanır — bu yüzden N.1 ile N.3 arasında köprü.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 6404786
   },
   {
    "id": "N3",
@@ -2301,7 +2424,8 @@
    "note": "İrade edebiyatının kurucu metni ve M6'nın (Holiday) kaynağı. Alternatif: Düşünceler, çev. Şadan Karadeniz, Yapı Kredi Yayınları.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 211529
   },
   {
    "id": "N4",
@@ -2320,7 +2444,8 @@
    "note": "İradeyi sisteme çeviren pratik kitap. Teorik derinliği yok ama uygulama tarafı listedeki en somut olanı.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 12539702
   },
   {
    "id": "N5",
@@ -2339,7 +2464,8 @@
    "note": "Karşılıklılık, tutarlılık, sosyal kanıt, otorite, beğeni, kıtlık. Hem ikna etmek hem ikna edilmemek için.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 12128201
   },
   {
    "id": "N6",
@@ -2356,7 +2482,8 @@
    "translator": "Remzi Kitabevi (2019)",
    "publisher": "✅ Çalışanla zor konuşmanın en sağlam yöntemi: gözlem → duygu → ihtiyaç → rica. Suçlamadan sonuç almanın tekniği. Eski baskı: çev. Mahmut Tuna, Sistem Yayıncılık.",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 940686
   },
   {
    "id": "N7",
@@ -2375,7 +2502,8 @@
    "note": "FBI rehine müzakerecisinin yöntemi. Üst yönetimle konuşurken en işe yarayanı — \"taktiksel empati\", etiketleme, kalibre edilmiş sorular.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 8365942
   },
   {
    "id": "N8",
@@ -2394,7 +2522,8 @@
    "note": "Doğrudan geri bildirim ile kişisel ilgiyi aynı anda tutmak. Yıkıcı empati (söyleyememe) ile saldırgan samimiyet (kırıcı olma) arasındaki dar yol.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 8088432
   },
   {
    "id": "N9",
@@ -2413,7 +2542,8 @@
    "note": "Roman biçiminde. Güven yokluğu → çatışma korkusu → bağlılık eksikliği → hesap verebilirlikten kaçınma → sonuçlara kayıtsızlık zinciri. Ekip teşhisi için hızlı araç.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": 549590
   },
   {
    "id": "N10",
@@ -2433,7 +2563,8 @@
    "status": [
     "warn",
     "unverified"
-   ]
+   ],
+   "coverId": 96165
   },
   {
    "id": "1",
@@ -2450,7 +2581,8 @@
    "translator": "Cemal Süreya, Tomris Uyar",
    "publisher": "Can Yayınları",
    "note": "7+",
-   "status": []
+   "status": [],
+   "coverId": 12307643
   },
   {
    "id": "2",
@@ -2467,7 +2599,8 @@
    "translator": "Ali Arda",
    "publisher": "İthaki",
    "note": "7+",
-   "status": []
+   "status": [],
+   "coverId": null
   },
   {
    "id": "3",
@@ -2484,7 +2617,8 @@
    "translator": "Celal Üster",
    "publisher": "Can Çocuk",
    "note": "8+",
-   "status": []
+   "status": [],
+   "coverId": null
   },
   {
    "id": "4",
@@ -2501,7 +2635,8 @@
    "translator": "",
    "publisher": "Can Çocuk",
    "note": "8+",
-   "status": []
+   "status": [],
+   "coverId": 12889769
   },
   {
    "id": "5",
@@ -2518,7 +2653,8 @@
    "translator": "Haşim Hüsrevşahi",
    "publisher": "Can Çocuk",
    "note": "8+",
-   "status": []
+   "status": [],
+   "coverId": 12240683
   },
   {
    "id": "6",
@@ -2535,7 +2671,8 @@
    "translator": "Ali Arda",
    "publisher": "İthaki",
    "note": "9+",
-   "status": []
+   "status": [],
+   "coverId": null
   },
   {
    "id": "7",
@@ -2552,7 +2689,8 @@
    "translator": "Şebnem Sunar",
    "publisher": "Can Çocuk",
    "note": "9+",
-   "status": []
+   "status": [],
+   "coverId": 12320459
   },
   {
    "id": "8",
@@ -2569,7 +2707,8 @@
    "translator": "Duygu Kayadelen",
    "publisher": "Arkadaş",
    "note": "9+",
-   "status": []
+   "status": [],
+   "coverId": null
   },
   {
    "id": "9",
@@ -2586,7 +2725,8 @@
    "translator": "",
    "publisher": "",
    "note": "9+",
-   "status": []
+   "status": [],
+   "coverId": null
   },
   {
    "id": "10",
@@ -2603,7 +2743,8 @@
    "translator": "Emrah İmre (Portekizce aslından)",
    "publisher": "Can Yayınları",
    "note": "10+",
-   "status": []
+   "status": [],
+   "coverId": 10950908
   },
   {
    "id": "11",
@@ -2620,7 +2761,8 @@
    "translator": "— (telif Türkçe)",
    "publisher": "Tudem",
    "note": "10+",
-   "status": []
+   "status": [],
+   "coverId": null
   },
   {
    "id": "12",
@@ -2637,7 +2779,8 @@
    "translator": "Ülkü Tamer",
    "publisher": "Yapı Kredi Yayınları",
    "note": "9+",
-   "status": []
+   "status": [],
+   "coverId": null
   },
   {
    "id": "P-142",
@@ -2656,7 +2799,8 @@
    "note": "Künye doğrulanmadı",
    "status": [
     "unverified"
-   ]
+   ],
+   "coverId": 12222824
   },
   {
    "id": "P-143",
@@ -2675,7 +2819,8 @@
    "note": "Can Çocuk ve İş Bankası baskıları var; kelime oyunları yüzünden çevirmen kritik — künyeye mutlaka bak",
    "status": [
     "unverified"
-   ]
+   ],
+   "coverId": 12252693
   },
   {
    "id": "P-144",
@@ -2694,7 +2839,8 @@
    "note": "",
    "status": [
     "unverified"
-   ]
+   ],
+   "coverId": 2668686
   },
   {
    "id": "P-145",
@@ -2713,7 +2859,8 @@
    "note": "",
    "status": [
     "unverified"
-   ]
+   ],
+   "coverId": 10854002
   },
   {
    "id": "P-146",
@@ -2732,7 +2879,8 @@
    "note": "",
    "status": [
     "unverified"
-   ]
+   ],
+   "coverId": 12292782
   },
   {
    "id": "P-147",
@@ -2751,7 +2899,8 @@
    "note": "Uyarlama al, tam metin 10 yaş için ağır",
    "status": [
     "warn"
-   ]
+   ],
+   "coverId": null
   },
   {
    "id": "P-148",
@@ -2770,7 +2919,8 @@
    "note": "Aynı uyarı",
    "status": [
     "warn"
-   ]
+   ],
+   "coverId": null
   },
   {
    "id": "P-149",
@@ -2789,7 +2939,8 @@
    "note": "",
    "status": [
     "unverified"
-   ]
+   ],
+   "coverId": null
   },
   {
    "id": "P-150",
@@ -2806,7 +2957,8 @@
    "translator": "",
    "publisher": "",
    "note": "Türk çocuk edebiyatının klasiği",
-   "status": []
+   "status": [],
+   "coverId": 12279606
   },
   {
    "id": "P-151",
@@ -2825,7 +2977,8 @@
    "note": "",
    "status": [
     "unverified"
-   ]
+   ],
+   "coverId": 10461204
   },
   {
    "id": "P-152",
@@ -2842,7 +2995,8 @@
    "translator": "",
    "publisher": "",
    "note": "Sözlü gelenek girişi",
-   "status": []
+   "status": [],
+   "coverId": null
   },
   {
    "id": "P-153",
@@ -2861,7 +3015,8 @@
    "note": "",
    "status": [
     "unverified"
-   ]
+   ],
+   "coverId": 12317198
   },
   {
    "id": "P-154",
@@ -2880,7 +3035,8 @@
    "note": "",
    "status": [
     "unverified"
-   ]
+   ],
+   "coverId": 12230898
   },
   {
    "id": "P-155",
@@ -2899,7 +3055,8 @@
    "note": "Cahit Uçuk daha çok Türk İkizleri ile bilinir — künye kontrol et",
    "status": [
     "unverified"
-   ]
+   ],
+   "coverId": null
   },
   {
    "id": "P-156",
@@ -2918,7 +3075,8 @@
    "note": "Yazar-eser eşleşmesi doğrulanmadı",
    "status": [
     "unverified"
-   ]
+   ],
+   "coverId": 12229147
   },
   {
    "id": "P-157",
@@ -2937,7 +3095,8 @@
    "note": "Aynı uyarı",
    "status": [
     "unverified"
-   ]
+   ],
+   "coverId": 12287531
   },
   {
    "id": "P-158",
@@ -2954,7 +3113,8 @@
    "translator": "",
    "publisher": "Can Çocuk",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": 12216001
   },
   {
    "id": "P-159",
@@ -2971,7 +3131,8 @@
    "translator": "",
    "publisher": "",
    "note": "",
-   "status": []
+   "status": [],
+   "coverId": null
   },
   {
    "id": "P-160",
@@ -2990,7 +3151,8 @@
    "note": "İş Bankası'nın baskısı var",
    "status": [
     "unverified"
-   ]
+   ],
+   "coverId": 12243958
   },
   {
    "id": "P-161",
@@ -3009,7 +3171,8 @@
    "note": "Kısaltılmamış baskılar 8 yaş için sert olabilir — yaşa uygun derlemeyi seç",
    "status": [
     "warn"
-   ]
+   ],
+   "coverId": 12219760
   },
   {
    "id": "P-162",
@@ -3028,7 +3191,8 @@
    "note": "",
    "status": [
     "unverified"
-   ]
+   ],
+   "coverId": 12282976
   },
   {
    "id": "P-163",
@@ -3047,7 +3211,8 @@
    "note": "",
    "status": [
     "unverified"
-   ]
+   ],
+   "coverId": null
   },
   {
    "id": "R-164",
@@ -3066,7 +3231,8 @@
    "note": "Bu listedeki en değerli kitap. Sapiens'in kısaltması değil, çocuklar için baştan yazılmış. \"Neden biz?\" sorusunun cevabı.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": null
   },
   {
    "id": "R-165",
@@ -3085,7 +3251,8 @@
    "note": "Astrofizik + macera. Devamı: George'un Kozmik Hazine Avı.",
    "status": [
     "ok"
-   ]
+   ],
+   "coverId": null
   },
   {
    "id": "R-166",
@@ -3104,7 +3271,8 @@
    "note": "Merak duygusunu besleyen resimli seri; 5-8 yaş",
    "status": [
     "unverified"
-   ]
+   ],
+   "coverId": null
   },
   {
    "id": "R-167",
@@ -3123,7 +3291,8 @@
    "note": "Çocuk sorularına uzmanların cevabı",
    "status": [
     "unverified"
-   ]
+   ],
+   "coverId": null
   },
   {
    "id": "R-168",
@@ -3142,7 +3311,8 @@
    "note": "Türkçe baskısı doğrulanmadı",
    "status": [
     "unverified"
-   ]
+   ],
+   "coverId": 9095127
   },
   {
    "id": "R-169",
@@ -3161,7 +3331,8 @@
    "note": "Çevre farkındalığı",
    "status": [
     "unverified"
-   ]
+   ],
+   "coverId": null
   }
  ]
 }

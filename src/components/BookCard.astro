@@ -38,7 +38,7 @@ const primary = ['avoid', 'warn', 'unverified', 'ok'].find(s => book.status.incl
     aria-label={`${heading} — künyeyi aç`}
   >
     <span class="card__media">
-      <BookCover id={book.id} title={heading} sub={book.author} eager={index < 6} />
+      <BookCover id={book.id} title={heading} sub={book.author} coverId={book.coverId} eager={index < 6} />
       {primary && (
         <span class={`badge badge--${primary}`}>
           <Icon name={STATUS_ICON[primary].icon} size={13} label={STATUS_ICON[primary].label} />

@@ -5,7 +5,7 @@
  * kitap satırlarını ayıklar ve arayüzün tükettiği JSON'u üretir.
  * Kural: markdown değişince `npm run data` çalıştır, JSON'u elle düzenleme.
  */
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 
@@ -153,13 +153,21 @@ for (const { h2, h3, header, rows } of tables) {
   }
 }
 
-/* ---------- 5. Yaz ---------- */
+/* ---------- 5. Kapaklar ----------
+   `data/covers.json` Open Library'den toplanan kapak kimliklerini tutar
+   (bkz. scripts/fetch-covers.mjs). Depoya commit'lenir, CI'da ağ gerekmez. */
+const coversPath = resolve(root, 'data/covers.json');
+const covers = existsSync(coversPath) ? JSON.parse(readFileSync(coversPath, 'utf8')) : {};
+for (const b of books) b.coverId = covers[b.key]?.coverId ?? null;
+
+/* ---------- 6. Yaz ---------- */
 const order = Object.keys(SECTIONS);
 books.sort((a, b) => order.indexOf(a.section) - order.indexOf(b.section));
 
 const payload = {
   generatedFrom: 'data/kitaplar.md',
   count: books.length,
+  withCover: books.filter(b => b.coverId).length,
   sections: order
     .filter(k => books.some(b => b.section === k))
     .map(k => ({ key: k, ...SECTIONS[k], count: books.filter(b => b.section === k).length })),

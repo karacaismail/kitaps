@@ -3,12 +3,13 @@
   "type": "module",
   "version": "1.0.0",
   "private": true,
-  "description": "Mobil-öncelikli (320px) kitap listeleme arayüzü — kitaplar.md verisi",
+  "description": "320 pikselden başlayarak akışkan mobil kitap listeleme arayüzü — kitaplar.md verisi",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "data": "node scripts/build-data.mjs"
+    "data": "node scripts/build-data.mjs",
+    "covers": "node scripts/fetch-covers.mjs"
   },
   "dependencies": {
     "@phosphor-icons/core": "^2.1.1",

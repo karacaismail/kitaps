@@ -3,8 +3,13 @@
 ## Akış
 
 ```
-data/kitaplar.md  →  scripts/build-data.mjs  →  src/data/books.json  →  arayüz
+data/kitaplar.md  ─┐
+                   ├→  scripts/build-data.mjs  →  src/data/books.json  →  arayüz
+data/covers.json  ─┘
 ```
+
+`data/covers.json` kapak kimliği önbelleğidir; `scripts/fetch-covers.mjs`
+üretir, `build-data.mjs` okuyup her kitaba `coverId` olarak ekler.
 
 `data/kitaplar.md` tek doğruluk kaynağı. `src/data/books.json` üretilmiş
 çıktıdır ve **elle düzenlenmez** — `npm run data` her seferinde üzerine yazar.
@@ -49,7 +54,8 @@ Sütun adları şu alanlara eşlenir:
   "translator": "H. Fahri Çeliker",
   "publisher": "Özne Yayınları (1999) / aynı çeviri Alfa baskısında",
   "note": "Tam metin şart. Şiar Yalçın / Spartaküs (1997): 4-5-6-7. Kitaplar eksik...",
-  "status": ["warn", "avoid"]
+  "status": ["warn", "avoid"],
+  "coverId": 8231990                // Open Library kapak kimliği; yoksa null
 }
 ```
 
@@ -82,6 +88,33 @@ Bir kitapta birden çok durum olabilir. Kartta yalnızca en kritiği gösterilir
 - Kalın/italik/bağlantı işaretleri sökülür.
 - Aynı kitap birden çok bölümde geçiyorsa tek kayıt olur; eksik alanlar
   diğer geçişlerden tamamlanır, bölümler `alsoIn`'e eklenir.
+
+## Kapaklar
+
+`scripts/fetch-covers.mjs` her kitap için Open Library arama servisini sorgular.
+Sırayla üç aday dener:
+
+1. orijinal ad + yazar
+2. Türkçe ad + yazar
+3. yalnızca ad
+
+Dönen sonuçlardan başlığı yeterince örtüşen (%60 ortak kelime) ve kapağı olan
+ilk kayıt alınır. Bu eşik, "Strateji" gibi genel bir kelimeyle alakasız bir
+kitabın kapağının gelmesini engellemek için var.
+
+Çince, Rusça, Devanagari başlıklarda arama yapılamadığı için parantez içindeki
+çeviri yazım kullanılır: `孫子兵法 (Sunzi Bingfa)` → `Sunzi Bingfa`.
+
+Sonuç `data/covers.json` içinde önbelleğe alınır ve **depoya commit'lenir**:
+CI'da ağ erişimi gerekmez, her yayında 170 sorgu atılmaz.
+
+```bash
+npm run covers            # yalnızca önbellekte olmayanları sorgular
+node scripts/fetch-covers.mjs --force   # hepsini yeniden sorgular
+```
+
+Bulunamayan kitap `coverId: null` alır ve arayüzde üretilen monogram kapakla
+kalır. Şu an: **132/170**.
 
 ## Bölüm etiketleri
 

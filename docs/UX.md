@@ -2,18 +2,31 @@
 
 Her karar bir gerekçeyle bağlı. Gerekçe geçersizleşirse karar da değişmeli.
 
-## 1. Neden yalnızca 320 piksel
+## 1. 320 piksel taban, oradan yukarı akışkan
 
-İstenen hedef bu. Ama tek hedef olması bir kısıt değil, avantaj: kırılma
-noktası yok, `@media` yok, "geniş ekranda ne olur" tartışması yok. Bütün
-ölçüler (kapak oranı, satır uzunluğu, dokunma alanı) tek bir genişlik için
-verilmiş kararlar.
+320, bugün kullanılan en dar telefon genişliği (iPhone SE 1. nesil). Bütün
+kararlar orada çalışacak şekilde verildi: iki sütun sığar, dokunma alanları
+44 pikselden küçülmez, hiçbir başlık taşmaz.
 
-`body`'nin `max-width` değeri `--app: 320px`. Daha geniş ekranda gövde
-ortalanır, düzen esnemez. Genişletmek istenirse tek değişiklik `--app`.
+Ama düzen 320'ye çivilenmiş değil. 390 piksellik bir iPhone 15'te de 430
+piksellik bir Pro Max'te de kartlar, yazı ve kapaklar birlikte büyür. `--app`
+(560px) üst sınır: onun ötesinde gövde ortalanır, çünkü iki sütunlu bir kart
+düzeni 900 pikselde anlamını yitirir.
 
-320, bugün kullanılan en dar telefon genişliği (iPhone SE 1. nesil). Burada
-çalışan her şey daha geniş telefonda da çalışır; tersi doğru değil.
+Akışkanlık kırılma noktasıyla değil, iki araçla sağlanıyor:
+
+| Araç | Nerede |
+|---|---|
+| `clamp(en az, akışkan, en çok)` | Görünen alana bağlı ölçüler: boşluk, yazı boyutu, yatay görünümdeki kapak genişliği. |
+| `cqw` ve `@container` | Kartın **kendi** genişliğine bağlı ölçüler: monogram harfi, kapak dolgusu, rozet boyutu. |
+
+`@container` tercihi bilinçli. Rozetlerin küçülmesi görünüme (`[data-view="list"]`)
+değil kapağın genişliğine bağlı; böylece tek kural hem tek satır görünümünde
+hem dar ekrandaki iki sütunda doğru çalışıyor. Görünüme bağlasaydık her yeni
+genişlikte ayrı bir istisna yazmak gerekirdi.
+
+**Bilinen sınır:** 320 pikselin altında (`min-width: 320px`) düzen garanti
+edilmiyor; o genişlikte yatay kaydırma çıkar.
 
 ## 2. Neden tablo değil kart
 
@@ -80,18 +93,36 @@ değiştirse de işaretler yerinde kalır.
 verisi silinirse işaretler gider. Bu, statik bir sitede sunucusuz çözümün
 bedeli; alternatifi hesap açtırmaktı, bu ölçekteki bir liste için ağır kaçardı.
 
-## 6. Kapaklar
+## 6. Kapaklar: iki katman
 
-Gerçek kapak görselleri telifli. Depoya koymak yerine kitabın adından
-deterministik bir kapak üretiliyor: sabit renk (djb2 hash → hue), baş harf ve
-yazar adı.
+Kapak her zaman iki katman:
 
-Erken bir sürümde kapağın üstünde başlık da yazıyordu; başlık kartın altında
-zaten olduğu için 143 piksellik kartta aynı metin iki kez görünüyordu. Kapaktan
-başlık kaldırıldı, yerine baş harf monogramı kondu. Kapak artık **tanıtır**,
+1. **Altta üretilen kapak.** Kitabın adından deterministik: sabit renk (djb2
+   hash → hue), baş harf monogramı, yazar adı. Ağ gerektirmez.
+2. **Üstte gerçek kapak.** Open Library'nin açık kapak servisinden, tembel
+   yüklenir. 170 kitabın 132'sinde bulundu.
+
+Neden alttaki katman hiç kaldırılmıyor: gerçek kapak %78 oranında var, %22
+yok. Görselin olmadığı yerde boş gri kutu bırakmak listeyi delik deşik
+gösterirdi. Üretilen kapak her zaman yerinde durduğu için görsel yüklenemezse
+(404, ağ kesik, engelleyici) `error` olayında kendini siliyor ve altındaki
+kapak görünüyor — **yer değiştirme (layout shift) olmuyor**, boş kutu da kalmıyor.
+
+`error` olayı balonlanmadığı için dinleyici yakalama aşamasında (`capture`)
+belgeye bağlı; 132 ayrı `onerror` yerine tek dinleyici.
+
+Erken bir sürümde üretilen kapağın üstünde başlık da yazıyordu; başlık kartın
+altında zaten olduğu için 143 piksellik kartta aynı metin iki kez görünüyordu.
+Kapaktan başlık kaldırıldı, yerine monogram kondu. Kapak artık **tanıtır**,
 tekrar etmez.
 
-Gerçek kapak isteyen `public/covers/<id>.jpg` koyar; build otomatik bulur.
+**Bilinen bedel:** kapaklar sitenin tek dış bağımlılığı. `covers.openlibrary.org`
+erişilemezse arayüz çalışmaya devam eder ama monogram kapaklara düşer.
+Görselleri depoya indirmek bu bağımlılığı kaldırırdı; telifli materyali yeniden
+dağıtmamak için tercih edilmedi.
+
+Kendi kapağını koymak isteyen `public/covers/<id>.jpg` koyar; yerel dosya her
+ikisini de ezer.
 
 ## 7. Emoji yok, Phosphor var
 
@@ -125,6 +156,7 @@ sökülüp ayrı bir `status` alanına çevriliyor; arayüzde karşılıkları
 | | Neden |
 |---|---|
 | Arama kutusu | Süzgeç çipleri 170 kitap için yetiyor. Arama, klavye açılınca ekranın yarısını götürüyor. Liste büyürse eklenmeli. |
+| Geniş ekranda çok sütun | İstenen düzen "iki kutu yan yana". `auto-fill` ile 900 pikselde dört sütun olurdu; bu, verilen karara aykırı. Onun yerine gövde 560'ta durur. |
 | Sayfalama / sanal liste | 170 kart tek HTML'de 240 KB. Sanallaştırmanın karmaşıklığı bu ölçekte kazandırdığından fazla. |
 | Sıralama | Markdown'daki sıra bilinçli (okuma sırası). Alfabetik sıralama o bilgiyi yok ederdi. |
 | Dış bağlantı (satın alma) | Fiyat ve stok değişken; kırık bağlantı hiç bağlantı olmamasından kötü. |

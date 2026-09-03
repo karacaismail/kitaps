@@ -1,25 +1,28 @@
 ---
 /**
- * Kapak.
+ * Kapak. İki katman:
  *
- * Gerçek kapaklar telifli, depoda görsel taşımıyoruz. Yerine kitabın adından
- * türetilen deterministik bir kapak üretiyoruz: aynı kitap her build'de aynı
- * rengi ve aynı harfi alır, böylece kullanıcı kapağı listede "tanır".
+ *   1. Altta her zaman üretilen kapak — kitabın adından türeyen sabit renk,
+ *      baş harf monogramı ve yazar. Ağ gerektirmez, hiç boş kalmaz.
+ *   2. Üstte varsa gerçek kapak görseli (Open Library). Yüklenemezse görsel
+ *      kendini siler ve alttaki kapak görünür; yer değiştirme (layout shift) olmaz.
  *
- * Kapakta BAŞLIK YOK — başlık zaten kartın altında yazıyor; ikisini birden
- * basmak 143 piksellik kartta gürültü yaratıyordu. Kapak: baş harf + yazar.
- *
- * Gerçek kapak eklemek: `public/covers/<id>.jpg|png|webp` koy, build otomatik bulur.
+ * Kendi kapağını koymak istersen `public/covers/<id>.jpg|png|webp` her ikisini de ezer.
  */
 import { existsSync } from 'node:fs';
 
-interface Props { id: string; title: string; sub?: string; eager?: boolean }
-const { id, title, sub = '', eager = false } = Astro.props;
+interface Props { id: string; title: string; sub?: string; coverId?: number | null; eager?: boolean }
+const { id, title, sub = '', coverId = null, eager = false } = Astro.props;
 
 const EXT = ['jpg', 'jpeg', 'png', 'webp', 'avif'];
 const slug = id.replace(/[^\w-]/g, '_');
-const found = EXT.find(e => existsSync(new URL(`../../public/covers/${slug}.${e}`, import.meta.url)));
-const src = found ? `${import.meta.env.BASE_URL.replace(/\/$/, '')}/covers/${slug}.${found}` : null;
+const local = EXT.find(e => existsSync(new URL(`../../public/covers/${slug}.${e}`, import.meta.url)));
+
+const src = local
+  ? `${import.meta.env.BASE_URL.replace(/\/$/, '')}/covers/${slug}.${local}`
+  : coverId
+    ? `https://covers.openlibrary.org/b/id/${coverId}-L.jpg`
+    : null;
 
 /** Başlıktan sabit renk (djb2). */
 function hash(s: string) {
@@ -29,18 +32,24 @@ function hash(s: string) {
 }
 const h = hash(title + id);
 const hue = h % 360;
-const tilt = (h >> 9) % 2 === 0 ? -3 : 3;      // monogramı hafifçe eğ, kapaklar tekdüze olmasın
+const tilt = (h >> 9) % 2 === 0 ? -3 : 3;
 
-/** Baş harf: Latin olmayan başlıklarda (Çince, Rusça) ilk karakteri olduğu gibi al. */
+/** Baş harf: Latin olmayan başlıklarda (Çince, Rusça, Devanagari) ilk karakter olduğu gibi. */
 const initial = [...title.replace(/^[^\p{L}\p{N}]+/u, '')][0]?.toLocaleUpperCase('tr') ?? '?';
 const author = sub.length > 30 ? sub.slice(0, 28).trimEnd() + '…' : sub;
 ---
-{src ? (
-  <img class="cover cover--photo" src={src} alt="" loading={eager ? 'eager' : 'lazy'} decoding="async" width="143" height="214" />
-) : (
-  <span class="cover cover--gen" style={`--h:${hue};--tilt:${tilt}deg`} aria-hidden="true">
-    <span class="cover__band"></span>
-    <span class="cover__mark">{initial}</span>
-    {author && <span class="cover__sub">{author}</span>}
-  </span>
-)}
+<span class="cover" style={`--h:${hue};--tilt:${tilt}deg`}>
+  <span class="cover__band" aria-hidden="true"></span>
+  <span class="cover__mark" aria-hidden="true">{initial}</span>
+  {author && <span class="cover__sub" aria-hidden="true">{author}</span>}
+  {src && (
+    <img
+      class="cover--photo"
+      src={src}
+      alt=""
+      loading={eager ? 'eager' : 'lazy'}
+      decoding="async"
+      referrerpolicy="no-referrer"
+    />
+  )}
+</span>

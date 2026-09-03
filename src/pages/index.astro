@@ -31,7 +31,7 @@ const STATES = [
 <html lang="tr">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=320, initial-scale=1, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Kitaps — alınacak kitaplar</title>
   <meta name="description" content="Alınacak kitapların künyesi: önerilen çevirmen, yayınevi ve baskı uyarıları. 320 piksel için tasarlanmış mobil arayüz." />
   <meta name="color-scheme" content="light dark" />
@@ -137,6 +137,14 @@ const STATES = [
   <script id="durumlar" type="application/json" set:html={JSON.stringify(STATES)} />
 
   <script>
+    /* Kapak yüklenemezse (Open Library'de yok, ağ kesik, engellenmiş) görsel
+       kendini siler ve altındaki üretilen monogram kapak görünür.
+       'error' balonlanmadığı için yakalama aşamasında dinliyoruz. */
+    document.addEventListener('error', e => {
+      const img = e.target;
+      if (img instanceof HTMLImageElement && img.classList.contains('cover--photo')) img.remove();
+    }, true);
+
     const veri    = JSON.parse(document.getElementById('veri').textContent);
     const STATES  = JSON.parse(document.getElementById('durumlar').textContent);
     const liste   = document.getElementById('liste');
