@@ -1,119 +1,36 @@
-# Kitaps
+# Kitap Atlası
 
-Alınacak kitapların künye listesi. Tek amacı şu soruyu cevaplamak:
-**bu kitabı hangi çevirmenden, hangi yayınevinden almalıyım?**
+[Canlı site](https://karacaismail.github.io/kitaps/)
 
-Türkiye'de bir klasiğin on ayrı baskısı olur; bazıları özgün dilden, bazıları ara
-dilden, bazıları eksik. Bu arayüz o farkı görünür kılar.
+718 eser, 23 küme, 100 alt küme ve 21 kategoriden oluşan birleşik okuma kataloğu.
 
-- **Canlı:** https://karacaismail.github.io/kitaps
-- **Veri kaynağı:** [`data/kitaplar.md`](data/kitaplar.md) — 170 kitap
-- **Hedef:** mobil. Taban **320 piksel**, oradan yukarı **akışkan**.
+## Bu sürüm
 
----
+- 320 px genişlikten başlayan iki sütunlu mobil katalog, açık ve koyu tema.
+- Favoriler, kişisel kitaplık ve beş kitaplık okuma sırası. Satın alınanlar genel katalogda kalır.
+- İngilizce, okunabilir URL parametreleri; kategori, küme, yazar ve durum filtreleri.
+- Kitap detayında okuma amacı, önce/sonra okunacaklar, benzer kitaplar ve baskı bilgileri.
+- Kaynak bağlantılarıyla 677 kapak. Türkçe baskı doğrulanamadığında uluslararası kapak ve açık durum bilgisi.
+- Yayınevi ve çevirmen künyeleri ISBN ile ilişkilendirilir. Künye doğrulaması çeviri kalitesi garantisi değildir.
 
-## Ne yapar
+## Korunan eski sürüm
 
-| | |
-|---|---|
-| **Liste** | Her kitap bir kart: kapak + orijinal ad. Tablo değil, e-ticaret listeleme sayfası mantığı. |
-| **Görünüm anahtarı** | İki düğme: iki sütun yan yana / tek satır yatay. Seçim tarayıcıda hatırlanır. |
-| **Künye sayfası** | Karta dokununca alttan açılır: yazar, önerilen çevirmen, ikinci seçenek, orijinal ad, Türkiye'de yayın adı, yayınevi, not. |
-| **Çevirmen güveni** | Her çevirmen için 5 üzerinden bir güven göstergesi ve gerekçesi. Yıldız değil beş nokta: **5 yeşil, 3 sarı, 1 magenta**. |
-| **İkinci seçenek** | Nottaki alternatif çeviri ayrı bir satır olarak çıkarılır (13 kitapta var). |
-| **Durumlar** | **önemli / alınacak / satın alındı / okunuyor / okundu**. Birden çoğu birlikte seçilebilir; *alınacak* ile *satın alındı* birbirini dışlar — birini işaretleyince diğeri düşer. |
-| **Süzgeç** | Duruma veya bölüme göre. |
-| **Durum işaretleri** | Künyenin doğrulanıp doğrulanmadığı, uyarı olup olmadığı, kaçınılacak baskı olup olmadığı. Emoji değil, Phosphor ikonu. |
-| **Akışkan düzen** | 320 pikselde iki sütun sığar; genişlik arttıkça kartlar, yazı ve kapaklar birlikte büyür. 560 pikselde durur ve ortalanır. |
+Önceki uygulamanın bütün izlenen dosyaları `legacy/b1d060c/` altında korunur. Git geçmişi değiştirilmemiştir. Özgün Markdown ve kapak listesi ayrıca `data/kitaplar.md` ve `data/covers.json` yollarında kalır. Birleştirilen girdiler `data/sources/` altındadır.
 
-## Çalıştırma
+Kişisel işaretler ve notlar tarayıcıda saklanır. Eski Kitaps işaretleri aynı origin içinde taşınır; eski depolama silinmez. Başka cihazların veya localhost üzerindeki tarayıcı kayıtlarının otomatik aktarımı yoktur. Notlar bölümünden yedek alınıp içe aktarılabilir.
 
-```bash
-npm install
-npm run dev        # http://localhost:4321/kitaps
+## Geliştirme
+
+```sh
+npm ci
+npm run data
+npm test
+npm run dev
+npm run build
 ```
 
-```bash
-npm run data       # data/kitaplar.md -> src/data/books.json
-npm run covers     # Open Library'den eksik kapakları arar -> data/covers.json
-npm run build      # dist/ üretir
-npm run preview    # dist/ önizlemesi
-```
+GitHub Actions test ve derlemeden sonra GitHub Pages yayını yapar. Kapak dosyaları siteyle birlikte sunulur. Kaynak kayıtlarındaki çelişkiler ve eksik çevirmen bilgileri tamamlanmış olarak gösterilmez.
 
-## Veriyi güncelleme
+## Lisanslar
 
-Tek doğruluk kaynağı `data/kitaplar.md`. Akış:
-
-```
-data/kitaplar.md  →  scripts/build-data.mjs  →  src/data/books.json  →  arayüz
-```
-
-1. `data/kitaplar.md` içindeki tabloyu düzenle.
-2. `npm run data` çalıştır.
-3. Commit'le. GitHub Actions yayında bu adımı yeniden çalıştırır.
-
-`src/data/books.json` **elle düzenlenmez** — her üretimde üzerine yazılır.
-Ayrıntı: [`docs/VERI.md`](docs/VERI.md).
-
-## Dosya düzeni
-
-```
-data/kitaplar.md            tek doğruluk kaynağı (markdown tablolar)
-scripts/build-data.mjs      markdown -> JSON dönüştürücü
-scripts/fetch-covers.mjs    Open Library kapak kimliği toplayıcı
-data/covers.json            kapak kimliği önbelleği (commit'lenir)
-src/data/books.json         üretilen veri (elle düzenleme)
-src/pages/index.astro       tek sayfa: liste + süzgeç + künye sayfası + durumlar
-src/components/
-  BookCard.astro            kart (iki görünümü de aynı bileşen karşılar)
-  BookCover.astro           kapak (üretilen veya public/covers/ altındaki gerçek görsel)
-  Icon.astro                Phosphor ikonu, build sırasında satır içine gömülür
-src/styles/global.css       tüm stiller; 320 piksel taban, akışkan
-docs/UX.md                  arayüz kararları ve gerekçeleri
-docs/VERI.md                veri modeli
-```
-
-## Kapak görselleri
-
-Her kapak iki katmandan oluşur:
-
-1. **Altta üretilen kapak.** Kitabın adından türetilen sabit renk, baş harf
-   monogramı ve yazar adı. Ağ gerektirmez, hiçbir kart boş kalmaz.
-2. **Üstte gerçek kapak.** [Open Library](https://openlibrary.org)'nin açık
-   kapak servisinden. **170 kitabın 132'sinde** kapak bulundu; kalan 38'i
-   üretilen kapakla kalıyor. Görsel yüklenemezse (404, ağ kesik, engellenmiş)
-   kendini siler ve alttaki kapak görünür — düzen kaymaz.
-
-Kapak kimlikleri `npm run covers` ile toplanır ve `data/covers.json` içinde
-depoya commit'lenir; yayın sırasında ağ erişimi gerekmez.
-
-**Kendi kapağını koymak:** `public/covers/<id>.jpg` (veya `.png` / `.webp`).
-`<id>` kitabın `src/data/books.json` içindeki `id` alanı (`A1`, `B3`, `F10` …).
-Yerel dosya her ikisini de ezer.
-
-## Teknik notlar
-
-- **Astro 5**, statik çıktı. Sunucu yok, veritabanı yok.
-- **JavaScript çerçevesi yok.** Görünüm anahtarı, süzgeç ve künye sayfası
-  yaklaşık 120 satır düz JS. Künye sayfası yerel `<dialog>` — odak tuzağı ve
-  Esc tarayıcıdan hazır gelir.
-- **Tek dış bağımlılık kapak görselleri.** İkonlar build sırasında SVG olarak
-  gömülür, yazı tipi sistem yığınından gelir, JSON sayfanın içindedir. Ağa
-  giden tek şey `covers.openlibrary.org` üzerindeki kapaklar — onlar da tembel
-  yükleniyor ve başarısız olurlarsa arayüz üretilen kapakla çalışmaya devam ediyor.
-- **Emoji kullanılmaz.** Her görsel işaret [Phosphor](https://phosphoricons.com)
-  ikonudur (`@phosphor-icons/core`, `Icon.astro` ile satır içi).
-- **Durumlar tarayıcıda saklanır** (`localStorage`). Sunucu olmadığı için
-  cihazlar arasında eşitlenmez; tarayıcı verisi silinirse gider.
-- **Güven oranı dış bir kaynak değil.** Tamamen `kitaplar.md` içindeki nottan
-  ve durum işaretinden hesaplanır; kural `scripts/build-data.mjs` içinde açık
-  yazılıdır ve gerekçe arayüzde puanın yanında gösterilir. Ayrıntı:
-  [`docs/VERI.md`](docs/VERI.md).
-
-## Yayın
-
-`main` dalına her push GitHub Pages'e yayınlar
-([`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)).
-
-Kendi alan adına taşırsan `astro.config.mjs` içinde `site`'ı değiştir ve
-`base`'i kaldır.
+React Bits SpotlightCard: MIT + Commons Clause (`REACT-BITS-LICENSE.md`). Josefin Sans: SIL Open Font License (`FONT-LICENSES.txt`). Kullanılan diğer arayüz kitaplıkları kendi lisanslarına tabidir.

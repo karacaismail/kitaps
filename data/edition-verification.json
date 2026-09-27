@@ -1,0 +1,989 @@
+{
+  "goodstrategybadstrategy": {
+    "title": "İyi Strateji / Kötü Strateji",
+    "publisher": "Nobel Yaşam",
+    "isbn": "9786059746946",
+    "translators": [
+      "Cengiz Yücel"
+    ],
+    "sourceUrl": "https://www.nobelyayin.com/kitap_15818.html",
+    "sourceType": "publisher",
+    "checkedAt": "2026-09-28",
+    "editors": [
+      "Cihat Erbil"
+    ]
+  },
+  "goal": {
+    "title": "Amaç",
+    "publisher": "Optimist",
+    "isbn": "9786052261057",
+    "translators": [
+      "Ayşe Bilge Dicleli"
+    ],
+    "sourceUrl": "https://optimistkitap.com/kitap/amac/",
+    "sourceType": "publisher",
+    "checkedAt": "2026-09-28"
+  },
+  "scrumtheartofdoingtwicetheworkinhalfthetime": {
+    "title": "Scrum: İki Katı İşi Yarı Zamanda Yapma Sanatı",
+    "publisher": "Buzdağı",
+    "isbn": "9786058487475",
+    "translators": [
+      "Ali Atav"
+    ],
+    "sourceUrl": "https://www.buzdagikitabevi.com/scrum-iki-kati-isi-yari-zamanda-yapma-sanati",
+    "sourceType": "publisher",
+    "checkedAt": "2026-09-28"
+  },
+  "toyotaproductionsystem": {
+    "title": "Toyota Ruhu",
+    "publisher": "Scala",
+    "isbn": "9786059248266",
+    "translators": [
+      "Canan Feyyat"
+    ],
+    "sourceUrl": "https://www.scalakitapci.com/toyota-ruhu",
+    "sourceType": "publisher",
+    "checkedAt": "2026-09-28"
+  },
+  "thinkinginsystems": {
+    "title": "Sistemlerle Düşünmek",
+    "publisher": "Pegem Akademi",
+    "isbn": "9786257582353",
+    "translators": [],
+    "sourceUrl": "https://depo.pegem.net/9786257582353.pdf",
+    "sourceType": "publisher-preview",
+    "checkedAt": "2026-09-28",
+    "translationEditors": [
+      "Kübra Bolay Özemre",
+      "Emre Göktepe"
+    ],
+    "note": "Örnek kitabın künye sayfasında bu isimler çeviri editörü olarak yer alıyor. Bölüm çevirmenlerinin tam listesi henüz doğrulanmadı."
+  },
+  "преступлениеинаказание": {
+    "title": "Suç ve Ceza",
+    "publisher": "Türkiye İş Bankası Kültür Yayınları",
+    "isbn": "9789754589023",
+    "translators": [
+      "Mazlum Beyhan"
+    ],
+    "sourceUrl": "https://www.iskultur.com.tr/suc-ve-ceza-2.aspx",
+    "sourceType": "publisher",
+    "checkedAt": "2026-09-28"
+  },
+  "братьякарамазовы": {
+    "title": "Karamazov Kardeşler",
+    "publisher": "Türkiye İş Bankası Kültür Yayınları",
+    "isbn": "9789944880985",
+    "translators": [
+      "Nihal Yalaza Taluy"
+    ],
+    "sourceUrl": "https://www.iskultur.com.tr/karamazov-kardesler-2.aspx",
+    "sourceType": "publisher",
+    "checkedAt": "2026-09-28"
+  },
+  "запискиизподполья": {
+    "title": "Yeraltından Notlar",
+    "publisher": "Türkiye İş Bankası Kültür Yayınları",
+    "isbn": "9789944884013",
+    "translators": [
+      "Nihal Yalaza Taluy"
+    ],
+    "sourceUrl": "https://www.iskultur.com.tr/yeraltindan-notlar.aspx",
+    "sourceType": "publisher",
+    "checkedAt": "2026-09-28"
+  },
+  "идиот": {
+    "title": "Budala",
+    "publisher": "İletişim",
+    "isbn": "9789750516849",
+    "translators": [
+      "Mazlum Beyhan"
+    ],
+    "sourceUrl": "https://iletisim.com.tr/kitap/budala/9006",
+    "sourceType": "publisher",
+    "checkedAt": "2026-09-28",
+    "correction": "Arşivde İletişim baskısına Ergin Altay adı yazılmıştı. Bu ISBN için yayınevinin verdiği çevirmen Mazlum Beyhan. Eski kayıt yalnızca arşivde korunuyor."
+  },
+  "аннакаренина": {
+    "title": "Anna Karenina",
+    "publisher": "İletişim",
+    "isbn": "9789750517457",
+    "translators": [
+      "Ergin Altay"
+    ],
+    "sourceUrl": "https://iletisim.com.tr/kitap/anna-karenina/9070",
+    "sourceType": "publisher",
+    "checkedAt": "2026-09-28",
+    "sourceLanguage": "Rusça",
+    "previewUrl": "https://iletisim.com.tr/Images/UserFiles/Documents/Gallery/anna-karenina.pdf"
+  },
+  "смертьиванаильича": {
+    "title": "İvan İlyiç’in Ölümü",
+    "publisher": "Türkiye İş Bankası Kültür Yayınları",
+    "isbn": "9786053321170",
+    "translators": [
+      "Mazlum Beyhan"
+    ],
+    "sourceUrl": "https://www.iskultur.com.tr/ivan-ilyicin-olumu.aspx",
+    "sourceType": "publisher",
+    "checkedAt": "2026-09-28",
+    "correction": "Arşivde İş Bankası baskısına Mehmet Özgül adı yazılmıştı. Bu ISBN için yayınevinin verdiği çevirmen Mazlum Beyhan."
+  },
+  "atomichabits": {
+    "title": "Atomik Alışkanlıklar",
+    "publisher": "Pegasus",
+    "isbn": "9786052998380",
+    "translators": [
+      "Sevinç Seyla Tezcan"
+    ],
+    "sourceUrl": "https://pegasusyayinlari.com/kitap_detay.php?kitapid=15890312434",
+    "sourceType": "publisher",
+    "checkedAt": "2026-09-28"
+  },
+  "competitivestrategy": {
+    "title": "Rekabet Stratejisi",
+    "publisher": "Sistem Yayıncılık",
+    "isbn": "9789753220828",
+    "translators": [
+      "Gülen Ulubilgen"
+    ],
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/rekabet-stratejisi-sektor-ve-rakip-analizi-teknikleri/13409.html",
+    "sourceType": "retailer",
+    "checkedAt": "2026-09-28",
+    "note": "Çevirmen adı bu ISBN için Kitapyurdu künyesindeki yazımıyla aktarılmıştır. Yayınevi künyesiyle ikinci kontrol bekliyor. Kapak, farklı ISBN taşıyan Aura baskısıdır; bu çevirmen bilgisi o kapağa bağlanmaz."
+  },
+  "powerlaw": {
+    "title": "Güç Yasası",
+    "publisher": "Scala",
+    "isbn": "9786255544414",
+    "translators": [
+      "Osman Şenkul"
+    ],
+    "sourceUrl": "https://www.scalakitapci.com/guc-yasasi",
+    "sourceType": "publisher",
+    "checkedAt": "2026-09-28",
+    "editors": [
+      "Canan Feyyat"
+    ]
+  },
+  "manwhosolvedthemarket": {
+    "title": "Jim Simons: Piyasaların Şifresini Çözen Adam",
+    "publisher": "Scala",
+    "isbn": "9786257191043",
+    "translators": [
+      "Canan Feyyat"
+    ],
+    "sourceUrl": "https://www.scalakitapci.com/piyasalarin-sifresini-cozen-adam",
+    "sourceType": "publisher",
+    "checkedAt": "2026-09-28"
+  },
+  "meditations": {
+    "title": "Kendime Düşünceler",
+    "publisher": "Türkiye İş Bankası Kültür Yayınları",
+    "isbn": "9786052954027",
+    "translators": [
+      "Yunus Emre Ceren"
+    ],
+    "sourceUrl": "https://www.iskultur.com.tr/kendime-dusunceler.aspx",
+    "sourceType": "publisher",
+    "checkedAt": "2026-09-28"
+  },
+  "pictureofdoriangray": {
+    "title": "Dorian Gray’in Portresi",
+    "publisher": "Türkiye İş Bankası Kültür Yayınları",
+    "isbn": "9786052956267",
+    "translators": [
+      "Didar Zeynep Batumlu"
+    ],
+    "sourceUrl": "https://www.iskultur.com.tr/dorian-grayin-portresi.aspx",
+    "sourceType": "publisher",
+    "checkedAt": "2026-09-28"
+  },
+  "孫子兵法sunzibingfa": {
+    "title": "Savaş Sanatı",
+    "publisher": "Türkiye İş Bankası Kültür Yayınları",
+    "isbn": "9786053322696",
+    "translators": [
+      "Giray Fidan",
+      "Pulat Otkan"
+    ],
+    "sourceUrl": "https://www.iskultur.com.tr/savas-sanati.aspx",
+    "sourceType": "publisher",
+    "checkedAt": "2026-09-28"
+  },
+  "personalmbamastertheartofbusiness": {
+    "title": "Kendi Kendine MBA",
+    "publisher": "Pegasus",
+    "isbn": "9786053437598",
+    "translators": [
+      "Muhtesim Güvenç"
+    ],
+    "sourceUrl": "https://pegasusyayinlari.com/kitap_detay.php?kitapid=14577057259",
+    "sourceType": "publisher",
+    "checkedAt": "2026-09-28"
+  },
+  "goodtogreat": {
+    "title": "İyi'den Mükemmel Şirkete",
+    "publisher": "Boyner Yayınları",
+    "isbn": "9789757004431",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/iyiden-mukemmel-sirkete/61177.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Levent Cinemre"
+    ],
+    "sourceType": "retailer"
+  },
+  "builttolast": {
+    "title": "Kalıcı Olmak",
+    "publisher": "Sistem Yayıncılık",
+    "isbn": "9789753221085",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/kalici-olmak/13404.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Zuhal Çivi"
+    ],
+    "sourceType": "retailer"
+  },
+  "competingforthefuture": {
+    "title": "Geleceği Kazanmak",
+    "publisher": "İnkılap Kitabevi",
+    "isbn": "9751010322",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/gelecegi-kazanmak/7493.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Zülfü Dicleli"
+    ],
+    "sourceType": "retailer"
+  },
+  "emythrevisited": {
+    "title": "Girişimcilik Tutkusu",
+    "publisher": "Aura Kitapları",
+    "isbn": "9786051033006",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/girisimcilik-tutkusu/380227.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Tayfur Keskin"
+    ],
+    "sourceType": "retailer"
+  },
+  "leadingchange": {
+    "title": "Değişime Liderlik Etmek",
+    "publisher": "CEO Plus (Doğan Yayınları)",
+    "isbn": "9786050981483",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/degisime-liderlik-etmek/573720.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Levent Çıtak"
+    ],
+    "sourceType": "retailer"
+  },
+  "onbecomingaleader": {
+    "title": "Bir Lider Olabilmek",
+    "publisher": "Aura Kitapları",
+    "isbn": "9786051033204",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/bir-lider-olabilmek/395596.html",
+    "checkedAt": "2026-09-28",
+    "translators": [],
+    "sourceType": "retailer",
+    "note": "Kapaktaki baskı kaydı çevirmen belirtmiyor; önceki baskıdan isim taşınmadı."
+  },
+  "outofthecrisis": {
+    "title": "Krizden Çıkış",
+    "publisher": "KalDer Yayınları",
+    "isbn": "9789759850272",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/krizden-cikis/26629.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Cem Akaş"
+    ],
+    "sourceType": "retailer"
+  },
+  "48lawsofpower": {
+    "title": "İktidar (Güç Sahibi Olmanın 48 Yasası)",
+    "publisher": "Altın Kitaplar",
+    "isbn": "9789752100831",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/iktidar-guc-sahibi-olmanin-48-yasasi/22750.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Zeliha İyidoğan Babayiğit"
+    ],
+    "sourceType": "retailer"
+  },
+  "haloeffect": {
+    "title": "Şirket Performansı",
+    "publisher": "MediaCat Kitapları",
+    "isbn": "9786255813008",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/sirket-performansi/728245.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Nadir Özata"
+    ],
+    "sourceType": "retailer"
+  },
+  "superforecasting": {
+    "title": "Süpertahmin: İsabetli Tahmin ve İyi Yargının Bilim ve Sanatı",
+    "publisher": "Optimist Kitap",
+    "isbn": "9786052261682",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/supertahmin/450688.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Taner Gezer",
+      "Ümit Şensoy",
+      "Nadir Özata"
+    ],
+    "sourceType": "retailer"
+  },
+  "thisismarketing": {
+    "title": "This is Marketing - İşte Pazarlama",
+    "publisher": "Profil Kitap",
+    "isbn": "9786057525710",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/this-is-marketing-iste-pazarlama/515736.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Zeynep Şen"
+    ],
+    "sourceType": "retailer"
+  },
+  "permissionmarketing": {
+    "title": "Permission Marketing / İzinli Pazarlama: Yabancıları Dosta, Dostları Müşteriye Dönüştürmek",
+    "publisher": "Rota Yayınları",
+    "isbn": "9758296329",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/permission-marketingizinli-pazarlamayabancilari-dosta-dostlari-musteriye-donusturmek/31783.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Murat Ermert"
+    ],
+    "sourceType": "retailer"
+  },
+  "allmarketersareliars": {
+    "title": "Bütün Pazarlamacılar Yalancıdır: Hikaye Anlatırlar",
+    "publisher": "Elma Yayınevi",
+    "isbn": "9789756093160",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/butun-pazarlamacilar-yalancidir-hikaye-anlatirlar/80162.html",
+    "checkedAt": "2026-09-28",
+    "translators": [],
+    "sourceType": "retailer"
+  },
+  "onlytheparanoidsurvive": {
+    "title": "Yalnızca Paranoidler Ayakta Kalabilir",
+    "publisher": "Sistem Yayıncılık",
+    "isbn": "",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/yalnizca-paranoidler-ayakta-kalabilir/13414.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Özlem Dinçkal",
+      "Ferma Lekesizalın"
+    ],
+    "sourceType": "retailer",
+    "note": "Kaynak sayfa ISBN belirtmiyor. Çevirmen adı bu sayfadaki baskı kaydıyla sınırlıdır."
+  },
+  "reengineeringthecorporation": {
+    "title": "Değişim Mühendisliği: İş İdaresinde Devrim İçin Bir Manifesto",
+    "publisher": "Sabah Kitapları",
+    "isbn": "9757339075",
+    "sourceUrl": "https://fihristkitap.com/magaza/pazaryeri/inceleme-ve-arastirma/degisim-muhendisligi-is-idaresinde-devrim-icin-bir-manifesto-michael-hammer-james-champy/",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Sinem Gül"
+    ],
+    "sourceType": "retailer"
+  },
+  "johnlocke": {
+    "title": "John Locke",
+    "publisher": "Türkiye İş Bankası Kültür Yayınları",
+    "isbn": "9786053604228",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/john-locke/267826.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Akın Terzi"
+    ],
+    "sourceType": "retailer",
+    "isbnSourceUrl": "https://www.halkkitabevi.com/john-locke-ciltli"
+  },
+  "korkuncivan": {
+    "title": "Korkunç İvan",
+    "publisher": "Türkiye İş Bankası Kültür Yayınları",
+    "isbn": "9786053604341",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/korkunc-ivan/269814.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Emin Tanrıyar"
+    ],
+    "sourceType": "retailer"
+  },
+  "olofpalme": {
+    "title": "Olof Palme",
+    "publisher": "Türkiye İş Bankası Kültür Yayınları",
+    "isbn": "9786053605553",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/olof-palme/274741.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Turhan Kayaoğlu"
+    ],
+    "sourceType": "retailer",
+    "isbnSourceUrl": "https://openlibrary.org/books/OL35611389M/Olof_Palme"
+  },
+  "afrikalileo": {
+    "title": "Afrikalı Leo",
+    "publisher": "Türkiye İş Bankası Kültür Yayınları",
+    "isbn": "9786053607540",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/afrikali-leo/289348.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Ayşen Anadol"
+    ],
+    "sourceType": "retailer"
+  },
+  "sarahbernhardt": {
+    "title": "Sarah Bernhardt",
+    "publisher": "Türkiye İş Bankası Kültür Yayınları",
+    "isbn": "9786053607878",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/sarah-bernhardt/296948.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Fadime Kahya"
+    ],
+    "sourceType": "retailer"
+  },
+  "mithradates": {
+    "title": "Mithradates",
+    "publisher": "Türkiye İş Bankası Kültür Yayınları",
+    "isbn": "9786053608318",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/mithradates/303562.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Gürkan Ergin"
+    ],
+    "sourceType": "retailer",
+    "isbnSourceUrl": "https://www.nadirkitap.com/mithradates-zehirlerin-krali-adrienne-mayor-kitap29002085.html"
+  },
+  "konstantinospaleologos": {
+    "title": "Konstantinos Paleologos",
+    "publisher": "Türkiye İş Bankası Kültür Yayınları",
+    "isbn": "9786053608523",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/konstantinos-paleologos/304130.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Efe Kurtluoğlu"
+    ],
+    "sourceType": "retailer"
+  },
+  "bismarck": {
+    "title": "Bismarck",
+    "publisher": "Türkiye İş Bankası Kültür Yayınları",
+    "isbn": "9786053325086",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/bismarck/373332.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Hakan Abacı"
+    ],
+    "sourceType": "retailer"
+  },
+  "irakkraliifaysal": {
+    "title": "Irak Kralı I. Faysal",
+    "publisher": "Türkiye İş Bankası Kültür Yayınları",
+    "isbn": "9786053326915",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/irak-krali-i-faysal-ciltli/390941.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Hakan Abacı"
+    ],
+    "sourceType": "retailer"
+  },
+  "buyukpetro": {
+    "title": "Büyük Petro",
+    "publisher": "Türkiye İş Bankası Kültür Yayınları",
+    "isbn": "9786052958049",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/buyuk-petro-ciltli/507586.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Hakan Abacı"
+    ],
+    "sourceType": "retailer"
+  },
+  "theodora": {
+    "title": "Theodora",
+    "publisher": "Türkiye İş Bankası Kültür Yayınları",
+    "isbn": "9786254059827",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/theodora/613855.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Umre Deniz Tuna"
+    ],
+    "sourceType": "retailer"
+  },
+  "mariecuriebirbilimkadinininolaganustuyasamoykusu": {
+    "title": "Marie Curie: Bir Bilimkadının Olağanüstü Yaşamöyküsü",
+    "publisher": "Bilim ve Gelecek Kitaplığı",
+    "isbn": "9786055888282",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/marie-curie-bir-bilimkadinin-olaganustu-yasamoykusu/293643.html",
+    "checkedAt": "2026-09-28",
+    "translators": [],
+    "sourceType": "retailer"
+  },
+  "askeristratejinintemellerikuramcilar": {
+    "title": "Askeri Stratejinin Temelleri: Kuramcılar",
+    "publisher": "Kronik Kitap",
+    "isbn": "9786256774667",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/askeri-stratejinin-temelleri-kuramcilar/680664.html",
+    "checkedAt": "2026-09-28",
+    "translators": [],
+    "sourceType": "retailer"
+  },
+  "infographicworldwariilasecondeguerremondialeinfographie": {
+    "title": "İkinci Dünya Savaşı: İnfografik",
+    "publisher": "Kronik Kitap",
+    "isbn": "9786256989108",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/ikinci-dunya-savasi-infografik-ciltli/637093.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Okan Doğan"
+    ],
+    "sourceType": "retailer"
+  },
+  "firstbreakalltherules": {
+    "title": "Önce Bütün Kuralları Yıkın",
+    "publisher": "Remzi Kitabevi",
+    "isbn": "9789751411655",
+    "sourceUrl": "https://www.remzi.com.tr/kitap/once-butun-kurallari-yikin",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Aslı Kurtsoy Hısım"
+    ],
+    "sourceType": "publisher"
+  },
+  "discoverers": {
+    "title": "Keşifler ve Buluşlar",
+    "publisher": "Türkiye İş Bankası Kültür Yayınları",
+    "isbn": "",
+    "sourceUrl": "https://www.simurgkitabevi.com/kesifler-ve-buluslar-1994",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Fatoş Dilber"
+    ],
+    "sourceType": "retailer",
+    "note": "Kaynak künyesindeki ISBN eksik veya kontrol basamağı tutarsız; ISBN doğrulanamadı. Künye bilgisi bağlantıdaki baskıyla sınırlıdır."
+  },
+  "tribes": {
+    "title": "Takım Oyunu",
+    "publisher": "Profil Kitap",
+    "isbn": "9789759961985",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/takim-oyunu/126393.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Sermin Karakale"
+    ],
+    "sourceType": "retailer"
+  },
+  "coopetition": {
+    "title": "Oyun Teorisi ve Ortaklaşa Rekabet",
+    "publisher": "Scala Yayıncılık",
+    "isbn": "9786059248976",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/oyun-teorisi-ve-ortaklasa-rekabet/23207.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Levent Cinemre"
+    ],
+    "sourceType": "retailer"
+  },
+  "humorseriously": {
+    "title": "Ciddi Ciddi Mizah",
+    "publisher": "MediaCat Kitapları",
+    "isbn": "9786052314791",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/ciddi-ciddi-mizah/642604.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Nadir Özata"
+    ],
+    "sourceType": "retailer"
+  },
+  "howbrandsgrow": {
+    "title": "Markalar Nasıl Büyür?",
+    "publisher": "The Kitap",
+    "isbn": "",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/markalar-nasil-buyur/404344.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Müge Telyar"
+    ],
+    "sourceType": "retailer",
+    "note": "Kaynak künyesindeki ISBN eksik veya kontrol basamağı tutarsız; ISBN doğrulanamadı. Künye bilgisi bağlantıdaki baskıyla sınırlıdır."
+  },
+  "rimbaud": {
+    "title": "Rimbaud",
+    "publisher": "Türkiye İş Bankası Kültür Yayınları",
+    "isbn": "",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/rimbaud/278260.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Süha Sertabiboğlu"
+    ],
+    "sourceType": "retailer",
+    "note": "Kaynak künyesindeki ISBN eksik veya kontrol basamağı tutarsız; ISBN doğrulanamadı. Künye bilgisi bağlantıdaki baskıyla sınırlıdır."
+  },
+  "thomashobbes": {
+    "title": "Thomas Hobbes",
+    "publisher": "Türkiye İş Bankası Kültür Yayınları",
+    "isbn": "",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/thomas-hobbes/295001.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Akın Terzi"
+    ],
+    "sourceType": "retailer",
+    "note": "Kaynak künyesindeki ISBN eksik veya kontrol basamağı tutarsız; ISBN doğrulanamadı. Künye bilgisi bağlantıdaki baskıyla sınırlıdır."
+  },
+  "nietzsche": {
+    "title": "Nietzsche",
+    "publisher": "Türkiye İş Bankası Kültür Yayınları",
+    "isbn": "6053324485",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/nietzsche-ciltli/369303.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Bülent O. Doğan"
+    ],
+    "sourceType": "retailer"
+  },
+  "napoleonhayati": {
+    "title": "Napoleon: Hayatı",
+    "publisher": "Kronik Kitap",
+    "isbn": "9786256989276",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/napoleon-hayati/642276.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Barbaros Uzunköprü"
+    ],
+    "sourceType": "retailer"
+  },
+  "strategythelogicofwarandpeace": {
+    "title": "Barış İstiyorsan Savaşa Hazır Ol",
+    "publisher": "Truva Yayınları",
+    "isbn": "9789756237779",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/baris-istiyorsan-savasa-hazir-ol/74850.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Melike Atik"
+    ],
+    "sourceType": "retailer"
+  },
+  "dialektikderaufklarung": {
+    "title": "Aydınlanmanın Diyalektiği",
+    "publisher": "Kabalcı Yayınları",
+    "isbn": "",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/aydinlanmanin-diyalektigi/149031.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Nihat Ülner",
+      "Elif Öztarhan Karadoğan"
+    ],
+    "sourceType": "retailer",
+    "note": "Kaynak künyesindeki ISBN eksik veya kontrol basamağı tutarsız; ISBN doğrulanamadı. Künye bilgisi bağlantıdaki baskıyla sınırlıdır."
+  },
+  "ronjarovardotter": {
+    "title": "Ronja: Haydut Kızı",
+    "publisher": "İthaki Yayınları",
+    "isbn": "9789752733084",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/ronja-haydut-kizi/91325.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Deniz Canefe"
+    ],
+    "sourceType": "retailer",
+    "correction": "İthaki baskısının çevirmeni Deniz Canefe. Arşivdeki Ali Arda adı farklı bir yayınevinin baskısına aittir."
+  },
+  "musashiroman": {
+    "title": "Musashi: I. Kitap: Kılıç ve Delikanlı",
+    "publisher": "Can Yayınları",
+    "isbn": "9789750766060",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/musashi-i-kitap-kilic-ve-delikanli/745951.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Fatma Çelik İto"
+    ],
+    "sourceType": "retailer",
+    "note": "Bu künye ve kapak serinin yalnızca ilk kitabına aittir; diğer ciltleri temsil etmez."
+  },
+  "antifragile": {
+    "title": "Antikırılganlık: Düzensizlikten Kazanç Sağlayan Şeyler",
+    "publisher": "Varlık Yayınları",
+    "isbn": "9789754345445",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/antikirilganlik/395394.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Derya Yüksek"
+    ],
+    "sourceType": "retailer",
+    "translatorSourceUrl": "https://store.calibro.com/ekitap/antikirilganlik-nassim-nicholas-taleb"
+  },
+  "shockdoctrine": {
+    "title": "Şok Doktrini: Felaket Kapitalizminin Yükselişi",
+    "publisher": "Agora Kitaplığı",
+    "isbn": "9786051030753",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/sok-doktrini-felaket-kapitalizminin-yukselisi/148874.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Selim Özgül"
+    ],
+    "sourceType": "retailer"
+  },
+  "drive": {
+    "title": "Drive: Nasıl Motive Oluruz? Nasıl Motive Ederiz?",
+    "publisher": "MediaCat Kitapları",
+    "isbn": "9786055755614",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/drive-nasil-motive-oluruz-nasil-motive-ederiz/243393.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Levent Göktem"
+    ],
+    "sourceType": "retailer"
+  },
+  "charlienincikolatafabrikasi": {
+    "title": "Charlie'nin Çikolata Fabrikası",
+    "publisher": "Can Çocuk Yayınları",
+    "isbn": "9789755100982",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/charlienin-cikolata-fabrikasi-ciltsiz/83308.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Celal Üster"
+    ],
+    "sourceType": "retailer"
+  },
+  "ucansinif": {
+    "title": "Uçan Sınıf",
+    "publisher": "Can Çocuk Yayınları",
+    "isbn": "9789755100937",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/ucan-sinif/9942.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Şebnem Sunar"
+    ],
+    "sourceType": "retailer"
+  },
+  "charlotteunsevgiagi": {
+    "title": "Charlotte'un Sevgi Ağı",
+    "publisher": "Beyaz Balina Yayınları",
+    "isbn": "9789759990091",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/charlotteun-sevgi-agi/99745.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Aslı Mercan"
+    ],
+    "sourceType": "retailer"
+  },
+  "ayipaddington": {
+    "title": "Ayı Paddington",
+    "publisher": "Epsilon Yayınevi",
+    "isbn": "9789944829571",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/ayi-paddington/357365.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Coşkun Öz"
+    ],
+    "sourceType": "retailer"
+  },
+  "georgeveevreneacilangizlianahtarseri": {
+    "title": "George ve Evren'e Açılan Gizli Anahtar",
+    "publisher": "Xlibris",
+    "isbn": "9786256534377",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/george-ve-evrene-acilan-gizli-anahtar/678317.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Bahar Ulukan"
+    ],
+    "sourceType": "retailer",
+    "note": "Bu künye ve kapak serinin yalnızca ilk kitabına aittir; diğer ciltleri temsil etmez."
+  },
+  "adatwistbiliminsani": {
+    "title": "Bilim İnsanı Ada Arı",
+    "publisher": "Uçan Fil Yayınları",
+    "isbn": "9786059933599",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/bilim-insani-ada-ari/531229.html",
+    "checkedAt": "2026-09-28",
+    "translators": [],
+    "sourceType": "retailer"
+  },
+  "gizliyedilerserisi": {
+    "title": "Gizli Yediler - 1. Kitap",
+    "publisher": "Artemis Yayınları",
+    "isbn": "9786050058017",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/gizli-yediler-1-kitap/111708.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Görkem Köymen"
+    ],
+    "sourceType": "retailer",
+    "note": "Bu künye ve kapak serinin yalnızca ilk kitabına aittir; diğer ciltleri temsil etmez."
+  },
+  "rework": {
+    "title": "İşinizi Yeniden Keşfedin",
+    "publisher": "Nova Kitap",
+    "isbn": "9786258489279",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/isinizi-yeniden-kesfedin/612973.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Hasret Parlak Torun"
+    ],
+    "sourceType": "retailer"
+  },
+  "8020principle": {
+    "title": "80/20 Kuralı",
+    "publisher": "CEO Plus",
+    "isbn": "9786050939897",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/8020-kurali/414257.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Özlem Koşar"
+    ],
+    "sourceType": "retailer"
+  },
+  "crucialconversations": {
+    "title": "Can Alıcı Görüşmeler",
+    "publisher": "The Kitap",
+    "isbn": "9786258590487",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/can-alici-gorusmeler/761857.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Füsun Ebru Biçer"
+    ],
+    "sourceType": "retailer"
+  },
+  "spinselling": {
+    "title": "4 Adımda Satış Başarısı",
+    "publisher": "MediaCat Kitapları",
+    "isbn": "",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/4-adimda-satis-basarisi/79172.html",
+    "checkedAt": "2026-09-28",
+    "translators": [],
+    "sourceType": "retailer",
+    "note": "Kaynak künyesindeki ISBN eksik veya kontrol basamağı tutarsız; ISBN doğrulanamadı. Künye bilgisi bağlantıdaki baskıyla sınırlıdır."
+  },
+  "brainrules": {
+    "title": "Beyin Kuralları",
+    "publisher": "Kuzey Yayınları",
+    "isbn": "",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/beyin-kurallari/146392.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "F. Gökhan Tuna"
+    ],
+    "sourceType": "retailer",
+    "note": "Kaynak künyesindeki ISBN eksik veya kontrol basamağı tutarsız; ISBN doğrulanamadı. Künye bilgisi bağlantıdaki baskıyla sınırlıdır."
+  },
+  "whatgotyouherewontgetyouthere": {
+    "title": "İş Dünyasında Zirveye Giden Yol",
+    "publisher": "MediaCat Kitapları",
+    "isbn": "9789944383974",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/is-dunyasinda-zirveye-giden-yol/118457.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Gökçe İnan"
+    ],
+    "sourceType": "retailer"
+  },
+  "leanthinking": {
+    "title": "Yalın Düşünce",
+    "publisher": "Optimist Kitap",
+    "isbn": "",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/yalin-dusunce/102752.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Oygur Yamak"
+    ],
+    "sourceType": "retailer",
+    "note": "Kaynak künyesindeki ISBN eksik veya kontrol basamağı tutarsız; ISBN doğrulanamadı. Künye bilgisi bağlantıdaki baskıyla sınırlıdır."
+  },
+  "onwritingwell": {
+    "title": "İyi Yazmak Üzerine: Düz Yazı için Yol Haritası",
+    "publisher": "Stabil Kitap",
+    "isbn": "9786057272768",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/iyi-yazmak-uzerine-duz-yazi-icin-yol-haritasi/673476.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Yasemin Büte"
+    ],
+    "sourceType": "retailer"
+  },
+  "radicalcandor": {
+    "title": "Radikal Samimiyet: İnsanlığınızı Kaybetmeden İyi Lider Olun",
+    "publisher": "Buzdağı Yayınevi",
+    "isbn": "9786056902437",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/radikal-samimiyet-insanliginizi-kaybetmeden-iyi-lider-olun/517977.html",
+    "checkedAt": "2026-09-28",
+    "translators": [],
+    "sourceType": "retailer",
+    "note": "Bu baskının çevirmen adı ikinci bir künye kaynağıyla henüz doğrulanmadı."
+  },
+  "gettingtoyes": {
+    "title": "\"Evet\" Dedirtme Sanatı: Ödün Vermeden Anlaşmaya Varmak",
+    "publisher": "Nova Kitap (İthaki Yayın Grubu)",
+    "isbn": "9786258489972",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/evet-dedirtme-sanati-odun-vermeden-anlasmaya-varmak/671090.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Desire Eylül Cannon Canbaz"
+    ],
+    "sourceType": "retailer"
+  },
+  "gettingthingsdone": {
+    "title": "İş Bitirici: Stressiz Üretkenlik Sanatı",
+    "publisher": "Babıali Kültür Yayıncılığı",
+    "isbn": "9786059059664",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/is-bitirici/62978.html",
+    "checkedAt": "2026-09-28",
+    "translators": [],
+    "sourceType": "retailer"
+  },
+  "22immutablelawsofmarketing": {
+    "title": "Pazarlamanın 22 Kuralı",
+    "publisher": "MediaCat Kitapları",
+    "isbn": "",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/pazarlamanin-22-kurali/84582.html",
+    "checkedAt": "2026-09-28",
+    "translators": [],
+    "sourceType": "retailer",
+    "note": "Kaynak künyesindeki ISBN eksik veya kontrol basamağı tutarsız; ISBN doğrulanamadı. Künye bilgisi bağlantıdaki baskıyla sınırlıdır."
+  },
+  "psychologyofselling": {
+    "title": "Satışın Psikolojisi",
+    "publisher": "Beyaz Yayınları",
+    "isbn": "9789755992860",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/satisin-psikolojisi/459476.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Onur Çelik"
+    ],
+    "sourceType": "retailer"
+  },
+  "powerofless": {
+    "title": "Az Aslında Çoktur",
+    "publisher": "MediaCat Kitapları",
+    "isbn": "",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/az-aslinda-coktur/150414.html",
+    "checkedAt": "2026-09-28",
+    "translators": [],
+    "sourceType": "retailer",
+    "note": "Kaynak künyesindeki ISBN eksik veya kontrol basamağı tutarsız; ISBN doğrulanamadı. Künye bilgisi bağlantıdaki baskıyla sınırlıdır."
+  },
+  "poweroffullengagement": {
+    "title": "Yüksek Performans Teknikleri",
+    "publisher": "Arıtan Yayınevi",
+    "isbn": "9756060212",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/yuksek-performans-teknikleri/92923.html",
+    "checkedAt": "2026-09-28",
+    "translators": [
+      "Nelda Bayraktar"
+    ],
+    "sourceType": "retailer"
+  },
+  "ultimatesalesmachine": {
+    "title": "Kusursuz Satış Makinesi",
+    "publisher": "MediaCat Kitapları",
+    "isbn": "",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/kusursuz-satis-makinesi/117729.html",
+    "checkedAt": "2026-09-28",
+    "translators": [],
+    "sourceType": "retailer",
+    "note": "Kaynak künyesindeki ISBN eksik veya kontrol basamağı tutarsız; ISBN doğrulanamadı. Künye bilgisi bağlantıdaki baskıyla sınırlıdır."
+  }
+}

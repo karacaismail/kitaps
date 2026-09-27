@@ -1,0 +1,639 @@
+{
+  "note": "Kitap Atlası için hazırlanmış editoryal okuma amaçları ve isteğe bağlı sıralar. Kaynakların zorunlu önkoşul iddiası değildir. Kitaba özel not bulunmayan eserler için mevcut konu etiketlerinden açıkça belirtilen bir çalışma amacı üretilir.",
+  "purposes": {
+    "goodstrategybadstrategy": "Bir hedef listesiyle gerçek stratejiyi ayırt etmek; temel engeli tanımlayıp onu aşacak tutarlı eylemleri seçmek için oku.",
+    "competitivestrategy": "Bir sektörün kârlılığını ve rekabet baskısını beş güç üzerinden çözümlemek; işletmenin nerede ve nasıl rekabet edeceğini tartmak için oku.",
+    "competitiveadvantage": "Rekabet konumunu şirketin faaliyetlerine bağlamak; değer zincirinde maliyet ve farklılaşmanın nerede oluştuğunu incelemek için oku.",
+    "playingtowin": "Stratejiyi birbirini destekleyen seçimlere dönüştürmek; nerede oynayacağını, nasıl kazanacağını ve hangi yetkinliklere ihtiyaç duyduğunu belirlemek için oku.",
+    "blueoceanstrategy": "Mevcut rekabetin sınırlarını sorgulamak ve müşteriye sunulan değeri yeniden tasarlayarak yeni talep alanları düşünmek için oku.",
+    "thinkinginsystems": "Geri bildirimleri, gecikmeleri ve birikimleri tanımak; bir parçayı iyileştirirken bütün sistemde oluşabilecek sonuçları öngörmek için oku.",
+    "goal": "Darboğazları görmeyi ve yerel verimlilik yerine bütün iş akışının sonucunu iyileştirmeyi öğrenmek için oku.",
+    "innovatorsdilemma": "İyi yönetilen şirketlerin yeni teknolojiler karşısında neden zorlanabildiğini; mevcut müşteriyi dinlemekle yeni pazarı keşfetmek arasındaki gerilimi anlamak için oku.",
+    "innovatorssolution": "Yenilikçinin İkilemi’ndeki sorunu büyüme kararlarına taşımak; yeni işlerin müşterisini, kaynaklarını ve örgütsel yapısını düşünmek için oku.",
+    "competingforthefuture": "Bugünkü ürünlerin ötesinde gelecekte ihtiyaç duyulacak yetkinlikleri tartışmak ve şirketin uzun vadeli yönünü tasarlamak için oku.",
+    "strategyconceptandprocess": "Stratejik analizin işletme, şirket bütünü ve uygulama düzeylerini birlikte ele almak; karar sürecine bir yapı kazandırmak için oku.",
+    "strategysafari": "Farklı strateji ekollerini karşılaştırmak; tek bir planlama yaklaşımını her duruma uygulama alışkanlığını sorgulamak için oku.",
+    "strategyofconflict": "Pazarlıkta taahhüt, tehdit ve karşılıklı beklentilerin davranışı nasıl etkilediğini düşünmek; rakibin kararına bağlı seçimleri çözümlemek için oku.",
+    "coopetition": "Rakip, müşteri, tedarikçi ve tamamlayıcıların birlikte değer yaratabildiği durumları görmek; rekabet ile işbirliğini aynı çerçevede değerlendirmek için oku.",
+    "informationrules": "Dijital pazarlarda ağ etkileri, geçiş maliyetleri ve standartların rekabeti nasıl değiştirdiğini incelemek için oku.",
+    "strategymaps": "Stratejideki amaçları birbirine bağlamak; insan, süreç, müşteri ve finansal sonuçlar arasındaki varsayımları görünür kılmak için oku.",
+    "balancedscorecard": "Finansal göstergeleri müşteri, süreç ve öğrenme ölçümleriyle tamamlamak; stratejinin uygulanmasını nasıl izleyeceğini düşünmek için oku.",
+    "strategicoperations": "Operasyon yetkinliklerini rekabet tercihlerine bağlamak; süreç tasarımını şirketin stratejisinin bir parçası olarak değerlendirmek için oku.",
+    "strategicmanagement": "Rekabet, örgüt ve kaynak kararlarını ortak bir stratejik yönetim çerçevesinde çalışmak için oku.",
+    "corporatestrategy": "Bir şirketin hangi işlerde yer alması gerektiğini ve kaynaklarını işler arasında nasıl dağıtabileceğini incelemek için oku.",
+    "deltaproject": "Stratejik konumu müşteriyle kurulan ilişki üzerinden yeniden düşünmek; ürünün ötesinde bağ kurma ve sistem çözümlerini karşılaştırmak için oku.",
+    "strategyandthebusinesslandscape": "İşletmenin çevresini, konumunu ve yetkinliklerini birlikte değerlendirmek; strateji araçlarının varsayımlarını karşılaştırmak için oku.",
+    "competitiveadvantageofnations": "Sektörlerin rekabet gücünü ülkenin kurumları, talep yapısı ve üretim ortamıyla ilişkilendirmek için oku.",
+    "endofcompetitiveadvantage": "Üstünlüğün kalıcı olduğu varsayımını sorgulamak; fırsatlara giriş, kaynak aktarma ve gerektiğinde çıkış kararlarını tartışmak için oku.",
+    "onlytheparanoidsurvive": "İşin temel koşullarını değiştiren dönüm noktalarını fark etmek ve yön değiştirmenin gerektirdiği kararları düşünmek için oku.",
+    "seeingwhatsnext": "Yenilik karşısında sektörlerin nasıl değişebileceğine ilişkin işaretleri okumak; büyüme beklentilerini varsayımlarıyla birlikte sınamak için oku.",
+    "fastsecond": "Bir pazarda ilk olmakla doğru zamanda ölçeklenmek arasındaki farkı tartmak; yeniliği ticari modele dönüştürme kararlarını incelemek için oku.",
+    "futureofcompetition": "Müşteriyi yalnızca alıcı olarak görmek yerine değer yaratma sürecine katmak; deneyim ve etkileşim üzerinden rekabeti düşünmek için oku.",
+    "loyaltyrules": "Sadakati müşteri ve çalışan ilişkileriyle birlikte ele almak; kısa vadeli işlemlerle kalıcı ilişki kurma arasındaki gerilimi incelemek için oku.",
+    "experimentationmatters": "Belirsiz kararları deneylerle öğrenmeye çevirmek; testlerin zamanını, maliyetini ve öğrenme değerini düşünmek için oku.",
+    "democratizinginnovation": "Kullanıcıların yenilik geliştirmedeki rolünü anlamak; yalnızca şirket içi araştırmaya dayanan yenilik anlayışını genişletmek için oku.",
+    "creativedestruction": "Şirketlerin kendini yenileme hızıyla piyasaların değişme hızı arasındaki farkı tartışmak için oku.",
+    "strategicthinkingfortheneweconomy": "Teknolojik değişim karşısında farklı stratejik yaklaşımları karşılaştırmak; yeni ekonomi iddialarının altında kalan kalıcı soruları aramak için oku.",
+    "beyondthecore": "Büyümeyi mevcut işin yakınındaki alanlara taşırken hangi bağlantılara ve yetkinliklere güvenilebileceğini değerlendirmek için oku.",
+    "resiliententerprise": "Kesintiler karşısında iş sürekliliğini düşünmek; tedarik zinciri ve örgütte dayanıklılık sağlayan tercihleri incelemek için oku.",
+    "execution": "Stratejik hedeflerin insan, sorumluluk ve iş takibiyle nasıl uygulamaya dönüştürüleceğini düşünmek için oku.",
+    "highoutputmanagement": "Yöneticinin etkisini toplantı, geri bildirim, eğitim ve süreç tasarımı üzerinden artırmak; ekibin çıktısını sistem olarak ele almak için oku.",
+    "effectiveexecutive": "Zamanını, katkını ve önceliklerini gözden geçirmek; etkin karar vermek ve güçlü yanları sonuca dönüştürmek için oku.",
+    "personalmbamastertheartofbusiness": "Değer yaratma, pazarlama, satış, finans ve sistemlerin ortak dilini edinmek; uzmanlık kitaplarını yerleştireceğin bir işletme haritası kurmak için oku.",
+    "outofthecrisis": "Kalite sorunlarını yalnızca çalışan hatasına bağlamak yerine yönetim sistemi ve değişkenlik açısından değerlendirmek için oku.",
+    "toyotaproductionsystem": "İsrafı, akışı ve yerinde problem çözmeyi düşünmek; yalın üretimin arkasındaki yönetim mantığını incelemek için oku.",
+    "leanthinking": "Müşteri değerini ve değer akışını birlikte ele almak; yalın düşünceyi tek bir üretim aracının ötesine taşımak için oku.",
+    "scrumtheartofdoingtwicetheworkinhalfthetime": "İşi kısa döngülerde görünür kılmak, geri bildirim toplamak ve ekipçe iyileştirmek için oku. Uygulamada güncel Scrum Kılavuzu ile birlikte değerlendir.",
+    "workplacemanagement": "Yalın üretimin günlük yönetim ve gözlem tarafını çalışmak; sorunları işin yapıldığı yerde sorgulama alışkanlığı geliştirmek için oku.",
+    "fifthdiscipline": "Bireysel öğrenmeyle örgütsel öğrenme arasındaki bağı görmek; ortak vizyonu, zihinsel modelleri ve sistem düşüncesini birlikte değerlendirmek için oku.",
+    "thinkingfastandslow": "Sezgisel yargının güçlü ve yanıltıcı yanlarını tanımak; kendi kararlarında aşırı güven, çerçeveleme ve kestirme yolları sorgulamak için oku.",
+    "haloeffect": "Başarılı şirketler hakkında anlatılan hikâyeleri kanıt sanmamak; sonuçlardan geriye doğru üretilen açıklamaları sorgulamak için oku.",
+    "superforecasting": "Tahminlerini açık, güncellenebilir ve ölçülebilir hale getirmek; belirsizliği olasılıklarla ifade etme alışkanlığı kazanmak için oku.",
+    "noise": "Aynı konuda karar veren kişilerin neden farklı yargılara vardığını incelemek; değerlendirme sürecindeki tutarsızlığı azaltmayı düşünmek için oku.",
+    "antifragile": "Belirsizlik ve değişkenliğin yalnızca zarar vermediği durumları düşünmek; dayanıklılık ile düzensizlikten yararlanma arasındaki farkı tartışmak için oku.",
+    "sourcesofpower": "Deneyimli insanların zaman baskısı altında karar vermesini incelemek; sezgiyi bağlam ve uzmanlıkla birlikte değerlendirmek için oku.",
+    "smartchoices": "Karar problemini hedefler, seçenekler ve sonuçlara ayırmak; ödünleşimleri açıkça tartışabilmek için oku.",
+    "ethicsfortherealworld": "Zor kararları yalnızca sonuçlarıyla değil etik gerekçeleriyle de değerlendirmek; kendi sınırlarını ve ilkelerini netleştirmek için oku.",
+    "madetostick": "Bir fikrin neden hatırlandığını ve aktarılabildiğini düşünmek; anlatımını somut, anlaşılır ve anlamlı hale getirmek için oku.",
+    "influence": "İkna mekanizmalarını tanımak ve yönlendirmelere karşı daha bilinçli olmak; etik iletişim ile manipülasyonu ayırmak için oku.",
+    "nonviolentcommunication": "Gözlem, duygu, ihtiyaç ve rica arasındaki farkı çalışmak; çatışmalarda suçlama yerine anlaşılabilir bir dil kurmak için oku.",
+    "gettingtoyes": "Pazarlıkta sabit pozisyonların altındaki çıkarları görmek; seçenek, ölçüt ve anlaşma dışı alternatifler üzerinden düşünmek için oku.",
+    "neversplitthedifference": "Zor görüşmelerde dinleme ve soru sormayı çalışmak; anlatılan taktikleri kendi bağlamının güç dengeleri ve etik sınırlarıyla değerlendirmek için oku.",
+    "radicalcandor": "Geri bildirimi kişiye özen gösterme ve açık sözlülükle birlikte ele almak; yöneticilikte zor konuşmalardan kaçınmamak için oku.",
+    "crucialconversations": "Duyguların yükseldiği önemli görüşmelerde güvenli bir diyalog kurmayı ve ortak anlam üretmeyi çalışmak için oku.",
+    "atomichabits": "Küçük davranışları sürdürülebilir hale getirmek; çevre, ipuçları ve tekrar düzenini hedeflerinle uyumlu tasarlamak için oku.",
+    "drive": "Motivasyonu ödül ve cezanın ötesinde tartışmak; özerklik, ustalık ve amaçla çalışma koşulları arasındaki bağı düşünmek için oku.",
+    "gettingthingsdone": "Açık işleri zihninin dışında güvenilir bir sistemde toplamak; bir sonraki somut eylemi belirleme alışkanlığı kurmak için oku.",
+    "7habitsofhighlyeffectivepeople": "Kişisel önceliklerini değerlerinle ilişkilendirmek; sorumluluk, ilişkiler ve uzun vadeli gelişim üzerine çalışmak için oku.",
+    "meditations": "Kontrol edebildiğin davranışlarla dış koşulları ayırmak; yargıların, görevlerin ve günlük tutumların üzerine düşünmek için oku.",
+    "obstacleistheway": "Engelleri yeniden yorumlama fikrini Stoacı örnekler üzerinden incelemek; bunu gerçek sınırları inkâr etmeden kendi durumuna uygulamak için oku.",
+    "leanstartup": "Bir iş fikrini büyük yatırım yapmadan önce varsayımlarına ayırmak; küçük deneylerle müşteri ihtiyacını ve iş modelini sınamak için oku.",
+    "rework": "İş kurma ve yürütmeyle ilgili alışılmış kabulleri sorgulamak; daha küçük ve sade bir çalışma düzeninin sana uyup uymadığını değerlendirmek için oku.",
+    "newbusinessroadtest": "Bir girişim fikrinin pazarını, sektörünü ve ekibini birlikte tartmak; harekete geçmeden önce kritik belirsizlikleri belirlemek için oku.",
+    "foundersdilemmas": "Ortak, ekip, yatırım ve kontrol kararlarının girişimciye getirdiği ödünleşimleri anlamak için oku.",
+    "emythrevisited": "İşi iyi yapmakla bir işletmeyi yönetmek arasındaki farkı görmek; kurucuya bağımlı işleri tekrar edilebilir süreçlere dönüştürmeyi düşünmek için oku.",
+    "thisismarketing": "Herkese ulaşmak yerine kime değer sunduğunu netleştirmek; güven, konumlandırma ve müşteri anlayışı üzerinde çalışmak için oku.",
+    "howbrandsgrow": "Marka büyümesi hakkındaki sezgilerini verilerle karşılaştırmak; erişim, bulunabilirlik ve satın alma davranışını incelemek için oku.",
+    "positioning": "Bir ürünün müşterinin zihnindeki yerini düşünmek; rakipler ve kategoriyle kurduğu ilişkiyi netleştirmek için oku.",
+    "permissionmarketing": "Kesintiye uğratan tanıtımla izin ve güvene dayalı iletişimi karşılaştırmak; müşteri ilişkisini zamana yayarak düşünmek için oku.",
+    "spinselling": "Satış görüşmesinde soru sormanın rolünü çalışmak; müşterinin durumunu, sorununu ve ihtiyacın sonuçlarını anlamak için oku.",
+    "financialintelligence": "Finansal tabloların arkasındaki kavram ve varsayımları anlamak; kâr, nakit ve bilanço arasındaki farkı iş kararlarına taşımak için oku.",
+    "financialintelligenceforentrepreneurs": "Girişim kararlarını gelir, maliyet, nakit ve finansal tablo bilgisiyle tartmak; muhasebe rakamlarının neyi gösterip göstermediğini öğrenmek için oku.",
+    "accountingmadesimple": "Gelir tablosu, bilanço ve temel muhasebe diline giriş yapmak; ileri finans okumaları için kavramsal zemin kurmak için oku.",
+    "howtoreadafinancialreport": "Bir şirketin finansal raporundaki tabloları birlikte okumak; rakamların birbirine nasıl bağlandığını anlamak için oku.",
+    "nakedeconomics": "Ekonomik teşvikleri ve ödünleşimleri gündelik örneklerle düşünmek; ekonomi kitaplarını okurken kullanacağın kavramları tanımak için oku.",
+    "thinkingstatistically": "İstatistiksel iddiaları belirsizlik, örneklem ve değişkenlik açısından değerlendirmek için oku.",
+    "howtoliewithstatistics": "Grafik, ortalama ve örneklem seçimlerinin algıyı nasıl değiştirebildiğini görmek; sayısal iddiaları daha dikkatli okumak için oku.",
+    "designofeverydaythings": "Kullanım hatalarını yalnızca kullanıcıya yüklememek; işaretler, geri bildirim ve zihinsel modeller üzerinden tasarımı değerlendirmek için oku.",
+    "whomovedmycheese": "Değişime verilen farklı tepkileri kısa bir anlatı üzerinden tartışmak; kendi kaçınma ve uyum davranışlarını gözden geçirmek için oku.",
+    "leanin": "Kadınların çalışma yaşamındaki deneyimlerini ve liderlik engellerini tartışmak; bireysel tavsiyelerle yapısal sorunları ayrı ayrı değerlendirmek için oku.",
+    "преступлениеинаказание": "Suçluluk, vicdan ve kendini haklı çıkarma arasındaki gerilimi bir karakterin kararları üzerinden incelemek için oku.",
+    "братьякарамазовы": "İnanç, özgürlük, sorumluluk ve aile çatışmasını farklı sesler arasında tartışmak; romanın karşıt görüşleri nasıl yan yana tuttuğunu görmek için oku.",
+    "запискиизподполья": "Kendi davranışını açıklayan bir anlatıcıya ne kadar güvenebileceğini sorgulamak; özgürlük ve kendine zarar verme arasındaki çelişkiyi düşünmek için oku.",
+    "идиот": "İyilik ve dürüstlüğün toplumsal çıkarlarla çatışmasını izlemek; karakterlerin ahlaki yargılarını sorgulamak için oku.",
+    "аннакаренина": "Bireysel arzu, aile, toplumsal beklenti ve yargı arasındaki gerilimi farklı karakterlerin bakışından incelemek için oku.",
+    "смертьиванаильича": "Başkalarının onayına göre yaşamakla anlamlı yaşamak arasındaki farkı ölümle yüzleşme üzerinden düşünmek için oku.",
+    "чемлюдиживы": "Merhamet, dayanışma ve insanın ihtiyaçları üzerine kısa anlatılarla düşünmek; ahlaki yargını somut olaylar üzerinden tartışmak için oku.",
+    "воинаимир": "Bireysel yaşamlarla tarihsel olayların iç içe geçişini izlemek; tarih anlatısında büyük kişilere verilen rolü sorgulamak için oku.",
+    "pictureofdoriangray": "Görünüş, haz, sorumluluk ve ahlaki bedel arasındaki ilişkiyi incelemek; estetikle etik arasındaki gerilimi düşünmek için oku.",
+    "balladofreadinggaol": "Cezalandırma, ölüm ve ortak insanlık deneyimini şiirin sesi ve biçimi üzerinden değerlendirmek için oku.",
+    "bravenewworld": "Toplumsal düzenin haz, koşullandırma ve tüketimle kurulmasını sorgulamak; istikrarın özgürlük karşısındaki bedelini tartışmak için oku.",
+    "timemachine": "Zaman yolculuğu anlatısı üzerinden sınıf, ilerleme ve insanlığın geleceği üzerine düşünmek için oku.",
+    "kucukprens": "Dostluk, sorumluluk ve yetişkinlerin değer yargılarını kısa bir anlatı üzerinden birlikte tartışmak için oku.",
+    "matilda": "Merak, okuma sevgisi ve haksızlığa karşı durmayı bir çocuk kahramanın deneyimi üzerinden konuşmak için oku.",
+    "charlotteunsevgiagi": "Dostluk, dayanışma ve kayıpla yüzleşmeyi konuşmak; birlikte okurken karakterlerin birbirine nasıl yardım ettiğini tartışmak için oku.",
+    "ronjarovardotter": "Bağımsızlaşma, dostluk ve aileden devralınan çatışmaları sorgulamak; karakterlerin seçimlerini birlikte konuşmak için oku.",
+    "allavibarnibullerbyn": "Gündelik yaşamın küçük olaylarında arkadaşlık ve birlikte yaşama deneyimini keşfetmek; çocukla olayları yeniden anlatma pratiği yapmak için oku.",
+    "abartmatozu": "Ölçüyü kaçırma ve gündelik alışkanlıkları mizah üzerinden konuşmak; anlatıdaki abartıların gerçek yaşamla ilişkisini tartışmak için oku.",
+    "taleofdespereaux": "Cesaret, dışlanma ve bağışlama üzerine konuşmak; farklı karakterlerin aynı olayları nasıl yaşadığını izlemek için oku.",
+    "孫子兵法sunzibingfa": "Çatışmada hazırlık, bilgi ve koşullara uyumu tarihsel bağlamıyla okumak; askerî düşünceyi iş yaşamına aktarırken benzetmenin sınırlarını görmek için oku.",
+    "ilprincipe": "Siyasal iktidarın korunması üzerine tarihsel bir metni eleştirel okumak; yazarın gözlemleriyle kendi ahlaki ölçütlerini karşılaştırmak için oku.",
+    "vomkriege": "Savaşın siyaset, belirsizlik ve sürtünmeyle ilişkisini çalışmak; askerî stratejiyi yalnızca taktiklerden ibaret görmemek için oku.",
+    "五輪書gorinnosho": "Ustalık, dikkat ve stratejik tutum üzerine birincil bir tarihsel metin okumak; döneminin savaş sanatları bağlamını koruyarak düşünmek için oku.",
+    "strategytheindirectapproach": "Dolaylı yaklaşım fikrini askerî tarih örnekleriyle tartmak; bir stratejik ilkenin hangi koşullarda işe yaradığını sorgulamak için oku.",
+    "strategythelogicofwarandpeace": "Stratejik kararların beklenmedik ve ters sonuçlarını düşünmek; askerî başarı ile siyasal sonuçları birlikte tartışmak için oku.",
+    "askeristratejinintemellerikuramcilar": "Askerî düşünürlerin farklı açıklamalarını karşılaştırmak; birincil metinlere geçmeden kavramları ve tarihsel bağlamı tanımak için oku."
+  },
+  "routes": [
+    {
+      "category": "strategy",
+      "heading": "Strateji öğrenmek için",
+      "goal": "Rekabeti, kaynakları ve seçimlerin bedelini birlikte değerlendirmek; kendi stratejik kararların için açık bir gerekçe kurmak.",
+      "books": [
+        "goodstrategybadstrategy",
+        "competitivestrategy",
+        "competitiveadvantage"
+      ]
+    },
+    {
+      "category": "management",
+      "heading": "Yönetimi derinleştirmek için",
+      "goal": "Yöneticinin kararlarıyla ekiplerin çalışma koşulları ve sonuçları arasındaki ilişkiyi değerlendirmek.",
+      "books": [
+        "effectiveexecutive",
+        "highoutputmanagement",
+        "fifthdiscipline"
+      ]
+    },
+    {
+      "category": "enterprise",
+      "heading": "Girişimcilikte ilerlemek için",
+      "goal": "Bir iş fikrinin müşteri ihtiyacını, iş modelini ve kurucu kararlarını varsayımlarıyla birlikte sınamak.",
+      "books": [
+        "personalmbamastertheartofbusiness",
+        "leanstartup",
+        "foundersdilemmas"
+      ]
+    },
+    {
+      "category": "marketing",
+      "heading": "Pazarlamayı anlamak için",
+      "goal": "Müşteri ihtiyacını, ürünün algılanışını ve satın alma davranışını birbirine bağlamak.",
+      "books": [
+        "thisismarketing",
+        "positioning",
+        "howbrandsgrow"
+      ]
+    },
+    {
+      "category": "communication",
+      "heading": "İletişimini geliştirmek için",
+      "goal": "Karşı tarafın ihtiyaçlarını anlamak, anlaşmazlıkları açıkça konuşmak ve iknanın etik sınırlarını değerlendirmek.",
+      "books": [
+        "nonviolentcommunication",
+        "gettingtoyes",
+        "crucialconversations"
+      ]
+    },
+    {
+      "category": "psychology",
+      "heading": "Davranışı anlamak için",
+      "goal": "İnsanların nasıl düşündüğünü ve karar verdiğini sorgulamak; kendi sezgilerini kanıtlarla karşılaştırmak.",
+      "books": [
+        "thinkingfastandslow",
+        "haloeffect",
+        "superforecasting"
+      ]
+    },
+    {
+      "category": "productivity",
+      "heading": "Çalışma düzenini geliştirmek için",
+      "goal": "Önceliklerinle günlük davranışların arasındaki farkı görmek ve sürdürülebilir bir çalışma düzeni tasarlamak.",
+      "books": [
+        "7habitsofhighlyeffectivepeople",
+        "gettingthingsdone",
+        "atomichabits"
+      ]
+    },
+    {
+      "category": "systems",
+      "heading": "Sistemleri anlamak için",
+      "goal": "Parçaların ilişkisini, darboğazları ve geri bildirimleri incelemek; bir iyileştirmenin bütün üzerindeki etkisini tartmak.",
+      "books": [
+        "goal",
+        "thinkinginsystems",
+        "fifthdiscipline"
+      ]
+    },
+    {
+      "category": "finance",
+      "heading": "Finans okuryazarlığını geliştirmek için",
+      "goal": "Finansal iddiaların varsayımlarını, nakit akışını ve riskleri değerlendirmek; getiri anlatılarını eleştirel okumak.",
+      "books": [
+        "accountingmadesimple",
+        "financialintelligence",
+        "whengeniusfailed"
+      ]
+    },
+    {
+      "category": "economy",
+      "heading": "Ekonomiyi anlamak için",
+      "goal": "Ekonomik teşviklerin, kurumların ve dağılım kararlarının birey ve toplum üzerindeki etkilerini tartışmak.",
+      "books": [
+        "nakedeconomics",
+        "economicsforthecommongood",
+        "capitalinthetwentyfirstcentury"
+      ]
+    },
+    {
+      "category": "technology",
+      "heading": "Teknolojiyi anlamak için",
+      "goal": "Teknolojik değişimin iş modellerini, güç ilişkilerini ve gündelik yaşamı nasıl etkilediğini sorgulamak.",
+      "books": [
+        "informationrules",
+        "innovatorsdilemma",
+        "humancompatible"
+      ]
+    },
+    {
+      "category": "innovation",
+      "heading": "Yenilik ve tasarımda ilerlemek için",
+      "goal": "İhtiyaçları keşfetme, deneme ve öğrenme süreçlerini çalışmak; yenilik iddialarını kullanıcının deneyimiyle karşılaştırmak.",
+      "books": [
+        "designofeverydaythings",
+        "leanstartup",
+        "democratizinginnovation"
+      ]
+    },
+    {
+      "category": "history",
+      "heading": "Tarih okumasını genişletmek için",
+      "goal": "Olayları dönemlerinin koşullarıyla değerlendirmek; tarihsel açıklamalarda kaynak, neden ve yorum ayrımını gözetmek.",
+      "books": [
+        "discoverers",
+        "capitalisminamerica",
+        "greatleveler"
+      ]
+    },
+    {
+      "category": "biography",
+      "heading": "Biyografi okumasını genişletmek için",
+      "goal": "Bir yaşamı yalnızca başarı ve başarısızlıklarla değil döneminin koşulları, ilişkileri ve kararlarıyla birlikte değerlendirmek.",
+      "books": [
+        "benjaminfranklin",
+        "personalhistory",
+        "titan"
+      ]
+    },
+    {
+      "category": "politics",
+      "heading": "Siyaseti anlamak için",
+      "goal": "İktidar, kurumlar ve toplumsal çıkarlar arasındaki ilişkiyi tarihsel bağlamıyla değerlendirmek.",
+      "books": [
+        "ilprincipe",
+        "strategyofconflict",
+        "whynationsfail"
+      ]
+    },
+    {
+      "category": "ethics",
+      "heading": "Etik soruları derinleştirmek için",
+      "goal": "Bir kararın kimleri etkilediğini ve nasıl gerekçelendirildiğini sorgulamak; kişisel sorumlulukla kurumsal teşvikleri birlikte tartmak.",
+      "books": [
+        "ethicsfortherealworld",
+        "badblood",
+        "higherground"
+      ]
+    },
+    {
+      "category": "climate",
+      "heading": "İklim ve çevreyi anlamak için",
+      "goal": "Ekolojik sınırlarla ekonomik kararları birlikte düşünmek; çözüm önerilerinin etkilerini ve ödünleşimlerini sorgulamak.",
+      "books": [
+        "thinkinginsystems",
+        "doughnuteconomics",
+        "newclimatewar"
+      ]
+    },
+    {
+      "category": "literature",
+      "heading": "Edebiyat okumasını derinleştirmek için",
+      "goal": "Anlatıcının bakış açısını, karakterlerin çelişkilerini ve dilin etkisini izlemek; kendi yorumunu metindeki ayrıntılarla desteklemek.",
+      "books": [
+        "смертьиванаильича",
+        "преступлениеинаказание",
+        "братьякарамазовы"
+      ]
+    },
+    {
+      "category": "philosophy",
+      "heading": "Felsefi düşünmeyi geliştirmek için",
+      "goal": "Bir görüşün savını, gerekçesini ve itirazlarını ayırmak; gündelik kabullerini sorgulamak.",
+      "books": [
+        "meditations",
+        "aguidetothegoodlife",
+        "dialektikderaufklarung"
+      ]
+    },
+    {
+      "category": "children",
+      "heading": "Birlikte okumayı sürdürmek için",
+      "goal": "Merakı ve anlatı takibini desteklemek; karakterlerin duygularını, seçimlerini ve olayların nedenlerini çocukla konuşmak.",
+      "books": [
+        "kucukprens",
+        "charlotteunsevgiagi",
+        "ronjarovardotter"
+      ]
+    },
+    {
+      "category": "science",
+      "heading": "Bilimsel düşünmeyi geliştirmek için",
+      "goal": "Gözlem, açıklama ve kanıt arasındaki ilişkiyi çalışmak; iddiaların nasıl sınandığını ve belirsizliğin nasıl ele alındığını sorgulamak.",
+      "books": [
+        "howtoliewithstatistics",
+        "thinkingstatistically",
+        "factfulness"
+      ]
+    }
+  ],
+  "overrides": {
+    "goodstrategybadstrategy": {
+      "before": [
+        {
+          "id": "personalmbamastertheartofbusiness",
+          "reason": "İşletme kavramlarına yeniysen değer, maliyet ve rekabet dilini önce kurman, Rumelt’in örneklerini izlemeyi kolaylaştırır."
+        }
+      ],
+      "after": [
+        {
+          "id": "competitivestrategy",
+          "reason": "Rumelt’in teşhis yaklaşımını sektörün beş rekabet gücünü çözümleyerek derinleştirebilirsin."
+        },
+        {
+          "id": "playingtowin",
+          "reason": "Teşhisten sonra nerede oynayacağın ve nasıl kazanacağın gibi birbirini destekleyen seçimleri çalışabilirsin."
+        }
+      ]
+    },
+    "playingtowin": {
+      "before": [
+        {
+          "id": "goodstrategybadstrategy",
+          "reason": "Hedefle strateji arasındaki farkı netleştirmek, seçim dizisinin hangi sorunu çözmesi gerektiğini anlamanı kolaylaştırır."
+        }
+      ],
+      "after": [
+        {
+          "id": "competitiveadvantage",
+          "reason": "Seçtiğin stratejiyi değer zincirindeki faaliyetlere ve maliyetlere bağlamana yardımcı olur."
+        },
+        {
+          "id": "blueoceanstrategy",
+          "reason": "Mevcut pazarda kazanma tercihlerinin yanına yeni talep yaratma yaklaşımını koyarak seçeneklerini karşılaştırabilirsin."
+        }
+      ]
+    },
+    "competitivestrategy": {
+      "before": [
+        {
+          "id": "goodstrategybadstrategy",
+          "reason": "Temel engeli tanımlama ve tutarlı eylem fikri, sektör analizinin hangi karara hizmet ettiğini açık tutar."
+        }
+      ],
+      "after": [
+        {
+          "id": "competitiveadvantage",
+          "reason": "Sektör düzeyinden şirket içindeki faaliyetlere geçerek değer zincirini çalışabilirsin."
+        },
+        {
+          "id": "blueoceanstrategy",
+          "reason": "Mevcut sektör içindeki konumlanmayı, rekabet alanını yeniden tanımlama fikriyle karşılaştırabilirsin."
+        }
+      ]
+    },
+    "competitiveadvantage": {
+      "before": [
+        {
+          "id": "competitivestrategy",
+          "reason": "Önce sektörün yapısını ve rekabet konumunu görmek, faaliyetlerin hangi üstünlüğü desteklediğini anlamayı kolaylaştırır."
+        }
+      ],
+      "after": [
+        {
+          "id": "strategymaps",
+          "reason": "Faaliyetlerden doğan üstünlüğü hedefler ve ölçümler arasındaki ilişkilere taşıyabilirsin."
+        }
+      ]
+    },
+    "blueoceanstrategy": {
+      "before": [
+        {
+          "id": "competitivestrategy",
+          "reason": "Mevcut sektör rekabetini anlamak, yeni talep alanı yaratma yaklaşımının hangi varsayımları değiştirdiğini görmeni sağlar."
+        }
+      ],
+      "after": [
+        {
+          "id": "leanstartup",
+          "reason": "Yeni değer önerisi fikrini müşteriyle sınanabilen küçük deneylere dönüştürme yaklaşımını çalışabilirsin."
+        }
+      ]
+    },
+    "innovatorsdilemma": {
+      "before": [
+        {
+          "id": "competitivestrategy",
+          "reason": "Yerleşik şirketlerin sektör ve müşteri tercihlerini anlamak, yenilik karşısındaki kaynak kararlarını yorumlamayı kolaylaştırır."
+        }
+      ],
+      "after": [
+        {
+          "id": "innovatorssolution",
+          "reason": "Sorunun açıklamasından, yeni büyüme alanlarını oluşturma ve yönetme sorularına geçebilirsin."
+        }
+      ]
+    },
+    "innovatorssolution": {
+      "before": [
+        {
+          "id": "innovatorsdilemma",
+          "reason": "Yerleşik firmaların neden zorlandığına ilişkin temel açıklamayı bilmek, çözüm önerilerini bağlama oturtur."
+        }
+      ],
+      "after": [
+        {
+          "id": "seeingwhatsnext",
+          "reason": "Büyüme çerçevesini sektörlerin değişimini okuma ve olası gelişmeleri tartışma yönünde genişletebilirsin."
+        }
+      ]
+    },
+    "thinkinginsystems": {
+      "before": [
+        {
+          "id": "goal",
+          "reason": "Akış ve darboğazları somut bir işletme anlatısında görmek, daha soyut geri bildirim ve gecikme kavramlarına geçişi kolaylaştırabilir."
+        }
+      ],
+      "after": [
+        {
+          "id": "fifthdiscipline",
+          "reason": "Sistem düşüncesini örgütsel öğrenme, ortak vizyon ve ekip alışkanlıklarına taşıyabilirsin."
+        },
+        {
+          "id": "outofthecrisis",
+          "reason": "Sistem bakışını kalite, ölçüm ve yönetim sorumluluğu üzerinden derinleştirebilirsin."
+        }
+      ]
+    },
+    "goal": {
+      "before": [],
+      "after": [
+        {
+          "id": "thinkinginsystems",
+          "reason": "Romanda gördüğün akış ve kısıtları daha genel geri bildirim, birikim ve gecikme kavramlarına bağlayabilirsin."
+        },
+        {
+          "id": "toyotaproductionsystem",
+          "reason": "Darboğazlara odaklanmanın yanına israfı azaltma ve akışı düzenleme yaklaşımını koyabilirsin."
+        }
+      ]
+    },
+    "scrumtheartofdoingtwicetheworkinhalfthetime": {
+      "before": [
+        {
+          "id": "goal",
+          "reason": "İş akışındaki kısıtları görmek, ekibin çok meşgul olmasıyla sonuç üretmesi arasındaki farkı anlamayı kolaylaştırır."
+        },
+        {
+          "id": "toyotaproductionsystem",
+          "reason": "Akış ve israfın arka planını bilmek, kısa döngülerle çalışma fikrini daha geniş bir yönetim bağlamına yerleştirir."
+        }
+      ],
+      "after": [
+        {
+          "id": "highoutputmanagement",
+          "reason": "Ekip döngülerini yöneticinin geri bildirim, eğitim ve karar verme sorumluluğuyla tamamlayabilirsin."
+        }
+      ]
+    },
+    "toyotaproductionsystem": {
+      "before": [
+        {
+          "id": "goal",
+          "reason": "Akışın somut bir örneğini görmek, israf ve süreç gözlemini daha kolay bağlama yerleştirebilir."
+        }
+      ],
+      "after": [
+        {
+          "id": "leanthinking",
+          "reason": "Üretim sistemindeki ilkelerin farklı değer akışlarına nasıl taşındığını karşılaştırabilirsin."
+        },
+        {
+          "id": "workplacemanagement",
+          "reason": "İlkeleri günlük gözlem ve iş yerindeki yönetim sorularıyla birlikte çalışabilirsin."
+        }
+      ]
+    },
+    "nonviolentcommunication": {
+      "before": [],
+      "after": [
+        {
+          "id": "gettingtoyes",
+          "reason": "İhtiyaçları ifade etme becerisini çıkar temelli müzakere ve ortak seçenek üretmeyle tamamlayabilirsin."
+        }
+      ]
+    },
+    "thinkingfastandslow": {
+      "before": [],
+      "after": [
+        {
+          "id": "haloeffect",
+          "reason": "Yargı yanılgılarını şirket başarısı üzerine anlatılan hikâyeleri incelerken kullanabilirsin."
+        },
+        {
+          "id": "superforecasting",
+          "reason": "Yanılgıları fark etmenin ardından tahminlerini ölçme ve güncelleme pratiğine geçebilirsin."
+        }
+      ]
+    },
+    "преступлениеинаказание": {
+      "before": [
+        {
+          "id": "запискиизподполья",
+          "reason": "İç konuşma ve kendini haklı çıkarma biçimlerini daha kısa bir anlatıda izlemek yararlı olabilir; romanı okumak için zorunlu değildir."
+        }
+      ],
+      "after": [
+        {
+          "id": "братьякарамазовы",
+          "reason": "Vicdan ve sorumluluk sorularını inanç, aile ve birden fazla karakterin karşıt görüşleri üzerinden genişletebilirsin."
+        }
+      ]
+    },
+    "братьякарамазовы": {
+      "before": [
+        {
+          "id": "преступлениеинаказание",
+          "reason": "Dostoyevski’nin suçluluk ve sorumluluğu karakterler üzerinden tartışma biçimine alışmak, daha çok sesli bu romana geçişi kolaylaştırabilir."
+        }
+      ],
+      "after": [
+        {
+          "id": "аннакаренина",
+          "reason": "Aile, toplumsal yargı ve ahlaki sorumluluk sorunlarını farklı bir romancının anlatımıyla karşılaştırabilirsin."
+        }
+      ]
+    },
+    "strategyofconflict": {
+      "before": [
+        {
+          "id": "gettingtoyes",
+          "reason": "Çıkarlar, alternatifler ve pazarlık bağlamını tanımak, stratejik etkileşimdeki taahhütleri düşünmeyi kolaylaştırır."
+        }
+      ],
+      "after": [
+        {
+          "id": "coopetition",
+          "reason": "Stratejik etkileşimi işletmeler arasındaki değer yaratma ve paylaşma ilişkilerine taşıyabilirsin."
+        }
+      ]
+    },
+    "vomkriege": {
+      "before": [
+        {
+          "id": "askeristratejinintemellerikuramcilar",
+          "reason": "Kuramcıların kavramlarını ve dönemlerini önce karşılaştırmak, yoğun birincil metni bağlamıyla okumayı kolaylaştırır."
+        }
+      ],
+      "after": [
+        {
+          "id": "strategytheindirectapproach",
+          "reason": "Clausewitz’in çerçevesini daha sonraki dolaylı yaklaşım yorumuyla karşılaştırabilirsin."
+        }
+      ]
+    },
+    "meditations": {
+      "before": [],
+      "after": [
+        {
+          "id": "aguidetothegoodlife",
+          "reason": "Birincil metindeki düşünceleri modern bir Stoacılık yorumuyla karşılaştırabilir, yorumun eklediği varsayımları ayırabilirsin."
+        }
+      ]
+    }
+  },
+  "sources": {
+    "thinkinginsystems": [
+      {
+        "label": "Kitap incelemesi · The Personal MBA",
+        "url": "https://personalmba.com/review/thinking-in-systems/"
+      }
+    ],
+    "competitivestrategy": [
+      {
+        "label": "Kitap incelemesi · The Personal MBA",
+        "url": "https://personalmba.com/review/competitive-strategy/"
+      }
+    ],
+    "blueoceanstrategy": [
+      {
+        "label": "Kitap incelemesi · The Personal MBA",
+        "url": "https://personalmba.com/review/blue-ocean-strategy/"
+      }
+    ],
+    "goal": [
+      {
+        "label": "Kitap incelemesi · The Personal MBA",
+        "url": "https://personalmba.com/review/the-goal/"
+      }
+    ],
+    "influence": [
+      {
+        "label": "Kitap incelemesi · The Personal MBA",
+        "url": "https://personalmba.com/review/influence/"
+      }
+    ],
+    "thinkingfastandslow": [
+      {
+        "label": "Kitap incelemesi · The Personal MBA",
+        "url": "https://personalmba.com/review/thinking-fast-and-slow/"
+      }
+    ],
+    "goodstrategybadstrategy": [
+      {
+        "label": "Yayınevi tanıtımı · Nobel",
+        "url": "https://www.nobelyayin.com/kitap_15818.html"
+      }
+    ]
+  }
+}

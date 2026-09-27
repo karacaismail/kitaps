@@ -1,0 +1,126 @@
+export const STATE_LABELS = { onemli: 'Favori', alinacak: 'Alınacak', alindi: 'Satın alındı', okunuyor: 'Okunuyor', okundu: 'Okundu', araverildi: 'Ara verdim', birakildi: 'Bıraktım' };
+export const QUALITY_LABELS = { ok: 'Kaynakta doğrulanmış', warn: 'Baskı / çeviri uyarısı', unverified: 'Künye eksik', avoid: 'Kaçınılacak baskı notu' };
+export const ORIGIN_LABELS = { atlas: 'Kitap Atlası', local: 'Okuma Kümeleri', kitaps: 'Kitaps' };
+export const emptyFilters = () => ({ query: '', categories: [], collections: [], groups: [], states: [], authors: [], origins: [], awards: [], awardYears: [], qualities: [], categoryMode: 'any', collectionMode: 'any', hasEdition: false, shared: false, yearMin: '', yearMax: '' });
+export const normalize = value => String(value ?? '').toLocaleLowerCase('tr-TR').replace(/ı/g, 'i').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[’‘]/g, "'");
+export function prepareBooks(books) {
+ return books.map(book => ({ ...book, searchText: normalize([book.title, book.titleTr, book.cover?.title, book.cover?.publisher, book.cover?.isbn, book.author, ...book.aliases, ...(book.verifiedEdition?.translators||[]), book.verifiedEdition?.publisher, book.verifiedEdition?.isbn, ...book.editions.flatMap(e => [e.translator,e.publisher,e.turkish,e.original]), ...book.notes.map(n=>n.text)].join(' ')) }));
+}
+const matchesValues = (actual, selected, mode = 'any') => !selected.length || (mode === 'all' ? selected.every(x => actual.includes(x)) : selected.some(x => actual.includes(x)));
+export function filterBooks(books, filters, states = {}) {
+ const f = { ...emptyFilters(), ...filters };
+ const tokens = normalize(f.query).trim().split(/\s+/).filter(Boolean);
+ return books.filter(b => {
+  if (!tokens.every(t => b.searchText.includes(t))) return false;
+  if (!matchesValues(b.categories, f.categories, f.categoryMode)) return false;
+  if (!matchesValues(b.collectionIds, f.collections, f.collectionMode)) return false;
+  if (!matchesValues(b.groupIds, f.groups)) return false;
+  if (!matchesValues(states[b.id] || [], f.states)) return false;
+  if (!matchesValues([b.author], f.authors)) return false;
+  if (!matchesValues(b.origins, f.origins)) return false;
+  if (!matchesValues(b.editions.flatMap(e => e.status || []), f.qualities)) return false;
+  if (f.hasEdition && !b.verifiedEdition && !b.editions.some(e => e.translator || e.publisher)) return false;
+  if (f.shared && b.collectionIds.length < 2) return false;
+  if ((f.yearMin !== '' || f.yearMax !== '') && !b.years.some(y => (f.yearMin === '' || y >= Number(f.yearMin)) && (f.yearMax === '' || y <= Number(f.yearMax)))) return false;
+  // The award and its year must match the SAME membership, not two unrelated records.
+  if ((f.awards.length || f.awardYears.length) && !b.memberships.some(m => m.collectionId === 'ft' && matchesValues([m.award],f.awards) && matchesValues([String(m.awardYear)],f.awardYears))) return false;
+  return true;
+ });
+}
+export function sortBooks(books, sort, states = {}) {
+ const collator = new Intl.Collator('tr', { sensitivity: 'base', numeric: true });
+ const title = b => b.titleTr || b.title;
+ return [...books].sort((a,b) => {
+  const tie = () => collator.compare(title(a),title(b));
+  if (sort === 'shared') return b.collectionIds.length - a.collectionIds.length || tie();
+  if (sort === 'author') return collator.compare(a.author,b.author) || tie();
+  if (sort === 'newest') return Math.max(0,...b.years) - Math.max(0,...a.years) || tie();
+  if (sort === 'saved') return Number((states[b.id]||[]).includes('onemli')) - Number((states[a.id]||[]).includes('onemli')) || tie();
+  return tie();
+ });
+}
+export function toggleState(current, key) {
+ const result = new Set(current || []);
+ if (result.has(key)) result.delete(key);
+ else {
+  result.add(key);
+  const opposite = { alinacak: 'alindi', alindi: 'alinacak', okunuyor: 'okundu', okundu: 'okunuyor' }[key];
+  if (opposite) result.delete(opposite);
+  const readingStates=['okunuyor','okundu','araverildi','birakildi'];
+  if(readingStates.includes(key))for(const state of readingStates)if(state!==key)result.delete(state);
+ }
+ return [...result];
+}
+export function migrateStates(books, own, legacy) {
+ const result = Object.fromEntries(Object.entries(own || {}).filter(([,v])=>Array.isArray(v)).map(([k,v])=>[k,v.filter(s=>s in STATE_LABELS)]));
+ for (const b of books) {
+  if (Object.hasOwn(result,b.id)) continue;
+  const values = b.legacyKeys.flatMap(k => Array.isArray(legacy?.[k]) ? legacy[k] : []).filter(s => s in STATE_LABELS);
+  if (values.length) result[b.id] = [...new Set(values)];
+ }
+ return result;
+}
+export function filterCount(f) {
+ return Object.entries(f).reduce((n,[k,v])=>n + (k.endsWith('Mode') ? 0 : Array.isArray(v) ? v.length : v ? 1 : 0),0);
+}
+const routeFields={categories:'category',collections:'collection',groups:'group',states:'status',authors:'author',origins:'source',awards:'award',awardYears:'award-year',qualities:'edition-status'};
+const englishValues={onemli:'important',alinacak:'wishlist',alindi:'purchased',okunuyor:'reading',araverildi:'paused',birakildi:'abandoned',okundu:'finished',Kazanan:'winner','Kısa liste':'shortlist','Uzun liste':'longlist'};
+const originalValues=Object.fromEntries(Object.entries(englishValues).map(([key,value])=>[value,key]));
+const englishBookTitles={'преступлениеинаказание':'Crime and Punishment','братьякарамазовы':'The Brothers Karamazov','запискиизподполья':'Notes from Underground','идиот':'The Idiot','воинаимир':'War and Peace','аннакаренина':'Anna Karenina','смертьиванаильича':'The Death of Ivan Ilyich','чемлюдиживы':'What Men Live By'};
+export function bookSlug(book){return ((englishBookTitles[book.id]||book.title.split(':')[0])+' by '+book.author).normalize('NFKD').replace(/ı/g,'i').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,200)||book.id}
+export function decodeRoute(location, catalog) {
+ const defaults={filters:emptyFilters(),view:'books',sort:'shared',book:null};
+ const raw=location.replace(/^[#?]/,'');
+ if(catalog.collections.some(c=>c.id===raw))return {...defaults,filters:{...emptyFilters(),collections:[raw]}};
+ if(raw==='overview')return {...defaults,view:'collections'};
+ if(raw==='sources')return {...defaults,view:'notes'};
+ try {
+  const p=new URLSearchParams(raw),f=defaults.filters;
+  // Retain old shared hash links containing JSON filters.
+  const parsed=JSON.parse(p.get('f')||'{}');
+  for(const [key,value] of Object.entries(parsed)){
+   if(!(key in f))continue;
+   if(Array.isArray(f[key])&&Array.isArray(value))f[key]=value.filter(x=>typeof x==='string');
+   else if(typeof value===typeof f[key]||['yearMin','yearMax'].includes(key)&&typeof value==='number')f[key]=value;
+  }
+  for(const [key,param] of Object.entries(routeFields))if(p.has(param))f[key]=p.getAll(param).map(v=>originalValues[v]||v);
+  if(p.has('q'))f.query=p.get('q');
+  if(p.has('category-match'))f.categoryMode=p.get('category-match')==='all'?'all':'any';
+  if(p.has('collection-match'))f.collectionMode=p.get('collection-match')==='all'?'all':'any';
+  if(p.has('edition'))f.hasEdition=p.get('edition')==='known';
+  if(p.has('shared'))f.shared=p.get('shared')==='true';
+  for(const [key,param] of [['yearMin','year-from'],['yearMax','year-to']])if(p.has(param)&&p.get(param).trim()!==''&&Number.isFinite(Number(p.get(param))))f[key]=Number(p.get(param));
+  const known={categories:catalog.categories?.map(c=>c.id),collections:catalog.collections.map(c=>c.id),groups:catalog.groups?.map(g=>g.id),states:Object.keys(STATE_LABELS),qualities:Object.keys(QUALITY_LABELS),origins:Object.keys(ORIGIN_LABELS)};
+  for(const [key,values] of Object.entries(known))if(values)f[key]=[...new Set(f[key])].filter(v=>values.includes(v));
+  const selected=catalog.books.find(b=>b.id===p.get('book'))||catalog.books.find(b=>bookSlug(b)===p.get('book'));
+  const view=p.get('view')==='library'?'owned':p.get('view');
+  return {...defaults,view:['books','owned','favorites','queue','collections','notes'].includes(view)?view:'books',sort:['title','author','shared','newest','saved'].includes(p.get('sort'))?p.get('sort'):'shared',book:selected?.id||null};
+ }catch{return defaults}
+}
+export function encodeRoute(route,catalog) {
+ const p=new URLSearchParams(),f=route.filters;
+ if(route.view!=='books')p.set('view',route.view==='owned'?'library':route.view);
+ if(f.query)p.set('q',f.query);
+ for(const [key,param] of Object.entries(routeFields))for(const value of f[key])p.append(param,englishValues[value]||value);
+ if(f.categoryMode==='all')p.set('category-match','all');
+ if(f.collectionMode==='all')p.set('collection-match','all');
+ if(f.hasEdition)p.set('edition','known');
+ if(f.shared)p.set('shared','true');
+ if(f.yearMin!=='')p.set('year-from',f.yearMin);
+ if(f.yearMax!=='')p.set('year-to',f.yearMax);
+ if(route.sort!=='shared')p.set('sort',route.sort);
+ if(route.book){const book=catalog?.books.find(b=>b.id===route.book);p.set('book',book?bookSlug(book):route.book)}
+ return p.toString();
+}
+
+// Keep source meaning while rendering the user's library without emoji.
+export function plainTextMarkers(text) {
+ return text.replace(/\u2705\uFE0F?/gu,'[Doğrulandı]')
+  .replace(/\u26A0\uFE0F?/gu,'[Dikkat]')
+  .replace(/\u2753\uFE0F?/gu,'[Doğrulanmadı]')
+  .replace(/\u{1F6AB}\uFE0F?/gu,'[Bu baskıdan kaçın]');
+}
+
+export function booksForShelf(books,states,shelf='catalog') {
+ return books.filter(book=>shelf==='owned'?(states[book.id]||[]).includes('alindi'):shelf==='favorites'?(states[book.id]||[]).includes('onemli'):true);
+}

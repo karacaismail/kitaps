@@ -1,0 +1,1072 @@
+{
+  "books": [
+    {
+      "id": "age-of-unreason",
+      "title": "The Age of Unreason",
+      "titleTr": "Mantıksızlık Çağı",
+      "authors": [
+        "Charles Handy"
+      ],
+      "year": 1989
+    },
+    {
+      "id": "built-to-last",
+      "title": "Built to Last",
+      "titleTr": "Kalıcı Olmak",
+      "authors": [
+        "Jim Collins",
+        "Jerry Porras"
+      ],
+      "year": 1994
+    },
+    {
+      "id": "competing-for-the-future",
+      "title": "Competing for the Future",
+      "titleTr": "Geleceği Kazanmak",
+      "authors": [
+        "Gary Hamel",
+        "C.K. Prahalad"
+      ],
+      "year": 1996
+    },
+    {
+      "id": "competitive-strategy",
+      "title": "Competitive Strategy",
+      "titleTr": "Rekabet Stratejisi",
+      "authors": [
+        "Michael E. Porter"
+      ],
+      "year": 1980,
+      "note": "Sektörleri ve rakipleri çözümleme teknikleri. Belgede çekirdekte korunan dört kitaptan biri."
+    },
+    {
+      "id": "emotional-intelligence",
+      "title": "Emotional Intelligence",
+      "titleTr": "Duygusal Zekâ",
+      "authors": [
+        "Daniel Goleman"
+      ],
+      "year": 1995
+    },
+    {
+      "id": "e-myth-revisited",
+      "title": "The E-Myth Revisited",
+      "titleTr": "Girişimcilik Efsanesi",
+      "authors": [
+        "Michael E. Gerber"
+      ],
+      "year": 1985
+    },
+    {
+      "id": "essential-drucker",
+      "title": "The Essential Drucker",
+      "titleTr": "Temel Drucker",
+      "authors": [
+        "Peter Drucker"
+      ],
+      "year": 2001
+    },
+    {
+      "id": "fifth-discipline",
+      "title": "The Fifth Discipline",
+      "titleTr": "Beşinci Disiplin",
+      "authors": [
+        "Peter Senge"
+      ],
+      "year": 1990
+    },
+    {
+      "id": "first-break-all-the-rules",
+      "title": "First, Break All the Rules",
+      "titleTr": "Önce Tüm Kuralları Yıkın",
+      "authors": [
+        "Marcus Buckingham",
+        "Curt Coffman"
+      ],
+      "year": 1999
+    },
+    {
+      "id": "the-goal",
+      "title": "The Goal",
+      "titleTr": "Amaç",
+      "authors": [
+        "Eliyahu M. Goldratt"
+      ],
+      "year": 1984,
+      "note": "Kısıtlar teorisini roman biçiminde anlatır. Şu anda okunuyor; çekirdekte korunan dört kitaptan biri."
+    },
+    {
+      "id": "good-to-great",
+      "title": "Good to Great",
+      "titleTr": "İyiden Mükemmel Şirkete",
+      "authors": [
+        "Jim Collins"
+      ],
+      "year": 2001
+    },
+    {
+      "id": "guerilla-marketing",
+      "title": "Guerilla Marketing",
+      "titleTr": "Gerilla Pazarlama",
+      "authors": [
+        "Jay Conrad Levinson"
+      ],
+      "year": 1984
+    },
+    {
+      "id": "how-to-win-friends",
+      "title": "How to Win Friends and Influence People",
+      "titleTr": "Dost Kazanma ve İnsanları Etkileme Sanatı",
+      "authors": [
+        "Dale Carnegie"
+      ],
+      "year": 1936
+    },
+    {
+      "id": "human-side-of-enterprise",
+      "title": "The Human Side of Enterprise",
+      "titleTr": "İşletmenin İnsani Yönü",
+      "authors": [
+        "Douglas McGregor"
+      ],
+      "year": 1960
+    },
+    {
+      "id": "innovators-dilemma",
+      "title": "The Innovator's Dilemma",
+      "titleTr": "Yenilikçinin İkilemi",
+      "authors": [
+        "Clayton Christensen"
+      ],
+      "year": 1997,
+      "note": "Yıkıcı yenilik kuramı. Belgede çekirdekte korunan dört kitaptan biri."
+    },
+    {
+      "id": "leading-change",
+      "title": "Leading Change",
+      "titleTr": "Değişime Öncülük Etmek",
+      "authors": [
+        "John P. Kotter"
+      ],
+      "year": 1996
+    },
+    {
+      "id": "on-becoming-a-leader",
+      "title": "On Becoming a Leader",
+      "titleTr": "Lider Olmak",
+      "authors": [
+        "Warren Bennis"
+      ],
+      "year": 1989
+    },
+    {
+      "id": "out-of-the-crisis",
+      "title": "Out of the Crisis",
+      "titleTr": "Krizden Çıkış",
+      "authors": [
+        "W. Edwards Deming"
+      ],
+      "year": 1982,
+      "note": "Kalite yönetiminin 14 ilkesi. Belgede çekirdekte korunan dört kitaptan biri."
+    },
+    {
+      "id": "my-years-with-gm",
+      "title": "My Years with General Motors",
+      "titleTr": "General Motors'taki Yıllarım",
+      "authors": [
+        "Alfred P. Sloan Jr."
+      ],
+      "year": 1964
+    },
+    {
+      "id": "one-minute-manager",
+      "title": "The One Minute Manager",
+      "titleTr": "Bir Dakika Yöneticisi",
+      "authors": [
+        "Kenneth Blanchard",
+        "Spencer Johnson"
+      ],
+      "year": 1982
+    },
+    {
+      "id": "reengineering-the-corporation",
+      "title": "Reengineering the Corporation",
+      "titleTr": "Değişim Mühendisliği",
+      "authors": [
+        "James Champy",
+        "Michael Hammer"
+      ],
+      "year": 1993
+    },
+    {
+      "id": "seven-habits",
+      "title": "The 7 Habits of Highly Effective People",
+      "titleTr": "Etkili İnsanların 7 Alışkanlığı",
+      "authors": [
+        "Stephen R. Covey"
+      ],
+      "year": 1989
+    },
+    {
+      "id": "six-sigma-way",
+      "title": "The Six Sigma Way",
+      "titleTr": "Altı Sigma Yolu",
+      "authors": [
+        "Peter S. Pande",
+        "Robert P. Neuman",
+        "Roland R. Cavanagh"
+      ],
+      "year": 2000
+    },
+    {
+      "id": "toyota-production-system",
+      "title": "Toyota Production System",
+      "titleTr": "Toyota Üretim Sistemi",
+      "authors": [
+        "Taiichi Ohno"
+      ],
+      "year": 1988
+    },
+    {
+      "id": "who-moved-my-cheese",
+      "title": "Who Moved My Cheese?",
+      "titleTr": "Peynirimi Kim Kaptı?",
+      "authors": [
+        "Spencer Johnson"
+      ],
+      "year": 1998,
+      "note": "Belgede, Rekabet Stratejisi ile aynı listede yan yana durmasının listenin ölçütünü gösterdiği örnek olarak anılıyor."
+    },
+    {
+      "id": "thinking-in-systems",
+      "title": "Thinking in Systems",
+      "titleTr": "Sistemlerle Düşünmek",
+      "authors": [
+        "Donella H. Meadows"
+      ],
+      "year": 2008,
+      "note": "Geri bildirim döngüleri, gecikmeler, birikimler ve parçalar arası ilişkiler."
+    },
+    {
+      "id": "effective-executive",
+      "title": "The Effective Executive",
+      "titleTr": "Etkin Yönetici",
+      "authors": [
+        "Peter F. Drucker"
+      ],
+      "year": 1967,
+      "note": "Öncelik belirleme, zamanı kullanma, güçlü yönlerden yararlanma ve karar verme."
+    },
+    {
+      "id": "halo-effect",
+      "title": "The Halo Effect",
+      "titleTr": "Hale Etkisi",
+      "authors": [
+        "Phil Rosenzweig"
+      ],
+      "year": 2007,
+      "note": "Başarılı şirketlerin bütün özelliklerini başarılıymış gibi görme ve sonuçtan nedene giden yanıltıcı açıklamalar."
+    },
+    {
+      "id": "good-strategy-bad-strategy",
+      "title": "Good Strategy / Bad Strategy",
+      "titleTr": "İyi Strateji / Kötü Strateji",
+      "authors": [
+        "Richard P. Rumelt"
+      ],
+      "year": 2011,
+      "note": "Hedef, temenni ve sloganı gerçek stratejiden ayırır; önemli engellere karşı tutarlı eylem yaklaşımı."
+    },
+    {
+      "id": "superforecasting",
+      "title": "Superforecasting",
+      "titleTr": "Süpertahmin",
+      "authors": [
+        "Philip E. Tetlock",
+        "Dan Gardner"
+      ],
+      "year": 2015,
+      "note": "Olasılıklı düşünme, kanıtları birleştirme, tahminleri ölçme ve görüşleri güncelleme."
+    },
+    {
+      "id": "how-big-things-get-done",
+      "title": "How Big Things Get Done",
+      "titleTr": "Büyük İşler Nasıl Yapılır",
+      "authors": [
+        "Bent Flyvbjerg",
+        "Dan Gardner"
+      ],
+      "year": 2023,
+      "note": "Büyük projelerin neden aştığı ve nasıl gerçekleştirildiği."
+    },
+    {
+      "id": "competitive-advantage",
+      "title": "Competitive Advantage",
+      "titleTr": "Rekabet Avantajı",
+      "authors": [
+        "Michael E. Porter"
+      ],
+      "year": 1985,
+      "note": "Değer zinciri ve sürdürülebilir üstünlük."
+    },
+    {
+      "id": "co-opetition",
+      "title": "Co-opetition",
+      "titleTr": "Rekabet ve İşbirliği",
+      "authors": [
+        "Adam M. Brandenburger",
+        "Barry J. Nalebuff"
+      ],
+      "year": 1996,
+      "note": "Oyun kuramıyla rekabet ve işbirliğinin birlikte ele alınması."
+    },
+    {
+      "id": "information-rules",
+      "title": "Information Rules",
+      "titleTr": "Bilgi Ekonomisinin Kuralları",
+      "authors": [
+        "Carl Shapiro",
+        "Hal R. Varian"
+      ],
+      "year": 1998,
+      "note": "Bilgi ürünlerinin ve ağ ekonomisinin mantığı: fiyatlandırma, sürümleme, rekabet."
+    },
+    {
+      "id": "high-output-management",
+      "title": "High Output Management",
+      "titleTr": "Yüksek Çıktılı Yönetim",
+      "authors": [
+        "Andrew S. Grove"
+      ],
+      "year": 1983,
+      "note": "İşin örgütlenmesi, ekiplerin geliştirilmesi ve üretkenliğin artırılması."
+    },
+    {
+      "id": "how-brands-grow",
+      "title": "How Brands Grow",
+      "titleTr": "Markalar Nasıl Büyür?",
+      "authors": [
+        "Byron Sharp"
+      ],
+      "year": 2010,
+      "note": "Marka büyümesini satın alma davranışı ve müşteri tabanı üzerinden, kanıtla ele alır."
+    },
+    {
+      "id": "hundred-best-business-books",
+      "title": "The 100 Best Business Books of All Time",
+      "titleTr": "Tüm Zamanların En İyi 100 İşletme Kitabı",
+      "authors": [
+        "Jack Covert",
+        "Todd Sattersten",
+        "Sally Haldorson"
+      ],
+      "year": 2016,
+      "note": "Başlı başına bir kitap seçme rehberi; seçtiği 100 kitabı değerlendirir, hangi sorunlara yanıt verdiklerini açıklar ve ilgili eserlere yönlendirir. İncelenen baskı: 2016."
+    },
+    {
+      "id": "syrup",
+      "title": "Syrup",
+      "authors": [
+        "Maxx Barry"
+      ],
+      "year": 1999,
+      "titleTr": "Şurup (roman)"
+    },
+    {
+      "id": "marketing-a-love-story",
+      "title": "Marketing: A Love Story",
+      "titleTr": "Pazarlama: Bir Aşk Hikâyesi",
+      "authors": [
+        "Bernadette Jiwa"
+      ],
+      "year": 2014
+    },
+    {
+      "id": "this-is-marketing",
+      "title": "This Is Marketing",
+      "titleTr": "Pazarlama Budur",
+      "authors": [
+        "Seth Godin"
+      ],
+      "year": 2018
+    },
+    {
+      "id": "republic-of-tea",
+      "title": "The Republic of Tea",
+      "titleTr": "Çay Cumhuriyeti",
+      "authors": [
+        "Bill Rosenzweig",
+        "Mel Ziegler",
+        "Patricia Ziegler"
+      ],
+      "year": 1992
+    },
+    {
+      "id": "new-rules-for-the-new-economy",
+      "title": "New Rules for the New Economy",
+      "titleTr": "Yeni Ekonominin Yeni Kuralları",
+      "authors": [
+        "Kevin Kelly"
+      ],
+      "year": 1998
+    },
+    {
+      "id": "the-discoverers",
+      "title": "The Discoverers",
+      "titleTr": "Kâşifler",
+      "authors": [
+        "Daniel J. Boorstin"
+      ],
+      "year": 1983
+    },
+    {
+      "id": "steve-jobs",
+      "title": "Steve Jobs",
+      "authors": [
+        "Walter Isaacson"
+      ],
+      "year": 2011
+    },
+    {
+      "id": "lean-startup",
+      "title": "The Lean Startup",
+      "titleTr": "Yalın Startup",
+      "authors": [
+        "Eric Ries"
+      ],
+      "year": 2011
+    },
+    {
+      "id": "founders-dilemmas",
+      "title": "The Founder's Dilemmas",
+      "titleTr": "Kurucunun İkilemleri",
+      "authors": [
+        "Noam Wasserman"
+      ],
+      "year": 2012
+    },
+    {
+      "id": "boulevard-of-broken-dreams",
+      "title": "Boulevard of Broken Dreams",
+      "titleTr": "Kırık Hayaller Bulvarı",
+      "authors": [
+        "Josh Lerner"
+      ],
+      "year": 2009
+    },
+    {
+      "id": "improv-wisdom",
+      "title": "Improv Wisdom",
+      "titleTr": "Doğaçlama Bilgeliği",
+      "authors": [
+        "Patricia Ryan Madson"
+      ],
+      "year": 2005
+    },
+    {
+      "id": "made-to-stick",
+      "title": "Made to Stick",
+      "titleTr": "Akılda Kalan Fikirler",
+      "authors": [
+        "Chip Heath",
+        "Dan Heath"
+      ],
+      "year": 2007
+    },
+    {
+      "id": "communicate-with-mastery",
+      "title": "Communicate with Mastery",
+      "titleTr": "Ustalıkla İletişim",
+      "authors": [
+        "J. D. Schramm"
+      ],
+      "year": 2020
+    },
+    {
+      "id": "humor-seriously",
+      "title": "Humor, Seriously",
+      "titleTr": "Mizah, Ciddi Ciddi",
+      "authors": [
+        "Jennifer Aaker",
+        "Naomi Bagdonas"
+      ],
+      "year": 2020
+    },
+    {
+      "id": "talk",
+      "title": "Talk",
+      "titleTr": "Konuşma: Sohbetin Bilimi",
+      "authors": [
+        "Alison Wood Brooks"
+      ],
+      "year": 2025
+    }
+  ],
+  "collections": [
+    {
+      "id": "time25",
+      "code": "T",
+      "name": "En Etkili 25 İşletme Yönetimi Kitabı",
+      "curator": "TIME",
+      "yearLabel": "2011",
+      "kind": "kurumsal",
+      "purpose": "Yönetim tarihinde etkili olmuş kitapları tanımak",
+      "criterion": "Tarihsel etki: yönetim hakkındaki düşüncelerimizi değiştirmiş kitaplar",
+      "verdict": "TIME’ın 25 kitabını olduğu gibi ana okuma listesi yapmazdım. Listede Rekabet Stratejisi ile Peynirimi Kim Kaptı? yan yana bulunuyor; aynı işi yapmak için yazılmış eserler değiller. Güçlü çekirdeğini korur, eksik kalan düşünme araçlarını eklerdim.",
+      "scope": "Tam liste. Belgede adı geçen beş kitap ayrıca işaretlendi.",
+      "fullCount": 25,
+      "sourceUrl": "https://content.time.com/time/specials/packages/completelist/0,29569,2086680,00.html",
+      "items": [
+        {
+          "bookId": "age-of-unreason",
+          "tags": []
+        },
+        {
+          "bookId": "built-to-last",
+          "tags": []
+        },
+        {
+          "bookId": "competing-for-the-future",
+          "tags": []
+        },
+        {
+          "bookId": "competitive-strategy",
+          "tags": [
+            "belgede-anilan",
+            "korunan"
+          ]
+        },
+        {
+          "bookId": "emotional-intelligence",
+          "tags": []
+        },
+        {
+          "bookId": "e-myth-revisited",
+          "tags": []
+        },
+        {
+          "bookId": "essential-drucker",
+          "tags": []
+        },
+        {
+          "bookId": "fifth-discipline",
+          "tags": []
+        },
+        {
+          "bookId": "first-break-all-the-rules",
+          "tags": []
+        },
+        {
+          "bookId": "the-goal",
+          "tags": [
+            "belgede-anilan",
+            "korunan",
+            "okunuyor"
+          ]
+        },
+        {
+          "bookId": "good-to-great",
+          "tags": []
+        },
+        {
+          "bookId": "guerilla-marketing",
+          "tags": []
+        },
+        {
+          "bookId": "how-to-win-friends",
+          "tags": []
+        },
+        {
+          "bookId": "human-side-of-enterprise",
+          "tags": []
+        },
+        {
+          "bookId": "innovators-dilemma",
+          "tags": [
+            "belgede-anilan",
+            "korunan"
+          ]
+        },
+        {
+          "bookId": "leading-change",
+          "tags": []
+        },
+        {
+          "bookId": "on-becoming-a-leader",
+          "tags": []
+        },
+        {
+          "bookId": "out-of-the-crisis",
+          "tags": [
+            "belgede-anilan",
+            "korunan"
+          ]
+        },
+        {
+          "bookId": "my-years-with-gm",
+          "tags": []
+        },
+        {
+          "bookId": "one-minute-manager",
+          "tags": []
+        },
+        {
+          "bookId": "reengineering-the-corporation",
+          "tags": []
+        },
+        {
+          "bookId": "seven-habits",
+          "tags": []
+        },
+        {
+          "bookId": "six-sigma-way",
+          "tags": []
+        },
+        {
+          "bookId": "toyota-production-system",
+          "tags": []
+        },
+        {
+          "bookId": "who-moved-my-cheese",
+          "tags": [
+            "belgede-anilan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "personal-mba",
+      "code": "P",
+      "name": "The Personal MBA · 99 Kitaplık Liste",
+      "curator": "Josh Kaufman",
+      "kind": "kurumsal",
+      "purpose": "Sistemli bir işletme eğitimi; genel okuma haritası",
+      "criterion": "Okuma için harcanan zamandan elde edilen eğitim değerini artırmak; değer yaratma, pazarlama, satış, finans, karar verme, sistemler, analiz, yönetim ve danışmanlık alanlarına ayrılmış",
+      "verdict": "İşletmeyi farklı işlevleriyle birlikte ele alan biri için okuma programının iskeleti olarak TIME’dan daha uygun. Ancak 99 kitabın her birini TIME’daki her kitaptan üstün görmüyorum; avantaj, listenin eğitim mantığıyla düzenlenmesi.",
+      "scope": "Belgede adı geçen 4 kitap. Tam liste 99 kitaptır.",
+      "fullCount": 99,
+      "sourceUrl": "https://personalmba.com/best-business-books/",
+      "items": [
+        {
+          "bookId": "the-goal",
+          "tags": [
+            "belgede-anilan",
+            "okunuyor"
+          ],
+          "note": "Aynı yapının farklı ihtiyaçlarını karşılayan örneklerden biri."
+        },
+        {
+          "bookId": "thinking-in-systems",
+          "tags": [
+            "belgede-anilan"
+          ]
+        },
+        {
+          "bookId": "effective-executive",
+          "tags": [
+            "belgede-anilan"
+          ]
+        },
+        {
+          "bookId": "halo-effect",
+          "tags": [
+            "belgede-anilan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "five-books",
+      "code": "F",
+      "name": "Five Books · Uzman Seçkileri",
+      "curator": "Five Books",
+      "kind": "kurumsal",
+      "purpose": "Bir konuda gerçekten derinleşmek; gerekçeli kitap seçmek",
+      "criterion": "Uzmanlar kendi alanlarında beş kitap seçer ve neden seçtiklerini açıklar: “Bu kitap hangi soruyu çözüyor, diğerlerinden nerede ayrılıyor?”",
+      "verdict": "“Bağlamı anlayayım, neden okumam gerektiğini bileyim” ihtiyacına en iyi karşılık veren kaynaklardan biri. Fakat bir uzmanın seçkisi alanın tamamının uzlaşması gibi değerlendirilmemeli.",
+      "scope": "Belgede üç uzman anılıyor; kitap adları belgede yok, her uzmanın beş kitabı fivebooks.com’dan alındı.",
+      "sourceUrl": "https://fivebooks.com/category/business/",
+      "items": [],
+      "subsets": [
+        {
+          "id": "hellmann",
+          "name": "Girişimcilik",
+          "hint": "Thomas Hellmann · Oxford Saïd",
+          "items": [
+            {
+              "bookId": "the-discoverers",
+              "tags": [
+                "kaynaktan"
+              ]
+            },
+            {
+              "bookId": "steve-jobs",
+              "tags": [
+                "kaynaktan"
+              ]
+            },
+            {
+              "bookId": "lean-startup",
+              "tags": [
+                "kaynaktan"
+              ]
+            },
+            {
+              "bookId": "founders-dilemmas",
+              "tags": [
+                "kaynaktan"
+              ]
+            },
+            {
+              "bookId": "boulevard-of-broken-dreams",
+              "tags": [
+                "kaynaktan"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "godin",
+          "name": "Pazarlama",
+          "hint": "Seth Godin",
+          "items": [
+            {
+              "bookId": "syrup",
+              "tags": [
+                "kaynaktan"
+              ]
+            },
+            {
+              "bookId": "marketing-a-love-story",
+              "tags": [
+                "kaynaktan"
+              ]
+            },
+            {
+              "bookId": "this-is-marketing",
+              "tags": [
+                "kaynaktan"
+              ]
+            },
+            {
+              "bookId": "republic-of-tea",
+              "tags": [
+                "kaynaktan"
+              ]
+            },
+            {
+              "bookId": "new-rules-for-the-new-economy",
+              "tags": [
+                "kaynaktan"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "abrahams",
+          "name": "İletişim",
+          "hint": "Matt Abrahams · Stanford GSB",
+          "items": [
+            {
+              "bookId": "improv-wisdom",
+              "tags": [
+                "kaynaktan"
+              ]
+            },
+            {
+              "bookId": "made-to-stick",
+              "tags": [
+                "kaynaktan"
+              ]
+            },
+            {
+              "bookId": "communicate-with-mastery",
+              "tags": [
+                "kaynaktan"
+              ]
+            },
+            {
+              "bookId": "humor-seriously",
+              "tags": [
+                "kaynaktan"
+              ]
+            },
+            {
+              "bookId": "talk",
+              "tags": [
+                "kaynaktan"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ft-archive",
+      "code": "FT",
+      "name": "Business Book of the Year Arşivi",
+      "curator": "Financial Times",
+      "kind": "kurumsal",
+      "purpose": "Güçlü yeni eserleri bulmak; TIME’ın sabit seçkisini sonradan yayımlanan çalışmalarla tamamlamak",
+      "criterion": "Yılın işletme kitabı ödülü; yalnızca kazananlar değil, kısa ve uzun listeye girenler de yıllara göre toplanır",
+      "verdict": "Yeni eserleri takip etmek için iyi bir kaynak. Ancak bütün ödül adayları yönetim uygulama kitabı değil; arşivi doğrudan bir yönetici eğitim müfredatı olarak kullanmazdım.",
+      "scope": "Belgede adı geçen 3 kitap. Arşiv yüzlerce adayı kapsar.",
+      "sourceUrl": "https://www.ft.com/business-book-of-the-year",
+      "items": [
+        {
+          "bookId": "good-strategy-bad-strategy",
+          "tags": [
+            "belgede-anilan"
+          ],
+          "note": "İyi strateji kurma."
+        },
+        {
+          "bookId": "superforecasting",
+          "tags": [
+            "belgede-anilan"
+          ],
+          "note": "Tahminlerde daha disiplinli düşünme."
+        },
+        {
+          "bookId": "how-big-things-get-done",
+          "tags": [
+            "belgede-anilan"
+          ],
+          "note": "Büyük işlerin gerçekleştirilmesi."
+        }
+      ]
+    },
+    {
+      "id": "hundred-best",
+      "code": "100",
+      "name": "The 100 Best Business Books of All Time",
+      "curator": "Jack Covert, Todd Sattersten, Sally Haldorson",
+      "yearLabel": "2016 baskısı",
+      "kind": "kurumsal",
+      "purpose": "Kitapları bağlamlarıyla karşılaştırmak",
+      "criterion": "Seçilen 100 kitabı değerlendiren, hangi sorunlara yanıt verdiklerini açıklayan ve ilgili eserlere yönlendiren rehber",
+      "verdict": "TIME’a en yakın, fakat açıklama ve bağlantılandırma açısından daha kapsamlı alternatif. 100 kitap içermesi değil, kitapların neden değerli olduğunu anlatması önemli. Tartışmasız bir “en iyiler kanonu” olarak görmem.",
+      "scope": "Belgede yalnızca rehberin kendisi anılıyor; içindeki 100 kitap listelenmiyor.",
+      "fullCount": 100,
+      "items": [
+        {
+          "bookId": "hundred-best-business-books",
+          "tags": [
+            "belgede-anilan"
+          ],
+          "note": "Rehberin kendisi; bir seçki kitabı."
+        }
+      ]
+    },
+    {
+      "id": "mit-sloan",
+      "code": "M",
+      "name": "Strategic Management I · Ders Okumaları",
+      "curator": "MIT Sloan · OpenCourseWare",
+      "yearLabel": "Güz 2006",
+      "kind": "kurumsal",
+      "purpose": "Popüler işletme kitaplarının ötesine geçmek; kavramların teorik bağlantılarını öğrenmek",
+      "criterion": "Gerçek bir dersin kaynakçası: kitaplar, makaleler ve konu sıralaması. Güncel bir “MIT’ın en iyi kitapları” sıralaması değil.",
+      "verdict": "Kavramların teorik bağlantılarını öğrenmek için güçlü. Baştan sona okunacak bir alışveriş listesi olarak değil, belirli bir konudaki derinleşme kaynağı olarak kullanırdım.",
+      "scope": "Belgede adı geçen 3 kitap. Dersin tam kaynakçası makaleleri de içerir.",
+      "sourceUrl": "https://ocw.mit.edu/courses/15-902-strategic-management-i-fall-2006/",
+      "items": [
+        {
+          "bookId": "competitive-advantage",
+          "tags": [
+            "belgede-anilan"
+          ]
+        },
+        {
+          "bookId": "co-opetition",
+          "tags": [
+            "belgede-anilan"
+          ]
+        },
+        {
+          "bookId": "information-rules",
+          "tags": [
+            "belgede-anilan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core12",
+      "code": "Ç",
+      "name": "Önerilen Çekirdek · 12 Kitap",
+      "curator": "Belge yazarının seçkisi",
+      "kind": "kisisel",
+      "purpose": "Düşünme, strateji ve yönetim için omurga; strateji, işletme yönetimi ve dijital dönüşüm çalışmalarını esas alır",
+      "criterion": "Daha fazla slogan değil daha iyi açıklama; daha fazla başarı hikâyesi değil daha iyi muhakeme; birbirini tekrarlayan değil birbirinin eksiklerini tamamlayan ve denetleyen kitaplar",
+      "verdict": "Bu 12 kitaplık çekirdeği, TIME’ın 25 kitabını ayrım yapmadan okumaya tercih ederim. Eksiksiz bir işletme müfredatı değil; özellikle düşünme, strateji ve yönetim için seçilmiş omurga.",
+      "scope": "TIME’dan korunan 4 kitap + eklenen 8 kitap. Tam seçki.",
+      "fullCount": 12,
+      "items": [],
+      "subsets": [
+        {
+          "id": "kept",
+          "name": "TIME’dan korunan",
+          "hint": "Zaten TIME seçkisinde olan, çekirdekte tutulan kitaplar",
+          "items": [
+            {
+              "bookId": "the-goal",
+              "tags": [
+                "korunan",
+                "okunuyor"
+              ],
+              "note": "Sistem sorunlarını düşünmeye başlama noktası; Meadows ile daha genel çerçeveye taşınır."
+            },
+            {
+              "bookId": "competitive-strategy",
+              "tags": [
+                "korunan"
+              ]
+            },
+            {
+              "bookId": "innovators-dilemma",
+              "tags": [
+                "korunan"
+              ]
+            },
+            {
+              "bookId": "out-of-the-crisis",
+              "tags": [
+                "korunan"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "added",
+          "name": "Eklenen",
+          "hint": "Her kitabın altında: seçkiye ne kazandırır?",
+          "items": [
+            {
+              "bookId": "good-strategy-bad-strategy",
+              "tags": [
+                "eklenen",
+                "yakin-vade"
+              ],
+              "note": "Hedef, temenni ve slogan ile gerçek stratejiyi ayırmayı; önemli engellere karşı tutarlı bir eylem yaklaşımı geliştirmeyi ele alır. Stratejik planlamayla uğraştığın için ilk ekleyeceklerimden biri."
+            },
+            {
+              "bookId": "thinking-in-systems",
+              "tags": [
+                "eklenen",
+                "yakin-vade"
+              ],
+              "note": "Geri bildirim döngülerini, gecikmeleri, birikimleri ve sistemin parçaları arasındaki ilişkileri açıklar. Bir departmanı iyileştirirken şirketin bütününü neden kötüleştirebildiğini anlamak için."
+            },
+            {
+              "bookId": "high-output-management",
+              "tags": [
+                "eklenen",
+                "yakin-vade"
+              ],
+              "note": "İşin örgütlenmesi, ekiplerin geliştirilmesi ve üretkenliğinin artırılması üzerinde durur. Stratejiyi günlük yönetim ve ekip çalışmasına bağlamak için."
+            },
+            {
+              "bookId": "effective-executive",
+              "tags": [
+                "eklenen"
+              ],
+              "note": "Öncelik belirleme, zamanı kullanma, insanların güçlü yönlerinden yararlanma ve karar verme. “Çok iş yapıyorum” ile “doğru katkıyı üretiyorum” ayrımını kurmak için."
+            },
+            {
+              "bookId": "halo-effect",
+              "tags": [
+                "eklenen"
+              ],
+              "note": "Başarılı şirketlerin bütün özelliklerini başarılıymış gibi görme ve sonuçlardan hareketle yanıltıcı nedenler üretme sorununu inceler. Diğer işletme kitaplarını daha eleştirel okumak için."
+            },
+            {
+              "bookId": "superforecasting",
+              "tags": [
+                "eklenen"
+              ],
+              "note": "Olasılıklı düşünmeyi, farklı kanıtları birleştirmeyi, tahminleri ölçmeyi ve görüşleri güncellemeyi anlatır. Planların ne kadar gerçekçi olduğunu sorgulamak için."
+            },
+            {
+              "bookId": "how-brands-grow",
+              "tags": [
+                "eklenen"
+              ],
+              "note": "Marka büyümesini satın alma davranışı, müşteri tabanı ve pazarlama araştırmaları üzerinden ele alır. Pazarlama fikirlerini ikna ediciliklerine göre değil, gözlenen davranışlarla ilişkilerine göre değerlendirmek için."
+            },
+            {
+              "bookId": "information-rules",
+              "tags": [
+                "eklenen"
+              ],
+              "note": "Bilgi ürünlerinin ve ağ ekonomisinin temel ekonomik mantığını; fiyatlandırma, ürün sürümleri ve rekabet açısından işler. Yazılım ve dijital ürün çalışmalarına doğrudan bağ kurar."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "near-term",
+      "code": "Y",
+      "name": "Yakın Vade · 3 Kitap ve Amaç",
+      "curator": "Belge yazarının net tercihi",
+      "kind": "kisisel",
+      "purpose": "Elindeki Amaç’ı bitirirken yalnızca üç kitap eklemek",
+      "criterion": "Sistemi anlamayı, doğru yönü seçmeyi ve o yönde iş çıkarmayı birlikte öğreten üçlü",
+      "verdict": "Elindeki Amaç’ı okumaya devam etmeni öneririm. Yakın vadede yalnızca üç kitap ekleyecek olsam seçimim bu üçü olurdu. Aradığın şey daha uzun bir “en iyiler” listesi değil; birbirini tamamlayan bir kitaplık.",
+      "scope": "Tam seçki: eklenecek 3 kitap ve devam eden okuma olarak Amaç.",
+      "items": [
+        {
+          "bookId": "the-goal",
+          "tags": [
+            "okunuyor"
+          ],
+          "note": "Devam eden okuma; listeye ek değil."
+        },
+        {
+          "bookId": "thinking-in-systems",
+          "tags": [
+            "yakin-vade"
+          ],
+          "note": "Sistemi anlamak."
+        },
+        {
+          "bookId": "good-strategy-bad-strategy",
+          "tags": [
+            "yakin-vade"
+          ],
+          "note": "Doğru yönü seçmek."
+        },
+        {
+          "bookId": "high-output-management",
+          "tags": [
+            "yakin-vade"
+          ],
+          "note": "O yönde iş çıkarmak."
+        }
+      ]
+    }
+  ],
+  "roles": [
+    {
+      "setId": "personal-mba",
+      "role": "Genel okuma haritası"
+    },
+    {
+      "setId": "five-books",
+      "role": "Konuya göre gerekçeli kitap seçimi"
+    },
+    {
+      "setId": "ft-archive",
+      "role": "Yeni eserleri takip"
+    }
+  ],
+  "tags": {
+    "belgede-anilan": "Belgede anılan",
+    "okunuyor": "Okunuyor",
+    "korunan": "Korunan",
+    "eklenen": "Eklenen",
+    "yakin-vade": "Yakın vade",
+    "kaynaktan": "Kaynaktan alındı"
+  }
+}
