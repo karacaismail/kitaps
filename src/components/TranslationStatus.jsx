@@ -1,11 +1,11 @@
 import React,{useState} from 'react';
 import { Anchor, Popover, Text, Tooltip, UnstyledButton } from '@mantine/core';
-import { IconCheck,IconMinus,IconX } from '@tabler/icons-react';
+import { IconCheck,IconX } from '@tabler/icons-react';
 import { displayTitle,translationStatus } from '../translation';
 export default function TranslationStatus({book}) {
  const [opened,setOpened]=useState(false),info=translationStatus(book);
  if(info.status==='original')return null;
- const Mark=info.status==='unverified'?IconMinus:info.status==='available'?IconCheck:IconX;
+ const Mark=info.status==='available'?IconCheck:IconX;
  const label=info.status==='available'?'Türkçe çeviri var':info.status==='unavailable'?'Türkçe çeviri yok':'Türkçe çeviri doğrulanamadı';
  const tooltip=info.status==='available'?'Türkçe çevirisi var':info.status==='unavailable'?'Türkçe çevirisi yok':'Çeviri durumu doğrulanmadı';
  return <Popover opened={opened} onChange={setOpened} width={280} position="bottom-start" withArrow shadow="md" trapFocus returnFocus>
