@@ -1,6 +1,5 @@
 import { CRITERION_LABELS, DEFAULT_READING_POLICY } from './policy.ts';
 import type {
-  BookStateId,
   Catalog,
   CatalogBook,
   CriterionId,
@@ -26,56 +25,59 @@ interface RawAssessment {
   user: UserBookState;
 }
 
+interface ScoredAssessment extends ReadingPriorityResult {
+  priorityBand: number;
+}
+
 /**
  * Keeps ownership separate from reading status. A borrowed book may be in
  * progress, and a previously read book does not need to be owned.
  */
 export class UserBookState {
   readonly bookId: string;
-  private readonly context: RankingContext;
   readonly owned: boolean;
   readonly status: ReadingStatus;
   readonly queuePosition: number | null;
 
-  constructor(bookId: string, context: RankingContext) {
+  constructor(
+    bookId: string,
+    context: RankingContext,
+    queuePositions?: ReadonlyMap<string, number>,
+  ) {
     this.bookId = bookId;
-    this.context = context;
     const states = new Set(context.states[bookId] ?? []);
-    const record = context.reading[bookId];
-
     this.owned = states.has('alindi');
-    this.status = this.resolveReadingStatus(states, record);
-    const position = context.queue.indexOf(bookId);
-    this.queuePosition = position < 0 ? null : position + 1;
-  }
-
-  has(state: BookStateId): boolean {
-    return (this.context.states[this.bookId] ?? []).includes(state);
+    this.status = this.resolveReadingStatus(states);
+    const position = queuePositions?.get(bookId);
+    if (position !== undefined) {
+      this.queuePosition = position;
+    } else if (queuePositions) {
+      this.queuePosition = null;
+    } else {
+      const queueIndex = context.queue.indexOf(bookId);
+      this.queuePosition = queueIndex < 0 ? null : queueIndex + 1;
+    }
   }
 
   private resolveReadingStatus(
     states: ReadonlySet<string>,
-    record: RankingContext['reading'][string],
   ): ReadingStatus {
     if (states.has('okunuyor')) return 'reading';
     if (states.has('araverildi')) return 'paused';
-    if (states.has('okundu') || Boolean(record?.finishedAt)) return 'read';
+    if (states.has('okundu')) return 'read';
     if (states.has('birakildi')) return 'abandoned';
-    if (record?.startedAt) return 'reading';
     return 'unread';
   }
 }
 
 /** Catalog-derived facts. Rebuilt when an engine is created with a catalog. */
 export class CatalogReadingProfile {
-  private readonly catalog: Catalog;
   private readonly leverage = new Map<string, number>();
   private readonly categoryTotals = new Map<string, number>();
   private readonly maxCollections: number;
   private readonly maxLeverage: number;
 
   constructor(catalog: Catalog) {
-    this.catalog = catalog;
     this.maxCollections = Math.max(
       1,
       ...catalog.books.map((book) => book.collectionIds?.length ?? 0),
@@ -107,8 +109,13 @@ export class CatalogReadingProfile {
     this.maxLeverage = Math.max(1, ...this.leverage.values());
   }
 
-  assess(book: CatalogBook, context: RankingContext): RawAssessment {
-    const user = new UserBookState(book.id, context);
+  assess(
+    book: CatalogBook,
+    context: RankingContext,
+    ownedByCategory: ReadonlyMap<string, number>,
+    queuePositions: ReadonlyMap<string, number>,
+  ): RawAssessment {
+    const user = new UserBookState(book.id, context, queuePositions);
     return {
       book,
       user,
@@ -118,7 +125,7 @@ export class CatalogReadingProfile {
         accessReadiness: this.accessReadiness(user),
         readingMomentum: this.readingMomentum(user),
         queueCommitment: this.queueCommitment(user, context.queue.length),
-        collectionCoverage: this.collectionCoverage(book, context),
+        collectionCoverage: this.collectionCoverage(book, user, ownedByCategory),
         difficultyFit: this.difficultyFit(book),
         durability: this.durability(book),
       },
@@ -184,7 +191,7 @@ export class CatalogReadingProfile {
     if (user.status === 'paused') return 0.45;
     if (user.status === 'read') return 0.05;
     if (user.status === 'abandoned') return 0.08;
-    return user.has('alinacak') ? 0.42 : 0.30;
+    return 0.30;
   }
 
   private readingMomentum(user: UserBookState): number {
@@ -201,22 +208,26 @@ export class CatalogReadingProfile {
     return 1 - (user.queuePosition - 1) / queueLength * 0.55;
   }
 
-  private collectionCoverage(book: CatalogBook, context: RankingContext): number {
+  private collectionCoverage(
+    book: CatalogBook,
+    user: UserBookState,
+    ownedByCategory: ReadonlyMap<string, number>,
+  ): number {
     const categories = book.categories ?? [];
     if (categories.length === 0) return 0.5;
 
-    const ownedByCategory = new Map<string, number>();
-    for (const candidate of this.catalog.books) {
-      const candidateState = new UserBookState(candidate.id, context);
-      if (!candidateState.owned) continue;
-      for (const category of candidate.categories ?? []) {
-        ownedByCategory.set(category, (ownedByCategory.get(category) ?? 0) + 1);
-      }
-    }
-
     return categories.reduce((sum, category) => {
-      const total = this.categoryTotals.get(category) ?? 1;
-      return sum + 1 - clamp((ownedByCategory.get(category) ?? 0) / total);
+      const otherCandidates = Math.max(
+        1,
+        (this.categoryTotals.get(category) ?? 1) - 1,
+      );
+      // A candidate must not count as already-covered merely because the user
+      // owns that same candidate. Only other owned books cover its topic.
+      const otherOwned = Math.max(
+        0,
+        (ownedByCategory.get(category) ?? 0) - (user.owned ? 1 : 0),
+      );
+      return sum + 1 - clamp(otherOwned / otherCandidates);
     }, 0) / categories.length;
   }
 
@@ -330,26 +341,58 @@ export class ReadingPriorityEngine {
   rank(context: RankingContext): ReadingPriorityResult[] {
     if (this.catalog.books.length === 0) return [];
 
+    const ownedByCategory = this.ownedCategoryCounts(context);
+    const queuePositions = new Map<string, number>();
+    context.queue.forEach((bookId, index) => {
+      if (!queuePositions.has(bookId)) queuePositions.set(bookId, index + 1);
+    });
     const assessments = this.catalog.books
-      .map((book) => this.profile.assess(book, context));
+      .map((book) => this.profile.assess(
+        book,
+        context,
+        ownedByCategory,
+        queuePositions,
+      ));
     const normalized = this.normalizer.normalize(assessments);
     const scored = assessments.map((assessment) =>
       this.score(assessment, normalized.get(assessment.book.id)!),
     );
 
     scored.sort((a, b) =>
-      b.score - a.score
+      b.priorityBand - a.priorityBand
+      || b.score - a.score
       || b.confidence - a.confidence
       || a.bookId.localeCompare(b.bookId, 'tr'),
     );
 
-    return scored.map((result, index) => ({ ...result, rank: index + 1 }));
+    let denseRank = 0;
+    let previousKey = '';
+    return scored.map((result, index) => {
+      const key = `${result.priorityBand}:${result.score}`;
+      if (key !== previousKey) {
+        denseRank += 1;
+        previousKey = key;
+      }
+      const { priorityBand: _priorityBand, ...publicResult } = result;
+      return { ...publicResult, rank: denseRank, ordinal: index + 1 };
+    });
+  }
+
+  private ownedCategoryCounts(context: RankingContext): Map<string, number> {
+    const counts = new Map<string, number>();
+    for (const book of this.catalog.books) {
+      if (!(context.states[book.id] ?? []).includes('alindi')) continue;
+      for (const category of book.categories ?? []) {
+        counts.set(category, (counts.get(category) ?? 0) + 1);
+      }
+    }
+    return counts;
   }
 
   private score(
     assessment: RawAssessment,
     normalized: RawCriteria,
-  ): ReadingPriorityResult {
+  ): ScoredAssessment {
     const criteria = (Object.keys(this.policy.weights) as CriterionId[])
       .map((id): CriterionResult => {
         const weight = this.policy.weights[id];
@@ -359,13 +402,14 @@ export class ReadingPriorityEngine {
           raw: round(assessment.raw[id], 3),
           normalized: round(normalized[id], 3),
           weight,
-          points: round(normalized[id] * weight * 100),
+          points: round(normalized[id] * weight * 100, 2),
           confidence: round(assessment.confidence[id] * 100, 0),
           evidence: this.profile.evidence(id, assessment, normalized[id]),
         };
       });
 
-    const score = criteria.reduce((sum, criterion) => sum + criterion.points, 0);
+    const score = (Object.keys(this.policy.weights) as CriterionId[])
+      .reduce((sum, id) => sum + normalized[id] * this.policy.weights[id] * 100, 0);
     const confidence = criteria.reduce(
       (sum, criterion) => sum + criterion.confidence * criterion.weight,
       0,
@@ -375,19 +419,21 @@ export class ReadingPriorityEngine {
       .sort((a, b) => b.points - a.points)
       .slice(0, 3)
       .map((criterion) =>
-        `${criterion.label}: ${criterion.points.toFixed(1)} puan. ${criterion.evidence}`,
+        `${criterion.label}: ${criterion.points.toFixed(2)} puan. ${criterion.evidence}`,
       );
 
     return {
       bookId: assessment.book.id,
       rank: 0,
-      score: round(score),
+      ordinal: 0,
+      score: round(score, 2),
       confidence: round(confidence, 0),
       maturity: readiness.level,
       maturityLabel: readiness.label,
       criteria,
       reasons,
       policyVersion: this.policy.version,
+      priorityBand: this.priorityBand(assessment.user),
       signals: {
         owned: assessment.user.owned,
         readingStatus: assessment.user.status,
@@ -396,14 +442,25 @@ export class ReadingPriorityEngine {
     };
   }
 
+  private priorityBand(user: UserBookState): number {
+    if (user.status === 'reading') return 4;
+    if (
+      user.queuePosition !== null
+      && user.status !== 'read'
+      && user.status !== 'abandoned'
+    ) return 3;
+    if (user.status === 'unread' || user.status === 'paused') return 2;
+    return 1;
+  }
+
   private readiness(
     score: number,
     user: UserBookState,
   ): { level: ReadinessLevel; label: string } {
     if (user.status === 'reading') return { level: 5, label: 'Okumaya devam et' };
-    if (user.queuePosition === 1) return { level: 5, label: 'Sıradaki kitap' };
     if (user.status === 'read') return { level: 1, label: 'Yeniden okuma düşük öncelik' };
     if (user.status === 'abandoned') return { level: 1, label: 'Yeniden değerlendirme gerekli' };
+    if (user.queuePosition === 1) return { level: 5, label: 'Sıradaki kitap' };
     if (score >= 72) return { level: 5, label: 'Şimdi oku' };
     if (score >= 58) return { level: 4, label: 'Yüksek okuma önceliği' };
     if (score >= 43) return { level: 3, label: 'Orta okuma önceliği' };

@@ -34,7 +34,7 @@ export function sortBooks(books, sort, states = {}, rankings = {}) {
  const title = b => displayTitle(b);
  return [...books].sort((a,b) => {
   const tie = () => collator.compare(title(a),title(b));
-  if (sort === 'reading') return (rankings[a.id]?.rank??Number.MAX_SAFE_INTEGER)-(rankings[b.id]?.rank??Number.MAX_SAFE_INTEGER)||tie();
+  if (sort === 'reading') return (rankings[a.id]?.rank??Number.MAX_SAFE_INTEGER)-(rankings[b.id]?.rank??Number.MAX_SAFE_INTEGER)||(rankings[a.id]?.ordinal??Number.MAX_SAFE_INTEGER)-(rankings[b.id]?.ordinal??Number.MAX_SAFE_INTEGER)||tie();
   if (sort === 'shared') return b.collectionIds.length - a.collectionIds.length || tie();
   if (sort === 'author') return collator.compare(a.author,b.author) || tie();
   if (sort === 'newest') return Math.max(0,...b.years) - Math.max(0,...a.years) || tie();

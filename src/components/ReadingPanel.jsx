@@ -14,7 +14,7 @@ export default function ReadingPanel({book,record,states,onToggle,onChange,queue
  const r={...emptyReading(),...record};const percent=progressPercent(r),errors=readingErrors(r);
  return <Paper withBorder p="lg" radius="lg" className="reading-panel">
   <Stack gap="lg">
-   <div><Title order={3}>Benim okuma kaydım</Title><Text c="dimmed" mt="xs" aria-live="polite">{storageError?'Kayıt yapılamıyor. Notlar bölümünden yedek indir.':'Değişikliklerin bu tarayıcıya otomatik kaydedilir.'}</Text></div>
+   <div><Title order={3}>Benim okuma kaydım</Title><Text c="dimmed" mt="xs" aria-live="polite">{storageError?'Kayıt yapılamıyor. Notlar bölümünden yedek indir.':'Bu kayıtlar tarayıcıya kaydedilir ve GitHub eşitlemesi bağlıysa herkese açık kitaps-state deposuna gönderilir.'}</Text></div>
    <QueueButton id={book.id} queue={queue} onAdd={onAdd} onQueue={onQueue} fullWidth/>
    <div><Text fw={500} mb="sm">Okuma durumu</Text><Group gap={8}>{['okunuyor','araverildi','birakildi','okundu'].map(key=><Button key={key} variant={states.includes(key)?'filled':'light'} aria-pressed={states.includes(key)} onClick={()=>onToggle(book.id,key)}>{STATE_LABELS[key]}</Button>)}</Group></div>
    <div className="reading-fields"><TextInput type="date" label="Başlama tarihi" value={r.startedAt} onChange={e=>onChange(book.id,{startedAt:e.currentTarget.value})} onInput={e=>onChange(book.id,{startedAt:e.currentTarget.value})}/><TextInput type="date" label="Bitiş tarihi" value={r.finishedAt} error={errors.dates} onChange={e=>onChange(book.id,{finishedAt:e.currentTarget.value})} onInput={e=>onChange(book.id,{finishedAt:e.currentTarget.value})}/></div>

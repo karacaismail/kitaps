@@ -75,7 +75,10 @@ export type ReadinessLevel = 1 | 2 | 3 | 4 | 5;
 
 export interface ReadingPriorityResult {
   bookId: string;
+  /** Dense, user-facing rank. Equal priority keys share the same rank. */
   rank: number;
+  /** Stable, unique position after deterministic tie-breaking. */
+  ordinal: number;
   score: number;
   confidence: number;
   maturity: ReadinessLevel;

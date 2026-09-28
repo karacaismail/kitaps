@@ -1,7 +1,7 @@
 import type { CriterionId, ReadingRankingPolicy } from './types.ts';
 
 export const DEFAULT_READING_POLICY: ReadingRankingPolicy = {
-  version: 'reading-priority-v1.0.0',
+  version: 'reading-priority-v1.1.0',
   weights: {
     editorialConsensus: 0.12,
     learningLeverage: 0.17,

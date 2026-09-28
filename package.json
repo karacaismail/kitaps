@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "seo": "node scripts/generate-sitemap.mjs",
-    "build": "npm run seo && vite build",
+    "build": "npm run seo && vite build && node scripts/generate-static-seo.mjs dist",
     "preview": "vite preview --host 127.0.0.1",
     "data": "python3 scripts/merge-data.py",
     "test": "node --test tests/*.test.js",

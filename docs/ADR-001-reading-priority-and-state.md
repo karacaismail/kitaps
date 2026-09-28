@@ -29,7 +29,7 @@ Sahip olunan ve okunmamış kitap erişim avantajı kazanır. Okunmakta olan kit
 
 ## Durum deposu
 
-`karacaismail/kitaps-state` ikinci ve zorunlu uzak durum deposudur. Her cihaz herkese açık `state.json` dosyasını anahtarsız okuyabilir. Yazma için yalnız bu depoya Contents izni olan fine-grained GitHub anahtarı gerekir; anahtar tarayıcının yerel alanından çıkmaz ve istek gövdesine yazılmaz.
+`karacaismail/kitaps-state` ikinci ve zorunlu uzak durum deposudur. Proje ve kullanıcı durumu bilinçli olarak herkese açıktır. Favoriler, sahiplik ve okuma durumları, beş kitaplık sıra, başlangıç ve bitiş tarihleri, sayfa ilerlemesi ile okuma notları `state.json` içinde tutulur; her cihaz bu dosyayı anahtarsız okuyabilir. Arayüz bu görünürlüğü bağlantı alanında açıkça belirtir. Yazma için yalnız bu depoya Contents izni olan fine-grained GitHub anahtarı gerekir; anahtar tarayıcının yerel alanından çıkmaz ve istek gövdesine yazılmaz.
 
 Her kitap kaydı kendi `updatedAt` değeriyle birleştirilir. Eş zamanlı cihaz güncellemelerinde son yazılan kitap kaydı kazanır. Başarısız veya yarıda kalan yazımlar yerel kuyrukta kalır. İstemci ilk değişiklikten sonra en az 120 saniye bekler ve biriken kayıtları tek GitHub güncellemesinde gönderir.
 

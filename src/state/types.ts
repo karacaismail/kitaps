@@ -1,6 +1,7 @@
 export const STATE_SCHEMA_VERSION = 1 as const;
 export const GITHUB_STATE_TOKEN_KEY = 'kitapatlasi:github-state:token:v1';
 export const GITHUB_STATE_PENDING_KEY = 'kitapatlasi:github-state:pending:v1';
+export const GITHUB_STATE_MIGRATION_KEY = 'kitapatlasi:github-state:migrated:v1';
 
 export type ReadingState = 'onemli' | 'alinacak' | 'alindi' | 'okunuyor' | 'araverildi' | 'birakildi' | 'okundu';
 
@@ -15,7 +16,7 @@ export interface ReadingProgress {
 
 export interface BookStatePayload {
   states?: ReadingState[];
-  reading?: ReadingProgress;
+  reading?: ReadingProgress | null;
   queuePosition?: number | null;
 }
 

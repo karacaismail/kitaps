@@ -27,12 +27,14 @@ const fixtureBook=(id,overrides={})=>({
 });
 const fixtureCatalog=books=>({books,readingGuides:{routes:[],overrides:{}}});
 
-test('reading priority scores every catalog book once and assigns dense unique ranks',()=>{
+test('reading priority scores every catalog book once and assigns dense ranks plus stable ordinals',()=>{
  const ranked=new ReadingPriorityEngine(catalog).rank(emptyContext());
  assert.equal(catalog.books.length,736,'catalog fixture changed; update the expected audited total deliberately');
  assert.equal(ranked.length,catalog.books.length);
  assert.equal(new Set(ranked.map(item=>item.bookId)).size,catalog.books.length);
- assert.deepEqual([...ranked.map(item=>item.rank)].sort((a,b)=>a-b),Array.from({length:catalog.books.length},(_,index)=>index+1));
+ assert.deepEqual(ranked.map(item=>item.ordinal),Array.from({length:catalog.books.length},(_,index)=>index+1));
+ assert.ok(new Set(ranked.map(item=>item.rank)).size<catalog.books.length,'equal priority scores should share a visible rank');
+ assert.ok(ranked.every((item,index)=>index===0||item.rank>=ranked[index-1].rank));
  assert.deepEqual(new Set(ranked.map(item=>item.bookId)),new Set(catalog.books.map(book=>book.id)));
 });
 
@@ -117,6 +119,83 @@ test('current reading and an explicit queue produce a sensible continuation orde
  assert.ok(ranked.current.rank<ranked.queued.rank&&ranked.queued.rank<ranked.plain.rank);
 });
 
+test('explicit reading states are authoritative when stale reading dates remain',()=>{
+ const book=fixtureBook('state-cleared');
+ const engine=new ReadingPriorityEngine(fixtureCatalog([book]));
+ const readingRecord={startedAt:'2026-09-20',finishedAt:'2026-09-27',page:200,totalPages:200};
+ const active=engine.rank({states:{'state-cleared':['okunuyor']},queue:[],reading:{'state-cleared':readingRecord}})[0];
+ const cleared=engine.rank({states:{},queue:[],reading:{'state-cleared':readingRecord}})[0];
+ assert.equal(active.signals.readingStatus,'reading');
+ assert.equal(cleared.signals.readingStatus,'unread','dates left in a note record must not resurrect a cleared state');
+ assert.equal(cleared.maturityLabel.includes('devam'),false);
+});
+
+test('real catalog always orders active reading, queue, eligible, then completed and abandoned books',()=>{
+ const [active,queued,ordinary,completed,abandoned]=catalog.books.slice(0,5);
+ const ranked=byId(new ReadingPriorityEngine(catalog).rank({
+  states:{
+   [active.id]:['okunuyor'],
+   [queued.id]:['alindi'],
+   [ordinary.id]:['alindi'],
+   [completed.id]:['okundu'],
+   [abandoned.id]:['birakildi']
+  },
+  queue:[queued.id],
+  reading:{[active.id]:{startedAt:'2026-09-20'},[completed.id]:{finishedAt:'2026-09-21'}}
+ }));
+ assert.ok(ranked[active.id].ordinal<ranked[queued.id].ordinal);
+ assert.ok(ranked[queued.id].ordinal<ranked[ordinary.id].ordinal);
+ assert.ok(ranked[ordinary.id].ordinal<ranked[completed.id].ordinal);
+ assert.ok(ranked[ordinary.id].ordinal<ranked[abandoned.id].ordinal);
+});
+
+test('wishlist state does not change reading priority',()=>{
+ const wishlist=fixtureBook('wishlist');
+ const neutral=fixtureBook('neutral');
+ const ranked=byId(new ReadingPriorityEngine(fixtureCatalog([wishlist,neutral])).rank({
+  states:{wishlist:['alinacak']},queue:[],reading:{}
+ }));
+ assert.equal(ranked.wishlist.score,ranked.neutral.score);
+ assert.equal(ranked.wishlist.rank,ranked.neutral.rank);
+});
+
+test('collection coverage excludes the evaluated owned book itself',()=>{
+ const owned=fixtureBook('owned');
+ const candidate=fixtureBook('candidate');
+ const ranked=byId(new ReadingPriorityEngine(fixtureCatalog([owned,candidate])).rank({
+  states:{owned:['alindi']},queue:[],reading:{}
+ }));
+ const coverage=item=>item.criteria.find(criterion=>criterion.id==='collectionCoverage');
+ assert.equal(coverage(ranked.owned).raw,1);
+ assert.equal(coverage(ranked.candidate).raw,0);
+});
+
+test('identical books share a dense rank while retaining deterministic ordinals',()=>{
+ const books=[fixtureBook('same-c'),fixtureBook('same-a'),fixtureBook('same-b')];
+ const ranked=new ReadingPriorityEngine(fixtureCatalog(books)).rank(emptyContext());
+ assert.deepEqual(ranked.map(item=>item.bookId),['same-a','same-b','same-c']);
+ assert.deepEqual(ranked.map(item=>item.rank),[1,1,1]);
+ assert.deepEqual(ranked.map(item=>item.ordinal),[1,2,3]);
+});
+
+test('coverage and queue preparation scale linearly with catalog size',()=>{
+ const size=2000;
+ const books=Array.from({length:size},(_,index)=>fixtureBook(`scale-${index}`,{
+  categories:[`category-${index%20}`],
+  collectionIds:[`list-${index%7}`]
+ }));
+ let stateReads=0;
+ const rawStates=Object.fromEntries(books.map((book,index)=>[book.id,index%3===0?['alindi']:[]]));
+ const states=new Proxy(rawStates,{get(target,key,receiver){stateReads+=1;return Reflect.get(target,key,receiver);}});
+ const ranked=new ReadingPriorityEngine(fixtureCatalog(books)).rank({
+  states,
+  queue:books.map(book=>book.id),
+  reading:{}
+ });
+ assert.equal(ranked.length,size);
+ assert.ok(stateReads<=size*3,`expected O(n) state reads, received ${stateReads} for ${size} books`);
+});
+
 test('every reading score is explained, mature enough to display, and numerically safe',()=>{
  const ids=catalog.books.slice(0,4).map(book=>book.id);
  const ranked=new ReadingPriorityEngine(catalog).rank({
@@ -127,6 +206,7 @@ test('every reading score is explained, mature enough to display, and numericall
  for(const item of ranked){
   assert.equal(typeof item.bookId,'string');
   assert.ok(Number.isInteger(item.rank)&&item.rank>=1&&item.rank<=catalog.books.length,item.bookId);
+  assert.ok(Number.isInteger(item.ordinal)&&item.ordinal>=1&&item.ordinal<=catalog.books.length,item.bookId);
   assert.ok(Number.isFinite(item.score)&&item.score>=0&&item.score<=100,item.bookId);
   assert.ok(Number.isFinite(item.confidence)&&item.confidence>=0&&item.confidence<=100,item.bookId);
   assert.ok(Number.isInteger(item.maturity)&&item.maturity>=1&&item.maturity<=5,item.bookId);

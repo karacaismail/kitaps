@@ -1,6 +1,7 @@
-import { assertStateDocument, emptyStateDocument, mergeStateDocuments, pendingMutationsToDocument } from './merge.ts';
+import { applyStateDocumentPatches, assertBookStatePayload, assertStateDocument, emptyStateDocument, pendingMutationsToDocument, publicStateDocument, publicStatePayload } from './merge.ts';
 import {
   GITHUB_STATE_PENDING_KEY,
+  GITHUB_STATE_MIGRATION_KEY,
   GITHUB_STATE_TOKEN_KEY,
   type BookStatePayload,
   type GitHubStateRepositoryOptions,
@@ -9,7 +10,7 @@ import {
   type StorageLike,
 } from './types.ts';
 
-export type GitHubStateErrorCode = 'unauthorized' | 'not-found' | 'conflict' | 'network' | 'invalid-data';
+export type GitHubStateErrorCode = 'unauthorized' | 'not-found' | 'conflict' | 'network' | 'invalid-data' | 'storage';
 
 export class GitHubStateRepositoryError extends Error {
   readonly code: GitHubStateErrorCode;
@@ -59,6 +60,7 @@ const decodeBase64 = (value: string): string => {
 export class GitHubStateRepository {
   static readonly TOKEN_KEY = GITHUB_STATE_TOKEN_KEY;
   static readonly PENDING_KEY = GITHUB_STATE_PENDING_KEY;
+  static readonly MIGRATION_KEY = GITHUB_STATE_MIGRATION_KEY;
 
   private readonly owner: string;
   private readonly repository: string;
@@ -68,6 +70,7 @@ export class GitHubStateRepository {
   private readonly fetcher: typeof globalThis.fetch;
   private readonly clock: () => Date;
   private readonly maxConflictRetries: number;
+  private lastMutationTime = 0;
 
   constructor(options: GitHubStateRepositoryOptions = {}) {
     this.owner = options.owner ?? 'karacaismail';
@@ -84,11 +87,29 @@ export class GitHubStateRepository {
   setToken(token: string): void {
     const clean = token.trim();
     if (!clean) throw new GitHubStateRepositoryError('unauthorized', 'A GitHub token is required.', 401);
-    this.storage.setItem(GITHUB_STATE_TOKEN_KEY, clean);
+    this.writeStorage(GITHUB_STATE_TOKEN_KEY, clean);
   }
 
   clearToken(): void {
-    this.storage.removeItem(GITHUB_STATE_TOKEN_KEY);
+    this.removeStorage(GITHUB_STATE_TOKEN_KEY);
+  }
+
+  hasToken(): boolean {
+    return Boolean(this.readStorage(GITHUB_STATE_TOKEN_KEY)?.trim());
+  }
+
+  hasCompletedInitialMigration(): boolean {
+    return this.readStorage(GITHUB_STATE_MIGRATION_KEY) === '1';
+  }
+
+  markInitialMigrationComplete(): void {
+    this.writeStorage(GITHUB_STATE_MIGRATION_KEY, '1');
+  }
+
+  async validateToken(token: string): Promise<void> {
+    const clean = token.trim();
+    if (!clean) throw new GitHubStateRepositoryError('unauthorized', 'A GitHub token is required.', 401);
+    await this.readRemote(true, false, clean);
   }
 
   async load(): Promise<StateDocument> {
@@ -97,13 +118,24 @@ export class GitHubStateRepository {
 
   async loadWithPending(): Promise<StateDocument> {
     const remote = await this.load();
-    return mergeStateDocuments(remote, pendingMutationsToDocument(this.readPending()));
+    return applyStateDocumentPatches(remote, pendingMutationsToDocument(this.readPending()));
   }
 
-  queueBookState(bookId: string, value: BookStatePayload | null, updatedAt = this.clock().toISOString()): PendingStateMutation {
+  queueBookState(bookId: string, value: BookStatePayload | null, suppliedUpdatedAt?: string): PendingStateMutation {
+    const pending = this.readPending();
+    const pendingTime = pending.reduce((latest, item) => Math.max(latest, Date.parse(item.updatedAt)), 0);
+    const generatedTime = Math.max(this.clock().getTime(), this.lastMutationTime + 1, pendingTime + 1);
+    const updatedAt = suppliedUpdatedAt ?? new Date(generatedTime).toISOString();
     if (!bookId.trim() || !Number.isFinite(Date.parse(updatedAt))) throw new TypeError('bookId and a valid updatedAt are required.');
-    const mutation: PendingStateMutation = { id: `${updatedAt}:${globalThis.crypto?.randomUUID?.() ?? Math.random().toString(36).slice(2)}`, bookId, updatedAt, value: structuredClone(value) };
-    this.storage.setItem(GITHUB_STATE_PENDING_KEY, JSON.stringify([...this.readPending(), mutation]));
+    this.lastMutationTime = Math.max(this.lastMutationTime, Date.parse(updatedAt));
+    if (value !== null) assertBookStatePayload(value, bookId);
+    const previous = pending.find(item => item.bookId === bookId);
+    const safeValue = publicStatePayload(value);
+    const previousSafeValue = previous ? publicStatePayload(previous.value) : undefined;
+    const coalescedValue = safeValue === null ? null : {...(previousSafeValue ?? {}), ...safeValue};
+    const mutation: PendingStateMutation = { id: `${updatedAt}:${globalThis.crypto?.randomUUID?.() ?? Math.random().toString(36).slice(2)}`, bookId, updatedAt, value: structuredClone(coalescedValue) };
+    const coalesced = pending.filter(item => item.bookId !== bookId);
+    this.writeStorage(GITHUB_STATE_PENDING_KEY, JSON.stringify([...coalesced, mutation]));
     return mutation;
   }
 
@@ -117,19 +149,19 @@ export class GitHubStateRepository {
     const saved = await this.save(pendingMutationsToDocument(snapshot));
     const completed = new Set(snapshot.map(item => item.id));
     const remaining = this.readPending().filter(item => !completed.has(item.id));
-    if (remaining.length) this.storage.setItem(GITHUB_STATE_PENDING_KEY, JSON.stringify(remaining));
-    else this.storage.removeItem(GITHUB_STATE_PENDING_KEY);
-    return saved;
+    if (remaining.length) this.writeStorage(GITHUB_STATE_PENDING_KEY, JSON.stringify(remaining));
+    else this.removeStorage(GITHUB_STATE_PENDING_KEY);
+    return applyStateDocumentPatches(saved, pendingMutationsToDocument(remaining));
   }
 
   async save(local: StateDocument): Promise<StateDocument> {
     assertStateDocument(local);
-    const token = this.storage.getItem(GITHUB_STATE_TOKEN_KEY)?.trim();
+    const token = this.readStorage(GITHUB_STATE_TOKEN_KEY)?.trim();
     if (!token) throw new GitHubStateRepositoryError('unauthorized', 'A GitHub token is required to save state.', 401);
 
     for (let attempt = 0; attempt <= this.maxConflictRetries; attempt += 1) {
       const remote = await this.readRemote(true, true, token);
-      const merged = mergeStateDocuments(remote.document, local);
+      const merged = publicStateDocument(applyStateDocumentPatches(remote.document, local));
       const response = await this.request(this.contentsUrl(), {
         method: 'PUT',
         headers: this.headers(token),
@@ -140,7 +172,7 @@ export class GitHubStateRepository {
           ...(remote.sha ? { sha: remote.sha } : {}),
         }),
       });
-      if (response.status === 409 && attempt < this.maxConflictRetries) continue;
+      if ((response.status === 409 || response.status === 422) && attempt < this.maxConflictRetries) continue;
       if (!response.ok) throw this.errorForResponse(response);
       return merged;
     }
@@ -148,7 +180,7 @@ export class GitHubStateRepository {
   }
 
   private async readRemote(authenticated: boolean, allowMissing: boolean, suppliedToken?: string): Promise<RemoteFile> {
-    const token = authenticated ? suppliedToken ?? this.storage.getItem(GITHUB_STATE_TOKEN_KEY)?.trim() : undefined;
+    const token = authenticated ? suppliedToken ?? this.readStorage(GITHUB_STATE_TOKEN_KEY)?.trim() : undefined;
     const response = await this.request(`${this.contentsUrl()}?ref=${encodeURIComponent(this.branch)}`, { headers: this.headers(token) });
     if (response.status === 404 && allowMissing) return { document: emptyStateDocument() };
     if (!response.ok) throw this.errorForResponse(response);
@@ -158,21 +190,28 @@ export class GitHubStateRepository {
       if (payload.encoding !== 'base64' || !payload.content || !payload.sha) throw new Error('Incomplete Contents API response.');
       const document = JSON.parse(decodeBase64(payload.content)) as unknown;
       assertStateDocument(document);
-      return { document, sha: payload.sha };
+      return { document: publicStateDocument(document), sha: payload.sha };
     } catch (error) {
       throw new GitHubStateRepositoryError('invalid-data', 'GitHub state file is invalid.', undefined, { cause: error });
     }
   }
 
   private readPending(): PendingStateMutation[] {
-    const raw = this.storage.getItem(GITHUB_STATE_PENDING_KEY);
+    let raw: string | null;
+    try {
+      raw = this.readStorage(GITHUB_STATE_PENDING_KEY);
+    } catch {
+      return [];
+    }
     if (!raw) return [];
     try {
       const value = JSON.parse(raw) as unknown;
       if (!Array.isArray(value)) throw new Error('Pending state is not an array.');
+      pendingMutationsToDocument(value as PendingStateMutation[]);
       return value as PendingStateMutation[];
-    } catch (error) {
-      throw new GitHubStateRepositoryError('invalid-data', 'Local pending state is invalid.', undefined, { cause: error });
+    } catch {
+      try { this.removeStorage(GITHUB_STATE_PENDING_KEY); } catch { /* Storage can be unavailable. */ }
+      return [];
     }
   }
 
@@ -184,22 +223,38 @@ export class GitHubStateRepository {
     return {
       Accept: 'application/vnd.github+json',
       'X-GitHub-Api-Version': '2022-11-28',
+      'Cache-Control': 'no-cache',
       ...(token ? { Authorization: `Bearer ${token}` } : {}),
     };
   }
 
   private async request(url: string, init: RequestInit): Promise<Response> {
     try {
-      return await this.fetcher(url, init);
+      return await this.fetcher(url, {...init, cache: 'no-store'});
     } catch (error) {
       throw new GitHubStateRepositoryError('network', 'GitHub state request failed.', undefined, { cause: error });
     }
   }
 
   private errorForResponse(response: Response): GitHubStateRepositoryError {
-    if (response.status === 401) return new GitHubStateRepositoryError('unauthorized', 'GitHub rejected the credentials.', 401);
+    if (response.status === 401 || response.status === 403) return new GitHubStateRepositoryError('unauthorized', 'GitHub rejected the credentials or repository write permission.', response.status);
     if (response.status === 404) return new GitHubStateRepositoryError('not-found', 'GitHub state repository or file was not found.', 404);
-    if (response.status === 409) return new GitHubStateRepositoryError('conflict', 'GitHub state changed during save. Reload and try again.', 409);
+    if (response.status === 409 || response.status === 422) return new GitHubStateRepositoryError('conflict', 'GitHub state changed during save. Reload and try again.', response.status);
     return new GitHubStateRepositoryError('network', `GitHub state request failed with status ${response.status}.`, response.status);
+  }
+
+  private readStorage(key: string): string | null {
+    try { return this.storage.getItem(key); }
+    catch (error) { throw new GitHubStateRepositoryError('storage', 'Local sync storage is unavailable.', undefined, {cause: error}); }
+  }
+
+  private writeStorage(key: string, value: string): void {
+    try { this.storage.setItem(key, value); }
+    catch (error) { throw new GitHubStateRepositoryError('storage', 'Local sync storage is full or unavailable.', undefined, {cause: error}); }
+  }
+
+  private removeStorage(key: string): void {
+    try { this.storage.removeItem(key); }
+    catch (error) { throw new GitHubStateRepositoryError('storage', 'Local sync storage is unavailable.', undefined, {cause: error}); }
   }
 }
