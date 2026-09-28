@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "decisionPolicy": {
+    "statuses": {
+      "available": "Eserin tam kimliğiyle eşleşen Türkçe baskı doğrulandı. edition alanı zorunludur.",
+      "unavailable": "Tanımlı araştırma kapsamındaki bağımsız kaynaklarda Türkçe baskı bulunamadı. scopeNote alanı zorunludur.",
+      "original": "Eserin özgün dilinin Türkçe olduğu doğrulandı. originalLanguage değeri tr olmalıdır."
+    },
+    "twoStageReview": "stage1 ve stage2 aynı kararı vermeli; farklı araştırmacılar ve bağımsız HTTPS kaynakları kullanmalıdır.",
+    "sourceShape": {
+      "url": "HTTPS kaynak adresi",
+      "type": "publisher | publisher-preview | bibliographic | national-bibliography | library-catalog | retailer | rights-holder | author | official"
+    }
+  },
+  "records": {}
+}

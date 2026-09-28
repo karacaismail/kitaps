@@ -1,6 +1,7 @@
 """Merge the three supplied datasets, preserving source records and memberships."""
 from pathlib import Path
 import json,re,unicodedata,hashlib
+from translation_availability import validate_manifest
 ROOT=Path(__file__).resolve().parents[1]
 def read(p):return json.loads((ROOT/p).read_text())
 atlas=read('data/sources/atlas-v1.json'); local=read('data/sources/okuma-kumeleri.json'); kitaps=read('data/sources/kitaps.json')
@@ -150,6 +151,9 @@ for bid,edition in read('data/edition-verification.json').items():
 for bid,issue in read('data/source-issues.json').items():
  assert bid in books,bid
  books[bid]['sourceIssue']=issue
+translation_records=validate_manifest(read('data/translation-availability.json'),set(books))
+for bid,research in translation_records.items():
+ books[bid]['translationResearch']=research
 for b in books.values():
  if not b['categories']:addcat(b,'management')
  b['collectionIds']=list(dict.fromkeys(m['collectionId'] for m in b['memberships']));b['groupIds']=list(dict.fromkeys(m['groupId'] for m in b['memberships']))

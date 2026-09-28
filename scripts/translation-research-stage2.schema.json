@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["batchId", "records"],
+  "properties": {
+    "batchId": { "type": "string" },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "verdict", "finalDecision", "evidence", "confidence", "reason"],
+        "properties": {
+          "id": { "type": "string" },
+          "verdict": { "enum": ["accept", "reject", "manual_review"] },
+          "finalDecision": { "enum": ["original", "available", "unavailable", "manual_review"] },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["url", "sourceType", "claim", "accessedAt"],
+              "properties": {
+                "url": { "type": "string" },
+                "sourceType": { "enum": ["publisher", "publisher-preview", "bibliographic", "national-bibliography", "library-catalog", "retailer", "rights-holder", "author", "official"] },
+                "claim": { "type": "string" },
+                "accessedAt": { "type": "string" }
+              }
+            }
+          },
+          "confidence": { "enum": ["high", "medium", "low"] },
+          "reason": { "type": "string" }
+        }
+      }
+    }
+  }
+}

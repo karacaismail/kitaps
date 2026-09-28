@@ -1,9 +1,11 @@
 import React from 'react';
 import { Accordion, Alert, Anchor, Badge, Paper, Stack, Text, Title } from '@mantine/core';
 import { IconArrowUpRight } from '@tabler/icons-react';
+import { isOriginalTurkish } from '../translation';
 
 export default function EditionGuide({book}) {
  const e=book.verifiedEdition;
+ if(isOriginalTurkish(book))return null;
  const publisherVerified=e&&['publisher','publisher-preview'].includes(e.sourceType);
  const sameCover=e&&book.cover?.isbn===e.isbn;
  return <section className="edition-guide" aria-label="Çeviri ve baskı seçimi">

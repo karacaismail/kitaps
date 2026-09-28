@@ -1045,15 +1045,17 @@
     "title": "Etkin Yöneticilik",
     "publisher": "Eti Kitapları",
     "isbn": "",
+    "isbnUnavailable": true,
     "translators": [
       "Ahmet Özden",
       "Nuray Tunalı"
     ],
     "sourceType": "retailer",
-    "sourceUrl": "https://www.nadirkitap.com/etkin-yoneticilik-peter-f-drucker-kitap28816202.html",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/etkin-yoneticilik/20131.html",
     "checkedAt": "2026-09-28",
-    "note": "1992 baskısının sahaf künyesi. Kaynakta ISBN yok; yayınevi künyesiyle ikinci kontrol bekliyor.",
-    "correction": "Stabil Kitap’ın Etkin Yönetici adıyla yayımladığı 9786057081179 ISBN’li kitap, The Effective Executive in Action adlı ayrı bir uygulama defteridir. Bu eserle karıştırılmamalı."
+    "note": "Kitapyurdu ürün künyesi Türkçe baskıyı, Eti Kitapları yayınevini ve Ahmet Özden ile Nuray Tunalı çevirisini doğruluyor. İkinci doğrulama Sakarya Üniversitesi kaynakçasında aynı eser, çevirmenler ve yayıneviyle yer alıyor.",
+    "correction": "Stabil Kitap’ın Etkin Yönetici adıyla yayımladığı 9786057081179 ISBN’li kitap, The Effective Executive in Action adlı ayrı bir uygulama defteridir. Bu eserle karıştırılmamalı.",
+    "secondarySourceUrl": "https://acikerisim.sakarya.edu.tr/bitstream/handle/20.500.12619/93934/T01539.pdf?sequence=1"
   },
   "innovatorsdilemma": {
     "title": "Yenilikçinin İkilemi",

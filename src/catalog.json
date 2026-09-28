@@ -6687,7 +6687,7 @@
     {
       "id": "effectiveexecutive",
       "title": "The Effective Executive",
-      "titleTr": "Etkin Yönetici",
+      "titleTr": "Etkin Yöneticilik",
       "author": "Peter Drucker",
       "aliases": [
         "Etkin Yönetici"
@@ -6747,32 +6747,35 @@
         "eklenen"
       ],
       "cover": {
-        "title": "The Effective Executive",
+        "title": "Etkin Yöneticilik",
         "author": "Peter F. Drucker",
-        "publisher": "HarperBusiness",
-        "isbn": "9780060833459",
-        "language": "en",
-        "src": "covers/479b80d5935f356e.jpg",
-        "imageUrl": "https://covers.openlibrary.org/b/id/37442-M.jpg",
-        "sourceUrl": "https://openlibrary.org/books/OL7282673M",
-        "sourceName": "Open Library",
+        "publisher": "Eti Kitapları",
+        "isbn": "",
+        "isbnUnavailable": true,
+        "language": "tr",
+        "src": "covers/404f9ee4e6af7cb3.jpg",
+        "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:115897/wh:2fcd60416/miw:600/mih:900",
+        "sourceUrl": "https://www.kitapyurdu.com/kitap/etkin-yoneticilik/20131.html",
+        "sourceName": "Kitapyurdu",
         "checkedAt": "2026-09-28",
-        "verification": "Title, author and cover matched to the linked edition page",
-        "turkishStatus": "unverified"
+        "matchMethod": "manual-source-review",
+        "verification": "Title, author, publisher, Turkish language and cover matched to the cited product page"
       },
       "verifiedEdition": {
         "title": "Etkin Yöneticilik",
         "publisher": "Eti Kitapları",
         "isbn": "",
+        "isbnUnavailable": true,
         "translators": [
           "Ahmet Özden",
           "Nuray Tunalı"
         ],
         "sourceType": "retailer",
-        "sourceUrl": "https://www.nadirkitap.com/etkin-yoneticilik-peter-f-drucker-kitap28816202.html",
+        "sourceUrl": "https://www.kitapyurdu.com/kitap/etkin-yoneticilik/20131.html",
         "checkedAt": "2026-09-28",
-        "note": "1992 baskısının sahaf künyesi. Kaynakta ISBN yok; yayınevi künyesiyle ikinci kontrol bekliyor.",
-        "correction": "Stabil Kitap’ın Etkin Yönetici adıyla yayımladığı 9786057081179 ISBN’li kitap, The Effective Executive in Action adlı ayrı bir uygulama defteridir. Bu eserle karıştırılmamalı."
+        "note": "Kitapyurdu ürün künyesi Türkçe baskıyı, Eti Kitapları yayınevini ve Ahmet Özden ile Nuray Tunalı çevirisini doğruluyor. İkinci doğrulama Sakarya Üniversitesi kaynakçasında aynı eser, çevirmenler ve yayıneviyle yer alıyor.",
+        "correction": "Stabil Kitap’ın Etkin Yönetici adıyla yayımladığı 9786057081179 ISBN’li kitap, The Effective Executive in Action adlı ayrı bir uygulama defteridir. Bu eserle karıştırılmamalı.",
+        "secondarySourceUrl": "https://acikerisim.sakarya.edu.tr/bitstream/handle/20.500.12619/93934/T01539.pdf?sequence=1"
       },
       "sourceIssue": {
         "note": "Stabil Kitap’ın Etkin Yönetici adıyla yayımladığı 9786057081179 ISBN’li kitap, The Effective Executive in Action adlı ayrı bir uygulama defteridir. Bu eserle karıştırılmamalı.",

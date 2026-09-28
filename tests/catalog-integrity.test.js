@@ -22,7 +22,9 @@ test('verified edition ISBNs pass their check digit and name their evidence sour
  }
 });
 test('companion workbooks and disputed translator credits are not presented as exact matches',()=>{
- assert.equal(books.effectiveexecutive.cover.isbn,'9780060833459');
+ assert.equal(books.effectiveexecutive.cover.title,'Etkin Yöneticilik');
+ assert.equal(books.effectiveexecutive.cover.language,'tr');
+ assert.equal(books.effectiveexecutive.cover.isbnUnavailable,true);
  assert.ok(books.effectiveexecutive.sourceIssue);
  assert.equal(books.savasati.cover.isbn,'9786059604451');
  assert.equal(books.birseftalibinseftali.cover.isbn,'9789753484640');

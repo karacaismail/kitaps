@@ -1,17 +1,17 @@
 import React from 'react';
 import { Alert,Anchor,Button,Group,Paper,Text,Title } from '@mantine/core';
 import { IconShoppingBag,IconPhoto,IconArrowUpRight } from '@tabler/icons-react';
-import { translationStatus } from '../translation';
+import { isOriginalTurkish,translationStatus } from '../translation';
 export default function EditionSummary({book}){
- const e=book.verifiedEdition,c=book.cover,available=translationStatus(book).status==='available';
+ const e=book.verifiedEdition,c=book.cover,original=isOriginalTurkish(book),available=translationStatus(book).status==='available';
  const edition=e||(c?.language==='tr'?c:null), title=edition?.title||book.title;
  const query=[title,book.author,edition?.publisher,edition?.isbn].filter(Boolean).join(' ');
  const params=new URLSearchParams({q:query});
  return <Paper component="section" withBorder radius="lg" p="lg" className="edition-summary" aria-label="Yayınevi, çevirmen ve kitabı bul">
-  <Title order={3} mb="md">Baskı ve çevirmen</Title>{book.sourceIssue&&<Alert color="orange" title="Baskı seçerken dikkat" mb="md">{book.sourceIssue.note}</Alert>}
+  <Title order={3} mb="md">{original?'Baskı bilgisi':'Baskı ve çevirmen'}</Title>{book.sourceIssue&&<Alert color="orange" title="Baskı seçerken dikkat" mb="md">{book.sourceIssue.note}</Alert>}
   <dl className="edition-facts">
    <div><dt>Yayınevi</dt><dd>{edition?.publisher||c?.publisher||'Henüz doğrulanmadı'}</dd></div>
-   <div><dt>Çevirmen</dt><dd>{e?.originalLanguage==='tr'?'Türkçe özgün eser':e?.translators?.length?e.translators.join(' · '):'Henüz doğrulanmadı'}</dd></div>
+   {!original&&<div><dt>Çevirmen</dt><dd>{e?.translators?.length?e.translators.join(' · '):'Henüz doğrulanmadı'}</dd></div>}
    {(edition?.isbn||c?.isbn)&&<div><dt>ISBN</dt><dd>{edition?.isbn||c?.isbn}</dd></div>}
   </dl>
   {e&&<Text className="edition-evidence" mt="md">{['publisher','publisher-preview'].includes(e.sourceType)?'Yayınevi künyesinden kontrol edildi.':e.sourceType==='bibliographic'?'Kütüphane künyesinden kontrol edildi.':'Kitapçı künyesinden kontrol edildi; yayıneviyle ikinci kontrol bekliyor.'}{c&&e.isbn!==c.isbn?' Kapak farklı bir baskıya ait.':''}</Text>}

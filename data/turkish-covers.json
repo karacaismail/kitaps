@@ -2429,5 +2429,20 @@
     "sourceName": "Domingo Çocuk",
     "checkedAt": "2026-09-28",
     "verification": "Title, author, ISBN and Turkish edition matched to the cited source"
+  },
+  "effectiveexecutive": {
+    "title": "Etkin Yöneticilik",
+    "author": "Peter F. Drucker",
+    "publisher": "Eti Kitapları",
+    "isbn": "",
+    "isbnUnavailable": true,
+    "language": "tr",
+    "src": "covers/404f9ee4e6af7cb3.jpg",
+    "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:115897/wh:2fcd60416/miw:600/mih:900",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/etkin-yoneticilik/20131.html",
+    "sourceName": "Kitapyurdu",
+    "checkedAt": "2026-09-28",
+    "matchMethod": "manual-source-review",
+    "verification": "Title, author, publisher, Turkish language and cover matched to the cited product page"
   }
 }

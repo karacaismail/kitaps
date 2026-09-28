@@ -23,4 +23,6 @@ test('translation absence is never inferred from an original cover or translated
  assert.equal(translationStatus({cover:{language:'tr'}}).status,'available');
  assert.equal(translationStatus({verifiedEdition:{sourceUrl:'https://example.com'}}).status,'available');
  assert.equal(translationStatus({translationResearch:{status:'unavailable'}}).status,'unverified');
+ assert.equal(translationStatus({translationResearch:{status:'unavailable',scopeNote:'İki aşamada bulunamadı.',stage1:{sources:[{url:'https://example.com/evidence'}]}}}).status,'unavailable');
+ assert.equal(translationStatus({translationResearch:{status:'original',stage1:{sources:[{url:'https://example.com/original'}]}}}).status,'original');
 });
