@@ -37,6 +37,11 @@ test('priority summaries expose full text and labelled progress values',()=>{
  assert.match(card,/aria-label=\{`\$\{item\.label\}: yüzde/);
 });
 
+test('reading priority consumes the shared GitHub snapshot instead of browser-local state',()=>{
+ assert.match(app,/readingRankingViewModel\.build\(\{states:githubSync\.shared\.states,queue:githubSync\.shared\.queue,reading:githubSync\.shared\.reading\}\)/);
+ assert.doesNotMatch(app,/readingRankingViewModel\.build\(\{states,queue:personal\.queue,reading:personal\.reading\}\)/);
+});
+
 test('removed card category component stays unused',()=>{
  assert.equal(fs.existsSync(new URL('../src/components/CardCategories.jsx',import.meta.url)),false);
  assert.doesNotMatch(app,/CardCategories/);

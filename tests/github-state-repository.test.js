@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {GitHubStateBatcher,GitHubStateRepository,GitHubStateRepositoryError,MIN_GITHUB_SYNC_DELAY_MS,applyStateDocumentPatches,assertStateDocument,buildInitialMigrationPatches,emptyStateDocument,mergeStateDocuments,projectPublicState} from '../src/state/index.ts';
+import {GitHubStateBatcher,GitHubStateRepository,GitHubStateRepositoryError,MIN_GITHUB_SYNC_DELAY_MS,applyStateDocumentPatches,assertStateDocument,buildInitialMigrationPatches,emptyStateDocument,mergeStateDocuments,projectPublicState,sharedRankingContext} from '../src/state/index.ts';
 
 const timestamp=second=>`2026-09-28T10:00:${String(second).padStart(2,'0')}.000Z`;
 const document=(books={},updatedAt=timestamp(0))=>({schemaVersion:1,updatedAt,books});
@@ -156,6 +156,15 @@ test('public projection carries reading dates, progress and notes across devices
  const remote=document({a:record(1,{states:['okundu'],reading,queuePosition:null})},timestamp(1));
  const view=projectPublicState(remote,['a']);
  assert.deepEqual(view.records.a,{states:['okundu'],reading,queuePosition:null});
+});
+
+test('shared ranking context is derived only from the canonical remote document',()=>{
+ const remote=document({a:record(1,{states:['alindi'],reading:{page:42},queuePosition:0})},timestamp(1));
+ const context=sharedRankingContext(remote,['a','b']);
+ assert.deepEqual(context,{states:{a:['alindi']},reading:{a:{page:42}},queue:['a'],recordCount:1,updatedAt:timestamp(1)});
+ const localOnly=document({b:record(2,{states:['okundu'],queuePosition:0})},timestamp(2));
+ assert.deepEqual(sharedRankingContext(remote,['a','b']),context,'a browser-local document cannot change the shared ranking context');
+ assert.notDeepEqual(sharedRankingContext(localOnly,['a','b']),context);
 });
 
 test('first sync migrates non-empty local records and preserves an explicit local queue',()=>{

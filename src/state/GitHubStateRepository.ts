@@ -116,9 +116,9 @@ export class GitHubStateRepository {
     return (await this.readRemote(false, false)).document;
   }
 
-  async loadWithPending(): Promise<StateDocument> {
-    const remote = await this.load();
-    return applyStateDocumentPatches(remote, pendingMutationsToDocument(this.readPending()));
+  async loadWithPending(remote?: StateDocument): Promise<StateDocument> {
+    const base = remote ?? await this.load();
+    return applyStateDocumentPatches(base, pendingMutationsToDocument(this.readPending()));
   }
 
   queueBookState(bookId: string, value: BookStatePayload | null, suppliedUpdatedAt?: string): PendingStateMutation {

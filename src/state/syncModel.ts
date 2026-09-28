@@ -21,6 +21,30 @@ export function projectPublicState(document: StateDocument, bookIds: Iterable<st
   return {records, queue: queue.slice(0, 5).map(([, bookId]) => bookId)};
 }
 
+export interface SharedRankingContext {
+  states: Record<string, ReadingState[]>;
+  reading: Record<string, ReadingProgress>;
+  queue: string[];
+  recordCount: number;
+  updatedAt: string;
+}
+
+/** The ranking engine must only consume this shared, remote projection.
+ * Browser-local and pending mutations intentionally stay out until GitHub
+ * accepts them, so the same repository revision produces the same order on
+ * every device.
+ */
+export function sharedRankingContext(document: StateDocument, bookIds: Iterable<string>): SharedRankingContext {
+  const projected = projectPublicState(document, bookIds);
+  const states: Record<string, ReadingState[]> = {};
+  const reading: Record<string, ReadingProgress> = {};
+  for (const [bookId, value] of Object.entries(projected.records)) {
+    if (value.states.length) states[bookId] = [...value.states];
+    if (value.reading) reading[bookId] = structuredClone(value.reading);
+  }
+  return {states, reading, queue: projected.queue, recordCount: Object.keys(projected.records).length, updatedAt: document.updatedAt};
+}
+
 export function buildInitialMigrationPatches(local: Map<string, PublicBookView>, localQueue: string[], remote: {records: Record<string, PublicBookView>; queue: string[]}): Map<string, BookStatePayload> {
   const patches = new Map<string, BookStatePayload>();
   const write = (bookId: string, patch: BookStatePayload): void => { patches.set(bookId, {...patches.get(bookId), ...patch}); };

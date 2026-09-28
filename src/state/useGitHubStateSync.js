@@ -1,7 +1,7 @@
 import {useCallback,useEffect,useRef,useState} from 'react';
 import {GitHubStateRepository} from './GitHubStateRepository.ts';
 import {GitHubStateBatcher} from './GitHubStateBatcher.ts';
-import {buildInitialMigrationPatches,projectPublicState} from './syncModel.ts';
+import {buildInitialMigrationPatches,projectPublicState,sharedRankingContext} from './syncModel.ts';
 
 const readingPayload=(personal,id)=>{
  const source=personal.reading[id];if(!source||typeof source!=='object')return null;
@@ -15,17 +15,22 @@ const signature=value=>JSON.stringify(value);
 const emptyPayload={states:[],reading:null,queuePosition:null};
 const modelSnapshot=(bookIds,states,personal)=>new Map(bookIds.map(id=>[id,publicPayload(id,states,personal)]));
 const queueSignature=personal=>JSON.stringify(personal.queue);
+const emptyShared={states:{},reading:{},queue:[],recordCount:0,updatedAt:null};
+const SHARED_REFRESH_MS=120_000;
 
 export function useGitHubStateSync({bookIds,states,setStates,personal,setPersonal}){
  const repository=useRef(new GitHubStateRepository()).current;
  const latest=useRef({states,personal});latest.current={states,personal};
  const known=useRef(new Map());
  const hydrated=useRef(false);
+ const loading=useRef(false);
+ const lastRefresh=useRef(0);
  const flushLatest=useRef(async()=>{});
  const batcher=useRef();
  const pendingCount=()=>{try{return repository.getPendingCount()}catch{return 0}};
  const tokenPresent=()=>{try{return repository.hasToken()}catch{return false}};
  const [sync,setSync]=useState(()=>({status:'loading',message:'GitHub durumu okunuyor.',pending:pendingCount(),hasToken:tokenPresent()}));
+ const [shared,setShared]=useState(emptyShared);
 
  const applyDocument=useCallback((document,baseline,baselineQueue)=>{
   const projected=projectPublicState(document,bookIds),records=new Map(Object.entries(projected.records));
@@ -51,16 +56,23 @@ export function useGitHubStateSync({bookIds,states,setStates,personal,setPersona
   });
  },[bookIds,setPersonal,setStates]);
 
- const load=useCallback(async()=>{
+ const refresh=useCallback(async(silent=false)=>{
+  if(loading.current)return;
+  loading.current=true;
   const baseline=modelSnapshot(bookIds,latest.current.states,latest.current.personal),baselineQueue=queueSignature(latest.current.personal);
-  setSync(value=>({...value,status:'loading',message:'GitHub durumu okunuyor.'}));
+  if(!silent)setSync(value=>({...value,status:'loading',message:'GitHub durumu okunuyor.'}));
   try{
-   let document=await repository.loadWithPending();
+   const remoteDocument=await repository.load();
+   lastRefresh.current=Date.now();
+   setShared(sharedRankingContext(remoteDocument,bookIds));
+   let document=await repository.loadWithPending(remoteDocument);
    if(!repository.hasCompletedInitialMigration()){
-    const remote=projectPublicState(document,bookIds);
-    for(const [id,patch] of buildInitialMigrationPatches(baseline,latest.current.personal.queue,remote))repository.queueBookState(id,patch);
+    const remote=projectPublicState(remoteDocument,bookIds);
+    // Only the first device may seed an empty shared repository. Once shared
+    // data exists, it is authoritative for a newly connected browser.
+    if(Object.keys(remote.records).length===0)for(const [id,patch] of buildInitialMigrationPatches(baseline,latest.current.personal.queue,remote))repository.queueBookState(id,patch);
     repository.markInitialMigrationComplete();
-    document=await repository.loadWithPending();
+    document=await repository.loadWithPending(remoteDocument);
    }
    applyDocument(document,baseline,baselineQueue);hydrated.current=true;
    const pending=repository.getPendingCount();
@@ -70,8 +82,9 @@ export function useGitHubStateSync({bookIds,states,setStates,personal,setPersona
    for(const [id,value] of baseline)known.current.set(id,value);
    hydrated.current=true;
    setSync(value=>({...value,status:'error',message:error.code==='not-found'?'Durum deposu henüz hazırlanmadı.':error.code==='invalid-data'?'GitHub durum dosyası güvenli biçimde okunamadı.':'GitHub durumu okunamadı.',pending:pendingCount()}));
-  }
+  }finally{loading.current=false;}
  },[applyDocument,bookIds,repository]);
+ const load=useCallback(()=>refresh(false),[refresh]);
 
  const flush=useCallback(async({fromBatcher=false}={})=>{
   batcher.current?.cancel();
@@ -79,6 +92,8 @@ export function useGitHubStateSync({bookIds,states,setStates,personal,setPersona
   setSync(value=>({...value,status:'saving',message:'Değişiklikler GitHub’a yazılıyor.'}));
   try{
    const document=await repository.flushPending();applyDocument(document,baseline,baselineQueue);
+   const remoteDocument=repository.getPendingCount()?await repository.load():document;
+   lastRefresh.current=Date.now();setShared(sharedRankingContext(remoteDocument,bookIds));
    setSync(value=>({...value,status:'ready',message:'GitHub ile eşitlendi.',pending:repository.getPendingCount()}));return document;
   }catch(error){
    if(!fromBatcher&&repository.hasToken()&&pendingCount())batcher.current?.schedule();
@@ -101,6 +116,12 @@ export function useGitHubStateSync({bookIds,states,setStates,personal,setPersona
 
  useEffect(()=>{void load()},[load]);
  useEffect(()=>{
+  const refreshIfDue=()=>{if(document.visibilityState==='visible'&&Date.now()-lastRefresh.current>=SHARED_REFRESH_MS)void refresh(true)};
+  const interval=window.setInterval(refreshIfDue,SHARED_REFRESH_MS);
+  document.addEventListener('visibilitychange',refreshIfDue);
+  return()=>{window.clearInterval(interval);document.removeEventListener('visibilitychange',refreshIfDue)};
+ },[refresh]);
+ useEffect(()=>{
   if(!hydrated.current)return;
   try{
    for(const id of bookIds){
@@ -119,5 +140,5 @@ export function useGitHubStateSync({bookIds,states,setStates,personal,setPersona
   }catch{setSync(value=>({...value,status:'error',message:'Tarayıcının yerel eşitleme alanına yazılamadı.',pending:pendingCount()}));}
  },[bookIds,states,personal.queue,personal.reading,repository,sync.hasToken]);
  useEffect(()=>()=>batcher.current?.dispose(),[]);
- return {...sync,load,flush,saveToken,clearToken};
+ return {...sync,shared,hydrated:hydrated.current,load,flush,saveToken,clearToken};
 }
