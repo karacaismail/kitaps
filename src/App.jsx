@@ -78,10 +78,10 @@ function BookCard({book:b,states,onOpen,onToggle,queue,onAdd,onQueue,onCategory}
    <Title order={3}><button className="title-button" onClick={()=>onOpen(b.id)}>{b.titleTr||b.title}</button></Title>
    <Text className="book-author">{b.author||'Yazar bilgisi kaynakta belirtilmemiş'}</Text>
    {b.cover?.publisher&&<Text className="book-publisher">{b.cover.publisher}</Text>}
-   <CardCategories book={b} catalog={catalog} categoryMap={categoryMap} onNavigate={onCategory}/>
-
-
-   <TranslationStatus book={b}/>
+   <div className="book-meta-row">
+    <TranslationStatus book={b}/>
+    <CardCategories book={b} catalog={catalog} categoryMap={categoryMap} onNavigate={onCategory}/>
+   </div>
    {(states[b.id]||[]).filter(s=>!['onemli','alindi'].includes(s)).length>0&&<Group gap={8} mt="sm">{states[b.id].filter(s=>!['onemli','alindi'].includes(s)).map(s=><Badge key={s} color="coffee">{STATE_LABELS[s]}</Badge>)}</Group>}
   </div>
  </Card>
