@@ -19,7 +19,7 @@ Kontrol tarihi: 28 Eylül 2026.
 
 Axe-core 4.13 ile WCAG 2 A/AA, 2.1 A/AA ve 2.2 AA etiketleri tarandı. Açık ve koyu temadaki kitap ayrıntıları, katalog, filtre paneli, okuma sırası ve Notlar sayfası incelendi. Son kitap ayrıntısı taramalarında iki temada da sıfır ihlal ve sıfır kararsız sonuç; koyu tema boş okuma sırası ve Notlar taramalarında da sıfır ihlal ve sıfır kararsız sonuç alındı.
 
-Katalog/filtrede yatay konu listesinin görünüm dışında kalan kısmı bazı taramalarda otomatik kontrast hesabının kararsız sonuç vermesine neden oldu. Konu metni, seçili gösterge ve odak çizgileri ayrıca görsel olarak kontrol edildi. Kaynak bağlantılarının koyu tema renkleri düzeltildi; aktif sekmeler metin/rengin yanında alt çizgiyle belirtilir.
+Katalog/filtrede yatay konu listesinin görünüm dışında kalan kısmı bazı taramalarda otomatik kontrast hesabının kararsız sonuç vermesine neden oldu. Konu metni, seçili gösterge ve odak çizgileri ayrıca görsel olarak kontrol edildi. Kaynak bağlantılarının koyu tema renkleri düzeltildi; aktif sekmeler metin/rengin yanında alt çizgiyle belirtilir. Alan dışına taşan ikinci odak çerçevesi kaldırıldı; klavye odağı kontrolün içinde kalan belirgin çizgiyle gösterilir.
 
 Klavye erişimi, odak dönüşü, dokunma alanları ve 320 px yeniden akış ayrıca kontrol edildi. Otomatik tarama, bütün WCAG başarı ölçütlerinin veya her ekran okuyucu/cihaz birleşiminin eksiksiz uygunluk sertifikası değildir. Gerçek iOS/Android cihazı ve ekran okuyucuyla kapsamlı kullanıcı testi bu kontrolün kapsamı dışındadır.
 
@@ -38,12 +38,14 @@ Klavye erişimi, odak dönüşü, dokunma alanları ve 320 px yeniden akış ayr
 ## Kartlar ve satın alma bildirimi (28 Eylül 2026)
 
 - Karttan küme sayısı ve yıl satırı kaldırıldı. Çeviri göstergesi solda, italik yayınevi sağda ve aynı satırdadır; kategori satırı ikisinin altında tam genişliği kullanır. Ek kategori sayacı bulunan 320 px kartlarda kategori satırı bölünmez.
-- Kitap adı ile yazar arasında ortalanmış, iki piksellik kısa bir ayırıcı çizgi bulunur. Çizgi masaüstünde 72 px, 320 px kartlarda 52 px genişliğindedir ve tema renginin saydam tonunu kullanır.
+- Kitap adları kart genişliğinde ortalanır; çok satırlı adlar da aynı merkez eksenini korur. Kitap adı ile yazar arasında ortalanmış, iki piksellik kısa bir ayırıcı çizgi bulunur. Çizgi masaüstünde 72 px, 320 px kartlarda 52 px genişliğindedir ve tema renginin saydam tonunu kullanır.
 - Kapak alanında sağdaki düğmelere ayrılan boşluk kaldırıldı. Kapaklar oranları korunarak alana sığar; düğmeler kapağın üzerinde yüzde 75 opaklıkla görünür. Masaüstünde fare kartın üzerine geldiğinde veya klavye odağı kartın içindeyken açılır; dokunmatik ekranda görünür kalır. Odaklanan düğme tamamen opaktır.
-- Çocuk etiketi açık ve koyu temada pembe tonlarını kullanır. Kartta yalnızca “Çeviri” yazısı bulunur; doğrulanmış Türkçe çeviri turkuaz onay, kaynağıyla doğrulanmış çeviri yokluğu kırmızı çarpı, doğrulanamayan durum kırmızı ünlemle gösterilir. Açılan açıklama, doğrulanamamış bilgiyi çeviri yokluğundan ayırır. Özgün Türkçe eserlerde nötr işaret ve “Çeviri gerekmiyor” açıklaması vardır.
+- Çocuk etiketi açık ve koyu temada pembe tonlarını kullanır. Kartta yalnızca “Çeviri” yazısı bulunur; doğrulanmış Türkçe çeviri turkuaz onay, kaynağıyla doğrulanmış çeviri yokluğu kırmızı çarpı, doğrulanamayan durum yatay çizgiyle gösterilir. Açılan açıklama, doğrulanamamış bilgiyi çeviri yokluğundan ayırır. Özgün Türkçe eserlerde de yatay çizgi ve “Çeviri gerekmiyor” açıklaması vardır.
 - Satın alma ipucu “Satın aldım” olarak kısaltıldı. “Kütüphanene eklendi” bildirimi mobilde 22 px, geniş ekranda 24 px başlıkla gösterilir. Bildirim 8 saniye sonra kapanır; üzerinde fare veya klavye odağı varken süre durur. Geri alma ve kapatma kontrolleri bulunur.
 - Bildirim kartları yerinden oynatmaz. Kitap ayrıntısı açıkken bildirim panelin içinde kalır; geri alma sonrasında odak satın alma düğmesine döner. Bildirim, sıradaki klavye odağını örtecekse kapanır.
-- 320 px açık tema ve 1280 px koyu tema son katalog taramalarında sıfır axe ihlali ve sıfır kararsız sonuç alındı. İki genişlikte yatay taşma yok; sağ hizalar, kategori renkleri ve tek kenarlı alan odağı kontrol edildi. Bildirimin otomatik kapanması, geri alma ve panel içindeki kullanımı ayrıca doğrulandı.
+- Açık temanın sayfa zemini serin gri `#f2f4f6`, içerik yüzeyleri beyazdır. Zemindeki 22 px aralıklı nokta deseni yüzde 15 opaklıkla ayrı bir dekoratif katmanda yer alır; koyu temada sıcak açık nokta tonu kullanılır.
+- Kitaba özgü baskı notları ayrıntıda kalır. Genel “Çeviri seçme rehberi” içeriği her kitapta tekrarlanmak yerine altbilgideki “Genel bilgiler” bağlantısından açılan erişilebilir bir pencerede sunulur; “Kaynaklar ve notlar” da aynı global bağlantı grubundadır.
+- Son 320 px açık ve koyu tema katalog taramalarında sıfır axe ihlali alındı. Yatay konu listesinin kısmen görünüm dışında kalması açık temada bir, koyu temada üç otomatik kontrast kararsız sonucu üretti; ilgili metinler görsel olarak kontrol edildi. İki genişlikte yatay taşma yok; sağ hizalar, kategori renkleri, ortalanmış kitap adları ve tek kenarlı alan odağı kontrol edildi. Bildirimin otomatik kapanması, geri alma ve panel içindeki kullanımı ayrıca doğrulandı.
 
 ## Veri ve otomatik testler
 

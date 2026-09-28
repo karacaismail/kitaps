@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Accordion, ActionIcon, Alert, Anchor, Badge, Box, Button, Card, Container, Divider, FileButton, Group, MantineProvider, Paper, Select, Stack, Text, TextInput, Tabs, ThemeIcon, Title, Tooltip, createTheme, localStorageColorSchemeManager } from '@mantine/core';
+import { Accordion, ActionIcon, Alert, Anchor, Badge, Box, Button, Card, Container, Divider, FileButton, Group, MantineProvider, Modal, Paper, Select, Stack, Text, TextInput, Tabs, ThemeIcon, Title, Tooltip, createTheme, localStorageColorSchemeManager } from '@mantine/core';
 import { IconLink, IconArrowLeft, IconArrowRight, IconArrowUpRight, IconBook2, IconShoppingBagCheck, IconBooks, IconCheck, IconChevronRight, IconDownload, IconFilter, IconLayersIntersect, IconListNumbers, IconNotes, IconSearch, IconStar, IconUpload, IconX } from '@tabler/icons-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -28,6 +28,7 @@ import BookSheet from './components/BookSheet';
 import CardCategories from './components/CardCategories';
 import FilterSheet from './components/FilterSheet';
 import LibraryToast from './components/LibraryToast';
+import TranslationCriteria from './components/TranslationCriteria';
 import { PERSONAL_KEY, cleanPersonal, cleanReading, addToQueue, moveInQueue, restorePersonal, todayLocal } from './reading';
 import { STATE_LABELS, QUALITY_LABELS, ORIGIN_LABELS, emptyFilters, prepareBooks, filterBooks, sortBooks, toggleState, migrateStates, filterCount, decodeRoute, encodeRoute, normalize, plainTextMarkers, booksForShelf } from './library';
 import './styles.css';
@@ -173,6 +174,7 @@ function AtlasApp() {
  const [bookTrail,setBookTrail]=useState([]);
  const [copied,setCopied]=useState(false);
  const [transfer,setTransfer]=useState(null);
+ const [guideOpened,setGuideOpened]=useState(false);
  const transferOrigin=useRef(null);
  const dismissTransfer=useCallback(()=>{
   const restoreFocus=document.activeElement?.closest('.library-toast');
@@ -255,8 +257,9 @@ function AtlasApp() {
    </main>
     </Tabs.Panel>
    </Tabs>
-   <footer className="site-footer"><Text>Kitap Atlası · {catalog.updated}</Text><Button variant="subtle" onClick={()=>{setRoute(r=>({...r,view:'notes'}));window.scrollTo({top:0,behavior:'instant'})}}>Kaynaklar ve notlar <IconArrowUpRight size={18}/></Button></footer>
+   <footer className="site-footer"><Text>Kitap Atlası · {catalog.updated}</Text><nav className="footer-links" aria-label="Genel bilgiler"><Button variant="subtle" onClick={()=>setGuideOpened(true)}>Çeviri rehberi</Button><Button variant="subtle" onClick={()=>{setRoute(r=>({...r,view:'notes'}));window.scrollTo({top:0,behavior:'instant'})}}>Kaynaklar ve notlar</Button></nav></footer>
   </Container>
+  <Modal opened={guideOpened} onClose={()=>setGuideOpened(false)} title="Çeviri seçme rehberi" size="lg" centered className="global-guide-modal"><TranslationCriteria/></Modal>
   <FilterSheet opened={opened} onClose={()=>setOpened(false)} value={draft} onChange={setDraft} onReset={()=>setDraft({...emptyFilters(),query:filters.query})} onApply={()=>{changeFilters(draft);setOpened(false)}} count={draftCount} catalog={catalog} authors={authorOptions}/>
   {!book&&transferNotice}
   <BookDetail feedback={transferNotice} onOpen={onOpen} onBack={previousBook} hasBack={bookTrail.length>0} book={byId[book]} onClose={closeBook} states={states} onToggle={onToggle} onCollection={goCollection} onCategory={goCategory} personal={personal} onReading={onReading} onAdd={onAdd} onQueue={onQueue} storageError={storageError||personalStorageError}/>
