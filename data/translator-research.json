@@ -1,0 +1,1571 @@
+{
+  "checkedAt": "2026-09-28",
+  "records": [
+    {
+      "id": "emotionalintelligence",
+      "status": "verified",
+      "sourceUrl": "https://www.imge.com.tr/urun/duygusal-zeka-daniel-goleman-9789754341966",
+      "isbn": "9789754341966",
+      "note": "Kitapsepeti sayfasında çevirmen yok; ISBN ve yayınevi eşleşen imge kaydında çevirmen yazıyor. Biblio kaydı da Banu Seckin Yuksel diyor."
+    },
+    {
+      "id": "fifthdiscipline",
+      "status": "verified",
+      "sourceUrl": "https://www.imge.com.tr/urun/besinci-disiplin-ogrenen-organizasyon-sanati-ve-uygulamasi-peter-m-senge-9789753630313",
+      "isbn": "9789753630313",
+      "note": "Kitapsepeti sayfasında çevirmen yok; ISBN ve yayınevi eşleşen imge kaydında üç çevirmen yazıyor."
+    },
+    {
+      "id": "howtowinfriendsandinfluencepeople",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/dost-kazanma-ve-insanlari-etkileme-sanati-582870",
+      "isbn": "9786258533361",
+      "note": "Kaynak sayfada çevirmen bilgisi yok; süre içinde ISBN eşleşen ikinci kaynak bulunamadı."
+    },
+    {
+      "id": "7habitsofhighlyeffectivepeople",
+      "status": "unresolved",
+      "sourceUrl": "https://www.imge.com.tr/urun/etkili-insanlarin-7-aliskanligi-stephen-r-covey-9789754346534",
+      "isbn": "9789754346534",
+      "note": "ISBN eşleşmesine rağmen kaynaklar çevirmen adında çelişiyor; tek bir ad atanmadı."
+    },
+    {
+      "id": "whomovedmycheese",
+      "status": "verified",
+      "sourceUrl": "https://www.alemkitap.com/urun/peynirimi-kim-kaptig-spencer-johnson-9789753311908",
+      "isbn": "9789753311908",
+      "note": "Kitapsepeti sayfasında çevirmen yok; ISBN ve yayınevi eşleşen Alem Kitap kaydı."
+    },
+    {
+      "id": "thinkingfastandslow",
+      "status": "verified",
+      "sourceUrl": "https://www.imge.com.tr/urun/hizli-ve-yavas-dusunme-daniel-kahneman-9789754345315",
+      "isbn": "9789754345315",
+      "note": "ISBN ve yayınevi eşleşen imge kaydı."
+    },
+    {
+      "id": "influence",
+      "status": "unresolved",
+      "sourceUrl": "https://www.polatkitapcilik.com/urun/iknanin-psikolojisi-9789944383646",
+      "isbn": "9789944383646",
+      "note": "ISBN eşleşmesine rağmen kaynaklar çevirmen adında çelişiyor; tek bir ad atanmadı."
+    },
+    {
+      "id": "vomkriege",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/savas-uzerine-470927",
+      "isbn": "9786254499937",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "五輪書gorinnosho",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/bes-cember-kitabi-459716",
+      "isbn": "9786259890166",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "葉隠hagakure",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/hagakure-sakli-yapraklar",
+      "isbn": "9786258475937",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "अरथशसतरarthasastra",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/arthasastra",
+      "isbn": "9786052982365",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "33strategiesofwar",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/33-stratejide-savas",
+      "isbn": "9789752109148",
+      "note": "Süre içinde araştırılamadı. Girdideki yazar Joost Elffers; asıl yazar Robert Greene olabilir, kontrol edilmeli."
+    },
+    {
+      "id": "ιστοριαιpeloponnesossavasitarihi",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/peloponnesos-savaslari",
+      "isbn": "9789753440530",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "مقدمةابنخلدونmukaddime",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/mukaddime-576102",
+      "isbn": "9786258988574",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "psychologiedesfoules",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/kitleler-psikolojisi-572725",
+      "isbn": "9786258346206",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "presentationofselfineverydaylife",
+      "status": "verified",
+      "sourceUrl": "https://www.imge.com.tr/urun/gunluk-yasamda-benligin-sunumu-erving-goffman-9789753426985",
+      "isbn": "9789753426985",
+      "note": "ISBN eşleşen imge kaydı; DergiPark incelemesi de aynı ISBN ile Çev. Barış Cezar diyor."
+    },
+    {
+      "id": "powerofpositivethinking1952",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/olumlu-dusunmenin-gucu-485971",
+      "isbn": "9786256036277",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "konradoderdaskindausderkonservenbuchse",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/konrad-ya-da-konserve-kutusundan-cikan-cocuk",
+      "isbn": "9789758142859",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "влюдяхvlyudyah",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/ekmegimi-kazanirken-98443",
+      "isbn": "9786053325482",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "prophet",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/ermis-579129",
+      "isbn": "9786258988734",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "suyuarayanadam",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/suyu-arayan-adam",
+      "isbn": "9789751421111",
+      "note": "Türkçe telif eser olması beklenir, ancak bu oturumda kaynakla doğrulanmadığı için originalLanguage eklenmedi."
+    },
+    {
+      "id": "bravenewworld",
+      "status": "verified",
+      "sourceUrl": "https://www.imge.com.tr/urun/cesur-yeni-dunya-aldous-leonard-huxley-9789756902165",
+      "isbn": "9789756902165",
+      "note": "ISBN ve yayınevi eşleşen imge kaydı."
+    },
+    {
+      "id": "timemachine",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/zaman-makinesi-216904",
+      "isbn": "9786053754268",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "lesoriginesdelempireottoman",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/osmanli-imparatorlugunun-kurulusu-102339",
+      "isbn": "9786051711881",
+      "note": "Eser ilk olarak Fransızca yayımlanmıştı; bu baskının çevirmen veya Türkçe metin bilgisi doğrulanmadı."
+    },
+    {
+      "id": "turkmitolojisiatlasi",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/turk-mitolojisi-atlasi",
+      "isbn": "9786257543699",
+      "note": "Türkçe telif eser olması beklenir, ancak kaynakla doğrulanmadığı için originalLanguage eklenmedi."
+    },
+    {
+      "id": "agirroman",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/agir-roman",
+      "isbn": "9786051414898",
+      "note": "Türkçe telif eser olması beklenir, ancak kaynakla doğrulanmadığı için originalLanguage eklenmedi."
+    },
+    {
+      "id": "balladofreadinggaol",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/reading-zindani-baladi-380551",
+      "isbn": "9789750758638",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "воинаимир",
+      "status": "unresolved",
+      "sourceUrl": "https://www.canyayinlari.com/savas-ve-baris-9789750738388",
+      "isbn": "9789750738388",
+      "note": "Arama özeti Zeki Baştımar ve Nazım Hikmet adlarını veriyor; yayınevi sayfası 403 döndüğü için doğrudan doğrulanamadı."
+    },
+    {
+      "id": "чемлюдиживы",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/insan-ne-ile-yasar-83530",
+      "isbn": "9786054412457",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "churchill",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/churchill-468629",
+      "isbn": "9786254297342",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "johnstuartmill",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/john-stuart-mill-490371",
+      "isbn": "9786254298615",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "simonbolivar",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/simon-bolivar-467366",
+      "isbn": "9786254297366",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "jeanjacquesrousseau",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/jean-jacques-rousseau-501381",
+      "isbn": "9786254299681",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "immanuelkant",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/immanuel-kant-450763",
+      "isbn": "9786254295652",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "charlesdarwin",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/charles-darwin-460911",
+      "isbn": "9786254296659",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "hammurabi",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/hammurabi-514767",
+      "isbn": "9786253840235",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "gabrielgarciamarquez",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/gabriel-garcía-márquez-507071",
+      "isbn": "9786254299971",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "budha",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/budha",
+      "isbn": "9786254293740",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "hegel",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/hegel-445565",
+      "isbn": "9786254295669",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "leibniz",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/leibniz-490373",
+      "isbn": "9786254298639",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "kierkegaard",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/kierkegaard-490386",
+      "isbn": "9786254298622",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "beethoven",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/beethoven-490387",
+      "isbn": "9786254298646",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "caesar",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/caesar",
+      "isbn": "9786254298653",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "schopenhauer",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/schopenhauer-459325",
+      "isbn": "9786254296666",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "pauldirac",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/paul-dirac",
+      "isbn": "9786254298530",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "benjaminfranklin",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/benjamin-franklin-498269",
+      "isbn": "9786254299315",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "janeausten",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/jane-austen-501383",
+      "isbn": "9786254299698",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "robespierre",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/robespierre-455555",
+      "isbn": "9786254296635",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "kubilayhan",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/kubilay-han-492241",
+      "isbn": "9786254298608",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "buyukkonstantin",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/buyuk-konstantin-501992",
+      "isbn": "9786256228528",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "descartes",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/descartes-498270",
+      "isbn": "9786254299322",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "mozart",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/mozart-494892",
+      "isbn": "9786254298981",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "tolkien",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/tolkien-454680",
+      "isbn": "9786254296642",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "marcopolo",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/marco-polo-502655",
+      "isbn": "9786254299933",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "macellan",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/macellan-519325",
+      "isbn": "9786253840754",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "caricekaterina",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/carice-katerina-494900",
+      "isbn": "9786254298998",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "perikles",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/perikles-467367",
+      "isbn": "9786254297373",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "selahaddineyyubi",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/selahaddin-eyyubi-494899",
+      "isbn": "9786254299001",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "cengizhan",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/cengiz-han-526780",
+      "isbn": "9786253841089",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "fatihsultanmehmedvezamani",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/fatih-sultan-mehmed-ve-zamani-ciltli",
+      "isbn": "9786254493614",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "obstacleistheway",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/engeller-yolun-ta-kendisidir",
+      "isbn": "9786255989185",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "kucukprens",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/kucuk-prens-588846",
+      "isbn": "9786258292718",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "matilda",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/matilda",
+      "isbn": "9789750707810",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "kucukkarabalik",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/kucuk-karabalik-207686",
+      "isbn": "9786053030317",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "sekerportakali",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/seker-portakali-217672",
+      "isbn": "9789750738609",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "harrypottervefelsefetasi",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/harry-potter-ve-felsefe-tasi-resimli-ozel-baski",
+      "isbn": "9789750834660",
+      "note": "Süre içinde araştırılamadı; resimli baskının künyesi ayrıca kontrol edilmeli."
+    },
+    {
+      "id": "ozbuyucusu",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/oz-buyucusu-96997",
+      "isbn": "9789755098067",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "aliceharikalardiyarinda",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/alice-harikalar-diyarinda-534359",
+      "isbn": "9786259612645",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "heidi",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/heidi-536900",
+      "isbn": "9786256227897",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "cocukkalbi",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/cocuk-kalbi-578515",
+      "isbn": "9789750868290",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "birseftalibinseftali",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/dirilen-iskelet-397010",
+      "isbn": "9786258212242",
+      "note": "Kaynak URL ve görsel adı Dirilen İskelet kitabına işaret ediyor; kayıt eşleşmesi şüpheli, kontrol edilmeli."
+    },
+    {
+      "id": "savasati",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/savas-ati-538552",
+      "isbn": "9786253800284",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "ezopmasallari",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/ezop-masallari-464065",
+      "isbn": "9786057309594",
+      "note": "Süre içinde araştırılamadı; uyarlama olabilir."
+    },
+    {
+      "id": "grimmmasallari",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/grimm-masallari-97229",
+      "isbn": "9789944829199",
+      "note": "Süre içinde araştırılamadı; uyarlama olabilir."
+    },
+    {
+      "id": "andersenmasallari",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/andersen-masallari-97153",
+      "isbn": "9789944827287",
+      "note": "Süre içinde araştırılamadı; uyarlama olabilir."
+    },
+    {
+      "id": "howbigthingsgetdone",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/buyuk-isler-nasil-basarilir",
+      "isbn": "9786255688026",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "ilprincipe",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/prens-455486",
+      "isbn": "9786256353336",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "allavibarnibullerbyn",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/samatali-koy-334187",
+      "isbn": "9786053439738",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "taleofdespereaux",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/desperonun-oykusu-560299",
+      "isbn": "9786253800772",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "jacklondon",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/jack-london-481831",
+      "isbn": "9786254298271",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "ataturkmodernturkiyeninkurucusu",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/ataturk-119265",
+      "isbn": "9789751409881",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "einsteinyasamiveevreni",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/einstein-yasami-ve-evreni",
+      "isbn": "9786257314626",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "leonardodavinci",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/leonardo-da-vinci-69170",
+      "isbn": "9786051981048",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "lenin",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/lenin-272920",
+      "isbn": "9786056321757",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "nonviolentcommunication",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/siddetsiz-iletisim",
+      "isbn": "9789751418869",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "neversplitthedifference",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/sen-bitti-dediginde",
+      "isbn": "9786052250006",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "durdurulamayaninsanlikdunyaninhakimiyetininasilelegecirdik",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapsepeti.com/durdurulamayan-insanlik",
+      "isbn": "9786052205945",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "thinkinginsystems",
+      "status": "unresolved",
+      "sourceUrl": "https://pegem.net/urun/Sistemlerle-Dusunmek/67979",
+      "isbn": "9786257582353",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "onbecomingaleader",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapyurdu.com/kitap/bir-lider-olabilmek/395596.html",
+      "isbn": "9786051033204",
+      "note": "Kaynak sayfa açıldı, ancak çıkarılan içerikte çevirmen bilgisi görülmedi."
+    },
+    {
+      "id": "allmarketersareliars",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapyurdu.com/kitap/butun-pazarlamacilar-yalancidir-hikaye-anlatirlar/80162.html",
+      "isbn": "9789756093160",
+      "note": "Kaynak sayfa açıldı, ancak çıkarılan içerikte çevirmen bilgisi görülmedi."
+    },
+    {
+      "id": "mariecuriebirbilimkadinininolaganustuyasamoykusu",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapyurdu.com/kitap/marie-curie-bir-bilimkadinin-olaganustu-yasamoykusu/293643.html",
+      "isbn": "9786055888282",
+      "note": "Kaynak sayfa açıldı, ancak çıkarılan içerikte çevirmen bilgisi görülmedi."
+    },
+    {
+      "id": "adatwistbiliminsani",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapyurdu.com/kitap/bilim-insani-ada-ari/531229.html",
+      "isbn": "9786059933599",
+      "note": "Kaynak sayfa açıldı, ancak çıkarılan içerikte çevirmen bilgisi görülmedi."
+    },
+    {
+      "id": "spinselling",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapyurdu.com/kitap/4-adimda-satis-basarisi/79172.html",
+      "isbn": "",
+      "note": "ISBN yok ve süre içinde araştırılamadı."
+    },
+    {
+      "id": "radicalcandor",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapyurdu.com/kitap/radikal-samimiyet-insanliginizi-kaybetmeden-iyi-lider-olun/517977.html",
+      "isbn": "9786056902437",
+      "note": "Kaynak sayfa açıldı, ancak çıkarılan içerikte çevirmen bilgisi görülmedi."
+    },
+    {
+      "id": "gettingthingsdone",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapyurdu.com/kitap/is-bitirici/62978.html",
+      "isbn": "9786059059664",
+      "note": "Süre içinde araştırılamadı."
+    },
+    {
+      "id": "22immutablelawsofmarketing",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapyurdu.com/kitap/pazarlamanin-22-kurali/84582.html",
+      "isbn": "",
+      "note": "ISBN yok ve süre içinde araştırılamadı."
+    },
+    {
+      "id": "powerofless",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapyurdu.com/kitap/az-aslinda-coktur/150414.html",
+      "isbn": "",
+      "note": "ISBN yok ve süre içinde araştırılamadı."
+    },
+    {
+      "id": "ultimatesalesmachine",
+      "status": "unresolved",
+      "sourceUrl": "https://www.kitapyurdu.com/kitap/kusursuz-satis-makinesi/117729.html",
+      "isbn": "",
+      "note": "ISBN yok ve süre içinde araştırılamadı."
+    }
+  ],
+  "criteriaSources": [
+    "https://www.atanet.org/certification/how-the-exam-is-graded/error-categories/",
+    "https://www.atanet.org/client-assistance/blog-american-translators-association-guide-to-buying-translation-services-part-i/"
+  ],
+  "sourcePageAudit": [
+    {
+      "id": "emotionalintelligence",
+      "sourceUrl": "https://www.kitapsepeti.com/duygusal-zeka-270004",
+      "isbn": "9789754341966",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "fifthdiscipline",
+      "sourceUrl": "https://www.kitapsepeti.com/besinci-disiplin",
+      "isbn": "9789753630313",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "howtowinfriendsandinfluencepeople",
+      "sourceUrl": "https://www.kitapsepeti.com/dost-kazanma-ve-insanlari-etkileme-sanati-582870",
+      "isbn": "9786258533361",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "7habitsofhighlyeffectivepeople",
+      "sourceUrl": "https://www.kitapsepeti.com/etkili-insanlarin-7-aliskanligi",
+      "isbn": "9789754346534",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "whomovedmycheese",
+      "sourceUrl": "https://www.kitapsepeti.com/peynirimi-kim-kapti-254069",
+      "isbn": "9789753311908",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "thinkingfastandslow",
+      "sourceUrl": "https://www.kitapsepeti.com/hizli-ve-yavas-dusunme",
+      "isbn": "9789754345315",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "influence",
+      "sourceUrl": "https://www.kitapsepeti.com/iknanin-psikolojisi",
+      "isbn": "9789944383646",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "vomkriege",
+      "sourceUrl": "https://www.kitapsepeti.com/savas-uzerine-470927",
+      "isbn": "9786254499937",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "五輪書gorinnosho",
+      "sourceUrl": "https://www.kitapsepeti.com/bes-cember-kitabi-459716",
+      "isbn": "9786259890166",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "葉隠hagakure",
+      "sourceUrl": "https://www.kitapsepeti.com/hagakure-sakli-yapraklar",
+      "isbn": "9786258475937",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "अरथशसतरarthasastra",
+      "sourceUrl": "https://www.kitapsepeti.com/arthasastra",
+      "isbn": "9786052982365",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "33strategiesofwar",
+      "sourceUrl": "https://www.kitapsepeti.com/33-stratejide-savas",
+      "isbn": "9789752109148",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "ιστοριαιpeloponnesossavasitarihi",
+      "sourceUrl": "https://www.kitapsepeti.com/peloponnesos-savaslari",
+      "isbn": "9789753440530",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "مقدمةابنخلدونmukaddime",
+      "sourceUrl": "https://www.kitapsepeti.com/mukaddime-576102",
+      "isbn": "9786258988574",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "psychologiedesfoules",
+      "sourceUrl": "https://www.kitapsepeti.com/kitleler-psikolojisi-572725",
+      "isbn": "9786258346206",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "presentationofselfineverydaylife",
+      "sourceUrl": "https://www.kitapsepeti.com/gunluk-yasamda-benligin-sunumu",
+      "isbn": "9789753426985",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "powerofpositivethinking1952",
+      "sourceUrl": "https://www.kitapsepeti.com/olumlu-dusunmenin-gucu-485971",
+      "isbn": "9786256036277",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "konradoderdaskindausderkonservenbuchse",
+      "sourceUrl": "https://www.kitapsepeti.com/konrad-ya-da-konserve-kutusundan-cikan-cocuk",
+      "isbn": "9789758142859",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "влюдяхvlyudyah",
+      "sourceUrl": "https://www.kitapsepeti.com/ekmegimi-kazanirken-98443",
+      "isbn": "9786053325482",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "prophet",
+      "sourceUrl": "https://www.kitapsepeti.com/ermis-579129",
+      "isbn": "9786258988734",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "suyuarayanadam",
+      "sourceUrl": "https://www.kitapsepeti.com/suyu-arayan-adam",
+      "isbn": "9789751421111",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "bravenewworld",
+      "sourceUrl": "https://www.kitapsepeti.com/cesur-yeni-dunya",
+      "isbn": "9789756902165",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "timemachine",
+      "sourceUrl": "https://www.kitapsepeti.com/zaman-makinesi-216904",
+      "isbn": "9786053754268",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "lesoriginesdelempireottoman",
+      "sourceUrl": "https://www.kitapsepeti.com/osmanli-imparatorlugunun-kurulusu-102339",
+      "isbn": "9786051711881",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "turkmitolojisiatlasi",
+      "sourceUrl": "https://www.kitapsepeti.com/turk-mitolojisi-atlasi",
+      "isbn": "9786257543699",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "agirroman",
+      "sourceUrl": "https://www.kitapsepeti.com/agir-roman",
+      "isbn": "9786051414898",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "balladofreadinggaol",
+      "sourceUrl": "https://www.kitapsepeti.com/reading-zindani-baladi-380551",
+      "isbn": "9789750758638",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "воинаимир",
+      "sourceUrl": "https://www.kitapsepeti.com/savas-ve-baris-188186",
+      "isbn": "9789750738388",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "credit-candidate"
+    },
+    {
+      "id": "чемлюдиживы",
+      "sourceUrl": "https://www.kitapsepeti.com/insan-ne-ile-yasar-83530",
+      "isbn": "9786054412457",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "churchill",
+      "sourceUrl": "https://www.kitapsepeti.com/churchill-468629",
+      "isbn": "9786254297342",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "johnstuartmill",
+      "sourceUrl": "https://www.kitapsepeti.com/john-stuart-mill-490371",
+      "isbn": "9786254298615",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "simonbolivar",
+      "sourceUrl": "https://www.kitapsepeti.com/simon-bolivar-467366",
+      "isbn": "9786254297366",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "jeanjacquesrousseau",
+      "sourceUrl": "https://www.kitapsepeti.com/jean-jacques-rousseau-501381",
+      "isbn": "9786254299681",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "immanuelkant",
+      "sourceUrl": "https://www.kitapsepeti.com/immanuel-kant-450763",
+      "isbn": "9786254295652",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "charlesdarwin",
+      "sourceUrl": "https://www.kitapsepeti.com/charles-darwin-460911",
+      "isbn": "9786254296659",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "hammurabi",
+      "sourceUrl": "https://www.kitapsepeti.com/hammurabi-514767",
+      "isbn": "9786253840235",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "gabrielgarciamarquez",
+      "sourceUrl": "https://www.kitapsepeti.com/gabriel-garcía-márquez-507071",
+      "isbn": "9786254299971",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "budha",
+      "sourceUrl": "https://www.kitapsepeti.com/budha",
+      "isbn": "9786254293740",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "hegel",
+      "sourceUrl": "https://www.kitapsepeti.com/hegel-445565",
+      "isbn": "9786254295669",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "leibniz",
+      "sourceUrl": "https://www.kitapsepeti.com/leibniz-490373",
+      "isbn": "9786254298639",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "kierkegaard",
+      "sourceUrl": "https://www.kitapsepeti.com/kierkegaard-490386",
+      "isbn": "9786254298622",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "beethoven",
+      "sourceUrl": "https://www.kitapsepeti.com/beethoven-490387",
+      "isbn": "9786254298646",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "caesar",
+      "sourceUrl": "https://www.kitapsepeti.com/caesar",
+      "isbn": "9786254298653",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "schopenhauer",
+      "sourceUrl": "https://www.kitapsepeti.com/schopenhauer-459325",
+      "isbn": "9786254296666",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "pauldirac",
+      "sourceUrl": "https://www.kitapsepeti.com/paul-dirac",
+      "isbn": "9786254298530",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "benjaminfranklin",
+      "sourceUrl": "https://www.kitapsepeti.com/benjamin-franklin-498269",
+      "isbn": "9786254299315",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "janeausten",
+      "sourceUrl": "https://www.kitapsepeti.com/jane-austen-501383",
+      "isbn": "9786254299698",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "robespierre",
+      "sourceUrl": "https://www.kitapsepeti.com/robespierre-455555",
+      "isbn": "9786254296635",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "kubilayhan",
+      "sourceUrl": "https://www.kitapsepeti.com/kubilay-han-492241",
+      "isbn": "9786254298608",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "buyukkonstantin",
+      "sourceUrl": "https://www.kitapsepeti.com/buyuk-konstantin-501992",
+      "isbn": "9786256228528",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "descartes",
+      "sourceUrl": "https://www.kitapsepeti.com/descartes-498270",
+      "isbn": "9786254299322",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "mozart",
+      "sourceUrl": "https://www.kitapsepeti.com/mozart-494892",
+      "isbn": "9786254298981",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "tolkien",
+      "sourceUrl": "https://www.kitapsepeti.com/tolkien-454680",
+      "isbn": "9786254296642",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "marcopolo",
+      "sourceUrl": "https://www.kitapsepeti.com/marco-polo-502655",
+      "isbn": "9786254299933",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "macellan",
+      "sourceUrl": "https://www.kitapsepeti.com/macellan-519325",
+      "isbn": "9786253840754",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "caricekaterina",
+      "sourceUrl": "https://www.kitapsepeti.com/carice-katerina-494900",
+      "isbn": "9786254298998",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "perikles",
+      "sourceUrl": "https://www.kitapsepeti.com/perikles-467367",
+      "isbn": "9786254297373",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "selahaddineyyubi",
+      "sourceUrl": "https://www.kitapsepeti.com/selahaddin-eyyubi-494899",
+      "isbn": "9786254299001",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "cengizhan",
+      "sourceUrl": "https://www.kitapsepeti.com/cengiz-han-526780",
+      "isbn": "9786253841089",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "fatihsultanmehmedvezamani",
+      "sourceUrl": "https://www.kitapsepeti.com/fatih-sultan-mehmed-ve-zamani-ciltli",
+      "isbn": "9786254493614",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "obstacleistheway",
+      "sourceUrl": "https://www.kitapsepeti.com/engeller-yolun-ta-kendisidir",
+      "isbn": "9786255989185",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "kucukprens",
+      "sourceUrl": "https://www.kitapsepeti.com/kucuk-prens-588846",
+      "isbn": "9786258292718",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "matilda",
+      "sourceUrl": "https://www.kitapsepeti.com/matilda",
+      "isbn": "9789750707810",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "kucukkarabalik",
+      "sourceUrl": "https://www.kitapsepeti.com/kucuk-karabalik-207686",
+      "isbn": "9786053030317",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "sekerportakali",
+      "sourceUrl": "https://www.kitapsepeti.com/seker-portakali-217672",
+      "isbn": "9789750738609",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "harrypottervefelsefetasi",
+      "sourceUrl": "https://www.kitapsepeti.com/harry-potter-ve-felsefe-tasi-resimli-ozel-baski",
+      "isbn": "9789750834660",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "ozbuyucusu",
+      "sourceUrl": "https://www.kitapsepeti.com/oz-buyucusu-96997",
+      "isbn": "9789755098067",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "aliceharikalardiyarinda",
+      "sourceUrl": "https://www.kitapsepeti.com/alice-harikalar-diyarinda-534359",
+      "isbn": "9786259612645",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "heidi",
+      "sourceUrl": "https://www.kitapsepeti.com/heidi-536900",
+      "isbn": "9786256227897",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "cocukkalbi",
+      "sourceUrl": "https://www.kitapsepeti.com/cocuk-kalbi-578515",
+      "isbn": "9789750868290",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "birseftalibinseftali",
+      "sourceUrl": "https://www.kitapsepeti.com/dirilen-iskelet-397010",
+      "isbn": "9786258212242",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "savasati",
+      "sourceUrl": "https://www.kitapsepeti.com/savas-ati-538552",
+      "isbn": "9786253800284",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "ezopmasallari",
+      "sourceUrl": "https://www.kitapsepeti.com/ezop-masallari-464065",
+      "isbn": "9786057309594",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "grimmmasallari",
+      "sourceUrl": "https://www.kitapsepeti.com/grimm-masallari-97229",
+      "isbn": "9789944829199",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "andersenmasallari",
+      "sourceUrl": "https://www.kitapsepeti.com/andersen-masallari-97153",
+      "isbn": "9789944827287",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "howbigthingsgetdone",
+      "sourceUrl": "https://www.kitapsepeti.com/buyuk-isler-nasil-basarilir",
+      "isbn": "9786255688026",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "ilprincipe",
+      "sourceUrl": "https://www.kitapsepeti.com/prens-455486",
+      "isbn": "9786256353336",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "allavibarnibullerbyn",
+      "sourceUrl": "https://www.kitapsepeti.com/samatali-koy-334187",
+      "isbn": "9786053439738",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "taleofdespereaux",
+      "sourceUrl": "https://www.kitapsepeti.com/desperonun-oykusu-560299",
+      "isbn": "9786253800772",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "jacklondon",
+      "sourceUrl": "https://www.kitapsepeti.com/jack-london-481831",
+      "isbn": "9786254298271",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "ataturkmodernturkiyeninkurucusu",
+      "sourceUrl": "https://www.kitapsepeti.com/ataturk-119265",
+      "isbn": "9789751409881",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "einsteinyasamiveevreni",
+      "sourceUrl": "https://www.kitapsepeti.com/einstein-yasami-ve-evreni",
+      "isbn": "9786257314626",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "leonardodavinci",
+      "sourceUrl": "https://www.kitapsepeti.com/leonardo-da-vinci-69170",
+      "isbn": "9786051981048",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "lenin",
+      "sourceUrl": "https://www.kitapsepeti.com/lenin-272920",
+      "isbn": "9786056321757",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "nonviolentcommunication",
+      "sourceUrl": "https://www.kitapsepeti.com/siddetsiz-iletisim",
+      "isbn": "9789751418869",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "neversplitthedifference",
+      "sourceUrl": "https://www.kitapsepeti.com/sen-bitti-dediginde",
+      "isbn": "9786052250006",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "durdurulamayaninsanlikdunyaninhakimiyetininasilelegecirdik",
+      "sourceUrl": "https://www.kitapsepeti.com/durdurulamayan-insanlik",
+      "isbn": "9786052205945",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "thinkinginsystems",
+      "sourceUrl": "https://pegem.net/urun/Sistemlerle-Dusunmek/67979",
+      "isbn": "9786257582353",
+      "httpStatus": 200,
+      "isbnPresent": true,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "onbecomingaleader",
+      "sourceUrl": "https://www.kitapyurdu.com/kitap/bir-lider-olabilmek/395596.html",
+      "isbn": "9786051033204",
+      "httpStatus": 403,
+      "isbnPresent": false,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "allmarketersareliars",
+      "sourceUrl": "https://www.kitapyurdu.com/kitap/butun-pazarlamacilar-yalancidir-hikaye-anlatirlar/80162.html",
+      "isbn": "9789756093160",
+      "httpStatus": 403,
+      "isbnPresent": false,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "mariecuriebirbilimkadinininolaganustuyasamoykusu",
+      "sourceUrl": "https://www.kitapyurdu.com/kitap/marie-curie-bir-bilimkadinin-olaganustu-yasamoykusu/293643.html",
+      "isbn": "9786055888282",
+      "httpStatus": 403,
+      "isbnPresent": false,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "adatwistbiliminsani",
+      "sourceUrl": "https://www.kitapyurdu.com/kitap/bilim-insani-ada-ari/531229.html",
+      "isbn": "9786059933599",
+      "httpStatus": 403,
+      "isbnPresent": false,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "spinselling",
+      "sourceUrl": "https://www.kitapyurdu.com/kitap/4-adimda-satis-basarisi/79172.html",
+      "isbn": "",
+      "httpStatus": 403,
+      "isbnPresent": false,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "radicalcandor",
+      "sourceUrl": "https://www.kitapyurdu.com/kitap/radikal-samimiyet-insanliginizi-kaybetmeden-iyi-lider-olun/517977.html",
+      "isbn": "9786056902437",
+      "httpStatus": 403,
+      "isbnPresent": false,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "gettingthingsdone",
+      "sourceUrl": "https://www.kitapyurdu.com/kitap/is-bitirici/62978.html",
+      "isbn": "9786059059664",
+      "httpStatus": 403,
+      "isbnPresent": false,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "22immutablelawsofmarketing",
+      "sourceUrl": "https://www.kitapyurdu.com/kitap/pazarlamanin-22-kurali/84582.html",
+      "isbn": "",
+      "httpStatus": 403,
+      "isbnPresent": false,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "powerofless",
+      "sourceUrl": "https://www.kitapyurdu.com/kitap/az-aslinda-coktur/150414.html",
+      "isbn": "",
+      "httpStatus": 403,
+      "isbnPresent": false,
+      "result": "no-credit-found"
+    },
+    {
+      "id": "ultimatesalesmachine",
+      "sourceUrl": "https://www.kitapyurdu.com/kitap/kusursuz-satis-makinesi/117729.html",
+      "isbn": "",
+      "httpStatus": 403,
+      "isbnPresent": false,
+      "result": "no-credit-found"
+    }
+  ],
+  "finalChildEditionChecks": [
+    {
+      "id": "taleofdespereaux",
+      "translators": [
+        "Gözde Koca"
+      ],
+      "sourceType": "publisher",
+      "sourceUrl": "https://www.tudemkitabevi.com/desperonun-oykusu"
+    },
+    {
+      "id": "allavibarnibullerbyn",
+      "translators": [
+        "Ali Arda"
+      ],
+      "sourceType": "publisher",
+      "sourceUrl": "https://pegasusyayinlari.com/kitap_detay.php?kitapid=14896762451"
+    },
+    {
+      "id": "konradoderdaskindausderkonservenbuchse",
+      "translators": [
+        "Mine Kazmaoğlu"
+      ],
+      "sourceType": "publisher",
+      "sourceUrl": "https://gunisigikitapligi.com/wp-content/uploads/2021/07/GUNISIGI-KITAPLIGI-GUZ-2010-KATALOG.pdf"
+    },
+    {
+      "id": "matilda",
+      "translators": [
+        "Lale Akalın"
+      ],
+      "sourceType": "retailer",
+      "sourceUrl": "https://www.sehadetkitap.com/urun/matilda"
+    },
+    {
+      "id": "harrypottervefelsefetasi",
+      "translators": [
+        "Ülkü Tamer"
+      ],
+      "sourceType": "retailer",
+      "sourceUrl": "https://www.rakitap.com/urun/harry-potter-ve-felsefe-tasi-ozel-baski-j-k-rowling-9789750834660"
+    },
+    {
+      "id": "cocukkalbi",
+      "translators": [
+        "Yelda Gürlek"
+      ],
+      "sourceType": "retailer",
+      "sourceUrl": "https://www.sadecekitap.com/cocuk-kalbi-17"
+    },
+    {
+      "id": "andersenmasallari",
+      "translators": [
+        "Nilgün Erzik"
+      ],
+      "sourceType": "publisher",
+      "sourceUrl": "https://www.epsilonyayingrubu.com/Istem/urun/detay.aspx?Id=277613"
+    },
+    {
+      "id": "durdurulamayaninsanlikdunyaninhakimiyetininasilelegecirdik",
+      "translators": [
+        "Çiğdem Şentuğ"
+      ],
+      "sourceType": "retailer",
+      "sourceUrl": "https://www.ilknokta.com/durdurulamayan-insanlik.htm"
+    },
+    {
+      "id": "savasati",
+      "translators": [
+        "Arif Cem Ünver"
+      ],
+      "sourceType": "publisher",
+      "sourceUrl": "https://tudem.com/urun/kultur/1008/tudem_edebiyat/2736/tudem_modern_klasikler__savas_ati.aspx"
+    },
+    {
+      "id": "birseftalibinseftali",
+      "translators": [
+        "Yankı Yöntem"
+      ],
+      "sourceType": "publisher",
+      "sourceUrl": "https://www.cinaryayinlari.com/product/bir-seftali-bin-seftali/"
+    },
+    {
+      "id": "sekerportakali",
+      "translators": [
+        "Emrah İmre"
+      ],
+      "sourceType": "publisher-preview",
+      "sourceUrl": "https://www.canyayinlari.com/Uploads/Docs/119345/9789750738609.pdf"
+    }
+  ]
+}

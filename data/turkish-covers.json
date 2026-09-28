@@ -107,18 +107,6 @@
     "language": "tr",
     "checkedAt": "2026-09-28"
   },
-  "effectiveexecutive": {
-    "src": "covers/404f9ee4e6af7cb3.jpg",
-    "imageUrl": "https://asset.kitapsepeti.com/etkin-yonetici-dogru-olani-basarmak-icin-bir-rehber-204621-23-O.jpg",
-    "sourceUrl": "https://www.kitapsepeti.com/etkin-yonetici-dogru-olani-basarmak-icin-bir-rehber",
-    "sourceName": "Kitapsepeti",
-    "title": "Etkin Yönetici: Doğru Olanı Başarmak için Bir Rehber",
-    "author": "Peter F. Drucker",
-    "publisher": "Stabil Kitap",
-    "isbn": "9786057081179",
-    "language": "tr",
-    "checkedAt": "2026-09-28"
-  },
   "nudge": {
     "src": "covers/88884f55ac1e09ac.jpg",
     "imageUrl": "https://asset.kitapsepeti.com/durtme-372992-33-O.jpg",
@@ -1037,26 +1025,26 @@
     "checkedAt": "2026-09-28"
   },
   "birseftalibinseftali": {
-    "src": "covers/8739b02ec19d21ce.jpg",
-    "imageUrl": "https://asset.kitapsepeti.com/dirilen-iskelet-397010-1047335-39-O.jpg",
-    "sourceUrl": "https://www.kitapsepeti.com/dirilen-iskelet-397010",
-    "sourceName": "Kitapsepeti",
+    "src": "covers/867340da296a07b0.jpg",
+    "imageUrl": "https://www.cinaryayinlari.com/wp-content/uploads/2022/09/bir_seftali_bin_seftali_kapak_baski1-700x1024.jpg",
+    "sourceUrl": "https://www.cinaryayinlari.com/product/bir-seftali-bin-seftali/",
+    "sourceName": "Çınar Yayınları",
     "title": "Bir Şeftali Bin Şeftali",
-    "author": "Samed Bahrengi",
-    "publisher": "Katip Yayınları",
-    "isbn": "9786258212242",
+    "author": "Samed Behrengi",
+    "publisher": "Çınar Yayınları",
+    "isbn": "9789753484640",
     "language": "tr",
     "checkedAt": "2026-09-28"
   },
   "savasati": {
-    "src": "covers/b39593f5a0facd72.png",
-    "imageUrl": "https://asset.kitapsepeti.com/savas-ati-538552-980524-53-O.png",
-    "sourceUrl": "https://www.kitapsepeti.com/savas-ati-538552",
-    "sourceName": "Kitapsepeti",
+    "src": "covers/4e46f4f8ad3e181a.jpg",
+    "imageUrl": "https://tudem.com/images/kitapkapaklari/Savas_Ati.jpg",
+    "sourceUrl": "https://tudem.com/urun/kultur/1008/tudem_edebiyat/2736/tudem_modern_klasikler__savas_ati.aspx",
+    "sourceName": "Tudem Yayınları",
     "title": "Savaş Atı",
     "author": "Michael Morpurgo",
     "publisher": "Tudem Yayınları",
-    "isbn": "9786253800284",
+    "isbn": "9786059604451",
     "language": "tr",
     "checkedAt": "2026-09-28"
   },
@@ -2376,5 +2364,70 @@
     "checkedAt": "2026-09-28",
     "verification": "Title, author and Turkish edition matched to the cited bibliographic record",
     "isbnUnavailable": true
+  },
+  "designofeverydaythings": {
+    "title": "Gündelik Şeylerin Tasarımı",
+    "author": "Don Norman",
+    "publisher": "TÜBİTAK Popüler Bilim Kitapları",
+    "isbn": "9786053121527",
+    "language": "tr",
+    "src": "covers/4b184e6dfecb4385.jpg",
+    "imageUrl": "https://yayinlar.tubitak.gov.tr/2494-large_default/guendelik-seylerin-tasarimi-2basim.jpg",
+    "sourceUrl": "https://yayinlar.tubitak.gov.tr/yetiskin-kitapligi/1484-guendelik-seylerin-tasarimi-2basim.html",
+    "sourceName": "TÜBİTAK Popüler Bilim Kitapları",
+    "checkedAt": "2026-09-28",
+    "verification": "Title, author, ISBN and Turkish edition matched to the cited source"
+  },
+  "crossingthechasm": {
+    "title": "Uçurumdan Geçmek",
+    "author": "Geoffrey A. Moore",
+    "publisher": "Albaraka Yayınları",
+    "isbn": "9786257312332",
+    "language": "tr",
+    "src": "covers/ebde2430fed45252.jpg",
+    "imageUrl": "https://www.scalakitapci.com/ucurumdan-gecmek-referans-kaynak-kitap-geoffrey-a-moore-albaraka-yayinlari-2756-25-O.jpg",
+    "sourceUrl": "https://www.scalakitapci.com/ucurumdan-gecmek",
+    "sourceName": "Kitapçı künyesi",
+    "checkedAt": "2026-09-28",
+    "verification": "Title, author, ISBN and Turkish edition matched to the cited source"
+  },
+  "lexusandtheolivetree": {
+    "title": "Lexus ve Zeytin Ağacı: Küreselleşmenin Geleceği",
+    "author": "Thomas L. Friedman",
+    "publisher": "Boyner Yayınları",
+    "isbn": "9789757004288",
+    "language": "tr",
+    "src": "covers/bb06092f75149bb0.jpg",
+    "imageUrl": "https://www.kitapstore.com/Gorsel/Urun/25/25870-1.jpg",
+    "sourceUrl": "https://www.kitapstore.com/urun/25870/kitap/boyner-holding-yayinlari/thomas-friedman/kuresellesmenin-gelecegi-lexus-ve-zeytin-agaci/",
+    "sourceName": "Kitapçı künyesi",
+    "checkedAt": "2026-09-28",
+    "verification": "Title, author, ISBN and Turkish edition matched to the cited source"
+  },
+  "strategytheindirectapproach": {
+    "title": "Strateji: Dolaylı Tutum",
+    "author": "B. H. Liddell Hart",
+    "publisher": "Doruk Yayınları",
+    "isbn": "9789755539164",
+    "language": "tr",
+    "src": "covers/d09bef26b02f8309.jpg",
+    "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn%3A11528198/wh%3Atrue/wi%3A220",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/strateji-dolayli-tutum/51432.html",
+    "sourceName": "Kitapçı künyesi",
+    "checkedAt": "2026-09-28",
+    "verification": "Title, author, ISBN and Turkish edition matched to the cited source"
+  },
+  "buyuksorularkitabi": {
+    "title": "Küçük İnsanlardan Büyük Sorular",
+    "author": "Gemma Elwin Harris (derleyen)",
+    "publisher": "Domingo Çocuk",
+    "isbn": "9786054729043",
+    "language": "tr",
+    "src": "covers/ffa6e7ff1b04e2c1.jpg",
+    "imageUrl": "https://domingo.com.tr/cdn/shop/products/BuyukSorular_1200x1200.jpg?v=1567765343",
+    "sourceUrl": "https://domingo.com.tr/collections/cocuk-kitaplari-1/products/kucuk-insanlardan-buyuk-sorular-ve-hayli-muhim-insanlardan-basit-cevaplar",
+    "sourceName": "Domingo Çocuk",
+    "checkedAt": "2026-09-28",
+    "verification": "Title, author, ISBN and Turkish edition matched to the cited source"
   }
 }

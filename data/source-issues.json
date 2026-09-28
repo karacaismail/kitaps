@@ -1,0 +1,54 @@
+{
+  "masalmasalicinde": {
+    "note": "Kaynakta başlık Aytül Akal ile eşleştirilmiş. Masal Masal İçinde adı Ahmet Ümit’in eseriyle de eşleşiyor; yazar ve baskı netleşmediği için kapak atanmadı."
+  },
+  "arkadasimbalina": {
+    "note": "Kaynakta Zeynep Cemali yazıyor. Bu başlıkla bulunan diğer kitapların yazarları farklı; doğru eser doğrulanmadan kapak eklenmedi."
+  },
+  "dostlukekmegi": {
+    "note": "Kaynakta Sara Şahinkanat adı var. Aynı başlıktaki yetişkin romanı bu çocuk kitabıyla eşleştirilmedi; doğru baskı doğrulanamadı."
+  },
+  "kaplumbagaterbiyecisi": {
+    "note": "Kaynakta Tülin Kozikoğlu adı var. Aynı başlıkla bulunan başka yazarlara ait eserler bu kayıtla eşleştirilmedi."
+  },
+  "anadolumasallari": {
+    "note": "Bu başlık ve Eflatun Cem Güney eşleşmesiyle belirli bir baskı doğrulanamadı. Kapak seçimi için yayınevi veya ISBN gerekiyor."
+  },
+  "kartanesimasali": {
+    "note": "Cahit Uçuk ile bu başlığın belirli bir baskısı doğrulanamadı. Kaynak kaydı korunuyor; kapak atanmıyor."
+  },
+  "plastikdeniz": {
+    "note": "Anita Ganeri ile bu Türkçe başlığın baskısı doğrulanamadı. Benzer çevre kitaplarının kapakları kullanılmadı."
+  },
+  "biliminyildizlariserisi10kitapustafikirler": {
+    "note": "Kaynak bir kitap setini anıyor; yazar, yayınevi ve cilt listesi belirtilmemiş. Tek bir kitabın kapağı bütün seti temsil edecek şekilde atanmadı."
+  },
+  "robinsoncrusoecocukuyarlamasi": {
+    "note": "Kaynak belirli bir çocuk uyarlamasını seçmiyor. Uyarlayan, çevirmen ve yaş grubu baskıya göre değiştiği için belirli bir kapağa bağlanmadı."
+  },
+  "defineadasicocukuyarlamasi": {
+    "note": "Kaynak belirli bir çocuk uyarlamasını seçmiyor. Tam metin baskısıyla karıştırılmaması için belirli bir kapağa bağlanmadı."
+  },
+  "dedekorkutcocukuyarlamasi": {
+    "note": "Eflatun Cem Güney uyarlaması için baskı yılı ve yayınevi seçimi kesinleşmedi. Başka uyarlayanların kapakları kullanılmadı."
+  },
+  "effectiveexecutive": {
+    "note": "Stabil Kitap’ın Etkin Yönetici adıyla yayımladığı 9786057081179 ISBN’li kitap, The Effective Executive in Action adlı ayrı bir uygulama defteridir. Bu eserle karıştırılmamalı.",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/etkin-yonetici-dogru-olani-basarmak-icin-bir-rehber/608558.html"
+  },
+  "7habitsofhighlyeffectivepeople": {
+    "note": "Aynı ISBN için kaynaklar ikinci çevirmenin adında çelişiyor. Çevirmen adı yayınevi künyesiyle doğrulanana kadar kesinleştirilmedi.",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/etkili-insanlarin-7-aliskanligi/1138.html"
+  },
+  "influence": {
+    "note": "Aynı ISBN için kitapçı kaynakları Fevzi Yalım ve Yasemin Fletcher adlarını veriyor. Bu çelişki yayınevi künyesiyle çözülmeden tek bir çevirmen adı atanmadı.",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/iknanin-psikolojisi/32697.html"
+  },
+  "grimmmasallari": {
+    "note": "Bu ISBN için kitapçı kayıtlarında Meltem Erkmen ve Tanju Anapa adları çelişiyor. Kapaktaki baskının çevirmeni henüz doğrulanmadı; satın almadan önce iç künye sayfasını kontrol et.",
+    "sources": [
+      "https://www.sehadetkitap.com/urun/grimm-masallari",
+      "https://www.ilknokta.com/grimm-masallari-ciltli-2.htm"
+    ]
+  }
+}

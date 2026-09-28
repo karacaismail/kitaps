@@ -147,6 +147,9 @@ for bid,edition in read('data/edition-verification.json').items():
  assert bid in books,bid
  books[bid]['verifiedEdition']=edition
  if not books[bid]['titleTr']:books[bid]['titleTr']=edition['title']
+for bid,issue in read('data/source-issues.json').items():
+ assert bid in books,bid
+ books[bid]['sourceIssue']=issue
 for b in books.values():
  if not b['categories']:addcat(b,'management')
  b['collectionIds']=list(dict.fromkeys(m['collectionId'] for m in b['memberships']));b['groupIds']=list(dict.fromkeys(m['groupId'] for m in b['memberships']))

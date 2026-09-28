@@ -143,15 +143,14 @@
   },
   "competitivestrategy": {
     "title": "Rekabet Stratejisi",
-    "publisher": "Sistem Yayıncılık",
-    "isbn": "9789753220828",
+    "publisher": "Aura Kitapları",
+    "isbn": "9786051032887",
     "translators": [
       "Gülen Ulubilgen"
     ],
-    "sourceUrl": "https://www.kitapyurdu.com/kitap/rekabet-stratejisi-sektor-ve-rakip-analizi-teknikleri/13409.html",
+    "sourceUrl": "https://www.dr.com.tr/Kitap/Rekabet-Stratejisi/Michael-E-Porter/Egitim-Basvuru/Is-Ekonomi-Hukuk/Yonetim-Is-Gelistirme-Kalite/urunno=0000000662924",
     "sourceType": "retailer",
-    "checkedAt": "2026-09-28",
-    "note": "Çevirmen adı bu ISBN için Kitapyurdu künyesindeki yazımıyla aktarılmıştır. Yayınevi künyesiyle ikinci kontrol bekliyor. Kapak, farklı ISBN taşıyan Aura baskısıdır; bu çevirmen bilgisi o kapağa bağlanmaz."
+    "checkedAt": "2026-09-28"
   },
   "powerlaw": {
     "title": "Güç Yasası",
@@ -224,15 +223,15 @@
     "checkedAt": "2026-09-28"
   },
   "goodtogreat": {
-    "title": "İyi'den Mükemmel Şirkete",
+    "title": "İyiden Mükemmel Şirkete",
     "publisher": "Boyner Yayınları",
     "isbn": "9789757004431",
-    "sourceUrl": "https://www.kitapyurdu.com/kitap/iyiden-mukemmel-sirkete/61177.html",
-    "checkedAt": "2026-09-28",
     "translators": [
       "Levent Cinemre"
     ],
-    "sourceType": "retailer"
+    "sourceUrl": "https://boyneryayinlari.com/kitaplar/detay/iyiden-mukemmel-sirkete-1692968924",
+    "sourceType": "publisher",
+    "checkedAt": "2026-09-28"
   },
   "builttolast": {
     "title": "Kalıcı Olmak",
@@ -271,12 +270,12 @@
     "title": "Değişime Liderlik Etmek",
     "publisher": "CEO Plus (Doğan Yayınları)",
     "isbn": "9786050981483",
-    "sourceUrl": "https://www.kitapyurdu.com/kitap/degisime-liderlik-etmek/573720.html",
-    "checkedAt": "2026-09-28",
     "translators": [
       "Levent Çıtak"
     ],
-    "sourceType": "retailer"
+    "sourceUrl": "https://www.dogankitap.com.tr/kitap/degisime-liderlik-etmek",
+    "sourceType": "publisher",
+    "checkedAt": "2026-09-28"
   },
   "onbecomingaleader": {
     "title": "Bir Lider Olabilmek",
@@ -286,7 +285,7 @@
     "checkedAt": "2026-09-28",
     "translators": [],
     "sourceType": "retailer",
-    "note": "Kapaktaki baskı kaydı çevirmen belirtmiyor; önceki baskıdan isim taşınmadı."
+    "note": "Bu Aura baskısında çevirmen doğrulanmadı. Sistem Yayıncılık baskısının çevirmenini bu baskıya taşımak doğru olmaz."
   },
   "outofthecrisis": {
     "title": "Krizden Çıkış",
@@ -529,7 +528,8 @@
     "sourceUrl": "https://www.kitapyurdu.com/kitap/askeri-stratejinin-temelleri-kuramcilar/680664.html",
     "checkedAt": "2026-09-28",
     "translators": [],
-    "sourceType": "retailer"
+    "sourceType": "retailer",
+    "originalLanguage": "tr"
   },
   "infographicworldwariilasecondeguerremondialeinfographie": {
     "title": "İkinci Dünya Savaşı: İnfografik",
@@ -918,12 +918,12 @@
     "title": "\"Evet\" Dedirtme Sanatı: Ödün Vermeden Anlaşmaya Varmak",
     "publisher": "Nova Kitap (İthaki Yayın Grubu)",
     "isbn": "9786258489972",
-    "sourceUrl": "https://www.kitapyurdu.com/kitap/evet-dedirtme-sanati-odun-vermeden-anlasmaya-varmak/671090.html",
+    "sourceUrl": "https://kutuphane.nigde.bel.tr/details?id=4688&materialType=KTP&query=Fisher%2C+Roger",
     "checkedAt": "2026-09-28",
     "translators": [
       "Desire Eylül Cannon Canbaz"
     ],
-    "sourceType": "retailer"
+    "sourceType": "bibliographic"
   },
   "gettingthingsdone": {
     "title": "İş Bitirici: Stressiz Üretkenlik Sanatı",
@@ -985,5 +985,389 @@
     "translators": [],
     "sourceType": "retailer",
     "note": "Kaynak künyesindeki ISBN eksik veya kontrol basamağı tutarsız; ISBN doğrulanamadı. Künye bilgisi bağlantıdaki baskıyla sınırlıdır."
+  },
+  "designofeverydaythings": {
+    "title": "Gündelik Şeylerin Tasarımı",
+    "publisher": "TÜBİTAK Popüler Bilim Kitapları",
+    "isbn": "9786053121527",
+    "translators": [
+      "Ayşe Mine Şengel"
+    ],
+    "sourceUrl": "https://yayinlar.tubitak.gov.tr/yetiskin-kitapligi/1484-guendelik-seylerin-tasarimi-2basim.html",
+    "sourceType": "publisher",
+    "checkedAt": "2026-09-28"
+  },
+  "crossingthechasm": {
+    "title": "Uçurumdan Geçmek",
+    "publisher": "Albaraka Yayınları",
+    "isbn": "9786257312332",
+    "translators": [
+      "İsmail Hakkı Yılmaz"
+    ],
+    "sourceUrl": "https://www.scalakitapci.com/ucurumdan-gecmek",
+    "sourceType": "retailer",
+    "checkedAt": "2026-09-28"
+  },
+  "lexusandtheolivetree": {
+    "title": "Lexus ve Zeytin Ağacı: Küreselleşmenin Geleceği",
+    "publisher": "Boyner Yayınları",
+    "isbn": "9789757004288",
+    "translators": [
+      "Elif Özsayar"
+    ],
+    "sourceUrl": "https://www.kitapstore.com/urun/25870/kitap/boyner-holding-yayinlari/thomas-friedman/kuresellesmenin-gelecegi-lexus-ve-zeytin-agaci/",
+    "sourceType": "retailer",
+    "checkedAt": "2026-09-28"
+  },
+  "strategytheindirectapproach": {
+    "title": "Strateji: Dolaylı Tutum",
+    "publisher": "Doruk Yayınları",
+    "isbn": "9789755539164",
+    "translators": [
+      "Selma Koçak"
+    ],
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/strateji-dolayli-tutum/51432.html",
+    "sourceType": "retailer",
+    "checkedAt": "2026-09-28"
+  },
+  "buyuksorularkitabi": {
+    "title": "Küçük İnsanlardan Büyük Sorular",
+    "publisher": "Domingo Çocuk",
+    "isbn": "9786054729043",
+    "translators": [
+      "Şiirsel Taş"
+    ],
+    "sourceUrl": "https://domingo.com.tr/collections/cocuk-kitaplari-1/products/kucuk-insanlardan-buyuk-sorular-ve-hayli-muhim-insanlardan-basit-cevaplar",
+    "sourceType": "publisher",
+    "checkedAt": "2026-09-28"
+  },
+  "effectiveexecutive": {
+    "title": "Etkin Yöneticilik",
+    "publisher": "Eti Kitapları",
+    "isbn": "",
+    "translators": [
+      "Ahmet Özden",
+      "Nuray Tunalı"
+    ],
+    "sourceType": "retailer",
+    "sourceUrl": "https://www.nadirkitap.com/etkin-yoneticilik-peter-f-drucker-kitap28816202.html",
+    "checkedAt": "2026-09-28",
+    "note": "1992 baskısının sahaf künyesi. Kaynakta ISBN yok; yayınevi künyesiyle ikinci kontrol bekliyor.",
+    "correction": "Stabil Kitap’ın Etkin Yönetici adıyla yayımladığı 9786057081179 ISBN’li kitap, The Effective Executive in Action adlı ayrı bir uygulama defteridir. Bu eserle karıştırılmamalı."
+  },
+  "innovatorsdilemma": {
+    "title": "Yenilikçinin İkilemi",
+    "publisher": "Koridor Yayıncılık",
+    "isbn": "9786059702812",
+    "translators": [
+      "Korkmaz Haktanır"
+    ],
+    "sourceUrl": "https://www.koridoryayincilik.com.tr/urun/yenilikcinin-ikilemi",
+    "sourceType": "publisher",
+    "checkedAt": "2026-09-28"
+  },
+  "fivedysfunctionsofateam": {
+    "title": "Ekiplerin Beş Temel Aksaklığı",
+    "publisher": "Optimist Kitap",
+    "isbn": "9786254340710",
+    "translators": [
+      "Ekin Duru"
+    ],
+    "sourceUrl": "https://optimistkitap.com/kitap/ekiplerin-bes-temel-aksakligi-2/",
+    "sourceType": "publisher",
+    "checkedAt": "2026-09-28",
+    "correction": "Arşivdeki Ekim Duru yazımı, yayınevi künyesine göre Ekin Duru olarak düzeltildi."
+  },
+  "blueoceanstrategy": {
+    "title": "Mavi Okyanus Stratejisi",
+    "publisher": "CSA Yayın Ajansı",
+    "isbn": "9789758828203",
+    "translators": [
+      "Şükrü Alpagut"
+    ],
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/mavi-okyanus-stratejisi/76370.html",
+    "sourceType": "retailer",
+    "checkedAt": "2026-09-28"
+  },
+  "leanstartup": {
+    "title": "Yalın Startup",
+    "publisher": "MediaCat Kitapları",
+    "isbn": "9786052314708",
+    "translators": [
+      "Ece Güngördü"
+    ],
+    "sourceUrl": "https://www.dr.com.tr/Kitap/Yalin-Startup/Eric-Ries/Egitim-Basvuru/is-Ekonomi-Hukuk/Yonetim-is-Gelistirme-Kalite/urunno=0002003003001",
+    "sourceType": "retailer",
+    "checkedAt": "2026-09-28"
+  },
+  "madetostick": {
+    "title": "İşte Bu Fikir Tutar!",
+    "publisher": "Sola Unitas",
+    "isbn": "9786052250716",
+    "translators": [
+      "Elif Özsayar"
+    ],
+    "sourceUrl": "https://www.dr.com.tr/kitap/iste-bu-fikir-tutar/egitim-basvuru/is-ekonomi-hukuk/yonetim-is-gelistirme-kalite/urunno=0001787025001",
+    "sourceType": "retailer",
+    "checkedAt": "2026-09-28"
+  },
+  "nudge": {
+    "title": "Dürtme",
+    "publisher": "Pegasus Yayınları",
+    "isbn": "9786053430421",
+    "translators": [
+      "Enver Günsel"
+    ],
+    "sourceUrl": "https://www.dr.com.tr/Kitap/Durtme/Egitim-Basvuru/Kisisel-Gelisim/urunno=0000000435081",
+    "sourceType": "retailer",
+    "checkedAt": "2026-09-28",
+    "note": "Bu künye 2013 tarihli Türkçe baskıya aittir; 2021 tarihli gözden geçirilmiş özgün baskıyı temsil etmez."
+  },
+  "7habitsofhighlyeffectivepeople": {
+    "title": "Etkili İnsanların 7 Alışkanlığı",
+    "publisher": "Varlık Yayınları",
+    "isbn": "9789754346534",
+    "translators": [],
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/etkili-insanlarin-7-aliskanligi/1138.html",
+    "sourceType": "retailer",
+    "checkedAt": "2026-09-28",
+    "note": "Aynı ISBN için kaynaklar ikinci çevirmenin adında çelişiyor. Çevirmen adı yayınevi künyesiyle doğrulanana kadar kesinleştirilmedi."
+  },
+  "abartmatozu": {
+    "title": "Abartma Tozu",
+    "publisher": "Taze Kitap",
+    "isbn": "9786259286785",
+    "sourceUrl": "https://www.kitapsepeti.com/abartma-tozu-588809",
+    "checkedAt": "2026-09-28",
+    "originalLanguage": "tr",
+    "translators": [],
+    "sourceType": "retailer"
+  },
+  "yilankale": {
+    "title": "Yılankale",
+    "publisher": "Tudem Yayınları",
+    "isbn": "9789944694469",
+    "sourceUrl": "https://www.kitapsepeti.com/yilankale",
+    "checkedAt": "2026-09-28",
+    "originalLanguage": "tr",
+    "translators": [],
+    "sourceType": "retailer"
+  },
+  "fadis": {
+    "title": "Fadiş",
+    "publisher": "Altın Kitaplar",
+    "isbn": "9789754050929",
+    "sourceUrl": "https://www.kitapsepeti.com/fadis",
+    "checkedAt": "2026-09-28",
+    "originalLanguage": "tr",
+    "translators": [],
+    "sourceType": "retailer"
+  },
+  "emotionalintelligence": {
+    "title": "Duygusal Zeka",
+    "publisher": "Varlık Yayınları",
+    "isbn": "9789754341966",
+    "translators": [
+      "Banu Seçkin Yüksel"
+    ],
+    "sourceUrl": "https://www.imge.com.tr/urun/duygusal-zeka-daniel-goleman-9789754341966",
+    "sourceType": "retailer",
+    "checkedAt": "2026-09-28"
+  },
+  "fifthdiscipline": {
+    "title": "Beşinci Disiplin",
+    "publisher": "Yapı Kredi Yayınları",
+    "isbn": "9789753630313",
+    "translators": [
+      "Ayşegül İldeniz",
+      "Ahmet Doğukan",
+      "Barış Pala"
+    ],
+    "sourceUrl": "https://www.imge.com.tr/urun/besinci-disiplin-ogrenen-organizasyon-sanati-ve-uygulamasi-peter-m-senge-9789753630313",
+    "sourceType": "retailer",
+    "checkedAt": "2026-09-28"
+  },
+  "whomovedmycheese": {
+    "title": "Peynirimi Kim Kaptı?",
+    "publisher": "Epsilon Yayınevi",
+    "isbn": "9789753311908",
+    "translators": [
+      "Nazlı Uzunali"
+    ],
+    "sourceUrl": "https://www.alemkitap.com/urun/peynirimi-kim-kaptig-spencer-johnson-9789753311908",
+    "sourceType": "retailer",
+    "checkedAt": "2026-09-28"
+  },
+  "thinkingfastandslow": {
+    "title": "Hızlı ve Yavaş Düşünme",
+    "publisher": "Varlık Yayınları",
+    "isbn": "9789754345315",
+    "translators": [
+      "Filiz Deniztekin",
+      "Osman Ç. Deniztekin"
+    ],
+    "sourceUrl": "https://www.imge.com.tr/urun/hizli-ve-yavas-dusunme-daniel-kahneman-9789754345315",
+    "sourceType": "retailer",
+    "checkedAt": "2026-09-28"
+  },
+  "presentationofselfineverydaylife": {
+    "title": "Günlük Yaşamda Benliğin Sunumu",
+    "publisher": "Metis Yayınları",
+    "isbn": "9789753426985",
+    "translators": [
+      "Barış Cezar"
+    ],
+    "sourceUrl": "https://www.imge.com.tr/urun/gunluk-yasamda-benligin-sunumu-erving-goffman-9789753426985",
+    "sourceType": "retailer",
+    "checkedAt": "2026-09-28"
+  },
+  "bravenewworld": {
+    "title": "Cesur Yeni Dünya",
+    "publisher": "İthaki Yayınları",
+    "isbn": "9789756902165",
+    "translators": [
+      "Ümit Tosun"
+    ],
+    "sourceUrl": "https://www.imge.com.tr/urun/cesur-yeni-dunya-aldous-leonard-huxley-9789756902165",
+    "sourceType": "retailer",
+    "checkedAt": "2026-09-28"
+  },
+  "influence": {
+    "title": "İknanın Psikolojisi",
+    "publisher": "MediaCat Kitapları",
+    "isbn": "9789944383646",
+    "translators": [],
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/iknanin-psikolojisi/32697.html",
+    "sourceType": "retailer",
+    "checkedAt": "2026-09-28",
+    "note": "Aynı ISBN için kitapçı kaynakları Fevzi Yalım ve Yasemin Fletcher adlarını veriyor. Bu çelişki yayınevi künyesiyle çözülmeden tek bir çevirmen adı atanmadı."
+  },
+  "taleofdespereaux": {
+    "title": "Despero’nun Öyküsü",
+    "publisher": "Tudem Yayınları",
+    "isbn": "9786253800772",
+    "translators": [
+      "Gözde Koca"
+    ],
+    "sourceType": "publisher",
+    "sourceUrl": "https://www.tudemkitabevi.com/desperonun-oykusu",
+    "checkedAt": "2026-09-28"
+  },
+  "allavibarnibullerbyn": {
+    "title": "Şamatalı Köy",
+    "publisher": "Pegasus Çocuk Yayınları",
+    "isbn": "9786053439738",
+    "translators": [
+      "Ali Arda"
+    ],
+    "sourceType": "publisher",
+    "sourceUrl": "https://pegasusyayinlari.com/kitap_detay.php?kitapid=14896762451",
+    "checkedAt": "2026-09-28"
+  },
+  "konradoderdaskindausderkonservenbuchse": {
+    "title": "Konrad ya da Konserve Kutusundan Çıkan Çocuk",
+    "publisher": "Günışığı Kitaplığı",
+    "isbn": "9789758142859",
+    "translators": [
+      "Mine Kazmaoğlu"
+    ],
+    "sourceType": "publisher",
+    "sourceUrl": "https://gunisigikitapligi.com/wp-content/uploads/2021/07/GUNISIGI-KITAPLIGI-GUZ-2010-KATALOG.pdf",
+    "checkedAt": "2026-09-28"
+  },
+  "matilda": {
+    "title": "Matilda",
+    "publisher": "Can Çocuk Yayınları",
+    "isbn": "9789750707810",
+    "translators": [
+      "Lale Akalın"
+    ],
+    "sourceType": "retailer",
+    "sourceUrl": "https://www.sehadetkitap.com/urun/matilda",
+    "checkedAt": "2026-09-28"
+  },
+  "harrypottervefelsefetasi": {
+    "title": "Harry Potter ve Felsefe Taşı Resimli Özel Baskı",
+    "publisher": "Yapı Kredi Yayınları",
+    "isbn": "9789750834660",
+    "translators": [
+      "Ülkü Tamer"
+    ],
+    "sourceType": "retailer",
+    "sourceUrl": "https://www.rakitap.com/urun/harry-potter-ve-felsefe-tasi-ozel-baski-j-k-rowling-9789750834660",
+    "checkedAt": "2026-09-28"
+  },
+  "cocukkalbi": {
+    "title": "Çocuk Kalbi",
+    "publisher": "Yapı Kredi Yayınları",
+    "isbn": "9789750868290",
+    "translators": [
+      "Yelda Gürlek"
+    ],
+    "sourceType": "retailer",
+    "sourceUrl": "https://www.sadecekitap.com/cocuk-kalbi-17",
+    "checkedAt": "2026-09-28"
+  },
+  "andersenmasallari": {
+    "title": "Andersen Masalları",
+    "publisher": "Epsilon Yayınevi",
+    "isbn": "9789944827287",
+    "translators": [
+      "Nilgün Erzik"
+    ],
+    "sourceType": "publisher",
+    "sourceUrl": "https://www.epsilonyayingrubu.com/Istem/urun/detay.aspx?Id=277613",
+    "checkedAt": "2026-09-28",
+    "correction": "Yayınevi bu çocuk klasikleri baskısını sadeleştirilmiş çeviri olarak tanımlar."
+  },
+  "durdurulamayaninsanlikdunyaninhakimiyetininasilelegecirdik": {
+    "title": "Durdurulamayan İnsanlık",
+    "publisher": "Kolektif Kitap",
+    "isbn": "9786052205945",
+    "translators": [
+      "Çiğdem Şentuğ"
+    ],
+    "sourceType": "retailer",
+    "sourceUrl": "https://www.ilknokta.com/durdurulamayan-insanlik.htm",
+    "checkedAt": "2026-09-28"
+  },
+  "savasati": {
+    "title": "Savaş Atı",
+    "publisher": "Tudem Yayınları",
+    "isbn": "9786059604451",
+    "translators": [
+      "Arif Cem Ünver"
+    ],
+    "sourceType": "publisher",
+    "sourceUrl": "https://tudem.com/urun/kultur/1008/tudem_edebiyat/2736/tudem_modern_klasikler__savas_ati.aspx",
+    "checkedAt": "2026-09-28",
+    "correction": "48 sayfalık resimli uyarlama yerine kaynakta önerilen romanın 184 sayfalık Tudem Modern Klasikler baskısı seçildi."
+  },
+  "birseftalibinseftali": {
+    "title": "Bir Şeftali Bin Şeftali",
+    "publisher": "Çınar Yayınları",
+    "isbn": "9789753484640",
+    "translators": [
+      "Yankı Yöntem"
+    ],
+    "sourceType": "publisher",
+    "sourceUrl": "https://www.cinaryayinlari.com/product/bir-seftali-bin-seftali/",
+    "checkedAt": "2026-09-28",
+    "correction": "Eski kaynak sayfasının URL ve ISBN alanları Dirilen İskelet adlı başka bir esere aitti; yayınevinin kendi kapağı seçildi.",
+    "isbnSourceUrl": "https://www.hepsiburada.com/cinar-yayinlari-bir-seftali-bin-seftali-pm-HBC0000JFD62U"
+  },
+  "sekerportakali": {
+    "title": "Şeker Portakalı",
+    "publisher": "Can Yayınları",
+    "isbn": "9789750738609",
+    "translators": [
+      "Emrah İmre"
+    ],
+    "sourceType": "publisher-preview",
+    "sourceUrl": "https://www.canyayinlari.com/Uploads/Docs/119345/9789750738609.pdf",
+    "checkedAt": "2026-09-28",
+    "sourceLanguage": "Portekizce",
+    "edition": "158. basım, Mart 2026",
+    "correction": "Yayınevinin ISBN ile eşleşen önizleme künyesi Portekizce aslından çeviren kişi olarak Emrah İmre’yi belirtir. Aydın Emeç önceki çevirinin adıdır."
   }
 }

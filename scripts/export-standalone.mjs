@@ -4,7 +4,7 @@ const covers = Object.fromEntries(JSON.parse(readFileSync(new URL('src/catalog.j
 const images = Object.fromEntries(Object.values(covers).map(cover=>[cover.src,`data:image/${cover.src.endsWith('.webp')?'webp':cover.src.endsWith('.png')?'png':'jpeg'};base64,${readFileSync(new URL('public/'+cover.src,base)).toString('base64')}`]));
 let html=readFileSync(new URL('dist/index.html',base),'utf8');
 html=html.replace('<head>',`<head><script>globalThis.__KITAP_COVERS__=${JSON.stringify(images)};</script>`);
-writeFileSync(new URL('../kitapsxsil.html',base),html);
+writeFileSync(new URL('../kitaps.html',base),html);
 const readJSON=path=>JSON.parse(readFileSync(new URL(path,base),'utf8'));
-writeFileSync(new URL('../kitap-atlasi-tum-veri.json',base),JSON.stringify({catalog:readJSON('src/catalog.json'),sources:{atlas:readJSON('data/sources/atlas-v1.json'),okumaKumeleri:readJSON('data/sources/okuma-kumeleri.json'),kitaps:readJSON('data/sources/kitaps.json'),kitapsNotes:readFileSync(new URL('data/sources/kitaplar.md',base),'utf8')}},null,2)+'\n');
+writeFileSync(new URL('../kitap-atlasi-tum-veri.json',base),JSON.stringify({catalog:readJSON('src/catalog.json'),sources:{atlas:readJSON('data/sources/atlas-v1.json'),okumaKumeleri:readJSON('data/sources/okuma-kumeleri.json'),kitaps:readJSON('data/sources/kitaps.json'),kitapsCovers:readJSON('data/sources/kitaps-covers.json'),kitapsBuiltBooks:readJSON('data/sources/kitaps-built-books.json'),kitapsNotes:readFileSync(new URL('data/sources/kitaplar.md',base),'utf8')}},null,2)+'\n');
 console.log(`Standalone HTML: ${(Buffer.byteLength(html)/1024/1024).toFixed(1)} MB, ${Object.keys(images).length} embedded covers`);

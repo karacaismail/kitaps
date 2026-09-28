@@ -961,15 +961,14 @@
       },
       "verifiedEdition": {
         "title": "Rekabet Stratejisi",
-        "publisher": "Sistem Yayıncılık",
-        "isbn": "9789753220828",
+        "publisher": "Aura Kitapları",
+        "isbn": "9786051032887",
         "translators": [
           "Gülen Ulubilgen"
         ],
-        "sourceUrl": "https://www.kitapyurdu.com/kitap/rekabet-stratejisi-sektor-ve-rakip-analizi-teknikleri/13409.html",
+        "sourceUrl": "https://www.dr.com.tr/Kitap/Rekabet-Stratejisi/Michael-E-Porter/Egitim-Basvuru/Is-Ekonomi-Hukuk/Yonetim-Is-Gelistirme-Kalite/urunno=0000000662924",
         "sourceType": "retailer",
-        "checkedAt": "2026-09-28",
-        "note": "Çevirmen adı bu ISBN için Kitapyurdu künyesindeki yazımıyla aktarılmıştır. Yayınevi künyesiyle ikinci kontrol bekliyor. Kapak, farklı ISBN taşıyan Aura baskısıdır; bu çevirmen bilgisi o kapağa bağlanmaz."
+        "checkedAt": "2026-09-28"
       },
       "collectionIds": [
         "time",
@@ -1034,6 +1033,17 @@
         "publisher": "Varlık Yayınları",
         "isbn": "9789754341966",
         "language": "tr",
+        "checkedAt": "2026-09-28"
+      },
+      "verifiedEdition": {
+        "title": "Duygusal Zeka",
+        "publisher": "Varlık Yayınları",
+        "isbn": "9789754341966",
+        "translators": [
+          "Banu Seçkin Yüksel"
+        ],
+        "sourceUrl": "https://www.imge.com.tr/urun/duygusal-zeka-daniel-goleman-9789754341966",
+        "sourceType": "retailer",
         "checkedAt": "2026-09-28"
       },
       "collectionIds": [
@@ -1230,6 +1240,19 @@
         "publisher": "Yapı Kredi Yayınları",
         "isbn": "9789753630313",
         "language": "tr",
+        "checkedAt": "2026-09-28"
+      },
+      "verifiedEdition": {
+        "title": "Beşinci Disiplin",
+        "publisher": "Yapı Kredi Yayınları",
+        "isbn": "9789753630313",
+        "translators": [
+          "Ayşegül İldeniz",
+          "Ahmet Doğukan",
+          "Barış Pala"
+        ],
+        "sourceUrl": "https://www.imge.com.tr/urun/besinci-disiplin-ogrenen-organizasyon-sanati-ve-uygulamasi-peter-m-senge-9789753630313",
+        "sourceType": "retailer",
         "checkedAt": "2026-09-28"
       },
       "collectionIds": [
@@ -1533,15 +1556,15 @@
         "isbnUnavailable": false
       },
       "verifiedEdition": {
-        "title": "İyi'den Mükemmel Şirkete",
+        "title": "İyiden Mükemmel Şirkete",
         "publisher": "Boyner Yayınları",
         "isbn": "9789757004431",
-        "sourceUrl": "https://www.kitapyurdu.com/kitap/iyiden-mukemmel-sirkete/61177.html",
-        "checkedAt": "2026-09-28",
         "translators": [
           "Levent Cinemre"
         ],
-        "sourceType": "retailer"
+        "sourceUrl": "https://boyneryayinlari.com/kitaplar/detay/iyiden-mukemmel-sirkete-1692968924",
+        "sourceType": "publisher",
+        "checkedAt": "2026-09-28"
       },
       "collectionIds": [
         "time",
@@ -1861,6 +1884,17 @@
         "checkedAt": "2026-09-28",
         "matchMethod": "manual-source-review"
       },
+      "verifiedEdition": {
+        "title": "Yenilikçinin İkilemi",
+        "publisher": "Koridor Yayıncılık",
+        "isbn": "9786059702812",
+        "translators": [
+          "Korkmaz Haktanır"
+        ],
+        "sourceUrl": "https://www.koridoryayincilik.com.tr/urun/yenilikcinin-ikilemi",
+        "sourceType": "publisher",
+        "checkedAt": "2026-09-28"
+      },
       "collectionIds": [
         "time",
         "hundred",
@@ -1934,12 +1968,12 @@
         "title": "Değişime Liderlik Etmek",
         "publisher": "CEO Plus (Doğan Yayınları)",
         "isbn": "9786050981483",
-        "sourceUrl": "https://www.kitapyurdu.com/kitap/degisime-liderlik-etmek/573720.html",
-        "checkedAt": "2026-09-28",
         "translators": [
           "Levent Çıtak"
         ],
-        "sourceType": "retailer"
+        "sourceUrl": "https://www.dogankitap.com.tr/kitap/degisime-liderlik-etmek",
+        "sourceType": "publisher",
+        "checkedAt": "2026-09-28"
       },
       "collectionIds": [
         "time",
@@ -2010,7 +2044,7 @@
         "checkedAt": "2026-09-28",
         "translators": [],
         "sourceType": "retailer",
-        "note": "Kapaktaki baskı kaydı çevirmen belirtmiyor; önceki baskıdan isim taşınmadı."
+        "note": "Bu Aura baskısında çevirmen doğrulanmadı. Sistem Yayıncılık baskısının çevirmenini bu baskıya taşımak doğru olmaz."
       },
       "collectionIds": [
         "time",
@@ -2350,6 +2384,20 @@
         "language": "tr",
         "checkedAt": "2026-09-28"
       },
+      "verifiedEdition": {
+        "title": "Etkili İnsanların 7 Alışkanlığı",
+        "publisher": "Varlık Yayınları",
+        "isbn": "9789754346534",
+        "translators": [],
+        "sourceUrl": "https://www.kitapyurdu.com/kitap/etkili-insanlarin-7-aliskanligi/1138.html",
+        "sourceType": "retailer",
+        "checkedAt": "2026-09-28",
+        "note": "Aynı ISBN için kaynaklar ikinci çevirmenin adında çelişiyor. Çevirmen adı yayınevi künyesiyle doğrulanana kadar kesinleştirilmedi."
+      },
+      "sourceIssue": {
+        "note": "Aynı ISBN için kaynaklar ikinci çevirmenin adında çelişiyor. Çevirmen adı yayınevi künyesiyle doğrulanana kadar kesinleştirilmedi.",
+        "sourceUrl": "https://www.kitapyurdu.com/kitap/etkili-insanlarin-7-aliskanligi/1138.html"
+      },
       "collectionIds": [
         "hundred",
         "time"
@@ -2572,6 +2620,17 @@
         "language": "tr",
         "checkedAt": "2026-09-28"
       },
+      "verifiedEdition": {
+        "title": "Peynirimi Kim Kaptı?",
+        "publisher": "Epsilon Yayınevi",
+        "isbn": "9789753311908",
+        "translators": [
+          "Nazlı Uzunali"
+        ],
+        "sourceUrl": "https://www.alemkitap.com/urun/peynirimi-kim-kaptig-spencer-johnson-9789753311908",
+        "sourceType": "retailer",
+        "checkedAt": "2026-09-28"
+      },
       "collectionIds": [
         "time"
       ],
@@ -2685,6 +2744,17 @@
         "language": "tr",
         "checkedAt": "2026-09-28"
       },
+      "verifiedEdition": {
+        "title": "Yalın Startup",
+        "publisher": "MediaCat Kitapları",
+        "isbn": "9786052314708",
+        "translators": [
+          "Ece Güngördü"
+        ],
+        "sourceUrl": "https://www.dr.com.tr/Kitap/Yalin-Startup/Eric-Ries/Egitim-Basvuru/is-Ekonomi-Hukuk/Yonetim-is-Gelistirme-Kalite/urunno=0002003003001",
+        "sourceType": "retailer",
+        "checkedAt": "2026-09-28"
+      },
       "collectionIds": [
         "pmba",
         "five",
@@ -2722,6 +2792,20 @@
       ],
       "legacyKeys": [],
       "tags": [],
+      "cover": {
+        "title": "Street Smarts",
+        "author": "Norm Brodsky (Open Library record lists Brodsky only; work co-written with Bo Burlingham)",
+        "publisher": "Penguin USA, Inc.",
+        "isbn": "9781101195345",
+        "sourceUrl": "https://openlibrary.org/books/OL24304993M",
+        "imageUrl": "https://covers.openlibrary.org/b/id/6430860-L.jpg",
+        "src": "covers/1f93eda319a09e04.jpg",
+        "language": "en",
+        "sourceName": "Open Library",
+        "checkedAt": "2026-09-28",
+        "turkishStatus": "unverified",
+        "verification": "ISBN and image ID matched to the cited edition record"
+      },
       "collectionIds": [
         "pmba"
       ],
@@ -3329,6 +3413,20 @@
       ],
       "legacyKeys": [],
       "tags": [],
+      "cover": {
+        "title": "Pitch Anything",
+        "author": "Oren Klaff",
+        "publisher": "McGraw-Hill",
+        "isbn": "9780071752855",
+        "sourceUrl": "https://openlibrary.org/books/OL24384991M",
+        "imageUrl": "https://covers.openlibrary.org/b/id/10021317-L.jpg",
+        "src": "covers/49bd17b1a2145820.jpg",
+        "language": "en",
+        "sourceName": "Open Library",
+        "checkedAt": "2026-09-28",
+        "turkishStatus": "unverified",
+        "verification": "ISBN and image ID matched to the cited edition record"
+      },
       "collectionIds": [
         "pmba"
       ],
@@ -3726,6 +3824,20 @@
       ],
       "legacyKeys": [],
       "tags": [],
+      "cover": {
+        "title": "The 1% Windfall",
+        "author": "Rafi Mohammed",
+        "publisher": "HarperCollins",
+        "isbn": "9780061985270",
+        "language": "en",
+        "src": "covers/0e9a59f412ce8e69.jpg",
+        "imageUrl": "https://is1-ssl.mzstatic.com/image/thumb/Publication/2f/42/de/mzi.xjsfsfgt.jpg/536x0w.jpg",
+        "sourceUrl": "https://books.apple.com/us/book/the-1-windfall/id360633923",
+        "sourceName": "Apple Books",
+        "checkedAt": "2026-09-28",
+        "verification": "Title, author and cover matched to the linked edition page",
+        "turkishStatus": "unverified"
+      },
       "collectionIds": [
         "pmba"
       ],
@@ -3954,6 +4066,18 @@
         "publisher": "Varlık Yayınları",
         "isbn": "9789754345315",
         "language": "tr",
+        "checkedAt": "2026-09-28"
+      },
+      "verifiedEdition": {
+        "title": "Hızlı ve Yavaş Düşünme",
+        "publisher": "Varlık Yayınları",
+        "isbn": "9789754345315",
+        "translators": [
+          "Filiz Deniztekin",
+          "Osman Ç. Deniztekin"
+        ],
+        "sourceUrl": "https://www.imge.com.tr/urun/hizli-ve-yavas-dusunme-daniel-kahneman-9789754345315",
+        "sourceType": "retailer",
         "checkedAt": "2026-09-28"
       },
       "collectionIds": [
@@ -4815,6 +4939,20 @@
       ],
       "legacyKeys": [],
       "tags": [],
+      "cover": {
+        "title": "Sources of Power",
+        "author": "Gary Klein",
+        "publisher": "The MIT Press",
+        "isbn": "9780262611466",
+        "sourceUrl": "https://openlibrary.org/books/OL9495436M",
+        "imageUrl": "https://covers.openlibrary.org/b/id/151890-L.jpg",
+        "src": "covers/0398a69bab9138e4.jpg",
+        "language": "en",
+        "sourceName": "Open Library",
+        "checkedAt": "2026-09-28",
+        "turkishStatus": "unverified",
+        "verification": "ISBN and image ID matched to the cited edition record"
+      },
       "collectionIds": [
         "pmba"
       ],
@@ -5083,6 +5221,17 @@
         "checkedAt": "2026-09-28",
         "matchMethod": "manual-source-review"
       },
+      "verifiedEdition": {
+        "title": "İşte Bu Fikir Tutar!",
+        "publisher": "Sola Unitas",
+        "isbn": "9786052250716",
+        "translators": [
+          "Elif Özsayar"
+        ],
+        "sourceUrl": "https://www.dr.com.tr/kitap/iste-bu-fikir-tutar/egitim-basvuru/is-ekonomi-hukuk/yonetim-is-gelistirme-kalite/urunno=0001787025001",
+        "sourceType": "retailer",
+        "checkedAt": "2026-09-28"
+      },
       "collectionIds": [
         "pmba",
         "five",
@@ -5270,6 +5419,20 @@
         "isbn": "9789944383646",
         "language": "tr",
         "checkedAt": "2026-09-28"
+      },
+      "verifiedEdition": {
+        "title": "İknanın Psikolojisi",
+        "publisher": "MediaCat Kitapları",
+        "isbn": "9789944383646",
+        "translators": [],
+        "sourceUrl": "https://www.kitapyurdu.com/kitap/iknanin-psikolojisi/32697.html",
+        "sourceType": "retailer",
+        "checkedAt": "2026-09-28",
+        "note": "Aynı ISBN için kitapçı kaynakları Fevzi Yalım ve Yasemin Fletcher adlarını veriyor. Bu çelişki yayınevi künyesiyle çözülmeden tek bir çevirmen adı atanmadı."
+      },
+      "sourceIssue": {
+        "note": "Aynı ISBN için kitapçı kaynakları Fevzi Yalım ve Yasemin Fletcher adlarını veriyor. Bu çelişki yayınevi künyesiyle çözülmeden tek bir çevirmen adı atanmadı.",
+        "sourceUrl": "https://www.kitapyurdu.com/kitap/iknanin-psikolojisi/32697.html"
       },
       "collectionIds": [
         "pmba",
@@ -5616,6 +5779,20 @@
       ],
       "legacyKeys": [],
       "tags": [],
+      "cover": {
+        "title": "12: The Elements of Great Managing",
+        "author": "Rodd Wagner (Open Library lists Wagner; co-author James K. Harter)",
+        "publisher": "Gallup Press",
+        "isbn": "9781595629982",
+        "sourceUrl": "https://openlibrary.org/books/OL24928633M",
+        "imageUrl": "https://covers.openlibrary.org/b/id/6872264-L.jpg",
+        "src": "covers/5de6504b64cc90a2.jpg",
+        "language": "en",
+        "sourceName": "Open Library",
+        "checkedAt": "2026-09-28",
+        "turkishStatus": "unverified",
+        "verification": "ISBN and image ID matched to the cited edition record"
+      },
       "collectionIds": [
         "pmba"
       ],
@@ -6251,6 +6428,20 @@
       ],
       "legacyKeys": [],
       "tags": [],
+      "cover": {
+        "title": "Thinking Statistically",
+        "author": "Uri Bram",
+        "publisher": "CreateSpace Independent Publishing Platform",
+        "isbn": "9781481173506",
+        "sourceUrl": "https://openlibrary.org/books/OL31971692M",
+        "imageUrl": "https://covers.openlibrary.org/b/id/10648856-L.jpg",
+        "src": "covers/4cddb05912b9bc4b.jpg",
+        "language": "und",
+        "sourceName": "Open Library",
+        "checkedAt": "2026-09-28",
+        "turkishStatus": "unverified",
+        "verification": "ISBN and image ID matched to the cited edition record"
+      },
       "collectionIds": [
         "pmba"
       ],
@@ -6496,7 +6687,7 @@
     {
       "id": "effectiveexecutive",
       "title": "The Effective Executive",
-      "titleTr": "Etkin Yönetici: Doğru Olanı Başarmak için Bir Rehber",
+      "titleTr": "Etkin Yönetici",
       "author": "Peter Drucker",
       "aliases": [
         "Etkin Yönetici"
@@ -6556,16 +6747,36 @@
         "eklenen"
       ],
       "cover": {
-        "src": "covers/404f9ee4e6af7cb3.jpg",
-        "imageUrl": "https://asset.kitapsepeti.com/etkin-yonetici-dogru-olani-basarmak-icin-bir-rehber-204621-23-O.jpg",
-        "sourceUrl": "https://www.kitapsepeti.com/etkin-yonetici-dogru-olani-basarmak-icin-bir-rehber",
-        "sourceName": "Kitapsepeti",
-        "title": "Etkin Yönetici: Doğru Olanı Başarmak için Bir Rehber",
+        "title": "The Effective Executive",
         "author": "Peter F. Drucker",
-        "publisher": "Stabil Kitap",
-        "isbn": "9786057081179",
-        "language": "tr",
-        "checkedAt": "2026-09-28"
+        "publisher": "HarperBusiness",
+        "isbn": "9780060833459",
+        "language": "en",
+        "src": "covers/479b80d5935f356e.jpg",
+        "imageUrl": "https://covers.openlibrary.org/b/id/37442-M.jpg",
+        "sourceUrl": "https://openlibrary.org/books/OL7282673M",
+        "sourceName": "Open Library",
+        "checkedAt": "2026-09-28",
+        "verification": "Title, author and cover matched to the linked edition page",
+        "turkishStatus": "unverified"
+      },
+      "verifiedEdition": {
+        "title": "Etkin Yöneticilik",
+        "publisher": "Eti Kitapları",
+        "isbn": "",
+        "translators": [
+          "Ahmet Özden",
+          "Nuray Tunalı"
+        ],
+        "sourceType": "retailer",
+        "sourceUrl": "https://www.nadirkitap.com/etkin-yoneticilik-peter-f-drucker-kitap28816202.html",
+        "checkedAt": "2026-09-28",
+        "note": "1992 baskısının sahaf künyesi. Kaynakta ISBN yok; yayınevi künyesiyle ikinci kontrol bekliyor.",
+        "correction": "Stabil Kitap’ın Etkin Yönetici adıyla yayımladığı 9786057081179 ISBN’li kitap, The Effective Executive in Action adlı ayrı bir uygulama defteridir. Bu eserle karıştırılmamalı."
+      },
+      "sourceIssue": {
+        "note": "Stabil Kitap’ın Etkin Yönetici adıyla yayımladığı 9786057081179 ISBN’li kitap, The Effective Executive in Action adlı ayrı bir uygulama defteridir. Bu eserle karıştırılmamalı.",
+        "sourceUrl": "https://www.kitapyurdu.com/kitap/etkin-yonetici-dogru-olani-basarmak-icin-bir-rehber/608558.html"
       },
       "collectionIds": [
         "pmba",
@@ -6814,6 +7025,17 @@
         "checkedAt": "2026-09-28",
         "matchMethod": "manual-source-review"
       },
+      "verifiedEdition": {
+        "title": "Mavi Okyanus Stratejisi",
+        "publisher": "CSA Yayın Ajansı",
+        "isbn": "9789758828203",
+        "translators": [
+          "Şükrü Alpagut"
+        ],
+        "sourceUrl": "https://www.kitapyurdu.com/kitap/mavi-okyanus-stratejisi/76370.html",
+        "sourceType": "retailer",
+        "checkedAt": "2026-09-28"
+      },
       "collectionIds": [
         "pmba",
         "mit",
@@ -7028,7 +7250,7 @@
     {
       "id": "designofeverydaythings",
       "title": "The Design of Everyday Things",
-      "titleTr": "",
+      "titleTr": "Gündelik Şeylerin Tasarımı",
       "author": "Donald Norman",
       "aliases": [],
       "years": [],
@@ -7051,6 +7273,30 @@
       ],
       "legacyKeys": [],
       "tags": [],
+      "cover": {
+        "title": "Gündelik Şeylerin Tasarımı",
+        "author": "Don Norman",
+        "publisher": "TÜBİTAK Popüler Bilim Kitapları",
+        "isbn": "9786053121527",
+        "language": "tr",
+        "src": "covers/4b184e6dfecb4385.jpg",
+        "imageUrl": "https://yayinlar.tubitak.gov.tr/2494-large_default/guendelik-seylerin-tasarimi-2basim.jpg",
+        "sourceUrl": "https://yayinlar.tubitak.gov.tr/yetiskin-kitapligi/1484-guendelik-seylerin-tasarimi-2basim.html",
+        "sourceName": "TÜBİTAK Popüler Bilim Kitapları",
+        "checkedAt": "2026-09-28",
+        "verification": "Title, author, ISBN and Turkish edition matched to the cited source"
+      },
+      "verifiedEdition": {
+        "title": "Gündelik Şeylerin Tasarımı",
+        "publisher": "TÜBİTAK Popüler Bilim Kitapları",
+        "isbn": "9786053121527",
+        "translators": [
+          "Ayşe Mine Şengel"
+        ],
+        "sourceUrl": "https://yayinlar.tubitak.gov.tr/yetiskin-kitapligi/1484-guendelik-seylerin-tasarimi-2basim.html",
+        "sourceType": "publisher",
+        "checkedAt": "2026-09-28"
+      },
       "collectionIds": [
         "pmba"
       ],
@@ -21289,6 +21535,18 @@
         "language": "tr",
         "checkedAt": "2026-09-28"
       },
+      "verifiedEdition": {
+        "title": "Dürtme",
+        "publisher": "Pegasus Yayınları",
+        "isbn": "9786053430421",
+        "translators": [
+          "Enver Günsel"
+        ],
+        "sourceUrl": "https://www.dr.com.tr/Kitap/Durtme/Egitim-Basvuru/Kisisel-Gelisim/urunno=0000000435081",
+        "sourceType": "retailer",
+        "checkedAt": "2026-09-28",
+        "note": "Bu künye 2013 tarihli Türkçe baskıya aittir; 2021 tarihli gözden geçirilmiş özgün baskıyı temsil etmez."
+      },
       "collectionIds": [
         "ft",
         "kitaps-C"
@@ -24138,6 +24396,20 @@
       "tags": [
         "kaynaktan"
       ],
+      "cover": {
+        "title": "Improv Wisdom",
+        "author": "Patricia Ryan Madson",
+        "publisher": "Harmony/Bell Tower",
+        "isbn": "9781400081882",
+        "sourceUrl": "https://openlibrary.org/books/OL8364241M",
+        "imageUrl": "https://covers.openlibrary.org/b/id/747115-L.jpg",
+        "src": "covers/d7f0e7f6985741e7.jpg",
+        "language": "en",
+        "sourceName": "Open Library",
+        "checkedAt": "2026-09-28",
+        "turkishStatus": "unverified",
+        "verification": "ISBN and image ID matched to the cited edition record"
+      },
       "collectionIds": [
         "five"
       ],
@@ -24178,6 +24450,20 @@
       "tags": [
         "kaynaktan"
       ],
+      "cover": {
+        "title": "Communicate with Mastery",
+        "author": "JD Schramm, Kara Levy",
+        "publisher": "Wiley",
+        "isbn": "9781119550099",
+        "language": "en",
+        "src": "covers/2687353d49af9bba.jpg",
+        "imageUrl": "https://application.wiley-vch.de/books/tis/cover_big/1119550092.jpg",
+        "sourceUrl": "https://www.wiley-vch.de/de/fachgebiete/geistes-und-sozialwissenschaften/communicate-with-mastery-978-1-119-55009-9",
+        "sourceName": "Wiley",
+        "checkedAt": "2026-09-28",
+        "verification": "Title, author and cover matched to the linked edition page",
+        "turkishStatus": "unverified"
+      },
       "collectionIds": [
         "five"
       ],
@@ -24284,6 +24570,20 @@
       "tags": [
         "kaynaktan"
       ],
+      "cover": {
+        "title": "Talk: The Science of Conversation and the Art of Being Ourselves",
+        "author": "Alison Wood Brooks",
+        "publisher": "Crown",
+        "isbn": "9780593443514",
+        "language": "en",
+        "src": "covers/73377fe493e0f608.jpg",
+        "imageUrl": "https://images.penguinrandomhouse.com/cover/9780593443514",
+        "sourceUrl": "https://penguinrandomhousesecondaryeducation.com/book/?isbn=9780593443514",
+        "sourceName": "Crown",
+        "checkedAt": "2026-09-28",
+        "verification": "Title, author and cover matched to the linked edition page",
+        "turkishStatus": "unverified"
+      },
       "collectionIds": [
         "five"
       ],
@@ -25555,7 +25855,7 @@
     {
       "id": "crossingthechasm",
       "title": "Crossing the Chasm",
-      "titleTr": "",
+      "titleTr": "Uçurumdan Geçmek",
       "author": "Geoffrey A. Moore",
       "aliases": [],
       "years": [],
@@ -25578,6 +25878,30 @@
       ],
       "legacyKeys": [],
       "tags": [],
+      "cover": {
+        "title": "Uçurumdan Geçmek",
+        "author": "Geoffrey A. Moore",
+        "publisher": "Albaraka Yayınları",
+        "isbn": "9786257312332",
+        "language": "tr",
+        "src": "covers/ebde2430fed45252.jpg",
+        "imageUrl": "https://www.scalakitapci.com/ucurumdan-gecmek-referans-kaynak-kitap-geoffrey-a-moore-albaraka-yayinlari-2756-25-O.jpg",
+        "sourceUrl": "https://www.scalakitapci.com/ucurumdan-gecmek",
+        "sourceName": "Kitapçı künyesi",
+        "checkedAt": "2026-09-28",
+        "verification": "Title, author, ISBN and Turkish edition matched to the cited source"
+      },
+      "verifiedEdition": {
+        "title": "Uçurumdan Geçmek",
+        "publisher": "Albaraka Yayınları",
+        "isbn": "9786257312332",
+        "translators": [
+          "İsmail Hakkı Yılmaz"
+        ],
+        "sourceUrl": "https://www.scalakitapci.com/ucurumdan-gecmek",
+        "sourceType": "retailer",
+        "checkedAt": "2026-09-28"
+      },
       "collectionIds": [
         "hundred"
       ],
@@ -26310,6 +26634,18 @@
         "language": "tr",
         "checkedAt": "2026-09-28"
       },
+      "verifiedEdition": {
+        "title": "Ekiplerin Beş Temel Aksaklığı",
+        "publisher": "Optimist Kitap",
+        "isbn": "9786254340710",
+        "translators": [
+          "Ekin Duru"
+        ],
+        "sourceUrl": "https://optimistkitap.com/kitap/ekiplerin-bes-temel-aksakligi-2/",
+        "sourceType": "publisher",
+        "checkedAt": "2026-09-28",
+        "correction": "Arşivdeki Ekim Duru yazımı, yayınevi künyesine göre Ekin Duru olarak düzeltildi."
+      },
       "collectionIds": [
         "hundred",
         "kitaps-N"
@@ -26391,6 +26727,20 @@
       ],
       "legacyKeys": [],
       "tags": [],
+      "cover": {
+        "title": "The Team Handbook",
+        "author": "Peter R. Scholtes, Brian L. Joiner, Barbara J. Streibel",
+        "publisher": "Oriel Incorporated",
+        "isbn": "1884731260",
+        "sourceUrl": "https://openlibrary.org/books/OL22008278M",
+        "imageUrl": "https://covers.openlibrary.org/b/id/14310026-L.jpg",
+        "src": "covers/94451a12edceb8f1.jpg",
+        "language": "en",
+        "sourceName": "Open Library",
+        "checkedAt": "2026-09-28",
+        "turkishStatus": "unverified",
+        "verification": "ISBN and image ID matched to the cited edition record"
+      },
       "collectionIds": [
         "hundred"
       ],
@@ -26609,6 +26959,20 @@
       ],
       "legacyKeys": [],
       "tags": [],
+      "cover": {
+        "title": "Sam Walton: Made in America",
+        "author": "Sam Walton, John Huey",
+        "publisher": "Bantam",
+        "isbn": "0553562835",
+        "sourceUrl": "https://openlibrary.org/books/OL21993372M",
+        "imageUrl": "https://covers.openlibrary.org/b/id/6629736-L.jpg",
+        "src": "covers/6ae1fe9a9b0ad3e1.jpg",
+        "language": "en",
+        "sourceName": "Open Library",
+        "checkedAt": "2026-09-28",
+        "turkishStatus": "unverified",
+        "verification": "ISBN and image ID matched to the cited edition record"
+      },
       "collectionIds": [
         "hundred"
       ],
@@ -27086,7 +27450,7 @@
     {
       "id": "lexusandtheolivetree",
       "title": "The Lexus and The Olive Tree",
-      "titleTr": "",
+      "titleTr": "Lexus ve Zeytin Ağacı: Küreselleşmenin Geleceği",
       "author": "Thomas Friedman",
       "aliases": [],
       "years": [],
@@ -27110,6 +27474,30 @@
       ],
       "legacyKeys": [],
       "tags": [],
+      "cover": {
+        "title": "Lexus ve Zeytin Ağacı: Küreselleşmenin Geleceği",
+        "author": "Thomas L. Friedman",
+        "publisher": "Boyner Yayınları",
+        "isbn": "9789757004288",
+        "language": "tr",
+        "src": "covers/bb06092f75149bb0.jpg",
+        "imageUrl": "https://www.kitapstore.com/Gorsel/Urun/25/25870-1.jpg",
+        "sourceUrl": "https://www.kitapstore.com/urun/25870/kitap/boyner-holding-yayinlari/thomas-friedman/kuresellesmenin-gelecegi-lexus-ve-zeytin-agaci/",
+        "sourceName": "Kitapçı künyesi",
+        "checkedAt": "2026-09-28",
+        "verification": "Title, author, ISBN and Turkish edition matched to the cited source"
+      },
+      "verifiedEdition": {
+        "title": "Lexus ve Zeytin Ağacı: Küreselleşmenin Geleceği",
+        "publisher": "Boyner Yayınları",
+        "isbn": "9789757004288",
+        "translators": [
+          "Elif Özsayar"
+        ],
+        "sourceUrl": "https://www.kitapstore.com/urun/25870/kitap/boyner-holding-yayinlari/thomas-friedman/kuresellesmenin-gelecegi-lexus-ve-zeytin-agaci/",
+        "sourceType": "retailer",
+        "checkedAt": "2026-09-28"
+      },
       "collectionIds": [
         "hundred"
       ],
@@ -27713,6 +28101,20 @@
       ],
       "legacyKeys": [],
       "tags": [],
+      "cover": {
+        "title": "The Delta Project",
+        "author": "Arnoldo C. Hax, Dean L. Wilde",
+        "publisher": "Palgrave Macmillan",
+        "isbn": "9780312240462",
+        "sourceUrl": "https://openlibrary.org/books/OL9442598M",
+        "imageUrl": "https://covers.openlibrary.org/b/id/176546-L.jpg",
+        "src": "covers/d10c9745fbb2e9fa.jpg",
+        "language": "en",
+        "sourceName": "Open Library",
+        "checkedAt": "2026-09-28",
+        "turkishStatus": "unverified",
+        "verification": "ISBN and image ID matched to the cited edition record"
+      },
       "collectionIds": [
         "mit"
       ],
@@ -27746,6 +28148,20 @@
       ],
       "legacyKeys": [],
       "tags": [],
+      "cover": {
+        "title": "The Strategy Concept and Process",
+        "author": "Arnoldo C. Hax (Open Library lists Hax; co-author Nicolas S. Majluf)",
+        "publisher": "Prentice-Hall International",
+        "isbn": "0134629469",
+        "sourceUrl": "https://openlibrary.org/books/OL18558742M",
+        "imageUrl": "https://covers.openlibrary.org/b/id/5425758-L.jpg",
+        "src": "covers/1e7d9f7d6daa6bff.jpg",
+        "language": "en",
+        "sourceName": "Open Library",
+        "checkedAt": "2026-09-28",
+        "turkishStatus": "unverified",
+        "verification": "ISBN and image ID matched to the cited edition record"
+      },
       "collectionIds": [
         "mit"
       ],
@@ -27826,6 +28242,20 @@
       ],
       "legacyKeys": [],
       "tags": [],
+      "cover": {
+        "title": "Managing Across Borders",
+        "author": "Christopher A. Bartlett (Open Library work lists Bartlett; co-author Sumantra Ghoshal)",
+        "publisher": "Random House Business Books",
+        "isbn": "0712680306",
+        "sourceUrl": "https://openlibrary.org/books/OL18604392M",
+        "imageUrl": "https://covers.openlibrary.org/b/id/10387009-L.jpg",
+        "src": "covers/0cd34f0122e2ca90.jpg",
+        "language": "en",
+        "sourceName": "Open Library",
+        "checkedAt": "2026-09-28",
+        "turkishStatus": "unverified",
+        "verification": "ISBN and image ID matched to the cited edition record"
+      },
       "collectionIds": [
         "mit"
       ],
@@ -27976,6 +28406,20 @@
       ],
       "legacyKeys": [],
       "tags": [],
+      "cover": {
+        "title": "Corporate Strategy",
+        "author": "David J. Collis, Cynthia A. Montgomery",
+        "publisher": "Irwin",
+        "isbn": "0256178941",
+        "sourceUrl": "https://openlibrary.org/books/OL800094M",
+        "imageUrl": "https://covers.openlibrary.org/b/id/3815002-L.jpg",
+        "src": "covers/0b9537b6eabbcd2d.jpg",
+        "language": "en",
+        "sourceName": "Open Library",
+        "checkedAt": "2026-09-28",
+        "turkishStatus": "unverified",
+        "verification": "ISBN and image ID matched to the cited edition record"
+      },
       "collectionIds": [
         "mit"
       ],
@@ -28009,6 +28453,20 @@
       ],
       "legacyKeys": [],
       "tags": [],
+      "cover": {
+        "title": "Strategic Thinking for the Next Economy",
+        "author": "Michael A. Cusumano, Constantinos C. Markides",
+        "publisher": "Jossey-Bass / Wiley",
+        "isbn": "9780787957292",
+        "language": "en",
+        "src": "covers/215648b06e72a0c4.jpg",
+        "imageUrl": "https://application.wiley-vch.de/books/tis/cover_big/0787957291.jpg",
+        "sourceUrl": "https://www.wiley-vch.de/en/areas-interest/finance-economics-law/business-management-13ba/management-13ba1/strategic-management-13ba12/strategic-thinking-for-the-next-economy-978-0-7879-5729-2",
+        "sourceName": "Jossey-Bass / Wiley",
+        "checkedAt": "2026-09-28",
+        "verification": "Title, author and cover matched to the linked edition page",
+        "turkishStatus": "unverified"
+      },
       "collectionIds": [
         "mit"
       ],
@@ -28042,6 +28500,20 @@
       ],
       "legacyKeys": [],
       "tags": [],
+      "cover": {
+        "title": "Creative Destruction",
+        "author": "Richard N. Foster, Sarah Kaplan",
+        "publisher": "Financial Times Prentice Hall",
+        "isbn": "9780273656388",
+        "sourceUrl": "https://openlibrary.org/books/OL9374885M",
+        "imageUrl": "https://covers.openlibrary.org/b/id/154282-L.jpg",
+        "src": "covers/c971f90e6e6d3b35.jpg",
+        "language": "en",
+        "sourceName": "Open Library",
+        "checkedAt": "2026-09-28",
+        "turkishStatus": "unverified",
+        "verification": "ISBN and image ID matched to the cited edition record"
+      },
       "collectionIds": [
         "mit"
       ],
@@ -28169,6 +28641,20 @@
       ],
       "legacyKeys": [],
       "tags": [],
+      "cover": {
+        "title": "Strategic Operations: Competing Through Capabilities",
+        "author": "Robert H. Hayes (Open Library lists Hayes; co-authors Gary P. Pisano, David M. Upton)",
+        "publisher": "Free Press",
+        "isbn": "0684823055",
+        "sourceUrl": "https://openlibrary.org/books/OL803730M",
+        "imageUrl": "https://covers.openlibrary.org/b/id/425792-L.jpg",
+        "src": "covers/476afb0578271697.jpg",
+        "language": "en",
+        "sourceName": "Open Library",
+        "checkedAt": "2026-09-28",
+        "turkishStatus": "unverified",
+        "verification": "ISBN and image ID matched to the cited edition record"
+      },
       "collectionIds": [
         "mit"
       ],
@@ -28202,6 +28688,20 @@
       ],
       "legacyKeys": [],
       "tags": [],
+      "cover": {
+        "title": "Strategy Maps",
+        "author": "Robert S. Kaplan (Open Library lists Kaplan; co-author David P. Norton)",
+        "publisher": "Harvard Business School Press",
+        "isbn": "9781591391340",
+        "sourceUrl": "https://openlibrary.org/books/OL8854524M",
+        "imageUrl": "https://covers.openlibrary.org/b/id/863973-L.jpg",
+        "src": "covers/0eb043515642f807.jpg",
+        "language": "en",
+        "sourceName": "Open Library",
+        "checkedAt": "2026-09-28",
+        "turkishStatus": "unverified",
+        "verification": "ISBN and image ID matched to the cited edition record"
+      },
       "collectionIds": [
         "mit"
       ],
@@ -28388,6 +28888,20 @@
       ],
       "legacyKeys": [],
       "tags": [],
+      "cover": {
+        "title": "The Future of Competition",
+        "author": "C. K. Prahalad, Venkat Ramaswamy",
+        "publisher": "Harvard Business Review Press",
+        "isbn": "",
+        "language": "en",
+        "src": "covers/0a1fe8e6240c51c7.jpg",
+        "imageUrl": "https://img1.od-cdn.com/ImageType-400/6852-1/826/7A1/4F/{8267A14F-4540-46C3-B4A0-D7657946D48C}Img400.jpg",
+        "sourceUrl": "https://www.overdrive.com/media/2528743/the-future-of-competition",
+        "sourceName": "OverDrive",
+        "checkedAt": "2026-09-28",
+        "verification": "Title, author and cover matched to the linked edition page",
+        "turkishStatus": "unverified"
+      },
       "collectionIds": [
         "mit"
       ],
@@ -29590,6 +30104,30 @@
         "strategy-the-indirect-approach-b-h-liddell-hart"
       ],
       "tags": [],
+      "cover": {
+        "title": "Strateji: Dolaylı Tutum",
+        "author": "B. H. Liddell Hart",
+        "publisher": "Doruk Yayınları",
+        "isbn": "9789755539164",
+        "language": "tr",
+        "src": "covers/d09bef26b02f8309.jpg",
+        "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn%3A11528198/wh%3Atrue/wi%3A220",
+        "sourceUrl": "https://www.kitapyurdu.com/kitap/strateji-dolayli-tutum/51432.html",
+        "sourceName": "Kitapçı künyesi",
+        "checkedAt": "2026-09-28",
+        "verification": "Title, author, ISBN and Turkish edition matched to the cited source"
+      },
+      "verifiedEdition": {
+        "title": "Strateji: Dolaylı Tutum",
+        "publisher": "Doruk Yayınları",
+        "isbn": "9789755539164",
+        "translators": [
+          "Selma Koçak"
+        ],
+        "sourceUrl": "https://www.kitapyurdu.com/kitap/strateji-dolayli-tutum/51432.html",
+        "sourceType": "retailer",
+        "checkedAt": "2026-09-28"
+      },
       "collectionIds": [
         "kitaps-A",
         "kitaps-M"
@@ -30291,7 +30829,8 @@
         "sourceUrl": "https://www.kitapyurdu.com/kitap/askeri-stratejinin-temelleri-kuramcilar/680664.html",
         "checkedAt": "2026-09-28",
         "translators": [],
-        "sourceType": "retailer"
+        "sourceType": "retailer",
+        "originalLanguage": "tr"
       },
       "collectionIds": [
         "kitaps-B",
@@ -30534,6 +31073,17 @@
         "publisher": "Metis Yayınları",
         "isbn": "9789753426985",
         "language": "tr",
+        "checkedAt": "2026-09-28"
+      },
+      "verifiedEdition": {
+        "title": "Günlük Yaşamda Benliğin Sunumu",
+        "publisher": "Metis Yayınları",
+        "isbn": "9789753426985",
+        "translators": [
+          "Barış Cezar"
+        ],
+        "sourceUrl": "https://www.imge.com.tr/urun/gunluk-yasamda-benligin-sunumu-erving-goffman-9789753426985",
+        "sourceType": "retailer",
         "checkedAt": "2026-09-28"
       },
       "collectionIds": [
@@ -30997,6 +31547,17 @@
         "language": "tr",
         "checkedAt": "2026-09-28"
       },
+      "verifiedEdition": {
+        "title": "Şamatalı Köy",
+        "publisher": "Pegasus Çocuk Yayınları",
+        "isbn": "9786053439738",
+        "translators": [
+          "Ali Arda"
+        ],
+        "sourceType": "publisher",
+        "sourceUrl": "https://pegasusyayinlari.com/kitap_detay.php?kitapid=14896762451",
+        "checkedAt": "2026-09-28"
+      },
       "collectionIds": [
         "kitaps-E",
         "kitaps-P"
@@ -31070,6 +31631,16 @@
         "isbn": "9786259286785",
         "language": "tr",
         "checkedAt": "2026-09-28"
+      },
+      "verifiedEdition": {
+        "title": "Abartma Tozu",
+        "publisher": "Taze Kitap",
+        "isbn": "9786259286785",
+        "sourceUrl": "https://www.kitapsepeti.com/abartma-tozu-588809",
+        "checkedAt": "2026-09-28",
+        "originalLanguage": "tr",
+        "translators": [],
+        "sourceType": "retailer"
       },
       "collectionIds": [
         "kitaps-E"
@@ -31176,6 +31747,17 @@
         "language": "tr",
         "checkedAt": "2026-09-28"
       },
+      "verifiedEdition": {
+        "title": "Despero’nun Öyküsü",
+        "publisher": "Tudem Yayınları",
+        "isbn": "9786253800772",
+        "translators": [
+          "Gözde Koca"
+        ],
+        "sourceType": "publisher",
+        "sourceUrl": "https://www.tudemkitabevi.com/desperonun-oykusu",
+        "checkedAt": "2026-09-28"
+      },
       "collectionIds": [
         "kitaps-E",
         "kitaps-P"
@@ -31250,6 +31832,17 @@
         "publisher": "Günışığı Kitaplığı",
         "isbn": "9789758142859",
         "language": "tr",
+        "checkedAt": "2026-09-28"
+      },
+      "verifiedEdition": {
+        "title": "Konrad ya da Konserve Kutusundan Çıkan Çocuk",
+        "publisher": "Günışığı Kitaplığı",
+        "isbn": "9789758142859",
+        "translators": [
+          "Mine Kazmaoğlu"
+        ],
+        "sourceType": "publisher",
+        "sourceUrl": "https://gunisigikitapligi.com/wp-content/uploads/2021/07/GUNISIGI-KITAPLIGI-GUZ-2010-KATALOG.pdf",
         "checkedAt": "2026-09-28"
       },
       "collectionIds": [
@@ -31356,6 +31949,16 @@
         "language": "tr",
         "checkedAt": "2026-09-28"
       },
+      "verifiedEdition": {
+        "title": "Yılankale",
+        "publisher": "Tudem Yayınları",
+        "isbn": "9789944694469",
+        "sourceUrl": "https://www.kitapsepeti.com/yilankale",
+        "checkedAt": "2026-09-28",
+        "originalLanguage": "tr",
+        "translators": [],
+        "sourceType": "retailer"
+      },
       "collectionIds": [
         "kitaps-E",
         "kitaps-P"
@@ -31415,6 +32018,9 @@
         "bilimin-yildizlari-serisi-10-kitap-usta-fikirler"
       ],
       "tags": [],
+      "sourceIssue": {
+        "note": "Kaynak bir kitap setini anıyor; yazar, yayınevi ve cilt listesi belirtilmemiş. Tek bir kitabın kapağı bütün seti temsil edecek şekilde atanmadı."
+      },
       "collectionIds": [
         "kitaps-E"
       ],
@@ -31805,6 +32411,17 @@
         "publisher": "İthaki Yayınları",
         "isbn": "9789756902165",
         "language": "tr",
+        "checkedAt": "2026-09-28"
+      },
+      "verifiedEdition": {
+        "title": "Cesur Yeni Dünya",
+        "publisher": "İthaki Yayınları",
+        "isbn": "9789756902165",
+        "translators": [
+          "Ümit Tosun"
+        ],
+        "sourceUrl": "https://www.imge.com.tr/urun/cesur-yeni-dunya-aldous-leonard-huxley-9789756902165",
+        "sourceType": "retailer",
         "checkedAt": "2026-09-28"
       },
       "collectionIds": [
@@ -36731,6 +37348,20 @@
         "the-complete-musashi-the-book-of-five-rings-and-other-works-"
       ],
       "tags": [],
+      "cover": {
+        "title": "The Complete Musashi: The Book of Five Rings and Other Works",
+        "author": "Miyamoto Musashi",
+        "publisher": "Tuttle Publishing",
+        "isbn": "9784805316160",
+        "sourceUrl": "https://openlibrary.org/books/OL34680809M",
+        "imageUrl": "https://covers.openlibrary.org/b/id/15124027-L.jpg",
+        "src": "covers/c787536cd6d1fd90.jpg",
+        "language": "en",
+        "sourceName": "Open Library",
+        "checkedAt": "2026-09-28",
+        "turkishStatus": "unverified",
+        "verification": "ISBN and image ID matched to the cited edition record"
+      },
       "collectionIds": [
         "kitaps-K"
       ],
@@ -36792,6 +37423,20 @@
         "the-book-of-five-rings-a-graphic-novel-illustrated-miyamoto-"
       ],
       "tags": [],
+      "cover": {
+        "title": "The Book of Five Rings (graphic novel)",
+        "author": "Miyamoto Musashi; adapted by Seán Michael Wilson (Open Library lists Wilson as author)",
+        "publisher": "Shambhala",
+        "isbn": "9781611800128",
+        "sourceUrl": "https://openlibrary.org/books/OL25367305M",
+        "imageUrl": "https://covers.openlibrary.org/b/id/13561482-L.jpg",
+        "src": "covers/74c0a938382f5b7e.jpg",
+        "language": "en",
+        "sourceName": "Open Library",
+        "checkedAt": "2026-09-28",
+        "turkishStatus": "unverified",
+        "verification": "ISBN and image ID matched to the cited edition record"
+      },
       "collectionIds": [
         "kitaps-K"
       ],
@@ -36853,6 +37498,20 @@
         "the-way-of-the-warrior-the-way-of-the-samurai-the-art-of-war"
       ],
       "tags": [],
+      "cover": {
+        "title": "The Way of the Warrior",
+        "author": "Sun Tzu, Miyamoto Musashi, Inazo Nitobe",
+        "publisher": "Sirius Entertainment",
+        "isbn": "9781398801882",
+        "sourceUrl": "https://openlibrary.org/books/OL34393945M",
+        "imageUrl": "https://covers.openlibrary.org/b/id/12037250-L.jpg",
+        "src": "covers/2961250e3a3583ac.jpg",
+        "language": "und",
+        "sourceName": "Open Library",
+        "checkedAt": "2026-09-28",
+        "turkishStatus": "unverified",
+        "verification": "ISBN and image ID matched to the cited edition record"
+      },
       "collectionIds": [
         "kitaps-K"
       ],
@@ -36917,6 +37576,21 @@
         "dokkodo-the-way-of-walking-alone-miyamoto-musashi"
       ],
       "tags": [],
+      "cover": {
+        "title": "Musashi's Dokkodo",
+        "author": "Miyamoto Musashi (edition by Lawrence Kane & Kris Wilder per a sibling Open Library record)",
+        "publisher": "Stickman Publications, Inc.",
+        "isbn": "9780692563496",
+        "sourceUrl": "https://openlibrary.org/books/OL27508400M",
+        "imageUrl": "https://covers.openlibrary.org/b/id/8965150-L.jpg",
+        "src": "covers/99f9acbf07258878.jpg",
+        "language": "en",
+        "sourceName": "Open Library",
+        "checkedAt": "2026-09-28",
+        "turkishStatus": "unverified",
+        "verification": "ISBN and image ID matched to the cited edition record",
+        "scope": "Dokkōdō metnini yorumlarla sunan uluslararası baskı"
+      },
       "collectionIds": [
         "kitaps-K",
         "kitaps-N"
@@ -37849,12 +38523,12 @@
         "title": "\"Evet\" Dedirtme Sanatı: Ödün Vermeden Anlaşmaya Varmak",
         "publisher": "Nova Kitap (İthaki Yayın Grubu)",
         "isbn": "9786258489972",
-        "sourceUrl": "https://www.kitapyurdu.com/kitap/evet-dedirtme-sanati-odun-vermeden-anlasmaya-varmak/671090.html",
+        "sourceUrl": "https://kutuphane.nigde.bel.tr/details?id=4688&materialType=KTP&query=Fisher%2C+Roger",
         "checkedAt": "2026-09-28",
         "translators": [
           "Desire Eylül Cannon Canbaz"
         ],
-        "sourceType": "retailer"
+        "sourceType": "bibliographic"
       },
       "collectionIds": [
         "kitaps-N"
@@ -38076,6 +38750,17 @@
         "publisher": "Can Çocuk Yayınları",
         "isbn": "9789750707810",
         "language": "tr",
+        "checkedAt": "2026-09-28"
+      },
+      "verifiedEdition": {
+        "title": "Matilda",
+        "publisher": "Can Çocuk Yayınları",
+        "isbn": "9789750707810",
+        "translators": [
+          "Lale Akalın"
+        ],
+        "sourceType": "retailer",
+        "sourceUrl": "https://www.sehadetkitap.com/urun/matilda",
         "checkedAt": "2026-09-28"
       },
       "collectionIds": [
@@ -38383,6 +39068,20 @@
         "language": "tr",
         "checkedAt": "2026-09-28"
       },
+      "verifiedEdition": {
+        "title": "Şeker Portakalı",
+        "publisher": "Can Yayınları",
+        "isbn": "9789750738609",
+        "translators": [
+          "Emrah İmre"
+        ],
+        "sourceType": "publisher-preview",
+        "sourceUrl": "https://www.canyayinlari.com/Uploads/Docs/119345/9789750738609.pdf",
+        "checkedAt": "2026-09-28",
+        "sourceLanguage": "Portekizce",
+        "edition": "158. basım, Mart 2026",
+        "correction": "Yayınevinin ISBN ile eşleşen önizleme künyesi Portekizce aslından çeviren kişi olarak Emrah İmre’yi belirtir. Aydın Emeç önceki çevirinin adıdır."
+      },
       "collectionIds": [
         "kitaps-P"
       ],
@@ -38451,6 +39150,17 @@
         "publisher": "Yapı Kredi Yayınları",
         "isbn": "9789750834660",
         "language": "tr",
+        "checkedAt": "2026-09-28"
+      },
+      "verifiedEdition": {
+        "title": "Harry Potter ve Felsefe Taşı Resimli Özel Baskı",
+        "publisher": "Yapı Kredi Yayınları",
+        "isbn": "9789750834660",
+        "translators": [
+          "Ülkü Tamer"
+        ],
+        "sourceType": "retailer",
+        "sourceUrl": "https://www.rakitap.com/urun/harry-potter-ve-felsefe-tasi-ozel-baski-j-k-rowling-9789750834660",
         "checkedAt": "2026-09-28"
       },
       "collectionIds": [
@@ -38729,6 +39439,17 @@
         "language": "tr",
         "checkedAt": "2026-09-28"
       },
+      "verifiedEdition": {
+        "title": "Çocuk Kalbi",
+        "publisher": "Yapı Kredi Yayınları",
+        "isbn": "9789750868290",
+        "translators": [
+          "Yelda Gürlek"
+        ],
+        "sourceType": "retailer",
+        "sourceUrl": "https://www.sadecekitap.com/cocuk-kalbi-17",
+        "checkedAt": "2026-09-28"
+      },
       "collectionIds": [
         "kitaps-P"
       ],
@@ -38869,6 +39590,9 @@
         "robinson-crusoe-cocuk-uyarlamasi-daniel-defoe"
       ],
       "tags": [],
+      "sourceIssue": {
+        "note": "Kaynak belirli bir çocuk uyarlamasını seçmiyor. Uyarlayan, çevirmen ve yaş grubu baskıya göre değiştiği için belirli bir kapağa bağlanmadı."
+      },
       "collectionIds": [
         "kitaps-P"
       ],
@@ -38927,6 +39651,9 @@
         "define-adasi-cocuk-uyarlamasi-r-l-stevenson"
       ],
       "tags": [],
+      "sourceIssue": {
+        "note": "Kaynak belirli bir çocuk uyarlamasını seçmiyor. Tam metin baskısıyla karıştırılmaması için belirli bir kapağa bağlanmadı."
+      },
       "collectionIds": [
         "kitaps-P"
       ],
@@ -39078,6 +39805,16 @@
         "language": "tr",
         "checkedAt": "2026-09-28"
       },
+      "verifiedEdition": {
+        "title": "Fadiş",
+        "publisher": "Altın Kitaplar",
+        "isbn": "9789754050929",
+        "sourceUrl": "https://www.kitapsepeti.com/fadis",
+        "checkedAt": "2026-09-28",
+        "originalLanguage": "tr",
+        "translators": [],
+        "sourceType": "retailer"
+      },
       "collectionIds": [
         "kitaps-P"
       ],
@@ -39135,6 +39872,9 @@
         "masal-masal-icinde-aytul-akal"
       ],
       "tags": [],
+      "sourceIssue": {
+        "note": "Kaynakta başlık Aytül Akal ile eşleştirilmiş. Masal Masal İçinde adı Ahmet Ümit’in eseriyle de eşleşiyor; yazar ve baskı netleşmediği için kapak atanmadı."
+      },
       "collectionIds": [
         "kitaps-P"
       ],
@@ -39190,6 +39930,9 @@
         "dede-korkut-cocuk-uyarlamasi-eflatun-cem-guney-uyarlama"
       ],
       "tags": [],
+      "sourceIssue": {
+        "note": "Eflatun Cem Güney uyarlaması için baskı yılı ve yayınevi seçimi kesinleşmedi. Başka uyarlayanların kapakları kullanılmadı."
+      },
       "collectionIds": [
         "kitaps-P"
       ],
@@ -39247,6 +39990,9 @@
         "anadolu-masallari-eflatun-cem-guney"
       ],
       "tags": [],
+      "sourceIssue": {
+        "note": "Bu başlık ve Eflatun Cem Güney eşleşmesiyle belirli bir baskı doğrulanamadı. Kapak seçimi için yayınevi veya ISBN gerekiyor."
+      },
       "collectionIds": [
         "kitaps-P"
       ],
@@ -39304,6 +40050,9 @@
         "arkadasim-balina-zeynep-cemali"
       ],
       "tags": [],
+      "sourceIssue": {
+        "note": "Kaynakta Zeynep Cemali yazıyor. Bu başlıkla bulunan diğer kitapların yazarları farklı; doğru eser doğrulanmadan kapak eklenmedi."
+      },
       "collectionIds": [
         "kitaps-P"
       ],
@@ -39361,6 +40110,9 @@
         "kar-tanesi-masali-cahit-ucuk"
       ],
       "tags": [],
+      "sourceIssue": {
+        "note": "Cahit Uçuk ile bu başlığın belirli bir baskısı doğrulanamadı. Kaynak kaydı korunuyor; kapak atanmıyor."
+      },
       "collectionIds": [
         "kitaps-P"
       ],
@@ -39418,6 +40170,9 @@
         "kaplumbaga-terbiyecisi-tulin-kozikoglu"
       ],
       "tags": [],
+      "sourceIssue": {
+        "note": "Kaynakta Tülin Kozikoğlu adı var. Aynı başlıkla bulunan başka yazarlara ait eserler bu kayıtla eşleştirilmedi."
+      },
       "collectionIds": [
         "kitaps-P"
       ],
@@ -39475,6 +40230,9 @@
         "dostluk-ekmegi-sara-sahinkanat"
       ],
       "tags": [],
+      "sourceIssue": {
+        "note": "Kaynakta Sara Şahinkanat adı var. Aynı başlıktaki yetişkin romanı bu çocuk kitabıyla eşleştirilmedi; doğru baskı doğrulanamadı."
+      },
       "collectionIds": [
         "kitaps-P"
       ],
@@ -39533,16 +40291,29 @@
       ],
       "tags": [],
       "cover": {
-        "src": "covers/8739b02ec19d21ce.jpg",
-        "imageUrl": "https://asset.kitapsepeti.com/dirilen-iskelet-397010-1047335-39-O.jpg",
-        "sourceUrl": "https://www.kitapsepeti.com/dirilen-iskelet-397010",
-        "sourceName": "Kitapsepeti",
+        "src": "covers/867340da296a07b0.jpg",
+        "imageUrl": "https://www.cinaryayinlari.com/wp-content/uploads/2022/09/bir_seftali_bin_seftali_kapak_baski1-700x1024.jpg",
+        "sourceUrl": "https://www.cinaryayinlari.com/product/bir-seftali-bin-seftali/",
+        "sourceName": "Çınar Yayınları",
         "title": "Bir Şeftali Bin Şeftali",
-        "author": "Samed Bahrengi",
-        "publisher": "Katip Yayınları",
-        "isbn": "9786258212242",
+        "author": "Samed Behrengi",
+        "publisher": "Çınar Yayınları",
+        "isbn": "9789753484640",
         "language": "tr",
         "checkedAt": "2026-09-28"
+      },
+      "verifiedEdition": {
+        "title": "Bir Şeftali Bin Şeftali",
+        "publisher": "Çınar Yayınları",
+        "isbn": "9789753484640",
+        "translators": [
+          "Yankı Yöntem"
+        ],
+        "sourceType": "publisher",
+        "sourceUrl": "https://www.cinaryayinlari.com/product/bir-seftali-bin-seftali/",
+        "checkedAt": "2026-09-28",
+        "correction": "Eski kaynak sayfasının URL ve ISBN alanları Dirilen İskelet adlı başka bir esere aitti; yayınevinin kendi kapağı seçildi.",
+        "isbnSourceUrl": "https://www.hepsiburada.com/cinar-yayinlari-bir-seftali-bin-seftali-pm-HBC0000JFD62U"
       },
       "collectionIds": [
         "kitaps-P"
@@ -39602,16 +40373,28 @@
       ],
       "tags": [],
       "cover": {
-        "src": "covers/b39593f5a0facd72.png",
-        "imageUrl": "https://asset.kitapsepeti.com/savas-ati-538552-980524-53-O.png",
-        "sourceUrl": "https://www.kitapsepeti.com/savas-ati-538552",
-        "sourceName": "Kitapsepeti",
+        "src": "covers/4e46f4f8ad3e181a.jpg",
+        "imageUrl": "https://tudem.com/images/kitapkapaklari/Savas_Ati.jpg",
+        "sourceUrl": "https://tudem.com/urun/kultur/1008/tudem_edebiyat/2736/tudem_modern_klasikler__savas_ati.aspx",
+        "sourceName": "Tudem Yayınları",
         "title": "Savaş Atı",
         "author": "Michael Morpurgo",
         "publisher": "Tudem Yayınları",
-        "isbn": "9786253800284",
+        "isbn": "9786059604451",
         "language": "tr",
         "checkedAt": "2026-09-28"
+      },
+      "verifiedEdition": {
+        "title": "Savaş Atı",
+        "publisher": "Tudem Yayınları",
+        "isbn": "9786059604451",
+        "translators": [
+          "Arif Cem Ünver"
+        ],
+        "sourceType": "publisher",
+        "sourceUrl": "https://tudem.com/urun/kultur/1008/tudem_edebiyat/2736/tudem_modern_klasikler__savas_ati.aspx",
+        "checkedAt": "2026-09-28",
+        "correction": "48 sayfalık resimli uyarlama yerine kaynakta önerilen romanın 184 sayfalık Tudem Modern Klasikler baskısı seçildi."
       },
       "collectionIds": [
         "kitaps-P"
@@ -39751,6 +40534,13 @@
         "language": "tr",
         "checkedAt": "2026-09-28"
       },
+      "sourceIssue": {
+        "note": "Bu ISBN için kitapçı kayıtlarında Meltem Erkmen ve Tanju Anapa adları çelişiyor. Kapaktaki baskının çevirmeni henüz doğrulanmadı; satın almadan önce iç künye sayfasını kontrol et.",
+        "sources": [
+          "https://www.sehadetkitap.com/urun/grimm-masallari",
+          "https://www.ilknokta.com/grimm-masallari-ciltli-2.htm"
+        ]
+      },
       "collectionIds": [
         "kitaps-P"
       ],
@@ -39820,6 +40610,18 @@
         "language": "tr",
         "checkedAt": "2026-09-28"
       },
+      "verifiedEdition": {
+        "title": "Andersen Masalları",
+        "publisher": "Epsilon Yayınevi",
+        "isbn": "9789944827287",
+        "translators": [
+          "Nilgün Erzik"
+        ],
+        "sourceType": "publisher",
+        "sourceUrl": "https://www.epsilonyayingrubu.com/Istem/urun/detay.aspx?Id=277613",
+        "checkedAt": "2026-09-28",
+        "correction": "Yayınevi bu çocuk klasikleri baskısını sadeleştirilmiş çeviri olarak tanımlar."
+      },
       "collectionIds": [
         "kitaps-P"
       ],
@@ -39877,6 +40679,20 @@
         "cocuklar-icin-yunan-mitolojisi-geraldine-mccaughrean"
       ],
       "tags": [],
+      "cover": {
+        "title": "Orchard Greek Myths",
+        "author": "Geraldine McCaughrean",
+        "publisher": "Orchard Books",
+        "isbn": "9781408324370",
+        "language": "en",
+        "src": "covers/d48297447f146d6f.jpg",
+        "imageUrl": "https://www.hachettechildrens.co.uk/wp-content/uploads/2019/05/hbg-title-orchard-greek-myths-200.jpg?w=450",
+        "sourceUrl": "https://www.hachettechildrens.co.uk/titles/geraldine-mccaughrean-2/orchard-greek-myths/9781408324370/",
+        "sourceName": "Orchard Books",
+        "checkedAt": "2026-09-28",
+        "verification": "Title, author and cover matched to the linked edition page",
+        "turkishStatus": "unverified"
+      },
       "collectionIds": [
         "kitaps-P"
       ],
@@ -39946,6 +40762,17 @@
         "publisher": "Kolektif Kitap",
         "isbn": "9786052205945",
         "language": "tr",
+        "checkedAt": "2026-09-28"
+      },
+      "verifiedEdition": {
+        "title": "Durdurulamayan İnsanlık",
+        "publisher": "Kolektif Kitap",
+        "isbn": "9786052205945",
+        "translators": [
+          "Çiğdem Şentuğ"
+        ],
+        "sourceType": "retailer",
+        "sourceUrl": "https://www.ilknokta.com/durdurulamayan-insanlik.htm",
         "checkedAt": "2026-09-28"
       },
       "collectionIds": [
@@ -40125,7 +40952,7 @@
     {
       "id": "buyuksorularkitabi",
       "title": "Büyük Sorular Kitabı",
-      "titleTr": "",
+      "titleTr": "Küçük İnsanlardan Büyük Sorular",
       "author": "Gemma Elwin Harris",
       "aliases": [],
       "years": [],
@@ -40173,6 +41000,30 @@
         "buyuk-sorular-kitabi-gemma-elwin-harris"
       ],
       "tags": [],
+      "cover": {
+        "title": "Küçük İnsanlardan Büyük Sorular",
+        "author": "Gemma Elwin Harris (derleyen)",
+        "publisher": "Domingo Çocuk",
+        "isbn": "9786054729043",
+        "language": "tr",
+        "src": "covers/ffa6e7ff1b04e2c1.jpg",
+        "imageUrl": "https://domingo.com.tr/cdn/shop/products/BuyukSorular_1200x1200.jpg?v=1567765343",
+        "sourceUrl": "https://domingo.com.tr/collections/cocuk-kitaplari-1/products/kucuk-insanlardan-buyuk-sorular-ve-hayli-muhim-insanlardan-basit-cevaplar",
+        "sourceName": "Domingo Çocuk",
+        "checkedAt": "2026-09-28",
+        "verification": "Title, author, ISBN and Turkish edition matched to the cited source"
+      },
+      "verifiedEdition": {
+        "title": "Küçük İnsanlardan Büyük Sorular",
+        "publisher": "Domingo Çocuk",
+        "isbn": "9786054729043",
+        "translators": [
+          "Şiirsel Taş"
+        ],
+        "sourceUrl": "https://domingo.com.tr/collections/cocuk-kitaplari-1/products/kucuk-insanlardan-buyuk-sorular-ve-hayli-muhim-insanlardan-basit-cevaplar",
+        "sourceType": "publisher",
+        "checkedAt": "2026-09-28"
+      },
       "collectionIds": [
         "kitaps-R"
       ],
@@ -40303,6 +41154,9 @@
         "plastik-deniz-anita-ganeri"
       ],
       "tags": [],
+      "sourceIssue": {
+        "note": "Anita Ganeri ile bu Türkçe başlığın baskısı doğrulanamadı. Benzer çevre kitaplarının kapakları kullanılmadı."
+      },
       "collectionIds": [
         "kitaps-R"
       ],

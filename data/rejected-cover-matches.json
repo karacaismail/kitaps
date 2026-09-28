@@ -1,0 +1,50 @@
+{
+  "effectiveexecutive": {
+    "rejectedCover": {
+      "src": "covers/404f9ee4e6af7cb3.jpg",
+      "imageUrl": "https://asset.kitapsepeti.com/etkin-yonetici-dogru-olani-basarmak-icin-bir-rehber-204621-23-O.jpg",
+      "sourceUrl": "https://www.kitapsepeti.com/etkin-yonetici-dogru-olani-basarmak-icin-bir-rehber",
+      "sourceName": "Kitapsepeti",
+      "title": "Etkin Yönetici: Doğru Olanı Başarmak için Bir Rehber",
+      "author": "Peter F. Drucker",
+      "publisher": "Stabil Kitap",
+      "isbn": "9786057081179",
+      "language": "tr",
+      "checkedAt": "2026-09-28"
+    },
+    "reason": "The Effective Executive in Action is a companion workbook, not The Effective Executive.",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/etkin-yonetici-dogru-olani-basarmak-icin-bir-rehber/608558.html"
+  },
+  "birseftalibinseftali": {
+    "rejectedCover": {
+      "src": "covers/8739b02ec19d21ce.jpg",
+      "imageUrl": "https://asset.kitapsepeti.com/dirilen-iskelet-397010-1047335-39-O.jpg",
+      "sourceUrl": "https://www.kitapsepeti.com/dirilen-iskelet-397010",
+      "sourceName": "Kitapsepeti",
+      "title": "Bir Şeftali Bin Şeftali",
+      "author": "Samed Bahrengi",
+      "publisher": "Katip Yayınları",
+      "isbn": "9786258212242",
+      "language": "tr",
+      "checkedAt": "2026-09-28"
+    },
+    "reason": "Eski kaynak sayfasının URL ve ISBN alanları Dirilen İskelet adlı başka bir esere aitti; yayınevinin kendi kapağı seçildi.",
+    "sourceUrl": "https://www.cinaryayinlari.com/product/bir-seftali-bin-seftali/"
+  },
+  "savasati": {
+    "rejectedCover": {
+      "src": "covers/b39593f5a0facd72.png",
+      "imageUrl": "https://asset.kitapsepeti.com/savas-ati-538552-980524-53-O.png",
+      "sourceUrl": "https://www.kitapsepeti.com/savas-ati-538552",
+      "sourceName": "Kitapsepeti",
+      "title": "Savaş Atı",
+      "author": "Michael Morpurgo",
+      "publisher": "Tudem Yayınları",
+      "isbn": "9786253800284",
+      "language": "tr",
+      "checkedAt": "2026-09-28"
+    },
+    "reason": "48 sayfalık resimli uyarlama yerine kaynakta önerilen romanın 184 sayfalık Tudem Modern Klasikler baskısı seçildi.",
+    "sourceUrl": "https://tudem.com/urun/kultur/1008/tudem_edebiyat/2736/tudem_modern_klasikler__savas_ati.aspx"
+  }
+}
