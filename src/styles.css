@@ -106,15 +106,79 @@ body{color:var(--ink)}.mantine-Input-input{border-color:var(--control-line);colo
 .brand-link,.brand-link:hover{color:var(--ink);text-decoration:none}.main-tabs .mantine-Tabs-tab{gap:8px}.main-tabs .mantine-Tabs-tabSection{margin:0;position:static;flex:none}
 @media(min-width:40em){.search-panel{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:12px;padding:16px!important}.search-panel>.mantine-TextInput-root{min-width:0}.search-tools{margin:0;grid-template-columns:auto 205px}.active-filters{grid-column:1/-1;margin-top:0}}
 
-.library-feedback{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);width:calc(100% - 24px);max-width:480px;z-index:310;margin:0!important;box-shadow:0 8px 32px #0003}.main-tabs .mantine-Tabs-tab[data-active],.topic-tabs .mantine-Tabs-tab[data-active],.header-shortcuts .mantine-Button-root[aria-current=page],.header-shortcuts .mantine-Button-root[aria-pressed=true]{box-shadow:inset 0 -2px 0 var(--accent-text)}
+.main-tabs .mantine-Tabs-tab[data-active],.topic-tabs .mantine-Tabs-tab[data-active],.header-shortcuts .mantine-Button-root[aria-current=page],.header-shortcuts .mantine-Button-root[aria-pressed=true]{box-shadow:inset 0 -2px 0 var(--accent-text)}
 
 .main-tabs .mantine-Tabs-tabLabel{flex:none}.related-card{cursor:pointer}.related-card .title-button{min-height:44px}
 
-/* A compound input has one focus indicator around the whole control. Never
-   outline its inner text field (PillsInput/MultiSelect), which is not a box. */
-.mantine-Input-input :is(input, textarea, select):focus-visible,
+/* Focus strengthens the existing field edge; it never adds a detached ring.
+   The inset stroke keeps the control and its text in the same position. */
+.mantine-Input-input { --field-focus: var(--accent-text); }
+.mantine-Input-input:is([data-error], [aria-invalid="true"]) { --field-focus: var(--mantine-color-error); }
+.mantine-Input-input:focus,
+.mantine-Input-input:has(:is(input, textarea, select):focus) {
+ outline: none!important;
+ outline-offset: 0;
+ border-color: var(--field-focus);
+ box-shadow: inset 0 0 0 1px var(--field-focus);
+}
+.mantine-Input-input :is(input, textarea, select):focus,
 .filter-choice input:focus-visible { outline: none!important; box-shadow: none; }
-.mantine-Input-input:has(:is(input, textarea, select):focus-visible),
-.filter-choice:has(input:focus-visible) { outline: 3px solid var(--focus); outline-offset: 3px; }
-.mantine-Input-input:focus-visible,
-.mantine-Input-input:has(:is(input, textarea, select):focus-visible) { border-color: var(--focus); }
+.filter-choice:has(input:focus-visible) {
+ outline: none;
+ border-color: var(--accent-text);
+ box-shadow: inset 0 0 0 1px var(--accent-text);
+}
+/* System high-contrast mode suppresses shadows, so draw on the same edge. */
+@media (forced-colors: active) {
+ .mantine-Input-input:focus,
+ .mantine-Input-input:has(:is(input, textarea, select):focus),
+ .filter-choice:has(input:focus-visible) {
+  outline: 2px solid Highlight!important;
+  outline-offset: -2px;
+  box-shadow: none;
+ }
+}
+
+/* Prominent confirmation, positioned above the page without moving cards. */
+.library-toast {
+ position: fixed; bottom: max(16px, env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%);
+ display: grid; grid-template-columns: 40px minmax(0,1fr) 44px; align-items: start; gap: 12px;
+ width: calc(100% - 24px); max-width: 520px; padding: 18px 12px 18px 18px;
+ border: 1px solid var(--control-line); border-radius: 18px; background: var(--surface); color: var(--ink);
+ box-shadow: 0 12px 40px #0004; z-index: 310; animation: toast-enter 180ms ease-out;
+}
+.library-toast-icon { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 12px; background: var(--soft); color: var(--accent-text); }
+.library-toast[data-owned] .library-toast-icon { background: #e0eee7; color: #236344; }
+:root[data-mantine-color-scheme=dark] .library-toast[data-owned] .library-toast-icon { background: #173122; color: #a6d9b9; }
+.library-toast-message { min-width: 0; }
+.library-toast-message strong { display: block; font-size: 1.375rem; line-height: 1.3; font-weight: 600; }
+.library-toast-message p { margin: 8px 0 0; font-size: 1rem; line-height: 1.4; color: var(--muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.library-toast-close { color: var(--muted); margin-top: -6px; }
+.library-toast-undo { grid-column: 2; justify-self: start; min-height: 44px; padding-inline: 16px; border-radius: 10px; }
+@keyframes toast-enter { from { opacity: 0; translate: 0 8px; } to { opacity: 1; translate: 0 0; } }
+@media (min-width: 40em) { .library-toast { padding: 22px; gap: 14px; } .library-toast-message strong { font-size: 1.5rem; } }
+@media (prefers-reduced-motion: reduce) { .library-toast { animation: none; } }
+
+/* Covers use the full stage; actions float over them instead of taking a column. */
+.book-card .book-visual .cover-stage { padding: 12px; }
+.book-card .book-visual .cover-stage img { width: auto; height: 100%; max-width: 100%; max-height: 100%; object-fit: contain; }
+.book-card .book-visual :is(.cover-save,.cover-owned,.cover-queue) { right: 8px; opacity: .75; transition: opacity 160ms ease-in-out; }
+.book-card .book-visual :is(.cover-save,.cover-owned,.cover-queue):is(:hover,:focus-visible) { opacity: 1; }
+@media (min-width: 48em) and (hover: hover) and (pointer: fine) {
+ .book-card .book-visual :is(.cover-save,.cover-owned,.cover-queue) { opacity: 0; pointer-events: none; }
+ .book-card:is(:hover,:focus-within) .book-visual :is(.cover-save,.cover-owned,.cover-queue) { opacity: .75; pointer-events: auto; }
+ .book-card .book-visual :is(.cover-save,.cover-owned,.cover-queue):is(:hover,:focus-visible) { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+ .book-card .book-visual :is(.cover-save,.cover-owned,.cover-queue) { transition: none; }
+}
+
+/* Translation status uses both a readable symbol and a semantic color. */
+.book-card .book-publisher { text-align: right; font-style: italic; }
+.book-card .translation-status { align-items: center; justify-content: flex-end; align-self: flex-end; gap: 6px; text-align: right; }
+.translation-status-mark { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 22px; height: 22px; }
+.translation-status[data-status=available] { color: #006b7d; }
+.translation-status:is([data-status=unavailable],[data-status=unverified]) { color: #9c302b; }
+.translation-status[data-status=original] { color: var(--muted); }
+:root[data-mantine-color-scheme=dark] .translation-status[data-status=available] { color: #83d7e5; }
+:root[data-mantine-color-scheme=dark] .translation-status:is([data-status=unavailable],[data-status=unverified]) { color: #ffb4a9; }

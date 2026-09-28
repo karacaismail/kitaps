@@ -31,9 +31,18 @@ Klavye erişimi, odak dönüşü, dokunma alanları ve 320 px yeniden akış ayr
 - 320 × 760 ve 390 × 844 boyutlarında yatay taşma yok. 320 × 420 görünümde de alt eylemler görünür ve içerik kaydırılabilir. Altı ana başlık 320 × 760 görünümde birlikte görünür.
 - Kapanış/Escape taslağı uygulamaz ve odağı filtreyi açan düğmeye geri verir. Uygulama okunabilir URL parametrelerini günceller. Çocuk + Kate DiCamillo seçimi tek kitapla doğrulandı.
 - Kategori birleşimi 176, aynı iki kategorinin kesişimi 7 sonuç verdi. Küme değişince artık o kümeye ait olmayan alt seçim kaldırıldı. Hatalı yıl aralığında uygulama engellenir ve alanla ilişkili açıklama gösterilir.
-- Form alanlarının iç metin kutusuna ikinci bir odak çerçevesi çizilmez. Klavyeyle gezinirken bütün alanın veya seçim satırının çevresinde tek dış odak göstergesi korunur.
+- Form alanları odaklandığında mevcut kenar, 1 px kenarlık ve 1 px iç çizgiyle güçlenir; ikinci bir dış çerçeve çizilmez ve alanın ölçüsü değişmez. Seçim satırları aynı yaklaşımı kullanır. Sistem yüksek kontrast modunda gölge yerine içe çizilen odak çizgisi korunur.
 - Altı filtre bölümü ile ana filtre ekranının son açık/koyu tema axe taramalarında sıfır ihlal ve sıfır kararsız sonuç alındı. Seçili kontroller, klavye odağı, 48 px seçim satırları ve sabit alt eylemler ayrıca kontrol edildi.
 - Gerçek iPhone/Safari ekran klavyesi bu ortamda çalıştırılmadı; fiziksel cihaz testi hâlâ kapsam dışındadır.
+
+## Kartlar ve satın alma bildirimi (28 Eylül 2026)
+
+- Karttan küme sayısı ve yıl satırı kaldırıldı. Yayınevi sağa hizalı ve italik; çeviri göstergesi sağa hizalıdır.
+- Kapak alanında sağdaki düğmelere ayrılan boşluk kaldırıldı. Kapaklar oranları korunarak alana sığar; düğmeler kapağın üzerinde yüzde 75 opaklıkla görünür. Masaüstünde fare kartın üzerine geldiğinde veya klavye odağı kartın içindeyken açılır; dokunmatik ekranda görünür kalır. Odaklanan düğme tamamen opaktır.
+- Çocuk etiketi açık ve koyu temada pembe tonlarını kullanır. Kartta yalnızca “Çeviri” yazısı bulunur; doğrulanmış Türkçe çeviri turkuaz onay, bulunmayan veya doğrulanamayan çeviri kırmızı ünlemle gösterilir. Açılan açıklama, doğrulanamamış bilgiyi çeviri yokluğundan ayırır. Özgün Türkçe eserlerde nötr işaret ve “Çeviri gerekmiyor” açıklaması vardır.
+- Satın alma ipucu “Satın aldım” olarak kısaltıldı. “Kütüphanene eklendi” bildirimi mobilde 22 px, geniş ekranda 24 px başlıkla gösterilir. Bildirim 8 saniye sonra kapanır; üzerinde fare veya klavye odağı varken süre durur. Geri alma ve kapatma kontrolleri bulunur.
+- Bildirim kartları yerinden oynatmaz. Kitap ayrıntısı açıkken bildirim panelin içinde kalır; geri alma sonrasında odak satın alma düğmesine döner. Bildirim, sıradaki klavye odağını örtecekse kapanır.
+- 320 px açık tema ve 1280 px koyu tema son katalog taramalarında sıfır axe ihlali ve sıfır kararsız sonuç alındı. İki genişlikte yatay taşma yok; sağ hizalar, kategori renkleri ve tek kenarlı alan odağı kontrol edildi. Bildirimin otomatik kapanması, geri alma ve panel içindeki kullanımı ayrıca doğrulandı.
 
 ## Veri ve otomatik testler
 
