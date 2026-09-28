@@ -23,6 +23,18 @@ Katalog/filtrede yatay konu listesinin görünüm dışında kalan kısmı bazı
 
 Klavye erişimi, odak dönüşü, dokunma alanları ve 320 px yeniden akış ayrıca kontrol edildi. Otomatik tarama, bütün WCAG başarı ölçütlerinin veya her ekran okuyucu/cihaz birleşiminin eksiksiz uygunluk sertifikası değildir. Gerçek iOS/Android cihazı ve ekran okuyucuyla kapsamlı kullanıcı testi bu kontrolün kapsamı dışındadır.
 
+## Yenilenen mobil filtre (28 Eylül 2026)
+
+- Uzun ve klavye açan çoklu açılır menüler, altı başlıklı bir filtre paneliyle değiştirildi. Her başlık ilk seçimi ve seçim sayısını gösterir; tam seçim listesi erişilebilir adında bulunur.
+- Kategori, okuma durumu, künye, kaynak ve ödüller doğrudan seçim satırlarıdır. Yazar, küme ve alt küme listelerinde Türkçe karakterleri tanıyan arama vardır. Arama sonuçlarının dışında kalan seçimler de kaldırılabilir.
+- Panel mobilde 90dvh yüksekliğinde açılır. Yalnızca içerik kayar; başlık, geri/kapat kontrolleri, sonuç sayısı ve uygulama düğmesi sabit kalır. Görsel viewport değişiklikleri izlenerek ekran klavyesi açıldığında panelin görünür alana sığması sağlanır.
+- 320 × 760 ve 390 × 844 boyutlarında yatay taşma yok. 320 × 420 görünümde de alt eylemler görünür ve içerik kaydırılabilir. Altı ana başlık 320 × 760 görünümde birlikte görünür.
+- Kapanış/Escape taslağı uygulamaz ve odağı filtreyi açan düğmeye geri verir. Uygulama okunabilir URL parametrelerini günceller. Çocuk + Kate DiCamillo seçimi tek kitapla doğrulandı.
+- Kategori birleşimi 176, aynı iki kategorinin kesişimi 7 sonuç verdi. Küme değişince artık o kümeye ait olmayan alt seçim kaldırıldı. Hatalı yıl aralığında uygulama engellenir ve alanla ilişkili açıklama gösterilir.
+- Form alanlarının iç metin kutusuna ikinci bir odak çerçevesi çizilmez. Klavyeyle gezinirken bütün alanın veya seçim satırının çevresinde tek dış odak göstergesi korunur.
+- Altı filtre bölümü ile ana filtre ekranının son açık/koyu tema axe taramalarında sıfır ihlal ve sıfır kararsız sonuç alındı. Seçili kontroller, klavye odağı, 48 px seçim satırları ve sabit alt eylemler ayrıca kontrol edildi.
+- Gerçek iPhone/Safari ekran klavyesi bu ortamda çalıştırılmadı; fiziksel cihaz testi hâlâ kapsam dışındadır.
+
 ## Veri ve otomatik testler
 
 31 otomatik test geçti. Bunlar kaynakların birleşmesi, eski kişisel verinin taşınması, yedekler, satın alma/favori davranışı, beş kitaplık sıra, okuma ilerlemesi, önerilerin döngü içermemesi, İngilizce URL'ler ve kapak/baskı tutarlılığını kapsar.

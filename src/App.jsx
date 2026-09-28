@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { Accordion, ActionIcon, Alert, Anchor, Badge, Box, Button, Card, Checkbox, Chip, Container, Divider, Drawer, FileButton, Group, MantineProvider, MultiSelect, NumberInput, Paper, Select, Stack, Switch, Text, TextInput, Tabs, ThemeIcon, Title, Tooltip, createTheme, localStorageColorSchemeManager } from '@mantine/core';
+import { Accordion, ActionIcon, Alert, Anchor, Badge, Box, Button, Card, Container, Divider, FileButton, Group, MantineProvider, Paper, Select, Stack, Text, TextInput, Tabs, ThemeIcon, Title, Tooltip, createTheme, localStorageColorSchemeManager } from '@mantine/core';
 import { IconLink, IconArrowLeft, IconArrowRight, IconArrowUpRight, IconBook2, IconShoppingBagCheck, IconBooks, IconCheck, IconChevronRight, IconDownload, IconFilter, IconLayersIntersect, IconListNumbers, IconNotes, IconSearch, IconStar, IconUpload, IconX } from '@tabler/icons-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -26,6 +26,7 @@ import CategoryPill from './components/CategoryPill';
 import EditionSummary from './components/EditionSummary';
 import BookSheet from './components/BookSheet';
 import CardCategories from './components/CardCategories';
+import FilterSheet from './components/FilterSheet';
 import { PERSONAL_KEY, cleanPersonal, cleanReading, addToQueue, moveInQueue, restorePersonal, todayLocal } from './reading';
 import { STATE_LABELS, QUALITY_LABELS, ORIGIN_LABELS, emptyFilters, prepareBooks, filterBooks, sortBooks, toggleState, migrateStates, filterCount, decodeRoute, encodeRoute, normalize, plainTextMarkers, booksForShelf } from './library';
 import './styles.css';
@@ -45,12 +46,7 @@ const groupMap=Object.fromEntries(catalog.groups.map(g=>[g.id,g]));
 const categoryMap=Object.fromEntries(catalog.categories.map(c=>[c.id,c]));
 const STATE_KEY='kitapatlasi:states:v2';
 
-const sourceOptions=Object.entries(ORIGIN_LABELS).map(([value,label])=>({value,label}));
-const categoryOptions=catalog.categories.map(c=>({value:c.id,label:c.label}));
-const collectionOptions=catalog.collections.map(c=>({value:c.id,label:c.short}));
 const authorOptions=[...new Set(books.map(b=>b.author).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'tr'));
-const selectFilter=({options,search,limit})=>options.filter(o=>normalize(o.label).includes(normalize(search))).slice(0,limit||50);
-const commonMulti={searchable:true,clearable:true,nothingFoundMessage:'Eşleşme bulunamadı',filter:selectFilter,limit:50,clearButtonProps:{'aria-label':'Seçimi temizle'}};
 const safeRead=key=>{try{return JSON.parse(localStorage.getItem(key)||'{}')}catch{return {}}};
 const loadStates=()=>migrateStates(books,safeRead(STATE_KEY),safeRead('kitaps:states:v1'));
 function download(name,data,type='application/json') {
@@ -58,34 +54,6 @@ function download(name,data,type='application/json') {
  const link=document.createElement('a');link.href=url;link.download=name;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
 function SourceBadge({id}) {return <Badge color={id==='kitaps'?'grape':id==='local'?'orange':'coffee'}>{ORIGIN_LABELS[id]}</Badge>}
-function FilterEditor({value:f,onChange}) {
- const set=(key,value)=>onChange({...f,[key]:value});
- const availableGroups=catalog.groups.filter(g=>!f.collections.length||f.collections.includes(g.collectionId));
- return <Stack gap="xl">
-  <Text c="dimmed">Farklı alanlar birlikte uygulanır. Aynı alandaki seçimlerden biri yeterlidir; istersen tümünün eşleşmesini isteyebilirsin.</Text>
-  <div className="filter-grid">
-   <Stack gap="sm"><MultiSelect {...commonMulti} label="Kategoriler" placeholder={f.categories.length?undefined:"Birden fazla kategori seç"} data={categoryOptions} value={f.categories} onChange={v=>set('categories',v)}/><Switch label="Seçili kategorilerin tümü eşleşsin" checked={f.categoryMode==='all'} onChange={e=>set('categoryMode',e.currentTarget.checked?'all':'any')}/></Stack>
-   <Stack gap="sm"><MultiSelect {...commonMulti} label="Kitap kümeleri" placeholder={f.collections.length?undefined:"Kaynak veya okuma rotası"} data={collectionOptions} value={f.collections} onChange={v=>onChange({...f,collections:v,groups:f.groups.filter(id=>!v.length||v.includes(groupMap[id]?.collectionId))})}/><Switch label="Seçili kümelerin tümünde bulunsun" checked={f.collectionMode==='all'} onChange={e=>set('collectionMode',e.currentTarget.checked?'all':'any')}/></Stack>
-   <MultiSelect {...commonMulti} label="Alt kümeler" placeholder={f.groups.length?undefined:"Konu, ders veya yıl grubu"} data={availableGroups.map(g=>({value:g.id,label:`${collectionMap[g.collectionId].short} · ${g.title}`}))} value={f.groups} onChange={v=>set('groups',v)}/>
-   <MultiSelect {...commonMulti} label="Okuma durumum" placeholder="Favori, okunuyor, alınacak…" data={Object.entries(STATE_LABELS).map(([value,label])=>({value,label}))} value={f.states} onChange={v=>set('states',v)}/>
-   <MultiSelect {...commonMulti} label="Yazar" placeholder="Yazar adına göre seç" data={authorOptions} value={f.authors} onChange={v=>set('authors',v)}/>
-   <MultiSelect {...commonMulti} label="Verinin geldiği kaynak" placeholder="Üç kaynağın tamamı" data={sourceOptions} value={f.origins} onChange={v=>set('origins',v)}/>
-  </div>
-  <Divider label="Künye ve baskı bilgisi" labelPosition="left"/>
-  <MultiSelect {...commonMulti} label="Kaynakta belirtilen künye durumu" placeholder="Uyarı veya doğrulama işareti" data={Object.entries(QUALITY_LABELS).map(([value,label])=>({value,label}))} value={f.qualities} onChange={v=>set('qualities',v)}/>
-  <Checkbox label="Yalnızca çevirmen veya yayınevi bilgisi olanlar" checked={f.hasEdition} onChange={e=>set('hasEdition',e.currentTarget.checked)}/>
-  <Checkbox label="Birden fazla kitap kümesinde bulunanlar" checked={f.shared} onChange={e=>set('shared',e.currentTarget.checked)}/>
-  <Divider label="Yıllar ve FT ödülleri" labelPosition="left"/>
-  <div className="filter-grid">
-   <MultiSelect {...commonMulti} label="FT ödül durumu" placeholder="Bütün durumlar" data={['Kazanan','Kısa liste','Uzun liste']} value={f.awards} onChange={v=>set('awards',v)}/>
-   <MultiSelect {...commonMulti} label="FT ödül yılı" placeholder="2005–2026" data={Array.from({length:22},(_,i)=>String(2026-i))} value={f.awardYears} onChange={v=>set('awardYears',v)}/>
-   <NumberInput label="İlk yayın yılı · en erken" placeholder="Sınır yok" value={f.yearMin} onChange={v=>set('yearMin',v)} min={-3000} max={2100} allowDecimal={false} hideControls size="md"/>
-   <NumberInput label="İlk yayın yılı · en geç" placeholder="Sınır yok" value={f.yearMax} onChange={v=>set('yearMax',v)} min={-3000} max={2100} allowDecimal={false} hideControls size="md"/>
-  </div>
-  <Text c="dimmed">İlk yayın yılı yalnızca kaynakta bu bilgi bulunan kitaplarda kayıtlıdır. Yıl sınırı seçildiğinde yılı bilinmeyen kitaplar sonuçlardan çıkar. FT ödül yılı ayrı bir ölçüttür.</Text>
-  {f.yearMin!==''&&f.yearMax!==''&&Number(f.yearMin)>Number(f.yearMax)&&<Alert color="orange">En erken yıl, en geç yıldan büyük olamaz.</Alert>}
- </Stack>
-}
 function ActiveFilters({filters:f,onChange}) {
  const chips=[];
  const labels={categories:id=>categoryMap[id]?.label,collections:id=>collectionMap[id]?.short,groups:id=>groupMap[id]?.title,states:id=>STATE_LABELS[id],authors:id=>id,origins:id=>ORIGIN_LABELS[id],awards:id=>id,awardYears:id=>`FT ${id}`,qualities:id=>QUALITY_LABELS[id]};
@@ -276,7 +244,7 @@ function AtlasApp() {
    </Tabs>
    <footer className="site-footer"><Text>Kitap Atlası · {catalog.updated}</Text><Button variant="subtle" onClick={()=>{setRoute(r=>({...r,view:'notes'}));window.scrollTo({top:0,behavior:'instant'})}}>Kaynaklar ve notlar <IconArrowUpRight size={18}/></Button></footer>
   </Container>
-  <Drawer position="bottom" size="90dvh" opened={opened} onClose={()=>setOpened(false)} title="Filtreler" className="filter-drawer" padding={0}><div className="filter-content"><FilterEditor value={draft} onChange={setDraft}/></div><div className="filter-actions"><Button variant="subtle" onClick={()=>setDraft({...emptyFilters(),query:filters.query})}>Sıfırla</Button><Button onClick={()=>{changeFilters(draft);setOpened(false)}}>{draftCount} kitabı göster <IconArrowRight size={19}/></Button></div></Drawer>
+  <FilterSheet opened={opened} onClose={()=>setOpened(false)} value={draft} onChange={setDraft} onReset={()=>setDraft({...emptyFilters(),query:filters.query})} onApply={()=>{changeFilters(draft);setOpened(false)}} count={draftCount} catalog={catalog} authors={authorOptions}/>
   <BookDetail onOpen={onOpen} onBack={previousBook} hasBack={bookTrail.length>0} book={byId[book]} onClose={closeBook} states={states} onToggle={onToggle} onCollection={goCollection} onCategory={goCategory} personal={personal} onReading={onReading} onAdd={onAdd} onQueue={onQueue} storageError={storageError||personalStorageError}/>
  </>;
 }
