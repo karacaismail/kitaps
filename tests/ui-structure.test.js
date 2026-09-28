@@ -21,6 +21,11 @@ test('footer Notes navigation writes browser history through navigate',()=>{
  assert.match(app,/onClick=\{\(\)=>\{navigate\(\{\.\.\.route,view:'notes',book:null,page:1\}\)/);
 });
 
+test('footer exports every catalog book as a self-describing JSON file',()=>{
+ assert.match(app,/const exportAllBooks=\(\)=>download\('kitaplik-tum-kitaplar\.json',\{schemaVersion:1,exportedAt:new Date\(\)\.toISOString\(\),catalogUpdatedAt:catalog\.updated,count:books\.length,books\}\)/);
+ assert.match(app,/onClick=\{exportAllBooks\}>Kitapları JSON indir<\/Button>/);
+});
+
 test('priority summaries expose full text and labelled progress values',()=>{
  assert.match(badge,/className="visually-hidden">Okuma önceliği:/);
  assert.match(badge,/aria-hidden="true"/);

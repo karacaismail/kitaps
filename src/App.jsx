@@ -69,6 +69,7 @@ function download(name,data,type='application/json') {
  const url=URL.createObjectURL(new Blob([typeof data==='string'?data:JSON.stringify(data,null,2)],{type}));
  const link=document.createElement('a');link.href=url;link.download=name;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
+const exportAllBooks=()=>download('kitaplik-tum-kitaplar.json',{schemaVersion:1,exportedAt:new Date().toISOString(),catalogUpdatedAt:catalog.updated,count:books.length,books});
 function SourceBadge({id}) {return <Badge color={id==='kitaps'?'grape':id==='local'?'orange':'coffee'}>{ORIGIN_LABELS[id]}</Badge>}
 function ActiveFilters({filters:f,onChange}) {
  const chips=[];
@@ -266,7 +267,7 @@ function AtlasApp() {
     {view==='notes'&&<section aria-labelledby="notes-heading"><Title id="notes-heading" order={1} className="visually-hidden">Kaynaklar ve notlar</Title><Notes states={states} setStates={setStates} personal={personal} setPersonal={setPersonal} sync={githubSync}/></section>}
    </main>
    </Tabs>
-   <footer className="site-footer"><Text>Kitap Atlası · {catalog.updated}</Text><nav className="footer-links" aria-label="Genel bilgiler"><Button variant="subtle" onClick={()=>setGuideOpened(true)}>Çeviri rehberi</Button><Button variant="subtle" onClick={()=>{navigate({...route,view:'notes',book:null,page:1});window.scrollTo({top:0,behavior:'instant'})}}>Notlar</Button></nav></footer>
+   <footer className="site-footer"><Text>Kitap Atlası · {catalog.updated}</Text><div className="footer-links"><Button variant="subtle" leftSection={<IconDownload size={18}/>} onClick={exportAllBooks}>Kitapları JSON indir</Button><Button variant="subtle" onClick={()=>setGuideOpened(true)}>Çeviri rehberi</Button><Button variant="subtle" onClick={()=>{navigate({...route,view:'notes',book:null,page:1});window.scrollTo({top:0,behavior:'instant'})}}>Notlar</Button></div></footer>
   </Container>
   <Modal opened={guideOpened} onClose={()=>setGuideOpened(false)} title="Çeviri seçme rehberi" size="lg" centered className="global-guide-modal"><TranslationCriteria/></Modal>
   <FilterSheet opened={opened} onClose={()=>setOpened(false)} value={draft} onChange={setDraft} onReset={()=>setDraft({...emptyFilters(),query:filters.query})} onApply={()=>{changeFilters(draft);setOpened(false)}} count={draftCount} catalog={catalog} authors={authorOptions}/>
