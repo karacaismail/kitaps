@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { Anchor, Popover, Text, UnstyledButton } from '@mantine/core';
+import { Anchor, Popover, Text, Tooltip, UnstyledButton } from '@mantine/core';
 import { IconCheck,IconMinus,IconX } from '@tabler/icons-react';
 import { translationStatus } from '../translation';
 export default function TranslationStatus({book}) {
@@ -7,8 +7,9 @@ export default function TranslationStatus({book}) {
  if(info.status==='original')return null;
  const Mark=info.status==='unverified'?IconMinus:info.status==='available'?IconCheck:IconX;
  const label=info.status==='available'?'Türkçe çeviri var':info.status==='unavailable'?'Türkçe çeviri yok':'Türkçe çeviri doğrulanamadı';
+ const tooltip=info.status==='available'?'Türkçe çevirisi var':info.status==='unavailable'?'Türkçe çevirisi yok':'Çeviri durumu doğrulanmadı';
  return <Popover opened={opened} onChange={setOpened} width={280} position="bottom-start" withArrow shadow="md" trapFocus returnFocus>
-  <Popover.Target><UnstyledButton className="translation-status" data-status={info.status} aria-label={`${book.titleTr||book.title}: ${label}. Baskı bilgisi`} aria-expanded={opened} onClick={()=>setOpened(v=>!v)}><span className="translation-status-mark" aria-hidden="true"><Mark size={22} stroke={2.4}/></span><span>Çeviri</span></UnstyledButton></Popover.Target>
+  <Popover.Target><Tooltip label={tooltip} openDelay={250} withArrow><UnstyledButton className="translation-status" data-status={info.status} aria-label={`${book.titleTr||book.title}: ${label}. Baskı bilgisi`} aria-expanded={opened} onClick={()=>setOpened(v=>!v)}><span className="translation-status-mark" aria-hidden="true"><Mark size={22} stroke={2.4}/></span><span>Çeviri</span></UnstyledButton></Tooltip></Popover.Target>
   <Popover.Dropdown><Text fw={600}>{label}</Text><Text mt="xs">{info.description}</Text>{info.source&&<Anchor className="source-link" href={info.source} target="_blank" rel="noreferrer">Baskı kaynağını aç</Anchor>}</Popover.Dropdown>
  </Popover>;
 }
