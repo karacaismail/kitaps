@@ -26,7 +26,7 @@ Klavye erişimi, odak dönüşü, dokunma alanları ve 320 px yeniden akış ayr
 ## Yenilenen mobil filtre (28 Eylül 2026)
 
 - Uzun ve klavye açan çoklu açılır menüler, altı başlıklı bir filtre paneliyle değiştirildi. Her başlık ilk seçimi ve seçim sayısını gösterir; tam seçim listesi erişilebilir adında bulunur.
-- Kategori, okuma durumu, künye, kaynak ve ödüller doğrudan seçim satırlarıdır. Yazar, küme ve alt küme listelerinde Türkçe karakterleri tanıyan arama vardır. Arama sonuçlarının dışında kalan seçimler de kaldırılabilir.
+- Kategori, okuma durumu, künye, kaynak ve ödüller doğrudan seçim satırlarıdır. Yazar, küme ve alt küme listelerinde Türkçe karakterleri tanıyan arama vardır. Arama sonuçlarının dışında kalan seçimler de kaldırılabilir; kaldırma sonrası odak aramaya döner. Liste genişletme düğmesi son sayfada daraltma düğmesine dönüşerek odağı korur.
 - Panel mobilde 90dvh yüksekliğinde açılır. Yalnızca içerik kayar; başlık, geri/kapat kontrolleri, sonuç sayısı ve uygulama düğmesi sabit kalır. Görsel viewport değişiklikleri izlenerek ekran klavyesi açıldığında panelin görünür alana sığması sağlanır.
 - 320 × 760 ve 390 × 844 boyutlarında yatay taşma yok. 320 × 420 görünümde de alt eylemler görünür ve içerik kaydırılabilir. Altı ana başlık 320 × 760 görünümde birlikte görünür.
 - Kapanış/Escape taslağı uygulamaz ve odağı filtreyi açan düğmeye geri verir. Uygulama okunabilir URL parametrelerini günceller. Çocuk + Kate DiCamillo seçimi tek kitapla doğrulandı.

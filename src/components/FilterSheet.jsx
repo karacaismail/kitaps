@@ -26,19 +26,23 @@ function Choice({ checked, onChange, children }) {
 
 function Choices({ title, options, value, onChange, searchable = false, compact = false }) {
  const [query, setQuery] = useState('');
+ const searchRef = useRef(null);
  const [limit, setLimit] = useState(12);
  const matches = options.filter(option => normalize(option.label).includes(normalize(query)));
  const visible = searchable ? matches.slice(0, limit) : matches;
  // Keep selected items removable even when the search or result limit hides them.
  const retained = options.filter(option => value.includes(option.value) && !visible.some(v => v.value === option.value));
- const choice = option => <Choice key={option.value} checked={value.includes(option.value)} onChange={() => onChange(toggle(value, option.value))}>{option.label}</Choice>;
+ const choice = (option, retainedSelection = false) => <Choice key={option.value} checked={value.includes(option.value)} onChange={() => {
+  onChange(toggle(value, option.value));
+  if (retainedSelection) searchRef.current?.focus({ preventScroll: true });
+ }}>{option.label}</Choice>;
  return <fieldset className="filter-fieldset">
   <legend>{title}</legend>
-  {searchable && <TextInput className="filter-option-search" label={`${title} ara`} placeholder={`${title} ara`} autoComplete="off" autoCorrect="off" spellCheck={false} leftSection={<IconSearch size={19} aria-hidden="true" />} value={query} onChange={e => { setQuery(e.currentTarget.value); setLimit(12); }} />}
-  {retained.length > 0 && <div className="filter-retained"><p className="filter-hint">Diğer seçimlerin</p>{retained.map(choice)}</div>}
-  <div className={`filter-choices${compact ? ' filter-choices-compact' : ''}`}>{visible.map(choice)}</div>
+  {searchable && <TextInput ref={searchRef} className="filter-option-search" label={`${title} ara`} placeholder={`${title} ara`} autoComplete="off" autoCorrect="off" spellCheck={false} leftSection={<IconSearch size={19} aria-hidden="true" />} value={query} onChange={e => { setQuery(e.currentTarget.value); setLimit(12); }} />}
+  {retained.length > 0 && <div className="filter-retained"><p className="filter-hint">Diğer seçimlerin</p>{retained.map(option => choice(option, true))}</div>}
+  <div className={`filter-choices${compact ? ' filter-choices-compact' : ''}`}>{visible.map(option => choice(option))}</div>
   {matches.length === 0 && <p className="filter-hint" role="status">Eşleşme yok. Aramayı kısaltmayı dene.</p>}
-  {searchable && matches.length > limit && <Button className="filter-show-more" variant="subtle" onClick={() => setLimit(limit + 12)}>Daha fazla göster · {matches.length - limit}</Button>}
+  {searchable && matches.length > 12 && <Button className="filter-show-more" variant="subtle" onClick={() => setLimit(limit >= matches.length ? 12 : limit + 12)}>{matches.length > limit ? `Daha fazla göster · ${matches.length - limit}` : 'Daha az göster'}</Button>}
  </fieldset>;
 }
 
