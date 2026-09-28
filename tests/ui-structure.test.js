@@ -26,6 +26,11 @@ test('footer exports every catalog book as a self-describing JSON file',()=>{
  assert.match(app,/onClick=\{exportAllBooks\}>Kitapları JSON indir<\/Button>/);
 });
 
+test('footer shows creation and catalog update dates separately',()=>{
+ assert.match(app,/Yaratılış · 27 Eylül ’26/);
+ assert.match(app,/Güncelleme · \{catalog\.updated\}/);
+});
+
 test('priority summaries expose full text and labelled progress values',()=>{
  assert.match(badge,/className="visually-hidden">Okuma önceliği:/);
  assert.match(badge,/aria-hidden="true"/);
