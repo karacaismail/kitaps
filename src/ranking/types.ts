@@ -2,37 +2,8 @@ export type CriterionId =
   | 'editorialConsensus'
   | 'learningLeverage'
   | 'preparationFit'
-  | 'accessReadiness'
-  | 'collectionCoverage'
   | 'difficultyFit'
   | 'durability';
-
-export type BookStateId =
-  | 'onemli'
-  | 'alinacak'
-  | 'alindi'
-  | 'okunuyor'
-  | 'okundu'
-  | 'araverildi'
-  | 'birakildi';
-
-export type BookState = Record<string, readonly string[]>;
-
-export interface ReadingRecord {
-  startedAt?: string;
-  finishedAt?: string;
-  page?: number | string;
-  totalPages?: number | string;
-  why?: string;
-  apply?: string;
-  [key: string]: unknown;
-}
-
-export interface RankingContext {
-  states: BookState;
-  queue: readonly string[];
-  reading: Readonly<Record<string, ReadingRecord | undefined>>;
-}
 
 export interface CatalogBook {
   id: string;
@@ -43,8 +14,15 @@ export interface CatalogBook {
   years?: readonly number[];
 }
 
-export interface ReadingGuideLink { id: string }
-export interface ReadingGuideRoute { books: readonly string[] }
+export interface ReadingGuideLink { id: string; reason?: string }
+export interface ReadingGuideRoute {
+  category?: string;
+  heading?: string;
+  goal?: string;
+  books: readonly string[];
+  /** Why each book follows the previous step, keyed by the later book's id. */
+  reasons?: Readonly<Record<string, string>>;
+}
 
 export interface Catalog {
   books: readonly CatalogBook[];
@@ -73,11 +51,23 @@ export interface CriterionResult {
 
 export type ReadinessLevel = 1 | 2 | 3 | 4 | 5;
 
+/** Children's books are read by a different reader, so they are compared and
+ * ranked among themselves; every other book belongs to the general audience. */
+export type ReadingAudience = 'general' | 'children';
+
+export interface MaturityThreshold {
+  level: ReadinessLevel;
+  /** Inclusive lower bound on the 0–100 score. */
+  minScore: number;
+  label: string;
+}
+
 export interface ReadingPriorityResult {
   bookId: string;
-  /** Dense, user-facing rank. Equal priority keys share the same rank. */
+  audience: ReadingAudience;
+  /** Dense, user-facing rank within the book's audience. Equal priority keys share the same rank. */
   rank: number;
-  /** Stable, unique position after deterministic tie-breaking. */
+  /** Stable, unique catalog position after deterministic tie-breaking; general books come first. */
   ordinal: number;
   score: number;
   confidence: number;
@@ -86,16 +76,13 @@ export interface ReadingPriorityResult {
   criteria: CriterionResult[];
   reasons: string[];
   policyVersion: string;
-  signals: {
-    owned: boolean;
-    readingStatus: 'unread' | 'reading' | 'paused' | 'read' | 'abandoned';
-    queuePosition: number | null;
-  };
 }
 
 export interface ReadingRankingPolicy {
   version: string;
   weights: Readonly<Record<CriterionId, number>>;
+  /** Ordered from the highest level to the lowest. */
+  maturity: readonly MaturityThreshold[];
 }
 
 export interface ReadingRankingSnapshot {

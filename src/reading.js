@@ -19,12 +19,14 @@ export function moveInQueue(queue,id,direction) {
  if(index<0||target<0||target>=queue.length||![-1,1].includes(direction))return queue;
  const next=[...queue];[next[index],next[target]]=[next[target],next[index]];return next;
 }
+const numberOrNull=value=>typeof value==='number'?value:null;
 export function progressPercent(record) {
- const r=cleanReading(record);return r.totalPages>0&&r.page!==''?Math.min(100,Math.round(r.page/r.totalPages*100)):null;
+ const r=cleanReading(record),page=numberOrNull(r.page),total=numberOrNull(r.totalPages);
+ return total!==null&&total>0&&page!==null?Math.min(100,Math.round(page/total*100)):null;
 }
 export function readingErrors(record) {
- const r=cleanReading(record);return {
-  pages:r.totalPages!==''&&r.totalPages>0&&r.page>r.totalPages?'Kaldığın sayfa, toplam sayfadan büyük.':r.totalPages===0?'Toplam sayfa en az 1 olmalı.':null,
+ const r=cleanReading(record),page=numberOrNull(r.page),total=numberOrNull(r.totalPages);return {
+  pages:total!==null&&total>0&&page!==null&&page>total?'Kaldığın sayfa, toplam sayfadan büyük.':total===0?'Toplam sayfa en az 1 olmalı.':null,
   dates:r.startedAt&&r.finishedAt&&r.finishedAt<r.startedAt?'Bitiş tarihi, başlama tarihinden önce olamaz.':null
  };
 }

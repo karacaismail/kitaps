@@ -49,15 +49,23 @@ test('foundational titles follow the verified-edition display rule',()=>{
  for(const entry of entries){
   const book=mergedBook(entry);
   assert.ok(book,entry.title);
-  assert.equal(book.titleTr,entry.titleTr,`${entry.title}: stored Turkish meaning`);
+  // A Turkish edition confirmed by the two-stage research supplies its title.
+  const researched=book.translationResearch?.status==='available'?(book.translationResearch.edition?.title||'').trim():'';
+  // An English "Turkish title" is no Turkish title; it is stored empty.
+  const storedTurkish=researched||(entry.titleTr===entry.title&&book.cover?.language!=='tr'?'':entry.titleTr);
+  assert.equal(book.titleTr,storedTurkish,`${entry.title}: stored Turkish meaning`);
   if(book.cover?.language==='tr'){
-   assert.equal(translationStatus(book).status,'available',`${entry.title}: translation status`);
-   assert.equal(displayTitle(book),entry.titleTr,`${entry.title}: displayed Turkish title`);
+   const original=book.verifiedEdition?.originalLanguage==='tr';
+   assert.equal(translationStatus(book).status,original?'original':'available',`${entry.title}: translation status`);
+   assert.equal(displayTitle(book),researched||entry.titleTr,`${entry.title}: displayed Turkish title`);
    assert.equal(turkishMeaning(book),'',`${entry.title}: redundant Turkish meaning`);
+  }else if(researched){
+   assert.equal(translationStatus(book).status,'available',`${entry.title}: researched translation status`);
+   assert.equal(displayTitle(book),researched,`${entry.title}: researched Turkish title`);
   }else{
    assert.equal(translationStatus(book).status,'unverified',`${entry.title}: translation status`);
    assert.equal(displayTitle(book),entry.title,`${entry.title}: displayed original title`);
-   assert.equal(turkishMeaning(book),entry.titleTr===entry.title?'':entry.titleTr,`${entry.title}: Turkish meaning`);
+   assert.equal(turkishMeaning(book),storedTurkish===entry.title?'':storedTurkish,`${entry.title}: Turkish meaning`);
   }
  }
 });

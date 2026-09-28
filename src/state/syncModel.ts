@@ -1,59 +1,52 @@
-import type {BookStatePayload, ReadingProgress, ReadingState, StateDocument} from './types.ts';
+import { MAX_QUEUE_LENGTH, type ReadingProgress, type ReadingState, type StateDocument } from './types.ts';
 
 export interface PublicBookView {
   states: ReadingState[];
   reading: ReadingProgress | null;
-  queuePosition: number | null;
 }
 
 export function projectPublicState(document: StateDocument, bookIds: Iterable<string>): {records: Record<string, PublicBookView>; queue: string[]} {
   const allowed = new Set(bookIds);
   const records: Record<string, PublicBookView> = {};
-  const queue: Array<[number, string]> = [];
   for (const [bookId, record] of Object.entries(document.books)) {
     if (!allowed.has(bookId)) continue;
     const value = record.value;
-    const projected = {states: value?.states ? [...value.states] : [], reading: value?.reading ? structuredClone(value.reading) : null, queuePosition: Number.isInteger(value?.queuePosition) ? value!.queuePosition! : null};
-    records[bookId] = projected;
-    if (projected.queuePosition !== null) queue.push([projected.queuePosition, bookId]);
+    records[bookId] = {states: value?.states ? [...value.states] : [], reading: value?.reading ? structuredClone(value.reading) : null};
   }
-  queue.sort((left, right) => left[0] - right[0] || left[1].localeCompare(right[1]));
-  return {records, queue: queue.slice(0, 5).map(([, bookId]) => bookId)};
+  const queue = (document.queue?.value ?? []).filter(bookId => allowed.has(bookId)).slice(0, MAX_QUEUE_LENGTH);
+  return {records, queue};
 }
 
-export interface SharedRankingContext {
-  states: Record<string, ReadingState[]>;
-  reading: Record<string, ReadingProgress>;
-  queue: string[];
-  recordCount: number;
-  updatedAt: string;
+const canonical = (value: unknown): string => {
+  if (Array.isArray(value)) return `[${value.map(canonical).join(',')}]`;
+  if (value && typeof value === 'object') return `{${Object.keys(value).sort().map(key => `${JSON.stringify(key)}:${canonical((value as Record<string, unknown>)[key])}`).join(',')}}`;
+  return JSON.stringify(value ?? null);
+};
+const isEmpty = (view: PublicBookView | undefined): boolean => !view || (!view.states.length && !view.reading);
+export const sameBookView = (left: PublicBookView, right: PublicBookView): boolean =>
+  canonical([...left.states].sort()) === canonical([...right.states].sort()) && canonical(left.reading) === canonical(right.reading);
+
+export interface FirstSyncPlan {
+  /** Books only this device knows; they are added to the shared file. */
+  localOnly: string[];
+  /** Books both sides know with different values; the reader chooses. */
+  conflicts: string[];
+  queue: 'none' | 'local-only' | 'conflict';
 }
 
-/** The ranking engine must only consume this shared, remote projection.
- * Browser-local and pending mutations intentionally stay out until GitHub
- * accepts them, so the same repository revision produces the same order on
- * every device.
- */
-export function sharedRankingContext(document: StateDocument, bookIds: Iterable<string>): SharedRankingContext {
-  const projected = projectPublicState(document, bookIds);
-  const states: Record<string, ReadingState[]> = {};
-  const reading: Record<string, ReadingProgress> = {};
-  for (const [bookId, value] of Object.entries(projected.records)) {
-    if (value.states.length) states[bookId] = [...value.states];
-    if (value.reading) reading[bookId] = structuredClone(value.reading);
+/** Compares a device that has never synced with the shared file, so nothing
+ * recorded on the device is overwritten without the reader's decision. */
+export function planFirstSync(local: Map<string, PublicBookView>, localQueue: readonly string[], remote: {records: Record<string, PublicBookView>; queue: readonly string[]}): FirstSyncPlan {
+  const localOnly: string[] = [];
+  const conflicts: string[] = [];
+  for (const [bookId, view] of local) {
+    if (isEmpty(view)) continue;
+    const shared = remote.records[bookId];
+    if (isEmpty(shared)) localOnly.push(bookId);
+    else if (!sameBookView(view, shared!)) conflicts.push(bookId);
   }
-  return {states, reading, queue: projected.queue, recordCount: Object.keys(projected.records).length, updatedAt: document.updatedAt};
-}
-
-export function buildInitialMigrationPatches(local: Map<string, PublicBookView>, localQueue: string[], remote: {records: Record<string, PublicBookView>; queue: string[]}): Map<string, BookStatePayload> {
-  const patches = new Map<string, BookStatePayload>();
-  const write = (bookId: string, patch: BookStatePayload): void => { patches.set(bookId, {...patches.get(bookId), ...patch}); };
-  for (const [bookId, value] of local) {
-    const current = remote.records[bookId] ?? {states: [], reading: null, queuePosition: null};
-    if (value.states.length && JSON.stringify(value.states) !== JSON.stringify(current.states)) write(bookId, {states: [...value.states]});
-    if (value.reading && JSON.stringify(value.reading) !== JSON.stringify(current.reading)) write(bookId, {reading: structuredClone(value.reading)});
-    if (value.queuePosition !== null && value.queuePosition !== current.queuePosition) write(bookId, {queuePosition: value.queuePosition});
-  }
-  if (localQueue.length) for (const bookId of remote.queue) if (!localQueue.includes(bookId)) write(bookId, {queuePosition: null});
-  return patches;
+  const queue = !localQueue.length || canonical(localQueue) === canonical(remote.queue)
+    ? 'none'
+    : remote.queue.length ? 'conflict' : 'local-only';
+  return {localOnly, conflicts, queue};
 }

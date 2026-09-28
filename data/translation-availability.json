@@ -12,5 +12,5347 @@
       "type": "publisher | publisher-preview | bibliographic | national-bibliography | library-catalog | retailer | rights-holder | author | official"
     }
   },
-  "records": {}
+  "records": {
+    "howbigthingsgetdone": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-003",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=B%C3%BCy%C3%BCk%20%C4%B0%C5%9Fler%20Nas%C4%B1l%20Ba%C5%9Far%C4%B1l%C4%B1r",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=B%C3%BCy%C3%BCk%20%C4%B0%C5%9Fler%20Nas%C4%B1l%20Ba%C5%9Far%C4%B1l%C4%B1r",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-003",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/buyuk-isler-nasil-basarilir",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Büyük İşler Nasıl Başarılır",
+        "publisher": "Mona Kitap",
+        "isbn": "9786255688026",
+        "translators": [],
+        "year": 2025
+      }
+    },
+    "vomkriege": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-004",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/savas-uzerine/470277.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-004",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.alfakitap.com/savas-uzerine-carl-von-clausewitz-kitabi-332560-9786254499937",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.amazon.com.tr/Sava%C5%9F-%C3%9Czerine-Carl-Von-Clausewitz/dp/6051717021",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Savaş Üzerine",
+        "publisher": "Alfa Yayınları",
+        "isbn": "9786254499937",
+        "translators": [
+          "H. Fahri Çeliker"
+        ]
+      }
+    },
+    "churchill": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-007",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/churchill-karton-kapak/680149.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-007",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=9786254297342",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.idefix.com/churchill-p-2567962",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Churchill",
+        "publisher": "Türkiye İş Bankası Kültür Yayınları",
+        "isbn": "9786254297342",
+        "translators": [
+          "Süha Sertabiboğlu"
+        ],
+        "year": 2024
+      }
+    },
+    "johnstuartmill": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-007",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/john-stuart-mill-karton-kapak/719548.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-007",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786254298615",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=9786254298615",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "John Stuart Mill",
+        "publisher": "Türkiye İş Bankası Kültür Yayınları",
+        "isbn": "9786254298615",
+        "translators": [
+          "Levent Cinemre"
+        ],
+        "year": 2024
+      }
+    },
+    "simonbolivar": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-007",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/simon-bolivar-karton-kapak/680864.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-007",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=9786254297366",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.dr.com.tr/search?q=9786254297366",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.idefix.com/simon-bolivar-p-2514845",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Simon Bolivar",
+        "publisher": "Türkiye İş Bankası Kültür Yayınları",
+        "isbn": "9786254297366",
+        "translators": [
+          "Bülent O. Doğan"
+        ],
+        "year": 2024
+      }
+    },
+    "jeanjacquesrousseau": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-007",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/jeanjacques-rousseau-karton-kapak/719553.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-007",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786254299681",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=9786254299681",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Jean-Jacques Rousseau",
+        "publisher": "Türkiye İş Bankası Kültür Yayınları",
+        "isbn": "9786254299681",
+        "translators": [
+          "Sabiha Özge Altundağ"
+        ],
+        "year": 2025
+      }
+    },
+    "immanuelkant": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-007",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/immanuel-kant-karton-kapak/667160.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-007",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=9786254295652",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.dr.com.tr/search?q=9786254295652",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.idefix.com/immanuel-kant-p-1422793",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Immanuel Kant",
+        "publisher": "Türkiye İş Bankası Kültür Yayınları",
+        "isbn": "9786254295652",
+        "translators": [
+          "Bülent O. Doğan"
+        ],
+        "year": 2023
+      }
+    },
+    "charlesdarwin": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-007",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/charles-darwin-karton-kapak/719753.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-007",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=9786254296659",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.idefix.com/charles-darwin-p-1985882",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Charles Darwin",
+        "publisher": "Türkiye İş Bankası Kültür Yayınları",
+        "isbn": "9786254296659",
+        "translators": [
+          "Ebru Kılıç"
+        ],
+        "year": 2024
+      }
+    },
+    "hammurabi": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-008",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/hammurabi-karton-kapak/719758.html",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.kitapyurdu.com/kitap/hammurabi-ciltli/269625.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-008",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786253840235",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Hammurabi",
+        "publisher": "İş Bankası Kültür Yayınları",
+        "isbn": "9786253840235",
+        "translators": [
+          "Bülent O. Doğan"
+        ],
+        "year": 2025
+      }
+    },
+    "gabrielgarciamarquez": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-008",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/gabriel-garca-mrquez-karton-kapak/709954.html",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.dr.com.tr/search?q=9786254299971",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-008",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=9786254299971",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Gabriel García Márquez",
+        "publisher": "İş Bankası Kültür Yayınları",
+        "isbn": "9786254299971",
+        "translators": [
+          "Zeynep Alpar"
+        ],
+        "year": 2024
+      }
+    },
+    "jacklondon": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-008",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/jack-london/689204.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-008",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786254298271",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Jack London",
+        "publisher": "İş Bankası Kültür Yayınları",
+        "isbn": "9786254298271",
+        "translators": [
+          "Yiğit Yavuz"
+        ],
+        "year": 2024
+      }
+    },
+    "budha": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-008",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/budha-karton-kapak/645956.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-008",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786254293740",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Budha",
+        "publisher": "İş Bankası Kültür Yayınları",
+        "isbn": "9786254293740",
+        "translators": [
+          "Zeynep Seyhan"
+        ],
+        "year": 2023
+      }
+    },
+    "hegel": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-008",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/hegel-karton-kapak/722192.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-008",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786254295669",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=9786254295669",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Hegel",
+        "publisher": "İş Bankası Kültür Yayınları",
+        "isbn": "9786254295669",
+        "translators": [
+          "Mehmet Barış Albayrak"
+        ],
+        "year": 2025
+      }
+    },
+    "leibniz": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-008",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/leibniz-karton-kapak/719550.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-008",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786254298639",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Leibniz",
+        "publisher": "İş Bankası Kültür Yayınları",
+        "isbn": "9786254298639",
+        "translators": [
+          "Orhan Düz"
+        ],
+        "year": 2024
+      }
+    },
+    "kierkegaard": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-008",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/kierkegaard-karton-kapak/719552.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-008",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786254298622",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Kierkegaard",
+        "publisher": "İş Bankası Kültür Yayınları",
+        "isbn": "9786254298622",
+        "translators": [
+          "Nur Nirven"
+        ],
+        "year": 2024
+      }
+    },
+    "beethoven": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-008",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/beethoven-karton-kapak/719555.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-008",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786254298646",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=9786254298646",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Beethoven",
+        "publisher": "İş Bankası Kültür Yayınları",
+        "isbn": "9786254298646",
+        "translators": [
+          "Ebru Kılıç"
+        ],
+        "year": 2025
+      }
+    },
+    "caesar": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-008",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/caesar-karton-kapak/719558.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-008",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786254298653",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Caesar",
+        "publisher": "İş Bankası Kültür Yayınları",
+        "isbn": "9786254298653",
+        "translators": [
+          "Efe Kurtluoğlu"
+        ],
+        "year": 2024
+      }
+    },
+    "schopenhauer": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-009",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786254296666",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=Schopenhauer+Cartwright",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-009",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=9786254296666",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.kitapsepeti.com/schopenhauer-459325",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Schopenhauer",
+        "publisher": "İş Bankası Kültür Yayınları",
+        "isbn": "9786254296666",
+        "translators": [
+          "Sibel Erduman"
+        ],
+        "year": 2024
+      }
+    },
+    "pauldirac": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-009",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=Paul+Dirac+Farmelo",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-009",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786254298530",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=9786254298530",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Paul Dırac",
+        "publisher": "İş Bankası Kültür Yayınları",
+        "isbn": "9786254298530",
+        "translators": [
+          "Zeynep Alpar"
+        ],
+        "year": 2024
+      }
+    },
+    "benjaminfranklin": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-009",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=Benjamin+Franklin+Isaacson",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-009",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786254299315",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=9786254299315",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Benjamin Franklin",
+        "publisher": "İş Bankası Kültür Yayınları",
+        "isbn": "9786254299315",
+        "translators": [
+          "İsmail Hakkı Yılmaz"
+        ],
+        "year": 2024
+      }
+    },
+    "janeausten": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-009",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=Jane+Austen+Tomalin",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-009",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786254299698",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Jane Austen",
+        "publisher": "İş Bankası Kültür Yayınları",
+        "isbn": "9786254299698",
+        "translators": [
+          "Mine Zeybekoğulları"
+        ],
+        "year": 2025
+      }
+    },
+    "robespierre": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-009",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=Robespierre+McPhee",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-009",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786254296635",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Robespierre",
+        "publisher": "İş Bankası Kültür Yayınları",
+        "isbn": "9786254296635",
+        "translators": [
+          "Süha Sertabiboğlu"
+        ],
+        "year": 2024
+      }
+    },
+    "kubilayhan": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-009",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/kubilay-han-karton-kapak/697022.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-009",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786254298608",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Kubilay Han",
+        "publisher": "İş Bankası Kültür Yayınları",
+        "isbn": "9786254298608",
+        "translators": [
+          "Özgür Özol"
+        ],
+        "year": 2024
+      }
+    },
+    "buyukkonstantin": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-009",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/buyuk-konstantin-yenilmez-imparator/705347.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-009",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786256228528",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Büyük Konstantin & Yenilmez İmparator",
+        "publisher": "Kronik Kitap",
+        "isbn": "9786256228528",
+        "translators": [
+          "Gürkan Ergin"
+        ],
+        "year": 2025
+      }
+    },
+    "descartes": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-009",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/descartes-karton-kapak/719791.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-009",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786254299322",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Descartes",
+        "publisher": "İş Bankası Kültür Yayınları",
+        "isbn": "9786254299322",
+        "translators": [
+          "Nur Nirven",
+          "Berkay Ersöz"
+        ],
+        "year": 2024
+      }
+    },
+    "mozart": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-009",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/mozart/434173.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-009",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786254298981",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Mozart",
+        "publisher": "İş Bankası Kültür Yayınları",
+        "isbn": "9786254298981",
+        "translators": [
+          "Ebru Kılıç"
+        ],
+        "year": 2024
+      }
+    },
+    "tolkien": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-009",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/tolkien/440733.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-009",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786254296642",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Tolkien",
+        "publisher": "İş Bankası Kültür Yayınları",
+        "isbn": "9786254296642",
+        "translators": [
+          "Çiğdem Erkal İpek"
+        ],
+        "year": 2024
+      }
+    },
+    "marcopolo": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-009",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=Marco+Polo+Bergreen",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-009",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786254299933",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Marco Polo",
+        "publisher": "İş Bankası Kültür Yayınları",
+        "isbn": "9786254299933",
+        "translators": [
+          "Mine Zeybekoğulları"
+        ],
+        "year": 2025
+      }
+    },
+    "macellan": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-009",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/macellan-karton-kapak/719903.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-009",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786253840754",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Macellan",
+        "publisher": "İş Bankası Kültür Yayınları",
+        "isbn": "9786253840754",
+        "translators": [
+          "Ebru Kılıç"
+        ],
+        "year": 2025
+      }
+    },
+    "caricekaterina": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-010",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/carice-katerina-karton-kapak/719712.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-010",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786254298998",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=9786254298998",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Çariçe Katerina",
+        "publisher": "İş Bankası Kültür Yayınları",
+        "isbn": "9786254298998",
+        "translators": [
+          "Hakan Abacı"
+        ],
+        "year": 2024
+      }
+    },
+    "perikles": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-010",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/perikles-karton-kapak/680865.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-010",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=9786254297373",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.dr.com.tr/search?q=9786254297373",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Perikles",
+        "publisher": "İş Bankası Kültür Yayınları",
+        "isbn": "9786254297373",
+        "translators": [
+          "Ülke Evrim Uysal"
+        ],
+        "year": 2024
+      }
+    },
+    "selahaddineyyubi": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-010",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/selahaddin-eyyubi-ciltli/719706.html",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.dr.com.tr/kitap/selahaddin-eyyubi/edebiyat/biyografi-otobiyografi/urunno=0002147519001",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-010",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=9786254299001",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Selahaddin Eyyubi",
+        "publisher": "İş Bankası Kültür Yayınları",
+        "isbn": "9786254299001",
+        "translators": [],
+        "year": 2024
+      }
+    },
+    "cengizhan": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-010",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/cengiz-han-karton-kapak/725269.html",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.kitapyurdu.com/kitap/cengiz-han-ciltli/719543.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-010",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786253841089",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Cengiz Han",
+        "publisher": "İş Bankası Kültür Yayınları",
+        "isbn": "9786253841089",
+        "translators": [
+          "Özgür Özol"
+        ],
+        "year": 2025
+      }
+    },
+    "ataturkmodernturkiyeninkurucusu": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-010",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/ataturk-modern-turkiyenin-kurucusu/61107.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-010",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=9789751409881",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Atatürk",
+        "publisher": "Remzi Kitabevi",
+        "isbn": "9789751409881",
+        "translators": [
+          "Füsun Doruker"
+        ]
+      }
+    },
+    "fatihsultanmehmedvezamani": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-010",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/fatih-sultan-mehmed-ve-zamani-ciltli/596007.html",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.kitapyurdu.com/kitap/fatih-sultan-mehmed-ve-zamani/596006.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-010",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786254493614",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Fatih Sultan Mehmed ve Zamanı",
+        "publisher": "Alfa Yayınları",
+        "isbn": "9786254493614",
+        "translators": [
+          "Dost Körpe"
+        ],
+        "year": 2021
+      }
+    },
+    "einsteinyasamiveevreni": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-010",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/einstein-yasami-ve-evreni/296794.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-010",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=9786257314626",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Einstein Yaşamı ve Evreni",
+        "publisher": "Delidolu",
+        "isbn": "9786257314626",
+        "translators": [
+          "Tufan Göbekçin"
+        ]
+      }
+    },
+    "leonardodavinci": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-010",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/leonardo-da-vinci/519564.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-010",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786051981048",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Leonardo Da Vinci",
+        "publisher": "Domingo Yayınevi",
+        "isbn": "9786051981048",
+        "translators": [
+          "Emre Gözgü"
+        ],
+        "year": 2019
+      }
+    },
+    "mariecuriebirbilimkadinininolaganustuyasamoykusu": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-010",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/marie-curie-bir-bilimkadinin-olaganustu-yasamoykusu/293643.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-010",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786055888282",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Marie Curie: Bir Bilimkadının Olağanüstü Yaşamöyküsü",
+        "publisher": "Bilim ve Gelecek Kitaplığı",
+        "isbn": "9786055888282",
+        "translators": [],
+        "year": 2017
+      }
+    },
+    "lenin": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-010",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/lenin/350108.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-010",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786056321757",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Lenin",
+        "publisher": "Abis Yayıncılık",
+        "isbn": "9786056321757",
+        "translators": [
+          "Suat Kaya"
+        ]
+      }
+    },
+    "obstacleistheway": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-011",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=Engeller%20Yolun%20Ta%20Kendisidir",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=Engeller+Yolun+Ta+Kendisidir",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-011",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=Engeller%20Yolun%20Ta%20Kendisidir",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.idefix.com/Arama/?q=Engeller+Yolun+Ta+Kendisidir",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Engeller Yolun Ta Kendisidir",
+        "publisher": "Diyojen Yayıncılık",
+        "isbn": "9786255989185",
+        "translators": []
+      }
+    },
+    "nonviolentcommunication": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-011",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=%C5%9Eiddetsiz+%C4%B0leti%C5%9Fim+Remzi",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.idefix.com/Arama/?q=%C5%9Eiddetsiz+%C4%B0leti%C5%9Fim+Remzi",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-011",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=%C5%9Eiddetsiz%20%C4%B0leti%C5%9Fim%20Remzi",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Şiddetsiz İletişim - Bir Yaşam Dili",
+        "publisher": "Remzi Kitabevi",
+        "isbn": "9789751418869",
+        "translators": []
+      }
+    },
+    "kucukprens": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-011",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=K%C3%BC%C3%A7%C3%BCk%20Prens%20Turkuvaz%20%C3%87ocuk",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-011",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=K%C3%BC%C3%A7%C3%BCk%20Prens%20Turkuvaz",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=K%C3%BC%C3%A7%C3%BCk+Prens+Turkuvaz",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Küçük Prens",
+        "publisher": "Turkuvaz Çocuk",
+        "isbn": "9786258292718",
+        "translators": []
+      }
+    },
+    "grimmmasallari": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-012",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9789944829199",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-012",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=9789944829199",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Grimm Masalları",
+        "publisher": "Epsilon Yayınevi",
+        "isbn": "9789944829199",
+        "translators": [
+          "Tanju Anapa"
+        ]
+      }
+    },
+    "howtoreadabook": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-013",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/kitaplari-nasil-okumali/262985.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-013",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786055515447",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Kitapları Nasıl Okumalı",
+        "publisher": "Birleşik Dağıtım Yayınevi",
+        "isbn": "9786055515447",
+        "translators": [
+          "A. Erkan Koca"
+        ],
+        "year": 2011
+      }
+    },
+    "economicstheusersguide": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-013",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/ekonomi-rehberi/389092.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-013",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786050204933",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Ekonomi Rehberi",
+        "publisher": "Say Yayınları",
+        "isbn": "9786050204933",
+        "translators": [
+          "Mihriban Doğan"
+        ],
+        "year": 2021
+      }
+    },
+    "worldlyphilosophers": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-013",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/iktisat-dusunurleri-buyuk-iktisat-dusunurlerinin-yasamlari-ve-fikirleri/55577.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-013",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9789752980907",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "İktisat Düşünürleri",
+        "publisher": "Dost Kitabevi",
+        "isbn": "9789752980907",
+        "translators": [
+          "Ali Tartanoğlu"
+        ],
+        "year": 2025
+      }
+    },
+    "ascentofmoney": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-013",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/paranin-yukselisi-dunyanin-finansal-tarihi/262909.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-013",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9789750820984",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Paranın Yükselişi: Dünyanın Finansal Tarihi",
+        "publisher": "Yapı Kredi Yayınları",
+        "isbn": "9789750820984",
+        "translators": [
+          "Barış Pala"
+        ],
+        "year": 2019
+      }
+    },
+    "prize": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-013",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/petrol/14112.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-013",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9789754580631",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Petrol: Para ve Güç Çatışmasının Epik Öyküsü",
+        "publisher": "Türkiye İş Bankası Kültür Yayınları",
+        "isbn": "9789754580631",
+        "translators": [
+          "Kamuran Tuncay"
+        ],
+        "year": 2019
+      }
+    },
+    "prisonersofgeography": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-013",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/cografya-mahkumlari/455457.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-013",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786051733968",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Coğrafya Mahkumları",
+        "publisher": "Epsilon Yayınevi",
+        "isbn": "9786051733968",
+        "translators": [
+          "Mert Doğruer"
+        ],
+        "year": 2026
+      }
+    },
+    "economicsrules": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-013",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/iktisadi-anlamak/396735.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-013",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786054160655",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "İktisadı Anlamak",
+        "publisher": "Efil Yayınevi",
+        "isbn": "9786054160655",
+        "translators": [
+          "Can Madenci"
+        ],
+        "year": 2016
+      }
+    },
+    "randomwalkdownwallstreet": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-014",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786059248457",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-014",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=9786059248457",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=Borsada+Rastgele+Seyir",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Borsada Rastgele Seyir",
+        "publisher": "Scala Yayıncılık",
+        "isbn": "9786059248457",
+        "translators": [
+          "Ali Perşembe"
+        ]
+      }
+    },
+    "intelligentinvestor": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-014",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786051733838",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-014",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=Ak%C4%B1ll%C4%B1+Yat%C4%B1r%C4%B1mc%C4%B1",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=Akilli+Yatirimci+Epsilon",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Akıllı Yatırımcı",
+        "publisher": "Epsilon Yayınevi",
+        "isbn": "9786051733838",
+        "translators": [
+          "Güneş Yıldız"
+        ]
+      }
+    },
+    "liarspoker": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-014",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=Yalanc%C4%B1n%C4%B1n+Pokeri",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-014",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9789758535538",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Yalancının Pokeri",
+        "publisher": "Scala Yayıncılık",
+        "isbn": "9789758535538",
+        "translators": [
+          "Neşenur Domaniç"
+        ]
+      }
+    },
+    "predictablyirrational": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-014",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786052261507",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-014",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=9786052261507",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Akıldışı Ama Öngörülebilir",
+        "publisher": "Optimist Yayınları",
+        "isbn": "9786052261507",
+        "translators": [
+          "Asiye Hekimoğlu Gül",
+          "Filiz Şar"
+        ]
+      }
+    },
+    "hownottobewrong": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-014",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786052999691",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-014",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=Nas%C4%B1l+Hata+Yapmazs%C4%B1n%C4%B1z",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Nasıl Hata Yapmazsınız: Matematiksel Düşünmenin Gücü",
+        "publisher": "Pegasus Yayınları",
+        "isbn": "9786052999691",
+        "translators": [
+          "Mustafa Keşir"
+        ]
+      }
+    },
+    "ancientgreece": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-014",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786050201277",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-014",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=Eski+Yunan+Thomas+Martin+Say",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Eski Yunan: Tarihöncesinden Helenistik Çağ'a",
+        "publisher": "Say Yayınları",
+        "isbn": "9786050201277",
+        "translators": [
+          "Ümit Hüsrev Yolsal"
+        ]
+      }
+    },
+    "spqr": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-014",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786052993897",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-014",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=SPQR+Antik+Roma+Tarihi",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "SPQR: Antik Roma Tarihi",
+        "publisher": "Pegasus Yayınları",
+        "isbn": "9786052993897",
+        "translators": [
+          "İrem Sağlamer"
+        ]
+      }
+    },
+    "discourses": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-014",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786054498833",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-014",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=S%C3%B6ylevler+Epiktetos",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Söylevler",
+        "publisher": "Şule Yayınları",
+        "isbn": "9786054498833",
+        "translators": [
+          "Yahya Kurtkaya"
+        ]
+      }
+    },
+    "epistulaemoralesadlucilium": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-014",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786058259393",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-014",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=Ahlak+Mektuplar%C4%B1+Seneca",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Ahlak Mektupları",
+        "publisher": "Jaguar Kitap",
+        "isbn": "9786058259393",
+        "translators": [
+          "Türkan Uzel"
+        ]
+      }
+    },
+    "dialecticalimagination": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-015",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/diyalektik-imgelem-frankfurt-okulunun-tarihi-ve-calismalari-19231950/350168.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-015",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.ayrintiyayingrubu.com/urun/diyalektik-imgelem",
+            "type": "publisher"
+          },
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=Diyalektik+İmgelem",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Diyalektik İmgelem & Frankfurt Okulu'nun Tarihi ve Çalışmaları (1923-1950)",
+        "publisher": "Ayrıntı Yayınları",
+        "isbn": "9789755399454",
+        "translators": [
+          "Sevgi Doğan"
+        ],
+        "year": 2014
+      }
+    },
+    "sociology": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-015",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/sosyoloji-8-edisyon/105993.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-015",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=Sosyoloji%20Giddens%20Sutton",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=Sosyoloji+Giddens",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Sosyoloji (8. Edisyon)",
+        "publisher": "Kırmızı Yayınları",
+        "isbn": "9786058053618",
+        "translators": [],
+        "year": 2021
+      }
+    },
+    "капитанскаядочка": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-016",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/kitap/yuzbasinin-kizi/edebiyat/roman/dunya-klasik/urunno=0000000640173",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-016",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=9789750517310",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Yüzbaşının Kızı",
+        "publisher": "İletişim Yayınları",
+        "isbn": "9789750517310",
+        "translators": [
+          "Ergin Altay"
+        ],
+        "year": 2015
+      }
+    },
+    "шинель": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-016",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/palto/414637.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-016",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786053756255",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=9786053756255",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Palto",
+        "publisher": "İthaki Yayınları",
+        "isbn": "9786053756255",
+        "translators": [
+          "Serdar Arıkan"
+        ],
+        "year": 2019
+      }
+    },
+    "отцыидети": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-016",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/kitap/babalar-ve-ogullar-hasan-ali-yucel-klasikleri/edebiyat/roman/dunya-klasik/urunno=0000000289443",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-016",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=9789944885454",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Babalar ve Oğullar",
+        "publisher": "Türkiye İş Bankası Kültür Yayınları",
+        "isbn": "9789944885454",
+        "translators": [],
+        "year": 2009
+      }
+    },
+    "nineteeneightyfour": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-016",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/kitap/1984/george-orwell/edebiyat/roman/dunya-roman/urunno=0000000064038",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-016",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=9789750718533",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "1984",
+        "publisher": "Can Yayınları",
+        "isbn": "9789750718533",
+        "translators": [
+          "Celal Üster"
+        ],
+        "year": 2000
+      }
+    },
+    "bushidothesoulofjapan": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-016",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/busido-japonyanin-ruhu/642193.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-016",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786258361230",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Buşido & Japonya'nın Ruhu",
+        "publisher": "Maya Kitap",
+        "isbn": "9786258361230",
+        "translators": [
+          "Selvi Danacı"
+        ],
+        "year": 2023
+      }
+    },
+    "littlehistoryofscience": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-o-016",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/bilimin-kisa-tarihi-buyuk-patlamadan-dijital-caga/512933.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-o-016",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786051719719",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Bilimin Kısa Tarihi",
+        "publisher": "Alfa Yayınları",
+        "isbn": "9786051719719",
+        "translators": [],
+        "year": 2019
+      }
+    },
+    "sixsigmaway": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-001",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/kitap/six-sigma-yolu/peter-s-pande/egitim-ve-sinav-kitaplari/akademik-kitaplar/isletme-is-idaresi/urunno=0000000139816",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.kitapyurdu.com/kitap/six-sigma-yolu/282294.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-001",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.idefix.com/Arama/?q=six%20sigma%20yolu",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Six Sigma Yolu",
+        "publisher": "Klan Yayınları",
+        "isbn": "9789756388006",
+        "translators": [
+          "Nafiz Güder",
+          "Güneş Tokcan"
+        ],
+        "year": 2003
+      }
+    },
+    "howtoliewithstatistics": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-005",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/istatistik-ile-nasil-yalan-soylenir/489899.html",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.dr.com.tr/kitap/istatistik-ile-nasil-yalan-soylenir/bilim/populer-bilim/urunno=0001803621001",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.pandora.com.tr/kitap/istatistik-ile-nasil-yalan-soylenir/282353",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-005",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.idefix.com/Arama/?q=Darrell%20Huff",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "İstatistik ile Nasıl Yalan Söylenir?",
+        "publisher": "Urzeni Yayıncılık",
+        "isbn": "9786257221207",
+        "translators": [
+          "Işıtan Gündüz"
+        ],
+        "year": 2019
+      }
+    },
+    "innovationandentrepreneurship": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-006",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/inovasyon-ve-girisimcilik-uygulama-ve-ilkeler/413356.html",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.nadirkitap.com/inovasyon-ve-girisimcilik-uygulama-ve-ilkeler-ciltli-peter-drucker-kitap31733431.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-006",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786053223382",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "İnovasyon ve Girişimcilik - Uygulama ve İlkeler",
+        "publisher": "Optimist Yayım Dağıtım",
+        "isbn": "9786053223382",
+        "translators": [
+          "İlker Gülfıdan"
+        ],
+        "year": 2017
+      }
+    },
+    "iwillteachyoutoberich": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-006",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/nasil-zengin-olunur/690201.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-006",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786254145858",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Nasıl Zengin Olunur?",
+        "publisher": "Epsilon Yayınevi",
+        "isbn": "9786254145858",
+        "translators": [
+          "Ahmet Şahinaslan"
+        ],
+        "year": 2024
+      }
+    },
+    "aguidetothegoodlife": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-007",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.iskultur.com.tr/guzel-yasam-kilavuzu-antik-stoaci-sevinc-sanati.aspx",
+            "type": "publisher"
+          },
+          {
+            "url": "https://www.amazon.com.tr/G%C3%BCzel-Ya%C5%9Fam-K%C4%B1lavuzu-Stoac%C4%B1-de%C4%9Fi%C5%9Febilir/dp/625405938X",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-007",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/kitap/guzel-yasam-kilavuzu-antik-stoaci-sevinc-sanati/william-b-irvine/felsefe/felsefe-bilimi/urunno=0001969189001",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.okurkitap.com/urun/guzel-yasam-kilavuzu-antik-stoaci-sevinc-sanati-william-b-irvine-9786254059384",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Güzel Yaşam Kılavuzu: Antik Stoacı Sevinç Sanatı",
+        "publisher": "Türkiye İş Bankası Kültür Yayınları",
+        "isbn": "9786254059384",
+        "translators": [
+          "K. Orkun Çatık"
+        ],
+        "year": 2022
+      }
+    },
+    "empireofai": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-009",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/yapay-zeka-imparatorlugu/765091.html",
+            "type": "retailer"
+          },
+          {
+            "url": "https://bianet.org/haber/karen-hao-ile-yapay-zeka-imparatorlugu-uzerine-310644",
+            "type": "bibliographic"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-009",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.optimistkitap.com/urun/yapay-zeka-imparatorlugu",
+            "type": "publisher"
+          },
+          {
+            "url": "https://www.dr.com.tr/kitap/yapay-zeka-imparatorlugu-sam-altmanin-openadaki-hayalleri-ve-kabuslari/karen-hao/bilim/populer-bilim/urunno=0002241088001",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Yapay Zeka İmparatorluğu",
+        "publisher": "Optimist Kitap",
+        "isbn": "9786052189825",
+        "translators": [
+          "Taner Gezer"
+        ],
+        "year": 2026
+      }
+    },
+    "enshittification": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-009",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/ensitifikasyon/767587.html",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.kitapyurdu.com/yazar/cory-doctorow/74031.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-009",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/kitap/ensitifikasyon-her-sey-neden-boka-sardi-ve-bu-konuda-ne-yapmali/cory-doctorow/bilim/populer-bilim/urunno=0002244098001",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Enşitifikasyon",
+        "publisher": "Okuyan Us Yayın",
+        "isbn": "9786255634825",
+        "translators": [
+          "Erkam Evlice"
+        ],
+        "year": 2026
+      }
+    },
+    "geniusmyth": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-009",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/deha-denen-mit-isyancilarin-canavarlarin-ve-kural-tanimazlarin-tehlikeli-cazibesi/746439.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-009",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/kitap/deha-denen-mit-isyancilarin-canavarlarin-ve-kural-tanimazlarin-tehlikeli-cazibesi/helen-lewis/edebiyat/edebiyat-inceleme/urunno=0002213547001",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Deha Denen Mit - İsyancıların, Canavarların ve Kural Tanımazların Tehlikeli Cazibesi",
+        "publisher": "Yapı Kredi Yayınları",
+        "isbn": "9789750867613",
+        "translators": [
+          "Ali Karatay"
+        ],
+        "year": 2026
+      }
+    },
+    "supremacy": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-009",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/ustunluk-yapay-zeka-chatgpt-ve-dunyanin-kaderini-degistirecek-yaris/761995.html",
+            "type": "retailer"
+          },
+          {
+            "url": "https://arastirma.toplukatalog.tr/index.php?_f=1&command=Tara&cwid=2&keyword=Olson+Supremacy&order=0&the_page=1&tokat_search_field=1",
+            "type": "national-bibliography"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-009",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/kitap/ustunluk-yapay-zeka-chatgpt-ve-dunyanin-kaderini-degistirecek-yaris/parmy-olson/bilim/populer-bilim/urunno=0002235477001",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Üstünlük & Yapay Zeka, ChatGPT ve Dünyanın Kaderini Değiştirecek Yarış",
+        "publisher": "Phoenix Yayınevi",
+        "isbn": "9786057789853",
+        "translators": [
+          "Kadife Kavram"
+        ],
+        "year": 2026
+      }
+    },
+    "corporationinthetwentyfirstcentury": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-009",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/21inci-yuzyil-sirketi/745523.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-009",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/kitap/21inci-yuzyil-sirketi/john-kay/basvuru/is-ekonomi-hukuk/yonetim-is-gelistirme-kalite/urunno=0002211472001",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "21'inci Yüzyıl Şirketi",
+        "publisher": "Optimist Kitap",
+        "isbn": "9786254345524",
+        "translators": [
+          "Ümit Şensoy"
+        ],
+        "year": 2026
+      }
+    },
+    "tribal": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-010",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/kabile-bizi-ayiran-kulturel-icguduler-bir-araya-gelmemizi-de-saglayabilir-mi/760404.html",
+            "type": "retailer"
+          },
+          {
+            "url": "https://domingo.com.tr/products/kabile-bizi-ayiran-kulturel-icguduler-bir-araya-gelmemizi-de-saglayabilir-mi",
+            "type": "publisher"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-010",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.idefix.com/Arama/?q=Kabile+Michael+Morris",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.kirkusreviews.com/book-reviews/michael-morris/tribal/",
+            "type": "bibliographic"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Kabile: Bizi Ayıran Kültürel İçgüdüler Bir Araya Gelmemizi de Sağlayabilir mi?",
+        "publisher": "Domingo Yayınevi",
+        "isbn": "9786051984391",
+        "translators": [
+          "Ramazan Kılınç"
+        ],
+        "year": 2026
+      }
+    },
+    "elonmusk-walterisaacson": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-011",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/elon-musk/703743.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-011",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=Elon%20Musk%20Isaacson",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Elon Musk",
+        "publisher": "Nepal Kitap",
+        "isbn": "9786256149397",
+        "translators": [
+          "Tufan Göbekçin"
+        ],
+        "year": 2025
+      }
+    },
+    "comingwave": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-011",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/yaklasan-dalga-teknoloji-guc-ve-21yuzyilin-en-buyuk-ikilemi/684522.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-011",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dogankitap.com.tr/kitap/yaklasan-dalga",
+            "type": "publisher"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Yaklaşan Dalga - Teknoloji, Güç ve 21.Yüzyılın En Büyük İkilemi",
+        "publisher": "Doğan Kitap",
+        "isbn": "9786256666504",
+        "translators": [],
+        "year": 2024
+      }
+    },
+    "bloodinthemachine": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-011",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/makinedeki-kan-buyuk-teknolojiye-isyanin-kokenleri/689680.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-011",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=Brian%20Merchant",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Makinedeki Kan & Büyük Teknolojiye İsyanın Kökenleri",
+        "publisher": "Elma Yayınevi",
+        "isbn": "9786257112932",
+        "translators": [
+          "Zafer Parlak"
+        ],
+        "year": 2024
+      }
+    },
+    "powerandprogress": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-011",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/iktidar-ve-teknoloji/664866.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-011",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=%C4%B0ktidar%20ve%20Teknoloji%20Acemoglu",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "İktidar ve Teknoloji",
+        "publisher": "Doğan Kitap",
+        "isbn": "9786256570207",
+        "translators": [
+          "Cem Duran"
+        ],
+        "year": 2023
+      }
+    },
+    "caseforgoodjobs": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-012",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/kitap/iyi-isler-uygulamasi/basvuru/is-ekonomi-hukuk/yonetim-is-gelistirme-kalite/urunno=0002151245001",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.bkmkitap.com/iyi-isler-uygulamasi-harika-sirketler-herkesin-isine-nasil-onur-anlam-ve-kazanc-katar",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-012",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.idefix.com/Arama/?q=Zeynep+Ton",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "İyi İşler Uygulaması",
+        "publisher": "The Kitap",
+        "isbn": "9786256182080",
+        "translators": [],
+        "year": 2024
+      }
+    },
+    "empireofpain": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-013",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/aci-imparatorlugu-sackler-hanedaninin-gizli-tarihi/701490.html",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.dr.com.tr/kitap/aci-imparatorlugu-sackler-hanedaninin-gizli-tarihi/basvuru/is-ekonomi-hukuk/is-adamlari/urunno=0002151948001",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-013",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://domingo.com.tr/search?q=aci+imparatorlugu",
+            "type": "publisher"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Acı İmparatorluğu: Sackler Hanedanı'nın Gizli Tarihi",
+        "publisher": "Domingo Yayınevi",
+        "isbn": "9786051983608",
+        "translators": [
+          "Ezgi Başer Akgürgen"
+        ],
+        "year": 2024
+      }
+    },
+    "newclimatewar": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-013",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/yeni-iklim-savasi/634479.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-013",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=Yeni%20Iklim%20Savasi%20Mann",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Yeni İklim Savaşı",
+        "publisher": "Şira Yayınları",
+        "isbn": "9786057977410",
+        "translators": [
+          "Funda Bayrak"
+        ],
+        "year": 2022
+      }
+    },
+    "worldforsale": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-013",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/satilik-dunya-para-guc-ve-yeryuzu-kaynaklarini-takas-eden-tuccarlar/758612.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-013",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=Satilik%20Dunya%20Blas%20Farchy",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Satılık Dünya & Para, Güç ve Yeryüzü Kaynaklarını Takas Eden Tüccarlar",
+        "publisher": "Turkuvaz Kitap",
+        "isbn": "9786256548114",
+        "translators": [
+          "Altuğ Sami İçilensu"
+        ],
+        "year": 2026
+      }
+    },
+    "netpositive": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-014",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/net-pozitif/642312.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-014",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=Net%20Pozitif%20Polman",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Net Pozitif",
+        "publisher": "Scala Yayıncılık",
+        "isbn": "9786258177671",
+        "translators": [
+          "Kolektif"
+        ],
+        "year": 2023
+      }
+    },
+    "noise": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-014",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=Kahneman%20G%C3%BCr%C3%BClt%C3%BC",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-014",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=G%C3%BCr%C3%BClt%C3%BC%20Kahneman",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Gürültü & İnsan Yargısında Hata",
+        "publisher": "Pegasus Yayınları",
+        "isbn": "",
+        "translators": [],
+        "isbnUnavailable": true,
+        "year": 2023
+      }
+    },
+    "nofilter": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-014",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/filtresiz-instagram-is-dunyasini-sohreti-ve-kulturu-nasil-donusturdu/586552.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-014",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=Sarah%20Frier",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Filtresiz: Instagram İş Dünyasını, Şöhreti ve Kültürü Nasıl Dönüştürdü",
+        "publisher": "Nova Kitap",
+        "isbn": "9786057454089",
+        "translators": [
+          "Burhan Yüksekkaş"
+        ],
+        "year": 2021
+      }
+    },
+    "aworldwithoutwork": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-014",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/calisilmayan-bir-dunya/574170.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-014",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=%C3%87al%C4%B1%C5%9F%C4%B1lmayan%20Bir%20D%C3%BCnya",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Çalışılmayan Bir Dünya",
+        "publisher": "Optimist Kitap",
+        "isbn": "9786257804073",
+        "translators": [
+          "Taner Gezer"
+        ],
+        "year": 2021
+      }
+    },
+    "deathsofdespair": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-014",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/umutsuzluktan-olmek-ve-kapitalizmin-gelecegi/674986.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-014",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=Umutsuzluktan%20%C3%96lmek",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Umutsuzluktan Ölmek ve Kapitalizmin Geleceği",
+        "publisher": "Dergah Yayınları",
+        "isbn": "9786256839151",
+        "translators": [
+          "Bilge Özensoy"
+        ],
+        "year": 2024
+      }
+    },
+    "norulesrules": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-015",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/kuralsizlik-kuraldir-netflix-ve-kultur-degisimi/665304.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-015",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.idefix.com/Arama/?q=Kuralsizlik+Kuraldir",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Kuralsızlık Kuraldır: Netflix ve Kültür Değişimi",
+        "publisher": "CEO Plus",
+        "isbn": "9786258026115",
+        "translators": [
+          "Murat Karlıdağ"
+        ],
+        "year": 2023
+      }
+    },
+    "reimaginingcapitalism": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-015",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/kaos-icindeki-dunyada-kapitalizmi-yeniden-tasarlamak/628036.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-015",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.idefix.com/Arama/?q=Kapitalizmi+Yeniden+Tasarlamak",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Kaos İçindeki Dünyada Kapitalizmi Yeniden Tasarlamak",
+        "publisher": "Timaş Yayınları",
+        "isbn": "9786050845938",
+        "translators": [
+          "Kardelen Damla Başaran"
+        ],
+        "year": 2022
+      }
+    },
+    "samsungrising": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-015",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/samsungun-yukselisis/628276.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-015",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.idefix.com/Arama/?q=Samsungun+Yukselisi",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Samsung'un Yükselişi",
+        "publisher": "Nova Kitap",
+        "isbn": "9786258489477",
+        "translators": [
+          "Uğur Gülsün"
+        ],
+        "year": 2022
+      }
+    },
+    "invisiblewomen": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-016",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/kitap/gorunmez-kadinlar/egitim-basvuru/aile-cocuk/kadin-erkek-iliskisi/urunno=0001912120001",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-016",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=Gorunmez+Kadinlar",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Görünmez Kadınlar",
+        "publisher": "Epsilon Yayınevi",
+        "isbn": "9786051738796",
+        "translators": [
+          "Mine Şengel"
+        ],
+        "year": 2021
+      }
+    },
+    "range": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-016",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/kitap/cok-yonlu-basari-icin-neden-cok-seyle-ilgilenmeliyiz/david-epstein/egitim-basvuru/kisisel-gelisim/urunno=0001891324001",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.canyayinlari.com/cok-yonlu-9786050671353",
+            "type": "publisher"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-016",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=Cok+Yonlu+Epstein",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Çok Yönlü: Başarı İçin Neden Çok Şeyle İlgilenmeliyiz?",
+        "publisher": "Mundi (Can Yayınları)",
+        "isbn": "9786050671353",
+        "translators": [
+          "Erhun Yücesoy"
+        ],
+        "year": 2020
+      }
+    },
+    "ageofsurveillancecapitalism": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-016",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://okuyanus.com.tr/urun/gozetleme-kapitalizmi-cagi/",
+            "type": "publisher"
+          },
+          {
+            "url": "https://www.kitapyurdu.com/kitap/gozetleme-kapitalizmi-cagi/594488.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-016",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=Gozetleme+Kapitalizmi",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Gözetleme Kapitalizmi Çağı: Ürünün \"Sen\" Olduğu Çağda İnsanın Geleceği İçin Savaş",
+        "publisher": "Okuyan Us Yayınevi",
+        "isbn": "9786257344234",
+        "translators": [
+          "Tolga Uzunçelebi"
+        ],
+        "year": 2021
+      }
+    },
+    "humancompatible": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-016",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/insanlik-icin-yapay-zeka-yapay-zeka-ve-kontrol-problemi/589125.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-016",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=Human+Compatible+Stuart+Russell",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "İnsanlık için Yapay Zeka: Yapay Zeka ve Kontrol Problemi",
+        "publisher": "Buzdağı Yayınları",
+        "isbn": "9786050624830",
+        "translators": [
+          "Barış Satılmış"
+        ],
+        "year": 2021
+      }
+    },
+    "badblood": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-017",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/kotu-kan-bir-silikon-vadisi-girisimindeki-sirlar-ve-yalanlar/541559.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-017",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/kitap/kotu-kan-bir-silikon-vadisi-girisimindeki-sirlar-ve-yalanlar/john-carreyrou/edebiyat/roman/dunya-roman/urunno=0001874752001",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Kötü Kan: Bir Silikon Vadisi Girişimindeki Sırlar ve Yalanlar",
+        "publisher": "Buzdağı Yayınları",
+        "isbn": "9786056902499",
+        "translators": [
+          "Barış Satılmış",
+          "Mehmet Mazı"
+        ],
+        "year": 2020
+      }
+    },
+    "valueofeverything": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-017",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/her-seyin-degeri-kuresel-ekonomide-uretenler-ve-el-koyanlar/552446.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-017",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/kitap/her-seyin-degeri-kuresel-ekonomide-uretenler-ve-el-koyanlar/mariana-mazzucato/egitim-ve-sinav-kitaplari/akademik-kitaplar/iktisat-ekonomi/urunno=0001886239001",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Her Şeyin Değeri: Küresel Ekonomide Üretenler ve El Koyanlar",
+        "publisher": "Koç Üniversitesi Yayınları",
+        "isbn": "9786057685421",
+        "translators": [
+          "Esin Soğancılar"
+        ],
+        "year": 2020
+      }
+    },
+    "brotopia": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-017",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/brotopya/534445.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-017",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/kitap/brotopya/egitim-basvuru/is-ekonomi-hukuk/yonetim-is-gelistirme-kalite/urunno=0001865229001",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Brotopya",
+        "publisher": "MediaCat Kitapları",
+        "isbn": "9786052314326",
+        "translators": [
+          "Ümit Şensoy"
+        ],
+        "year": 2020
+      }
+    },
+    "crashed": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-017",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/cokus-finansal-krizlerle-dolu-bir-on-yil-dunyayi-nasil-degistirdi/578095.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-017",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/kitap/cokus-finansal-krizlerle-dolu-bir-on-yil-dunyayi-nasil-degistirdi/adam-tooze/egitim-ve-sinav-kitaplari/akademik-kitaplar/isletme-is-idaresi/urunno=0001914345001",
+            "type": "retailer"
+          },
+          {
+            "url": "https://openlibrary.org/search.json?q=Crashed+Adam+Tooze&fields=title,author_name,first_publish_year,publisher,language",
+            "type": "bibliographic"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Çöküş: Finansal Krizlerle Dolu Bir On Yıl Dünyayı Nasıl Değiştirdi?",
+        "publisher": "VakıfBank Kültür Yayınları",
+        "isbn": "9786057947949",
+        "translators": [
+          "Ahmet Fethi Yıldırım"
+        ],
+        "year": 2021
+      }
+    },
+    "factfulness": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-018",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/factfulness-dunya-hakkinda-yanilmamizin-on-nedeni-ve-neden-her-sey-aslinda-sandiginizdan-daha-iyi-ciltli/516260.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-018",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=Factfulness",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.dr.com.tr/search?q=Factfulness+Rosling",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Factfulness: Dünya Hakkında Yanılmamızın On Nedeni ve Neden Her Şey Aslında Sandığınızdan Daha İyi",
+        "publisher": "Pegasus Yayınları",
+        "isbn": "9786052997451",
+        "translators": [],
+        "year": 2019
+      }
+    },
+    "greatleveler": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-018",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/buyuk-duzleyici-tas-devrinden-bugune-siddet-ve-esitsizligin-tarihi/670287.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-018",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=B%C3%BCy%C3%BCk+D%C3%BCzleyici+Scheidel",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Büyük Düzleyici: Taş Devri'nden Bugüne Şiddet ve Eşitsizliğin Tarihi",
+        "publisher": "Fol Kitap",
+        "isbn": "9786256584266",
+        "translators": [
+          "S. Erdem Türközü"
+        ],
+        "year": 2024
+      }
+    },
+    "doughnuteconomics": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-019",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/simit-ekonomisi-21yuzyil-iktisatcisi-gibi-dusunmenin-yedi-yolu/512660.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-019",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=Kate%20Raworth",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=Kate+Raworth",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Simit Ekonomisi: 21.Yüzyıl İktisatçısı Gibi Düşünmenin Yedi Yolu",
+        "publisher": "Tellekt",
+        "isbn": "9789750740978",
+        "translators": [
+          "Akın Emre Pilgir"
+        ],
+        "year": 2019
+      }
+    },
+    "gravenewworld": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-019",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/kuresellesmenin-sonu-kasvetli-yeni-dunya-tarihin-nihai-savasi/494816.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-019",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=Stephen+D.+King",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Küreselleşmenin Sonu & Kasvetli Yeni Dünya, Tarihin Nihai Savaşı",
+        "publisher": "Profil Kitap",
+        "isbn": "9786057525383",
+        "translators": [
+          "M. Murtaza Özeren"
+        ],
+        "year": 2019
+      }
+    },
+    "wisdomoffinance": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-019",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/finans-bilgeligi-risk-ve-getiri-dunyasinda-insanligi-kesfetmek/689586.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-019",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=Mihir%20Desai",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Finans Bilgeliği & Risk ve Getiri Dünyasında İnsanlığı Keşfetmek",
+        "publisher": "CEO Plus",
+        "isbn": "",
+        "translators": [],
+        "isbnUnavailable": true,
+        "year": 2024
+      }
+    },
+    "100yearlife": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-020",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=100%20Y%C4%B1ll%C4%B1k%20Ya%C5%9Fam",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.kitapyurdu.com/kitap/100-yillik-yasam/460740.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-020",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=100%20Y%C4%B1ll%C4%B1k%20Ya%C5%9Fam",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "100 Yıllık Yaşam",
+        "publisher": "Scala Yayıncılık",
+        "isbn": "",
+        "translators": [
+          "Canan Feyyat"
+        ],
+        "isbnUnavailable": true,
+        "year": 2018
+      }
+    },
+    "riseoftherobots": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-021",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/robotlarin-yukselisi-yapay-zeka-ve-issiz-bir-gelecek-tehlikesi/460808.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-021",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=Robotlar%C4%B1n%20Y%C3%BCkseli%C5%9Fi",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Robotların Yükselişi Yapay Zeka ve İşsiz Bir Gelecek Tehlikesi",
+        "publisher": "Kronik Kitap",
+        "isbn": "9789752430525",
+        "translators": [
+          "Cem Duran"
+        ],
+        "year": 2018
+      }
+    },
+    "howmusicgotfree": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-021",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/bedava-muzik-bir-mucit-bir-patron-ve-bir-hirsiz-muzik-endustrisini-nasil-altust-etti/533775.html",
+            "type": "retailer"
+          },
+          {
+            "url": "https://openlibrary.org/search.json?q=How+Music+Got+Free+Stephen+Witt&fields=title,first_publish_year,publisher,language,author_name",
+            "type": "bibliographic"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-021",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786056956157",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Bedava Müzik - Bir Mucit, Bir Patron ve Bir Hırsız Müzik Endüstrisini Nasıl Altüst Etti?",
+        "publisher": "Mundi",
+        "isbn": "9786056956157",
+        "translators": [
+          "Ergin Özler"
+        ],
+        "year": 2020
+      }
+    },
+    "misbehaving": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-021",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/akilli-insanlarin-mantiksiz-kararlari/518802.html",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.dr.com.tr/search?q=Richard%20Thaler",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-021",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=Richard%20Thaler",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Akıllı İnsanların Mantıksız Kararları",
+        "publisher": "Pegasus Yayınları",
+        "isbn": "9786052997932",
+        "translators": [
+          "Zafer Akın"
+        ],
+        "year": 2019
+      }
+    },
+    "elonmusk-ashleevance": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-021",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/elon-musk-tesla-spacex-ve-muhtesem-gelecegin-pesinde/391704.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-021",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=Elon%20Musk%20Ashlee%20Vance",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Elon Musk & Tesla, Spacex ve Muhteşem Geleceğin Peşinde",
+        "publisher": "Buzdağı Yayınları",
+        "isbn": "9786056685842",
+        "translators": [],
+        "year": 2020
+      }
+    },
+    "hallofmirrors": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-021",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/kitap/aynali-salon/barry-eichengreen/egitim-ve-sinav-kitaplari/akademik-kitaplar/iktisat-ekonomi/urunno=0000000725065",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-021",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=Aynal%C4%B1%20Salon%20Eichengreen",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Aynalı Salon",
+        "publisher": "Efil Yayınevi",
+        "isbn": "9786054160747",
+        "translators": [
+          "Abdullah Cemal Balcı"
+        ],
+        "year": 2016
+      }
+    },
+    "phishingforphools": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-022",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/sazan-avi-manipulasyon-ve-hile-ekonomisi/416849.html",
+            "type": "retailer"
+          },
+          {
+            "url": "https://openlibrary.org/isbn/9786054584949.json",
+            "type": "bibliographic"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-022",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://isbnsearch.org/isbn/9786054584949",
+            "type": "bibliographic"
+          },
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=Sazan+Av%C4%B1",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Sazan Avı & Manipülasyon ve Hile Ekonomisi",
+        "publisher": "MediaCat Kitapları",
+        "isbn": "9786054584949",
+        "translators": [
+          "Taner Gezer"
+        ],
+        "year": 2017
+      }
+    },
+    "capitalinthetwentyfirstcentury": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-022",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/yirmi-birinci-yuzyilda-kapital-ciltli/351496.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-022",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://isbnsearch.org/isbn/9786053322771",
+            "type": "bibliographic"
+          },
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=Yirmi+Birinci+Y%C3%BCzy%C4%B1lda+Kapital",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Yirmi Birinci Yüzyılda Kapital",
+        "publisher": "Türkiye İş Bankası Kültür Yayınları",
+        "isbn": "9786053322771",
+        "translators": [
+          "Hande Koçak"
+        ],
+        "year": 2014
+      }
+    },
+    "creativityinc": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-022",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/yaraticilik-as/387378.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-022",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://isbnsearch.org/isbn/9786050932607",
+            "type": "bibliographic"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Yaratıcılık A.Ş.",
+        "publisher": "Doğan Novus",
+        "isbn": "9786050932607",
+        "translators": [
+          "Bahar Çelik"
+        ],
+        "year": 2016
+      }
+    },
+    "secondmachineage": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-022",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/the-second-machine-age-akilli-teknolojiler-devrinde-calisma-ilerleme-ve-refah/374370.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-022",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://isbnsearch.org/isbn/9786052202067",
+            "type": "bibliographic"
+          },
+          {
+            "url": "https://www.dr.com.tr/search?q=%C4%B0kinci%20Makine%20%C3%87a%C4%9F%C4%B1",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "İkinci Makine Çağı - Akıllı Teknolojiler Devrinde Çalışma, İlerleme ve Refah",
+        "publisher": "Türk Hava Yolları Yayınları",
+        "isbn": "9786052202067",
+        "translators": [
+          "Levent Göktem"
+        ],
+        "year": 2018
+      }
+    },
+    "flashboys": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-022",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/hizli-cocuklar-bir-wall-street-isyani/360879.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-022",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://isbnsearch.org/isbn/9786054650453",
+            "type": "bibliographic"
+          },
+          {
+            "url": "https://www.dr.com.tr/search?q=H%C4%B1zl%C4%B1%20Çocuklar%20Wall%20Street",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Hızlı Çocuklar - Bir Wall Street İsyanı",
+        "publisher": "Scala Yayıncılık",
+        "isbn": "9786054650453",
+        "translators": [],
+        "year": 2016
+      }
+    },
+    "innovators": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-023",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/gelecegi-kesfedenler-dijital-cagin-biyografisi/416958.html",
+            "type": "retailer"
+          },
+          {
+            "url": "https://openlibrary.org/search.json?q=The+Innovators+Walter+Isaacson&fields=title,author_name,first_publish_year,publisher,language",
+            "type": "bibliographic"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-023",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/gelecegi-kesfedenler",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.dr.com.tr/search?q=Geleceği%20Keşfedenler%20Isaacson",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Geleceği Keşfedenler & Dijital Çağın Biyografisi",
+        "publisher": "Domingo Yayınevi",
+        "isbn": "9786054729852",
+        "translators": [
+          "Duygu Dalgakıran"
+        ],
+        "year": 2017
+      }
+    },
+    "everythingstore": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-023",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/aradigin-her-sey-jeff-bezos-ve-amazon-cagi/414224.html",
+            "type": "retailer"
+          },
+          {
+            "url": "https://openlibrary.org/isbn/9786052990742.json",
+            "type": "bibliographic"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-023",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=Aradığın%20Her%20Şey%20Bezos",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Aradığın Her Şey: Jeff Bezos ve Amazon Çağı",
+        "publisher": "Pegasus",
+        "isbn": "9786052990742",
+        "translators": [
+          "Osman Bulut"
+        ],
+        "year": 2017
+      }
+    },
+    "leanin": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-023",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/lean-in-sinirlarini-zorla-kadinlar-is-ve-liderlik-istegi/328503.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-023",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.idefix.com/Arama/?q=Lean+In+Sandberg",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Lean In: Sınırlarını Zorla & Kadınlar, İş ve Liderlik İsteği",
+        "publisher": "CEO PLUS",
+        "isbn": "9786050918441",
+        "translators": [
+          "Zeynep Yılmaz"
+        ],
+        "year": 2017
+      }
+    },
+    "howasiaworks": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-024",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=Joe%20Studwell",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-024",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=Joe%20Studwell",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.dr.com.tr/search?q=Asya%20Nas%C4%B1l%20Ba%C5%9Fard%C4%B1",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Asya Nasıl Başardı? & Dünyanın En Dinamik Bölgesinden Dersler",
+        "publisher": "Scala Yayıncılık",
+        "isbn": "",
+        "translators": [],
+        "isbnUnavailable": true,
+        "year": 2024
+      }
+    },
+    "endofpower": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-024",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=Moises%20Naim",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-024",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=G%C3%BCc%C3%BCn%20Sonu%20Naim",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Gücün Sonu",
+        "publisher": "Pozitif Yayınları",
+        "isbn": "",
+        "translators": [],
+        "isbnUnavailable": true,
+        "year": 2018
+      }
+    },
+    "greatescape": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-024",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=Angus%20Deaton",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-024",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=B%C3%BCy%C3%BCk%20Firar%20Deaton",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Büyük Firar & Sağlık, Varlık ve Eşitsizliğin Kökenleri",
+        "publisher": "Ayrıntı Yayınları",
+        "isbn": "",
+        "translators": [],
+        "isbnUnavailable": true,
+        "year": 2018
+      }
+    },
+    "stevejobs": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-024",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=Steve%20Jobs%20Walter%20Isaacson",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.dr.com.tr/search?q=Steve%20Jobs%20Walter%20Isaacson%20Domingo",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-024",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=Steve%20Jobs%20Isaacson",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Steve Jobs",
+        "publisher": "Domingo Yayınevi",
+        "isbn": "",
+        "translators": [],
+        "isbnUnavailable": true
+      }
+    },
+    "whynationsfail": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-025",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=Ulusların+Düşüşü+Acemoglu",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-025",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=Ulusların+Düşüşü",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.dr.com.tr/search?q=Uluslarin+Dususu+Acemoglu",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Ulusların Düşüşü",
+        "publisher": "Doğan Kitap",
+        "isbn": "",
+        "translators": [
+          "Solina Silahlı"
+        ],
+        "isbnUnavailable": true
+      }
+    },
+    "powerofhabit": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-026",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=Charles%20Duhigg",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.dr.com.tr/search?q=Al%C4%B1%C5%9Fkanl%C4%B1klar%C4%B1n%20G%C3%BCc%C3%BC%20Duhigg",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-026",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=Al%C4%B1%C5%9Fkanl%C4%B1klar%C4%B1n%20G%C3%BCc%C3%BC",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Alışkanlıkların Gücü",
+        "publisher": "Boyner Yayınları",
+        "isbn": "",
+        "translators": [],
+        "isbnUnavailable": true,
+        "year": 2017
+      }
+    },
+    "artofchoosing": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-027",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/secme-sanati/376356.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-027",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/kitap/secme-sanati/sheena-iyengar/egitim-basvuru/kisisel-gelisim/urunno=0000000664800",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Seçme Sanatı",
+        "publisher": "Say Yayınları",
+        "isbn": "9786050204704",
+        "translators": [
+          "Nurdan Soysal"
+        ],
+        "year": 2015
+      }
+    },
+    "free": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-029",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=Bedava%20Chris%20Anderson",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.kitapyurdu.com/kitap/bedava/243168.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-029",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786055655525",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Bedava",
+        "publisher": "Optimist Kitap",
+        "isbn": "9786055655525",
+        "translators": [
+          "Günseli Aksoy"
+        ],
+        "year": 2010
+      }
+    },
+    "supercorp": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-029",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=S%C3%BCper%20%C5%9Eirket%20Kanter",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.kitapyurdu.com/kitap/super-sirket/253521.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-029",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786055655808",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Süper Şirket",
+        "publisher": "Optimist Kitap",
+        "isbn": "9786055655808",
+        "translators": [
+          "Kıvanç Tanrıyar"
+        ],
+        "year": 2011
+      }
+    },
+    "ageofturbulence": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-031",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/turbulans-cagi/112036.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-031",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9789757004561",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Türbülans Çağı",
+        "publisher": "Boyner Yayınları",
+        "isbn": "9789757004561",
+        "translators": [
+          "Nilgün Miler"
+        ],
+        "year": 2008
+      }
+    },
+    "wikinomics": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-031",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/vikinomi/102742.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-031",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9789944383615",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Vikinomi",
+        "publisher": "MediaCat Kitapları",
+        "isbn": "9789944383615",
+        "translators": [
+          "Deniz Boyraz"
+        ],
+        "year": 2007
+      }
+    },
+    "myselfandothermoreimportantmatters": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-032",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/ben-kalender-mesrebim/243855.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-032",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786055655563",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Ben Kalender Meşrebim",
+        "publisher": "Optimist Kitap",
+        "isbn": "9786055655563",
+        "translators": [
+          "Özlem Tüzel Akal"
+        ],
+        "year": 2010
+      }
+    },
+    "flow": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-035",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/akis-mutluluk-bilimi/424705.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-035",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://openlibrary.org/isbn/9786056685873.json",
+            "type": "bibliographic"
+          },
+          {
+            "url": "https://www.dr.com.tr/search?q=Ak%C4%B1%C5%9F+Mutluluk+Bilimi",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Akış: Mutluluk Bilimi",
+        "publisher": "Buzdağı Yayınları",
+        "isbn": "9786056685873",
+        "translators": [
+          "Barış Satılmış"
+        ],
+        "year": 2022
+      }
+    },
+    "giftsofimperfection": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-035",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/mukemmel-olmamanin-hediyeleri-olmaniz-gerektigini-ousundugunuz-kisiyi-birakin-oldugunuz-kisiyi-kucaklayin/294002.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-035",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://openlibrary.org/isbn/9786055524302.json",
+            "type": "bibliographic"
+          },
+          {
+            "url": "https://www.dr.com.tr/search?q=M%C3%BCkemmel+Olmaman%C4%B1n+Hediyeleri",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Mükemmel Olmamanın Hediyeleri: Olmanız Gerektiğini Düşündüğünüz Kişiyi Bırakın, Olduğunuz Kişiyi Kucaklayın",
+        "publisher": "Butik Yayıncılık",
+        "isbn": "9786055524302",
+        "translators": [],
+        "year": 2013
+      }
+    },
+    "swimwiththesharkswithoutbeingeatenalive": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-035",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/is-hayatinda-kopekbaliklariyla-yuzmek/17045.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-035",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=%C4%B0%C5%9F+Hayat%C4%B1nda+K%C3%B6pekbal%C4%B1klar%C4%B1yla+Y%C3%BCzmek",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "İş Hayatında Köpekbalıklarıyla Yüzmek",
+        "publisher": "Epsilon Yayınevi",
+        "isbn": "9789753310079",
+        "translators": [
+          "Hasan Çağlayan"
+        ],
+        "year": 2024
+      }
+    },
+    "first90days": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-035",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/ilk-90-gun-gecis-donemindeki-yoneticiler-icin-kanitlanmis-stratejiler/350002.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-035",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=%C4%B0lk+90+G%C3%BCn+Watkins",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "İlk 90 Gün: Geçiş Dönemindeki Yöneticiler İçin Kanıtlanmış Stratejiler",
+        "publisher": "Optimist Kitap",
+        "isbn": "9786052202159",
+        "translators": [
+          "Ümit Şensoy"
+        ],
+        "year": 2016
+      }
+    },
+    "ohtheplacesyoullgo": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-036",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/kitap/ah-nerelere-gideceksin-bir-bilsen/cocuk-ve-genclik/okul-cagi-6-10-yas/cocuk-kitaplari/urunno=0001819566001",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-036",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=Ah+Nerelere+Gideceksin",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Ah Nerelere Gideceksin Bir Bilsen!",
+        "publisher": "Epsilon Yayınevi",
+        "isbn": "9786051735863",
+        "translators": [],
+        "year": 2019
+      }
+    },
+    "execution": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-037",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=Execution+Bossidy",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=Execution+Mediacat",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-037",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.idefix.com/Arama/?q=Execution+%C4%B0%C5%9F+Yapt%C4%B1rabilme+Disiplini",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Execution & İş Yaptırabilme Disiplini",
+        "publisher": "MediaCat Kitapları",
+        "isbn": "",
+        "translators": [
+          "Nadir Özata"
+        ],
+        "isbnUnavailable": true,
+        "year": 2015
+      }
+    },
+    "sellingtheinvisible": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-037",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=Harry+Beckwith",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=Görünmeyeni+Satmak",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-037",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.idefix.com/Arama/?q=G%C3%B6r%C3%BCnmeyeni+Satmak",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Görünmeyeni Satmak",
+        "publisher": "Optimist Kitap",
+        "isbn": "",
+        "translators": [
+          "Ümit Şensoy"
+        ],
+        "isbnUnavailable": true,
+        "year": 2018
+      }
+    },
+    "experienceeconomy": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-037",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=Experience+Economy+Pine+Gilmore",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-037",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.idefix.com/Arama/?q=%C4%B0%C5%9F+Hayat%C4%B1+Bir+Tiyatro",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "İş Hayatı Bir Tiyatro",
+        "publisher": "Boyner Yayınları",
+        "isbn": "",
+        "translators": [
+          "Levent Cinemre"
+        ],
+        "isbnUnavailable": true,
+        "year": 1999
+      }
+    },
+    "purplecow": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-037",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=Mor+İnek+Seth+Godin",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-037",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.idefix.com/Arama/?q=Mor+%C4%B0nek+Seth+Godin",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Mor İnek",
+        "publisher": "MediaCat Kitapları",
+        "isbn": "",
+        "translators": [],
+        "isbnUnavailable": true,
+        "year": 2020
+      }
+    },
+    "tippingpoint": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-038",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=Tipping%20Point%20Gladwell",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.dr.com.tr/search?q=K%C4%B1v%C4%B1lc%C4%B1m%20An%C4%B1%20Gladwell",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-038",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapsepeti.com/arama?q=K%C4%B1v%C4%B1lc%C4%B1m%20An%C4%B1",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Kıvılcım Anı: Küçük Şeyler Nasıl Büyük Farklar Yaratır?",
+        "publisher": "MediaCat Kitapları",
+        "isbn": "",
+        "translators": [],
+        "isbnUnavailable": true,
+        "year": 2020
+      }
+    },
+    "sixthinkinghats": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-038",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=Alt%C4%B1%20%C5%9Eapkal%C4%B1%20D%C3%BC%C5%9F%C3%BCnme%20Tekni%C4%9Fi",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-038",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=Alt%C4%B1%20%C5%9Eapkal%C4%B1%20D%C3%BC%C5%9F%C3%BCnme%20Tekni%C4%9Fi",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Altı Şapkalı Düşünme Tekniği",
+        "publisher": "Remzi Kitabevi",
+        "isbn": "",
+        "translators": [],
+        "isbnUnavailable": true,
+        "year": 2021
+      }
+    },
+    "artofthestart20": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-039",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=Guy%20Kawasaki",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.kitapyurdu.com/kitap/kendi-isini-kurmak-isteyen-girisimcinin-el-kitabi/114527.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-039",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.idefix.com/Arama/?q=Guy+Kawasaki",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Kendi İşini Kurmak İsteyen Girişimcinin El Kitabı",
+        "publisher": "MediaCat Kitapları",
+        "isbn": "9789944383837",
+        "translators": [
+          "Dinç Tayanç"
+        ],
+        "year": 2023
+      }
+    },
+    "moneyball": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-040",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=Moneyball+Michael+Lewis",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-040",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=Moneyball%20Michael%20Lewis",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Kazanma Sanatı: Moneyball",
+        "publisher": "Nova Kitap",
+        "isbn": "",
+        "translators": [],
+        "isbnUnavailable": true,
+        "year": 2024
+      }
+    },
+    "strategymaps": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-042",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=Strateji+Haritalar%C4%B1+Kaplan+Norton",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.kitapyurdu.com/kitap/strateji-haritalari/85618.html",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-042",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9789752977563",
+            "type": "retailer"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Strateji Haritaları",
+        "publisher": "Alfa Yayınları",
+        "isbn": "9789752977563",
+        "translators": [],
+        "year": 2014
+      }
+    },
+    "masalmasalicinde": {
+      "status": "original",
+      "stage1": {
+        "decision": "original",
+        "reviewer": "claude-stage1-t-043",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/kitap/masal-masal/aytul-akal/cocuk-ve-genclik/okul-oncesi-6-ay-5-yas/masal-hikaye-kitaplari/urunno=0000000402651",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "original",
+        "reviewer": "claude-stage2-t-043",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=%22Masal+Masal+%C4%B0%C3%A7inde%22",
+            "type": "retailer"
+          },
+          {
+            "url": "https://tr.wikipedia.org/wiki/Ayt%C3%BCl_Akal",
+            "type": "bibliographic"
+          }
+        ]
+      },
+      "originalLanguage": "tr"
+    },
+    "dedekorkutcocukuyarlamasi": {
+      "status": "original",
+      "stage1": {
+        "decision": "original",
+        "reviewer": "claude-stage1-t-043",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=Dede%20Korkut%20Eflatun%20Cem%20G%C3%BCney",
+            "type": "retailer"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "original",
+        "reviewer": "claude-stage2-t-043",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=Dede%20Korkut%20Eflatun%20Cem%20G%C3%BCney",
+            "type": "retailer"
+          }
+        ]
+      },
+      "originalLanguage": "tr"
+    },
+    "thinkinginbets": {
+      "status": "available",
+      "stage1": {
+        "decision": "available",
+        "reviewer": "claude-stage1-t-045",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.kitapyurdu.com/kitap/bahse-var-misin/488467.html",
+            "type": "retailer"
+          },
+          {
+            "url": "https://openlibrary.org/search.json?q=Thinking+in+Bets+Annie+Duke&fields=title,publisher,first_publish_year,key,isbn",
+            "type": "bibliographic"
+          }
+        ]
+      },
+      "stage2": {
+        "decision": "available",
+        "reviewer": "claude-stage2-t-045",
+        "checkedAt": "2026-09-28",
+        "sources": [
+          {
+            "url": "https://www.abebooks.com/servlet/SearchResults?tn=Bahse+Var+misin&an=Duke",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.mediacat.com/bahse-var-misin",
+            "type": "publisher"
+          }
+        ]
+      },
+      "edition": {
+        "title": "Bahse Var mısın?",
+        "publisher": "MediaCat Kitapları",
+        "isbn": "9786052314142",
+        "translators": [
+          "Taner Gezer"
+        ],
+        "year": 2019
+      }
+    }
+  }
 }

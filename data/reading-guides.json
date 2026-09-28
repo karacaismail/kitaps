@@ -121,19 +121,65 @@
       "goal": "Rekabeti, kaynakları ve seçimlerin bedelini birlikte değerlendirmek; kendi stratejik kararların için açık bir gerekçe kurmak.",
       "books": [
         "goodstrategybadstrategy",
+        "playingtowin",
         "competitivestrategy",
-        "competitiveadvantage"
-      ]
+        "competitiveadvantage",
+        "thinkingstrategically",
+        "coopetition",
+        "blueoceanstrategy",
+        "onlytheparanoidsurvive",
+        "innovatorsdilemma",
+        "孫子兵法sunzibingfa",
+        "vomkriege",
+        "strategyahistory"
+      ],
+      "reasons": {
+        "goodstrategybadstrategy": "Gerçek stratejiyi hedef listesinden ayırır; temel engeli teşhis edip tutarlı eylemler kurmayı öğretir. Bu rotanın gerisini değerlendirecek temel ölçütü verdiği için buradan başla.",
+        "playingtowin": "Rumelt'in çekirdek fikrini somut bir karar çerçevesine dönüştürür: nerede oynanacağı ve nasıl kazanılacağı sorularını birbirini destekleyen seçimler olarak ele alır.",
+        "competitivestrategy": "Nerede oynanacağı sorusuna beş güç modeliyle sistematik bir cevap ekler; bir sektörün kârlılığını ve rekabet baskısını yapısal biçimde çözümlemeyi öğretir.",
+        "competitiveadvantage": "Analizi sektör düzeyinden şirket içine taşır; rekabet konumunu değer zincirine bağlayarak nasıl kazanılacağı sorusunu maliyet ve farklılaşma kaynaklarıyla derinleştirir.",
+        "thinkingstrategically": "Porter'ın yapısal analizine, rakiplerin hamlelerini öngörmeyi gerektiren oyun teorisi bakışını matematiksiz biçimde ekler; stratejik karşılıklı bağımlılığı tanıtır.",
+        "coopetition": "Oyun teorisini rakiplerin ötesine taşır; müşteri, tedarikçi ve tamamlayıcıları da içeren bir değer ağında rekabet ile işbirliğinin aynı anda var olabileceğini gösterir.",
+        "blueoceanstrategy": "Buraya kadar kurulan rekabet ve değer zinciri dilini kullanarak tersini önerir: rekabetin sınırlarını sorgulayıp değeri yeniden tasarlayarak yeni talep alanları yaratmayı tartışır.",
+        "onlytheparanoidsurvive": "Mavi okyanusun teoride önerdiği çerçeve değişimini bir yöneticinin gözünden anlatır; işin temel koşullarını değiştiren dönüm noktalarını fark etmenin güçlüğünü gösterir.",
+        "innovatorsdilemma": "Grove'un anlattığı dönüm noktalarını çoğu şirketin neden kaçırdığına dair yapısal bir açıklama sunar: mevcut müşteriyi dinlemek ile yeni pazarı görmek arasındaki gerilimi inceler.",
+        "孫子兵法sunzibingfa": "İş dünyası örneklerinden klasik askeri strateji diline geçer; hazırlık, bilgi ve koşullara uyumu kısa ve özlü ilkelerle ele alan tarihsel bir birincil metindir.",
+        "vomkriege": "Sun Tzu'nun özlü ilkelerinden sonra çok daha ayrıntılı bir teoriye geçer; savaşın siyaset, belirsizlik ve sürtünmeyle ilişkisini derinlemesine çalışır.",
+        "strategyahistory": "Buraya kadar ayrı okunan iş, askeri ve siyasi strateji hatlarını tek bir tarihsel anlatıda birleştirir; rafın parçalı kalan kitaplarını bütünleyen bir kapanış sağlar."
+      }
     },
     {
       "category": "management",
       "heading": "Yönetimi derinleştirmek için",
       "goal": "Yöneticinin kararlarıyla ekiplerin çalışma koşulları ve sonuçları arasındaki ilişkiyi değerlendirmek.",
       "books": [
+        "howtowinfriendsandinfluencepeople",
         "effectiveexecutive",
         "highoutputmanagement",
-        "fifthdiscipline"
-      ]
+        "drive",
+        "radicalcandor",
+        "fivedysfunctionsofateam",
+        "goal",
+        "fifthdiscipline",
+        "outofthecrisis",
+        "toyotaproductionsystem",
+        "onlytheparanoidsurvive",
+        "whatgotyouherewontgetyouthere"
+      ],
+      "reasons": {
+        "howtowinfriendsandinfluencepeople": "Yönetim okumalarına başlamadan önce dinleme, takdir etme ve ikna gibi günlük insan ilişkileri becerilerini basit ve sınanmış ilkelerle oturtur.",
+        "effectiveexecutive": "Genel ilişki becerisinden yöneticinin kendi zamanını, katkısını ve önceliklerini bilinçli yönetmesine geçer; etkin kararın kişisel disiplinini kurar.",
+        "highoutputmanagement": "Kişisel etkinlikten ekibin çıktısına geçer; toplantı, geri bildirim, eğitim ve süreç tasarımının yöneticinin gerçek kaldıraç noktaları olduğunu gösterir.",
+        "drive": "Çıktıyı artıracak araçlardan sonra, ekibi gerçekte neyin motive ettiğini sorar; özerklik, ustalık ve amacın çalışma koşullarıyla bağını kurar.",
+        "radicalcandor": "Motivasyon bilgisini somut bir geri bildirim çerçevesine taşır; özen ile doğrudanlığı birleştirip zor konuşmalardan kaçınmamayı öğretir.",
+        "fivedysfunctionsofateam": "Bire bir geri bildirimden takım düzeyine geçer; güven eksikliği, çatışmadan kaçınma ve hesap sormama gibi aksaklıkları bir anlatı üzerinden gösterir.",
+        "goal": "Takımın iç dinamiklerinden sistemin bütününe geçer; darboğazı görmeyi ve yerel verimlilik yerine tüm iş akışının sonucunu iyileştirmeyi bir hikâye üzerinden öğretir.",
+        "fifthdiscipline": "Darboğaz sezgisini kuramsallaştırır; sistem düşüncesini ortak vizyon ve zihinsel modellerle birleştirip örgütsel öğrenmeye bağlar.",
+        "outofthecrisis": "Sistem düşüncesini kaliteye uygular; sorunları çalışan hatasına bağlamak yerine yönetim sisteminin ve değişkenliğin sonucu olarak görmeyi öğretir.",
+        "toyotaproductionsystem": "Sistem eleştirisini somut bir uygulamaya taşır; israfı, akışı ve yerinde problem çözmeyi merkeze alan yalın yönetim mantığını gösterir.",
+        "onlytheparanoidsurvive": "Günlük süreç yönetiminden stratejik düzeye çıkar; işin temel koşullarını değiştiren dönüm noktalarını fark etmenin yöneticinin en riskli kararı olduğunu gösterir.",
+        "whatgotyouherewontgetyouthere": "Dış dönüm noktalarından kendi alışkanlıklarını sorgulamaya döner; başarıya taşıyan davranışların üst düzeyde ekibin sonuçlarını nasıl sınırlayabileceğini gösterir."
+      }
     },
     {
       "category": "enterprise",
@@ -141,39 +187,121 @@
       "goal": "Bir iş fikrinin müşteri ihtiyacını, iş modelini ve kurucu kararlarını varsayımlarıyla birlikte sınamak.",
       "books": [
         "personalmbamastertheartofbusiness",
+        "businessmodelgeneration",
+        "valuepropositiondesign",
+        "momtest",
+        "testingbusinessideas",
         "leanstartup",
+        "fourstepstotheepiphany",
+        "crossingthechasm",
+        "traction",
         "foundersdilemmas"
-      ]
+      ],
+      "reasons": {
+        "personalmbamastertheartofbusiness": "Değer yaratma, pazarlama, satış ve finansın ortak dilini tek kitapta verir; sonraki uzman kitapları buraya yerleşeceği için başlangıç noktası budur.",
+        "businessmodelgeneration": "Genel iş bilgisini somut bir araca taşır; bir iş fikrinin parçalarını ve dayandığı varsayımları görünür kılar.",
+        "valuepropositiondesign": "İş modelindeki değer önerisi kutusuna odaklanır; müşterinin işini, acısını ve kazanımını ürünle eşleştirmeyi öğretir.",
+        "momtest": "Bu eşleşmeyi gerçek müşteri konuşmalarında sınamayı öğretir; övgü toplamak yerine davranış kanıtı almanın yolunu gösterir.",
+        "testingbusinessideas": "Görüşme becerisini genişletir; sadece müşteri sorularını değil, iş fikrindeki her riskli varsayımı küçük deneylere çevirmeyi sistemleştirir.",
+        "leanstartup": "Bu deneyleri kur-ölç-öğren döngüsüne oturtur; büyük yatırım yapmadan önce iş fikrini küçük adımlarla sınamayı öğretir.",
+        "fourstepstotheepiphany": "Yalın Startup'ın dayandığı müşteri geliştirme sürecini daha ayrıntılı işler; yöntemin kaynak çerçevesini gösterir.",
+        "crossingthechasm": "Fikir sınandıktan sonra sırada pazar var; erken kullanıcılardan ana pazara geçişin neden ayrı bir sorun olduğunu anlatır.",
+        "traction": "Bu geçişi somutlaştırır; hangi müşteri edinme kanalının işe yaradığını sistemli biçimde test etmeyi öğretir.",
+        "foundersdilemmas": "Rotayı kurucu kararlarıyla kapatır; ortak, ekip, yatırım ve kontrol seçimlerinin girişimciye getirdiği ödünleşimleri gösterir."
+      }
     },
     {
       "category": "marketing",
       "heading": "Pazarlamayı anlamak için",
       "goal": "Müşteri ihtiyacını, ürünün algılanışını ve satın alma davranışını birbirine bağlamak.",
       "books": [
+        "allmarketersareliars",
+        "permissionmarketing",
         "thisismarketing",
         "positioning",
-        "howbrandsgrow"
-      ]
+        "22immutablelawsofmarketing",
+        "crossingthechasm",
+        "howbrandsgrow",
+        "influence",
+        "spinselling",
+        "ultimatesalesmachine",
+        "attentionmerchants"
+      ],
+      "reasons": {
+        "allmarketersareliars": "Pazarlamanın ürünü değil, ürün hakkında anlatılan hikâyeyi sattığını göstererek konuya geniş ve erişilebilir bir girizgah yapmak için oku.",
+        "permissionmarketing": "Hikâye anlatmaktan, kesintiye uğratan tanıtımla izin ve güvene dayalı iletişimi karşılaştırmaya geçmek; müşteri ilişkisini zaman içinde düşünmek için oku.",
+        "thisismarketing": "İzin ve güvenden, herkese ulaşmak yerine kime değer sunduğunu netleştirmeye geçmek; konumlandırma ve müşteri anlayışı üzerinde çalışmak için oku.",
+        "positioning": "Kime değer sunduğunu netleştirdikten sonra, ürünün müşterinin zihnindeki yerini ve rakiplerle kurduğu ilişkiyi netleştirmek için oku.",
+        "22immutablelawsofmarketing": "Konumlandırma fikrini, aynı yazarların pazarlamayı yöneten daha genel kurallarıyla genişletmek; farklı durumlarda hangi ilkenin geçerli olduğunu tartışmak için oku.",
+        "crossingthechasm": "Genel kurallardan, erken kullanıcıdan ana pazara geçişin özel zorluklarını planlamaya geçmek; farklı müşteri gruplarının ürünü neden farklı algıladığını görmek için oku.",
+        "howbrandsgrow": "Pazar geçişi sezgilerini, marka büyümesi hakkındaki genel kabulleri veriyle sınayan bir yaklaşımla karşılaştırmak; erişim ve satın alma davranışını incelemek için oku.",
+        "influence": "Marka ve satın alma davranışının ardından, ikna mekanizmalarının bireysel düzeyde nasıl işlediğini incelemek; etik iletişim ile manipülasyonu ayırmak için oku.",
+        "spinselling": "İkna mekanizmalarını öğrendikten sonra, satış görüşmesinde doğru soruları sormayı çalışmak; müşterinin durumunu ve ihtiyacının sonuçlarını anlamak için oku.",
+        "ultimatesalesmachine": "Soru sormayı öğrendikten sonra, satış ve pazarlama çabalarını tekrarlanabilir ve ölçeklenebilir bir sisteme dönüştürmeyi çalışmak için oku.",
+        "attentionmerchants": "Satış tekniklerinden sonra, reklam ve dikkat ekonomisinin tarihini kurarak bugüne kadarki platform eleştirilerini geniş bir bağlama yerleştirmek için oku."
+      }
     },
     {
       "category": "communication",
       "heading": "İletişimini geliştirmek için",
       "goal": "Karşı tarafın ihtiyaçlarını anlamak, anlaşmazlıkları açıkça konuşmak ve iknanın etik sınırlarını değerlendirmek.",
       "books": [
+        "howtowinfriendsandinfluencepeople",
         "nonviolentcommunication",
+        "crucialconversations",
+        "madetostick",
+        "humorseriously",
+        "48lawsofpower",
+        "influence",
         "gettingtoyes",
-        "crucialconversations"
-      ]
+        "neversplitthedifference",
+        "radicalcandor",
+        "fivedysfunctionsofateam"
+      ],
+      "reasons": {
+        "howtowinfriendsandinfluencepeople": "Karşındakinin ihtiyaçlarını görmeye dayanan genel ve erişilebilir bir temelle başlamak; günlük iletişimde başkalarının bakış açısını nasıl fark edeceğini konuşmak için oku.",
+        "nonviolentcommunication": "Genel insan ilişkileri tavsiyesinden, gözlem, duygu, ihtiyaç ve rica arasındaki farkı çalışan somut bir dile geçmek; çatışmalarda suçlama yerine anlaşılabilir bir dil kurmak için oku.",
+        "crucialconversations": "Bu dili kurduktan sonra, duyguların yükseldiği önemli görüşmelerde güvenli bir diyalog kurmayı ve ortak anlam üretmeyi çalışmak için oku.",
+        "madetostick": "Güvenli bir diyalog kurmayı öğrendikten sonra, söylediğinin akılda kalması için bir fikri somut, anlaşılır ve anlamlı hale getirmeyi çalışmak için oku.",
+        "humorseriously": "Fikri somutlaştırmayı öğrendikten sonra, mizahı ciddiye alarak güven kurmak ve gerginliği azaltmak için bir iletişim aracı olarak kullanmayı çalışmak için oku.",
+        "48lawsofpower": "Bağ kurmaya dayalı iletişimden, ilişkilerdeki güç dinamiklerinin daha stratejik ve kimi zaman rahatsız edici bir okumasına geçmek; bunu sonraki adımda etik sınırlarla karşılaştırmak için oku.",
+        "influence": "İkna mekanizmalarını tanımak ve yönlendirmelere karşı daha bilinçli olmak; güç stratejilerini etik iletişim ile manipülasyon arasındaki farkla karşılaştırmak için oku.",
+        "gettingtoyes": "İkna ile manipülasyon arasındaki farkı gördükten sonra, pazarlıkta sabit pozisyonların altındaki çıkarları görmeyi; seçenek ve ölçütler üzerinden düşünmeyi çalışmak için oku.",
+        "neversplitthedifference": "Yapılandırılmış pazarlıktan sonra, zor görüşmelerde dinleme ve doğru soru sormayı çalışmak; taktikleri kendi bağlamının güç dengesi ve etik sınırlarıyla tartmak için oku.",
+        "radicalcandor": "Pazarlık becerilerini sürekli iş ilişkilerine taşımak; geri bildirimi kişiye özen gösterme ve açık sözlülükle birlikte ele alarak zor konuşmalardan kaçınmamayı çalışmak için oku.",
+        "fivedysfunctionsofateam": "Bireyler arası becerileri takım düzeyine taşımak; güven eksikliğinin sağlıklı fikir çatışmasını nasıl engellediğini ve bunun sonuçlarını konuşmak için oku."
+      }
     },
     {
       "category": "psychology",
       "heading": "Davranışı anlamak için",
       "goal": "İnsanların nasıl düşündüğünü ve karar verdiğini sorgulamak; kendi sezgilerini kanıtlarla karşılaştırmak.",
       "books": [
+        "psych101",
+        "dusunmeninalfabesi",
+        "predictablyirrational",
         "thinkingfastandslow",
+        "undoingproject",
+        "howtowinfriendsandinfluencepeople",
+        "influence",
+        "nudge",
         "haloeffect",
+        "hownottobewrong",
         "superforecasting"
-      ]
+      ],
+      "reasons": {
+        "psych101": "Psikoloji ve karar alma kitaplarında sık geçen temel kavramları tanıtan kısa bir çerçeve sunar; rotaya hazırlıksız başlamamak için uygun bir giriş noktasıdır.",
+        "dusunmeninalfabesi": "İddia, gerekçe, varsayım ve akıl yürütme hatalarını ayırt etmeyi öğretir; ilerideki kitapların savlarını daha eleştirel okumanı sağlar.",
+        "predictablyirrational": "Akıldışı davranışları gündelik örneklerle anlatarak davranışsal iktisada yumuşak bir giriş yapar; daha yoğun karar bilimi kitaplarına geçişi kolaylaştırır.",
+        "thinkingfastandslow": "Önceki kitaptaki örnekleri sistemli bir çerçeveye oturtur; sezgisel yargının güçlü ve yanıltıcı yönlerini iki sistemli düşünme modeliyle derinlemesine inceler.",
+        "undoingproject": "Az önce okuduğun kuramların arkasındaki insan hikayesini anlatır; Kahneman ve Tversky'nin ortak çalışmasını izleyerek fikirlerin nasıl geliştiğini gösterir.",
+        "howtowinfriendsandinfluencepeople": "Yoğun bir kuram kitabından sonra gündelik ilişkilere döner; insanlarla kurulan etkileşimde basit ama sınanmış davranış kurallarını anlatır.",
+        "influence": "Bir önceki kitabın pratik tavsiyelerini araştırma temelli ikna mekanizmalarıyla derinleştirir; yönlendirmelere karşı daha bilinçli olmayı hedefler.",
+        "nudge": "İkna ve yönlendirme bilgisini politika ve tasarım düzeyine taşır; seçim mimarisiyle davranışın nasıl yönlendirilebileceğini davranışsal iktisat çerçevesinde ele alır.",
+        "haloeffect": "Buraya kadar edinilen şüphecilik araçlarını şirket başarı hikayelerine uygular; sonuçtan geriye doğru üretilen açıklamaları sorgulamayı öğretir.",
+        "hownottobewrong": "Sayısal ve istatistiksel akıl yürütmeyi gündelik örneklerle güçlendirir; tahmin ve veri temelli kitaplara geçiş için gerekli zemini hazırlar.",
+        "superforecasting": "Rotanın kapanışı olarak tahminleri açık, güncellenebilir ve ölçülebilir hale getirmeyi öğretir; belirsizliği olasılıklarla ifade etme alışkanlığı kazandırır."
+      }
     },
     {
       "category": "productivity",
@@ -181,9 +309,26 @@
       "goal": "Önceliklerinle günlük davranışların arasındaki farkı görmek ve sürdürülebilir bir çalışma düzeni tasarlamak.",
       "books": [
         "7habitsofhighlyeffectivepeople",
+        "howtowinfriendsandinfluencepeople",
+        "effectiveexecutive",
+        "powerofless",
         "gettingthingsdone",
-        "atomichabits"
-      ]
+        "atomichabits",
+        "poweroffullengagement",
+        "flow",
+        "obstacleistheway"
+      ],
+      "reasons": {
+        "7habitsofhighlyeffectivepeople": "Değerlerini önceliklerinle ilişkilendiren karakter temelli bir çerçeve kurar; günlük davranışların bu önceliklerle nerede çeliştiğini görmeye buradan başlamak uygundur.",
+        "howtowinfriendsandinfluencepeople": "Bir önceki kitabın ilişki odaklı alışkanlıklarını gündelik pratiğe indirger; insanlarla kurulan etkileşimde basit ama sınanmış davranış kuralları sunar.",
+        "effectiveexecutive": "Kişisel karaktere dayalı yaklaşımı profesyonel pratiğe taşır; zamanını, katkını ve önceliklerini düzenli gözden geçirerek etkin karar vermeyi öğretir.",
+        "powerofless": "Katkı odaklı bakışı uç noktasına taşır; az sayıda önceliğe odaklanmanın günlük dağınıklığı nasıl azalttığını basit bir dille gösterir.",
+        "gettingthingsdone": "Az sayıdaki önceliği somut bir sisteme dönüştürür; açık işleri zihnin dışında güvenilir bir yerde toplayıp bir sonraki eylemi netleştirme alışkanlığı kurar.",
+        "atomichabits": "Sistemi tek seferlik bir düzenlemeden sürdürülebilir bir alışkanlığa dönüştürür; çevre ve tekrar tasarımıyla küçük davranışları kalıcı hale getirir.",
+        "poweroffullengagement": "Zaman ve görev yönetiminin ötesine geçer; sürdürülebilir performansın zamandan çok fiziksel, duygusal ve zihinsel enerjinin yönetimine bağlı olduğunu savunur.",
+        "flow": "Enerjisi yönetilen çalışmanın nasıl daha derin bir katılım ve tatmin haline gelebileceğini inceler; en yoğun odaklanma anlarının ortak özelliklerini tanımlar.",
+        "obstacleistheway": "Rotayı, engellerle karşılaşıldığında düzeni sürdürme sorusuyla kapatır; Stoacı örnekler üzerinden zorlukları yeniden yorumlama fikrini işler."
+      }
     },
     {
       "category": "systems",
@@ -191,9 +336,24 @@
       "goal": "Parçaların ilişkisini, darboğazları ve geri bildirimleri incelemek; bir iyileştirmenin bütün üzerindeki etkisini tartmak.",
       "books": [
         "goal",
+        "8020principle",
         "thinkinginsystems",
-        "fifthdiscipline"
-      ]
+        "outofthecrisis",
+        "toyotaproductionsystem",
+        "leanthinking",
+        "scrumtheartofdoingtwicetheworkinhalfthetime",
+        "howbigthingsgetdone"
+      ],
+      "reasons": {
+        "goal": "İş akışını roman kurgusuyla anlatarak darboğazı bulmanın ve yerel değil bütünsel verimliliği iyileştirmenin ne demek olduğunu somut bir fabrika örneğiyle gösterir.",
+        "8020principle": "Amaç kitabındaki tek darboğaz fikrini genelleştirir; sonuçların çoğunun az sayıda nedenden geldiğini göstererek nereye bakılması gerektiğini seçmeyi öğretir.",
+        "thinkinginsystems": "Tek darboğaz ya da tek oranın ötesine geçerek geri bildirimleri, gecikmeleri ve birikimleri gören biçimsel bir sistem kavramları çerçevesi kurar.",
+        "outofthecrisis": "Sistem kavramlarını somut bir yönetim sorununa uygular; kalite sorunlarını çalışan hatasına değil, yönetim sisteminin kendisine ve değişkenliğe bağlar.",
+        "toyotaproductionsystem": "Deming'in yönetim sistemine dair fikirlerinin Japon üretiminde nasıl somut bir uygulamaya dönüştüğünü, israf ve akış üzerinden gösterir.",
+        "leanthinking": "Toyota'nın tek fabrikadaki uygulamasını genelleştirerek yalın düşünceyi ve değer akışını her tür organizasyona taşınabilir bir çerçeveye dönüştürür.",
+        "scrumtheartofdoingtwicetheworkinhalfthetime": "Yalın akış ve geri bildirim fikirlerini, kısa döngülerle çalışan ve ekipçe iyileştirme yapan somut bir bilgi işi yöntemine, Scrum'a taşır.",
+        "howbigthingsgetdone": "Önceki fabrika ve ekip ölçeğindeki dersleri büyük ölçekli projelere taşır; bu projelerin neden aştığını ve nasıl başarıyla tamamlanabileceğini inceler."
+      }
     },
     {
       "category": "finance",
@@ -201,29 +361,92 @@
       "goal": "Finansal iddiaların varsayımlarını, nakit akışını ve riskleri değerlendirmek; getiri anlatılarını eleştirel okumak.",
       "books": [
         "accountingmadesimple",
-        "financialintelligence",
-        "whengeniusfailed"
-      ]
+        "nakedstatisticsstrippingthedreadfromthedata",
+        "intelligentinvestor",
+        "randomwalkdownwallstreet",
+        "liarspoker",
+        "ascentofmoney",
+        "maniaspanicsandcrashes",
+        "powerlaw",
+        "manwhosolvedthemarket",
+        "antifragile"
+      ],
+      "reasons": {
+        "accountingmadesimple": "Gelir tablosu, bilanço ve temel muhasebe dilini basitçe tanıtır; finansal raporları okumaya başlamak için en erişilebilir giriş noktasıdır.",
+        "nakedstatisticsstrippingthedreadfromthedata": "Ortalama, olasılık, örneklem ve korelasyon gibi kavramları öğretir; muhasebe bilgisinin üzerine, yatırım iddialarını sayısal olarak sorgulama becerisi ekler.",
+        "intelligentinvestor": "Değer yatırımı, güvenlik marjı ve piyasa davranışı için temel bir çerçeve sunar; muhasebe ve istatistik bilgisini somut bir yatırım felsefesine bağlar.",
+        "randomwalkdownwallstreet": "Etkin piyasa hipoteziyle değer yatırımına karşıt bir görüş sunar; piyasayı yenmeye çalışan sonraki kitapları karşılaştırmak için bir zemin kurar.",
+        "liarspoker": "Wall Street'in kurum kültürünü ve tahvil masasındaki gündelik hayatı anlatır; buraya kadarki teorik çerçeveye kurumsal bir bağlam ekler.",
+        "ascentofmoney": "Tahvil, hisse, sigorta ve bankacılığın tarihini ortak bir çerçevede toplar; kurum kültürünün ardından bu araçların nereden geldiğini gösterir.",
+        "maniaspanicsandcrashes": "Finansal krizlerin tekrar eden ortak mekaniklerini açıklar; önceki kitaptaki araçların tarih boyunca nasıl krizlere dönüştüğünü karşılaştırmalı bir çerçeveyle gösterir.",
+        "powerlaw": "Girişim sermayesinde getirilerin birkaç büyük başarıya nasıl yoğunlaştığını anlatır; kriz mekaniklerinden risk sermayesinin farklı mantığına geçiş yapar.",
+        "manwhosolvedthemarket": "Renaissance Technologies ve Jim Simons üzerinden nicel yatırımın etkin piyasa varsayımını nasıl zorladığını anlatır; risk sermayesinden bambaşka bir başarı modeline geçer.",
+        "antifragile": "Belirsizlik ve değişkenliğin yalnızca zarar vermediği, bazı sistemleri güçlendirdiği fikrini işler; buraya kadarki tüm vaka ve stratejileri kapsayan bir risk felsefesiyle rotayı tamamlar."
+      }
     },
     {
       "category": "economy",
       "heading": "Ekonomiyi anlamak için",
       "goal": "Ekonomik teşviklerin, kurumların ve dağılım kararlarının birey ve toplum üzerindeki etkilerini tartışmak.",
       "books": [
+        "orneklerlekolayekonomi",
         "nakedeconomics",
+        "lexusandtheolivetree",
+        "worldlyphilosophers",
+        "economicstheusersguide",
+        "shockdoctrine",
         "economicsforthecommongood",
-        "capitalinthetwentyfirstcentury"
-      ]
+        "capitalinthetwentyfirstcentury",
+        "whynationsfail",
+        "gunsgermsandsteel",
+        "attentionmerchants"
+      ],
+      "reasons": {
+        "orneklerlekolayekonomi": "Ekonomiye örnekler üzerinden, teknik terim yükünden uzak bir dille giriş yapar; rotanın devamındaki daha kapsamlı kitaplara hazırlar.",
+        "nakedeconomics": "Bir önceki kitabın kazandırdığı sezgiyi gündelik teşvik ve ödünleşim örnekleriyle pekiştirir; ekonomi kitaplarında sık geçen kavramları tanıtır.",
+        "lexusandtheolivetree": "Kavramsal zemin kurulduktan sonra küreselleşmenin ticaret, teknoloji ve yerel kimlik üzerindeki gerilimini somut örneklerle gösterir.",
+        "worldlyphilosophers": "Küreselleşme örneklerinden geri çekilip, bu tartışmaların kaynaklandığı iktisadi fikirlerin Smith'ten Schumpeter'e tarihini kurar.",
+        "economicstheusersguide": "İktisat tarihinin ardından farklı iktisat okullarını karşılaştırmalı sunarak, ekonomi tartışmalarının arkasındaki varsayımları görünür kılar.",
+        "shockdoctrine": "Okullar arasındaki farkları gördükten sonra, serbest piyasacı politikaların kriz anlarında topluma nasıl dayatıldığını somut vakalarla gösterir.",
+        "economicsforthecommongood": "Şok Doktrini'nin eleştirisine karşılık, bir iktisatçının kurumları ve piyasaları ortak yararı gözeterek nasıl tasarlayabileceğini gösterir.",
+        "capitalinthetwentyfirstcentury": "Ortak yarar çerçevesinin ardından, sermaye ve gelir eşitsizliğinin yüzyıllar boyunca nasıl geliştiğini geniş veri setleriyle derinlemesine inceler.",
+        "whynationsfail": "Eşitsizliğin tarihsel verisinden sonra, ülkeler arasındaki refah farkının coğrafyadan çok kapsayıcı ya da sömürücü kurumlardan kaynaklandığını savunur.",
+        "gunsgermsandsteel": "Kurumsal açıklamaya karşı, tarihsel eşitsizliği coğrafya ve çevresel etkenlerle açıklayan güçlü bir karşı tez sunar.",
+        "attentionmerchants": "Kurum ve coğrafya tartışmasından günümüze dönerek, reklam ve dikkat ekonomisinin tarihini kurar ve platform eleştirilerini bağlama yerleştirir."
+      }
     },
     {
       "category": "technology",
       "heading": "Teknolojiyi anlamak için",
       "goal": "Teknolojik değişimin iş modellerini, güç ilişkilerini ve gündelik yaşamı nasıl etkilediğini sorgulamak.",
       "books": [
+        "innovators",
+        "worldisflat",
         "informationrules",
-        "innovatorsdilemma",
-        "humancompatible"
-      ]
+        "longtail",
+        "attentionmerchants",
+        "ageofsurveillancecapitalism",
+        "enshittification",
+        "yourfacebelongstous",
+        "chipwar",
+        "comingwave",
+        "humancompatible",
+        "superintelligence"
+      ],
+      "reasons": {
+        "innovators": "Bilgisayardan internete uzanan teknoloji tarihinin öncülerini akıcı bir anlatıyla sunar; konuya erişilebilir, geniş bir girişle başlamak için uygundur.",
+        "worldisflat": "Küreselleşmeyi teknolojik değişimle birlikte ele alarak The Innovators'taki tarihsel anlatıyı güncel ekonomik ve toplumsal sonuçlara bağlar.",
+        "informationrules": "Dijital pazarlarda ağ etkileri, geçiş maliyetleri ve standartların rekabeti nasıl değiştirdiğini inceleyerek küreselleşme anlatısını somut iş modeli analizine indirger.",
+        "longtail": "Dijital dağıtımın niş ürünleri nasıl kârlı hale getirdiğini anlatarak Information Rules'taki platform ekonomisi çerçevesini somut bir örnekle genişletir.",
+        "attentionmerchants": "The Long Tail'deki dijital pazar anlatısından kullanıcı tarafına geçerek, reklam ve dikkat ekonomisinin tarihini kurar ve platformların dikkati nasıl metalaştırdığını gösterir.",
+        "ageofsurveillancecapitalism": "Dikkat ekonomisinin ötesine geçerek kullanıcı verisinin nasıl sistematik biçimde toplanıp öngörü ürününe dönüştürüldüğünü derinlemesine eleştirir.",
+        "enshittification": "Platformların zamanla kullanıcı ve satıcı aleyhine nasıl bozulduğunu güncel örneklerle anlatarak sürveyans kapitalizmi eleştirisini platformun yaşam döngüsüne taşır.",
+        "yourfacebelongstous": "Enshittification'daki platform eleştirisini yüz tanıma teknolojisi ve Clearview AI vakasıyla somut, gündelik bir gözetim mekanizmasına indirger.",
+        "chipwar": "Yarı iletken endüstrisinin jeopolitik tarihini anlatarak gündelik gözetim teknolojilerinin ve yapay zekânın hangi donanım altyapısına dayandığını gösterir.",
+        "comingwave": "Çip endüstrisinin kurduğu donanım altyapısı üzerinden yükselen yapay zekâ ve biyoteknoloji dalgasını ele alarak yaklaşan kontrol sorununu tanıtır.",
+        "humancompatible": "Yapay zekâ kontrol sorununu teknik bir perspektiften ele alarak The Coming Wave'in ortaya koyduğu riski somut tasarım çözümleri üzerinden derinleştirir.",
+        "superintelligence": "Human Compatible'ın teknik çözüm önerilerinin ardından, yapay zekâ kontrolü ve uzun vadeli risk tartışmalarının en sistematik ve felsefi çerçevesini kurarak rotayı tamamlar."
+      }
     },
     {
       "category": "innovation",
@@ -231,19 +454,61 @@
       "goal": "İhtiyaçları keşfetme, deneme ve öğrenme süreçlerini çalışmak; yenilik iddialarını kullanıcının deneyimiyle karşılaştırmak.",
       "books": [
         "designofeverydaythings",
-        "leanstartup",
-        "democratizinginnovation"
-      ]
+        "universalprinciplesofdesign",
+        "fourstepstotheepiphany",
+        "newbusinessroadtest",
+        "rework",
+        "mythsofinnovation",
+        "artofinnovation",
+        "creativityinc",
+        "loonshots",
+        "innovatorsdilemma",
+        "futureofmanagement",
+        "abundance-peterdiamandisstevenkotler"
+      ],
+      "reasons": {
+        "designofeverydaythings": "Kullanım hatalarını kullanıcıya değil tasarıma bakar; işaretler, geri bildirim ve zihinsel modeller üzerinden nesnelerin neden zor kullanıldığını gösterir.",
+        "universalprinciplesofdesign": "Tek kitaptaki sezgileri, görsel algı ve bilişe dayanan çok sayıda tasarım ilkesiyle genelleştirir; kısa referanslarla tasarım kararlarını gerekçelendirmeyi öğretir.",
+        "fourstepstotheepiphany": "Odağı nesne tasarımından girişim kurmaya kaydırır; müşteri geliştirme sürecini kurar, Yalın Startup'ın kaynak çerçevesi olarak varsayımları sahada test etmeyi öğretir.",
+        "newbusinessroadtest": "Müşteri geliştirmeyi genişletir; bir girişim fikrinin pazarını, sektörünü ve ekibini birlikte tartıp harekete geçmeden önce kritik belirsizlikleri belirlemeyi sağlar.",
+        "rework": "Alışılmış girişim kabullerini sorgular; büyük planlar yerine küçük, sade ve hızlı test edilen bir çalışma düzeninin sana uyup uymadığını sınamayı önerir.",
+        "mythsofinnovation": "Bir adım geri çekilip yenilik hakkındaki popüler anlatıları sorgular; ani buluş anı gibi mitlerin gerçek süreci nasıl gizlediğini gösterir.",
+        "artofinnovation": "Mitleri somut bir yöntemle karşılar; IDEO'nun kullanıcıyı doğrudan gözlemleme ve hızlı prototipleme pratiğini adım adım anlatır.",
+        "creativityinc": "Bireysel yöntemi kurum kültürüne taşır; Pixar'ın başarısızlık korkusunu yönetip açık sözlülüğü koruyan yapılarını anlatır.",
+        "loonshots": "Kurum kültürünü bir yapı sorusuna bağlar; çılgın fikirleri besleyen ekiplerle kanıtlanmış ürünü ölçekleyen ekiplerin neden ayrı kurulması gerektiğini tartışır.",
+        "innovatorsdilemma": "Yapı tartışmasını klasik bir gerilime bağlar; iyi yönetilen şirketlerin mevcut müşteriyi dinlerken yeni pazarları neden kaçırdığını gösterir.",
+        "futureofmanagement": "Sorunu tek şirketten yönetim pratiğine genişletir; hiyerarşik yapıların önceki adımlardaki çevikliği neden engellediğini tartışır.",
+        "abundance-peterdiamandisstevenkotler": "Rotayı geniş bir ufukla kapatır; katlanarak gelişen teknolojilerin kıtlık sorunlarını küresel ölçekte nasıl dönüştürebileceğini iddia eder."
+      }
     },
     {
       "category": "history",
       "heading": "Tarih okumasını genişletmek için",
       "goal": "Olayları dönemlerinin koşullarıyla değerlendirmek; tarihsel açıklamalarda kaynak, neden ve yorum ayrımını gözetmek.",
       "books": [
+        "littlehistoryoftheworld",
         "discoverers",
+        "sapiensabriefhistoryofhumankind",
+        "gunsgermsandsteel",
+        "worldlyphilosophers",
         "capitalisminamerica",
+        "ascentofmoney",
+        "maniaspanicsandcrashes",
+        "ageofextremes",
         "greatleveler"
-      ]
+      ],
+      "reasons": {
+        "littlehistoryoftheworld": "Tarih öncesini ve yakın dönemi sade, kronolojik bir dille anlatarak sonraki okumalar için ortak bir zaman çizgisi kurar; bu yüzden başlangıç için uygundur.",
+        "discoverers": "Boorstin, zamanı, coğrafyayı ve doğayı anlama sürecinin tarihini anlatır; kronolojik özetin üzerine insanlığın dünyayı nasıl keşfettiği temasını ekler.",
+        "sapiensabriefhistoryofhumankind": "Harari, bilişsel ve tarımsal devrimler üzerinden insanlık tarihine tek ve güçlü bir yorum sunar; olgu aktarımının üzerine büyük ölçekli bir tez okuması ekler.",
+        "gunsgermsandsteel": "Diamond, uygarlıklar arasındaki farkları coğrafya ve çevre koşullarıyla açıklar; bir önceki adımın fikir merkezli anlatısına karşı çevresel bir yorum sunarak karşılaştırmalı okumayı güçlendirir.",
+        "worldlyphilosophers": "Smith'ten Schumpeter'e iktisadi düşünürlerin tarihini kurar; uygarlık ölçeğindeki tartışmalardan iktisadi fikirlerin gelişimine odaklanan daha dar bir çizgiye geçişi sağlar.",
+        "capitalisminamerica": "Greenspan ve Wooldridge, iktisadi düşünce tarihinin ardından Amerika'nın kuruluşundan günümüze ekonomik gelişimini tek bir ülke örneğinde somutlaştırır.",
+        "ascentofmoney": "Ferguson, tahvil, hisse, sigorta ve bankacılığın tarihini ortak bir çerçevede toplayarak tek ülke anlatısını finansal kurumların genel tarihine genişletir.",
+        "maniaspanicsandcrashes": "Kindleberger ve Aliber, finansal kurumların tarihinden krizlerin tekrar eden mekaniklerine geçerek balon ve çöküş örneklerini karşılaştırmalı biçimde inceler.",
+        "ageofextremes": "Hobsbawm, finansal krizlerin mekaniklerinden 1914-1991 arasının siyasi ve ekonomik olaylarına geçerek okunanları tek bir yüzyıllık zaman çizgisinde toplar.",
+        "greatleveler": "Scheidel, savaş, devrim, devlet çöküşü ve salgınların eşitsizliği tarih boyunca nasıl azalttığını inceleyerek yirminci yüzyıl okumasını çok daha uzun bir zaman ölçeğine taşır."
+      }
     },
     {
       "category": "biography",
@@ -252,78 +517,248 @@
       "books": [
         "benjaminfranklin",
         "personalhistory",
-        "titan"
-      ]
+        "napoleonhayati",
+        "churchill",
+        "titan",
+        "leonardodavinci",
+        "mariecuriebirbilimkadinininolaganustuyasamoykusu",
+        "hegel",
+        "kierkegaard",
+        "fatihsultanmehmedvezamani"
+      ],
+      "reasons": {
+        "benjaminfranklin": "Isaacson'ın akıcı anlatımıyla Franklin'in bilimi, diplomasiyi ve siyaseti bir arada yürüttüğü yaşamını dönemin koşullarıyla birlikte anlatır; rotaya erişilebilir bir giriş sunar.",
+        "personalhistory": "Üçüncü tekil anlatımdan yazarın kendi sesine geçilir; Graham'ın evliliği, kayıpları ve Washington Post'u yönetirken aldığı kararları Watergate dönemiyle birlikte işler.",
+        "napoleonhayati": "Roberts'ın akıcı üslubu korunurken ölçek büyür; Napolyon'un parlak ve yıkıcı kararlarını dönemin Avrupa'sının karmaşasıyla birlikte tartmayı ister.",
+        "churchill": "Resmi biyografi yazarı Gilbert'ın ayrıntılı belgesel anlatımıyla iki dünya savaşını kapsayan çok daha uzun ve karmaşık bir siyasi yaşama geçirir.",
+        "titan": "Siyasi ve askeri güçten ekonomik güce geçilir; Chernow, Rockefeller'ın karakterini ve kararlarını Altın Çağ'ın denetimsiz ortamıyla birlikte uzun soluklu biçimde inceler.",
+        "leonardodavinci": "Titan'ın yoğunluğundan sonra aynı yazarın daha okunaklı üslubuna dönülür; gücün değil merakın örgütlediği bir Rönesans yaşamı farklı bir biyografi kaydı açar.",
+        "mariecuriebirbilimkadinininolaganustuyasamoykusu": "Leonardo'nun çok yönlü merakından tek bir bilim dalına adanmış bir yaşama geçilir; kızının kaleminden yazılması döneme ve ilişkilere daha mahrem bir bakış katar.",
+        "hegel": "Bilim insanından düşünüre geçilir; Pinkard'ın akademik anlatımı Hegel'in felsefesini Fransız Devrimi sonrası Avrupa'nın siyasi çalkantısıyla ilişkilendirerek zorluğu bir kademe yükseltir.",
+        "kierkegaard": "Felsefi biyografi kaydı sürer, ama ölçek daralır; Hannay, Kierkegaard'ın düşüncesini bozulan nişanı ve Kopenhag'daki skandalıyla birlikte ele alarak daha mahrem bir kayıt sunar.",
+        "fatihsultanmehmedvezamani": "Babinger'ın klasikleşmiş, kaynaklara dayalı yoğun anlatımı rotayı kapatır; başlığın kendisi bile bir hükümdarı zamanının koşullarından ayırmadan okumayı önerir."
+      }
     },
     {
       "category": "politics",
       "heading": "Siyaseti anlamak için",
       "goal": "İktidar, kurumlar ve toplumsal çıkarlar arasındaki ilişkiyi tarihsel bağlamıyla değerlendirmek.",
       "books": [
+        "prisonersofgeography",
+        "ancientgreece",
+        "spqr",
         "ilprincipe",
-        "strategyofconflict",
+        "अरथशसतरarthasastra",
+        "devletialiyyeosmanliimparatorluguuzerinearastirmalari",
+        "turkeyamodernhistory",
+        "ageofextremes",
+        "十个词汇里的中国",
+        "shockdoctrine",
         "whynationsfail"
-      ]
+      ],
+      "reasons": {
+        "prisonersofgeography": "Fiziksel coğrafyanın siyaseti nasıl sınırladığını anlatan erişilebilir bir başlangıç; sonraki tarihsel ve jeopolitik okumalara somut bir zemin kurar.",
+        "ancientgreece": "Atina ve Sparta bağlamını kurarak klasik siyaset düşüncesinin kökenini gösterir; Roma ve Rönesans okumalarına tarihsel derinlik katar.",
+        "spqr": "Roma Cumhuriyeti ve İmparatorluğu bağlamını kurarak iktidarın kurumsallaşmasını gösterir; sıradaki Machiavelli okumasına tarihsel zemin hazırlar.",
+        "ilprincipe": "Roma'da görülen iktidar pratiklerini soyutlayarak siyasi gücün nasıl kazanılıp korunacağına dair doğrudan bir çerçeve sunar; ahlaki yargıyı askıya almayı dener.",
+        "अरथशसतरarthasastra": "Machiavelli'nin Batı merkezli iktidar anlayışına, çok daha eski bir Hint devlet yönetimi geleneğinden karşılaştırmalı bir bakış ekler.",
+        "devletialiyyeosmanliimparatorluguuzerinearastirmalari": "Karşılaştırmalı klasik devlet metinlerinden sonra, somut ve uzun ömürlü bir imparatorluğun kurumlarını ve kuruluş dönemini inceler.",
+        "turkeyamodernhistory": "Osmanlı'nın klasik kurumlarından başlayarak geç dönem çözülüşü ve Cumhuriyet'in kuruluşuna uzanan çizgiyi tamamlar.",
+        "ageofextremes": "Türkiye özelinden yirminci yüzyılın küresel siyasi ve ekonomik çatışmalarına genişleyerek daha geniş bir tarihsel çerçeve kurar.",
+        "十个词汇里的中国": "Küresel yirminci yüzyıl anlatısından, yakın dönem Çin'ini gündelik yaşam üzerinden anlatan somut ve insani bir örneğe iner.",
+        "shockdoctrine": "Tekil bir ülke anlatısından, kriz anlarının siyasi ve ekonomik dönüşüm için nasıl kullanıldığına dair eleştirel bir teze geçer.",
+        "whynationsfail": "Önceki tarihsel örnekleri, kurumların kapsayıcı ya da sömürücü oluşuna göre ulusların neden başarılı ya da başarısız olduğunu açıklayan bir çerçevede birleştirir."
+      }
     },
     {
       "category": "ethics",
       "heading": "Etik soruları derinleştirmek için",
       "goal": "Bir kararın kimleri etkilediğini ve nasıl gerekçelendirildiğini sorgulamak; kişisel sorumlulukla kurumsal teşvikleri birlikte tartmak.",
       "books": [
-        "ethicsfortherealworld",
+        "justicewhatstherightthingtodo",
+        "whatmoneycantbuy",
+        "leanin",
+        "higherground",
         "badblood",
-        "higherground"
-      ]
+        "cultofwe",
+        "wizardoflies",
+        "billiondollarwhale",
+        "empireofpain",
+        "bigshort",
+        "ageofsurveillancecapitalism",
+        "reimaginingcapitalism"
+      ],
+      "reasons": {
+        "justicewhatstherightthingtodo": "Fayda, ödev ve adalet gibi temel etik çerçeveleri gündelik örneklerle tanıtır; rotadaki vakaları hangi ölçütle değerlendireceğini baştan kurar.",
+        "whatmoneycantbuy": "Aynı yazardan devam eder; adalet çerçevesini pazarların nerede durması gerektiği sorusuna taşıyıp parayla satın alınamayacak şeyleri tartışır.",
+        "leanin": "Tartışmayı kurum içine indirir; kadınların liderlik önündeki engellerini bireysel çabayla yapısal sorunlar arasında tartarak kişisel sorumluluk eksenini açar.",
+        "higherground": "Bireysel düzeyden şirket stratejisine geçer; kutuplaşmış bir ortamda işletmelerin etik duruşu nasıl uygulanabilir bir stratejiye dönüşebileceğini ele alır.",
+        "badblood": "İlk somut vaka: Theranos'ta gizlilik kültürünün ve baskının nasıl sistematik bir sahtekarlığa dönüştüğünü ayrıntılı bir soruşturmayla gösterir.",
+        "cultofwe": "Kurucu kültüyle yatırımcı teşviklerinin birleşince kurumsal denetimi nasıl felç ettiğini WeWork örneğiyle sürdürür.",
+        "wizardoflies": "Vakanın ölçeğini büyütür; Madoff'ta dışarıdan denetimin yokluğunda güvenin on yıllarca nasıl istismar edilebildiğini gösterir.",
+        "billiondollarwhale": "Sahtekarlığı küresel ve siyasi boyuta taşır; 1MDB skandalı kurumsal hesap verebilirliğin devlet gücüyle nasıl iç içe geçebildiğini anlatır.",
+        "empireofpain": "Bir ailenin servetinin toplumsal zarara kayıtsız kalarak nasıl büyüdüğünü anlatır; opioid krizinde kurumsal sorumluluk sorusunu en somut haliyle sorar.",
+        "bigshort": "Tek şirketten bütün bir sektöre geçer; 2008 krizinde teşviklerin nasıl sistemik biçimde yanlış hizalandığını gösterir.",
+        "ageofsurveillancecapitalism": "Alanı teknolojiye taşır; kullanıcı verisini çıkarmaya dayalı yeni bir iş modelinin kendi başına sistemik bir etik sorun olduğunu tartışır.",
+        "reimaginingcapitalism": "Rotayı teşhisten çözüme çevirir; şirketlerin teşviklerini iklim ve eşitsizlik gibi sorunlarla uyumlu yeniden kurabileceğini önerir."
+      }
     },
     {
       "category": "climate",
       "heading": "İklim ve çevreyi anlamak için",
       "goal": "Ekolojik sınırlarla ekonomik kararları birlikte düşünmek; çözüm önerilerinin etkilerini ve ödünleşimlerini sorgulamak.",
       "books": [
-        "thinkinginsystems",
+        "plastikdeniz",
         "doughnuteconomics",
-        "newclimatewar"
-      ]
+        "quest",
+        "climateshock",
+        "newclimatewar",
+        "fivetimesfaster",
+        "warbelow",
+        "cobaltred",
+        "netpositive",
+        "nomadcentury"
+      ],
+      "reasons": {
+        "plastikdeniz": "Okyanuslardaki plastik kirliliğini basit ve somut bir dille anlatır; iklim ve sürdürülebilirlik konularına en erişilebilir giriş noktasıdır.",
+        "doughnuteconomics": "Ekolojik sınır ile sosyal temel arasındaki dengeyi kavramsallaştırır; somut kirlilik örneğinden ekonomik karar çerçevesine geçişi sağlar.",
+        "quest": "Küresel enerji sisteminin tarihini ve jeopolitiğini geniş bir çerçevede anlatır; ekolojik çerçevenin sınırlarını zorlayan fosil düzenin nasıl kurulduğunu gösterir.",
+        "climateshock": "Bu fosil temelli enerji düzeninin yarattığı iklim riskini iktisatçı gözüyle, belirsizlik ve kuyruk riskleri üzerinden değerlendirir.",
+        "newclimatewar": "Fosil yakıt endüstrisinin inkardan oyalama ve suçu bireye yükleme taktiklerine geçişini anlatır; risklerin neden hâlâ ciddiye alınmadığını gösterir.",
+        "fivetimesfaster": "İklim eyleminin neden yavaş kaldığını sistemler ve karar mekanizmaları üzerinden inceler; eleştiriden çözüm stratejilerine geçiş yapar.",
+        "warbelow": "Enerji dönüşümü için gereken lityum ve bakır gibi madenlerin çıkarılmasındaki arazi ve çevre çatışmalarını anlatır; hızlandırma çağrısının kendi ödünleşimini gösterir.",
+        "cobaltred": "Batarya tedarik zincirindeki kobalt madenciliğinin insani maliyetini anlatır; yeşil dönüşümün ödünleşimini madencilik örneğinin ötesine taşır.",
+        "netpositive": "Şirketlerin doğaya verdiğinden fazlasını geri verecek şekilde nasıl yönetilebileceğini anlatır; tedarik zinciri eleştirisinden kurumsal çözüm arayışına geçer.",
+        "nomadcentury": "İklim değişikliğinin yol açacağı kitlesel göçü ve buna nasıl hazırlanılabileceğini ele alır; rotayı geleceğe dönük sistemik bir sonuçla tamamlar."
+      }
     },
     {
       "category": "literature",
       "heading": "Edebiyat okumasını derinleştirmek için",
       "goal": "Anlatıcının bakış açısını, karakterlerin çelişkilerini ve dilin etkisini izlemek; kendi yorumunu metindeki ayrıntılarla desteklemek.",
       "books": [
+        "шинель",
+        "нос",
+        "капитанскаядочка",
+        "отцыидети",
+        "запискиизподполья",
+        "чемлюдиживы",
         "смертьиванаильича",
         "преступлениеинаказание",
+        "идиот",
+        "lecturesonrussianliterature",
+        "аннакаренина",
         "братьякарамазовы"
-      ]
+      ],
+      "reasons": {
+        "шинель": "Kısa ve yoğun bir anlatıyla Rus öykücülüğünün anlatıcı ve toplum eleştirisi geleneğine giriş yapar; okumaya buradan başla.",
+        "нос": "Aynı yazarın grotesk kaydına geçer; ironik ve güvenilmez bir anlatıcının anlamı nasıl şekillendirdiğini fark etmeyi derinleştirir.",
+        "капитанскаядочка": "Kısa öyküden ilk tam anlatıya geçişi sağlar; kişisel çatışmayı tarihsel olaylarla birlikte izlemeyi öğretir.",
+        "отцыидети": "Kuşak çatışmasını ve nihilist genç tipini kurar; sıradaki Dostoyevski romanlarının bu tipe verdiği edebî cevapları fark etmeni sağlar.",
+        "запискиизподполья": "Güvenilmez bir anlatıcıyı ilk elden dener; kendi davranışını açıklayan bir sesin ne kadar inandırıcı olduğunu sorgulatır.",
+        "чемлюдиживы": "Tolstoy'un doğrudan ahlaki anlatımına geçer; kısa öykülerle Dostoyevski'nin belirsizliğine karşı bir karşılaştırma sunar.",
+        "смертьиванаильича": "Kısa öykülerden sonra yeniden yoğun bir anlatıya geçer; ölümle yüzleşen tek bir karakter üzerinden daha derin bir psikolojik izlek açar.",
+        "преступлениеинаказание": "Şimdiye kadar çalıştığın anlatıcı ve karakter çözümleme becerilerini uzun soluklu, gerilimli bir romana taşır.",
+        "идиот": "Başka bir tam boy Dostoyevski romanına geçer; iyiliğin ve dürüstlüğün toplumsal çıkarla nasıl çatıştığını sınar.",
+        "lecturesonrussianliterature": "Okumaya ara verip geri döner; Nabokov'un dersleri biçim, ayrıntı ve anlatım üzerinden buraya kadar okuduklarını yeniden yorumlaman için bir sözlük verir.",
+        "аннакаренина": "Bu eleştirel bakışı Tolstoy'un en katmanlı romanına uygular; arzu, aile ve toplumsal yargıyı birden çok karakterin gözünden izlersin.",
+        "братьякарамазовы": "Rotayı en zorlu kitapla kapatır; inanç, özgürlük ve sorumluluk üzerine farklı seslerin tartıştığı çok katmanlı bir roman okursun."
+      }
     },
     {
       "category": "philosophy",
       "heading": "Felsefi düşünmeyi geliştirmek için",
       "goal": "Bir görüşün savını, gerekçesini ve itirazlarını ayırmak; gündelik kabullerini sorgulamak.",
       "books": [
+        "dusunmeninalfabesi",
+        "littlehistoryofphilosophy",
+        "historyofwesternphilosophy",
+        "justicewhatstherightthingtodo",
+        "whatmoneycantbuy",
+        "ilprincipe",
+        "enchiridion",
+        "discourses",
         "meditations",
-        "aguidetothegoodlife",
+        "epistulaemoralesadlucilium",
+        "obstacleistheway",
         "dialektikderaufklarung"
-      ]
+      ],
+      "reasons": {
+        "dusunmeninalfabesi": "İddia, gerekçe, varsayım ve akıl yürütme hatalarını ayırt etmeyi öğretir; bu rotadaki tüm kitapları okurken kullanılacak temel eleştirel düşünme becerisini kurduğu için başlangıç noktasıdır.",
+        "littlehistoryofphilosophy": "Felsefenin temel sorularını ve düşünürlerini kronolojik, akıcı bir dille tanıtarak Düşünmenin Alfabesi'nde kazanılan ayırt etme becerisini felsefe tarihinin geneline uygular.",
+        "historyofwesternphilosophy": "Batı felsefesinin uzun soluklu tartışmalarını çok daha kapsamlı bir başvuru çerçevesinde ele alarak Felsefenin Kısa Tarihi'nde tanışılan düşünürleri derinleştirir.",
+        "justicewhatstherightthingtodo": "Adalet üzerine başlıca yaklaşımları somut örneklerle karşılaştırarak bir savı, gerekçesini ve itirazlarını ayırma pratiğini gerçek tartışmalar üzerinden yaptırır.",
+        "whatmoneycantbuy": "Aynı yazarın adalet çerçevesini piyasaların ahlaki sınırlarına taşıyarak neyin satılabilir olması gerektiğine dair itirazları aynı yöntemle sürdürür.",
+        "ilprincipe": "Siyasal iktidarın korunması üzerine tarihsel bir metni eleştirel okumayı ister; adalet tartışmalarında kazanılan ayırma becerisini yazarın gözlemleriyle kendi ahlaki ölçütlerin arasında sınar.",
+        "enchiridion": "Kontrol alanı ve yargı disiplini üzerine kısa bir Stoacı giriş sunarak Prens'teki siyasi metinden gündelik pratik felsefeye geçişi kolaylaştırır.",
+        "discourses": "Stoacı uygulamanın öğretici çerçevesini El Kitabı'ndaki kısa girişin ötesine taşıyarak aynı ilkelerin gerekçelerini daha ayrıntılı biçimde tartışır.",
+        "meditations": "Kontrol edebildiğin davranışlarla dış koşulları ayırmayı, yargıların ve gündelik tutumların üzerine düşünmeyi; Söylevler'de kurulan öğretici çerçevenin kişisel günlük pratiğe dönüşmüş halini gösterir.",
+        "epistulaemoralesadlucilium": "Stoacı etiği gündelik sorunlar üzerinden pedagojik biçimde işleyerek Kendime Düşünceler'deki kişisel notları, mektup formunda başka bir öğretmenin sesiyle sürdürür.",
+        "obstacleistheway": "Engelleri yeniden yorumlama fikrini Stoacı örnekler üzerinden inceleyerek üç antik yazarın çerçevesini güncel, gündelik zorluklara uygulamayı gösterir.",
+        "dialektikderaufklarung": "Aydınlanma aklının kendisini nasıl bir tahakküm biçimine dönüştürebileceğini sorgulayarak rotanın en soyut ve en özgün eleştirel tartışmasıyla kapanışı yapar."
+      }
     },
     {
       "category": "children",
       "heading": "Birlikte okumayı sürdürmek için",
       "goal": "Merakı ve anlatı takibini desteklemek; karakterlerin duygularını, seçimlerini ve olayların nedenlerini çocukla konuşmak.",
       "books": [
+        "ayipaddington",
+        "abartmatozu",
+        "matilda",
+        "charlienincikolatafabrikasi",
         "kucukprens",
         "charlotteunsevgiagi",
-        "ronjarovardotter"
-      ]
+        "ronjarovardotter",
+        "taleofdespereaux",
+        "kucukkarabalik",
+        "durdurulamayaninsanlikdunyaninhakimiyetininasilelegecirdik"
+      ],
+      "reasons": {
+        "ayipaddington": "Kısa, bölümlü ve mizahi bir anlatıyla anlatı takibine kolay bir başlangıç yapmak; günlük aksiliklerin sonuçlarını çocukla konuşmak için oku.",
+        "abartmatozu": "Hafif mizahtan sonra, ölçüyü kaçırmanın gündelik sonuçlarını özgün bir Türkçe anlatıyla konuşmak; abartının gerçek yaşamla ilişkisini birlikte tartışmak için oku.",
+        "matilda": "Mizahi bir anlatıdan, haksızlığa karşı duran ve merakıyla öne çıkan bir çocuk kahramana geçmek; okuma sevgisini ve adalet duygusunu birlikte konuşmak için oku.",
+        "charlienincikolatafabrikasi": "Aynı yazardan farklı çocuk karakterlerin seçimlerini ve ödüllerini karşılaştırarak doğru davranışın ne olduğunu tartışmayı derinleştirmek için oku.",
+        "kucukprens": "Somut karakterlerden, dostluk ve sorumluluğu daha soyut ve şiirsel bir anlatıyla ele almaya geçmek; yetişkinlerin değer yargılarını sorgulamak için oku.",
+        "charlotteunsevgiagi": "Dostluk ve sorumluluk temasını, kayıpla yüzleşmeyi de içeren daha duygusal bir anlatıyla derinleştirmek; karakterlerin birbirine nasıl yardım ettiğini konuşmak için oku.",
+        "ronjarovardotter": "Dostluktan, bağımsızlaşma ve aileden devralınan çatışmaları sorgulamaya geçmek; karakterin kendi seçimlerini ailesine rağmen savunmasını konuşmak için oku.",
+        "taleofdespereaux": "Tek kahramanlı anlatılardan, birden fazla karakterin bakışını taşıyan bir kurguya geçmek; cesaret, dışlanma ve bağışlamayı farklı gözlerden konuşmak için oku.",
+        "kucukkarabalik": "Çok katmanlı bir kurgudan, özgürlük arayışını simgesel ve açık uçlu bir masalla ele almaya geçmek; hikayenin sonunu birlikte yorumlamak için oku.",
+        "durdurulamayaninsanlikdunyaninhakimiyetininasilelegecirdik": "Kurgudan, insanlığın tarihini ele alan bir bilgi kitabına geçerek merakı anlatı dışına da taşımak; büyük ölçekli nedenlerin sonuçlarını çocukla konuşmak için oku."
+      }
     },
     {
       "category": "science",
       "heading": "Bilimsel düşünmeyi geliştirmek için",
       "goal": "Gözlem, açıklama ve kanıt arasındaki ilişkiyi çalışmak; iddiaların nasıl sınandığını ve belirsizliğin nasıl ele alındığını sorgulamak.",
       "books": [
-        "howtoliewithstatistics",
-        "thinkingstatistically",
-        "factfulness"
-      ]
+        "buyuksorularkitabi",
+        "howtoreadabook",
+        "elestirelokuma",
+        "adimadimmatematikessizbirgorselrehber",
+        "nakedstatisticsstrippingthedreadfromthedata",
+        "hownottobewrong",
+        "factfulness",
+        "economicsrules",
+        "littlehistoryofscience",
+        "sapiensabriefhistoryofhumankind",
+        "durdurulamayaninsanlikdunyaninhakimiyetininasilelegecirdik",
+        "artificialintelligenceaguideforthinkinghumans"
+      ],
+      "reasons": {
+        "buyuksorularkitabi": "Gerçek bilim insanlarının çocukların en temel sorularını sade dille yanıtladığı bir kitap; bilimsel açıklamanın hangi meraktan başladığını göstererek en geniş noktadan başlatır.",
+        "howtoreadabook": "Sade sorulardan sonra yoğun metinlere geçiş için gereken beceriyi verir: bir savı, gerekçesini ve eleştirisini ayırt eden analitik okuma yöntemini öğretir.",
+        "elestirelokuma": "Adler'ın yöntemini Türkçe bir kaynakla pekiştirir; bir metni izlemekle yetinmeyip ana düşünceyi ve gerekçeleri kendi cümleleriyle çıkarmayı alıştırmaya başlar.",
+        "adimadimmatematikessizbirgorselrehber": "Eleştirel okuma becerisine sayısal bir temel ekler; ekonomi ve istatistik kitaplarına geçmeden önce temel sayısal kavramları görsel biçimde çalışır.",
+        "nakedstatisticsstrippingthedreadfromthedata": "Görsel matematik temelini istatistiğe taşır; ortalama, olasılık, örneklem ve birlikte değişim gibi kavramlarla araştırma sonuçlarını yorumlamaya hazırlar.",
+        "hownottobewrong": "İstatistiksel kavramları gündelik örneklerle derinleştirir; sayısal akıl yürütmeyi güçlendirip tahmin ve veri kitaplarına daha sağlam bir hazırlık sağlar.",
+        "factfulness": "Güçlenen sayısal akıl yürütmeyi gerçek dünya verilerine uygular; dünya hakkındaki içgüdüsel ama yanlış kanıları verilerle sınayıp düzeltmeyi örnekler.",
+        "economicsrules": "Tek tek verileri düzeltmekten bir disiplinin açıklama biçimini sorgulamaya geçer; iktisadi modellerin ne işe yaradığını ve nerede sınırlı kaldığını tartışır.",
+        "littlehistoryofscience": "Model ve verinin sınırlarını tartışan bakışı tarihe taşır; bilim insanlarının hangi sorunlarla uğraştığını ve bilginin zaman içinde nasıl geliştiğini konumlandırır.",
+        "sapiensabriefhistoryofhumankind": "Bilim tarihinin dar ölçeğinden insanlık tarihinin geniş ölçeğine geçer; kanıta dayalı büyük ölçekli bir anlatının nasıl kurulduğunu gösterir.",
+        "durdurulamayaninsanlikdunyaninhakimiyetininasilelegecirdik": "Aynı yazarın aynı büyük iddialarını çocuklar için sadeleştirilmiş haliyle yeniden okutur; bir açıklama sadeleşirken neyi koruyup neyi kaybettiğini sorgulatır.",
+        "artificialintelligenceaguideforthinkinghumans": "Rotada kazanılan okuma, sayı ve kanıt sınama becerilerini güncel bir tartışmaya uygular; yapay zekânın gerçek yeteneklerini ve sınırlarını abartılı iddialardan ayırmayı ister."
+      }
     }
   ],
   "overrides": {

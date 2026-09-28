@@ -3,9 +3,9 @@ import { Accordion, Anchor, Badge, Button, Group, Paper, Select, Stack, Text, Ti
 import { readingGuide, relatedBooks } from '../recommendations';
 import { displayTitle,turkishMeaning } from '../translation';
 
-function RelatedCard({book,reason,onOpen,BookCover,states}) {
+function RelatedCard({book,reason='',onOpen,BookCover,states}) {
  const marks=states[book.id]||[];
- return <Paper component="article" withBorder p="md" radius="md" className="related-card" onClick={e=>{if(!e.target.closest('button,a,input,select,textarea,[role="button"]'))onOpen(book.id)}}>
+ return <Paper component="article" withBorder p="md" radius="md" className="related-card" onClick={e=>{if(!(e.target instanceof Element&&e.target.closest('button,a,input,select,textarea,[role="button"]')))onOpen(book.id)}}>
   <div className="related-book"><div className="related-cover"><BookCover book={book} onOpen={onOpen}/></div><div><Title order={4}><button className="title-button" onClick={()=>onOpen(book.id)}>{displayTitle(book)}</button></Title><Text c="dimmed" mt="xs">{book.author}</Text><Group gap={6} mt="xs">{marks.includes('alindi')&&<Badge>Kitaplığında</Badge>}{marks.includes('okundu')&&<Badge>Okundu</Badge>}</Group></div></div>
   {reason&&<Text mt="md" className="recommendation-reason">{reason}</Text>}
  </Paper>;

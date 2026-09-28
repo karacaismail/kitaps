@@ -905,16 +905,18 @@
     "checkedAt": "2026-09-28"
   },
   "kucukprens": {
-    "src": "covers/501aa1288d88e1b2.jpg",
-    "imageUrl": "https://asset.kitapsepeti.com/kucuk-prens-588846-1057574-58-O.jpg",
-    "sourceUrl": "https://www.kitapsepeti.com/kucuk-prens-588846",
-    "sourceName": "Kitapsepeti",
+    "src": "covers/children-kucukprens.jpg",
+    "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:11468334/wi:800/wh:bd52f2274",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/kucuk-prens/10233.html",
+    "sourceName": "kitapyurdu.com",
     "title": "Küçük Prens",
     "author": "Antoine de Saint-Exupéry",
-    "publisher": "Turkuvaz Çocuk",
-    "isbn": "9786258292718",
+    "publisher": "Can Çocuk Yayınları",
+    "isbn": "9789750724435",
     "language": "tr",
-    "checkedAt": "2026-09-28"
+    "checkedAt": "2026-09-28",
+    "scope": "Türkçe baskı kapağı",
+    "matchMethod": "manual-source-review"
   },
   "matilda": {
     "src": "covers/1372c63b35ea72a5.jpg",
@@ -929,16 +931,18 @@
     "checkedAt": "2026-09-28"
   },
   "kucukkarabalik": {
-    "src": "covers/514fdbfce17f2671.jpg",
-    "imageUrl": "https://asset.kitapsepeti.com/kucuk-karabalik-207686-172258-20-O.jpg",
-    "sourceUrl": "https://www.kitapsepeti.com/kucuk-karabalik-207686",
-    "sourceName": "Kitapsepeti",
-    "title": "Küçük Karabalık",
+    "src": "covers/children-karabalik.jpg",
+    "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:11483099/wi:800/wh:76d122ef4",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/kucuk-kara-balik-ciltsiz/30121.html",
+    "sourceName": "kitapyurdu.com",
+    "title": "Küçük Kara Balık",
     "author": "Samed Behrengi",
-    "publisher": "Parıltı Yayınları",
-    "isbn": "9786053030317",
+    "publisher": "Can Çocuk Yayınları",
+    "isbn": "9789755109725",
     "language": "tr",
-    "checkedAt": "2026-09-28"
+    "checkedAt": "2026-09-28",
+    "scope": "Türkçe baskı kapağı",
+    "matchMethod": "manual-source-review"
   },
   "sekerportakali": {
     "src": "covers/938faec999bd7954.jpg",
@@ -965,40 +969,46 @@
     "checkedAt": "2026-09-28"
   },
   "ozbuyucusu": {
-    "src": "covers/20791fb19309aa8e.jpg",
-    "imageUrl": "https://asset.kitapsepeti.com/oz-buyucusu-96997-383252-96-O.jpg",
-    "sourceUrl": "https://www.kitapsepeti.com/oz-buyucusu-96997",
-    "sourceName": "Kitapsepeti",
+    "src": "covers/children-oz.jpg",
+    "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:11558392/wi:800/wh:38db14c19",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/oz-buyucusu/614476.html",
+    "sourceName": "kitapyurdu.com",
     "title": "Oz Büyücüsü",
-    "author": "Lyman Frank Baum",
-    "publisher": "Arkadaş Yayınları",
-    "isbn": "9789755098067",
+    "author": "L. Frank Baum",
+    "publisher": "Yapı Kredi Yayınları",
+    "isbn": "9789750853494",
     "language": "tr",
-    "checkedAt": "2026-09-28"
+    "checkedAt": "2026-09-28",
+    "scope": "Türkçe baskı kapağı",
+    "matchMethod": "manual-source-review"
   },
   "aliceharikalardiyarinda": {
-    "src": "covers/dfb922d4c8bc9681.jpg",
-    "imageUrl": "https://asset.kitapsepeti.com/alice-harikalar-diyarinda-534359-974743-53-O.jpg",
-    "sourceUrl": "https://www.kitapsepeti.com/alice-harikalar-diyarinda-534359",
-    "sourceName": "Kitapsepeti",
+    "src": "covers/children-alice.jpg",
+    "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:3806537/wi:800/wh:bbff9a68f",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/alice-harikalar-diyarinda/426369.html",
+    "sourceName": "kitapyurdu.com",
     "title": "Alice Harikalar Diyarında",
     "author": "Lewis Carroll",
-    "publisher": "Parana Yayınları",
-    "isbn": "9786259612645",
+    "publisher": "Türkiye İş Bankası Kültür Yayınları",
+    "isbn": "9786052950524",
     "language": "tr",
-    "checkedAt": "2026-09-28"
+    "checkedAt": "2026-09-28",
+    "scope": "Türkçe baskı kapağı",
+    "matchMethod": "manual-source-review"
   },
   "heidi": {
-    "src": "covers/05a331a7f4f1929f.png",
-    "imageUrl": "https://asset.kitapsepeti.com/heidi-536900-978403-53-O.png",
-    "sourceUrl": "https://www.kitapsepeti.com/heidi-536900",
-    "sourceName": "Kitapsepeti",
+    "src": "covers/children-heidi.jpg",
+    "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:12011525/wi:800/wh:671c505a0",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/heidi/708395.html",
+    "sourceName": "kitapyurdu.com",
     "title": "Heidi",
     "author": "Johanna Spyri",
-    "publisher": "Paper Books",
-    "isbn": "9786256227897",
+    "publisher": "Mundi",
+    "isbn": "9786256324749",
     "language": "tr",
-    "checkedAt": "2026-09-28"
+    "checkedAt": "2026-09-28",
+    "scope": "Türkçe baskı kapağı",
+    "matchMethod": "manual-source-review"
   },
   "cocukkalbi": {
     "src": "covers/7b0985761df81c04.jpg",
@@ -1049,16 +1059,18 @@
     "checkedAt": "2026-09-28"
   },
   "ezopmasallari": {
-    "src": "covers/67869ced0c61ee20.jpg",
-    "imageUrl": "https://asset.kitapsepeti.com/ezop-masallari-464065-883504-46-O.jpg",
-    "sourceUrl": "https://www.kitapsepeti.com/ezop-masallari-464065",
-    "sourceName": "Kitapsepeti",
+    "src": "covers/children-ezop.jpg",
+    "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:146724/wi:800/wh:bf7f1f3e8",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/ezop-masallari/85168.html",
+    "sourceName": "kitapyurdu.com",
     "title": "Ezop Masalları",
     "author": "Ezop",
-    "publisher": "Pars Yayınları",
-    "isbn": "9786057309594",
+    "publisher": "Remzi Kitabevi",
+    "isbn": "9789751411204",
     "language": "tr",
-    "checkedAt": "2026-09-28"
+    "checkedAt": "2026-09-28",
+    "scope": "Türkçe baskı kapağı",
+    "matchMethod": "manual-source-review"
   },
   "grimmmasallari": {
     "src": "covers/e893b461df48bbed.jpg",
@@ -2070,18 +2082,18 @@
     "isbnUnavailable": false
   },
   "charlotteunsevgiagi": {
-    "title": "Charlotte'un Sevgi Ağı",
+    "src": "covers/children-orumcek.jpg",
+    "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:9155078/wi:800/wh:68b5c1c33",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/orumcek-agi/12308.html",
+    "sourceName": "kitapyurdu.com",
+    "title": "Örümcek Ağı",
     "author": "E. B. White",
-    "publisher": "Beyaz Balina Yayınları",
-    "sourceUrl": "https://www.kitapyurdu.com/kitap/charlotteun-sevgi-agi/99745.html",
-    "src": "covers/7d5422793de03acf.jpg",
-    "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:143259/mh:500/wh:4302a24a6",
-    "isbn": "9789759990091",
+    "publisher": "Yapı Kredi Yayınları",
+    "isbn": "9789750845222",
     "language": "tr",
-    "sourceName": "Kitapyurdu",
     "checkedAt": "2026-09-28",
-    "verification": "Title, author and Turkish edition matched to the cited bibliographic record",
-    "isbnUnavailable": false
+    "scope": "Türkçe baskı kapağı",
+    "matchMethod": "manual-source-review"
   },
   "ayipaddington": {
     "title": "Ayı Paddington",
@@ -2444,5 +2456,19 @@
     "checkedAt": "2026-09-28",
     "matchMethod": "manual-source-review",
     "verification": "Title, author, publisher, Turkish language and cover matched to the cited product page"
+  },
+  "defineadasicocukuyarlamasi": {
+    "src": "covers/children-define.jpg",
+    "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:12055158/wi:800/wh:c3102bbd6",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/define-adasi/717613.html",
+    "sourceName": "kitapyurdu.com",
+    "title": "Define Adası",
+    "author": "Robert Louis Stevenson",
+    "publisher": "Mundi",
+    "isbn": "9786256324992",
+    "language": "tr",
+    "checkedAt": "2026-09-28",
+    "scope": "Türkçe baskı kapağı",
+    "matchMethod": "manual-source-review"
   }
 }

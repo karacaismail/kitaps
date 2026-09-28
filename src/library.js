@@ -2,7 +2,7 @@ import { displayTitle } from './translation.js';
 
 export const STATE_LABELS = { onemli: 'Favori', alinacak: 'Alınacak', alindi: 'Satın alındı', okunuyor: 'Okunuyor', okundu: 'Okundu', araverildi: 'Ara verdim', birakildi: 'Bıraktım' };
 export const QUALITY_LABELS = { ok: 'Kaynakta doğrulanmış', warn: 'Baskı / çeviri uyarısı', unverified: 'Künye eksik', avoid: 'Kaçınılacak baskı notu' };
-export const ORIGIN_LABELS = { atlas: 'Kitap Atlası', local: 'Okuma Kümeleri', kitaps: 'Kitaps', entrepreneurship: 'Girişimcilik araştırması', foundations: 'Temel okumalar araştırması', preparation: 'Ön hazırlık araştırması' };
+export const ORIGIN_LABELS = { atlas: 'Kitap Atlası', local: 'Okuma Kümeleri', kitaps: 'Kitaps', entrepreneurship: 'Girişimcilik araştırması', foundations: 'Temel okumalar araştırması', preparation: 'Ön hazırlık araştırması', children: 'Çocuk kütüphanesi araştırması' };
 export const emptyFilters = () => ({ query: '', categories: [], collections: [], groups: [], states: [], authors: [], origins: [], awards: [], awardYears: [], qualities: [], categoryMode: 'any', collectionMode: 'any', hasEdition: false, shared: false, yearMin: '', yearMax: '' });
 export const normalize = value => String(value ?? '').toLocaleLowerCase('tr-TR').replace(/ı/g, 'i').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[’‘]/g, "'");
 export function prepareBooks(books) {
@@ -34,7 +34,11 @@ export function sortBooks(books, sort, states = {}, rankings = {}) {
  const title = b => displayTitle(b);
  return [...books].sort((a,b) => {
   const tie = () => collator.compare(title(a),title(b));
-  if (sort === 'reading') return (rankings[a.id]?.rank??Number.MAX_SAFE_INTEGER)-(rankings[b.id]?.rank??Number.MAX_SAFE_INTEGER)||(rankings[a.id]?.ordinal??Number.MAX_SAFE_INTEGER)-(rankings[b.id]?.ordinal??Number.MAX_SAFE_INTEGER)||tie();
+  // General books come before children's books, which are ranked among
+  // themselves. Books with an equal priority share a rank and read
+  // alphabetically by the title the reader sees, never by internal identifiers.
+  const audience = id => rankings[id]?.audience === 'children' ? 1 : 0;
+  if (sort === 'reading') return audience(a.id)-audience(b.id)||(rankings[a.id]?.rank??Number.MAX_SAFE_INTEGER)-(rankings[b.id]?.rank??Number.MAX_SAFE_INTEGER)||tie();
   if (sort === 'shared') return b.collectionIds.length - a.collectionIds.length || tie();
   if (sort === 'author') return collator.compare(a.author,b.author) || tie();
   if (sort === 'newest') return Math.max(0,...b.years) - Math.max(0,...a.years) || tie();

@@ -26,9 +26,10 @@ test('footer exports every catalog book as a self-describing JSON file',()=>{
  assert.match(app,/onClick=\{exportAllBooks\}>Kitapları JSON indir<\/Button>/);
 });
 
-test('footer shows creation and catalog update dates separately',()=>{
- assert.match(app,/Yaratılış · 27 Eylül ’26/);
+test('footer shows creation and catalog update dates separately in one format',()=>{
+ assert.match(app,/Yaratılış · 27 Eylül 2026/);
  assert.match(app,/Güncelleme · \{catalog\.updated\}/);
+ assert.match(app,/<Text fw=\{600\}>Kitaplık<\/Text>/,'the footer uses the product name');
 });
 
 test('priority summaries expose full text and labelled progress values',()=>{
@@ -37,10 +38,26 @@ test('priority summaries expose full text and labelled progress values',()=>{
  assert.match(card,/aria-label=\{`\$\{item\.label\}: yüzde/);
 });
 
-test('reading priority consumes only shared ownership state and excludes queue and reading activity',()=>{
- assert.match(app,/readingRankingViewModel\.build\(\{states:githubSync\.shared\.states,queue:\[\],reading:\{\}\}\)/);
- assert.doesNotMatch(app,/readingRankingViewModel\.build\(\{states:githubSync\.shared\.states,queue:githubSync\.shared\.queue,reading:githubSync\.shared\.reading\}\)/);
- assert.doesNotMatch(app,/readingRankingViewModel\.build\(\{states,queue:personal\.queue,reading:personal\.reading\}\)/);
+test('reading priority is built once from the catalog, with no personal or synced state',()=>{
+ assert.match(app,/const readingRanking=new ReadingRankingViewModel\(new ReadingPriorityEngine\(catalog\)\)\.build\(\);/);
+ assert.doesNotMatch(app,/githubSync\.shared/);
+ assert.doesNotMatch(app,/\.build\(\{/);
+});
+
+test('priority copy states that purchases and reading activity never change the score',()=>{
+ assert.doesNotMatch(card,/okuma durumları değiştiğinde/);
+ assert.match(card,/Satın alma, favori, okuma durumu, okuma kaydı ve kişisel sıra puanı değiştirmez/);
+ const summary=fs.readFileSync(new URL('../src/components/ReadingPrioritySummary.jsx',import.meta.url),'utf8');
+ assert.doesNotMatch(summary,/Şu an ilk/);
+ assert.match(app,/view==='books'&&sort==='reading'&&<ReadingPrioritySummary/,'personal shelves carry no priority paragraph');
+});
+
+test('customer copy and icon requests stay applied',()=>{
+ assert.doesNotMatch(app,/yıldız/i,'favorites use a heart');
+ assert.doesNotMatch(app,/IconWoman/,'the daughter shortcut uses the girl icon');
+ assert.match(app,/<GirlIcon size=\{29\}\/>/);
+ const queue=fs.readFileSync(new URL('../src/components/ReadingQueue.jsx',import.meta.url),'utf8');
+ assert.doesNotMatch(queue,/Sıradan çıkarmak okuma kaydını/,'the queue page has no explanatory footnote');
 });
 
 test('removed card category component stays unused',()=>{

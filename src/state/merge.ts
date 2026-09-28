@@ -1,22 +1,45 @@
-import { STATE_SCHEMA_VERSION, type BookStatePayload, type BookStateRecord, type PendingStateMutation, type ReadingState, type StateDocument } from './types.ts';
+import {
+  BOOK_FIELDS,
+  LEGACY_STATE_SCHEMA_VERSION,
+  MAX_QUEUE_LENGTH,
+  STATE_SCHEMA_VERSION,
+  type BookField,
+  type BookStatePayload,
+  type BookStateRecord,
+  type PendingStateMutation,
+  type QueueRecord,
+  type ReadingState,
+  type StateDocument,
+} from './types.ts';
 
 const validTimestamp = (value: unknown): value is string => typeof value === 'string' && Number.isFinite(Date.parse(value));
 const readingStates = new Set<ReadingState>(['onemli', 'alinacak', 'alindi', 'okunuyor', 'araverildi', 'birakildi', 'okundu']);
 const exactKeys = (value: object, allowed: string[]): boolean => Object.keys(value).every(key => allowed.includes(key));
+const isObject = (value: unknown): value is Record<string, unknown> => Boolean(value) && typeof value === 'object' && !Array.isArray(value);
+const later = (left: string | undefined, right: string | undefined): string | undefined =>
+  !left ? right : !right ? left : Date.parse(left) >= Date.parse(right) ? left : right;
 
 function assertReading(value: unknown, bookId: string): void {
-  if (!value || typeof value !== 'object' || Array.isArray(value) || !exactKeys(value, ['startedAt', 'finishedAt', 'page', 'totalPages', 'why', 'apply'])) throw new TypeError(`Invalid reading data for ${bookId}.`);
-  const reading = value as Record<string, unknown>;
-  for (const key of ['startedAt', 'finishedAt', 'why', 'apply']) if (key in reading && typeof reading[key] !== 'string') throw new TypeError(`Invalid ${key} for ${bookId}.`);
-  for (const key of ['page', 'totalPages']) if (key in reading && (!Number.isInteger(reading[key]) || (reading[key] as number) < 0)) throw new TypeError(`Invalid ${key} for ${bookId}.`);
+  if (!isObject(value) || !exactKeys(value, ['startedAt', 'finishedAt', 'page', 'totalPages', 'why', 'apply'])) throw new TypeError(`Invalid reading data for ${bookId}.`);
+  for (const key of ['startedAt', 'finishedAt', 'why', 'apply']) if (key in value && typeof value[key] !== 'string') throw new TypeError(`Invalid ${key} for ${bookId}.`);
+  for (const key of ['page', 'totalPages']) if (key in value && (!Number.isInteger(value[key]) || (value[key] as number) < 0)) throw new TypeError(`Invalid ${key} for ${bookId}.`);
 }
 
 export function assertBookStatePayload(value: unknown, bookId = '<unknown>'): asserts value is BookStatePayload {
-  if (!value || typeof value !== 'object' || Array.isArray(value) || !exactKeys(value, ['states', 'reading', 'queuePosition'])) throw new TypeError(`Invalid value for ${bookId}.`);
-  const payload = value as Record<string, unknown>;
-  if ('states' in payload && (!Array.isArray(payload.states) || new Set(payload.states).size !== payload.states.length || payload.states.some(state => typeof state !== 'string' || !readingStates.has(state as ReadingState)))) throw new TypeError(`Invalid states for ${bookId}.`);
-  if ('queuePosition' in payload && payload.queuePosition !== null && (!Number.isInteger(payload.queuePosition) || (payload.queuePosition as number) < 0 || (payload.queuePosition as number) > 4)) throw new TypeError(`Invalid queue position for ${bookId}.`);
-  if ('reading' in payload && payload.reading !== null) assertReading(payload.reading, bookId);
+  if (!isObject(value) || !exactKeys(value, ['states', 'reading'])) throw new TypeError(`Invalid value for ${bookId}.`);
+  if ('states' in value && (!Array.isArray(value.states) || new Set(value.states).size !== value.states.length || value.states.some(state => typeof state !== 'string' || !readingStates.has(state as ReadingState)))) throw new TypeError(`Invalid states for ${bookId}.`);
+  if ('reading' in value && value.reading !== null) assertReading(value.reading, bookId);
+}
+
+export function assertQueue(value: unknown, context = 'queue'): asserts value is string[] {
+  if (!Array.isArray(value) || value.length > MAX_QUEUE_LENGTH || value.some(id => typeof id !== 'string' || !id.trim()) || new Set(value).size !== value.length) {
+    throw new TypeError(`Invalid ${context}.`);
+  }
+}
+
+function assertStamps(value: unknown, bookId: string): void {
+  if (!isObject(value) || !exactKeys(value, [...BOOK_FIELDS])) throw new TypeError(`Invalid stamps for ${bookId}.`);
+  for (const stamp of Object.values(value)) if (!validTimestamp(stamp)) throw new TypeError(`Invalid stamp for ${bookId}.`);
 }
 
 export function publicStatePayload(value: BookStatePayload | null): BookStatePayload | null {
@@ -24,95 +47,120 @@ export function publicStatePayload(value: BookStatePayload | null): BookStatePay
   const payload: BookStatePayload = {};
   if (value.states) payload.states = [...value.states];
   if (value.reading !== undefined) payload.reading = value.reading === null ? null : structuredClone(value.reading);
-  if (value.queuePosition !== undefined) payload.queuePosition = value.queuePosition;
   return payload;
 }
 
+/** Copies only known public fields, so nothing unexpected is ever written. */
 export function publicStateDocument(document: StateDocument): StateDocument {
   return {
-    ...document,
-    books: Object.fromEntries(Object.entries(document.books).map(([bookId, record]) => [bookId, {...record, value: publicStatePayload(record.value)}])),
+    schemaVersion: STATE_SCHEMA_VERSION,
+    updatedAt: document.updatedAt,
+    books: Object.fromEntries(Object.entries(document.books).map(([bookId, record]) => [bookId, {
+      updatedAt: record.updatedAt,
+      value: publicStatePayload(record.value),
+      ...(record.stamps ? { stamps: { ...record.stamps } } : {}),
+    }])),
+    queue: document.queue ? { updatedAt: document.queue.updatedAt, value: [...document.queue.value] } : null,
   };
 }
 
 export function emptyStateDocument(updatedAt = new Date(0).toISOString()): StateDocument {
-  return { schemaVersion: STATE_SCHEMA_VERSION, updatedAt, books: {} };
+  return { schemaVersion: STATE_SCHEMA_VERSION, updatedAt, books: {}, queue: null };
 }
 
 export function assertStateDocument(value: unknown): asserts value is StateDocument {
-  if (!value || typeof value !== 'object' || Array.isArray(value) || !exactKeys(value, ['schemaVersion', 'updatedAt', 'books'])) throw new TypeError('State document must be an object with known fields.');
-  const document = value as Partial<StateDocument>;
-  if (document.schemaVersion !== STATE_SCHEMA_VERSION) throw new TypeError(`Unsupported state schema version: ${String(document.schemaVersion)}.`);
-  if (!validTimestamp(document.updatedAt)) throw new TypeError('State document updatedAt must be a valid timestamp.');
-  if (!document.books || typeof document.books !== 'object' || Array.isArray(document.books)) throw new TypeError('State document books must be an object.');
-  for (const [bookId, record] of Object.entries(document.books)) {
-    if (!bookId.trim() || !record || typeof record !== 'object' || Array.isArray(record) || !exactKeys(record, ['updatedAt', 'value'])) throw new TypeError(`Invalid state record for ${bookId || '<empty>'}.`);
-    if (!validTimestamp((record as BookStateRecord).updatedAt)) throw new TypeError(`Invalid updatedAt for ${bookId}.`);
-    const payload = (record as BookStateRecord).value;
-    if (payload !== null) assertBookStatePayload(payload, bookId);
+  if (!isObject(value) || !exactKeys(value, ['schemaVersion', 'updatedAt', 'books', 'queue'])) throw new TypeError('State document must be an object with known fields.');
+  if (value.schemaVersion !== STATE_SCHEMA_VERSION) throw new TypeError(`Unsupported state schema version: ${String(value.schemaVersion)}.`);
+  if (!validTimestamp(value.updatedAt)) throw new TypeError('State document updatedAt must be a valid timestamp.');
+  if (!isObject(value.books)) throw new TypeError('State document books must be an object.');
+  for (const [bookId, record] of Object.entries(value.books)) {
+    if (!bookId.trim() || !isObject(record) || !exactKeys(record, ['updatedAt', 'value', 'stamps'])) throw new TypeError(`Invalid state record for ${bookId || '<empty>'}.`);
+    if (!validTimestamp(record.updatedAt)) throw new TypeError(`Invalid updatedAt for ${bookId}.`);
+    if (record.value !== null) assertBookStatePayload(record.value, bookId);
+    if ('stamps' in record) assertStamps(record.stamps, bookId);
+  }
+  if (value.queue !== null) {
+    if (!isObject(value.queue) || !exactKeys(value.queue, ['updatedAt', 'value']) || !validTimestamp(value.queue.updatedAt)) throw new TypeError('Invalid queue record.');
+    assertQueue(value.queue.value);
   }
 }
 
-function canonical(value: unknown): string {
-  if (Array.isArray(value)) return `[${value.map(canonical).join(',')}]`;
-  if (value && typeof value === 'object') return `{${Object.entries(value).sort(([a], [b]) => a.localeCompare(b)).map(([key, item]) => `${JSON.stringify(key)}:${canonical(item)}`).join(',')}}`;
-  return JSON.stringify(value);
-}
-
-export function laterRecord(left: BookStateRecord | undefined, right: BookStateRecord | undefined): BookStateRecord | undefined {
-  if (!left) return right;
-  if (!right) return left;
-  const time = Date.parse(left.updatedAt) - Date.parse(right.updatedAt);
-  if (time !== 0) return time > 0 ? left : right;
-  return canonical(left) >= canonical(right) ? left : right;
-}
-
-export function mergeStateDocuments(left: StateDocument, right: StateDocument): StateDocument {
-  assertStateDocument(left);
-  assertStateDocument(right);
+/** Reads a version 1 file (per-book queue positions) as a version 2 document. */
+export function upgradeStateDocument(value: unknown): unknown {
+  if (!isObject(value) || value.schemaVersion !== LEGACY_STATE_SCHEMA_VERSION || !isObject(value.books)) return value;
+  const positions: Array<[number, string, string]> = [];
   const books: Record<string, BookStateRecord> = {};
-  for (const bookId of new Set([...Object.keys(left.books), ...Object.keys(right.books)])) {
-    const winner = laterRecord(left.books[bookId], right.books[bookId]);
-    if (winner) books[bookId] = structuredClone(winner);
+  for (const [bookId, record] of Object.entries(value.books)) {
+    if (!isObject(record)) throw new TypeError(`Invalid state record for ${bookId}.`);
+    const legacy = isObject(record.value) ? record.value : null;
+    if (legacy && Number.isInteger(legacy.queuePosition)) positions.push([legacy.queuePosition as number, bookId, String(record.updatedAt)]);
+    const payload = legacy ? Object.fromEntries(Object.entries(legacy).filter(([key]) => key !== 'queuePosition')) as BookStatePayload : null;
+    books[bookId] = { updatedAt: String(record.updatedAt), value: payload };
   }
-  const updatedAt = Date.parse(left.updatedAt) >= Date.parse(right.updatedAt) ? left.updatedAt : right.updatedAt;
-  return { schemaVersion: STATE_SCHEMA_VERSION, updatedAt, books };
+  positions.sort((left, right) => left[0] - right[0] || left[1].localeCompare(right[1]));
+  const queue: QueueRecord | null = positions.length
+    ? { updatedAt: positions.map(item => item[2]).reduce((newest, stamp) => later(newest, stamp) ?? stamp), value: positions.slice(0, MAX_QUEUE_LENGTH).map(item => item[1]) }
+    : null;
+  return { schemaVersion: STATE_SCHEMA_VERSION, updatedAt: value.updatedAt, books, queue };
 }
 
-/** Applies sparse, locally-created field patches over the latest remote file.
- * Conflict retries always re-read the remote file first, so unrelated fields
- * changed by another device survive regardless of either device's wall clock.
- */
-export function applyStateDocumentPatches(base: StateDocument, patches: StateDocument): StateDocument {
+export function assertPendingMutation(value: unknown): asserts value is PendingStateMutation {
+  if (!isObject(value) || typeof value.id !== 'string' || !value.id || !validTimestamp(value.updatedAt)) throw new TypeError('Invalid pending state mutation.');
+  if (value.kind === 'book') {
+    if (!exactKeys(value, ['id', 'kind', 'bookId', 'updatedAt', 'value']) || typeof value.bookId !== 'string' || !value.bookId.trim()) throw new TypeError('Invalid pending book mutation.');
+    if (value.value !== null) assertBookStatePayload(value.value, value.bookId);
+  } else if (value.kind === 'queue') {
+    if (!exactKeys(value, ['id', 'kind', 'updatedAt', 'value'])) throw new TypeError('Invalid pending queue mutation.');
+    assertQueue(value.value, 'pending queue');
+  } else {
+    throw new TypeError('Invalid pending state mutation kind.');
+  }
+}
+
+/** Applies this device's unsent edits to the newest remote file with
+ * last-writer-wins per field: a field another device changed after the local
+ * edit keeps the other device's value; untouched fields are never disturbed. */
+export function applyPendingMutations(base: StateDocument, mutations: readonly PendingStateMutation[]): StateDocument {
   assertStateDocument(base);
-  assertStateDocument(patches);
   const books: Record<string, BookStateRecord> = structuredClone(base.books);
-  for (const [bookId, patch] of Object.entries(patches.books)) {
-    if (patch.value === null) {
-      books[bookId] = structuredClone(patch);
+  let queue: QueueRecord | null = base.queue ? structuredClone(base.queue) : null;
+  let updatedAt = base.updatedAt;
+
+  for (const mutation of mutations) {
+    assertPendingMutation(mutation);
+    if (mutation.kind === 'queue') {
+      if (queue && Date.parse(queue.updatedAt) > Date.parse(mutation.updatedAt)) continue;
+      queue = { updatedAt: mutation.updatedAt, value: [...mutation.value] };
+      updatedAt = later(updatedAt, mutation.updatedAt)!;
       continue;
     }
-    const current = books[bookId]?.value ?? {};
-    books[bookId] = {
-      updatedAt: patch.updatedAt,
-      value: {...structuredClone(current), ...structuredClone(patch.value)},
-    };
-  }
-  const updatedAt = Date.parse(base.updatedAt) >= Date.parse(patches.updatedAt) ? base.updatedAt : patches.updatedAt;
-  return {schemaVersion: STATE_SCHEMA_VERSION, updatedAt, books};
-}
 
-export function pendingMutationsToDocument(mutations: PendingStateMutation[]): StateDocument {
-  const books: Record<string, BookStateRecord> = {};
-  let updatedAt = new Date(0).toISOString();
-  for (const mutation of mutations) {
-    if (!mutation || typeof mutation !== 'object' || !exactKeys(mutation, ['id', 'bookId', 'updatedAt', 'value']) || typeof mutation.id !== 'string' || !mutation.id || typeof mutation.bookId !== 'string' || !mutation.bookId.trim() || !validTimestamp(mutation.updatedAt)) throw new TypeError('Invalid pending state mutation.');
-    if (mutation.value !== null) assertBookStatePayload(mutation.value, mutation.bookId);
-    const previous = books[mutation.bookId];
-    books[mutation.bookId] = mutation.value === null
-      ? {updatedAt: mutation.updatedAt, value: null}
-      : {updatedAt: mutation.updatedAt, value: {...(previous?.value ?? {}), ...structuredClone(mutation.value)}};
-    if (Date.parse(mutation.updatedAt) > Date.parse(updatedAt)) updatedAt = mutation.updatedAt;
+    const current = books[mutation.bookId];
+    if (mutation.value === null) {
+      if (current && Date.parse(current.updatedAt) > Date.parse(mutation.updatedAt)) continue;
+      books[mutation.bookId] = { updatedAt: mutation.updatedAt, value: null };
+      updatedAt = later(updatedAt, mutation.updatedAt)!;
+      continue;
+    }
+
+    const value: BookStatePayload = { ...structuredClone(current?.value ?? {}) };
+    const stamps: Partial<Record<BookField, string>> = { ...(current?.stamps ?? {}) };
+    let applied = false;
+    for (const field of BOOK_FIELDS) {
+      if (!(field in mutation.value)) continue;
+      // Records written before field stamps existed fall back to their record time.
+      const remoteStamp = stamps[field] ?? (current && !current.stamps ? current.updatedAt : undefined);
+      if (remoteStamp && Date.parse(remoteStamp) > Date.parse(mutation.updatedAt)) continue;
+      if (field === 'states') value.states = [...(mutation.value.states ?? [])];
+      else value.reading = mutation.value.reading === null || mutation.value.reading === undefined ? null : structuredClone(mutation.value.reading);
+      stamps[field] = mutation.updatedAt;
+      applied = true;
+    }
+    if (!applied) continue;
+    const newest = Object.values(stamps).reduce<string | undefined>((result, stamp) => later(result, stamp), current?.updatedAt);
+    books[mutation.bookId] = { updatedAt: newest ?? mutation.updatedAt, value, stamps };
+    updatedAt = later(updatedAt, mutation.updatedAt)!;
   }
-  return { schemaVersion: STATE_SCHEMA_VERSION, updatedAt, books };
+
+  return { schemaVersion: STATE_SCHEMA_VERSION, updatedAt, books, queue };
 }

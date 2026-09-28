@@ -2,7 +2,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { bookSlug } from '../src/library.js';
-import { displayTitle } from '../src/translation.js';
+import { displayTitle,recommendedTranslation,translationStatus,turkishEdition } from '../src/translation.js';
+import { readingGuide } from '../src/recommendations.js';
+import { splitAuthors } from '../src/authors.js';
 
 const projectRoot=fileURLToPath(new URL('../',import.meta.url));
 const catalog=JSON.parse(fs.readFileSync(path.join(projectRoot,'src/catalog.json'),'utf8'));
@@ -14,6 +16,13 @@ const appBase='https://karacaismail.github.io/kitaps/';
 const pageSize=24;
 const collator=new Intl.Collator('tr',{sensitivity:'base',numeric:true});
 const byTitle=[...catalog.books].sort((a,b)=>collator.compare(displayTitle(a),displayTitle(b))||collator.compare(a.author,b.author));
+const byId=Object.fromEntries(catalog.books.map(book=>[book.id,book]));
+const collectionMap=Object.fromEntries(catalog.collections.map(item=>[item.id,item]));
+const bookUrl=book=>`${publicBase}books/${encodeURIComponent(bookSlug(book))}/`;
+// Several source lists reuse generic group names ("Kitap listesi"), so a group
+// page is always named together with its collection.
+const groupHeading=group=>`${collectionMap[group.collectionId]?.short||collectionMap[group.collectionId]?.title||''} · ${group.title}`;
+const summary=(value,limit=158)=>{const clean=String(value||'').replace(/\s+/g,' ').trim();return clean.length>limit?`${clean.slice(0,limit-1).replace(/\s+\S*$/,'')}…`:clean;};
 
 export const escapeHtml=value=>String(value??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#39;');
 const json=value=>JSON.stringify(value).replaceAll('<','\\u003c');
@@ -28,14 +37,14 @@ const interactiveFor=({category,collection,group,book}={})=>{
  return `${appBase}${query.size?`?${query}`:''}`;
 };
 
-function documentShell({title,description,canonical,type='website',structured,body,prev='',next=''}) {
+function documentShell({title,description,canonical,type='website',structured,body,prev='',next='',image=''}) {
  return `<!doctype html>
 <html lang="tr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${escapeHtml(title)}</title><meta name="description" content="${escapeHtml(description)}"><meta name="robots" content="index,follow">
 <link rel="canonical" href="${escapeHtml(canonical)}">${prev?`<link rel="prev" href="${escapeHtml(prev)}">`:''}${next?`<link rel="next" href="${escapeHtml(next)}">`:''}
-<meta property="og:type" content="${type}"><meta property="og:title" content="${escapeHtml(title)}"><meta property="og:description" content="${escapeHtml(description)}"><meta property="og:url" content="${escapeHtml(canonical)}"><meta name="twitter:card" content="summary">
+<meta property="og:type" content="${type}"><meta property="og:title" content="${escapeHtml(title)}"><meta property="og:description" content="${escapeHtml(description)}"><meta property="og:url" content="${escapeHtml(canonical)}">${image?`<meta property="og:image" content="${escapeHtml(image)}">`:''}<meta name="twitter:card" content="summary">
 <script type="application/ld+json">${json(structured)}</script>
-<style>:root{color-scheme:light dark;font-family:system-ui,sans-serif}body{max-width:52rem;margin:0 auto;padding:2rem 1rem;line-height:1.6}a{color:inherit;text-underline-offset:.2em}li{margin:.65rem 0}.meta{opacity:.75}.actions{display:flex;gap:1rem;flex-wrap:wrap;margin:1.5rem 0}.pagination{display:flex;justify-content:space-between;margin-top:2rem}</style></head><body>${body}</body></html>\n`;
+<style>:root{color-scheme:light dark;font-family:system-ui,sans-serif}body{max-width:52rem;margin:0 auto;padding:2rem 1rem;line-height:1.6}a{color:inherit;text-underline-offset:.2em}li{margin:.65rem 0}.meta{opacity:.75}.actions{display:flex;gap:1rem;flex-wrap:wrap;margin:1.5rem 0}.pagination{display:flex;justify-content:space-between;margin-top:2rem}main>img{float:right;max-width:38%;height:auto;margin:0 0 1rem 1rem;border-radius:6px}h2{font-size:1.15rem;margin-top:1.75rem}</style></head><body>${body}</body></html>\n`;
 }
 
 function write(relative,html) {
@@ -62,21 +71,38 @@ function renderListing({prefix='',heading='Tüm kitaplar',description='Araştır
 
 function renderBook(book) {
  const slug=bookSlug(book);
- const canonical=`${publicBase}books/${encodeURIComponent(slug)}/`;
- const title=`${displayTitle(book)} — ${book.author} | Kitaplık`;
- const description=`${displayTitle(book)}, ${book.author}. Türkçe baskı, çeviri, yayınevi, kaynak kümeleri ve okuma rotası bilgileri.`;
- const edition=book.verifiedEdition||book.cover;
- const structured={'@context':'https://schema.org','@type':'Book',name:displayTitle(book),author:{'@type':'Person',name:book.author},inLanguage:book.cover?.language||undefined,isbn:edition?.isbn||undefined,url:canonical};
- const categories=book.categories.map(id=>catalog.categories.find(item=>item.id===id)?.label).filter(Boolean);
- const facts=[book.years.length?`İlk yayın: ${book.years.join(' / ')}`:'',edition?.publisher?`Yayınevi: ${edition.publisher}`:'',edition?.isbn?`ISBN: ${edition.isbn}`:'',categories.length?`Konular: ${categories.join(', ')}`:''].filter(Boolean).map(item=>`<li>${escapeHtml(item)}</li>`).join('');
- const body=`<header><a href="${publicBase}">Kitaplık</a><h1>${escapeHtml(displayTitle(book))}</h1><p>${escapeHtml(book.author)}</p></header><main>${facts?`<ul>${facts}</ul>`:''}<p class="actions"><a href="${escapeHtml(interactiveFor({book}))}">Kitabı etkileşimli katalogda aç</a></p></main>`;
- write(`books/${slug}/`,documentShell({title,description,canonical,type:'book',structured,body}));
+ const canonical=bookUrl(book);
+ const shown=displayTitle(book);
+ const status=translationStatus(book);
+ const edition=['available','original'].includes(status.status)?turkishEdition(book):null;
+ const translation=recommendedTranslation(book);
+ const guide=readingGuide(book,catalog);
+ const title=`${shown} — ${book.author} | Kitaplık`;
+ const description=summary(`${shown}, ${book.author}. ${guide.purpose}`);
+ const image=book.cover?`${appBase}${book.cover.src}`:'';
+ const authors=splitAuthors(book.author).map(name=>({'@type':'Person',name}));
+ const structured={'@context':'https://schema.org','@type':'Book',name:shown,author:authors.length>1?authors:authors[0],inLanguage:edition?'tr':book.cover?.language||undefined,isbn:edition?.isbn||book.cover?.isbn||undefined,publisher:edition?.publisher?{'@type':'Organization',name:edition.publisher}:undefined,translator:translation?.translators.map(name=>({'@type':'Person',name})),alternateName:book.originalTitle&&book.originalTitle!==shown?book.originalTitle:undefined,image:image||undefined,url:canonical};
+ const categories=book.categories.map(id=>catalog.categories.find(item=>item.id===id)).filter(Boolean);
+ const facts=[
+  book.originalTitle&&book.originalTitle!==shown?`Özgün ad: ${book.originalTitle}`:'',
+  book.years.length?`İlk yayın: ${book.years.join(' / ')}`:'',
+  `Türkçe baskı: ${status.label}`,
+  edition?.publisher?`Yayınevi: ${edition.publisher}`:'',
+  translation?.translators.length?`Önerilen çeviri: ${translation.translators.join(', ')}${translation.publisher?` (${translation.publisher})`:''}`:'',
+  edition?.isbn?`ISBN: ${edition.isbn}`:'',
+ ].filter(Boolean).map(item=>`<li>${escapeHtml(item)}</li>`).join('');
+ const links=(items,label)=>items.length?`<h2>${label}</h2><ul>${items.map(link=>`<li><a href="${escapeHtml(bookUrl(byId[link.id]))}">${escapeHtml(displayTitle(byId[link.id]))}</a> — ${escapeHtml(link.reason)}</li>`).join('')}</ul>`:'';
+ const topics=categories.length?`<p>Konular: ${categories.map(item=>`<a href="${publicBase}category/${encodeURIComponent(item.id)}/">${escapeHtml(item.label)}</a>`).join(', ')}</p>`:'';
+ const collections=book.collectionIds.length?`<p>Kaynak kümeleri: ${book.collectionIds.map(id=>collectionMap[id]).filter(Boolean).map(item=>`<a href="${publicBase}collection/${encodeURIComponent(item.id)}/">${escapeHtml(item.title)}</a>`).join(', ')}</p>`:'';
+ const cover=book.cover?`<img src="${escapeHtml(image)}" alt="${escapeHtml(`${book.cover.title} — ${book.cover.publisher||''} baskı kapağı`)}" width="160" height="240" loading="lazy">`:'';
+ const body=`<header><a href="${publicBase}">Kitaplık</a><h1>${escapeHtml(shown)}</h1><p>${escapeHtml(book.author)}</p></header><main>${cover}<ul>${facts}</ul><h2>Ne için okumalı?</h2><p>${escapeHtml(guide.purpose)}</p>${links(guide.before,'Önce okunabilecekler')}${links(guide.after,'Sonra okunabilecekler')}${links(guide.companions,'Birlikte okunabilecekler')}${topics}${collections}<p class="actions"><a href="${escapeHtml(interactiveFor({book}))}">Kitabı etkileşimli katalogda aç</a></p></main>`;
+ write(`books/${slug}/`,documentShell({title,description,canonical,type:'book',structured,body,image}));
 }
 
 fs.rmSync(catalogRoot,{recursive:true,force:true});
 renderListing({});
 for(const item of catalog.categories)renderListing({prefix:`category/${item.id}/`,heading:item.label,books:byTitle.filter(book=>book.categories.includes(item.id)),interactive:interactiveFor({category:item.id})});
 for(const item of catalog.collections)renderListing({prefix:`collection/${item.id}/`,heading:item.title,description:item.description,books:byTitle.filter(book=>book.collectionIds.includes(item.id)),interactive:interactiveFor({collection:item.id})});
-for(const item of catalog.groups||[])renderListing({prefix:`group/${item.id}/`,heading:item.title,books:byTitle.filter(book=>book.groupIds.includes(item.id)),interactive:interactiveFor({group:item.id})});
+for(const item of catalog.groups||[])renderListing({prefix:`group/${item.id}/`,heading:groupHeading(item),books:byTitle.filter(book=>book.groupIds.includes(item.id)),interactive:interactiveFor({group:item.id})});
 for(const book of catalog.books)renderBook(book);
 console.log(`static SEO: ${catalog.books.length} book pages and stable catalog listings`);

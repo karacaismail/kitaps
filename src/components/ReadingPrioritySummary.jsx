@@ -1,12 +1,16 @@
-import React from 'react';
-import {Badge,Group,Paper,Text,ThemeIcon,Title} from '@mantine/core';
-import {IconRoute} from '@tabler/icons-react';
-import {displayTitle} from '../translation';
+import React,{useState} from 'react';
+import {Collapse,Paper,Text,UnstyledButton} from '@mantine/core';
+import {IconChevronDown,IconRoute} from '@tabler/icons-react';
 
-export default function ReadingPrioritySummary({ranking,books,sync}){
- const first=ranking.ordered[0];
- const book=books.find(item=>item.id===first?.bookId);
- return <Paper withBorder radius="lg" p="md" className="priority-summary">
-  <Group align="flex-start" wrap="nowrap"><ThemeIcon variant="light" size={46} radius="xl"><IconRoute size={24}/></ThemeIcon><div className="priority-summary-copy"><Group gap="xs"><Title order={3}>Okuma önceliği</Title><Badge variant="light">Ortak sıra</Badge></Group><Text c="dimmed">Yedi ölçüt; editoryal kesişim, öğrenme ilişkileri, hazırlık yükü, erişim, kapsam, zorluk ve kalıcılığı değerlendirir. Okuma kaydı ve kişisel sıra puanı değiştirmez.</Text>{book&&<Text mt={8}><strong>Şu an ilk:</strong> {displayTitle(book)} · {first.score}/100</Text>}{sync?.pending>0&&<Text mt={8} size="sm" c="orange"><strong>{sync.pending} eşitleme değişikliği bekliyor.</strong> Okuma kaydı ve sıra değişiklikleri puana katılmaz.</Text>}</div></Group>
+/** A one-line notice that the list follows reading priority. The criteria stay
+ * one tap away so the catalog, not the explanation, fills the first screen. */
+export default function ReadingPrioritySummary({ranking}){
+ const [opened,setOpened]=useState(false);
+ const criteria=ranking.ordered[0]?.criteria.map(item=>item.label.toLocaleLowerCase('tr'))||[];
+ return <Paper withBorder radius="lg" className="priority-summary">
+  <UnstyledButton className="priority-summary-toggle" onClick={()=>setOpened(value=>!value)} aria-expanded={opened} aria-controls="priority-summary-detail">
+   <IconRoute size={20} aria-hidden="true"/><Text component="span" fw={600}>Okuma önceliğine göre sıralı</Text><IconChevronDown size={18} aria-hidden="true" className="priority-summary-chevron"/>
+  </UnstyledButton>
+  <Collapse expanded={opened} id="priority-summary-detail"><Text c="dimmed" className="priority-summary-detail">{criteria.length} ölçüt: {criteria.join(', ')}. Çocuk kitapları kendi aralarında sıralanır. Satın alma, favori, okuma durumu ve kişisel sıra puanı değiştirmez.</Text></Collapse>
  </Paper>;
 }

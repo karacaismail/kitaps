@@ -1,5 +1,15 @@
 // Reading order is editorial guidance. Shared membership is never a prerequisite.
+// Links come from the same graph the reading-priority engine scores, so the
+// suggestions on a book page always match its preparation criterion.
 import { displayTitle } from './translation.js';
+import { readingGraphFor } from './ranking/readingGraph.ts';
+
+const byIdCache=new WeakMap();
+const booksById=catalog=>{
+ let map=byIdCache.get(catalog);
+ if(!map){map=Object.fromEntries(catalog.books.map(b=>[b.id,b]));byIdCache.set(catalog,map)}
+ return map;
+};
 
 export function readingGuide(book,catalog) {
  const data=catalog.readingGuides;
@@ -10,23 +20,23 @@ export function readingGuide(book,catalog) {
  const sourceNote=book.notes.find(n=>n.text.length>70&&!/listeye ek değil|şu anda okunuyor/i.test(n.text));
  const purpose=tailored||sourceNote?.text||`“${title}” için önerilen okuma amacı: ${route.goal}`;
  const kind=tailored?'Kitaba özel okuma amacı':sourceNote?'Kaynak notundan okuma amacı':'Konuya göre okuma amacı';
- const index=route.books.indexOf(book.id);
- const previous=index>=0?route.books.slice(Math.max(0,index-1),index):route.books.slice(0,1);
- const following=index>=0?route.books.slice(index+1,index+3):route.books.slice(-1);
- const byId=Object.fromEntries(catalog.books.map(b=>[b.id,b]));
+ const byId=booksById(catalog);
  const goalFor=id=>data.purposes[id]||`“${displayTitle(byId[id])}” ile aynı konuya farklı bir açıdan yaklaşabilirsin.`;
- const defaultLinks=(ids,phase)=>ids.filter(id=>id!==book.id).map(id=>({id,reason:phase==='before'?`Konuya yeniysen önce bu kitapla bir çerçeve kurabilirsin. ${goalFor(id)}`:`Okumanın ardından bu bakış açısıyla karşılaştırma yapabilirsin. ${goalFor(id)}`}));
- const chosen=data.overrides[book.id]||{};
- const before=(chosen.before??defaultLinks(previous,'before')).filter(x=>byId[x.id]&&x.id!==book.id);
- const after=(chosen.after??defaultLinks(following,'after')).filter(x=>byId[x.id]&&x.id!==book.id&&!before.some(p=>p.id===x.id));
- const companions=(chosen.companions??[]).filter(x=>byId[x.id]&&x.id!==book.id&&!before.some(p=>p.id===x.id)&&!after.some(p=>p.id===x.id));
- return {purpose,kind,before,after,companions,route,sources:data.sources[book.id]||[]};
+ const fallback=(link,phase)=>{
+  if(link.source==='route')return `“${link.route?.heading||'Konu'}” rotasında bu kitaptan ${phase==='before'?'hemen önce':'hemen sonra'} gelir. ${goalFor(link.id)}`;
+  if(phase==='before')return `Bu kitaba hazırlık olarak önerilen eser. ${goalFor(link.id)}`;
+  if(phase==='after')return `Bu kitabın ardından okunması önerilen eser. ${goalFor(link.id)}`;
+  return `Bu kitapla birlikte veya karşılaştırmalı okunabilir. ${goalFor(link.id)}`;
+ };
+ const explain=phase=>link=>({id:link.id,source:link.source,reason:link.reason||fallback(link,phase)});
+ const relations=readingGraphFor(catalog).relations(book.id);
+ return {purpose,kind,before:relations.before.map(explain('before')),after:relations.after.map(explain('after')),companions:relations.companions.map(explain('companion')),route,sources:data.sources[book.id]||[]};
 }
 export function relatedBooks(book,catalog,scope,states={}) {
  const [type,id]=scope.split('|');
  if(!['category','collection'].includes(type))return [];
- const suggested=catalog.readingGuides.overrides[book.id];
- const preferred=[...(suggested?.after||[]),...(suggested?.before||[]),...(suggested?.companions||[])].map(x=>x.id);
+ const suggested=readingGraphFor(catalog).relations(book.id);
+ const preferred=[...suggested.after,...suggested.before,...suggested.companions].map(x=>x.id);
  return catalog.books.filter(b=>b.id!==book.id&&(type==='category'?b.categories.includes(id):b.collectionIds.includes(id)))
  .map(b=>({book:b,score:(preferred.includes(b.id)?20:0)+b.groupIds.filter(id=>book.groupIds.includes(id)&&!id.endsWith(':cross')).length*4+b.categories.filter(id=>book.categories.includes(id)).length*2+Number(!!b.cover)}))
  .sort((a,b)=>b.score-a.score||displayTitle(a.book).localeCompare(displayTitle(b.book),'tr')).map(x=>x.book);

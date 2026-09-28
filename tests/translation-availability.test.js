@@ -5,13 +5,14 @@ import {spawnSync} from 'node:child_process';
 
 const root=new URL('..',import.meta.url);
 const manifest=JSON.parse(readFileSync(new URL('../data/translation-availability.json',import.meta.url)));
-const validate=input=>spawnSync('python3',['-c',`import json,sys
+const catalogIds=JSON.parse(readFileSync(new URL('../src/catalog.json',import.meta.url))).books.map(book=>book.id);
+const validate=(input,ids=['sample'])=>spawnSync('python3',['-c',`import json,sys
 from scripts.translation_availability import validate_manifest
 try:
- validate_manifest(json.loads(sys.argv[1]), {'sample'})
+ validate_manifest(json.loads(sys.argv[1]), set(json.loads(sys.argv[2])))
 except ValueError as error:
  print(error)
- sys.exit(1)`,JSON.stringify(input)],{cwd:root,encoding:'utf8'});
+ sys.exit(1)`,JSON.stringify(input),JSON.stringify(ids)],{cwd:root,encoding:'utf8'});
 const source=(url,type='publisher')=>({url,type});
 const stages=status=>({
  stage1:{decision:status,reviewer:'araştırmacı-a',checkedAt:'2026-09-28',sources:[source('https://example.com/a')]},
@@ -21,8 +22,9 @@ const stages=status=>({
 test('translation availability manifest declares its decision and evidence policy',()=>{
  assert.equal(manifest.schemaVersion,1);
  assert.deepEqual(Object.keys(manifest.decisionPolicy.statuses),['available','unavailable','original']);
- assert.deepEqual(manifest.records,{});
- assert.equal(validate(manifest).status,0);
+ assert.ok(Object.keys(manifest.records).length>0,'researched records are present');
+ const result=validate(manifest,catalogIds);
+ assert.equal(result.status,0,result.stdout);
 });
 
 test('available, unavailable and original decisions require matching independent review',()=>{

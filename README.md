@@ -1,48 +1,67 @@
-# Kitap Atlası
+# Kitaplık
 
-[Canlı site](https://karacaismail.github.io/kitaps/)
+[Canlı site](https://karacaismail.github.io/kitaps/) · [JavaScript gerektirmeyen katalog](https://karacaismail.github.io/kitaps/catalog/)
 
-718 eser, 23 küme, 100 alt küme ve 21 kategoriden oluşan birleşik okuma kataloğu.
+Kitap kimliklerini, Türkçe baskıları, kitaplar arasındaki hazırlık ve eşlik ilişkilerini ve açıklanabilir bir okuma önceliğini bir araya getiren okuma kataloğu. Eylül 2026 itibarıyla 898 eser, 28 küme, 136 alt küme ve 21 kategori içerir. Güncel sayılar sitede ve `src/catalog.json` içinde katalogdan hesaplanır.
 
 ## Özellikler
 
-- 320 px genişlikten başlayan iki sütunlu mobil katalog; açık ve koyu kahve teması.
-- Favoriler, kişisel kitaplık ve beş kitaplık okuma sırası. Satın alınanlar genel katalogda kalır; satın alma simgesi yeşil olur.
-- İngilizce, okunabilir URL parametreleri; kategori, küme, yazar ve durum filtreleri. Örnek: `?category=children`.
-- Tek ana kategori ve diğer kategorileri açan küçük sayaç; klavyeyle kullanılabilen sekmeler ve sayfalama.
-- Mobilde ekranın %90'ını kaplayan kitap paneli; aşağı sürükleme, kapatma düğmesi ve Escape desteği.
-- Kitap detayında okuma amacı, gerekçeli önce/sonra önerileri, ilgili kitaplar, yayınevi ve çevirmen bilgisi.
-- Google Alışveriş ve Görseller bağlantıları; Türkçe baskısı doğrulanamayanlar için Amazon'da özgün eser araması.
-- Kaynak bağlantılarıyla 707 kapak. Türkçe baskı doğrulanamadığında özgün/uluslararası baskı kapağı ve açık durum bilgisi.
+- Kapakların öne çıktığı raf düzeni: telefonda 2, masaüstünde 5 sütuna kadar. Açık ve koyu tema; başlıklarda Literata, arayüzde cihazın kendi yazı tipi. Telefonda ilk ekranda kitap kartları görünür.
+- Üst menüde yalnız simgeler: Kızım için (çocuk kitapları), Favoriler (kalp) ve Kitaplığım (raf).
+- Kızım için: 13 yaşına kadar temel kütüphane. Yaş bantlarına (3–5, 5–7, 7–8, 8–10, 10–11, 11–12, 12–13) ve iki çekirdek seçkiye (Çekirdek 14 · 10 yaş öncesi, İlk altı · 10–13) göre gruplanır; her kitapta önerilen yaş, gerekiyorsa ebeveyn notu ve iki sitede doğrulanmış Türkçe baskı bulunur. Okuma rotaları: resimli kitaplardan ilk romanlara yaş rotası, 10 yaşında başlayan çocuk için ilk beş kitap ve 10–13 yaş için dört başlangıç yolu (okumaya isteksiz, macera, insan ilişkileri, felsefi sorular).
+- Çocuk kitapları okuma önceliğinde kendi aralarında sıralanır (çocuk kitapları arasında #1, #2 …) ve genel kataloğun ardından gelir.
+- Varsayılan sıralama okuma önceliğidir. Her kitabın puanı beş katalog ölçütünden gelir. Detay sayfasının sonunda her ölçütün katkısı ve kanıtı görünür.
+- Satın alma, favori, okuma durumu, okuma kaydı ve kişisel sıra puanı değiştirmez. Kural [ADR 001](docs/ADR-001-reading-priority-and-state.md) içinde açıklanır.
+- Kitap detayında okuma amacı, gerekçeli önce/sonra/birlikte okuma önerileri, Türkçe baskı, yayınevi, çevirmen ve ISBN.
+- Sayfa, filtre, sıralama ve açık kitap okunabilir URL parametrelerinde tutulur; geri tuşu, yenileme ve paylaşılan bağlantı aynı görünümü açar.
+- Altbilgide bütün kitapları JSON olarak indirme: kimlik, Türkçe ad, özgün ad, özgün yayınevi, yazarlar, önerilen çevirmenler, Türkiye yayınevi, Türkçe ISBN ve ilk yayın yılı.
+
+## Cihazlar arası eşitleme
+
+Kişisel kayıtlar önce tarayıcıda tutulur, ardından herkese açık [`karacaismail/kitaps-state`](https://github.com/karacaismail/kitaps-state) deposundaki `state.json` dosyasıyla eşitlenir. Bu kayıtlar ve GitHub geçmişi herkes tarafından görülebilir.
+
+- Anahtarsız cihazlar ortak durumu salt okunur olarak görür (en fazla beş dakika gecikmeyle).
+- Yazmak için Notlar sayfasındaki eşitleme bölümünden ince ayarlı (fine-grained) bir GitHub anahtarı bağlanır. Anahtar yalnız `kitaps-state` deposunda Contents: Read and write izni taşımalı ve süreli olmalıdır. Klasik ve OAuth anahtarları kabul edilmez.
+- Değişiklikler ilk değişiklikten en az 120 saniye sonra tek güncellemeyle gönderilir.
+- Bir cihaz ilk kez bağlandığında, ortak kayıttan farklı olan yerel kayıtlar için önce yedek alınır ve hangisinin kalacağı sorulur.
+
+Anahtar tarayıcıda saklanır. `karacaismail.github.io` altındaki bütün Pages siteleri aynı tarayıcı alanını paylaştığı için anahtarın yetkisi tek depo ve tek izinle sınırlı tutulmalıdır.
 
 ## Veri doğruluğu
 
-Baskı künyesi araştırmasında 122 kayıt bulunur; 105 kayıtta kaynakla ilişkilendirilmiş çevirmen bilgisi vardır. Kaynağın yayınevi, önizleme, kütüphane veya kitapçı olduğu detayda belirtilir. Künye doğrulaması, çeviri kalitesi karşılaştırması değildir. Çevirmen seçiminde özgün dilden aktarım, anlam doğruluğu, terim tutarlılığı, üslup ve editoryal çalışma ölçütleri açıklanır.
+- Türkçe baskı durumu kanıta dayanır: doğrulanmış baskı kaydı, Türkçe baskı kapağı, kaynak listesinin doğrulanmış çeviri notu veya iki aşamalı araştırma. Bir çevirinin bulunamaması, hiç yayımlanmadığı anlamında sunulmaz.
+- İki aşamalı araştırma kayıtları `data/translation-availability.json` (Türkçe baskı) ve `data/bibliographic-facts.json` (özgün ad, dil, ilk yayın yılı ve yayınevi) dosyalarındadır. İkinci inceleme, birinci aşamanın kullanmadığı sitelerden kanıt gösterir; doğrulayıcılar `scripts/translation_availability.py` ve `scripts/bibliographic_facts.py` içindedir.
+- Baskı künyeleri `data/edition-verification.json` ve `data/translator-research.json` içinde kaynaklarıyla tutulur. Künye doğrulaması çeviri kalitesi karşılaştırması değildir.
+- Çocuk kütüphanesi `data/children-library.json` içindedir: ebeveynin seçtiği kitaplar, BookTrust, TIME, School Library Journal, Scholastic ve MEB 100 Temel Eser listeleriyle karşılaştırıldı. Her Türkçe baskı ISBN, yayınevi ve çevirmen üzerinden iki ayrı sitede doğrulandı; doğrulanamayanlarda kitap sayfası gerekçeyi gösterir. Dış listeler (IBBY Türkiye onur listesi dahil) tek bir araştırma adımında birlikte incelendiği için okuma önceliğinde tek seçki sayılır.
+- Eseri veya baskısı belirsiz kayıtlarda kapak yerine açıklama gösterilir. Yanlış eserle eşleşen kapaklar `data/rejected-cover-matches.json` içinde gerekçesiyle korunur.
+- [Kontrol kapsamı ve bilinen sınırlar](docs/UX-VALIDATION.md) · [Bağımsız denetim raporu](docs/BAGIMSIZ-DENETIM-RAPORU.md)
 
-Eseri veya baskısı belirsiz 11 çocuk kitabı kaydında kapak yerine açıklama gösterilir. Bir çevirinin bulunamaması, hiç yayımlanmadığı anlamında sunulmaz. Çelişkili çevirmen isimleri doğrulanmış gibi gösterilmez. Yanlış eserle eşleşen kapaklar `data/rejected-cover-matches.json` içinde gerekçesiyle korunur.
+## Arama motorları
 
-Araştırma kaynakları `data/edition-verification.json`, `data/translator-research.json` ve kapak listelerinde yer alır. [Kontrol kapsamı ve bilinen sınırlar](docs/UX-VALIDATION.md).
-
-## Korunan eski sürüm
-
-Önceki uygulamanın bütün izlenen dosyaları `legacy/b1d060c/` altında korunur. Git geçmişi değiştirilmemiştir. Özgün Markdown ve kapak listesi ayrıca `data/kitaplar.md` ve `data/covers.json` yollarında kalır. Birleştirilen girdiler `data/sources/` altındadır.
-
-Kişisel işaretler ve notlar tarayıcıda saklanır. Eski Kitaps işaretleri aynı origin içinde taşınır; eski depolama silinmez. Başka cihazların veya localhost üzerindeki tarayıcı kayıtlarının otomatik aktarımı yoktur. Notlar bölümünden yedek alınıp içe aktarılabilir.
+Uygulama sayfaları `noindex` olarak işaretlidir. Arama motorları için her kitabın, kategorinin ve kümenin statik sayfası `/kitaps/catalog/` altında üretilir; `sitemap.xml` bu sayfaları listeler. GitHub Pages proje siteleri alan adının kökündeki `robots.txt` dosyasını değiştiremediği için sitemap Google Search Console ve Bing Webmaster Tools'a elle gönderilmelidir: `https://karacaismail.github.io/kitaps/sitemap.xml`.
 
 ## Geliştirme
 
 ```sh
 npm ci
-npm run data
-npm test
-npm run dev
-npm run build
+npm run data        # kaynaklardan src/catalog.json üretir
+npm test            # veri, alan ve bileşen testleri
+npm run typecheck   # TypeScript alanı sıkı, JS/JSX görünümleri gevşek kurallarla
+npm run build       # parçalı site + statik SEO sayfaları (dist/)
+npm run test:e2e    # dist üzerinde Playwright; önce npm run build
+npm run export      # kapakları gömülü tek dosya: ../kitaps.html ve ../kitaplik-tum-veri.json
 ```
 
-GitHub Actions test ve derlemeden sonra GitHub Pages yayını yapar. Kapak dosyaları siteyle birlikte sunulur. `npm run export`, uygulama klasörünün bir üstüne kapakları gömülü `kitaps.html` ve tüm kaynakları içeren JSON dosyası yazar.
+GitHub Actions her gönderimde testleri, tip kontrolünü, derlemeyi ve tarayıcı testlerini çalıştırır; hepsi geçerse GitHub Pages'a yayınlar.
+
+Türkçe baskı ve özgün baskı araştırmasının adımları `scripts/prompts/bibliographic-research-stage1.md`, `stage2.md` ve `scripts/merge-bibliographic-research.py` içinde tanımlıdır. Araştırma çıktıları depo dışında tutulur; yalnız ikinci aşamada kabul edilen kayıtlar veri dosyalarına eklenir.
 
 Geliştirme ortamında Control+Alt+A ile erişilebilirlik denetimi açılabilir. Bu araç yayın derlemesine dahil edilmez.
 
+## Korunan eski sürüm
+
+Önceki uygulamanın bütün izlenen dosyaları `legacy/b1d060c/` altında korunur. Git geçmişi değiştirilmemiştir. Özgün Markdown ve kapak listesi `data/kitaplar.md` ve `data/covers.json` yollarında da durur. Birleştirilen girdiler `data/sources/` altındadır. Eski Kitaps işaretleri aynı tarayıcıda otomatik taşınır.
+
 ## Lisanslar
 
-React Bits SpotlightCard: MIT + Commons Clause (`REACT-BITS-LICENSE.md`). Josefin Sans: SIL Open Font License (`FONT-LICENSES.txt`). Kullanılan diğer arayüz kitaplıkları kendi lisanslarına tabidir.
+React Bits SpotlightCard: MIT + Commons Clause (`REACT-BITS-LICENSE.md`). Literata yazı tipi: SIL Open Font License (`FONT-LICENSES.txt`). Kullanılan diğer arayüz kitaplıkları kendi lisanslarına tabidir.

@@ -1,74 +1,66 @@
 # UX ve erişilebilirlik kontrolü
 
-Kontrol tarihi: 28 Eylül 2026.
+Son kontrol: 28 Eylül 2026. Kontrollerin çoğu otomatik testlere bağlıdır; her yayından önce GitHub Actions içinde yeniden çalışır.
+
+## Otomatik kontroller
+
+| Kontrol | Nerede | Kapsam |
+|---|---|---|
+| Veri, sıralama ve eşitleme | `npm test` (node:test) | Katalog bütünlüğü, dışa aktarma, rotalar, sıralama motoru, GitHub durum deposu |
+| Bileşenler | `npm test` (Vitest + Testing Library, jsdom) | Baskı özeti, çeviri durumu, puan kartı ve özeti, kitap keşfi, eşitleme paneli, yeni cihaz penceresi, eşitleme kancası |
+| Tarayıcı | `npm run test:e2e` (Playwright, Chromium, derlenmiş site) | GitHub'dan gerçek okuma ve CORS, katalog açılışı, telefon ilk ekranı, satın almanın puanı değiştirmemesi, özgün Türkçe eser, URL'de sayfa durumu, axe taraması |
+| Tip | `npm run typecheck` | Sıralama ve durum alanı sıkı TypeScript; JS/JSX görünümleri gevşek kurallarla |
+
+## Görsel dil
+
+- Kitap adları, sayfa başlıkları ve logo Literata ile yazılır; site bu yazı tipini kendisi sunar. Arayüz metni cihazın kendi yazı tipini kullanır (iPhone ve Mac'te SF, Android'de Roboto, Windows'ta Segoe UI); böylece ikinci bir yazı tipi indirilmez.
+- Açık tema sıcak kâğıt zemin (#f6f3ee), beyaz yüzeyler ve tek bir tuğla kırmızısı vurgu (#9a3f1e) kullanır. Koyu tema aynı yapıyı nötr koyu yüzeylerle kurar; vurgu rengi açılır (#ef9a70).
+- Metin renkleri iki temada da WCAG AA sınırının üstündedir. En düşük değerler: açık temada soluk metin 5,35:1, vurgu 5,49:1; koyu temada soluk metin 5,60:1. Form alanı kenarları zemine karşı en az 3,27:1'dir.
+- Renkler tek bir değişken kümesinden gelir (`src/styles.css` başı); Mantine bileşenleri de aynı değişkenleri kullanır.
+
+## Katalog ve kart düzeni
+
+- Kapak kartın asıl öğesidir: 2:3 oranlı alanda kitap gibi gölgelenir, küçük kaynak görselleri oranı bozulmadan alanı doldurur. Kapağın üstünde yalnız sıra ve puan rozeti vardır.
+- Kapağın altında sırasıyla kitap adı (en fazla iki satır), yazar, çocuk kitaplarında önerilen yaş, çeviri durumu ile Türkçe yayınevi ve kişisel düğmeler (kalp, çanta, sıra) yer alır. Düğmeler kapağı örtmez; fare kullanılan ekranlarda kart üzerine gelinince ya da düğme işaretliyse görünür, dokunmatik ekranlarda her zaman görünür.
+- Kapağı henüz doğrulanmamış kitaplarda boş bir simge yerine kitabın adını ve yazarını taşıyan sade bir kapak gösterilir.
+- Çeviri durumu bir simge ve kısa bir sözcükle verilir: doğrulanmış Türkçe baskı "Türkçe", kaynağıyla doğrulanmış yokluk "Türkçesi yok", henüz doğrulanamayan durum "Doğrulanmadı". Renk tek başına anlam taşımaz. Üzerine gelince kısa açıklama, tıklayınca kaynak ayrıntısı açılır. Özgün Türkçe eserlerde çeviri göstergesi yoktur.
+- Izgara telefonda 2, tablette 3, masaüstünde 4 ve geniş ekranda 5 sütundur.
 
 ## Mobil düzen ve etkileşim
 
-- 320 × 860 görünümde iki sütun: kartlar 148 px; yatay sayfa taşması yok.
-- 1280 × 720 görünümde ortalanmış, en fazla 960 px uygulama alanı ve üç sütun.
-- Mobil başlık, arama ve filtre boşlukları azaltıldı; kategori adları kartlarda kısaltıldı. Tam adlar erişilebilir etiketlerde ve detayda bulunur.
-- Ana kategori 34 px görsel yüksekliğe, ek kategori sayacı 28 px görsel yüksekliğe sahiptir; tıklanabilir alanları 44 px yüksekliğindedir.
-- Metinler en az 16 px; kategori yazısı ve simgeler ortalıdır.
-- Mobil detay 90dvh yüksekliğinde alttan açılır. Tutamaç aşağı sürüklendiğinde kapanır. Sürüklemeye alternatif kapatma düğmesi, Escape ve tutamaca tıklama vardır.
-- Panel kapandıktan sonra odak açan kitap kontrolüne döner. Tarayıcının Geri düğmesi açık kitabı kapatır.
-- Azaltılmış hareket tercihi desteklenir; normal sekme/panel geçişleri kısa ease-in-out animasyonları kullanır.
-- Yıldız Favoriler listesine ekler. Satın alma kontrolü yeşil olur ve kitap genel katalogdan kaybolmaz. Geri al bildirimi kartları yerinden oynatmaz.
-- Sonraki sayfa, sayfaya git, filtre paneli, tema değiştirme, boş favorilerden kataloğa dönüş ve logodan filtresiz ana sayfaya dönüş kullanılarak kontrol edildi.
+- 320 px ve 375 px genişlikte iki sütun; yatay sayfa taşması yok (tarayıcı testi). Üst menü sayfa kaydırılırken üstte kalır. Masaüstünde logo, bölüm sekmeleri (Kitaplar, Sıram, Kümeler), Kızım için, Favoriler, Kitaplığım ve tema tek satırdadır; telefonda sekmeler ikinci satırda eşit genişlikte durur.
+- 375 × 812 görünümde ilk kitap kartlarının adları ilk ekranda görünür (tarayıcı testi). Arama tek alandır; filtre ve sıralama altında yan yana durur. Okuma önceliği açıklaması tek satırlık, açılır bir düğmedir.
+- Mobil kitap ayrıntısı 92dvh yüksekliğinde alttan açılır. Başlık satırı ve ortalanmış tutamaç içerik kaydırılırken üstte sabit kalır; tutamaç aşağı sürüklenince panel kapanır; kapatma düğmesi, Escape ve tutamaca dokunma da çalışır. Panel kapanınca odak açan kitaba döner; tarayıcının Geri düğmesi açık kitabı kapatır.
+- "Kızım için" kısayolu özel çizilmiş kız çocuğu simgesini kullanır. Bu sayfada "13 yaşına kadar temel kütüphane" paneli yaş bantlarını (3–5, 5–7, 7–8, 8–10, 10–11, 11–12, 12–13) ve iki çekirdek seçkiyi (Çekirdek 14 · 10 yaş öncesi, İlk altı · 10–13) tek dokunuşla açar.
+- Kitaplığım, Favoriler, Sıram ve Notlar sayfalarında açıklama paragrafı yoktur; yalnız işlevsel metinler ve eşitleme bölümündeki gizlilik bildirimi kalır.
 
-## WCAG 2.2 AA hedefi
+## WCAG 2.2 AA
 
-Axe-core 4.13 ile WCAG 2 A/AA, 2.1 A/AA ve 2.2 AA etiketleri tarandı. Açık ve koyu temadaki kitap ayrıntıları, katalog, filtre paneli, okuma sırası ve Notlar sayfası incelendi. Son kitap ayrıntısı taramalarında iki temada da sıfır ihlal ve sıfır kararsız sonuç; koyu tema boş okuma sırası ve Notlar taramalarında da sıfır ihlal ve sıfır kararsız sonuç alındı.
+Tarayıcı testi, axe-core ile WCAG 2 A/AA, 2.1 A/AA ve 2.2 AA etiketlerini katalogda ve bir kitap ayrıntısında, açık ve koyu temada tarar; sonuç sıfır ihlal olmalıdır. Yeni tasarım bu taramayı iki temada da geçer.
 
-Katalog/filtrede yatay konu listesinin görünüm dışında kalan kısmı bazı taramalarda otomatik kontrast hesabının kararsız sonuç vermesine neden oldu. Konu metni, seçili gösterge ve odak çizgileri ayrıca görsel olarak kontrol edildi. Kaynak bağlantılarının koyu tema renkleri düzeltildi; aktif sekmeler metin/rengin yanında alt çizgiyle belirtilir. Alan dışına taşan ikinci odak çerçevesi kaldırıldı; klavye odağı kontrolün içinde kalan belirgin çizgiyle gösterilir.
+- Her denetim öğesi aynı görünür odak çizgisini kullanır (2 px, vurgu renginde, 2 px boşlukla). Form alanlarında odak kenar rengini ve hafif bir gölgeyi değiştirir; yüksek karşıtlık modunda sistem vurgu rengine döner.
+- Olgunluk rozeti her düzey ve tema için kendi yazı/zemin çiftini kullanır (en düşük 6,7:1).
+- Düğmeler ve simge düğmeleri en az 44 px dokunma alanı taşır; kart düğmeleri 44 × 40 px'dir. Kitap adı düğmeleri en az 24 px yüksekliktedir, kartın tamamı da tıklanabilir.
+- Gövde metni 16 px'dir. Kart içindeki yazar ve yayınevi satırları 14–15 px, rozet ve küçük başlık etiketleri 13 px'dir. Önceki "hiçbir metin 16 px'nin altına inmez" kuralı kartların iki sütuna sığması için bu satırlarda bırakıldı.
+- Azaltılmış hareket tercihinde geçişler ve kapak hareketleri kapanır.
 
-Klavye erişimi, odak dönüşü, dokunma alanları ve 320 px yeniden akış ayrıca kontrol edildi. Otomatik tarama, bütün WCAG başarı ölçütlerinin veya her ekran okuyucu/cihaz birleşiminin eksiksiz uygunluk sertifikası değildir. Gerçek iOS/Android cihazı ve ekran okuyucuyla kapsamlı kullanıcı testi bu kontrolün kapsamı dışındadır.
+Otomatik tarama bütün WCAG ölçütlerinin veya her ekran okuyucu/cihaz birleşiminin sertifikası değildir. Gerçek iPhone, Android cihaz, VoiceOver ve TalkBack ile elle test hâlâ kapsam dışıdır.
 
-## Yenilenen mobil filtre (28 Eylül 2026)
+## Performans
 
-- Uzun ve klavye açan çoklu açılır menüler, altı başlıklı bir filtre paneliyle değiştirildi. Her başlık ilk seçimi ve seçim sayısını gösterir; tam seçim listesi erişilebilir adında bulunur.
-- Kategori, okuma durumu, künye, kaynak ve ödüller doğrudan seçim satırlarıdır. Yazar, küme ve alt küme listelerinde Türkçe karakterleri tanıyan arama vardır. Arama sonuçlarının dışında kalan seçimler de kaldırılabilir; kaldırma sonrası odak aramaya döner. Liste genişletme düğmesi son sayfada daraltma düğmesine dönüşerek odağı korur.
-- Panel mobilde 90dvh yüksekliğinde açılır. Yalnızca içerik kayar; başlık, geri/kapat kontrolleri, sonuç sayısı ve uygulama düğmesi sabit kalır. Görsel viewport değişiklikleri izlenerek ekran klavyesi açıldığında panelin görünür alana sığması sağlanır.
-- 320 × 760 ve 390 × 844 boyutlarında yatay taşma yok. 320 × 420 görünümde de alt eylemler görünür ve içerik kaydırılabilir. Altı ana başlık 320 × 760 görünümde birlikte görünür.
-- Kapanış/Escape taslağı uygulamaz ve odağı filtreyi açan düğmeye geri verir. Uygulama okunabilir URL parametrelerini günceller. Çocuk + Kate DiCamillo seçimi tek kitapla doğrulandı.
-- Kategori birleşimi 176, aynı iki kategorinin kesişimi 7 sonuç verdi. Küme değişince artık o kümeye ait olmayan alt seçim kaldırıldı. Hatalı yıl aralığında uygulama engellenir ve alanla ilişkili açıklama gösterilir.
-- Form alanları odaklandığında mevcut kenar, 1 px kenarlık ve 1 px iç çizgiyle güçlenir; ikinci bir dış çerçeve çizilmez ve alanın ölçüsü değişmez. Seçim satırları aynı yaklaşımı kullanır. Sistem yüksek kontrast modunda gölge yerine içe çizilen odak çizgisi korunur.
-- Altı filtre bölümü ile ana filtre ekranının son açık/koyu tema axe taramalarında sıfır ihlal ve sıfır kararsız sonuç alındı. Seçili kontroller, klavye odağı, 48 px seçim satırları ve sabit alt eylemler ayrıca kontrol edildi.
-- Gerçek iPhone/Safari ekran klavyesi bu ortamda çalıştırılmadı; fiziksel cihaz testi hâlâ kapsam dışındadır.
+- Site parçalı derlenir: uygulama kodu, katalog verisi, React, Mantine ve simgeler ayrı ve uzun süre önbelleklenebilir dosyalardır.
+- Literata değişken ve alt kümelere bölünmüş dosyalardır; tarayıcı yalnız sayfadaki karakterlerin alt kümesini indirir (Türkçe için yaklaşık 95 KB). Arayüz yazı tipi indirilmez.
+- Notlar sayfası, Markdown işleyicisi ve ham kaynak arşivleri yalnızca gerektiğinde yüklenir.
+- `npm run export` kapakları gömülü tek dosyalık sürümü ayrıca üretir.
 
-## Kartlar ve satın alma bildirimi (28 Eylül 2026)
+## Kaynağı belirsiz kayıtlar
 
-- Konu sekmeleri katalogdan kaldırıldı. “Kızım için”, Favoriler ve Kitaplığım üstte yalnızca kadın, kalp ve kütüphane simgeleriyle gösterilir; her simgenin erişilebilir adı ve açıklama balonu vardır. Seçili simgenin etkin sayfa durumu görünür ve ekran okuyucuya bildirilir. Kartlardaki favori yıldızı da kalple değiştirildi. Logo, raf simgesiyle “Kitaplık” sözcüğünü aynı koyu arka plan içinde toplar.
-- Karttan küme sayısı ve yıl satırı kaldırıldı. Çeviri göstergesi solda, italik yayınevi sağda ve aynı satırdadır; kategori satırı ikisinin altında tam genişliği kullanır. Ek kategori sayacı bulunan 320 px kartlarda kategori satırı bölünmez.
-- Kitap adları kart genişliğinde ortalanır ve üstten başlayan sabit iki satırlık alan kullanır. Uzun adlar ikinci satırda üç noktayla kesilir; tek satırlık adlarda ikinci satırın yeri boş bırakılır. Böylece ayırıcı çizgi, yazar ve alttaki diğer bilgiler aynı kart satırında hizalı kalır. Kitap adı ile yazar arasında ortalanmış, iki piksellik kısa bir ayırıcı çizgi bulunur. Çizginin üst ve alt boşluğu eşit 16 px'tir; önceki boşlukların iki katıdır. Çizgi masaüstünde 72 px, 320 px kartlarda 52 px genişliğindedir ve tema renginin saydam tonunu kullanır.
-- Kapak alanı kart genişliğine bağlı 3:4 oranındadır. Kapaklar kendi oranları korunarak bu alana sığar; sağdaki düğmelere ayrı sütun ayrılmaz ve düğmeler kapağın üzerinde yüzde 75 opaklıkla görünür. Masaüstünde fare kartın üzerine geldiğinde veya klavye odağı kartın içindeyken açılır; dokunmatik ekranda görünür kalır. Odaklanan düğme tamamen opaktır.
-- Çocuk etiketi açık ve koyu temada pembe tonlarını kullanır. Kartta ve kitap ayrıntısında yalnızca “Çeviri” yazısı bulunur; doğrulanmış Türkçe çeviri turkuaz onay, kaynağıyla doğrulanmış çeviri yokluğu kırmızı çarpı, doğrulanamayan durum yatay çizgiyle gösterilir. Durum simgesi, kendi rengiyle çizilmiş 28 px tam yuvarlak çerçeve içindedir. Üzerine gelince “Türkçe çevirisi var”, “Türkçe çevirisi yok” veya “Çeviri durumu doğrulanmadı” şeklinde kısa bir açıklama görünür; tıklanınca kaynak ayrıntısı açılır. Özgün dili Türkçe olarak doğrulanmış eserlerde çeviri metni, simgesi, çevirmen satırı ve çeviri rehberi gösterilmez.
-- Kalıcı başlık kuralı: Türkçe baskısı doğrulanmamış veya bulunmadığı doğrulanmış eserlerde kart, sıra, bildirim, öneri ve ayrıntı başlığı özgün dilinde gösterilir. Kaynakta Türkçe karşılık bulunuyorsa başlık yerine kullanılmaz; kitap ayrıntısındaki okuma amacı alanında “Türkçe anlamı: …” olarak gösterilir. Türkçe karşılık aramada kullanılmaya devam eder.
-- Satın alma ipucu “Satın aldım” olarak kısaltıldı. “Kütüphanene eklendi” bildirimi mobilde 22 px, geniş ekranda 24 px başlıkla gösterilir. Bildirim 8 saniye sonra kapanır; üzerinde fare veya klavye odağı varken süre durur. Geri alma ve kapatma kontrolleri bulunur.
-- Bildirim kartları yerinden oynatmaz. Kitap ayrıntısı açıkken bildirim panelin içinde kalır; geri alma sonrasında odak satın alma düğmesine döner. Bildirim, sıradaki klavye odağını örtecekse kapanır.
-- Açık temanın sayfa zemini serin gri `#f2f4f6`, içerik yüzeyleri beyazdır. Zemindeki 22 px aralıklı nokta deseni yüzde 15 opaklıkla ayrı bir dekoratif katmanda yer alır; koyu temada sıcak açık nokta tonu kullanılır.
-- Kitaba özgü baskı notları ayrıntıda kalır. Genel “Çeviri seçme rehberi” içeriği her kitapta tekrarlanmak yerine altbilgideki “Genel bilgiler” bağlantısından açılan erişilebilir bir pencerede sunulur; “Kaynaklar ve notlar” da aynı global bağlantı grubundadır.
-- Son 320 px açık ve koyu tema katalog taramalarında sıfır axe ihlali alındı. Yatay konu listesinin kısmen görünüm dışında kalması açık temada bir, koyu temada üç otomatik kontrast kararsız sonucu üretti; ilgili metinler görsel olarak kontrol edildi. İki genişlikte yatay taşma yok; sağ hizalar, kategori renkleri, ortalanmış kitap adları ve tek kenarlı alan odağı kontrol edildi. Bildirimin otomatik kapanması, geri alma ve panel içindeki kullanımı ayrıca doğrulandı.
+Bilimin Yıldızları seti; Robinson Crusoe çocuk uyarlaması; Masal Masal İçinde; Dede Korkut çocuk uyarlaması; Anadolu Masalları; Arkadaşım Balina; Kar Tanesi Masalı; Kaplumbağa Terbiyecisi; Dostluk Ekmeği; Plastik Deniz.
 
-## Veri ve otomatik testler
+13 yaşına kadar temel kütüphanede Türkçe baskısı doğrulanamayanlar (seçimi ebeveyne ait olduğu için listede tutuldu): Ayı Avına Gidiyoruz, Gökkuşağı Balığı, Alfons Åberg, Üç Küçük Domuzcuk (yalnız farklı olay örgülü bir parodi bulunabildi) ve Mary Poppins (tek kitabevinde görülen baskı).
 
-98 otomatik test geçti. Bunlar kaynakların birleşmesi, eski kişisel verinin taşınması, yedekler, satın alma/favori davranışı, beş kitaplık sıra, okuma ilerlemesi, önerilerin döngü içermemesi, okuma etkinliğinin puan nötrlüğü, İngilizce URL'ler ve kapak/baskı tutarlılığını kapsar.
-
-- 794 kitap; 765 kitapta seçili yerel kapak kaydı.
-- Kapakların kaynak URL'leri ve varsa ISBN kontrol basamakları doğrulandı.
-- 122 baskı künyesi araştırma kaydı; 105'inde çevirmen adı. Kaynak türleri: 30 yayınevi, 2 yayınevi önizlemesi, 1 kütüphane, 89 kitapçı.
-- Kullanıcının talebiyle Claude Code üzerinden beş araştırma turu yapıldı. Son 98 eksik çevirmen kaydı için kaynak sayfaları ayrıca tarandı; sonuçlar doğrudan kesin bilgiye çevrilmedi.
-- Çevirmen künyesi ile çeviri niteliği ayrı tutuldu. Metinler arasında yapılmamış kalite karşılaştırmaları yapılmış gibi sunulmaz.
-- Çocuk kitapları için son kontrolde 11 çevirmen künyesi daha eklendi. Despero için Gözde Koca, Şamatalı Köy için Ali Arda ve Savaş Atı romanı için Arif Cem Ünver yayınevi kaynaklarıyla doğrulandı. Şeker Portakalı için Can Yayınları önizlemesi Portekizceden Emrah İmre çevirisini doğruladı.
-- Bir Şeftali Bin Şeftali için tutarsız kaynak eşleşmesi Çınar Yayınları kapağıyla düzeltildi; Savaş Atı için resimli uyarlama yerine romanın kapağı seçildi.
-- Etkin Yöneticilik için farklı bir çalışma kitabına ait Türkçe kapak eşleşmesi kaldırıldı; özgün eserin kapağı ve açıklama kullanıldı.
-- Etkili İnsanların 7 Alışkanlığı ve İknanın Psikolojisi için çelişkili çevirmen kayıtları kesin isim yerine uyarıyla gösterilir.
-
-## Kaynağı belirsiz 11 kayıt
-
-Bilimin Yıldızları seti; Robinson Crusoe çocuk uyarlaması; Define Adası çocuk uyarlaması; Masal Masal İçinde; Dede Korkut çocuk uyarlaması; Anadolu Masalları; Arkadaşım Balina; Kar Tanesi Masalı; Kaplumbağa Terbiyecisi; Dostluk Ekmeği; Plastik Deniz.
-
-Bu kayıtlarda yazar-eser eşleşmesi veya belirli uyarlama/baskı tanımı kesinleşmedi. Rastgele aynı adlı bir kitabın kapağı eklenmedi. Ayrıntılı gerekçeler `data/source-issues.json` içinde ve kitap panelindedir.
+Bu kayıtlarda yazar-eser eşleşmesi veya belirli uyarlama/baskı tanımı kesinleşmedi. Rastgele aynı adlı bir kitabın kapağı eklenmedi. Gerekçeler `data/source-issues.json`, `data/children-library.json` içinde ve kitap panelindedir.
 
 ## Yayın ve geri dönüş
 
-Eski Kitaps deposunun 18 izlenen dosyası `legacy/b1d060c/` altında byte düzeyinde korunur; eski commit geçmişi yeniden yazılmadı. GitHub Actions her yayında test ve derleme çalıştırır. Bir önceki sürüm Git geçmişinden yeniden yayımlanabilir. Kişisel kayıtlar tarayıcıda tutulur; yayın dosyaları kişisel okuma kayıtlarını içermez.
+Eski Kitaps deposunun izlenen dosyaları `legacy/b1d060c/` altında byte düzeyinde korunur; eski commit geçmişi yeniden yazılmadı. Bir önceki sürüm Git geçmişinden yeniden yayımlanabilir. Kişisel kayıtlar tarayıcıda ve bağlanan cihazlarda herkese açık `kitaps-state` deposunda tutulur; site dosyaları kişisel kayıt içermez.

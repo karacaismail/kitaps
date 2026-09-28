@@ -2,8 +2,11 @@ import React from 'react';
 import { Badge, Card, Text, Title } from '@mantine/core';
 import { normalize } from '../library';
 
-const elements = children => React.Children.toArray(children).filter(React.isValidElement);
-const textOf = children => React.Children.toArray(children).map(child=>React.isValidElement(child)?textOf(child.props.children):String(child)).join('');
+/** @typedef {React.ReactElement<{children?: React.ReactNode}>} MarkdownElement */
+/** @param {React.ReactNode} children @returns {MarkdownElement[]} */
+const elements = children => /** @type {MarkdownElement[]} */(React.Children.toArray(children).filter(React.isValidElement));
+/** @param {React.ReactNode} children @returns {string} */
+const textOf = children => React.Children.toArray(children).map(child=>React.isValidElement(child)?textOf(/** @type {MarkdownElement} */(child).props.children):String(child)).join('');
 
 /** Render every Markdown table cell as a labelled field, preserving inline markup. */
 export default function NoteCards({children}) {
@@ -22,7 +25,7 @@ export default function NoteCards({children}) {
   if(original>=0&&/baski yok|dogrulanamadi|dogrulanmadi|^—$/.test(normalize(textOf(cells[primary]))))primary=original;
   const title=cells[primary];
   return <Card component="article" withBorder radius="lg" padding="lg" className="note-record" key={rowIndex}>
-   <div className="note-record-heading">{idIndex>=0&&<Badge variant="light" color="coffee">{cells[idIndex]}</Badge>}<div><Text className="note-field-label">{headings[primary]}</Text><Title order={4}>{title}</Title></div></div>
+   <div className="note-record-heading">{idIndex>=0&&<Badge variant="light" color="brand">{cells[idIndex]}</Badge>}<div><Text className="note-field-label">{headings[primary]}</Text><Title order={4}>{title}</Title></div></div>
    <dl className="note-fields">{cells.map((content,index)=>{
     if(index===primary||index===idIndex)return null;
     const wide=/not|aciklama|gerekce|neden|uyari|degerlendirme/.test(normalize(labels[index]||''));

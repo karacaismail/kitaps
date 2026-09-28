@@ -2,42 +2,73 @@
 
 ## Karar
 
-Uygulama mevcut React görünüm katmanını korur. Aynı ekranda Alpine.js eklemek yerine, iş kurallarını TypeScript sınıflarında ve React dışındaki saf modüllerde tutar.
+Uygulama mevcut React görünüm katmanını korur. İş kuralları TypeScript sınıflarında ve React dışındaki saf modüllerde tutulur.
 
-- **Model:** `UserBookState`, `CatalogReadingProfile` ve `ReadingPriorityEngine` sahiplik ile katalog sinyallerini değerlendirir. Okuma durumu, okuma kaydı ve kişisel sıra puan girdisi değildir.
-- **ViewModel:** `ReadingRankingViewModel`, görünümün kullanacağı sıralı listeyi ve kitap kimliğine göre sonuç haritasını üretir.
-- **View:** React bileşenleri puanı, sıra numarasını, olgunluk düzeyini ve her ölçütün kanıtını gösterir.
-- **Repository:** `GitHubStateRepository`, `kitaps-state/state.json` dosyasını GitHub Contents API üzerinden okur ve yazar.
-- **Batcher:** `GitHubStateBatcher`, her değişikliği önce kalıcı yerel kuyruğa alır ve uzak yazımları en az 120 saniye boyunca biriktirir.
+- **Model:** `ReadingGraph`, `CatalogReadingProfile` ve `ReadingPriorityEngine` yalnızca katalog verisini değerlendirir. Motorun kişisel bir girdisi yoktur: `rank()` parametre almaz.
+- **ViewModel:** `ReadingRankingViewModel`, görünümün kullanacağı sıralı listeyi ve kitap kimliğine göre sonuç haritasını üretir. Katalog değişmediği sürece sonuç her cihazda aynıdır ve uygulama açılırken bir kez hesaplanır.
+- **View:** React bileşenleri puanı, sıra numarasını, olgunluk düzeyini ve her ölçütün kanıtını gösterir. Kitap sayfasındaki hazırlık önerileri motorun kullandığı `ReadingGraph` üzerinden okunur.
+- **Repository:** `GitHubStateRepository`, `kitaps-state/state.json` dosyasını okur ve yazar.
+- **Batcher:** `GitHubStateBatcher`, her değişikliği önce kalıcı yerel kuyruğa alır; uzak yazımı ilk değişiklikten en az 120 saniye sonra yapar.
 
-Bu ayrım MVC ve MVVM sorumluluklarını birlikte uygular: etki alanı modeli React'tan bağımsızdır; ViewModel ekran verisini hazırlar; Repository uzak depolamayı soyutlar.
+## Okuma önceliği politikası (reading-priority-v2.1.0)
 
-## Okuma önceliği politikası
+Varsayılan sıralama okuma önceliğidir. Motor beş katalog ölçütü kullanır:
 
-Varsayılan sıralama okuma önceliğidir. Satın alma durumu tek başına hedef değildir. Motor yedi ölçüt kullanır:
+| Ölçüt | Ağırlık | Kaynak |
+|---|---:|---|
+| Editoryal kesişim | %17 | Kitabın yer aldığı bağımsız seçki sayısı |
+| Öğrenme kaldıracı | %29 | Kitabın açtığı devam kitapları ve eşlikçileri |
+| Hazırlık uygunluğu | %20 | Kitaptan önce önerilen hazırlık okumalarının yükü |
+| Okuma eşiği | %16 | Kategoriden türetilen zorluk; çocuk kitapları genç okura göre |
+| Kalıcılık | %18 | Yayın yılı ile taktik ve kalıcı konu dengesi |
 
-1. Editoryal uzlaşma
-2. Öğrenme kaldıracı
-3. Hazırlık uygunluğu
-4. Erişim hazır oluşu
-5. Koleksiyon kapsamı
-6. Zorluk uyumu
-7. Kalıcılık
+**Kişisel eylemler puanı değiştirmez.** Satın alma, alınacaklar, favori, okuma durumları (`okunuyor`, `okundu`, `ara verildi`, `bırakıldı`), okuma tarihleri, sayfa ilerlemesi, notlar ve kişisel sıra; puanı, olgunluk düzeyini, kriter değerlerini veya sıralamayı değiştirmez. v1'deki "erişim hazırlığı" ve "kitaplık kapsamı" ölçütleri satın alma bilgisine dayandığı için v2'de kaldırıldı. Kalan ölçütler v1 oranlarıyla yeniden ölçeklendi.
 
-Sahiplik yalnız erişilebilirlik ve mevcut kitaplığın konu kapsamı için kullanılır. `okunuyor`, `okundu`, `ara verildi`, `bırakıldı`, okuma tarihleri, sayfa ilerlemesi, notlar ve kişisel sıra puanı, olgunluk düzeyini veya sıralamayı değiştirmez. Bunlar kayıt ve kullanım araçlarıdır. Katalogdaki kitaplar, hazırlık ilişkileri veya eşlikçi bağları eklenince ya da çıkarılınca katalog ölçütleri yeniden normalize edilir ve bütün kitaplar tekrar sıralanır.
+Olgunluk eşikleri politikanın parçasıdır (`src/ranking/policy.ts`): 76 ve üstü "Çok yüksek", 57,5 "Yüksek", 38 "Orta", 18 "Bağlama bağlı", altı "Düşük". Bu değerler v1 eşiklerinin (72/58/43/28) yeni ölçekteki karşılığıdır.
 
-Hazırlık ilişkileri iki türe ayrılır. `before/after` bağı kitabın hangi eserleri açtığını ve hedefteki hazırlık yükünü etkiler. `companions` bağı birlikte veya karşılaştırmalı okumayı temsil eder; öğrenme bağlantısını güçlendirir fakat hedefe önkoşul yükü eklemez. Kaynak veride hiçbir kitaba doğrudan puan yazılmaz.
+Katalog değişince bütün ölçütler yeniden normalize edilir ve bütün kitaplar yeniden sıralanır. Eşit puanlı kitaplar aynı sıra numarasını paylaşır; liste bunları okurun gördüğü başlığa göre alfabetik gösterir.
 
-## Durum deposu
+### Okur kitlesi (v2.1)
 
-`karacaismail/kitaps-state` ikinci ve zorunlu uzak durum deposudur. Proje ve kullanıcı durumu bilinçli olarak herkese açıktır. Favoriler, sahiplik ve okuma durumları, beş kitaplık sıra, başlangıç ve bitiş tarihleri, sayfa ilerlemesi ile okuma notları `state.json` içinde tutulur; her cihaz bu dosyayı anahtarsız okuyabilir. Arayüz bu görünürlüğü bağlantı alanında açıkça belirtir. Yazma için yalnız bu depoya Contents izni olan fine-grained GitHub anahtarı gerekir; anahtar tarayıcının yerel alanından çıkmaz ve istek gövdesine yazılmaz.
+Çocuk kategorisindeki kitaplar farklı bir okur için seçilir. v2.1'de bu kitaplar kendi aralarında normalize edilir ve sıralanır (çocuk kitapları arasında #1, #2 …); genel katalog da kendi içinde sıralanır. Okuma önceliğine göre sıralı listelerde önce genel kitaplar, ardından çocuk kitapları gelir. Ağırlıklar ve olgunluk eşikleri değişmedi.
 
-Her kitap kaydı kendi `updatedAt` değeriyle birleştirilir. Eş zamanlı cihaz güncellemelerinde son yazılan kitap kaydı kazanır. Başarısız veya yarıda kalan yazımlar yerel kuyrukta kalır. İstemci ilk değişiklikten sonra en az 120 saniye bekler ve biriken kayıtları tek GitHub güncellemesinde gönderir.
+Gerekçe: 10 yaşına kadar temel kütüphane eklenince çocuk kitapları ebeveyn listeleri ve çocuk kitabı listeleri üzerinden birden çok seçkiye girdi. Tek bir sıralamada genel kataloğun ilk 50 kitabının 23'ü çocuk kitabı oluyordu; bir çocuk kitabını *Rekabet Stratejisi* ile aynı ölçekte karşılaştırmak okura anlamlı bir sıra vermiyordu. Aynı katalog yine her cihazda aynı puanı üretir ve kişisel eylemler puana girmez.
+
+Çocuk kitabı listeleri (BookTrust, TIME, School Library Journal, Scholastic, MEB 100 Temel Eser) bu kütüphane için tek bir araştırma adımında birlikte incelendi. Bu yüzden tek bir küme olarak modellenir ve editoryal kesişimde bir seçki sayılır; hangi listelerde geçtiği alt kümelerde görünür.
+
+### Hazırlık ilişkileri
+
+`ReadingGraph` tek kaynaktır:
+
+- Editoryal `before/after` bağları çift yönlüdür: A, B'nin "önce" listesindeyse B de A'nın "sonra" listesinde görünür.
+- Kategori rotaları yalnızca ardışık adımlarını ekler; rotanın ilk kitabı üçüncü kitabın önkoşulu sayılmaz.
+- `companions` birlikte okumayı temsil eder; öğrenme kaldıracına katkı verir, hazırlık yükü oluşturmaz.
+- Kitap sayfasında gösterilen hazırlık sayısı ile puan kartındaki hazırlık ölçütü aynı grafikten gelir ve testle eşitlenir.
+
+Kaynak veride hiçbir kitaba doğrudan puan yazılmaz.
+
+## Durum deposu (şema 2)
+
+`karacaismail/kitaps-state` ikinci ve zorunlu uzak durum deposudur. Proje ve kullanıcı durumu bilinçli olarak herkese açıktır. Favoriler, sahiplik ve okuma durumları, okuma sırası, tarihler, sayfa ilerlemesi ve okuma notları `state.json` içinde tutulur ve GitHub geçmişinde görünür.
+
+- **Okuma:** Anahtarsız cihazlar dosyayı `raw.githubusercontent.com` üzerinden, özel başlık göndermeden okur. Bu basit bir CORS isteğidir, API sınırına takılmaz ve en fazla beş dakika gecikebilir. Anahtarlı cihazlar API'yi `If-None-Match` ile koşullu okur.
+- **İstek başlıkları:** Yalnızca `Accept`, `X-GitHub-Api-Version`, `Authorization` ve `If-None-Match`. GitHub'ın CORS ön kontrolü başka özel başlıkları (ör. `Cache-Control`) reddeder; test bu listeyi GitHub'ın canlı yanıtıyla karşılaştırır.
+- **Birleştirme:** Her kitap kaydı alan bazında (`states`, `reading`) düzenlenme zamanı taşır. Gönderilmemiş bir yerel değişiklik, o alanı ondan sonra düzenleyen başka bir cihazın değerini ezmez; dokunmadığı alanları hiç değiştirmez.
+- **Okuma sırası:** Tek bir kayıt olarak (`queue`) tutulur ve bütün olarak son yazan kazanır.
+- **Toplu gönderim:** Yerel kuyruk ilk değişikliğin zamanını saklar. Gönderim bu zamandan en az 120 saniye sonra yapılır. Kısa bir ziyarette yapılan değişiklik, süre dolmuşsa bir sonraki açılışta gönderilir. "Şimdi gönder" düğmesi ve hata sonrası 15, 30 ve 60 saniyelik yeniden denemeler bu kuralın bilinçli istisnalarıdır.
+- **İstek sınırı:** GitHub sınırı aşıldığında istemci sıfırlanma zamanına kadar bekler.
+- **Yeni cihaz:** Bir cihaz ilk kez eşitlendiğinde yalnız kendisinde olan kayıtları ortak dosyaya ekler. Aynı kitap için iki taraf farklıysa önce yerel yedek alır ve okura hangisinin kalacağını sorar.
+- **Şema 1:** Kitap başına sıra konumu taşıyan eski dosyalar okunurken şema 2'ye çevrilir.
+
+### Yazma anahtarı
+
+- Yalnızca ince ayarlı (fine-grained) kişisel erişim anahtarı (`github_pat_`) kabul edilir. Klasik ve OAuth anahtarları istek gönderilmeden reddedilir. GitHub'ın yanıtında klasik kapsam (`X-OAuth-Scopes`) görünen anahtar da kaydedilmez.
+- Anahtar oluşturma bağlantısı sahibi, Contents yazma iznini ve 90 günlük süreyi önceden doldurur; depo seçimi (yalnız `kitaps-state`) arayüzde adım adım belirtilir.
+- Anahtar tarayıcının `localStorage` alanında tutulur ve istek gövdesine yazılmaz. `karacaismail.github.io` altındaki bütün Pages siteleri aynı kaynağı paylaştığından, bu alan o sitelerdeki betiklerce okunabilir. Bu yüzden anahtarın yetkisi tek depo ve tek izinle sınırlandırılır. Tam yalıtım için uygulama ayrı bir kaynağa (özel alan adı) taşınmalıdır.
 
 ## Sonuçlar
 
-- Sıralama açıklanabilir ve test edilebilir.
-- Sahiplik ile okuma etkinliği birbirinden bağımsız kalır; okuma etkinliği sıralamayı değiştirmez.
-- Telefon ve bilgisayar aynı GitHub durumunu görür.
+- Sıralama açıklanabilir, test edilebilir ve kişisel durumdan tamamen bağımsızdır.
+- Telefon ve bilgisayar aynı GitHub durumunu görür; eşitleme hatası sıralamayı etkilemez.
 - Her kullanıcı hareketi için ayrı GitHub commit'i oluşmaz.
 - Yeni bir sıralama politikası, görünüm bileşenlerini değiştirmeden eklenebilir.

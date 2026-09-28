@@ -34,6 +34,10 @@
   <url><loc>https://karacaismail.github.io/kitaps/catalog/page/32/</loc></url>
   <url><loc>https://karacaismail.github.io/kitaps/catalog/page/33/</loc></url>
   <url><loc>https://karacaismail.github.io/kitaps/catalog/page/34/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/page/35/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/page/36/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/page/37/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/page/38/</loc></url>
   <url><loc>https://karacaismail.github.io/kitaps/catalog/category/strategy/</loc></url>
   <url><loc>https://karacaismail.github.io/kitaps/catalog/category/strategy/page/2/</loc></url>
   <url><loc>https://karacaismail.github.io/kitaps/catalog/category/strategy/page/3/</loc></url>
@@ -96,6 +100,11 @@
   <url><loc>https://karacaismail.github.io/kitaps/catalog/category/philosophy/page/2/</loc></url>
   <url><loc>https://karacaismail.github.io/kitaps/catalog/category/children/</loc></url>
   <url><loc>https://karacaismail.github.io/kitaps/catalog/category/children/page/2/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/category/children/page/3/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/category/children/page/4/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/category/children/page/5/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/category/children/page/6/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/category/children/page/7/</loc></url>
   <url><loc>https://karacaismail.github.io/kitaps/catalog/category/science/</loc></url>
   <url><loc>https://karacaismail.github.io/kitaps/catalog/category/science/page/2/</loc></url>
   <url><loc>https://karacaismail.github.io/kitaps/catalog/collection/time/</loc></url>
@@ -153,6 +162,15 @@
   <url><loc>https://karacaismail.github.io/kitaps/catalog/collection/foundations/</loc></url>
   <url><loc>https://karacaismail.github.io/kitaps/catalog/collection/foundations/page/2/</loc></url>
   <url><loc>https://karacaismail.github.io/kitaps/catalog/collection/foundations/page/3/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/collection/temel-kutuphane/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/collection/temel-kutuphane/page/2/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/collection/temel-kutuphane/page/3/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/collection/temel-kutuphane/page/4/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/collection/temel-kutuphane/page/5/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/collection/temel-kutuphane/page/6/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/collection/cocuk-kitabi-listeleri/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/collection/cocuk-kitabi-listeleri/page/2/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/collection/cocuk-kitabi-listeleri/page/3/</loc></url>
   <url><loc>https://karacaismail.github.io/kitaps/catalog/collection/preparation/</loc></url>
   <url><loc>https://karacaismail.github.io/kitaps/catalog/group/time%3A0/</loc></url>
   <url><loc>https://karacaismail.github.io/kitaps/catalog/group/pmba%3A0/</loc></url>
@@ -272,6 +290,23 @@
   <url><loc>https://karacaismail.github.io/kitaps/catalog/group/foundations%3Aenterprise/</loc></url>
   <url><loc>https://karacaismail.github.io/kitaps/catalog/group/foundations%3Aliterature/</loc></url>
   <url><loc>https://karacaismail.github.io/kitaps/catalog/group/foundations%3Ajapan/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/group/temel-kutuphane%3Acekirdek/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/group/temel-kutuphane%3Acekirdek13/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/group/temel-kutuphane%3A3-5/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/group/temel-kutuphane%3A5-7/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/group/temel-kutuphane%3A7-8/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/group/temel-kutuphane%3A8-10/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/group/temel-kutuphane%3A8-10/page/2/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/group/temel-kutuphane%3A10-11/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/group/temel-kutuphane%3A11-12/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/group/temel-kutuphane%3A12-13/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/group/cocuk-kitabi-listeleri%3Abooktrust-2018/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/group/cocuk-kitabi-listeleri%3Atime-2015/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/group/cocuk-kitabi-listeleri%3Aslj-picture-2012/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/group/cocuk-kitabi-listeleri%3Aslj-novels-2012/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/group/cocuk-kitabi-listeleri%3Ascholastic-2012/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/group/cocuk-kitabi-listeleri%3Ameb-100/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/group/cocuk-kitabi-listeleri%3Aibby-honour-tr/</loc></url>
   <url><loc>https://karacaismail.github.io/kitaps/catalog/group/preparation%3A1/</loc></url>
   <url><loc>https://karacaismail.github.io/kitaps/catalog/group/preparation%3A2/</loc></url>
   <url><loc>https://karacaismail.github.io/kitaps/catalog/group/preparation%3A3/</loc></url>
@@ -1061,6 +1096,110 @@
   <url><loc>https://karacaismail.github.io/kitaps/catalog/books/nineteen-eighty-four-by-george-orwell/</loc></url>
   <url><loc>https://karacaismail.github.io/kitaps/catalog/books/bushido-by-inazo-nitobe/</loc></url>
   <url><loc>https://karacaismail.github.io/kitaps/catalog/books/the-way-of-zen-by-alan-w-watts/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/pippi-langstrump-by-astrid-lindgren/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/sandvargen-by-asa-lind/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/frindle-by-andrew-clements/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/le-petit-nicolas-by-rene-goscinny-jean-jacques-sempe/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/yasasin-c-harfi-kardesligi-by-behic-ak/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/balina-ile-mandalina-by-fazil-husnu-daglarca/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/simdiki-cocuklar-harika-by-aziz-nesin/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/the-very-hungry-caterpillar-by-eric-carle/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/the-gruffalo-by-julia-donaldson-axel-scheffler/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/frederick-by-leo-lionni/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/pezzettino-by-leo-lionni/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/we-re-going-on-a-bear-hunt-by-michael-rosen-helen-oxenbury/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/guess-how-much-i-love-you-by-sam-mcbratney-anita-jeram/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/elmer-by-david-mckee/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/der-regenbogenfisch-by-marcus-pfister/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/the-story-of-the-three-little-pigs-english-folk-tale-by-halk-masali/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/frog-and-toad-are-friends-by-arnold-lobel/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/the-happy-prince-by-oscar-wilde/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/peter-and-wendy-by-j-m-barrie/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/the-story-of-doctor-dolittle-by-hugh-lofting/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/the-wind-in-the-willows-by-kenneth-grahame/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/karlsson-pa-taket-by-astrid-lindgren/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/halime-kaptan-by-rifat-ilgaz/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/momo-by-michael-ende/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/a-pal-utcai-fiuk-by-ferenc-molnar/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/the-adventures-of-tom-sawyer-by-mark-twain/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/winnie-the-pooh-by-a-a-milne/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/godnatt-alfons-aberg-by-gunilla-bergstrom/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/emil-i-lonneberga-by-astrid-lindgren/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/fantastic-mr-fox-by-roald-dahl/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/james-and-the-giant-peach-by-roald-dahl/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/mio-min-mio-by-astrid-lindgren/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/le-avventure-di-pinocchio-by-carlo-collodi/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/smatrollen-och-den-stora-oversvamningen-by-tove-jansson/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/mary-poppins-by-p-l-travers/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/the-railway-children-by-e-nesbit/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/the-secret-garden-by-frances-hodgson-burnett/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/le-tour-du-monde-en-quatre-vingts-jours-by-jules-verne/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/voyage-au-centre-de-la-terre-by-jules-verne/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/the-hobbit-or-there-and-back-again-by-j-r-r-tolkien/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/die-unendliche-geschichte-by-michael-ende/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/the-lion-the-witch-and-the-wardrobe-by-c-s-lewis/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/mo-nun-gizemi-by-gulten-dayioglu/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/okkes-otoparkta-by-muzaffer-izgu/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/zikkimin-koku-by-muzaffer-izgu/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/vapurlari-seven-cocuk-by-behic-ak/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/gokdelene-giren-bulut-by-behic-ak/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/pat-karikatur-okulu-by-behic-ak/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/puf-pufpuf-cuf-cufcuf-ve-cino-by-sevim-ak/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/vanilya-kokulu-mektuplar-by-sevim-ak/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/sincap-siirler-by-yalvac-ural/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/dunya-cocukla-kardes-by-mustafa-ruhi-sirin/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/fables-choisies-by-jean-de-la-fontaine/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/nasreddin-hoca-fikralari-folk-by-anonim/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/keloglan-masallari-folk-by-anonim/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/annem-neden-cildirdi-by-aytul-akal/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/hayvanlarla-konusan-cocuk-by-gulsum-cengiz/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/emil-und-die-detektive-by-erich-kastner/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/bacaksiz-kamyon-surucusu-by-rifat-ilgaz/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/omer-seyfettin-den-secme-hikayeler-by-omer-seyfettin/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/treasure-island-by-robert-louis-stevenson/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/vingt-mille-lieues-sous-les-mers-by-jules-verne/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/pollyanna-by-eleanor-h-porter/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/wonder-by-r-j-palacio/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/robinson-crusoe-by-daniel-defoe/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/white-fang-by-jack-london/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/little-women-by-louisa-may-alcott/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/the-adventures-of-sherlock-holmes-by-arthur-conan-doyle/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/hababam-sinifi-by-rifat-ilgaz/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/yurdumu-ozledim-by-gulten-dayioglu/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/animal-farm-by-george-orwell/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/het-achterhuis-by-anne-frank/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/jonathan-livingston-seagull-by-richard-bach/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/calikusu-by-resat-nuri-guntekin/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/to-kill-a-mockingbird-by-harper-lee/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/le-lotus-bleu-by-herge/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/asterix-le-gaulois-by-rene-goscinny-albert-uderzo/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/yuan-huan-in-kulubesi-by-miyase-sertbarut/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/postayla-gelen-deniz-kabugu-by-behic-ak/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/getting-lost-on-the-map-by-vladimir-tumanov/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/holes-by-louis-sachar/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/out-of-my-mind-by-sharon-m-draper/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/tuck-everlasting-by-natalie-babbitt/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/ce-qu-on-sait-et-ce-qu-on-ne-sait-pas-by-brigitte-labbe-michel-puech/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/la-justice-et-l-injustice-by-brigitte-labbe-michel-puech/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/pour-de-vrai-et-pour-de-faux-by-brigitte-labbe-michel-puech/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/siir-saldim-gokyuzune-by-mavisel-yener/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/where-the-wild-things-are-by-maurice-sendak/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/goodnight-moon-by-margaret-wise-brown-clement-hurd/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/the-giving-tree-by-shel-silverstein/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/don-t-let-the-pigeon-drive-the-bus-by-mo-willems/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/i-want-my-hat-back-by-jon-klassen/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/the-bfg-by-roald-dahl/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/my-father-s-dragon-by-ruth-stiles-gannett/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/harold-and-the-purple-crayon-by-crockett-johnson/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/the-tale-of-peter-rabbit-by-beatrix-potter/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/what-do-you-do-with-a-tail-like-this-by-steve-jenkins-robin-page/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/planetarium-by-raman-prinja-chris-wormell/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/sevdali-bulut-by-nazim-hikmet/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/yurekdede-ile-padisah-by-cahit-zarifoglu/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/veli-nin-kurabiyesi-by-ayla-cinaroglu/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/shackleton-s-journey-by-william-grill/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/me-jane-by-patrick-mcdonnell/</loc></url>
+  <url><loc>https://karacaismail.github.io/kitaps/catalog/books/the-magic-school-bus-inside-the-human-body-by-joanna-cole-bruce-degen/</loc></url>
   <url><loc>https://karacaismail.github.io/kitaps/catalog/books/elestirel-okuma-by-emin-ozdemir/</loc></url>
   <url><loc>https://karacaismail.github.io/kitaps/catalog/books/dusunmenin-alfabesi-by-yasin-ramazan/</loc></url>
   <url><loc>https://karacaismail.github.io/kitaps/catalog/books/adim-adim-matematik-essiz-bir-gorsel-rehber-by-unknown/</loc></url>

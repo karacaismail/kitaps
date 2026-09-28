@@ -1,0 +1,13 @@
+{
+  // The React views and plain-JS modules are checked without `strict`; the
+  // ranking and state domain (tsconfig.json) stays strict TypeScript.
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "jsx": "react-jsx",
+    "strict": false,
+    "types": ["vite/client"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.js", "src/**/*.jsx"]
+}

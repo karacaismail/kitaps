@@ -2,7 +2,7 @@ import { bookSlug, emptyFilters, encodeRoute } from './library.js';
 import { displayTitle } from './translation.js';
 
 const SITE_NAME='Kitaplık';
-const BASE_DESCRIPTION='794 kitap; araştırılmış seçkiler, konu rotaları, çeviri, çevirmen ve baskı bilgileriyle tek katalogda.';
+const baseDescription=catalog=>`${catalog.books.length} kitap; araştırılmış seçkiler, konu rotaları, çeviri, çevirmen ve baskı bilgileriyle tek katalogda.`;
 
 function publicListing(route) {
  const f=route.filters;
@@ -42,7 +42,8 @@ export function seoState({route,catalog,count,currentPage,totalPages,displayed})
  const group=route.filters.groups.length===1?catalog.groups.find(item=>item.id===route.filters.groups[0]):null;
  const indexable=!!book||publicListing(route);
  const pageSuffix=currentPage>1?` — Sayfa ${currentPage}`:'';
- let heading=category?.label||collection?.title||group?.title||'Tüm kitaplar';
+ const groupCollection=group?catalog.collections.find(item=>item.id===group.collectionId):null;
+ let heading=category?.label||collection?.title||(group?`${groupCollection?.short||groupCollection?.title||''} · ${group.title}`:'')||'Tüm kitaplar';
  if(route.view==='collections')heading='Kitap kümeleri';
  if(route.view==='notes')heading='Kaynaklar ve notlar';
  if(route.view==='queue')heading='Okuma sıram';
@@ -61,24 +62,24 @@ export function seoState({route,catalog,count,currentPage,totalPages,displayed})
   '@context':'https://schema.org','@type':'CollectionPage',name:heading,description,url:canonical,
   ...(indexable?{mainEntity:{'@type':'ItemList',numberOfItems:count,itemListElement:displayed.map((item,index)=>({'@type':'ListItem',position:start+index,url:staticBookUrl(item),name:displayTitle(item)}))}}:{})
  };
- return {title,description:description||BASE_DESCRIPTION,robots:indexable?'index,follow':'noindex,follow',canonical,prev:indexable&&currentPage>1?staticListingUrl(route,currentPage-1):'',next:indexable&&currentPage<totalPages?staticListingUrl(route,currentPage+1):'',structured,interactive:href(canonicalQuery),ogType:book?'book':'website'};
+ return {title,description:description||baseDescription(catalog),robots:indexable?'index,follow':'noindex,follow',canonical,prev:indexable&&currentPage>1?staticListingUrl(route,currentPage-1):'',next:indexable&&currentPage<totalPages?staticListingUrl(route,currentPage+1):'',structured,interactive:href(canonicalQuery),ogType:book?'book':'website'};
 }
 
 function upsertMeta(name,content) {
  let element=document.head.querySelector(`meta[name="${name}"]`);
- if(!element){element=document.createElement('meta');element.name=name;document.head.append(element)}
- element.content=content;
+ if(!element){element=document.createElement('meta');element.setAttribute('name',name);document.head.append(element)}
+ element.setAttribute('content',content);
 }
 function upsertProperty(property,content) {
  let element=document.head.querySelector(`meta[property="${property}"]`);
  if(!element){element=document.createElement('meta');element.setAttribute('property',property);document.head.append(element)}
- element.content=content;
+ element.setAttribute('content',content);
 }
 function upsertLink(rel,href) {
  let element=document.head.querySelector(`link[rel="${rel}"]`);
  if(!href){element?.remove();return}
- if(!element){element=document.createElement('link');element.rel=rel;document.head.append(element)}
- element.href=href;
+ if(!element){element=document.createElement('link');element.setAttribute('rel',rel);document.head.append(element)}
+ element.setAttribute('href',href);
 }
 
 export function applySeo(state) {
@@ -96,6 +97,6 @@ export function applySeo(state) {
  upsertLink('prev',state.prev);
  upsertLink('next',state.next);
  let script=document.getElementById('page-structured-data');
- if(!script){script=document.createElement('script');script.id='page-structured-data';script.type='application/ld+json';document.head.append(script)}
+ if(!script){script=document.createElement('script');script.id='page-structured-data';script.setAttribute('type','application/ld+json');document.head.append(script)}
  script.textContent=JSON.stringify(state.structured);
 }

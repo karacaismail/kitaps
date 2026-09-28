@@ -7,7 +7,7 @@ import { emptyReading, progressPercent, readingErrors } from '../reading';
 export function QueueButton({id,queue,onAdd,onQueue,fullWidth=false,iconOnly=false,title=''}) {
  const present=queue.includes(id),full=queue.length>=5;
  const label=present?`Sıramda · ${queue.indexOf(id)+1}. kitap. Sıramı aç`:full?'Sıram dolu · 5 kitap. Sıramı düzenle':'Sırama ekle';
- if(iconOnly)return <Tooltip label={label} withArrow><ActionIcon className="cover-queue" variant={present?'filled':'white'} color="coffee" aria-label={`${title}: ${label}`} aria-pressed={present} onClick={()=>present||full?onQueue():onAdd(id)}>{present?<IconPlaylist size={23}/>:<IconPlaylistAdd size={23}/>}</ActionIcon></Tooltip>;
+ if(iconOnly)return <Tooltip label={label} withArrow><ActionIcon className="cover-queue" variant="subtle" aria-label={`${title}: ${label}`} aria-pressed={present} onClick={()=>present||full?onQueue():onAdd(id)}>{present?<IconPlaylist size={21}/>:<IconPlaylistAdd size={21}/>}</ActionIcon></Tooltip>;
  return <Button fullWidth={fullWidth} variant={present?'light':'subtle'} onClick={()=>present||full?onQueue():onAdd(id)} leftSection={present?<IconCheck size={18}/>:full?null:<IconPlus size={18}/>} rightSection={full&&!present?<IconArrowRight size={18}/>:null}>{present?`Sıramda · ${queue.indexOf(id)+1}. kitap`:full?'Sıramı düzenle · 5/5':'Sırama ekle'}</Button>;
 }
 export default function ReadingPanel({book,record,states,onToggle,onChange,queue,onAdd,onQueue,storageError}) {
