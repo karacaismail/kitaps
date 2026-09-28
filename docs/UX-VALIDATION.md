@@ -37,7 +37,7 @@ Klavye erişimi, odak dönüşü, dokunma alanları ve 320 px yeniden akış ayr
 
 ## Kartlar ve satın alma bildirimi (28 Eylül 2026)
 
-- Karttan küme sayısı ve yıl satırı kaldırıldı. Yayınevi sağa hizalı ve italiktir. Çeviri göstergesi, yayınevi ile kategori arasındaki boşlukta sağa hizalıdır; ek kategori sayacı bulunan 320 px kartlarda kategori satırı bölünmez.
+- Karttan küme sayısı ve yıl satırı kaldırıldı. Çeviri göstergesi solda, italik yayınevi sağda ve aynı satırdadır; kategori satırı ikisinin altında tam genişliği kullanır. Ek kategori sayacı bulunan 320 px kartlarda kategori satırı bölünmez.
 - Kapak alanında sağdaki düğmelere ayrılan boşluk kaldırıldı. Kapaklar oranları korunarak alana sığar; düğmeler kapağın üzerinde yüzde 75 opaklıkla görünür. Masaüstünde fare kartın üzerine geldiğinde veya klavye odağı kartın içindeyken açılır; dokunmatik ekranda görünür kalır. Odaklanan düğme tamamen opaktır.
 - Çocuk etiketi açık ve koyu temada pembe tonlarını kullanır. Kartta yalnızca “Çeviri” yazısı bulunur; doğrulanmış Türkçe çeviri turkuaz onay, bulunmayan veya doğrulanamayan çeviri kırmızı ünlemle gösterilir. Açılan açıklama, doğrulanamamış bilgiyi çeviri yokluğundan ayırır. Özgün Türkçe eserlerde nötr işaret ve “Çeviri gerekmiyor” açıklaması vardır.
 - Satın alma ipucu “Satın aldım” olarak kısaltıldı. “Kütüphanene eklendi” bildirimi mobilde 22 px, geniş ekranda 24 px başlıkla gösterilir. Bildirim 8 saniye sonra kapanır; üzerinde fare veya klavye odağı varken süre durur. Geri alma ve kapatma kontrolleri bulunur.
