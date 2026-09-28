@@ -22,7 +22,7 @@ test('footer Notes navigation writes browser history through navigate',()=>{
 });
 
 test('footer exports every catalog book as a self-describing JSON file',()=>{
- assert.match(app,/const exportAllBooks=\(\)=>download\('kitaplik-tum-kitaplar\.json',\{schemaVersion:1,exportedAt:new Date\(\)\.toISOString\(\),catalogUpdatedAt:catalog\.updated,count:books\.length,books\}\)/);
+ assert.match(app,/const exportAllBooks=\(\)=>download\('kitaplik-tum-kitaplar\.json',createBooksExport\(catalog\)\)/);
  assert.match(app,/onClick=\{exportAllBooks\}>Kitapları JSON indir<\/Button>/);
 });
 

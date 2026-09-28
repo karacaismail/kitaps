@@ -38,6 +38,7 @@ import GitHubSyncPanel from './components/GitHubSyncPanel';
 import {useGitHubStateSync} from './state/useGitHubStateSync';
 import { ReadingPriorityEngine, ReadingRankingViewModel } from './ranking/ReadingPriorityEngine.ts';
 import { PERSONAL_KEY, cleanPersonal, cleanReading, addToQueue, moveInQueue, restorePersonal, todayLocal } from './reading';
+import {createBooksExport} from './catalogExport';
 import { STATE_LABELS, QUALITY_LABELS, ORIGIN_LABELS, emptyFilters, prepareBooks, filterBooks, sortBooks, toggleState, migrateStates, filterCount, decodeRoute, encodeRoute, normalize, plainTextMarkers, booksForShelf } from './library';
 import './styles.css';
 
@@ -69,7 +70,7 @@ function download(name,data,type='application/json') {
  const url=URL.createObjectURL(new Blob([typeof data==='string'?data:JSON.stringify(data,null,2)],{type}));
  const link=document.createElement('a');link.href=url;link.download=name;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
-const exportAllBooks=()=>download('kitaplik-tum-kitaplar.json',{schemaVersion:1,exportedAt:new Date().toISOString(),catalogUpdatedAt:catalog.updated,count:books.length,books});
+const exportAllBooks=()=>download('kitaplik-tum-kitaplar.json',createBooksExport(catalog));
 function SourceBadge({id}) {return <Badge color={id==='kitaps'?'grape':id==='local'?'orange':'coffee'}>{ORIGIN_LABELS[id]}</Badge>}
 function ActiveFilters({filters:f,onChange}) {
  const chips=[];
