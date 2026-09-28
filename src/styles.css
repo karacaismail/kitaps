@@ -182,6 +182,17 @@ body{color:var(--ink)}.mantine-Input-input{border-color:var(--control-line);colo
 .book-card h3::after { content: ""; display: block; width: 72px; max-width: 40%; height: 2px; margin: 8px auto 0; border-radius: 999px; background: color-mix(in srgb, var(--accent-text) 55%, transparent); }
 .book-card h3,
 .book-card .title-button { width: 100%; text-align: center; }
+.book-card .title-button {
+ display: -webkit-box;
+ height: 2.8em;
+ min-height: 2.8em;
+ overflow: hidden;
+ -webkit-box-orient: vertical;
+ -webkit-line-clamp: 2;
+ line-clamp: 2;
+ line-height: 1.4;
+ align-content: start;
+}
 .translation-status-mark { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 22px; height: 22px; }
 .translation-status[data-status=available] { color: #006b7d; }
 .translation-status[data-status=unavailable] { color: #9c302b; }
