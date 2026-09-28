@@ -7,7 +7,6 @@ import { displayTitle } from '../translation';
 
 export default function ReadingQueue({queue,books,reading,states,onMove,onRemove,onOpen,onBrowse,BookCover}) {
  return <Stack gap="xl">
-  <div><Group justify="space-between" gap="sm"><Title order={1} size="h2">Sıradaki 5 kitabım</Title><Badge>{queue.length} / 5</Badge></Group><Text c="dimmed" mt="sm">Önce hangisini okuyacağını seç. Yukarı ve aşağı düğmeleriyle sırayı değiştir.</Text></div>
   {queue.length===0?<Card withBorder radius="lg" padding="xl" className="queue-empty"><IconListNumbers size={36} stroke={1.5}/><Title order={3} mt="lg">Bir sonraki kitabına yer aç.</Title><Text c="dimmed" mt="sm">Katalogdan en fazla beş kitap seç; her karttaki “Sırama ekle” düğmesini kullan.</Text><Button mt="lg" onClick={onBrowse}>Kitap seç</Button></Card>:<ol className="reading-queue" role="list">{queue.map((id,index)=>{
    const b=books[id],r=reading[id],pct=progressPercent(r),errors=readingErrors(r);return <li key={id} role="listitem"><Card withBorder padding="lg" radius="lg" className="queue-card">
     <div className="queue-book"><div className="queue-cover"><BookCover book={b} onOpen={onOpen}/></div><div className="queue-title"><Text c="dimmed" mb="xs">{index+1}. sırada</Text><Title order={3}><button className="title-button" onClick={()=>onOpen(id)}>{displayTitle(b)}</button></Title><Text c="dimmed" mt="sm">{b.author}</Text><Group gap={6} mt="sm">{(states[id]||[]).filter(s=>['okunuyor','araverildi','birakildi','okundu'].includes(s)).map(s=><Badge key={s}>{STATE_LABELS[s]}</Badge>)}</Group></div></div>

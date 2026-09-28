@@ -140,7 +140,7 @@ function Collections({onCollection,onGroup,states}) {
  const collectionCount=id=>available.filter(b=>b.collectionIds.includes(id)).length;
  const groupCount=id=>available.filter(b=>b.groupIds.includes(id)).length;
  const shown=catalog.collections.filter(c=>normalize(c.title+' '+c.description).includes(normalize(query)));
- return <Stack gap="xl"><div><Title order={1} size="h2">Her seçkinin bir bağlamı var.</Title><Text c="dimmed" mt="sm">Kaynakların kendi kümeleri ve alt listeleri korunuyor. Girişimcilik rotası, güncel işletme darboğazına göre seçebileceğin 35 araştırılmış kitabı bir araya getirir.</Text></div>
+ return <Stack gap="xl">
   <TextInput label="Kümeler arasında ara" placeholder="TIME, çocuk, strateji…" value={query} onChange={e=>setQuery(e.currentTarget.value)} leftSection={<IconSearch size={20}/>}/>
   <Accordion variant="separated" radius="lg" className="collections-accordion">{shown.map(c=><Accordion.Item key={c.id} value={c.id}>
    <Accordion.Control><Group gap="md" wrap="nowrap"><ThemeIcon variant="light" size={48} color={c.origin==='kitaps'?'grape':'coffee'} radius="md"><Text fw={600}>{c.mark}</Text></ThemeIcon><div><Text fw={600}>{c.title}</Text><Text c="dimmed">{collectionCount(c.id)} kitap · {c.count} kaynak kaydı · {c.groupIds.length} alt küme</Text></div></Group></Accordion.Control>
@@ -167,7 +167,6 @@ function Notes({states,setStates,personal,setPersonal,sync}) {
  };
 
  return <Stack gap="xl">
-  <div><Title order={1} size="h2">Notlar kaybolmasın.</Title><Text mt="sm" c="dimmed">Üç kitaplığın kaynakları, ayrıntılı okuma rotaları ve çeviri notları bir arada.</Text></div>
   <Paper withBorder p="lg" radius="lg"><Title order={3}>Birleşimin kapsamı</Title><Text mt="md">Kitap Atlası’ndaki 619 liste kaydı ve iki rehber; Okuma Kümeleri dosyasındaki 52 kitap; Kitaps’taki 170 künye kaydı ve 35 kitaplık araştırılmış girişimcilik rotası birleştirildi.</Text><Text mt="sm">Aynı eserlerin küme üyelikleri, başlık karşılıkları ve farklı çevirileri tek kayıtta toplandı. Grafik uyarlamalar ve derlemeler ayrı eser olarak korundu.</Text><Group mt="md" gap={8}>{Object.keys(ORIGIN_LABELS).map(id=><SourceBadge id={id} key={id}/>)}</Group></Paper>
   <Paper withBorder p="lg" radius="lg"><Title order={3}>Kişisel kitaplığını yedekle</Title><Text mt="sm">Okuma sıran, durumların, tarihler, sayfa ilerlemen ve kişisel notların bu tarayıcıda saklanır. Hepsini yedekleyip başka bir cihaza taşıyabilirsin. Eski işaret dosyaları da desteklenir. Okuma sırası bulunan bir yedek, mevcut sıranın yerini alır; diğer kayıtlar birleştirilir.</Text><Group mt="md"><Button variant="light" leftSection={<IconDownload size={19}/>} onClick={()=>download('kitap-atlasi-kisisel-yedek.json',{version:3,exportedAt:new Date().toISOString(),states,...personal})}>Kişisel yedeğimi indir</Button><FileButton onChange={importStates} accept="application/json">{props=><Button {...props} variant="default" leftSection={<IconUpload size={19}/>}>Yedekten aktar</Button>}</FileButton></Group>{message&&<Text mt="md" role="status">{message}</Text>}</Paper>
   <GitHubSyncPanel sync={sync}/>
