@@ -316,3 +316,46 @@ body::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-event
  .pagination-page-status{display:block;text-align:center}
  .pagination-meta .mantine-NativeSelect-root{justify-self:end}
 }
+
+/* Reading priority stays compact in the catalog and expands into evidence in details. */
+.reading-priority-badge{
+ position:absolute;
+ top:10px;
+ left:10px;
+ z-index:2;
+ height:30px;
+ padding-inline:9px;
+ border:1px solid rgb(255 255 255 / 42%);
+ box-shadow:0 5px 16px rgb(24 13 8 / 18%);
+ font-variant-numeric:tabular-nums;
+}
+.reading-priority-badge .mantine-Badge-label{display:flex;align-items:center;gap:7px}
+.reading-priority-badge .mantine-Badge-label span+span{
+ padding-left:7px;
+ border-left:1px solid currentColor;
+ opacity:.86;
+}
+.priority-summary{
+ margin-top:16px;
+ border-color:color-mix(in srgb,var(--accent-text) 28%,var(--border));
+ background:linear-gradient(135deg,color-mix(in srgb,var(--soft) 72%,var(--surface)),var(--surface));
+ box-shadow:0 12px 30px rgb(43 34 29 / 5%);
+}
+.priority-summary-copy{flex:1;min-width:0}
+.reading-priority-card{
+ overflow:hidden;
+ border-color:color-mix(in srgb,var(--accent-text) 28%,var(--border));
+ background:linear-gradient(180deg,color-mix(in srgb,var(--soft) 54%,var(--surface)),var(--surface) 180px);
+}
+.reading-priority-card .eyebrow{font-size:.78rem;font-weight:650;letter-spacing:.13em;color:var(--accent-text)}
+.reading-priority-card .score-points{min-width:54px;text-align:right;font-variant-numeric:tabular-nums;color:var(--accent-text)}
+.score-criterion{padding:12px 0;border-top:1px solid var(--border)}
+.score-reasons{margin-top:18px;padding:16px;border-radius:12px;background:var(--soft)}
+.score-reasons ul{margin:8px 0 0;padding-left:20px}
+.score-reasons li+li{margin-top:8px}
+.github-sync-panel{background:linear-gradient(145deg,var(--surface),color-mix(in srgb,var(--soft) 55%,var(--surface)))}
+@media(max-width:39.99em){
+ .priority-summary .mantine-ThemeIcon-root{display:none}
+ .reading-priority-card>.mantine-Group-root{align-items:flex-start}
+ .reading-priority-card .mantine-Badge-root{white-space:normal;height:auto;min-height:28px;text-align:center}
+}

@@ -37,7 +37,7 @@ test('new backup round trip preserves queue and notes; old backups do not clear 
  const changed=restorePersonal(personal,{queue:[],reading:{b:{why:'Yeni'}}},['a','b','c']);assert.deepEqual(changed.queue,[]);assert.equal(changed.reading.a.why,'Neden?');assert.equal(changed.reading.b.why,'Yeni');
 });
 test('queue URL opens the personal view without putting personal text in the URL',()=>{
- const encoded=encodeRoute({view:'queue',sort:'shared',book:null,filters:emptyFilters(),reading:{why:'private text'},queue:['a']});
+ const encoded=encodeRoute({view:'queue',sort:'reading',book:null,filters:emptyFilters(),reading:{why:'private text'},queue:['a']});
  assert.equal(encoded,'view=queue');assert.equal(decodeRoute('#'+encoded,catalog).view,'queue');
 });
 test('Turkish covers retain provenance and exist as local image files',()=>{

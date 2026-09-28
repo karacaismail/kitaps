@@ -5,7 +5,7 @@ import { emptyFilters } from '../src/library.js';
 import { seoState } from '../src/seo.js';
 
 const catalog=JSON.parse(fs.readFileSync(new URL('../src/catalog.json',import.meta.url)));
-const route=overrides=>({view:'books',sort:'shared',book:null,page:1,pageSize:24,filters:emptyFilters(),...overrides});
+const route=overrides=>({view:'books',sort:'reading',book:null,page:1,pageSize:24,filters:emptyFilters(),...overrides});
 
 test('public catalog pages have unique canonical, previous and next URLs',()=>{
  const state=seoState({route:route({page:5}),catalog,count:catalog.books.length,currentPage:5,totalPages:31,displayed:catalog.books.slice(96,120)});

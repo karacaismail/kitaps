@@ -8,10 +8,10 @@ function publicListing(route) {
  const f=route.filters;
  const privateOrThin=f.query||f.states.length||f.authors.length||f.origins.length||f.awards.length||f.awardYears.length||f.qualities.length||f.hasEdition||f.shared||f.yearMin!==''||f.yearMax!==''||f.categoryMode==='all'||f.collectionMode==='all';
  const taxonomyCount=f.categories.length+f.collections.length+f.groups.length;
- return route.view==='books'&&route.sort==='shared'&&(route.pageSize||24)===24&&!privateOrThin&&taxonomyCount<=1;
+ return route.view==='books'&&route.sort==='reading'&&(route.pageSize||24)===24&&!privateOrThin&&taxonomyCount<=1;
 }
 
-const cleanRoute=(route,book=null)=>({filters:emptyFilters(),view:'books',sort:'shared',book,page:1,pageSize:24});
+const cleanRoute=(route,book=null)=>({filters:emptyFilters(),view:'books',sort:'reading',book,page:1,pageSize:24});
 
 export function seoState({route,catalog,count,currentPage,totalPages,displayed}) {
  const book=route.book?catalog.books.find(item=>item.id===route.book):null;

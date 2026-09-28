@@ -29,11 +29,12 @@ export function filterBooks(books, filters, states = {}) {
   return true;
  });
 }
-export function sortBooks(books, sort, states = {}) {
+export function sortBooks(books, sort, states = {}, rankings = {}) {
  const collator = new Intl.Collator('tr', { sensitivity: 'base', numeric: true });
  const title = b => displayTitle(b);
  return [...books].sort((a,b) => {
   const tie = () => collator.compare(title(a),title(b));
+  if (sort === 'reading') return (rankings[a.id]?.rank??Number.MAX_SAFE_INTEGER)-(rankings[b.id]?.rank??Number.MAX_SAFE_INTEGER)||tie();
   if (sort === 'shared') return b.collectionIds.length - a.collectionIds.length || tie();
   if (sort === 'author') return collator.compare(a.author,b.author) || tie();
   if (sort === 'newest') return Math.max(0,...b.years) - Math.max(0,...a.years) || tie();
@@ -71,7 +72,7 @@ const originalValues=Object.fromEntries(Object.entries(englishValues).map(([key,
 const englishBookTitles={'преступлениеинаказание':'Crime and Punishment','братьякарамазовы':'The Brothers Karamazov','запискиизподполья':'Notes from Underground','идиот':'The Idiot','воинаимир':'War and Peace','аннакаренина':'Anna Karenina','смертьиванаильича':'The Death of Ivan Ilyich','чемлюдиживы':'What Men Live By'};
 export function bookSlug(book){return ((englishBookTitles[book.id]||book.title.split(':')[0])+' by '+book.author).normalize('NFKD').replace(/ı/g,'i').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,200)||book.id}
 export function decodeRoute(location, catalog) {
- const defaults={filters:emptyFilters(),view:'books',sort:'shared',book:null,page:1,pageSize:24};
+ const defaults={filters:emptyFilters(),view:'books',sort:'reading',book:null,page:1,pageSize:24};
  const raw=location.replace(/^[#?]/,'');
  if(catalog.collections.some(c=>c.id===raw))return {...defaults,filters:{...emptyFilters(),collections:[raw]}};
  if(raw==='overview')return {...defaults,view:'collections'};
@@ -98,7 +99,7 @@ export function decodeRoute(location, catalog) {
   const view=p.get('view')==='library'?'owned':p.get('view');
   const page=/^\d+$/.test(p.get('page')||'')?Math.max(1,Number(p.get('page'))):1;
   const pageSize=[12,24,48].includes(Number(p.get('page-size')))?Number(p.get('page-size')):24;
-  return {...defaults,view:['books','owned','favorites','queue','collections','notes'].includes(view)?view:'books',sort:['title','author','shared','newest','saved'].includes(p.get('sort'))?p.get('sort'):'shared',book:selected?.id||null,page,pageSize};
+  return {...defaults,view:['books','owned','favorites','queue','collections','notes'].includes(view)?view:'books',sort:['reading','title','author','shared','newest','saved'].includes(p.get('sort'))?p.get('sort'):'reading',book:selected?.id||null,page,pageSize};
  }catch{return defaults}
 }
 export function encodeRoute(route,catalog) {
@@ -112,7 +113,7 @@ export function encodeRoute(route,catalog) {
  if(f.shared)p.set('shared','true');
  if(f.yearMin!=='')p.set('year-from',f.yearMin);
  if(f.yearMax!=='')p.set('year-to',f.yearMax);
- if(route.sort!=='shared')p.set('sort',route.sort);
+ if(route.sort!=='reading')p.set('sort',route.sort);
  if((route.page||1)>1)p.set('page',String(Math.floor(route.page)));
  if((route.pageSize||24)!==24)p.set('page-size',String(route.pageSize));
  if(route.book){const book=catalog?.books.find(b=>b.id===route.book);p.set('book',book?bookSlug(book):route.book)}
