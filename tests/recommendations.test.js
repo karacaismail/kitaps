@@ -5,14 +5,14 @@ import { readingGuide, relatedBooks, clampPage } from '../src/recommendations.js
 import { prepareBooks, filterBooks, emptyFilters } from '../src/library.js';
 const catalog=JSON.parse(fs.readFileSync(new URL('../src/catalog.json',import.meta.url)));
 const byId=Object.fromEntries(catalog.books.map(b=>[b.id,b]));
-test('every book has a purpose and valid, non-overlapping before/after recommendations',()=>{
+test('every book has a purpose and valid, non-overlapping reading relations',()=>{
  for(const b of catalog.books){
   const g=readingGuide(b,catalog);assert.ok(g.purpose.length>40,b.id);assert.ok(g.kind);
-  const links=[...g.before,...g.after];assert.equal(new Set(links.map(l=>l.id)).size,links.length,b.id);
+  const links=[...g.before,...g.after,...g.companions];assert.equal(new Set(links.map(l=>l.id)).size,links.length,b.id);
   for(const l of links){assert.ok(byId[l.id],l.id);assert.notEqual(l.id,b.id);assert.ok(l.reason.length>40,l.id);}
  }
  for(const [id,links] of Object.entries(catalog.readingGuides.overrides)){
-  assert.ok(byId[id],id);for(const l of [...(links.before||[]),...(links.after||[])])assert.ok(byId[l.id],l.id);
+  assert.ok(byId[id],id);for(const l of [...(links.before||[]),...(links.after||[]),...(links.companions||[])])assert.ok(byId[l.id],l.id);
  }
  for(const r of catalog.readingGuides.routes)for(const id of r.books)assert.ok(byId[id],id);
 });

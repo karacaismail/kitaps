@@ -1,0 +1,112 @@
+{
+  "hazirlik-01": {
+    "title": "Eleştirel Okuma",
+    "author": "Emin Özdemir",
+    "publisher": "Bilgi Yayınevi",
+    "sourceUrl": "https://www.bilgiyayinevi.com.tr/elestirel-okuma",
+    "imageUrl": "https://d3g3ru9u2lc58p.cloudfront.net/fit-in/500x500/images/products/14/8a/elestirel-okuma1bd82d9a99d75084dc75a3d7b4ac3e99-148ae618b3909dd58b3d00eb137c612a.webp",
+    "src": "covers/preparation-hazirlik-01.jpg",
+    "language": "tr",
+    "scope": "Turkish edition cover",
+    "isbn": "9789754949162"
+  },
+  "hazirlik-02": {
+    "title": "Düşünmenin Alfabesi",
+    "author": "Yasin Ramazan",
+    "publisher": "Timaş Yayınları",
+    "sourceUrl": "https://timas.com.tr/dusunmenin-alfabesi",
+    "imageUrl": "https://timas.com.tr/dusunmenin-alfabesi-sosyoloji-timas-yayinlari-yasin-ramazan-38315-12-K.jpg",
+    "src": "covers/preparation-hazirlik-02.jpg",
+    "language": "tr",
+    "scope": "Turkish edition cover",
+    "isbn": "9786050849271"
+  },
+  "hazirlik-03": {
+    "title": "Adım Adım Matematik - Eşsiz Bir Görsel Rehber",
+    "author": "",
+    "publisher": "TÜBİTAK Popüler Bilim Kitapları",
+    "sourceUrl": "https://yayinlar.tubitak.gov.tr/cocuk-genclik-kitapligi/1501-adim-adim-matematik.html",
+    "imageUrl": "https://yayinlar.tubitak.gov.tr/2539-large_default/adim-adim-matematik.jpg",
+    "src": "covers/preparation-hazirlik-03.jpg",
+    "language": "tr",
+    "scope": "Turkish edition cover",
+    "isbn": "9786053125594"
+  },
+  "hazirlik-04": {
+    "title": "Örneklerle Kolay Ekonomi",
+    "author": "Mahfi Eğilmez",
+    "publisher": "Remzi Kitabevi",
+    "sourceUrl": "https://www.remzi.com.tr/kitap/orneklerle-kolay-ekonomi",
+    "imageUrl": "https://www.remzi.com.tr/files/books/479/resim/orneklerle-kolay-ekonomi.jpg",
+    "src": "covers/preparation-hazirlik-04.jpg",
+    "language": "tr",
+    "scope": "Turkish edition cover",
+    "isbn": "9789751416117"
+  },
+  "hazirlik-05": {
+    "title": "Genç Okurlar İçin Kısa Bir Dünya Tarihi",
+    "author": "E. H. Gombrich",
+    "publisher": "İnkılap Kitabevi",
+    "sourceUrl": "https://www.bkmkitap.com/genc-okurlar-icin-kisa-bir-dunya-tarihi",
+    "imageUrl": "https://cdn.bkmkitap.com/genc-okurlar-icin-kisa-bir-dunya-tarihi-11532220-11-O.jpg",
+    "src": "covers/preparation-hazirlik-05.jpg",
+    "language": "tr",
+    "scope": "Turkish edition cover",
+    "isbn": "9789751017154"
+  },
+  "hazirlik-06": {
+    "title": "Felsefenin Kısa Tarihi",
+    "author": "Nigel Warburton",
+    "publisher": "Alfa Yayınları",
+    "sourceUrl": "https://kitapsec.com/Products/Felsefenin-Kisa-Tarihi-Nigel-Warburton-Alfa-Yayinlari-755993.html",
+    "imageUrl": "https://cdn.kitapsec.com/image/urun/2022/07/13/1657708451.jpg",
+    "src": "covers/preparation-hazirlik-06.jpg",
+    "language": "tr",
+    "scope": "Turkish edition cover",
+    "isbn": "9786254496219"
+  },
+  "hazirlik-07": {
+    "title": "Psiko 101",
+    "author": "Paul Kleinman",
+    "publisher": "Okuyan Us Yayınları",
+    "sourceUrl": "https://www.homerbooks.com/urun/psiko-101",
+    "imageUrl": "https://www.homerbooks.com/idea/fx/44/myassets/products/360/9786055134228.jpg?revision=1768080976",
+    "src": "covers/preparation-hazirlik-07.jpg",
+    "language": "tr",
+    "scope": "Turkish edition cover",
+    "isbn": "9786055134228"
+  },
+  "hazirlik-08": {
+    "title": "Bilimin Kısa Tarihi",
+    "author": "William Bynum",
+    "publisher": "Alfa Yayınları",
+    "sourceUrl": "https://www.bkmkitap.com/bilimin-kisa-tarihi",
+    "imageUrl": "https://cdn.bkmkitap.com/bilimin-kisa-tarihi-13882470-39-O.jpg",
+    "src": "covers/preparation-hazirlik-08.jpg",
+    "language": "tr",
+    "scope": "Turkish edition cover",
+    "isbn": "9786051719719"
+  },
+  "hazirlik-09": {
+    "title": "Aklında Kalsın: Başarılı Öğrenme Bilimi",
+    "author": "Peter C. Brown and Henry L. Roediger III and Mark A. McDaniel",
+    "publisher": "Buzdağı Yayınevi",
+    "sourceUrl": "https://www.buzdagikitabevi.com/aklinda-kalsin-basarili-ogrenme-bilimi",
+    "imageUrl": "https://static.ticimax.cloud/cdn-cgi/image/width=-,quality=99/30373/uploads/urunresimleri/buyuk/aklinda-kalsin-basarili-ogrenme-bilimi-8d7d.jpg",
+    "src": "covers/preparation-hazirlik-09.jpg",
+    "language": "tr",
+    "scope": "Turkish edition cover",
+    "isbn": "9786056685828"
+  },
+  "hazirlik-10": {
+    "title": "Çıplak İstatistik",
+    "author": "Charles Wheelan",
+    "publisher": "Buzdağı Yayınevi",
+    "sourceUrl": "https://www.buzdagikitabevi.com/ciplak-istatistik",
+    "imageUrl": "https://static.ticimax.cloud/cdn-cgi/image/width=-,quality=99/30373/uploads/urunresimleri/buyuk/ciplak-istatistik-37b1.jpg",
+    "src": "covers/preparation-hazirlik-10.jpg",
+    "language": "tr",
+    "scope": "Turkish edition cover",
+    "isbn": "9786058213258"
+  }
+}

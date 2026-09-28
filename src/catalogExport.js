@@ -15,7 +15,7 @@ export function exportBookRecord(book){
  const translators=translated?(verified?.translators?.map(text).filter(Boolean)||(text(edition?.translator)?[text(edition.translator)]:[])):[];
  return {
   turkceAdi:translated||originalTurkish?text(book.titleTr)||text(verified?.title)||text(edition?.turkish)||(book.cover?.language==='tr'?text(book.cover.title):null):null,
-  orijinalAdi:text(book.title),
+  orijinalAdi:text(book.originalTitle)||text(book.title),
   orijinalYayinevi:originalTurkish?text(verified?.publisher)||text(book.cover?.publisher):(book.cover?.language==='en'?text(book.cover.publisher):null),
   orijinalYazarlar:authors(book.author),
   onerilenCevirmenler:translators,

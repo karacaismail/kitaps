@@ -1,0 +1,1485 @@
+{
+  "id": "foundations",
+  "title": "Temel okumalar ve küme anahtarları",
+  "short": "Temel okumalar",
+  "description": "Katalogdaki belirli eserleri daha verimli okumak için önerilen giriş, bağlam ve eşlik kitapları. İlişkiler zorunlu önkoşul değil, editoryal öğrenme sırasıdır.",
+  "source": "https://github.com/karacaismail/kitaps",
+  "groups": [
+    {
+      "id": "method",
+      "title": "Okuma yöntemi",
+      "books": [
+        {
+          "title": "How to Read a Book",
+          "titleTr": "Kitapları Nasıl Okumalı",
+          "author": "Mortimer J. Adler and Charles Van Doren",
+          "year": 1940,
+          "categories": [
+            "science",
+            "productivity"
+          ],
+          "reason": "Analitik okuma yöntemi; yoğun düşünce ve sosyal bilim kitaplarında sav, gerekçe ve eleştiri ayrımını kurar.",
+          "unlocks": [
+            "personalmbamastertheartofbusiness",
+            "thinkinginsystems",
+            "goodstrategybadstrategy",
+            "competitivestrategy",
+            "dialektikderaufklarung"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL487444W",
+          "cover": {
+            "title": "Kitapları Nasıl Okumalı",
+            "author": "Mortimer J. Adler and Charles Van Doren",
+            "publisher": "Birleşik Dağıtım Yayınevi",
+            "sourceUrl": "https://www.kitapyurdu.com/kitap/kitaplari-nasil-okumali/262985.html",
+            "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:178099/wh:3f365ded7/wi:1000",
+            "src": "covers/foundation-tr-how-to-read-a-book.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9786055515447"
+          }
+        }
+      ]
+    },
+    {
+      "id": "economy",
+      "title": "İktisat ve para tarihi",
+      "books": [
+        {
+          "title": "Economics: The User's Guide",
+          "titleTr": "Ekonomi Rehberi",
+          "author": "Ha-Joon Chang",
+          "year": 2014,
+          "categories": [
+            "economy"
+          ],
+          "reason": "İktisat okullarını karşılaştırmalı tanıtarak ekonomi tartışmalarının varsayımlarını görünür kılar.",
+          "unlocks": [
+            "whynationsfail",
+            "capitalinthetwentyfirstcentury"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL17810657W",
+          "cover": {
+            "title": "Ekonomi Rehberi",
+            "author": "Ha-Joon Chang",
+            "publisher": "Say Yayınları",
+            "sourceUrl": "https://www.kitapyurdu.com/kitap/ekonomi-rehberi/389092.html",
+            "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:11484071/wh:9b613eedc/wi:1000",
+            "src": "covers/foundation-tr-economics-users-guide.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9786050204933"
+          }
+        },
+        {
+          "title": "The Worldly Philosophers",
+          "titleTr": "İktisat Düşünürleri",
+          "author": "Robert L. Heilbroner",
+          "year": 1953,
+          "categories": [
+            "economy",
+            "history"
+          ],
+          "reason": "Smith'ten Schumpeter'e fikirlerin tarihini kurar; iktisat tarihi anlatılarına zemin sağlar.",
+          "unlocks": [
+            "grandpursuit",
+            "slouchingtowardsutopia"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL1847023W",
+          "cover": {
+            "title": "İktisat Düşünürleri",
+            "author": "Robert L. Heilbroner",
+            "publisher": "Dost Kitabevi",
+            "sourceUrl": "https://www.imge.com.tr/urun/iktisat-dusunurleri-robert-l-heilbroner-9789752980907",
+            "imageUrl": "https://cdn.kibo.com.tr/temp/2/7/2/659727_78793944-5110-4b83-a5a8-971b9c5c641d.png",
+            "src": "covers/foundation-tr-worldly-philosophers.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9789752980907"
+          }
+        },
+        {
+          "title": "Manias, Panics, and Crashes",
+          "titleTr": "Cinnet, Panik ve Çöküş",
+          "author": "Charles P. Kindleberger and Robert Z. Aliber",
+          "year": 1978,
+          "categories": [
+            "finance",
+            "history"
+          ],
+          "reason": "Finansal krizlerin ortak mekaniklerini açıklar; tekil kriz anlatılarını karşılaştırmayı kolaylaştırır.",
+          "unlocks": [
+            "toobigtofail",
+            "crashed",
+            "thistimeisdifferent",
+            "houseofdebt",
+            "lordsoffinance",
+            "infedwetrust"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL1831957W",
+          "cover": {
+            "title": "Cinnet, Panik ve Çöküş: Mali Krizler Tarihi",
+            "author": "Charles P. Kindleberger",
+            "publisher": "İstanbul Bilgi Üniversitesi Yayınları",
+            "sourceUrl": "https://www.kitapyurdu.com/kitap/cinnet-panik-ve-cokus-mali-krizler-tarihi/93335.html",
+            "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:255/wh:4a7502204/wi:1000",
+            "src": "covers/foundation-tr-manias-panics-crashes.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9789756176863"
+          }
+        },
+        {
+          "title": "The Ascent of Money",
+          "titleTr": "Paranın Yükselişi",
+          "author": "Niall Ferguson",
+          "year": 2008,
+          "categories": [
+            "finance",
+            "history"
+          ],
+          "reason": "Tahvil, hisse, sigorta ve bankacılığın tarihini ortak bir çerçevede toplar.",
+          "unlocks": [
+            "matchking",
+            "priceoftime",
+            "paperpromises",
+            "exorbitantprivilege"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL792952W",
+          "cover": {
+            "title": "Paranın Yükselişi: Dünyanın Finansal Tarihi",
+            "author": "Niall Ferguson",
+            "publisher": "Yapı Kredi Yayınları",
+            "sourceUrl": "https://kitap.ykykultur.com.tr/kitaplar/paranin-yukselisi-dunyanin-finansal-tarihi",
+            "imageUrl": "https://images.ykykultur.com.tr/upload/image/1fbbaf52-4627-45ff-8abb-f244e663f9e2.jpeg",
+            "src": "covers/foundation-tr-ascent-of-money.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9789750820984"
+          }
+        },
+        {
+          "title": "The Prize",
+          "titleTr": "Petrol",
+          "author": "Daniel Yergin",
+          "year": 1990,
+          "categories": [
+            "history",
+            "economy",
+            "politics"
+          ],
+          "reason": "Petrol endüstrisinin tarihini ve jeopolitiğini kurar; enerji piyasası anlatılarına temel olur.",
+          "unlocks": [
+            "quest",
+            "worldforsale",
+            "bloodandoil",
+            "privateempire"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL2748135W",
+          "cover": {
+            "title": "Petrol: Para ve Güç Çatışmasının Epik Öyküsü",
+            "author": "Daniel Yergin",
+            "publisher": "Türkiye İş Bankası Kültür Yayınları",
+            "sourceUrl": "https://www.kitapyurdu.com/kitap/petrol/14112.html",
+            "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:1009682/wh:2401c7587/wi:1000",
+            "src": "covers/foundation-tr-the-prize.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9789754580631"
+          }
+        },
+        {
+          "title": "Prisoners of Geography",
+          "titleTr": "Coğrafya Mahkumları",
+          "author": "Tim Marshall",
+          "year": 2015,
+          "categories": [
+            "politics",
+            "history"
+          ],
+          "reason": "Jeopolitik ve tedarik zinciri okumaları için temel fiziksel coğrafya çerçevesi sağlar.",
+          "unlocks": [
+            "chipwar",
+            "chokepoints",
+            "materialworld",
+            "warbelow",
+            "disorder"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL20010115W",
+          "cover": {
+            "title": "Coğrafya Mahkumları",
+            "author": "Tim Marshall",
+            "publisher": "Epsilon Yayınevi",
+            "sourceUrl": "https://openlibrary.org/books/OL35366538M/Co%C4%9Frafya_Mahkumlar%C4%B1",
+            "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:11130114/wh:5281464f0/wi:1000",
+            "src": "covers/foundation-tr-prisoners-geography.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9786051733968"
+          }
+        },
+        {
+          "title": "Economics Rules",
+          "titleTr": "İktisadı Anlamak",
+          "author": "Dani Rodrik",
+          "year": 2015,
+          "categories": [
+            "economy",
+            "science"
+          ],
+          "reason": "İktisadi modellerin ne işe yaradığını ve sınırlarını açıklar.",
+          "unlocks": [
+            "radicaluncertainty",
+            "howmarketsfail",
+            "mythoftherationalmarket",
+            "noise"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL21108306W",
+          "cover": {
+            "title": "İktisadı Anlamak",
+            "author": "Dani Rodrik",
+            "publisher": "Efil Yayınevi",
+            "sourceUrl": "https://www.kitapyurdu.com/kitap/iktisadi-anlamak/396735.html",
+            "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:1192100/wh:db5fb9a1b/wi:1000",
+            "src": "covers/foundation-tr-economics-rules.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9786054160655"
+          }
+        }
+      ]
+    },
+    {
+      "id": "markets",
+      "title": "Piyasalar ve yatırım",
+      "books": [
+        {
+          "title": "A Random Walk Down Wall Street",
+          "titleTr": "Borsada Rastgele Seyir",
+          "author": "Burton G. Malkiel",
+          "year": 1973,
+          "categories": [
+            "finance"
+          ],
+          "reason": "Etkin piyasa yaklaşımını kurar; yatırım istisnalarını anlatan kitaplar için karşılaştırma zemini verir.",
+          "unlocks": [
+            "misbehaving",
+            "adaptivemarkets",
+            "morethanyouknow",
+            "manwhosolvedthemarket"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL2000283W",
+          "cover": {
+            "title": "Borsada Rastgele Seyir",
+            "author": "Burton G. Malkiel",
+            "publisher": "Scala Yayıncılık",
+            "sourceUrl": "https://www.kitapyurdu.com/kitap/borsada-rastgele-seyir/92920.html",
+            "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:11888047/wh:21ced5d0a/wi:1000",
+            "src": "covers/foundation-tr-random-walk.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9786059248457"
+          }
+        },
+        {
+          "title": "The Intelligent Investor",
+          "titleTr": "Akıllı Yatırımcı",
+          "author": "Benjamin Graham",
+          "year": 1949,
+          "categories": [
+            "finance"
+          ],
+          "reason": "Değer yatırımı, güvenlik marjı ve piyasa davranışı için temel çerçeveyi verir.",
+          "unlocks": [
+            "snowball",
+            "outsiderseightunconventionalceosandtheirradicallyrationalblueprintforsuccess"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL273184W",
+          "cover": {
+            "title": "Akıllı Yatırımcı",
+            "author": "Benjamin Graham",
+            "publisher": "Epsilon Yayınevi",
+            "sourceUrl": "https://www.kitapyurdu.com/kitap/9786051733838/452785.html",
+            "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:11129096/wh:2f4761969/wi:1000",
+            "src": "covers/foundation-tr-intelligent-investor.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9786051733838"
+          }
+        },
+        {
+          "title": "Liar's Poker",
+          "titleTr": "Yalancının Pokeri",
+          "author": "Michael Lewis",
+          "year": 1989,
+          "categories": [
+            "finance",
+            "biography"
+          ],
+          "reason": "Wall Street kurum kültürünü tanıtarak sonraki piyasa anlatılarının bağlamını kurar.",
+          "unlocks": [
+            "bigshort",
+            "flashboys",
+            "houseofcards",
+            "greedmerchants"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL7944812W",
+          "cover": {
+            "title": "Yalancının Pokeri",
+            "author": "Michael Lewis",
+            "publisher": "Scala Yayıncılık",
+            "sourceUrl": "https://www.kitapyurdu.com/kitap/yalancinin-pokeri/100241.html",
+            "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:133255/wh:37a72f988/wi:1000",
+            "src": "covers/foundation-tr-liars-poker.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9789758535538"
+          }
+        }
+      ]
+    },
+    {
+      "id": "decisions",
+      "title": "Karar ve istatistik",
+      "books": [
+        {
+          "title": "Predictably Irrational",
+          "titleTr": "Akıldışı Ama Öngörülebilir",
+          "author": "Dan Ariely",
+          "year": 2008,
+          "categories": [
+            "psychology",
+            "economy"
+          ],
+          "reason": "Davranışsal iktisada kolay bir giriş sağlayarak daha yoğun karar bilimi kitaplarına geçişi kolaylaştırır.",
+          "unlocks": [
+            "thinkingfastandslow",
+            "misbehaving",
+            "nudge"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL9302660W",
+          "cover": {
+            "title": "Akıldışı Ama Öngörülebilir",
+            "author": "Dan Ariely",
+            "publisher": "Optimist Yayınları",
+            "sourceUrl": "https://optimistkitap.com/kitap/akildisi-ama-ongorulebilir/",
+            "imageUrl": "https://optimistkitap.com/wp-content/uploads/2023/02/akildisi-ama-ongorulebilir-316.jpg",
+            "src": "covers/foundation-tr-predictably-irrational.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9786052261507"
+          }
+        },
+        {
+          "title": "The Undoing Project",
+          "titleTr": "Telafi Projesi",
+          "author": "Michael Lewis",
+          "year": 2016,
+          "categories": [
+            "psychology",
+            "biography"
+          ],
+          "reason": "Kahneman ve Tversky'nin ortak çalışmasını anlatır; davranışsal karar kuramının insani bağlamını kurar.",
+          "unlocks": [
+            "thinkingfastandslow",
+            "noise"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL19669285W",
+          "cover": {
+            "title": "Telafi Projesi: Seçimlerimizin Sınırlarını ve Düşünce Şeklimizi Değiştiren Bir Dostluk Hikayesi",
+            "author": "Michael Lewis",
+            "publisher": "Epsilon Yayınevi",
+            "sourceUrl": "https://www.kitapyurdu.com/kitap/telafi-projesi-secimlerimizin-sinirlarini-ve-dusunce-seklimizi-degistiren-bir-dostluk-hikayesi/617378.html",
+            "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:11572784/wh:da7ce77e2/wi:1000",
+            "src": "covers/foundation-tr-undoing-project.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9786254141539"
+          }
+        },
+        {
+          "title": "Thinking Strategically",
+          "titleTr": "Stratejik Düşünme",
+          "author": "Avinash K. Dixit and Barry J. Nalebuff",
+          "year": 1991,
+          "categories": [
+            "strategy",
+            "economy"
+          ],
+          "reason": "Oyun teorisine matematiksiz giriş yaparak stratejik etkileşim kitaplarının dilini kurar.",
+          "unlocks": [
+            "strategyofconflict",
+            "coopetition",
+            "thinkinginbets"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL2979495W",
+          "cover": {
+            "title": "Stratejik Düşünme: İş, Politika ve Günlük Yaşamın Rekabetçi Yanı",
+            "author": "Avinash K. Dixit and Barry J. Nalebuff",
+            "publisher": "Sabancı Üniversitesi Yayınları",
+            "sourceUrl": "https://www.pegasuskitabevi.com/stratejik-dusunme",
+            "imageUrl": "https://www.pegasuskitabevi.com/u/pegasuskitabevi/img/c/i/m/img-1674-1734002643.jpg",
+            "src": "covers/foundation-tr-thinking-strategically.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9789758362202"
+          }
+        },
+        {
+          "title": "How Not to Be Wrong",
+          "titleTr": "Nasıl Hata Yapmazsınız",
+          "author": "Jordan Ellenberg",
+          "year": 2014,
+          "categories": [
+            "science",
+            "psychology"
+          ],
+          "reason": "Sayısal akıl yürütmeyi gündelik örneklerle derinleştirir; tahmin ve veri kitaplarına hazırlık sağlar.",
+          "unlocks": [
+            "superforecasting",
+            "noise",
+            "turningnumbersintoknowledge",
+            "showmethenumbers"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL17062668W",
+          "cover": {
+            "title": "Nasıl Hata Yapmazsınız: Matematiksel Düşünmenin Gücü",
+            "author": "Jordan Ellenberg",
+            "publisher": "Pegasus Yayınları",
+            "sourceUrl": "https://www.kitapyurdu.com/kitap/nasil-hata-yapmazsiniz-matematiksel-dusunmenin-gucu/570532.html",
+            "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:11352542/wh:4a496b2bd/wi:1000",
+            "src": "covers/foundation-tr-how-not-to-be-wrong.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9786052999691"
+          }
+        }
+      ]
+    },
+    {
+      "id": "strategy",
+      "title": "Strateji bağlamı",
+      "books": [
+        {
+          "title": "Strategy: A History",
+          "titleTr": "Strateji: Bir Tarih",
+          "author": "Lawrence Freedman",
+          "year": 2013,
+          "categories": [
+            "strategy",
+            "history"
+          ],
+          "reason": "Askerî, siyasi ve iş stratejisini tarihsel bir çizgide bağlayarak parçalı strateji rafını bütünler.",
+          "unlocks": [
+            "strategyofconflict",
+            "competitivestrategy",
+            "strategysafari",
+            "strategytheindirectapproach"
+          ],
+          "cover": {
+            "title": "Strateji: Bir Tarih",
+            "author": "Lawrence Freedman",
+            "publisher": "Alfa Yayınları",
+            "sourceUrl": "https://openlibrary.org/books/OL35303795M",
+            "imageUrl": "https://covers.openlibrary.org/b/id/12114817-L.jpg",
+            "src": "covers/foundation-strategyahistory.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9786051710815"
+          },
+          "sourceUrl": "https://openlibrary.org/search?title=Strategy%3A+A+History&author=Lawrence+Freedman"
+        },
+        {
+          "title": "Ancient Greece",
+          "titleTr": "Eski Yunan",
+          "author": "Thomas R. Martin",
+          "year": 1996,
+          "categories": [
+            "history",
+            "politics"
+          ],
+          "reason": "Atina ve Sparta bağlamını kurarak Thukydides ve Perikles okumalarını kolaylaştırır.",
+          "unlocks": [
+            "ιστοριαιpeloponnesossavasitarihi",
+            "perikles"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL2941682W",
+          "cover": {
+            "title": "Eski Yunan: Tarihöncesinden Helenistik Çağ'a",
+            "author": "Thomas R. Martin",
+            "publisher": "Say Yayınları",
+            "sourceUrl": "https://www.kitapyurdu.com/kitap/eski-yunan-tarihoncesinden-helenistik-caga/272636.html",
+            "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:11600233/wh:0eba45f05/wi:1000",
+            "src": "covers/foundation-tr-ancient-greece.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9786050201277"
+          }
+        },
+        {
+          "title": "SPQR",
+          "titleTr": "SPQR: Antik Roma Tarihi",
+          "author": "Mary Beard",
+          "year": 2015,
+          "categories": [
+            "history",
+            "politics"
+          ],
+          "reason": "Roma Cumhuriyeti ve İmparatorluğu için bağlam sağlayarak Caesar ve Machiavelli okumalarını açar.",
+          "unlocks": [
+            "ilprincipe",
+            "caesar"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL17340134W",
+          "cover": {
+            "title": "SPQR: Antik Roma Tarihi",
+            "author": "Mary Beard",
+            "publisher": "Pegasus Yayınları",
+            "sourceUrl": "https://pegasusyayinlari.com/kitap_detay.php?kitapid=15167252479",
+            "imageUrl": "https://cdn.bkmkitap.com/spqr-antik-roma-tarihi-14032358-28-O.jpg",
+            "src": "covers/foundation-tr-spqr.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9786052993897"
+          }
+        }
+      ]
+    },
+    {
+      "id": "philosophy",
+      "title": "Felsefe ve etik",
+      "books": [
+        {
+          "title": "A Little History of Philosophy",
+          "titleTr": "Felsefenin Kısa Tarihi",
+          "author": "Nigel Warburton",
+          "year": 2011,
+          "categories": [
+            "philosophy",
+            "history"
+          ],
+          "reason": "Temel soruları ve düşünürleri kronolojik biçimde tanıtarak filozof biyografilerine giriş sağlar.",
+          "unlocks": [
+            "immanuelkant",
+            "nietzsche",
+            "schopenhauer",
+            "descartes",
+            "johnlocke",
+            "jeanjacquesrousseau"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL16450811W",
+          "cover": {
+            "title": "Felsefenin Kısa Tarihi",
+            "author": "Nigel Warburton",
+            "publisher": "Alfa Yayınları",
+            "sourceUrl": "https://www.tdk.com.tr/Felsefenin-Kisa-Tarihi_37234.html",
+            "imageUrl": "https://www.tdk.com.tr/images_buyuk/f34/felsefenin-kisa-tarihi_37234_1.jpg",
+            "src": "covers/foundation-tr-little-history-philosophy.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9786254496219"
+          }
+        },
+        {
+          "title": "A History of Western Philosophy",
+          "titleTr": "Batı Felsefesi Tarihi",
+          "author": "Bertrand Russell",
+          "year": 1945,
+          "categories": [
+            "philosophy",
+            "history"
+          ],
+          "reason": "Batı felsefesinin uzun dönemli tartışmalarını izlemek için derin bir başvuru çerçevesi sağlar.",
+          "unlocks": [
+            "immanuelkant",
+            "nietzsche",
+            "schopenhauer",
+            "thomashobbes"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL1088357W",
+          "cover": {
+            "title": "Batı Felsefesi Tarihi (3 Kitap Takım)",
+            "author": "Bertrand Russell",
+            "publisher": "Alfa Yayınları",
+            "sourceUrl": "https://katalogkktc.asbu.edu.tr/cgi-bin/koha/opac-detail.pl?biblionumber=9328",
+            "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:11462633/wh:d37c08515/wi:1000",
+            "src": "covers/foundation-tr-history-western-philosophy.jpg",
+            "language": "tr",
+            "scope": "Turkish edition set cover",
+            "isbn": "9786051713007"
+          }
+        },
+        {
+          "title": "Discourses",
+          "titleTr": "Söylevler",
+          "author": "Epictetus",
+          "year": 108,
+          "categories": [
+            "philosophy"
+          ],
+          "reason": "Stoacı uygulamanın öğretici çerçevesini verir; Marcus Aurelius'un notlarını bağlama yerleştirir.",
+          "unlocks": [
+            "meditations",
+            "obstacleistheway"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL13572W",
+          "cover": {
+            "title": "Söylevler",
+            "author": "Epictetus",
+            "publisher": "Şule Yayınları",
+            "sourceUrl": "https://www.suleyayinlari.com/urun/soylevler-epiktetos-9786054498833",
+            "imageUrl": "https://cdn.kibo.com.tr/temp/2/7/9/660097_d3733e04-d09f-4ba4-9995-950b7681b416.png",
+            "src": "covers/foundation-tr-discourses.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9786054498833"
+          }
+        },
+        {
+          "title": "Enchiridion",
+          "titleTr": "El Kitabı",
+          "author": "Epictetus",
+          "year": 125,
+          "categories": [
+            "philosophy"
+          ],
+          "reason": "Kontrol alanı ve yargı disiplini üzerine kısa bir Stoacı giriş sunar.",
+          "unlocks": [
+            "meditations",
+            "aguidetothegoodlife"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL27292376W",
+          "cover": {
+            "title": "El Kitabı",
+            "author": "Epictetus",
+            "publisher": "Hatem'ül Enbiya Yayıncılık",
+            "sourceUrl": "https://nobelkitap.com/kitap/el-kitabi-1",
+            "imageUrl": "https://api.nobelkitap.com/uploads/47daed2e-a02f-4408-a234-a19565385e57-medium.webp",
+            "src": "covers/foundation-tr-enchiridion.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9786258988697"
+          }
+        },
+        {
+          "title": "Epistulae Morales ad Lucilium",
+          "titleTr": "Ahlak Mektupları",
+          "author": "Seneca",
+          "year": 65,
+          "categories": [
+            "philosophy",
+            "literature"
+          ],
+          "reason": "Stoacı etiği gündelik sorunlar üzerinden pedagojik biçimde işler.",
+          "unlocks": [
+            "meditations",
+            "aguidetothegoodlife"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL102328W",
+          "cover": {
+            "title": "Ahlak Mektupları",
+            "author": "Seneca",
+            "publisher": "Jaguar Kitap",
+            "sourceUrl": "https://jaguarkitap.com/kitaplar/ahlak-mektuplari/",
+            "imageUrl": "https://covers.openlibrary.org/b/isbn/9786058259393-L.jpg",
+            "src": "covers/foundation-tr-ahlak-mektuplari.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9786058259393"
+          }
+        },
+        {
+          "title": "Justice: What's the Right Thing to Do?",
+          "titleTr": "Adalet: Yapılması Gereken Doğru Şey Nedir?",
+          "author": "Michael J. Sandel",
+          "year": 2009,
+          "categories": [
+            "philosophy",
+            "ethics",
+            "politics"
+          ],
+          "reason": "Başlıca adalet yaklaşımlarını örneklerle karşılaştırır; ahlaki ekonomi tartışmalarını çerçeveler.",
+          "unlocks": [
+            "whatmoneycantbuy",
+            "whatweoweeachother",
+            "reimaginingcapitalism",
+            "givepeoplemoney"
+          ],
+          "cover": {
+            "title": "Adalet: Yapılması Gereken Doğru Şey Nedir?",
+            "author": "Michael J. Sandel",
+            "publisher": "Felix Kitap",
+            "sourceUrl": "https://openlibrary.org/books/OL35423150M",
+            "imageUrl": "https://covers.openlibrary.org/b/id/12264832-L.jpg",
+            "src": "covers/foundation-justice.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9786058060609"
+          },
+          "sourceUrl": "https://openlibrary.org/search?title=Justice%3A+What%27s+the+Right+Thing+to+Do%3F&author=Michael+J.+Sandel"
+        },
+        {
+          "title": "The Dialectical Imagination",
+          "titleTr": "Diyalektik İmgelem",
+          "author": "Martin Jay",
+          "year": 1973,
+          "categories": [
+            "philosophy",
+            "history"
+          ],
+          "reason": "Frankfurt Okulu'nun tarihini ve kavramlarını tanıtarak yoğun birincil metne bağlam sağlar.",
+          "unlocks": [
+            "dialektikderaufklarung"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL2721249W",
+          "cover": {
+            "title": "Diyalektik İmgelem",
+            "author": "Martin Jay",
+            "publisher": "Ayrıntı Yayınları",
+            "sourceUrl": "https://openlibrary.org/books/OL35615019M/Diyalektik_Imgelem",
+            "imageUrl": "https://covers.openlibrary.org/b/isbn/9789755399454-L.jpg",
+            "src": "covers/foundation-tr-diyalektik-imgelem.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9789755399454"
+          }
+        }
+      ]
+    },
+    {
+      "id": "sociology",
+      "title": "Sosyoloji",
+      "books": [
+        {
+          "title": "Thinking Sociologically",
+          "titleTr": "Sosyolojik Düşünmek",
+          "author": "Zygmunt Bauman and Tim May",
+          "year": 1990,
+          "categories": [
+            "economy",
+            "psychology",
+            "philosophy"
+          ],
+          "reason": "Birey, grup ve kurum düzeylerini ayırarak sosyolojik bakışı kurar.",
+          "unlocks": [
+            "presentationofselfineverydaylife",
+            "psychologiedesfoules"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL527241W",
+          "cover": {
+            "title": "Sosyolojik Düşünmek",
+            "author": "Zygmunt Bauman ve Tim May",
+            "publisher": "Ayrıntı Yayınları",
+            "sourceUrl": "https://www.eminyayinlari.com.tr/urun/sosyolojik-dusunmek-9789755391960",
+            "imageUrl": "https://covers.openlibrary.org/b/isbn/9789755391960-L.jpg",
+            "src": "covers/foundation-tr-sosyolojik-dusunmek.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9789755391960"
+          }
+        },
+        {
+          "title": "Sociology",
+          "titleTr": "Sosyoloji (8. Edisyon)",
+          "author": "Anthony Giddens and Philip W. Sutton",
+          "year": 1989,
+          "categories": [
+            "economy",
+            "politics"
+          ],
+          "reason": "Sınıf, statü, kurum ve toplumsal cinsiyet için başvuru çerçevesi sunar.",
+          "unlocks": [
+            "invisiblewomen",
+            "deathsofdespair",
+            "thirdpillar"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL38123W",
+          "cover": {
+            "title": "Sosyoloji (8. Edisyon)",
+            "author": "Anthony Giddens ve Philip W. Sutton",
+            "publisher": "Kırmızı Yayınları",
+            "sourceUrl": "https://kirmiziyayinlari.com/kitap/giddens-sosyoloji-8-edisyon/",
+            "imageUrl": "https://covers.openlibrary.org/b/isbn/9786058053618-L.jpg",
+            "src": "covers/foundation-tr-sosyoloji-giddens.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9786058053618"
+          }
+        }
+      ]
+    },
+    {
+      "id": "history",
+      "title": "Tarih omurgası",
+      "books": [
+        {
+          "title": "A Little History of the World",
+          "titleTr": "Genç Okurlar İçin Kısa Bir Dünya Tarihi",
+          "author": "E. H. Gombrich",
+          "year": 1936,
+          "categories": [
+            "history"
+          ],
+          "reason": "Tarihî kişileri ve dönemleri kronolojik bir omurgaya yerleştirir.",
+          "unlocks": [
+            "napoleonhayati",
+            "churchill",
+            "buyukpetro",
+            "cengizhan"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL686184W",
+          "cover": {
+            "title": "Genç Okurlar İçin Kısa Bir Dünya Tarihi",
+            "author": "E. H. Gombrich",
+            "publisher": "İnkılap Kitabevi",
+            "sourceUrl": "https://www.karahankitabevi.com/dunya-tarihi-genc-okurlar-icin-9789751017154",
+            "imageUrl": "https://covers.openlibrary.org/b/isbn/9789751017154-L.jpg",
+            "src": "covers/foundation-tr-kisa-dunya-tarihi.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9789751017154"
+          }
+        },
+        {
+          "title": "Sapiens: A Brief History of Humankind",
+          "titleTr": "Hayvanlardan Tanrılara: Sapiens İnsan Türünün Kısa Bir Tarihi",
+          "author": "Yuval Noah Harari",
+          "year": 2011,
+          "categories": [
+            "history",
+            "science"
+          ],
+          "reason": "İnsanlık tarihine geniş ölçekli bir anlatı sunar; çocuklar için hazırlanan devam anlatısıyla karşılaştırma sağlar.",
+          "cover": {
+            "title": "Hayvanlardan Tanrılara: Sapiens İnsan Türünün Kısa Bir Tarihi",
+            "author": "Yuval Noah Harari",
+            "publisher": "Kolektif Kitap",
+            "sourceUrl": "https://openlibrary.org/books/OL35319565M",
+            "imageUrl": "https://covers.openlibrary.org/b/id/12130527-L.jpg",
+            "src": "covers/foundation-sapiens.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9786055029357"
+          },
+          "sourceUrl": "https://openlibrary.org/search?title=Sapiens%3A+A+Brief+History+of+Humankind&author=Yuval+Noah+Harari",
+          "companions": [
+            "durdurulamayaninsanlikdunyaninhakimiyetininasilelegecirdik"
+          ]
+        },
+        {
+          "title": "Guns, Germs, and Steel",
+          "titleTr": "Tüfek, Mikrop ve Çelik",
+          "author": "Jared Diamond",
+          "year": 1997,
+          "categories": [
+            "history",
+            "economy"
+          ],
+          "reason": "Coğrafya ve kurum açıklamalarını karşılaştırmak için güçlü bir karşı tez oluşturur.",
+          "unlocks": [
+            "whynationsfail",
+            "greatescape",
+            "greatleveler"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL276558W",
+          "cover": {
+            "title": "Tüfek, Mikrop ve Çelik",
+            "author": "Jared Diamond",
+            "publisher": "Pegasus Yayınları",
+            "sourceUrl": "https://www.kitapyurdu.com/kitap/tufek-mikrop-ve-celik-karton-kapak/476507.html",
+            "imageUrl": "https://covers.openlibrary.org/b/isbn/9786052994573-L.jpg",
+            "src": "covers/foundation-tr-tufek-mikrop-celik.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9786052994573"
+          }
+        },
+        {
+          "title": "The Age of Extremes",
+          "titleTr": "Kısa 20. Yüzyıl: 1914-1991 Aşırılıklar Çağı",
+          "author": "Eric Hobsbawm",
+          "year": 1994,
+          "categories": [
+            "history",
+            "politics"
+          ],
+          "reason": "Yirminci yüzyılın siyasi ve ekonomik olaylarını ortak bir zaman çizgisinde toplar.",
+          "unlocks": [
+            "crashed",
+            "riseandfalloftheneoliberalorder",
+            "disorder",
+            "churchill",
+            "olofpalme"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL495649W",
+          "cover": {
+            "title": "Kısa 20. Yüzyıl: 1914-1991 Aşırılıklar Çağı",
+            "author": "Eric J. Hobsbawm",
+            "publisher": "Everest Yayınları",
+            "sourceUrl": "https://www.bkmkitap.com/kisa-20-yuzyil-1914-1991-asiriliklar-cagi",
+            "imageUrl": "https://covers.openlibrary.org/b/isbn/9789752893337-L.jpg",
+            "src": "covers/foundation-tr-kisa-20-yuzyil.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9789752893337"
+          }
+        },
+        {
+          "title": "Devlet-i Aliyye: Osmanlı İmparatorluğu Üzerine Araştırmalar I",
+          "titleTr": "Devlet-i Aliyye: Osmanlı İmparatorluğu Üzerine Araştırmalar I",
+          "author": "Halil İnalcık",
+          "year": 2009,
+          "categories": [
+            "history",
+            "politics"
+          ],
+          "reason": "Osmanlı kuruluş ve klasik dönem okumalarına kurumsal ve kronolojik bağlam sağlar.",
+          "unlocks": [
+            "lesoriginesdelempireottoman",
+            "fatihsultanmehmedvezamani"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL26163750W",
+          "cover": {
+            "title": "Devlet-i Aliyye: Osmanlı İmparatorluğu Üzerine Araştırmalar I",
+            "author": "Halil İnalcık",
+            "publisher": "Türkiye İş Bankası Kültür Yayınları",
+            "sourceUrl": "https://www.iskultur.com.tr/devlet-i-aliyye-osmanli-imparatorlugu-uzerine.aspx",
+            "imageUrl": "https://covers.openlibrary.org/b/isbn/9786053320890-L.jpg",
+            "src": "covers/foundation-tr-devlet-i-aliyye.jpg",
+            "language": "tr",
+            "scope": "Turkish original edition cover",
+            "isbn": "9786053320890"
+          }
+        },
+        {
+          "title": "Turkey: A Modern History",
+          "titleTr": "Modernleşen Türkiye'nin Tarihi",
+          "author": "Erik Jan Zürcher",
+          "year": 1993,
+          "categories": [
+            "history",
+            "politics"
+          ],
+          "reason": "Geç Osmanlı ve Cumhuriyet dönemini bağlayarak modern Türkiye biyografilerine zemin sağlar.",
+          "unlocks": [
+            "ataturkmodernturkiyeninkurucusu",
+            "suyuarayanadam"
+          ],
+          "cover": {
+            "title": "Modernleşen Türkiye'nin Tarihi",
+            "author": "Erik Jan Zürcher",
+            "publisher": "İletişim Yayınları",
+            "sourceUrl": "https://openlibrary.org/books/OL35612827M",
+            "imageUrl": "https://covers.openlibrary.org/b/id/12319444-L.jpg",
+            "src": "covers/foundation-turkeyamodernhistory.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9789750506031"
+          },
+          "sourceUrl": "https://openlibrary.org/works/OL13630443W"
+        },
+        {
+          "title": "Byzantium: The Surprising Life of a Medieval Empire",
+          "titleTr": "Bizans: Bir Ortaçağ İmparatorluğunun Şaşırtıcı Yaşamı",
+          "author": "Judith Herrin",
+          "year": 2007,
+          "categories": [
+            "history"
+          ],
+          "reason": "Bizans tarihine genel bir giriş sağlayarak hükümdar biyografilerini bağlama yerleştirir.",
+          "unlocks": [
+            "buyukkonstantin",
+            "konstantinospaleologos"
+          ],
+          "cover": {
+            "title": "Bizans: Bir Ortaçağ İmparatorluğunun Şaşırtıcı Yaşamı",
+            "author": "Judith Herrin",
+            "publisher": "İletişim Yayınları",
+            "sourceUrl": "https://openlibrary.org/books/OL35431018M",
+            "imageUrl": "https://covers.openlibrary.org/b/id/12272490-L.jpg",
+            "src": "covers/foundation-byzantium.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9789750507496"
+          },
+          "sourceUrl": "https://openlibrary.org/search?title=Byzantium%3A+The+Surprising+Life+of+a+Medieval+Empire&author=Judith+Herrin"
+        },
+        {
+          "title": "Natasha's Dance",
+          "titleTr": "Nataşa'nın Dansı",
+          "author": "Orlando Figes",
+          "year": 2002,
+          "categories": [
+            "history",
+            "literature"
+          ],
+          "reason": "Rus kültür tarihini biyografiler ve romanlarla ilişkilendirir.",
+          "unlocks": [
+            "korkuncivan",
+            "buyukpetro",
+            "caricekaterina",
+            "преступлениеинаказание",
+            "воинаимир"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL72140W",
+          "cover": {
+            "title": "Nataşa'nın Dansı",
+            "author": "Orlando Figes",
+            "publisher": "Yapı Kredi Yayınları",
+            "sourceUrl": "https://www.bkmkitap.com/natasanin-dansi-348919",
+            "imageUrl": "https://covers.openlibrary.org/b/isbn/9789750843525-L.jpg",
+            "src": "covers/foundation-tr-natasanin-dansi.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9789750843525"
+          }
+        },
+        {
+          "title": "Genghis Khan and the Making of the Modern World",
+          "titleTr": "Cengiz Han",
+          "author": "Jack Weatherford",
+          "year": 2004,
+          "categories": [
+            "history",
+            "biography"
+          ],
+          "reason": "Moğol tarihine erişilebilir giriş sunarak daha ayrıntılı hükümdar biyografilerine hazırlar.",
+          "unlocks": [
+            "cengizhan",
+            "kubilayhan"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL8162628W",
+          "cover": {
+            "title": "Cengiz Han",
+            "author": "Jack Weatherford",
+            "publisher": "Kronik Kitap",
+            "sourceUrl": "https://www.kitapyurdu.com/kitap/cengiz-han/455606.html",
+            "imageUrl": "https://covers.openlibrary.org/b/isbn/9789752430419-L.jpg",
+            "src": "covers/foundation-tr-cengiz-han.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9789752430419"
+          }
+        },
+        {
+          "title": "十个词汇里的中国",
+          "titleTr": "On Sözcükte Çin",
+          "author": "Yu Hua",
+          "year": 2010,
+          "categories": [
+            "history",
+            "politics",
+            "literature"
+          ],
+          "reason": "Yakın Çin tarihini gündelik yaşam üzerinden anlatarak ekonomi-politik kitaplarına insani bağlam ekler.",
+          "unlocks": [
+            "houseofhuawei",
+            "beijingrules",
+            "breakneck",
+            "chinainc",
+            "alibaba",
+            "whatchinesewant"
+          ],
+          "cover": {
+            "title": "On Sözcükte Çin",
+            "author": "Yu Hua",
+            "publisher": "Jaguar Kitap",
+            "sourceUrl": "https://jaguarkitap.com/kitaplar/on-sozcukte-cin/",
+            "imageUrl": "https://covers.openlibrary.org/b/isbn/9786257027052-L.jpg",
+            "src": "covers/foundation-tr-on-sozcukte-cin.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9786257027052"
+          },
+          "sourceUrl": "https://openlibrary.org/search?title=%E5%8D%81%E4%B8%AA%E8%AF%8D%E6%B1%87%E9%87%8C%E7%9A%84%E4%B8%AD%E5%9B%BD&author=Yu+Hua"
+        }
+      ]
+    },
+    {
+      "id": "technology",
+      "title": "Teknoloji ve yapay zekâ",
+      "books": [
+        {
+          "title": "Superintelligence",
+          "titleTr": "Süper Zeka: Yapay Zeka Uygulamaları, Tehlikeler ve Stratejiler",
+          "author": "Nick Bostrom",
+          "year": 2014,
+          "categories": [
+            "technology",
+            "philosophy"
+          ],
+          "reason": "Yapay zekâ kontrolü ve uzun vadeli risk tartışmalarının temel kavramlarını kurar.",
+          "unlocks": [
+            "humancompatible",
+            "comingwave",
+            "empireofai"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL17319280W",
+          "cover": {
+            "title": "Süper Zeka: Yapay Zeka Uygulamaları, Tehlikeler ve Stratejiler",
+            "author": "Nick Bostrom",
+            "publisher": "Koç Üniversitesi Yayınları",
+            "sourceUrl": "https://www.kitapyurdu.com/kitap/super-zekayapay-zeka-uygulamalari-tehlikeler-ve-stratejiler/489615.html",
+            "imageUrl": "https://covers.openlibrary.org/b/isbn/9786052116784-L.jpg",
+            "src": "covers/foundation-tr-super-zeka.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9786052116784"
+          }
+        },
+        {
+          "title": "Artificial Intelligence: A Guide for Thinking Humans",
+          "titleTr": "Artificial Intelligence: A Guide for Thinking Humans",
+          "author": "Melanie Mitchell",
+          "year": 2019,
+          "categories": [
+            "technology",
+            "science"
+          ],
+          "reason": "Yapay zekânın yetenek ve sınırlarını teknik fakat erişilebilir bir dille açıklayarak güncel tartışmaları değerlendirmeyi kolaylaştırır.",
+          "unlocks": [
+            "humancompatible",
+            "comingwave",
+            "supremacy"
+          ],
+          "cover": {
+            "title": "Artificial Intelligence: A Guide for Thinking Humans",
+            "author": "Melanie Mitchell",
+            "publisher": "Farrar, Straus and Giroux",
+            "sourceUrl": "https://openlibrary.org/books/OL27945874M",
+            "imageUrl": "https://covers.openlibrary.org/b/id/9333846-L.jpg",
+            "src": "covers/foundation-artificialintelligence.jpg",
+            "language": "en",
+            "scope": "International edition cover",
+            "isbn": "9780374257835"
+          },
+          "sourceUrl": "https://openlibrary.org/search?title=Artificial+Intelligence%3A+A+Guide+for+Thinking+Humans&author=Melanie+Mitchell"
+        },
+        {
+          "title": "The Attention Merchants",
+          "titleTr": "Dikkat Tacirleri",
+          "author": "Tim Wu",
+          "year": 2016,
+          "categories": [
+            "technology",
+            "economy",
+            "marketing"
+          ],
+          "reason": "Reklam ve dikkat ekonomisinin tarihini kurarak platform eleştirilerini bağlama yerleştirir.",
+          "unlocks": [
+            "ageofsurveillancecapitalism",
+            "enshittification",
+            "nofilter",
+            "movefastandbreakthings"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL19667653W",
+          "cover": {
+            "title": "Dikkat Tacirleri",
+            "author": "Tim Wu",
+            "publisher": "The Kitap",
+            "sourceUrl": "https://www.kitapyurdu.com/kitap/dikkat-tacirleri/432930.html",
+            "imageUrl": "https://covers.openlibrary.org/b/isbn/9786056722165-L.jpg",
+            "src": "covers/foundation-tr-dikkat-tacirleri.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9786056722165"
+          }
+        }
+      ]
+    },
+    {
+      "id": "enterprise",
+      "title": "Girişimcilik ve ürün",
+      "books": [
+        {
+          "title": "Zero to One",
+          "titleTr": "Sıfırdan Bire",
+          "author": "Peter Thiel with Blake Masters",
+          "year": 2014,
+          "categories": [
+            "enterprise",
+            "strategy"
+          ],
+          "reason": "Teknoloji girişimlerinin rekabet ve tekel iddialarını kısa bir çerçevede sunar.",
+          "unlocks": [
+            "7powersthefoundationsofbusinessstrategy",
+            "powerlaw",
+            "venturedeals"
+          ],
+          "cover": {
+            "title": "Sıfırdan Bire",
+            "author": "Peter Thiel ve Blake Masters",
+            "publisher": "Pegasus",
+            "sourceUrl": "https://openlibrary.org/books/OL30680616M",
+            "imageUrl": "https://covers.openlibrary.org/b/id/10484980-L.jpg",
+            "src": "covers/foundation-zerotoone.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9786053438403"
+          },
+          "sourceUrl": "https://openlibrary.org/search?title=Zero+to+One&author=Peter+Thiel+with+Blake+Masters"
+        },
+        {
+          "title": "The Four Steps to the Epiphany",
+          "titleTr": "The Four Steps to the Epiphany",
+          "author": "Steve Blank",
+          "year": 2005,
+          "categories": [
+            "enterprise",
+            "innovation"
+          ],
+          "reason": "Müşteri geliştirme sürecini kurar; Yalın Startup yaklaşımının kaynak çerçevesidir.",
+          "unlocks": [
+            "leanstartup",
+            "momtest",
+            "testingbusinessideas"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL9216355W",
+          "cover": {
+            "title": "The Four Steps to the Epiphany",
+            "author": "Steve Blank",
+            "publisher": "Wiley & Sons, Incorporated, John",
+            "sourceUrl": "https://openlibrary.org/works/OL9216355W",
+            "imageUrl": "https://covers.openlibrary.org/b/id/4985314-L.jpg",
+            "src": "covers/foundation-fourstepstotheepiphany.jpg",
+            "language": "en",
+            "scope": "International edition cover",
+            "isbn": "9781411601727"
+          }
+        }
+      ]
+    },
+    {
+      "id": "literature",
+      "title": "Rus edebiyatı ve karşılaştırmalı kurgu",
+      "books": [
+        {
+          "title": "Lectures on Russian Literature",
+          "titleTr": "Rus Edebiyatı Dersleri",
+          "author": "Vladimir Nabokov",
+          "year": 1981,
+          "categories": [
+            "literature",
+            "history"
+          ],
+          "reason": "Rus romanlarını biçim, ayrıntı ve anlatım üzerinden yeniden okumak için eleştirel bir eşlikçi sağlar.",
+          "sourceUrl": "https://openlibrary.org/works/OL626988W",
+          "cover": {
+            "title": "Rus Edebiyatı Dersleri",
+            "author": "Vladimir Nabokov",
+            "publisher": "İletişim Yayınları",
+            "sourceUrl": "https://iletisim.com.tr/kitap/rus-edebiyati-dersleri/8692",
+            "imageUrl": "https://covers.openlibrary.org/b/isbn/9789750511448-L.jpg",
+            "src": "covers/foundation-tr-rus-edebiyati-dersleri.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9789750511448"
+          },
+          "companions": [
+            "преступлениеинаказание",
+            "братьякарамазовы",
+            "воинаимир",
+            "аннакаренина"
+          ]
+        },
+        {
+          "title": "Капитанская дочка",
+          "titleTr": "Yüzbaşının Kızı",
+          "author": "Alexander Pushkin",
+          "year": 1836,
+          "categories": [
+            "literature",
+            "history"
+          ],
+          "reason": "Rus tarihî romanına kısa bir giriş sunar.",
+          "unlocks": [
+            "преступлениеинаказание",
+            "воинаимир"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL7980369W",
+          "cover": {
+            "title": "Yüzbaşının Kızı",
+            "author": "Aleksandr Puşkin",
+            "publisher": "İletişim Yayınları",
+            "sourceUrl": "https://iletisim.com.tr/kitap/yuzbasinin-kizi/9053",
+            "imageUrl": "https://covers.openlibrary.org/b/isbn/9789750517310-L.jpg",
+            "src": "covers/foundation-tr-yuzbasinin-kizi.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9789750517310"
+          }
+        },
+        {
+          "title": "Шинель",
+          "titleTr": "Palto",
+          "author": "Nikolai Gogol",
+          "year": 1842,
+          "categories": [
+            "literature"
+          ],
+          "reason": "Rus kısa öyküsünün anlatıcı ve toplum eleştirisi geleneğine giriş sağlar.",
+          "unlocks": [
+            "запискиизподполья",
+            "преступлениеинаказание"
+          ],
+          "cover": {
+            "title": "Palto",
+            "author": "Nikolai Gogol",
+            "publisher": "İthaki Yayınları",
+            "sourceUrl": "https://openlibrary.org/books/OL32209183M",
+            "imageUrl": "https://covers.openlibrary.org/b/id/10857393-L.jpg",
+            "src": "covers/foundation-overcoat.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9786053756255"
+          },
+          "sourceUrl": "https://openlibrary.org/search?title=%D0%A8%D0%B8%D0%BD%D0%B5%D0%BB%D1%8C&author=Nikolai+Gogol"
+        },
+        {
+          "title": "Нос",
+          "titleTr": "Burun",
+          "author": "Nikolai Gogol",
+          "year": 1836,
+          "categories": [
+            "literature"
+          ],
+          "reason": "Grotesk ve bürokrasi hicvi üzerinden Rus edebiyatına kısa bir giriş sunar.",
+          "unlocks": [
+            "запискиизподполья",
+            "идиот"
+          ],
+          "cover": {
+            "title": "Burun",
+            "author": "Nikolai Gogol",
+            "publisher": "Zeplin Kitap",
+            "sourceUrl": "https://openlibrary.org/books/OL35417611M",
+            "imageUrl": "https://covers.openlibrary.org/b/id/12259496-L.jpg",
+            "src": "covers/foundation-nose.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9786257966702"
+          },
+          "sourceUrl": "https://openlibrary.org/works/OL699215W"
+        },
+        {
+          "title": "Отцы и дети",
+          "titleTr": "Babalar ve Oğullar",
+          "author": "Ivan Turgenev",
+          "year": 1862,
+          "categories": [
+            "literature",
+            "history"
+          ],
+          "reason": "Nihilist genç tipini kurarak Dostoyevski'nin buna verdiği edebî cevapları görünür kılar.",
+          "unlocks": [
+            "запискиизподполья",
+            "идиот"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL43370W",
+          "cover": {
+            "title": "Babalar ve Oğullar",
+            "author": "İvan Sergeyeviç Turgenyev",
+            "publisher": "Türkiye İş Bankası Kültür Yayınları",
+            "sourceUrl": "https://www.iskultur.com.tr/babalar-ve-ogullar.aspx",
+            "imageUrl": "https://covers.openlibrary.org/b/isbn/9789944885454-L.jpg",
+            "src": "covers/foundation-tr-babalar-ve-ogullar.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9789944885454"
+          }
+        },
+        {
+          "title": "Nineteen Eighty-Four",
+          "titleTr": "1984",
+          "author": "George Orwell",
+          "year": 1949,
+          "categories": [
+            "literature",
+            "politics"
+          ],
+          "reason": "Otorite ve toplumsal denetim anlatısını Cesur Yeni Dünya'nın yaklaşımıyla karşılaştırmayı sağlar.",
+          "sourceUrl": "https://openlibrary.org/works/OL1168083W",
+          "cover": {
+            "title": "1984",
+            "author": "George Orwell",
+            "publisher": "Can Yayınları",
+            "sourceUrl": "https://www.bkmkitap.com/1984",
+            "imageUrl": "https://covers.openlibrary.org/b/isbn/9789750718533-L.jpg",
+            "src": "covers/foundation-tr-1984.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9789750718533"
+          },
+          "companions": [
+            "bravenewworld"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "japan",
+      "title": "Japonya ve düşünce",
+      "books": [
+        {
+          "title": "Bushido: The Soul of Japan",
+          "titleTr": "Buşido: Japonya'nın Ruhu",
+          "author": "Inazo Nitobe",
+          "year": 1900,
+          "categories": [
+            "philosophy",
+            "history"
+          ],
+          "reason": "Samuray etiğine tarihsel bir yorum sunarak Hagakure okumalarını bağlama yerleştirir.",
+          "unlocks": [
+            "葉隠hagakure"
+          ],
+          "cover": {
+            "title": "Buşido: Japonya'nın Ruhu",
+            "author": "Inazo Nitobe",
+            "publisher": "Maya Kitap",
+            "sourceUrl": "https://www.kitapyurdu.com/kitap/busido-japonyanin-ruhu/642193.html",
+            "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:11679332/wh:274114bc9/miw:200/mih:200",
+            "src": "covers/foundation-bushido.jpg",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9786258361230"
+          },
+          "sourceUrl": "https://openlibrary.org/works/OL42767314W",
+          "companions": [
+            "wayofthewarriorthewayofthesamuraitheartofwarthebookoffiverings"
+          ]
+        },
+        {
+          "title": "The Way of Zen",
+          "titleTr": "Zen Yolu",
+          "author": "Alan W. Watts",
+          "year": 1957,
+          "categories": [
+            "philosophy",
+            "history"
+          ],
+          "reason": "Zen düşüncesine giriş sağlayarak Musashi'nin boşluk ve zihin kavramlarını yorumlamayı kolaylaştırır.",
+          "unlocks": [
+            "五輪書gorinnosho",
+            "葉隠hagakure"
+          ],
+          "sourceUrl": "https://openlibrary.org/works/OL266160W",
+          "cover": {
+            "title": "Zen Yolu",
+            "author": "Alan Watts",
+            "publisher": "Sola Unitas",
+            "sourceUrl": "https://kitap.solaunitas.com/zen-yolu",
+            "imageUrl": "https://d3g3ru9u2lc58p.cloudfront.net/fit-in/900x900/images/products/f8/d0/zen-yolu-1671783928-f8d00ef23f23d6c1fe52ebfcbf108e05.webp",
+            "src": "covers/foundation-tr-zen-yolu.webp",
+            "language": "tr",
+            "scope": "Turkish edition cover",
+            "isbn": "9786256974197"
+          },
+          "companions": [
+            "musashiroman"
+          ]
+        }
+      ]
+    }
+  ]
+}

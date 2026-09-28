@@ -1,0 +1,389 @@
+{
+  "schemaVersion": 1,
+  "catalogUpdatedAt": "28 Eylül 2026",
+  "belgeTuru": "Ön hazırlık okuma önerileri — ayrı ek veri",
+  "kaynakKatalog": "kitaplik-tum-kitaplar.json",
+  "kaynakKatalogKayitSayisi": 736,
+  "kaynakKatalogDegistirildiMi": false,
+  "count": 10,
+  "aciklamalar": [
+    "Bu dosya 736 kayıtlık kaynak kataloğun yerine geçmez ve onun kayıtlarını değiştirmez.",
+    "Türkçe ad ve yayınevi alanları listelenen kaynaklarla doğrulanmıştır. Fiyat ve stok taahhüdü verilmez.",
+    "Boş alanlar ilgili bilginin bu incelemede doğrulanmadığını belirtir; çeviri veya yazar bulunmadığı anlamına gelmez.",
+    "onerilenCevirmenler alanı kaynak katalogla uyumluluk için korunmuştur; burada kayıtlı baskının doğrulanan çevirmenini gösterir, çeviri kalitesi sıralaması değildir.",
+    "Okuma sırası, amaç, kavramlar ve hazırlık ilişkileri danışmanlık önerisidir; kitapların resmî müfredatı veya doğrulanmış okuma düzeyi ölçümü değildir.",
+    "İlk dört kayıt çekirdek başlangıçtır. 5–8 genel alan hazırlıklarıdır. 9–10 bir sonraki aşamada kullanılabilecek desteklerdir.",
+    "Kullanıcının eğitim diplomasından zekâ, okuma düzeyi veya tıbbi durum çıkarımı yapılmamıştır."
+  ],
+  "books": [
+    {
+      "id": "hazirlik-01",
+      "okumaSirasi": 1,
+      "turkceAdi": "Eleştirel Okuma",
+      "orijinalAdi": "Eleştirel Okuma",
+      "orijinalYayinevi": "Bilgi Yayınevi",
+      "orijinalYazarlar": [
+        "Emin Özdemir"
+      ],
+      "onerilenCevirmenler": [],
+      "turkiyeYayinevi": "Bilgi Yayınevi",
+      "turkceBaskiISBN13": "9789754949162",
+      "asama": "1 — Temel okuma ve düşünme becerileri",
+      "onerilmeNedeni": "Bir metni yalnızca takip etmek yerine ana düşüncesini ve gerekçelerini kendi cümleleriyle çıkarma çalışmasına başlangıç.",
+      "onerilenOkumaBicimi": "Bölüm bölüm oku. Her bölümün ana fikrini ve yazarın verdiği bir gerekçeyi kendi sözlerinle yaz.",
+      "calisilmasiOnerilenKavramlar": [
+        "Ana düşünce",
+        "Yardımcı düşünce",
+        "Örnek ile açıklama arasındaki ayrım",
+        "Yorum ile gerekçe arasındaki ayrım"
+      ],
+      "ornekHedefEserler": [
+        "İyi Strateji / Kötü Strateji",
+        "Beşinci Disiplin"
+      ],
+      "iliskininNiteligi": "Öğrenmeyi kolaylaştırmak için önerilen hazırlık; zorunlu veya resmî önkoşul değildir.",
+      "bibliyografikKaynaklar": [
+        "https://www.bilgiyayinevi.com.tr/elestirel-okuma"
+      ],
+      "dogrulamaTarihi": "2026-09-28",
+      "dogrulamaNotu": "Türkçe yazılmış eser. Kavram ve çalışma hedefleri öneridir; kitabın içindekiler listesinin aktarımı değildir.",
+      "kaynakKatalogdakiAdEslesmeleri": []
+    },
+    {
+      "id": "hazirlik-02",
+      "okumaSirasi": 2,
+      "turkceAdi": "Düşünmenin Alfabesi",
+      "orijinalAdi": "Düşünmenin Alfabesi",
+      "orijinalYayinevi": "Timaş Yayınları",
+      "orijinalYazarlar": [
+        "Yasin Ramazan"
+      ],
+      "onerilenCevirmenler": [],
+      "turkiyeYayinevi": "Timaş Yayınları",
+      "turkceBaskiISBN13": "9786050849271",
+      "asama": "1 — Temel okuma ve düşünme becerileri",
+      "onerilmeNedeni": "İddia, gerekçe, varsayım ve akıl yürütme hatalarını ayırt ederek düşünce kitaplarını takip etmeyi kolaylaştırmak.",
+      "onerilenOkumaBicimi": "Bir bölümden sonra gündelik yaşamdan veya iş hayatından bir örnek üret.",
+      "calisilmasiOnerilenKavramlar": [
+        "İddia",
+        "Gerekçe",
+        "Varsayım",
+        "Argüman",
+        "Safsata",
+        "Bilişsel önyargı"
+      ],
+      "ornekHedefEserler": [
+        "İyi Strateji / Kötü Strateji",
+        "Hızlı ve Yavaş Düşünme"
+      ],
+      "iliskininNiteligi": "Öğrenmeyi kolaylaştırmak için önerilen hazırlık; zorunlu veya resmî önkoşul değildir.",
+      "bibliyografikKaynaklar": [
+        "https://timas.com.tr/dusunmenin-alfabesi"
+      ],
+      "dogrulamaTarihi": "2026-09-28",
+      "dogrulamaNotu": "Burada doğrulanan baskı 2025 tarihli Timaş baskısıdır; önceki yayınevi baskılarıyla karıştırılmamalıdır.",
+      "kaynakKatalogdakiAdEslesmeleri": []
+    },
+    {
+      "id": "hazirlik-03",
+      "okumaSirasi": 3,
+      "turkceAdi": "Adım Adım Matematik - Eşsiz Bir Görsel Rehber",
+      "orijinalAdi": null,
+      "orijinalYayinevi": null,
+      "orijinalYazarlar": [],
+      "onerilenCevirmenler": [
+        "Murat Şahin"
+      ],
+      "turkiyeYayinevi": "TÜBİTAK Popüler Bilim Kitapları",
+      "turkceBaskiISBN13": "9786053125594",
+      "asama": "1 — Temel sayısal hazırlık",
+      "onerilmeNedeni": "Ekonomi ve istatistik kitaplarına geçmeden önce temel sayısal kavramları görsel bir kaynaktan çalışmak.",
+      "onerilenOkumaBicimi": "Baştan sona okuma yerine ihtiyaç duyulan konuları çalış. Kesir, yüzde, oran, ortalama ve grafik okuma önceliklidir. Örnekleri kendin hesapla.",
+      "calisilmasiOnerilenKavramlar": [
+        "Kesir",
+        "Ondalık sayı",
+        "Yüzde",
+        "Oran",
+        "Ortalama",
+        "Grafik okuma"
+      ],
+      "ornekHedefEserler": [
+        "Financial Intelligence",
+        "Süpertahmin: İsabetli Tahmin ve İyi Yargının Bilim ve Sanatı"
+      ],
+      "iliskininNiteligi": "Öğrenmeyi kolaylaştırmak için önerilen hazırlık; zorunlu veya resmî önkoşul değildir.",
+      "bibliyografikKaynaklar": [
+        "https://yayinlar.tubitak.gov.tr/cocuk-genclik-kitapligi/1501-adim-adim-matematik.html"
+      ],
+      "dogrulamaTarihi": "2026-09-28",
+      "dogrulamaNotu": "Yayınevi kaydında çevirmen, Türkçe başlık ve ISBN doğrulandı. Yazar ve özgün eser adı bu kaynakta belirtilmediği için boş bırakıldı. Bu kaynak bir görsel rehberdir; alıştırma kitabı olduğu iddia edilmemektedir.",
+      "kaynakKatalogdakiAdEslesmeleri": []
+    },
+    {
+      "id": "hazirlik-04",
+      "okumaSirasi": 4,
+      "turkceAdi": "Örneklerle Kolay Ekonomi",
+      "orijinalAdi": "Örneklerle Kolay Ekonomi",
+      "orijinalYayinevi": "Remzi Kitabevi",
+      "orijinalYazarlar": [
+        "Mahfi Eğilmez"
+      ],
+      "onerilenCevirmenler": [],
+      "turkiyeYayinevi": "Remzi Kitabevi",
+      "turkceBaskiISBN13": "9789751416117",
+      "asama": "1 — Temel ekonomi hazırlığı",
+      "onerilmeNedeni": "Ekonomi diline, daha kapsamlı ekonomi ve işletme okumalarından önce örnekler üzerinden giriş yapmak.",
+      "onerilenOkumaBicimi": "Her yeni terim için kısa bir tanım ve gündelik bir örnek yaz. Bilmediğin kavramları birbirine bağlamaya çalış.",
+      "calisilmasiOnerilenKavramlar": [
+        "Ekonomi",
+        "Arz",
+        "Talep",
+        "Enflasyon",
+        "Faiz",
+        "Büyüme"
+      ],
+      "ornekHedefEserler": [
+        "Naked Economics",
+        "Kendi Kendine MBA",
+        "Capital in the Twenty-First Century"
+      ],
+      "iliskininNiteligi": "Öğrenmeyi kolaylaştırmak için önerilen hazırlık; zorunlu veya resmî önkoşul değildir.",
+      "bibliyografikKaynaklar": [
+        "https://www.remzi.com.tr/kitap/orneklerle-kolay-ekonomi"
+      ],
+      "dogrulamaTarihi": "2026-09-28",
+      "dogrulamaNotu": "Türkçe yazılmış eser. Bir muhasebe ders kitabı yerine kullanılmamalıdır.",
+      "kaynakKatalogdakiAdEslesmeleri": []
+    },
+    {
+      "id": "hazirlik-05",
+      "okumaSirasi": 5,
+      "turkceAdi": "Genç Okurlar İçin Kısa Bir Dünya Tarihi",
+      "orijinalAdi": null,
+      "orijinalYayinevi": null,
+      "orijinalYazarlar": [
+        "E. H. Gombrich"
+      ],
+      "onerilenCevirmenler": [],
+      "turkiyeYayinevi": "İnkılap Kitabevi",
+      "turkceBaskiISBN13": "9789751017154",
+      "asama": "2 — Tarihsel bağlam",
+      "onerilmeNedeni": "Olayları ve düşünürleri zaman çizgisine yerleştirmek için genel bir tarih anlatısı edinmek.",
+      "onerilenOkumaBicimi": "Her dönem için kısa bir zaman çizgisi tut. Kişi ve yer adlarının hepsini ezberlemek yerine olayların sırasını ve ilişkisini takip et.",
+      "calisilmasiOnerilenKavramlar": [
+        "Tarihsel dönem",
+        "Zaman çizgisi",
+        "Kurumların değişimi",
+        "Olaylar arasındaki ilişki"
+      ],
+      "ornekHedefEserler": [
+        "Caesar",
+        "Napoleon: Hayatı",
+        "Savaş Ve Barış"
+      ],
+      "iliskininNiteligi": "Öğrenmeyi kolaylaştırmak için önerilen hazırlık; zorunlu veya resmî önkoşul değildir.",
+      "bibliyografikKaynaklar": [
+        "https://www.bkmkitap.com/genc-okurlar-icin-kisa-bir-dunya-tarihi",
+        "https://yalebooks.yale.edu/book/9780300143324/a-little-history-of-the-world/"
+      ],
+      "dogrulamaTarihi": "2026-09-28",
+      "dogrulamaNotu": "Eserin Almanca yazıldığı ve İngilizce baskı adı doğrulandı. Almanca özgün başlık bu incelemede doğrulanmadığı için orijinalAdi boş bırakıldı. İngilizce baskı adı ayrı alandadır. Türkçe çevirmen bu kaynaklarda doğrulanmadı.",
+      "orijinalDil": "Almanca",
+      "digerDillerdekiAdlar": [
+        {
+          "dil": "İngilizce",
+          "ad": "A Little History of the World",
+          "yayinevi": "Yale University Press"
+        }
+      ],
+      "kaynakKatalogdakiAdEslesmeleri": []
+    },
+    {
+      "id": "hazirlik-06",
+      "okumaSirasi": 6,
+      "turkceAdi": "Felsefenin Kısa Tarihi",
+      "orijinalAdi": "A Little History of Philosophy",
+      "orijinalYayinevi": "Yale University Press",
+      "orijinalYazarlar": [
+        "Nigel Warburton"
+      ],
+      "onerilenCevirmenler": [
+        "Güçlü Ateşoğlu"
+      ],
+      "turkiyeYayinevi": "Alfa Yayınları",
+      "turkceBaskiISBN13": "9786254496219",
+      "asama": "2 — Felsefi bağlam",
+      "onerilmeNedeni": "Düşünürlerin hangi sorulara yanıt aradığını ve birbirleriyle ilişkilerini kavramak için giriş.",
+      "onerilenOkumaBicimi": "Her düşünür için sorusu, önerdiği cevap ve bu cevaba yöneltilebilecek bir itirazı yaz.",
+      "calisilmasiOnerilenKavramlar": [
+        "Bilgi",
+        "Akıl yürütme",
+        "Etik",
+        "Düşünce tarihi",
+        "Felsefi soru"
+      ],
+      "ornekHedefEserler": [
+        "Immanuel Kant",
+        "Hegel",
+        "Nietzsche"
+      ],
+      "iliskininNiteligi": "Öğrenmeyi kolaylaştırmak için önerilen hazırlık; zorunlu veya resmî önkoşul değildir.",
+      "bibliyografikKaynaklar": [
+        "https://kitapsec.com/Products/Felsefenin-Kisa-Tarihi-Nigel-Warburton-Alfa-Yayinlari-755993.html",
+        "https://yalebooks.yale.edu/book/9780300177541/a-little-history-of-philosophy/"
+      ],
+      "dogrulamaTarihi": "2026-09-28",
+      "dogrulamaNotu": "Aynı Türkçe başlıklı başka yazarların eserleri vardır; burada önerilen Nigel Warburton–Alfa eşleşmesidir. Katalogdaki örnek hedefler düşünürlerin temel eserleri değil biyografileridir.",
+      "kaynakKatalogdakiAdEslesmeleri": []
+    },
+    {
+      "id": "hazirlik-07",
+      "okumaSirasi": 7,
+      "turkceAdi": "Psiko 101",
+      "orijinalAdi": "Psych 101",
+      "orijinalYayinevi": "Adams Media",
+      "orijinalYazarlar": [
+        "Paul Kleinman"
+      ],
+      "onerilenCevirmenler": [
+        "Hasan Kaplan"
+      ],
+      "turkiyeYayinevi": "Okuyan Us Yayınları",
+      "turkceBaskiISBN13": "9786055134228",
+      "asama": "2 — Psikolojiye giriş",
+      "onerilmeNedeni": "Davranış ve düşünme kitaplarında geçen psikoloji kavramları için genel bir başlangıç çerçevesi edinmek.",
+      "onerilenOkumaBicimi": "Kavramları bölüm bölüm oku; günlük bir örnekle açıkla. Tarihsel bir yaklaşımın anlatılması ile günümüzde doğrulanmış bilgi olmasını aynı sayma.",
+      "calisilmasiOnerilenKavramlar": [
+        "Algı",
+        "Öğrenme",
+        "Koşullanma",
+        "Gelişim",
+        "Psikoloji kuramları"
+      ],
+      "ornekHedefEserler": [
+        "Duygusal Zeka",
+        "İknanın Psikolojisi",
+        "Hızlı ve Yavaş Düşünme"
+      ],
+      "iliskininNiteligi": "Öğrenmeyi kolaylaştırmak için önerilen hazırlık; zorunlu veya resmî önkoşul değildir.",
+      "bibliyografikKaynaklar": [
+        "https://www.homerbooks.com/urun/psiko-101",
+        "https://1000kitap.com/kitap/psiko-101--24992"
+      ],
+      "dogrulamaTarihi": "2026-09-28",
+      "dogrulamaNotu": "Türkiye başlığı Psiko 101’dir. Adrian Furnham’ın Psikoloji 101 adlı Orenda yayını farklı bir kitaptır. Bu eser kapsamlı akademik psikoloji eğitiminin yerine değil kavram tanışıklığı için önerilmiştir.",
+      "kaynakKatalogdakiAdEslesmeleri": []
+    },
+    {
+      "id": "hazirlik-08",
+      "okumaSirasi": 8,
+      "turkceAdi": "Bilimin Kısa Tarihi",
+      "orijinalAdi": "A Little History of Science",
+      "orijinalYayinevi": "Yale University Press",
+      "orijinalYazarlar": [
+        "William Bynum"
+      ],
+      "onerilenCevirmenler": [],
+      "turkiyeYayinevi": "Alfa Yayınları",
+      "turkceBaskiISBN13": "9786051719719",
+      "asama": "2 — Bilimsel ve tarihsel bağlam",
+      "onerilmeNedeni": "Bilim insanlarının hangi sorunlarla uğraştığını ve bilgilerin nasıl geliştiğini tarih içinde konumlandırmak.",
+      "onerilenOkumaBicimi": "Her bölümde ele alınan sorunu ve bilimsel açıklamanın nasıl değiştiğini kendi sözlerinle özetle.",
+      "calisilmasiOnerilenKavramlar": [
+        "Bilimsel soru",
+        "Gözlem",
+        "Deney",
+        "Açıklamanın değişmesi",
+        "Bilim tarihi"
+      ],
+      "ornekHedefEserler": [
+        "Keşifler ve Buluşlar",
+        "Einstein Yaşamı ve Evreni",
+        "Charles Darwin"
+      ],
+      "iliskininNiteligi": "Öğrenmeyi kolaylaştırmak için önerilen hazırlık; zorunlu veya resmî önkoşul değildir.",
+      "bibliyografikKaynaklar": [
+        "https://www.bkmkitap.com/bilimin-kisa-tarihi",
+        "https://yalebooks.yale.edu/book/9780300197136/a-little-history-of-science/"
+      ],
+      "dogrulamaTarihi": "2026-09-28",
+      "dogrulamaNotu": "Türkçe çevirmen bu incelemede doğrulanmadı. Matematik, fizik veya araştırma yöntemlerinin ayrıntılı öğretiminin yerine geçmesi beklenmemelidir.",
+      "kaynakKatalogdakiAdEslesmeleri": []
+    },
+    {
+      "id": "hazirlik-09",
+      "okumaSirasi": 9,
+      "turkceAdi": "Aklında Kalsın: Başarılı Öğrenme Bilimi",
+      "orijinalAdi": "Make It Stick: The Science of Successful Learning",
+      "orijinalYayinevi": null,
+      "orijinalYazarlar": [
+        "Peter C. Brown",
+        "Henry L. Roediger III",
+        "Mark A. McDaniel"
+      ],
+      "onerilenCevirmenler": [
+        "Barış Satılmış"
+      ],
+      "turkiyeYayinevi": "Buzdağı Yayınevi",
+      "turkceBaskiISBN13": "9786056685828",
+      "asama": "3 — Öğrenme yöntemini geliştirme",
+      "onerilmeNedeni": "Okunanları öğrenme ve hatırlama çalışmalarını düzenlemek için yardımcı kaynak.",
+      "onerilenOkumaBicimi": "İlk okuma ve düşünme kitaplarından sonra çalış. Önerilen yöntemleri okuduğun kısa bir bölüm üzerinde dene.",
+      "calisilmasiOnerilenKavramlar": [
+        "Öğrenme",
+        "Hatırlama",
+        "Kendini yoklama",
+        "Çalışma yöntemleri"
+      ],
+      "ornekHedefEserler": [],
+      "iliskininNiteligi": "Öğrenmeyi kolaylaştırmak için önerilen hazırlık; zorunlu veya resmî önkoşul değildir.",
+      "bibliyografikKaynaklar": [
+        "https://www.buzdagikitabevi.com/aklinda-kalsin-basarili-ogrenme-bilimi",
+        "https://buzdagiyayinevi.com/aklinda-kalsin-basarili-ogrenme-bilimi/"
+      ],
+      "dogrulamaTarihi": "2026-09-28",
+      "dogrulamaNotu": "Bu kitap konuya ilişkin eksik bilgiyi tek başına tamamlamaz; öğrenme yöntemine destek olarak önerilmiştir.",
+      "kaynakKatalogdakiAdEslesmeleri": []
+    },
+    {
+      "id": "hazirlik-10",
+      "okumaSirasi": 10,
+      "turkceAdi": "Çıplak İstatistik",
+      "orijinalAdi": "Naked Statistics: Stripping the Dread from the Data",
+      "orijinalYayinevi": null,
+      "orijinalYazarlar": [
+        "Charles Wheelan"
+      ],
+      "onerilenCevirmenler": [
+        "Ali Atav"
+      ],
+      "turkiyeYayinevi": "Buzdağı Yayınevi",
+      "turkceBaskiISBN13": "9786058213258",
+      "asama": "3 — Sayısal iddiaları anlama",
+      "onerilmeNedeni": "Ortalama, olasılık, örneklem ve birlikte değişim gibi kavramlarla araştırma sonuçlarını yorumlamaya hazırlanmak.",
+      "onerilenOkumaBicimi": "Temel yüzde, oran ve ortalama çalışmasından sonra başla. İlk geçişte kavramların günlük karşılıklarına odaklan; ileri bölümlere daha sonra dön.",
+      "calisilmasiOnerilenKavramlar": [
+        "Ortalama",
+        "Medyan",
+        "Olasılık",
+        "Örneklem",
+        "Korelasyon",
+        "Nedensellik ayrımı"
+      ],
+      "ornekHedefEserler": [
+        "How to Lie with Statistics",
+        "Hızlı ve Yavaş Düşünme",
+        "Superforecasting",
+        "The Black Swan"
+      ],
+      "iliskininNiteligi": "Öğrenmeyi kolaylaştırmak için önerilen hazırlık; zorunlu veya resmî önkoşul değildir.",
+      "bibliyografikKaynaklar": [
+        "https://www.buzdagikitabevi.com/ciplak-istatistik",
+        "https://buzdagiyayinevi.com/ciplak-istatistik/"
+      ],
+      "dogrulamaTarihi": "2026-09-28",
+      "dogrulamaNotu": "Temel matematik yerine geçmez. Daha ileri istatistiksel bölümler de içerdiği için başlangıç listesinin son aşamasına yerleştirilmiştir.",
+      "kaynakKatalogdakiAdEslesmeleri": []
+    }
+  ]
+}

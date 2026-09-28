@@ -14,6 +14,7 @@ export function translationStatus(book) {
 export function displayTitle(book){
  const status=translationStatus(book).status;
  if(status==='available'||status==='original')return book.titleTr||book.title;
+ if(book.originalTitle)return book.originalTitle;
  if(book.cover?.language&&book.cover.language!=='tr'&&book.cover.title)return book.cover.title;
  return book.title;
 }

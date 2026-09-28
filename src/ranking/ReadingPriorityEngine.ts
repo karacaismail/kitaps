@@ -25,14 +25,8 @@ interface RawAssessment {
   user: UserBookState;
 }
 
-interface ScoredAssessment extends ReadingPriorityResult {
-  priorityBand: number;
-}
-
-/**
- * Keeps ownership separate from reading status. A borrowed book may be in
- * progress, and a previously read book does not need to be owned.
- */
+/** Only ownership is a ranking input. Reading history and a manually chosen
+ * queue are records, not evidence of a book's intrinsic reading priority. */
 export class UserBookState {
   readonly bookId: string;
   readonly owned: boolean;
@@ -42,37 +36,21 @@ export class UserBookState {
   constructor(
     bookId: string,
     context: RankingContext,
-    queuePositions?: ReadonlyMap<string, number>,
   ) {
     this.bookId = bookId;
     const states = new Set(context.states[bookId] ?? []);
     this.owned = states.has('alindi');
-    this.status = this.resolveReadingStatus(states);
-    const position = queuePositions?.get(bookId);
-    if (position !== undefined) {
-      this.queuePosition = position;
-    } else if (queuePositions) {
-      this.queuePosition = null;
-    } else {
-      const queueIndex = context.queue.indexOf(bookId);
-      this.queuePosition = queueIndex < 0 ? null : queueIndex + 1;
-    }
-  }
-
-  private resolveReadingStatus(
-    states: ReadonlySet<string>,
-  ): ReadingStatus {
-    if (states.has('okunuyor')) return 'reading';
-    if (states.has('araverildi')) return 'paused';
-    if (states.has('okundu')) return 'read';
-    if (states.has('birakildi')) return 'abandoned';
-    return 'unread';
+    this.status = 'unread';
+    this.queuePosition = null;
   }
 }
 
 /** Catalog-derived facts. Rebuilt when an engine is created with a catalog. */
 export class CatalogReadingProfile {
   private readonly leverage = new Map<string, number>();
+  private readonly prerequisites = new Map<string, Set<string>>();
+  private readonly unlocks = new Map<string, Set<string>>();
+  private readonly companions = new Map<string, Set<string>>();
   private readonly categoryTotals = new Map<string, number>();
   private readonly maxCollections: number;
   private readonly maxLeverage: number;
@@ -85,6 +63,9 @@ export class CatalogReadingProfile {
 
     for (const book of catalog.books) {
       this.leverage.set(book.id, 0);
+      this.prerequisites.set(book.id, new Set());
+      this.unlocks.set(book.id, new Set());
+      this.companions.set(book.id, new Set());
       for (const category of book.categories ?? []) {
         this.categoryTotals.set(
           category,
@@ -93,17 +74,27 @@ export class CatalogReadingProfile {
       }
     }
 
+    const addEdge = (before: string, after: string) => {
+      if (before === after || !this.unlocks.has(before) || !this.prerequisites.has(after)) return;
+      this.unlocks.get(before)!.add(after);
+      this.prerequisites.get(after)!.add(before);
+    };
     for (const route of catalog.readingGuides?.routes ?? []) {
       route.books.forEach((id, index) => {
-        const unlocks = Math.max(0, route.books.length - index - 1);
-        this.leverage.set(id, (this.leverage.get(id) ?? 0) + unlocks);
+        for (const later of route.books.slice(index + 1)) addEdge(id, later);
       });
     }
 
-    for (const links of Object.values(catalog.readingGuides?.overrides ?? {})) {
-      for (const item of [...(links.before ?? []), ...(links.after ?? [])]) {
-        this.leverage.set(item.id, (this.leverage.get(item.id) ?? 0) + 1);
+    for (const [bookId, links] of Object.entries(catalog.readingGuides?.overrides ?? {})) {
+      for (const item of links.before ?? []) addEdge(item.id, bookId);
+      for (const item of links.after ?? []) addEdge(bookId, item.id);
+      for (const item of links.companions ?? []) {
+        if (bookId !== item.id && this.companions.has(item.id)) this.companions.get(bookId)!.add(item.id);
       }
+    }
+
+    for (const [bookId, unlocked] of this.unlocks) {
+      this.leverage.set(bookId, new Set([...unlocked,...(this.companions.get(bookId) ?? [])]).size);
     }
 
     this.maxLeverage = Math.max(1, ...this.leverage.values());
@@ -113,18 +104,16 @@ export class CatalogReadingProfile {
     book: CatalogBook,
     context: RankingContext,
     ownedByCategory: ReadonlyMap<string, number>,
-    queuePositions: ReadonlyMap<string, number>,
   ): RawAssessment {
-    const user = new UserBookState(book.id, context, queuePositions);
+    const user = new UserBookState(book.id, context);
     return {
       book,
       user,
       raw: {
         editorialConsensus: this.editorialConsensus(book),
         learningLeverage: this.learningLeverage(book),
+        preparationFit: this.preparationFit(book),
         accessReadiness: this.accessReadiness(user),
-        readingMomentum: this.readingMomentum(user),
-        queueCommitment: this.queueCommitment(user, context.queue.length),
         collectionCoverage: this.collectionCoverage(book, user, ownedByCategory),
         difficultyFit: this.difficultyFit(book),
         durability: this.durability(book),
@@ -145,24 +134,16 @@ export class CatalogReadingProfile {
       case 'editorialConsensus':
         return `${book.collectionIds?.length ?? 0} bağımsız seçkide yer alıyor; güncel kataloğa göre %${percent}.`;
       case 'learningLeverage':
-        return `Okuma rotalarında sonraki kitapları açma değeri %${percent}.`;
+        return `${this.unlocks.get(book.id)?.size ?? 0} devam kitabı ve ${this.companions.get(book.id)?.size ?? 0} eşlikçiyle bağlantılı; güncel ilişki ağına göre %${percent}.`;
+      case 'preparationFit': {
+        const count = this.prerequisites.get(book.id)?.size ?? 0;
+        return count === 0
+          ? 'Bu kitap için ayrıca bir hazırlık okuması önerilmiyor.'
+          : `${count} isteğe bağlı hazırlık okuması var; hazırlık yükü puana statik olarak yansıtıldı.`;
+      }
       case 'accessReadiness':
-        if (user.owned && user.status === 'unread') {
-          return 'Kitap sahip olunanlar arasında ve henüz okunmadı; erişim engeli yok.';
-        }
-        if (!user.owned && user.status === 'read') {
-          return 'Kitap daha önce okundu ve sahip olunanlar arasında değil; yeniden okuma önceliği düşük.';
-        }
-        if (user.owned) {
-          return 'Kitap sahip olunanlar arasında; okuma durumuyla bağımsız değerlendirildi.';
-        }
+        if (user.owned) return 'Kitap sahip olunanlar arasında; erişim engeli yok.';
         return 'Kitap sahip olunanlar arasında değil; okuma için önce erişim gerekebilir.';
-      case 'readingMomentum':
-        return `Okuma durumu: ${this.statusLabel(user.status)}; ivme değeri %${percent}.`;
-      case 'queueCommitment':
-        return user.queuePosition === null
-          ? 'Kişisel okuma sırasında değil.'
-          : `Kişisel okuma sırasında ${user.queuePosition}. konumda.`;
       case 'collectionCoverage':
         return `Sahip olunan kitapların konu boşluğunu kapatma değeri %${percent}.`;
       case 'difficultyFit':
@@ -181,31 +162,13 @@ export class CatalogReadingProfile {
     return (this.leverage.get(book.id) ?? 0) / this.maxLeverage;
   }
 
+  private preparationFit(book: CatalogBook): number {
+    const count = this.prerequisites.get(book.id)?.size ?? 0;
+    return 1 / (1 + count * 0.35);
+  }
+
   private accessReadiness(user: UserBookState): number {
-    if (user.owned && user.status === 'unread') return 1;
-    if (user.owned && user.status === 'reading') return 0.95;
-    if (user.status === 'reading') return 0.78;
-    if (user.owned && user.status === 'paused') return 0.75;
-    if (user.owned && user.status === 'read') return 0.24;
-    if (user.owned) return 0.65;
-    if (user.status === 'paused') return 0.45;
-    if (user.status === 'read') return 0.05;
-    if (user.status === 'abandoned') return 0.08;
-    return 0.30;
-  }
-
-  private readingMomentum(user: UserBookState): number {
-    if (user.status === 'reading') return 1;
-    if (user.status === 'paused') return 0.62;
-    if (user.status === 'unread') return 0.40;
-    if (user.status === 'read') return 0.08;
-    return 0;
-  }
-
-  private queueCommitment(user: UserBookState, queueLength: number): number {
-    if (user.queuePosition === null || queueLength < 1) return 0;
-    if (queueLength === 1) return 1;
-    return 1 - (user.queuePosition - 1) / queueLength * 0.55;
+    return user.owned ? 1 : 0.30;
   }
 
   private collectionCoverage(
@@ -261,31 +224,19 @@ export class CatalogReadingProfile {
     const hasCategories = (book.categories?.length ?? 0) > 0;
     const hasCollections = (book.collectionIds?.length ?? 0) > 0;
     const hasYear = (book.years?.length ?? 0) > 0;
-    const explicitUserSignal = user.owned
-      || user.status !== 'unread'
-      || user.queuePosition !== null;
+    const explicitUserSignal = user.owned;
 
     return {
       editorialConsensus: hasCollections ? 1 : 0.55,
       learningLeverage: 0.9,
+      preparationFit: 0.9,
       accessReadiness: explicitUserSignal ? 1 : 0.8,
-      readingMomentum: explicitUserSignal ? 1 : 0.8,
-      queueCommitment: 1,
       collectionCoverage: hasCategories ? 0.95 : 0.55,
       difficultyFit: hasCategories ? 0.8 : 0.5,
       durability: hasYear ? 0.9 : 0.5,
     };
   }
 
-  private statusLabel(status: ReadingStatus): string {
-    return {
-      unread: 'okunmadı',
-      reading: 'okunuyor',
-      paused: 'ara verildi',
-      read: 'okundu',
-      abandoned: 'bırakıldı',
-    }[status];
-  }
 }
 
 /** Min-max normalization is recomputed for the books in every rank call. */
@@ -296,6 +247,7 @@ export class CatalogNormalizer {
     const catalogRelative = new Set<CriterionId>([
       'editorialConsensus',
       'learningLeverage',
+      'preparationFit',
       'collectionCoverage',
       'difficultyFit',
       'durability',
@@ -310,9 +262,8 @@ export class CatalogNormalizer {
       const min = Math.min(...values);
       const max = Math.max(...values);
       for (const assessment of assessments) {
-        // Personal signals have absolute meaning: a currently-read book must
-        // not lose its momentum merely because another book is also active.
-        // Catalog facts remain relative and react to additions/removals.
+        // Ownership has absolute meaning. Catalog facts remain relative and
+        // react to additions, removals and relationship changes.
         const normalized = !catalogRelative.has(id)
           ? clamp(assessment.raw[id])
           : max === min
@@ -342,16 +293,11 @@ export class ReadingPriorityEngine {
     if (this.catalog.books.length === 0) return [];
 
     const ownedByCategory = this.ownedCategoryCounts(context);
-    const queuePositions = new Map<string, number>();
-    context.queue.forEach((bookId, index) => {
-      if (!queuePositions.has(bookId)) queuePositions.set(bookId, index + 1);
-    });
     const assessments = this.catalog.books
       .map((book) => this.profile.assess(
         book,
         context,
         ownedByCategory,
-        queuePositions,
       ));
     const normalized = this.normalizer.normalize(assessments);
     const scored = assessments.map((assessment) =>
@@ -359,8 +305,7 @@ export class ReadingPriorityEngine {
     );
 
     scored.sort((a, b) =>
-      b.priorityBand - a.priorityBand
-      || b.score - a.score
+      b.score - a.score
       || b.confidence - a.confidence
       || a.bookId.localeCompare(b.bookId, 'tr'),
     );
@@ -368,13 +313,12 @@ export class ReadingPriorityEngine {
     let denseRank = 0;
     let previousKey = '';
     return scored.map((result, index) => {
-      const key = `${result.priorityBand}:${result.score}`;
+      const key = `${result.score}`;
       if (key !== previousKey) {
         denseRank += 1;
         previousKey = key;
       }
-      const { priorityBand: _priorityBand, ...publicResult } = result;
-      return { ...publicResult, rank: denseRank, ordinal: index + 1 };
+      return { ...result, rank: denseRank, ordinal: index + 1 };
     });
   }
 
@@ -392,7 +336,7 @@ export class ReadingPriorityEngine {
   private score(
     assessment: RawAssessment,
     normalized: RawCriteria,
-  ): ScoredAssessment {
+  ): ReadingPriorityResult {
     const criteria = (Object.keys(this.policy.weights) as CriterionId[])
       .map((id): CriterionResult => {
         const weight = this.policy.weights[id];
@@ -433,7 +377,6 @@ export class ReadingPriorityEngine {
       criteria,
       reasons,
       policyVersion: this.policy.version,
-      priorityBand: this.priorityBand(assessment.user),
       signals: {
         owned: assessment.user.owned,
         readingStatus: assessment.user.status,
@@ -442,25 +385,10 @@ export class ReadingPriorityEngine {
     };
   }
 
-  private priorityBand(user: UserBookState): number {
-    if (user.status === 'reading') return 4;
-    if (
-      user.queuePosition !== null
-      && user.status !== 'read'
-      && user.status !== 'abandoned'
-    ) return 3;
-    if (user.status === 'unread' || user.status === 'paused') return 2;
-    return 1;
-  }
-
   private readiness(
     score: number,
-    user: UserBookState,
+    _user: UserBookState,
   ): { level: ReadinessLevel; label: string } {
-    if (user.status === 'reading') return { level: 5, label: 'Okumaya devam et' };
-    if (user.status === 'read') return { level: 1, label: 'Yeniden okuma düşük öncelik' };
-    if (user.status === 'abandoned') return { level: 1, label: 'Yeniden değerlendirme gerekli' };
-    if (user.queuePosition === 1) return { level: 5, label: 'Sıradaki kitap' };
     if (score >= 72) return { level: 5, label: 'Şimdi oku' };
     if (score >= 58) return { level: 4, label: 'Yüksek okuma önceliği' };
     if (score >= 43) return { level: 3, label: 'Orta okuma önceliği' };

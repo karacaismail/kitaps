@@ -32,7 +32,7 @@ test('the researched entrepreneurship route is unique and stays below the reques
  }
 });
 test('non-Latin titles and missing original titles remain distinct',()=>{
- assert.equal(filter({query:'Dostoyevski'}).length,4);
+ assert.equal(filter({query:'Dostoyevski'}).length,5);
  assert.ok(filter({query:'Abartma Tozu'}).length===1);
  assert.ok(filter({query:'Yılankale'}).length===1);
 });

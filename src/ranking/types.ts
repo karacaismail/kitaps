@@ -1,9 +1,8 @@
 export type CriterionId =
   | 'editorialConsensus'
   | 'learningLeverage'
+  | 'preparationFit'
   | 'accessReadiness'
-  | 'readingMomentum'
-  | 'queueCommitment'
   | 'collectionCoverage'
   | 'difficultyFit'
   | 'durability';
@@ -54,6 +53,7 @@ export interface Catalog {
     overrides?: Readonly<Record<string, {
       before?: readonly ReadingGuideLink[];
       after?: readonly ReadingGuideLink[];
+      companions?: readonly ReadingGuideLink[];
     }>>;
   };
 }

@@ -29,7 +29,7 @@ const fixtureCatalog=books=>({books,readingGuides:{routes:[],overrides:{}}});
 
 test('reading priority scores every catalog book once and assigns dense ranks plus stable ordinals',()=>{
  const ranked=new ReadingPriorityEngine(catalog).rank(emptyContext());
- assert.equal(catalog.books.length,736,'catalog fixture changed; update the expected audited total deliberately');
+ assert.equal(catalog.books.length,794,'catalog fixture changed; update the expected audited total deliberately');
  assert.equal(ranked.length,catalog.books.length);
  assert.equal(new Set(ranked.map(item=>item.bookId)).size,catalog.books.length);
  assert.deepEqual(ranked.map(item=>item.ordinal),Array.from({length:catalog.books.length},(_,index)=>index+1));
@@ -95,58 +95,71 @@ test('an owned unread book outranks an otherwise identical unavailable and unown
  assert.ok(ranked['owned-unread'].rank<ranked['unavailable-unowned'].rank);
 });
 
-test('a completed but unowned book is deprioritized against an identical unread candidate',()=>{
- const completed=fixtureBook('completed-unowned');
- const unread=fixtureBook('unread-unowned');
- const ranked=byId(new ReadingPriorityEngine(fixtureCatalog([completed,unread])).rank({
-  states:{'completed-unowned':['okundu']},queue:[],reading:{}
- }));
- assert.ok(ranked['completed-unowned'].score<ranked['unread-unowned'].score);
- assert.ok(ranked['completed-unowned'].rank>ranked['unread-unowned'].rank);
-});
-
-test('current reading and an explicit queue produce a sensible continuation order',()=>{
- const current=fixtureBook('current');
- const queued=fixtureBook('queued');
- const plain=fixtureBook('plain');
- const ranked=byId(new ReadingPriorityEngine(fixtureCatalog([current,queued,plain])).rank({
-  states:{current:['alindi','okunuyor'],queued:['alindi'],plain:['alindi']},
-  queue:['queued'],
-  reading:{current:{startedAt:'2026-09-20',page:40,totalPages:200}}
- }));
- assert.ok(ranked.current.score>ranked.queued.score,'continue a book already in progress before starting a queued book');
- assert.ok(ranked.queued.score>ranked.plain.score,'respect an explicit queue over an otherwise identical owned book');
- assert.ok(ranked.current.rank<ranked.queued.rank&&ranked.queued.rank<ranked.plain.rank);
-});
-
-test('explicit reading states are authoritative when stale reading dates remain',()=>{
- const book=fixtureBook('state-cleared');
- const engine=new ReadingPriorityEngine(fixtureCatalog([book]));
- const readingRecord={startedAt:'2026-09-20',finishedAt:'2026-09-27',page:200,totalPages:200};
- const active=engine.rank({states:{'state-cleared':['okunuyor']},queue:[],reading:{'state-cleared':readingRecord}})[0];
- const cleared=engine.rank({states:{},queue:[],reading:{'state-cleared':readingRecord}})[0];
- assert.equal(active.signals.readingStatus,'reading');
- assert.equal(cleared.signals.readingStatus,'unread','dates left in a note record must not resurrect a cleared state');
- assert.equal(cleared.maturityLabel.includes('devam'),false);
-});
-
-test('real catalog always orders active reading, queue, eligible, then completed and abandoned books',()=>{
- const [active,queued,ordinary,completed,abandoned]=catalog.books.slice(0,5);
- const ranked=byId(new ReadingPriorityEngine(catalog).rank({
+test('reading statuses, reading records, and personal queue are completely score-neutral',()=>{
+ const books=['okundu','okunuyor','araverildi','birakildi','queued','plain'].map(id=>fixtureBook(id));
+ const engine=new ReadingPriorityEngine(fixtureCatalog(books));
+ const baseline=engine.rank({
+  states:Object.fromEntries(books.map(book=>[book.id,['alindi']])),
+  queue:[],
+  reading:{}
+ });
+ const personalized=engine.rank({
   states:{
-   [active.id]:['okunuyor'],
-   [queued.id]:['alindi'],
-   [ordinary.id]:['alindi'],
-   [completed.id]:['okundu'],
-   [abandoned.id]:['birakildi']
+   okundu:['alindi','okundu'],
+   okunuyor:['alindi','okunuyor'],
+   araverildi:['alindi','araverildi'],
+   birakildi:['alindi','birakildi'],
+   queued:['alindi'],
+   plain:['alindi']
   },
-  queue:[queued.id],
-  reading:{[active.id]:{startedAt:'2026-09-20'},[completed.id]:{finishedAt:'2026-09-21'}}
- }));
- assert.ok(ranked[active.id].ordinal<ranked[queued.id].ordinal);
- assert.ok(ranked[queued.id].ordinal<ranked[ordinary.id].ordinal);
- assert.ok(ranked[ordinary.id].ordinal<ranked[completed.id].ordinal);
- assert.ok(ranked[ordinary.id].ordinal<ranked[abandoned.id].ordinal);
+  queue:['queued','okunuyor','okundu'],
+  reading:{
+   okundu:{startedAt:'2026-09-01',finishedAt:'2026-09-10',page:300,totalPages:300,note:'Bitti'},
+   okunuyor:{startedAt:'2026-09-20',page:40,totalPages:200,note:'Devam ediyor'},
+   araverildi:{startedAt:'2026-08-20',page:90,totalPages:240},
+   birakildi:{startedAt:'2026-07-01',finishedAt:'2026-07-03',page:12,totalPages:400}
+  }
+ });
+ assert.deepEqual(personalized,baseline,'personal reading activity must not alter any score, rank, ordinal, maturity, criterion, signal, reason, or ordering');
+});
+
+test('each reading status is independently neutral when ownership is unchanged',()=>{
+ const books=[fixtureBook('subject'),fixtureBook('peer')];
+ const engine=new ReadingPriorityEngine(fixtureCatalog(books));
+ const baseline=engine.rank({states:{subject:['alindi']},queue:[],reading:{}});
+ for(const status of ['okundu','okunuyor','araverildi','birakildi']){
+  const actual=engine.rank({
+   states:{subject:['alindi',status]},
+   queue:['subject'],
+   reading:{subject:{startedAt:'2026-09-01',finishedAt:'2026-09-28',page:99,totalPages:100,note:status}}
+  });
+  assert.deepEqual(actual,baseline,`${status} must not change any ranking output`);
+ }
+});
+
+test('real catalog ranking is invariant under reading states, records, and personal queue',()=>{
+ const sample=catalog.books.slice(0,12);
+ const ownedIds=new Set(sample.slice(0,6).map(book=>book.id));
+ const ownership=Object.fromEntries(sample.map(book=>[book.id,ownedIds.has(book.id)?['alindi']:[]]));
+ const engine=new ReadingPriorityEngine(catalog);
+ const baseline=engine.rank({states:ownership,queue:[],reading:{}});
+ const statuses=['okundu','okunuyor','araverildi','birakildi'];
+ const personalizedStates=Object.fromEntries(sample.map((book,index)=>[
+  book.id,
+  [...ownership[book.id],statuses[index%statuses.length]]
+ ]));
+ const personalized=engine.rank({
+  states:personalizedStates,
+  queue:sample.slice().reverse().map(book=>book.id),
+  reading:Object.fromEntries(sample.map((book,index)=>[book.id,{
+   startedAt:`2026-09-${String(index+1).padStart(2,'0')}`,
+   finishedAt:index%2===0?'2026-09-28':null,
+   page:index*17,
+   totalPages:320,
+   note:`Kişisel kayıt ${index+1}`
+  }]))
+ });
+ assert.deepEqual(personalized,baseline,'real-catalog scores and ordering must be device-independent and unaffected by reading activity');
 });
 
 test('wishlist state does not change reading priority',()=>{
@@ -168,6 +181,26 @@ test('collection coverage excludes the evaluated owned book itself',()=>{
  const coverage=item=>item.criteria.find(criterion=>criterion.id==='collectionCoverage');
  assert.equal(coverage(ranked.owned).raw,1);
  assert.equal(coverage(ranked.candidate).raw,0);
+});
+
+test('preparation and companion relations affect distinct catalog factors',()=>{
+ const prerequisite=fixtureBook('prerequisite');
+ const target=fixtureBook('target');
+ const companion=fixtureBook('companion');
+ const relationCatalog={
+  books:[prerequisite,target,companion],
+  readingGuides:{routes:[],overrides:{
+   prerequisite:{after:[{id:'target'}]},
+   target:{before:[{id:'prerequisite'}],companions:[{id:'companion'}]},
+   companion:{companions:[{id:'target'}]}
+  }}
+ };
+ const ranked=byId(new ReadingPriorityEngine(relationCatalog).rank(emptyContext()));
+ const criterion=(id,name)=>ranked[id].criteria.find(item=>item.id===name);
+ assert.ok(criterion('prerequisite','learningLeverage').raw>0,'a prerequisite contributes learning leverage');
+ assert.ok(criterion('target','learningLeverage').raw>0,'a companion contributes learning leverage');
+ assert.ok(criterion('target','preparationFit').raw<criterion('companion','preparationFit').raw,'only an actual before relation creates preparation load');
+ assert.equal(criterion('companion','preparationFit').raw,1,'a companion is not treated as a prerequisite');
 });
 
 test('identical books share a dense rank while retaining deterministic ordinals',()=>{

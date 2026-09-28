@@ -51,9 +51,9 @@ Klavye erişimi, odak dönüşü, dokunma alanları ve 320 px yeniden akış ayr
 
 ## Veri ve otomatik testler
 
-31 otomatik test geçti. Bunlar kaynakların birleşmesi, eski kişisel verinin taşınması, yedekler, satın alma/favori davranışı, beş kitaplık sıra, okuma ilerlemesi, önerilerin döngü içermemesi, İngilizce URL'ler ve kapak/baskı tutarlılığını kapsar.
+98 otomatik test geçti. Bunlar kaynakların birleşmesi, eski kişisel verinin taşınması, yedekler, satın alma/favori davranışı, beş kitaplık sıra, okuma ilerlemesi, önerilerin döngü içermemesi, okuma etkinliğinin puan nötrlüğü, İngilizce URL'ler ve kapak/baskı tutarlılığını kapsar.
 
-- 718 kitap; 707 seçili yerel kapak dosyası.
+- 794 kitap; 765 kitapta seçili yerel kapak kaydı.
 - Kapakların kaynak URL'leri ve varsa ISBN kontrol basamakları doğrulandı.
 - 122 baskı künyesi araştırma kaydı; 105'inde çevirmen adı. Kaynak türleri: 30 yayınevi, 2 yayınevi önizlemesi, 1 kütüphane, 89 kitapçı.
 - Kullanıcının talebiyle Claude Code üzerinden beş araştırma turu yapıldı. Son 98 eksik çevirmen kaydı için kaynak sayfaları ayrıca tarandı; sonuçlar doğrudan kesin bilgiye çevrilmedi.

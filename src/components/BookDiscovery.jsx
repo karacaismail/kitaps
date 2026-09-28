@@ -31,6 +31,7 @@ export default function BookDiscovery({book,catalog,states,onOpen,onCategory,onC
   <Accordion multiple defaultValue={['before','after']} variant="separated" radius="md">
    <Accordion.Item value="before"><Accordion.Control>Önce ne okumalıyım? · {guide.before.length}</Accordion.Control><Accordion.Panel>{guide.before.length?<Stack gap="md">{guide.before.map(linked)}</Stack>:<Text>Doğrudan bu kitapla başlayabilirsin. Bu rota için bir ön okuma önermiyoruz.</Text>}</Accordion.Panel></Accordion.Item>
    <Accordion.Item value="after"><Accordion.Control>Sonra nasıl derinleşirim? · {guide.after.length}</Accordion.Control><Accordion.Panel>{guide.after.length?<Stack gap="md">{guide.after.map(linked)}</Stack>:<Text>Bu rota için belirli bir devam kitabı seçilmedi. Aşağıdaki konu kitaplarından farklı bir bakış açısı seçebilirsin.</Text>}</Accordion.Panel></Accordion.Item>
+   {guide.companions.length>0&&<Accordion.Item value="companions"><Accordion.Control>Birlikte veya karşılaştırmalı oku · {guide.companions.length}</Accordion.Control><Accordion.Panel><Stack gap="md">{guide.companions.map(linked)}</Stack></Accordion.Panel></Accordion.Item>}
   </Accordion>
   <div><Title order={3}>{heading}</Title><Text mt="sm" c="dimmed">Ortak konu ve küme üyeliklerine göre seçildi. Kitaplığındaki eserler de burada görünür.</Text></div>
   <Select label="Önerilerin konusu veya kümesi" data={options} value={scope} allowDeselect={false} onChange={v=>{if(v){setScope(v);setVisible(4)}}}/>

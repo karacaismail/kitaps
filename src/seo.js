@@ -2,7 +2,7 @@ import { bookSlug, emptyFilters, encodeRoute } from './library.js';
 import { displayTitle } from './translation.js';
 
 const SITE_NAME='Kitaplık';
-const BASE_DESCRIPTION='736 kitap; araştırılmış seçkiler, konu rotaları, çeviri, çevirmen ve baskı bilgileriyle tek katalogda.';
+const BASE_DESCRIPTION='794 kitap; araştırılmış seçkiler, konu rotaları, çeviri, çevirmen ve baskı bilgileriyle tek katalogda.';
 
 function publicListing(route) {
  const f=route.filters;

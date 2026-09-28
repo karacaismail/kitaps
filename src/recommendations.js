@@ -19,13 +19,14 @@ export function readingGuide(book,catalog) {
  const chosen=data.overrides[book.id]||{};
  const before=(chosen.before??defaultLinks(previous,'before')).filter(x=>byId[x.id]&&x.id!==book.id);
  const after=(chosen.after??defaultLinks(following,'after')).filter(x=>byId[x.id]&&x.id!==book.id&&!before.some(p=>p.id===x.id));
- return {purpose,kind,before,after,route,sources:data.sources[book.id]||[]};
+ const companions=(chosen.companions??[]).filter(x=>byId[x.id]&&x.id!==book.id&&!before.some(p=>p.id===x.id)&&!after.some(p=>p.id===x.id));
+ return {purpose,kind,before,after,companions,route,sources:data.sources[book.id]||[]};
 }
 export function relatedBooks(book,catalog,scope,states={}) {
  const [type,id]=scope.split('|');
  if(!['category','collection'].includes(type))return [];
  const suggested=catalog.readingGuides.overrides[book.id];
- const preferred=[...(suggested?.after||[]),...(suggested?.before||[])].map(x=>x.id);
+ const preferred=[...(suggested?.after||[]),...(suggested?.before||[]),...(suggested?.companions||[])].map(x=>x.id);
  return catalog.books.filter(b=>b.id!==book.id&&(type==='category'?b.categories.includes(id):b.collectionIds.includes(id)))
  .map(b=>({book:b,score:(preferred.includes(b.id)?20:0)+b.groupIds.filter(id=>book.groupIds.includes(id)&&!id.endsWith(':cross')).length*4+b.categories.filter(id=>book.categories.includes(id)).length*2+Number(!!b.cover)}))
  .sort((a,b)=>b.score-a.score||displayTitle(a.book).localeCompare(displayTitle(b.book),'tr')).map(x=>x.book);
