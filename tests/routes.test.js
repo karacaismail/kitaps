@@ -5,7 +5,7 @@ import { emptyFilters,encodeRoute,decodeRoute,bookSlug } from '../src/library.js
 import { displayTitle,translationStatus,turkishMeaning } from '../src/translation.js';
 const catalog=JSON.parse(fs.readFileSync(new URL('../src/catalog.json',import.meta.url)));
 test('readable English query parameters survive reload and retain legacy hashes',()=>{
- const route={view:'books',sort:'shared',book:null,filters:{...emptyFilters(),categories:['strategy']}};
+ const route={view:'books',sort:'shared',book:null,page:1,pageSize:24,filters:{...emptyFilters(),categories:['strategy']}};
  assert.equal(encodeRoute(route),'category=strategy');
  assert.deepEqual(decodeRoute('?category=strategy',catalog),route);
  assert.deepEqual(decodeRoute('#f=%7B%22categories%22%3A%5B%22strategy%22%5D%7D',catalog),route);
@@ -13,6 +13,13 @@ test('readable English query parameters survive reload and retain legacy hashes'
  const url=encodeRoute(all,catalog);assert.ok(url.includes('view=library'));assert.ok(url.includes('status=reading'));assert.ok(url.includes('award=winner'));assert.ok(!url.includes('%7B'));
  assert.deepEqual(decodeRoute('?'+url,catalog),all);
  assert.deepEqual(decodeRoute('?category=unknown&year-from=no',catalog).filters,emptyFilters());
+});
+test('pagination has durable readable URLs',()=>{
+ const route={view:'books',sort:'shared',book:null,page:5,pageSize:48,filters:emptyFilters()};
+ assert.equal(encodeRoute(route,catalog),'page=5&page-size=48');
+ assert.deepEqual(decodeRoute('?page=5&page-size=48',catalog),route);
+ assert.equal(decodeRoute('?page=0&page-size=99',catalog).page,1);
+ assert.equal(decodeRoute('?page=0&page-size=99',catalog).pageSize,24);
 });
 test('readable book URLs resolve every title without collisions',()=>{
  const slugs=catalog.books.map(bookSlug);assert.equal(new Set(slugs).size,catalog.books.length);
