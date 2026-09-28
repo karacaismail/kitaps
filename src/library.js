@@ -1,6 +1,8 @@
+import { displayTitle } from './translation.js';
+
 export const STATE_LABELS = { onemli: 'Favori', alinacak: 'Alınacak', alindi: 'Satın alındı', okunuyor: 'Okunuyor', okundu: 'Okundu', araverildi: 'Ara verdim', birakildi: 'Bıraktım' };
 export const QUALITY_LABELS = { ok: 'Kaynakta doğrulanmış', warn: 'Baskı / çeviri uyarısı', unverified: 'Künye eksik', avoid: 'Kaçınılacak baskı notu' };
-export const ORIGIN_LABELS = { atlas: 'Kitap Atlası', local: 'Okuma Kümeleri', kitaps: 'Kitaps' };
+export const ORIGIN_LABELS = { atlas: 'Kitap Atlası', local: 'Okuma Kümeleri', kitaps: 'Kitaps', entrepreneurship: 'Girişimcilik araştırması' };
 export const emptyFilters = () => ({ query: '', categories: [], collections: [], groups: [], states: [], authors: [], origins: [], awards: [], awardYears: [], qualities: [], categoryMode: 'any', collectionMode: 'any', hasEdition: false, shared: false, yearMin: '', yearMax: '' });
 export const normalize = value => String(value ?? '').toLocaleLowerCase('tr-TR').replace(/ı/g, 'i').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[’‘]/g, "'");
 export function prepareBooks(books) {
@@ -29,7 +31,7 @@ export function filterBooks(books, filters, states = {}) {
 }
 export function sortBooks(books, sort, states = {}) {
  const collator = new Intl.Collator('tr', { sensitivity: 'base', numeric: true });
- const title = b => b.titleTr || b.title;
+ const title = b => displayTitle(b);
  return [...books].sort((a,b) => {
   const tie = () => collator.compare(title(a),title(b));
   if (sort === 'shared') return b.collectionIds.length - a.collectionIds.length || tie();

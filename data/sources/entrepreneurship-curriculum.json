@@ -1,0 +1,55 @@
+{
+  "id": "entrepreneurship-curriculum",
+  "title": "Girişimcilik: Darboğaza Göre Okuma Rotası",
+  "short": "Girişimcilik rotası",
+  "description": "Müşteri keşfinden sermaye dağıtımına uzanan 35 kitap. Sabit bir müfredat yerine güncel işletme darboğazına göre kullanılır.",
+  "origin": "editorial-research",
+  "source": "https://github.com/karacaismail/kitaps/blob/main/reports/Giri%C5%9Fimcilik%20kitapl%C4%B1%C4%9F%C4%B1%20geni%C5%9Fletme.md",
+  "groups": [
+    {"id":"customer","title":"İşletme haritası, müşteri ve kanıt","books":[
+      {"title":"The Personal MBA: Master the Art of Business","author":"Josh Kaufman","existingId":"personalmbamastertheartofbusiness","reason":"İşletmenin temel mekanizmalarını tek haritada görmek.","sourceUrl":"https://personalmba.com/"},
+      {"title":"The Mom Test","author":"Rob Fitzpatrick","year":2013,"reason":"Müşteri görüşmelerinde övgü yerine davranış kanıtı toplamak.","sourceUrl":"https://www.simonandschuster.net/books/The-Mom-Test/Rob-Fitzpatrick/9798893312560"},
+      {"title":"Competing Against Luck","author":"Clayton M. Christensen, Taddy Hall, Karen Dillon, David S. Duncan","year":2016,"titleTr":"İnovasyonda Ustalaşmak","publisherTr":"Optimist Kitap","translator":"Ümit Şensoy","isbnTr":"9786052261873","translationSource":"https://www.bkmkitap.com/inovasyonda-ustalasmak","reason":"Müşterinin ürünü hangi iş için seçtiğini anlamak.","sourceUrl":"https://books.google.com/books/about/Competing_Against_Luck.html?id=zGd_CwAAQBAJ"},
+      {"title":"Disciplined Entrepreneurship","author":"Bill Aulet","year":2013,"reason":"Problem, segment ve ürün kararlarını sistemli bir sürece bağlamak.","sourceUrl":"https://www.wiley.com/en-us/Disciplined+Entrepreneurship%3A+24+Steps+to+a+Successful+Startup-p-9781118692288"},
+      {"title":"Business Model Generation","author":"Alexander Osterwalder, Yves Pigneur","year":2010,"titleTr":"İş Modeli Üretimi","publisherTr":"Optimist Yayın Dağıtım","translator":"Levent Göktem","isbnTr":"9786052202814","translationSource":"https://www.scalakitapci.com/is-modeli-uretimi","reason":"İş modelinin parçalarını ve varsayımlarını görünür kılmak.","sourceUrl":"https://www.wiley.com/en-us/Business+Model+Generation-p-9780470876411"},
+      {"title":"Value Proposition Design","author":"Alexander Osterwalder, Yves Pigneur, Gregory Bernarda, Alan Smith","year":2014,"titleTr":"Müşteriniz Ne İster?","publisherTr":"Timaş","translator":"Cem Özdemir","isbnTr":"9786050822649","translationSource":"https://timas.com.tr/musteriniz-ne-ister","reason":"Değer önerisini müşteri işi, acısı ve kazanımıyla eşleştirmek.","sourceUrl":"https://www.strategyzer.com/library/value-proposition-design-2"},
+      {"title":"Testing Business Ideas","author":"David J. Bland, Alexander Osterwalder","year":2019,"reason":"En riskli varsayımları küçük deneylere çevirmek.","sourceUrl":"https://www.strategyzer.com/library/testing-business-ideas-book"}
+    ]},
+    {"id":"sales","title":"Satış, konumlandırma, fiyat ve müzakere","books":[
+      {"title":"Founding Sales","author":"Pete Kazanjy","reason":"Kurucunun ilk tekrarlanabilir satış sürecini kurmak.","sourceUrl":"https://www.foundingsales.com/"},
+      {"title":"SPIN Selling","author":"Neil Rackham","existingId":"spinselling","reason":"Büyük B2B satışlarda soru ve keşif yapısını geliştirmek.","sourceUrl":"https://www.routledge.com/SPIN-Selling/Rackham/p/book/9780566076893"},
+      {"title":"Obviously Awesome","author":"April Dunford","year":2019,"reason":"Ürünü doğru pazar bağlamında konumlandırmak.","sourceUrl":"https://www.aprildunford.com/books"},
+      {"title":"Monetizing Innovation","author":"Madhavan Ramanujam, Georg Tacke","year":2016,"reason":"Ürünü ödeme isteği ve fiyat etrafında tasarlamak.","sourceUrl":"https://www.wiley.com/en-us/Monetizing+Innovation-p-9781119240860"},
+      {"title":"Negotiation Genius","author":"Deepak Malhotra, Max H. Bazerman","year":2007,"titleTr":"Evet Dedirtme Sanatı","publisherTr":"Koridor Yayıncılık","translator":"Korkmaz Haktanır","isbnTr":"9786054629725","translationSource":"https://www.kitapvekahve.com/evet-dedirtme-sanati","reason":"İş müzakeresinde hazırlık, alternatif ve değer yaratma yapısı kurmak.","sourceUrl":"https://www.penguinrandomhouse.com/books/106602/negotiation-genius-by-deepak-malhotra-and-max-bazerman/"},
+      {"title":"Never Split the Difference","author":"Chris Voss, Tahl Raz","existingId":"neversplitthedifference","reason":"Zor görüşmeler için taktik repertuvar geliştirmek.","sourceUrl":"https://www.penguinrandomhouse.com/books/316019/never-split-the-difference-by-chris-voss-with-tahl-raz/"}
+    ]},
+    {"id":"strategy","title":"Strateji, avantaj, dağıtım ve büyüme","books":[
+      {"title":"Good Strategy, Bad Strategy","author":"Richard Rumelt","existingId":"goodstrategybadstrategy","reason":"Teşhis, politika ve tutarlı eylem kurmak.","sourceUrl":"https://www.penguinrandomhouse.com/books/158208/good-strategybad-strategy-by-richard-rumelt/"},
+      {"title":"Playing to Win","author":"A. G. Lafley, Roger L. Martin","existingId":"playingtowin","reason":"Nerede oynanacağı ve nasıl kazanılacağı seçimlerini bağlamak.","sourceUrl":"https://hbr.org/books/playing-to-win"},
+      {"title":"7 Powers: The Foundations of Business Strategy","author":"Hamilton Helmer","reason":"Kalıcı ekonomik avantajı sorgulamak.","sourceUrl":"https://7powers.com/"},
+      {"title":"The Innovator's Dilemma","author":"Clayton M. Christensen","existingId":"innovatorsdilemma","reason":"Yıkıcı yenilik karşısındaki yerleşik şirket açmazını anlamak.","sourceUrl":"https://www.hbs.edu/faculty/Pages/item.aspx?num=46"},
+      {"title":"Traction","author":"Gabriel Weinberg, Justin Mares","year":2014,"reason":"Müşteri edinme kanallarını sistemli test etmek.","sourceUrl":"https://www.penguinrandomhouse.com/books/319121/traction-by-gabriel-weinberg-and-justin-mares/"},
+      {"title":"Crossing the Chasm","author":"Geoffrey A. Moore","existingId":"crossingthechasm","reason":"Erken kullanıcıdan ana pazara geçişi planlamak.","sourceUrl":"https://www.harpercollins.com/products/crossing-the-chasm-3rd-edition-geoffrey-a-moore"},
+      {"title":"The Cold Start Problem","author":"Andrew Chen","year":2021,"reason":"Ağ etkili ürünlerde ilk ağı kurmak.","sourceUrl":"https://a16z.com/books/the-cold-start-problem/"},
+      {"title":"How Brands Grow","author":"Byron Sharp","existingId":"howbrandsgrow","reason":"Tüketici markalarında bulunabilirlik ve büyüme kanıtlarını incelemek.","sourceUrl":"https://global.oup.com/academic/product/how-brands-grow-9780195573565"}
+    ]},
+    {"id":"operations","title":"Operasyon, liderlik ve ekip","books":[
+      {"title":"The Goal","author":"Eliyahu M. Goldratt, Jeff Cox","existingId":"goal","reason":"Darboğazı ve sistem akışını yönetmek.","sourceUrl":"https://www.routledge.com/The-Goal-A-Process-of-Ongoing-Improvement/Goldratt-Cox/p/book/9781032438325"},
+      {"title":"High Output Management","author":"Andrew S. Grove","existingId":"highoutputmanagement","reason":"Yönetim kaldıracı, çıktı ve toplantı ritmi kurmak.","sourceUrl":"https://www.penguinrandomhouse.com/books/72467/high-output-management-by-andrew-s-grove/"},
+      {"title":"The Great CEO Within","author":"Matt Mochary","year":2019,"reason":"Delegasyon, karar ve CEO çalışma sistemi kurmak.","sourceUrl":"https://mocharymethod.org/the-great-ceo-within/"},
+      {"title":"The E-Myth Revisited","author":"Michael E. Gerber","existingId":"emythrevisited","reason":"Kurucu bağımlılığını azaltan süreçler tasarlamak.","sourceUrl":"https://www.harpercollins.com/products/the-e-myth-revisited-michael-e-gerber"},
+      {"title":"The Founder's Dilemmas","author":"Noam Wasserman","existingId":"foundersdilemmas","reason":"Kurucu ortak, hisse, rol ve kontrol kararlarını görmek.","sourceUrl":"https://www.jstor.org/stable/j.ctvcm4hqc"},
+      {"title":"Who: The A Method for Hiring","author":"Geoff Smart, Randy Street","year":2008,"reason":"Rol tanımı ve işe almayı scorecard ile yapılandırmak.","sourceUrl":"https://whothebook.com/order/"},
+      {"title":"Radical Candor","author":"Kim Scott","existingId":"radicalcandor","reason":"Açık geri bildirim ve insan yönetimi geliştirmek.","sourceUrl":"https://www.radicalcandor.com/books/radical-candor/"},
+      {"title":"The Hard Thing About Hard Things","author":"Ben Horowitz","existingId":"hardthingabouthardthings","reason":"Krizde ve zor insan kararlarında kurucu gerçekliğini görmek.","sourceUrl":"https://www.harpercollins.com/products/the-hard-thing-about-hard-things-ben-horowitz"}
+    ]},
+    {"id":"capital","title":"Finans, yatırım ve sermaye dağıtımı","books":[
+      {"title":"Financial Intelligence for Entrepreneurs","author":"Karen Berman, Joe Knight, John Case","existingId":"financialintelligenceforentrepreneurs","reason":"Finansal tabloları işletme kararı için okumak.","sourceUrl":"https://financialintelligencebook.com/the-books/for-entrepreneurs/"},
+      {"title":"Simple Numbers, Straight Talk, Big Profits!","author":"Greg Crabtree, Beverly Blair Harzog","existingId":"simplenumbersstraighttalkbigprofits","reason":"Küçük işletme kârlılığını temel göstergelerle izlemek.","sourceUrl":"https://www.simplefinancials.com/simple-numbers-book"},
+      {"title":"Profit First","author":"Mike Michalowicz","year":2017,"titleTr":"Önce Kar","publisherTr":"Peta Kitap Yayıncılık","translator":"Gülfiza Balcı","isbnTr":"9786257232296","translationSource":"https://www.kitapyurdu.com/kitap/once-kar/612937.html?publisher_id=10230","reason":"Davranışsal nakit disiplini kurmak.","sourceUrl":"https://www.penguinrandomhouse.com/books/549696/profit-first-by-mike-michalowicz/"},
+      {"title":"Venture Deals","author":"Brad Feld, Jason Mendelson","existingId":"venturedeals","reason":"Term sheet, kontrol ve sulanmayı anlamak.","sourceUrl":"https://www.wiley.com/en-us/Venture+Deals%2C+4th+Edition-p-9781119594826"},
+      {"title":"The Outsiders: Eight Unconventional CEOs and Their Radically Rational Blueprint for Success","author":"William N. Thorndike Jr.","year":2012,"titleTr":"Aykırılar: Sekiz Sıra Dışı CEO ve Tamamen Rasyonel Başarı Modelleri","publisherTr":"Pegasus Yayınları","translator":"Nil Bosna","isbnTr":"9786052998090","translationSource":"https://pegasusyayinlari.com/kitap_detay.php?kitapid=15766668457","reason":"CEO düzeyinde sermaye dağıtımını incelemek.","sourceUrl":"https://store.hbr.org/product/the-outsiders-eight-unconventional-ceos-and-their-radically-rational-blueprint-for-success/10344"},
+      {"title":"Thinking in Bets","author":"Annie Duke","year":2018,"reason":"Karar kalitesini sonucun şansından ayırmak.","sourceUrl":"https://www.penguinrandomhouse.com/books/552885/thinking-in-bets-by-annie-duke/"}
+    ]}
+  ]
+}

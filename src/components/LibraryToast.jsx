@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ActionIcon, Button } from '@mantine/core';
 import { IconBooks, IconShoppingBagCheck, IconX } from '@tabler/icons-react';
+import { displayTitle } from '../translation';
 
 export default function LibraryToast({ book, owned, onClose, onUndo }) {
  const root = useRef(null);
@@ -29,7 +30,7 @@ export default function LibraryToast({ book, owned, onClose, onUndo }) {
   <span className="library-toast-icon" aria-hidden="true">{owned ? <IconShoppingBagCheck size={28} /> : <IconBooks size={28} />}</span>
   <div className="library-toast-message">
    <strong>{owned ? 'Kütüphanene eklendi' : 'Kütüphanenden çıkarıldı'}</strong>
-   <p>{book.titleTr || book.title}</p>
+   <p>{displayTitle(book)}</p>
   </div>
   <ActionIcon className="library-toast-close" variant="subtle" aria-label="Bildirimi kapat" onClick={onClose}><IconX size={22} /></ActionIcon>
   <Button className="library-toast-undo" variant="default" onClick={onUndo}>Geri al</Button>

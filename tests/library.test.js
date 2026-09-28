@@ -18,6 +18,19 @@ test('all three inputs and every record survive the merge',()=>{
  for(const b of local.books)assert.ok(books.some(x=>[x.title,...x.aliases].includes(b.title)),b.title);
  for(const b of books){assert.ok(b.title);assert.ok(b.memberships.length);assert.ok(b.categories.length);}
 });
+test('the researched entrepreneurship route is unique and stays below the requested cap',()=>{
+ const source=JSON.parse(fs.readFileSync(new URL('../data/sources/entrepreneurship-curriculum.json',import.meta.url)));
+ const entries=source.groups.flatMap(group=>group.books);
+ assert.equal(entries.length,35);
+ assert.ok(entries.length<=100);
+ assert.equal(new Set(entries.map(item=>item.title.toLocaleLowerCase('en'))).size,entries.length);
+ assert.equal(catalog.collections.find(item=>item.id===source.id).count,entries.length);
+ for(const item of entries){
+  assert.match(item.sourceUrl,/^https:\/\//);
+  const book=item.existingId?books.find(book=>book.id===item.existingId):books.find(book=>[book.title,...book.aliases].includes(item.title));
+  assert.ok(book?.collectionIds.includes(source.id),item.title);
+ }
+});
 test('non-Latin titles and missing original titles remain distinct',()=>{
  assert.equal(filter({query:'Dostoyevski'}).length,4);
  assert.ok(filter({query:'Abartma Tozu'}).length===1);

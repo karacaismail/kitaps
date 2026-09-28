@@ -4,7 +4,7 @@ import json,re,unicodedata,hashlib
 from translation_availability import validate_manifest
 ROOT=Path(__file__).resolve().parents[1]
 def read(p):return json.loads((ROOT/p).read_text())
-atlas=read('data/sources/atlas-v1.json'); local=read('data/sources/okuma-kumeleri.json'); kitaps=read('data/sources/kitaps.json')
+atlas=read('data/sources/atlas-v1.json'); local=read('data/sources/okuma-kumeleri.json'); kitaps=read('data/sources/kitaps.json'); entrepreneurship=read('data/sources/entrepreneurship-curriculum.json')
 def norm(s):
  s=''.join(c for c in unicodedata.normalize('NFKD',s.lower().replace('ı','i')) if not unicodedata.combining(c)).replace('&','and')
  s=re.sub(r'\s*\([A-Z]\d+\)\s*$','',s,flags=re.I)
@@ -136,6 +136,23 @@ for g in next(c for c in atlas['collections'] if c['id']=='ft')['groups']:
 overrides={'Thinking in Systems':['systems'],'The Goal':['systems'],'Out of the Crisis':['systems'],'Information Rules':['technology','economy','strategy'],'The Halo Effect':['psychology','management'],'Superforecasting':['psychology'],'How Brands Grow':['marketing'],'High Output Management':['management','productivity'],'The Effective Executive':['management','productivity'],'The Innovator’s Dilemma':['innovation','strategy'],'Competitive Advantage':['strategy'],'Co-opetition':['strategy'],'The Discoverers':['history','science'],'Syrup':['literature','marketing'],'The Republic of Tea':['enterprise','marketing'],'New Rules for the New Economy':['technology','economy'],'The Personal MBA':['management'],'The Power of Habit':['productivity','psychology'],'Atomic Habits':['productivity','psychology'],'Musashi':['literature','biography'],'Meditations':['philosophy'],'Antifragile':['psychology','finance'],'Nonviolent Communication':['communication'],'Drive':['psychology','management']}
 for title,cats in overrides.items():
  for bid in index.get(key(title),[]):addcat(books[bid],*cats)
+# Mechanism-based entrepreneurship route assembled from the supplied
+# recommendations and two independent research passes.
+collections.append({k:v for k,v in entrepreneurship.items() if k!='groups'}|{'mark':'G','tag':'Editoryal rota','note':'Liste 100 kitaba doldurulmadı; yalnızca araştırmayla gerekçelendirilen eserler alındı.'})
+for group in entrepreneurship['groups']:
+ gid=entrepreneurship['id']+':'+group['id'];groups.append({'id':gid,'collectionId':entrepreneurship['id'],'title':group['title']})
+ for item in group['books']:
+  b=books.get(item.get('existingId')) if item.get('existingId') else None
+  if not b:b=getbook(item['title'],item['author'],'entrepreneurship',extraTitles=[item.get('titleTr','')])
+  elif 'entrepreneurship' not in b['origins']:b['origins'].append('entrepreneurship')
+  if item.get('year') and item['year'] not in b['years']:b['years'].append(item['year'])
+  if item.get('titleTr'):
+   b['titleTr']=item['titleTr']
+   source_type='publisher' if any(domain in item['translationSource'] for domain in ['timas.com.tr','pegasusyayinlari.com']) else 'retailer'
+   b['verifiedEdition']={'title':item['titleTr'],'isbn':item['isbnTr'],'publisher':item['publisherTr'],'translators':[item['translator']],'sourceUrl':item['translationSource'],'sourceType':source_type}
+  note(b,item['reason'],'Girişimcilik rotası')
+  member(b,entrepreneurship['id'],gid,source=item['sourceUrl'],note=item['reason'])
+  mapping['entrepreneurship:'+key(item['title'])]=b['id'];addcat(b,'enterprise')
 covers={**(read('data/international-covers.json') if (ROOT/'data/international-covers.json').exists() else {}),**read('data/turkish-covers.json')}
 for bid,cover in covers.items():
  assert bid in books,bid
@@ -151,6 +168,9 @@ for bid,edition in read('data/edition-verification.json').items():
 for bid,issue in read('data/source-issues.json').items():
  assert bid in books,bid
  books[bid]['sourceIssue']=issue
+for b in books.values():
+ if 'entrepreneurship' in b['origins'] and not b.get('cover') and not b.get('sourceIssue'):
+  b['sourceIssue']={'note':'Kapak görseli eser ve baskı kimliğiyle birlikte henüz yerel kataloğa alınmadı; doğrulanmış bibliyografik kayıt görünür tutuluyor.'}
 translation_records=validate_manifest(read('data/translation-availability.json'),set(books))
 for bid,research in translation_records.items():
  books[bid]['translationResearch']=research

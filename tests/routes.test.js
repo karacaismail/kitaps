@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { emptyFilters,encodeRoute,decodeRoute,bookSlug } from '../src/library.js';
-import { translationStatus } from '../src/translation.js';
+import { displayTitle,translationStatus,turkishMeaning } from '../src/translation.js';
 const catalog=JSON.parse(fs.readFileSync(new URL('../src/catalog.json',import.meta.url)));
 test('readable English query parameters survive reload and retain legacy hashes',()=>{
  const route={view:'books',sort:'shared',book:null,filters:{...emptyFilters(),categories:['strategy']}};
@@ -25,4 +25,14 @@ test('translation absence is never inferred from an original cover or translated
  assert.equal(translationStatus({translationResearch:{status:'unavailable'}}).status,'unverified');
  assert.equal(translationStatus({translationResearch:{status:'unavailable',scopeNote:'İki aşamada bulunamadı.',stage1:{sources:[{url:'https://example.com/evidence'}]}}}).status,'unavailable');
  assert.equal(translationStatus({translationResearch:{status:'original',stage1:{sources:[{url:'https://example.com/original'}]}}}).status,'original');
+});
+test('unverified and unavailable works keep their original title while preserving a Turkish meaning',()=>{
+ const unverified={title:'Çocuklar İçin Yunan Mitolojisi',titleTr:'',cover:{language:'en',title:'Orchard Greek Myths'},editions:[{turkish:'Çocuklar İçin Yunan Mitolojisi'}]};
+ assert.equal(displayTitle(unverified),'Orchard Greek Myths');
+ assert.equal(turkishMeaning(unverified),'Çocuklar İçin Yunan Mitolojisi');
+ const imported={title:'Çocuklar İçin Yunan Mitolojisi',titleTr:'',cover:{language:'en',title:'Orchard Greek Myths'},editions:[{turkish:''}]};
+ assert.equal(turkishMeaning(imported),'Çocuklar İçin Yunan Mitolojisi');
+ const available={title:'The Mom Test',titleTr:'Anne Testi',cover:{language:'tr',title:'Anne Testi'}};
+ assert.equal(displayTitle(available),'Anne Testi');
+ assert.equal(turkishMeaning(available),'');
 });

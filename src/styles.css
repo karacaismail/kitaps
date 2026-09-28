@@ -252,3 +252,49 @@ body { background-image: none; }
 body::before { content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: .15; background-image: radial-gradient(circle, var(--page-pattern) 1.25px, transparent 1.35px); background-size: 22px 22px; background-position: -3px -3px; }
 #root { position: relative; z-index: 1; min-height: 100vh; }
 @media (max-width: 32.49em) { .site-footer { align-items: flex-start; } .footer-links { width: 100%; justify-content: flex-start; } }
+
+/* Keep the complete header on one line, including narrow phones. */
+.site-header {
+ display: grid;
+ grid-template-columns: minmax(0,1fr) auto 44px;
+ align-items: center;
+ gap: 6px;
+}
+.site-header > .mantine-Group-root { grid-column: 1; grid-row: 1; }
+.header-shortcuts { grid-column: 2; grid-row: 1; }
+.theme-toggle { grid-column: 3; grid-row: 1; }
+@media (max-width: 39.99em) {
+ .brand-link { padding: 2px 7px 2px 2px; gap: 2px; }
+ .site-header .brand { font-size: 1.125rem; }
+ .site-header .brand-link .mantine-ThemeIcon-root { width: 34px; min-width: 34px; height: 34px; }
+ .header-shortcuts { padding: 2px; }
+ .header-shortcuts .mantine-ActionIcon-root { width: 42px; min-width: 42px; height: 44px; min-height: 44px; padding: 0; }
+}
+
+/* Shared surface rhythm keeps the catalog calm while preserving hierarchy. */
+.main-tabs.mantine-Tabs-list,
+.search-panel,
+.collections-accordion .mantine-Accordion-item {
+ box-shadow: 0 8px 28px rgb(43 34 29 / 4%);
+}
+.book-card {
+ overflow: hidden;
+ box-shadow: 0 8px 24px rgb(43 34 29 / 5%);
+ transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+.book-card:hover {
+ transform: translateY(-2px);
+ box-shadow: 0 14px 32px rgb(43 34 29 / 9%);
+}
+.turkish-meaning {
+ padding: 10px 12px;
+ border-inline-start: 3px solid var(--accent-text);
+ border-radius: 0 10px 10px 0;
+ background: var(--soft);
+ color: var(--ink);
+ line-height: 1.5;
+}
+@media (prefers-reduced-motion: reduce) {
+ .book-card { transition: none; }
+ .book-card:hover { transform: none; }
+}

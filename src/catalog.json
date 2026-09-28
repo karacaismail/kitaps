@@ -1085,13 +1085,25 @@
           "source": "https://toddsattersten.com/what-to-read/",
           "award": null,
           "awardYear": null
+        },
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:operations",
+          "source": "https://www.harpercollins.com/products/the-e-myth-revisited-michael-e-gerber",
+          "note": "Kurucu bağımlılığını azaltan süreçler tasarlamak."
         }
       ],
-      "notes": [],
+      "notes": [
+        {
+          "text": "Kurucu bağımlılığını azaltan süreçler tasarlamak.",
+          "source": "Girişimcilik rotası"
+        }
+      ],
       "editions": [],
       "origins": [
         "atlas",
-        "local"
+        "local",
+        "entrepreneurship"
       ],
       "legacyKeys": [],
       "tags": [],
@@ -1122,11 +1134,13 @@
       },
       "collectionIds": [
         "time",
-        "hundred"
+        "hundred",
+        "entrepreneurship-curriculum"
       ],
       "groupIds": [
         "time:0",
-        "hundred:7"
+        "hundred:7",
+        "entrepreneurship-curriculum:operations"
       ]
     },
     {
@@ -1359,7 +1373,8 @@
       ],
       "categories": [
         "management",
-        "systems"
+        "systems",
+        "enterprise"
       ],
       "memberships": [
         {
@@ -1395,6 +1410,12 @@
           "groupId": "next:local",
           "source": null,
           "note": "Devam eden okuma; listeye ek değil."
+        },
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:operations",
+          "source": "https://www.routledge.com/The-Goal-A-Process-of-Ongoing-Improvement/Goldratt-Cox/p/book/9781032438325",
+          "note": "Darboğazı ve sistem akışını yönetmek."
         }
       ],
       "notes": [
@@ -1417,12 +1438,17 @@
         {
           "text": "Devam eden okuma; listeye ek değil.",
           "source": "Yakın Vade · 3 Kitap ve Amaç"
+        },
+        {
+          "text": "Darboğazı ve sistem akışını yönetmek.",
+          "source": "Girişimcilik rotası"
         }
       ],
       "editions": [],
       "origins": [
         "atlas",
-        "local"
+        "local",
+        "entrepreneurship"
       ],
       "legacyKeys": [],
       "tags": [
@@ -1458,14 +1484,16 @@
         "pmba",
         "hundred",
         "core",
-        "next"
+        "next",
+        "entrepreneurship-curriculum"
       ],
       "groupIds": [
         "time:0",
         "pmba:4",
         "hundred:5",
         "core:0",
-        "next:local"
+        "next:local",
+        "entrepreneurship-curriculum:operations"
       ]
     },
     {
@@ -1780,7 +1808,8 @@
       "categories": [
         "management",
         "strategy",
-        "innovation"
+        "innovation",
+        "enterprise"
       ],
       "memberships": [
         {
@@ -1822,6 +1851,12 @@
           "groupId": "kitaps-N:cross",
           "source": "https://github.com/karacaismail/kitaps/blob/main/data/kitaplar.md",
           "note": "Bu kitap, kaynak notlarında bu okuma hattıyla da ilişkilendirilmiştir."
+        },
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:strategy",
+          "source": "https://www.hbs.edu/faculty/Pages/item.aspx?num=46",
+          "note": "Yıkıcı yenilik karşısındaki yerleşik şirket açmazını anlamak."
         }
       ],
       "notes": [
@@ -1832,6 +1867,10 @@
         {
           "text": "Yıkıcı yenilik kuramı. Belgede çekirdekte korunan dört kitaptan biri.",
           "source": "Okuma Kümeleri"
+        },
+        {
+          "text": "Yıkıcı yenilik karşısındaki yerleşik şirket açmazını anlamak.",
+          "source": "Girişimcilik rotası"
         }
       ],
       "editions": [
@@ -1862,7 +1901,8 @@
       "origins": [
         "atlas",
         "local",
-        "kitaps"
+        "kitaps",
+        "entrepreneurship"
       ],
       "legacyKeys": [
         "the-innovator-s-dilemma-clayton-m-christensen"
@@ -1901,7 +1941,8 @@
         "mit",
         "core",
         "kitaps-M",
-        "kitaps-N"
+        "kitaps-N",
+        "entrepreneurship-curriculum"
       ],
       "groupIds": [
         "time:0",
@@ -1909,7 +1950,8 @@
         "mit:3",
         "core:0",
         "kitaps-M:liste",
-        "kitaps-N:cross"
+        "kitaps-N:cross",
+        "entrepreneurship-curriculum:strategy"
       ]
     },
     {
@@ -3549,7 +3591,8 @@
       "years": [],
       "categories": [
         "marketing",
-        "communication"
+        "communication",
+        "enterprise"
       ],
       "memberships": [
         {
@@ -3558,12 +3601,24 @@
           "source": "https://personalmba.com/review/spin-selling/",
           "award": null,
           "awardYear": null
+        },
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:sales",
+          "source": "https://www.routledge.com/SPIN-Selling/Rackham/p/book/9780566076893",
+          "note": "Büyük B2B satışlarda soru ve keşif yapısını geliştirmek."
         }
       ],
-      "notes": [],
+      "notes": [
+        {
+          "text": "Büyük B2B satışlarda soru ve keşif yapısını geliştirmek.",
+          "source": "Girişimcilik rotası"
+        }
+      ],
       "editions": [],
       "origins": [
-        "atlas"
+        "atlas",
+        "entrepreneurship"
       ],
       "legacyKeys": [],
       "tags": [],
@@ -3592,10 +3647,12 @@
         "note": "Kaynak künyesindeki ISBN eksik veya kontrol basamağı tutarsız; ISBN doğrulanamadı. Künye bilgisi bağlantıdaki baskıyla sınırlıdır."
       },
       "collectionIds": [
-        "pmba"
+        "pmba",
+        "entrepreneurship-curriculum"
       ],
       "groupIds": [
-        "pmba:3"
+        "pmba:3",
+        "entrepreneurship-curriculum:sales"
       ]
     },
     {
@@ -3712,7 +3769,8 @@
       "aliases": [],
       "years": [],
       "categories": [
-        "finance"
+        "finance",
+        "enterprise"
       ],
       "memberships": [
         {
@@ -3721,12 +3779,24 @@
           "source": "https://personalmba.com/review/financial-intelligence-entrepreneurs/",
           "award": null,
           "awardYear": null
+        },
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:capital",
+          "source": "https://financialintelligencebook.com/the-books/for-entrepreneurs/",
+          "note": "Finansal tabloları işletme kararı için okumak."
         }
       ],
-      "notes": [],
+      "notes": [
+        {
+          "text": "Finansal tabloları işletme kararı için okumak.",
+          "source": "Girişimcilik rotası"
+        }
+      ],
       "editions": [],
       "origins": [
-        "atlas"
+        "atlas",
+        "entrepreneurship"
       ],
       "legacyKeys": [],
       "tags": [],
@@ -3745,10 +3815,12 @@
         "turkishStatus": "unverified"
       },
       "collectionIds": [
-        "pmba"
+        "pmba",
+        "entrepreneurship-curriculum"
       ],
       "groupIds": [
-        "pmba:5"
+        "pmba:5",
+        "entrepreneurship-curriculum:capital"
       ]
     },
     {
@@ -3759,7 +3831,8 @@
       "aliases": [],
       "years": [],
       "categories": [
-        "finance"
+        "finance",
+        "enterprise"
       ],
       "memberships": [
         {
@@ -3768,12 +3841,24 @@
           "source": "https://personalmba.com/review/simple-numbers/",
           "award": null,
           "awardYear": null
+        },
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:capital",
+          "source": "https://www.simplefinancials.com/simple-numbers-book",
+          "note": "Küçük işletme kârlılığını temel göstergelerle izlemek."
         }
       ],
-      "notes": [],
+      "notes": [
+        {
+          "text": "Küçük işletme kârlılığını temel göstergelerle izlemek.",
+          "source": "Girişimcilik rotası"
+        }
+      ],
       "editions": [],
       "origins": [
-        "atlas"
+        "atlas",
+        "entrepreneurship"
       ],
       "legacyKeys": [],
       "tags": [],
@@ -3792,10 +3877,12 @@
         "turkishStatus": "unverified"
       },
       "collectionIds": [
-        "pmba"
+        "pmba",
+        "entrepreneurship-curriculum"
       ],
       "groupIds": [
-        "pmba:5"
+        "pmba:5",
+        "entrepreneurship-curriculum:capital"
       ]
     },
     {
@@ -3947,7 +4034,8 @@
       "aliases": [],
       "years": [],
       "categories": [
-        "finance"
+        "finance",
+        "enterprise"
       ],
       "memberships": [
         {
@@ -3956,12 +4044,24 @@
           "source": "https://personalmba.com/review/venture-deals/",
           "award": null,
           "awardYear": null
+        },
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:capital",
+          "source": "https://www.wiley.com/en-us/Venture+Deals%2C+4th+Edition-p-9781119594826",
+          "note": "Term sheet, kontrol ve sulanmayı anlamak."
         }
       ],
-      "notes": [],
+      "notes": [
+        {
+          "text": "Term sheet, kontrol ve sulanmayı anlamak.",
+          "source": "Girişimcilik rotası"
+        }
+      ],
       "editions": [],
       "origins": [
-        "atlas"
+        "atlas",
+        "entrepreneurship"
       ],
       "legacyKeys": [],
       "tags": [],
@@ -3980,10 +4080,12 @@
         "turkishStatus": "unverified"
       },
       "collectionIds": [
-        "pmba"
+        "pmba",
+        "entrepreneurship-curriculum"
       ],
       "groupIds": [
-        "pmba:5"
+        "pmba:5",
+        "entrepreneurship-curriculum:capital"
       ]
     },
     {
@@ -7787,7 +7889,8 @@
       "aliases": [],
       "years": [],
       "categories": [
-        "management"
+        "management",
+        "enterprise"
       ],
       "memberships": [
         {
@@ -7795,12 +7898,24 @@
           "groupId": "pmba:guide",
           "source": "https://personalmba.com/",
           "guide": true
+        },
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:customer",
+          "source": "https://personalmba.com/",
+          "note": "İşletmenin temel mekanizmalarını tek haritada görmek."
         }
       ],
-      "notes": [],
+      "notes": [
+        {
+          "text": "İşletmenin temel mekanizmalarını tek haritada görmek.",
+          "source": "Girişimcilik rotası"
+        }
+      ],
       "editions": [],
       "origins": [
-        "atlas"
+        "atlas",
+        "entrepreneurship"
       ],
       "legacyKeys": [],
       "tags": [],
@@ -7829,10 +7944,12 @@
         "checkedAt": "2026-09-28"
       },
       "collectionIds": [
-        "pmba"
+        "pmba",
+        "entrepreneurship-curriculum"
       ],
       "groupIds": [
-        "pmba:guide"
+        "pmba:guide",
+        "entrepreneurship-curriculum:customer"
       ]
     },
     {
@@ -17309,12 +17426,24 @@
           "source": "https://ig.ft.com/sites/business-book-award/books/2014/longlist/the-hard-thing-about-hard-things-by-ben-horowitz",
           "award": "Uzun liste",
           "awardYear": 2014
+        },
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:operations",
+          "source": "https://www.harpercollins.com/products/the-hard-thing-about-hard-things-ben-horowitz",
+          "note": "Krizde ve zor insan kararlarında kurucu gerçekliğini görmek."
         }
       ],
-      "notes": [],
+      "notes": [
+        {
+          "text": "Krizde ve zor insan kararlarında kurucu gerçekliğini görmek.",
+          "source": "Girişimcilik rotası"
+        }
+      ],
       "editions": [],
       "origins": [
-        "atlas"
+        "atlas",
+        "entrepreneurship"
       ],
       "legacyKeys": [],
       "tags": [],
@@ -17332,10 +17461,12 @@
         "turkishStatus": "unverified"
       },
       "collectionIds": [
-        "ft"
+        "ft",
+        "entrepreneurship-curriculum"
       ],
       "groupIds": [
-        "ft:12"
+        "ft:12",
+        "entrepreneurship-curriculum:operations"
       ]
     },
     {
@@ -18964,7 +19095,8 @@
         2011
       ],
       "categories": [
-        "strategy"
+        "strategy",
+        "enterprise"
       ],
       "memberships": [
         {
@@ -19005,6 +19137,12 @@
           "groupId": "kitaps-N:cross",
           "source": "https://github.com/karacaismail/kitaps/blob/main/data/kitaplar.md",
           "note": "Bu kitap, kaynak notlarında bu okuma hattıyla da ilişkilendirilmiştir."
+        },
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:strategy",
+          "source": "https://www.penguinrandomhouse.com/books/158208/good-strategybad-strategy-by-richard-rumelt/",
+          "note": "Teşhis, politika ve tutarlı eylem kurmak."
         }
       ],
       "notes": [
@@ -19027,6 +19165,10 @@
         {
           "text": "Doğru yönü seçmek.",
           "source": "Yakın Vade · 3 Kitap ve Amaç"
+        },
+        {
+          "text": "Teşhis, politika ve tutarlı eylem kurmak.",
+          "source": "Girişimcilik rotası"
         }
       ],
       "editions": [
@@ -19059,7 +19201,8 @@
       "origins": [
         "atlas",
         "local",
-        "kitaps"
+        "kitaps",
+        "entrepreneurship"
       ],
       "legacyKeys": [
         "good-strategy-bad-strategy-richard-p-rumelt"
@@ -19102,7 +19245,8 @@
         "next",
         "kitaps-A",
         "kitaps-M",
-        "kitaps-N"
+        "kitaps-N",
+        "entrepreneurship-curriculum"
       ],
       "groupIds": [
         "ft:15",
@@ -19110,7 +19254,8 @@
         "next:1",
         "kitaps-A:liste",
         "kitaps-M:cross",
-        "kitaps-N:cross"
+        "kitaps-N:cross",
+        "entrepreneurship-curriculum:strategy"
       ]
     },
     {
@@ -23984,13 +24129,25 @@
           "source": "https://fivebooks.com/best-books/entrepreneurship-thomas-hellmann/",
           "award": null,
           "awardYear": null
+        },
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:operations",
+          "source": "https://www.jstor.org/stable/j.ctvcm4hqc",
+          "note": "Kurucu ortak, hisse, rol ve kontrol kararlarını görmek."
         }
       ],
-      "notes": [],
+      "notes": [
+        {
+          "text": "Kurucu ortak, hisse, rol ve kontrol kararlarını görmek.",
+          "source": "Girişimcilik rotası"
+        }
+      ],
       "editions": [],
       "origins": [
         "atlas",
-        "local"
+        "local",
+        "entrepreneurship"
       ],
       "legacyKeys": [],
       "tags": [
@@ -24011,10 +24168,12 @@
         "turkishStatus": "unverified"
       },
       "collectionIds": [
-        "five"
+        "five",
+        "entrepreneurship-curriculum"
       ],
       "groupIds": [
-        "five:0"
+        "five:0",
+        "entrepreneurship-curriculum:operations"
       ]
     },
     {
@@ -25863,7 +26022,8 @@
       "aliases": [],
       "years": [],
       "categories": [
-        "marketing"
+        "marketing",
+        "enterprise"
       ],
       "memberships": [
         {
@@ -25872,12 +26032,24 @@
           "source": "https://toddsattersten.com/what-to-read/",
           "award": null,
           "awardYear": null
+        },
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:strategy",
+          "source": "https://www.harpercollins.com/products/crossing-the-chasm-3rd-edition-geoffrey-a-moore",
+          "note": "Erken kullanıcıdan ana pazara geçişi planlamak."
         }
       ],
-      "notes": [],
+      "notes": [
+        {
+          "text": "Erken kullanıcıdan ana pazara geçişi planlamak.",
+          "source": "Girişimcilik rotası"
+        }
+      ],
       "editions": [],
       "origins": [
-        "atlas"
+        "atlas",
+        "entrepreneurship"
       ],
       "legacyKeys": [],
       "tags": [],
@@ -25906,10 +26078,12 @@
         "checkedAt": "2026-09-28"
       },
       "collectionIds": [
-        "hundred"
+        "hundred",
+        "entrepreneurship-curriculum"
       ],
       "groupIds": [
-        "hundred:3"
+        "hundred:3",
+        "entrepreneurship-curriculum:strategy"
       ]
     },
     {
@@ -29286,7 +29460,8 @@
       ],
       "categories": [
         "management",
-        "productivity"
+        "productivity",
+        "enterprise"
       ],
       "memberships": [
         {
@@ -29302,6 +29477,12 @@
           "source": "https://penguinrandomhousehighereducation.com/book/?isbn=9780679762881",
           "award": null,
           "awardYear": null
+        },
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:operations",
+          "source": "https://www.penguinrandomhouse.com/books/72467/high-output-management-by-andrew-s-grove/",
+          "note": "Yönetim kaldıracı, çıktı ve toplantı ritmi kurmak."
         }
       ],
       "notes": [
@@ -29320,12 +29501,17 @@
         {
           "text": "O yönde iş çıkarmak.",
           "source": "Yakın Vade · 3 Kitap ve Amaç"
+        },
+        {
+          "text": "Yönetim kaldıracı, çıktı ve toplantı ritmi kurmak.",
+          "source": "Girişimcilik rotası"
         }
       ],
       "editions": [],
       "origins": [
         "atlas",
-        "local"
+        "local",
+        "entrepreneurship"
       ],
       "legacyKeys": [],
       "tags": [
@@ -29348,11 +29534,13 @@
       },
       "collectionIds": [
         "core",
-        "next"
+        "next",
+        "entrepreneurship-curriculum"
       ],
       "groupIds": [
         "core:1",
-        "next:2"
+        "next:2",
+        "entrepreneurship-curriculum:operations"
       ]
     },
     {
@@ -29367,7 +29555,8 @@
         2010
       ],
       "categories": [
-        "marketing"
+        "marketing",
+        "enterprise"
       ],
       "memberships": [
         {
@@ -29376,6 +29565,12 @@
           "source": "https://www.oup.com.au/books/higher-education/business-marketing/9780190337889",
           "award": null,
           "awardYear": null
+        },
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:strategy",
+          "source": "https://global.oup.com/academic/product/how-brands-grow-9780195573565",
+          "note": "Tüketici markalarında bulunabilirlik ve büyüme kanıtlarını incelemek."
         }
       ],
       "notes": [
@@ -29390,12 +29585,17 @@
         {
           "text": "Marka büyümesini satın alma davranışı, müşteri tabanı ve pazarlama araştırmaları üzerinden ele alır. Pazarlama fikirlerini ikna ediciliklerine göre değil, gözlenen davranışlarla ilişkilerine göre değerlendirmek için.",
           "source": "Önerilen Çekirdek · 12 Kitap"
+        },
+        {
+          "text": "Tüketici markalarında bulunabilirlik ve büyüme kanıtlarını incelemek.",
+          "source": "Girişimcilik rotası"
         }
       ],
       "editions": [],
       "origins": [
         "atlas",
-        "local"
+        "local",
+        "entrepreneurship"
       ],
       "legacyKeys": [],
       "tags": [
@@ -29428,10 +29628,12 @@
         "note": "Kaynak künyesindeki ISBN eksik veya kontrol basamağı tutarsız; ISBN doğrulanamadı. Künye bilgisi bağlantıdaki baskıyla sınırlıdır."
       },
       "collectionIds": [
-        "core"
+        "core",
+        "entrepreneurship-curriculum"
       ],
       "groupIds": [
-        "core:1"
+        "core:1",
+        "entrepreneurship-curriculum:strategy"
       ]
     },
     {
@@ -30456,7 +30658,8 @@
       ],
       "years": [],
       "categories": [
-        "strategy"
+        "strategy",
+        "enterprise"
       ],
       "memberships": [
         {
@@ -30470,9 +30673,20 @@
           "groupId": "kitaps-N:cross",
           "source": "https://github.com/karacaismail/kitaps/blob/main/data/kitaplar.md",
           "note": "Bu kitap, kaynak notlarında bu okuma hattıyla da ilişkilendirilmiştir."
+        },
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:strategy",
+          "source": "https://hbr.org/books/playing-to-win",
+          "note": "Nerede oynanacağı ve nasıl kazanılacağı seçimlerini bağlamak."
         }
       ],
-      "notes": [],
+      "notes": [
+        {
+          "text": "Nerede oynanacağı ve nasıl kazanılacağı seçimlerini bağlamak.",
+          "source": "Girişimcilik rotası"
+        }
+      ],
       "editions": [
         {
           "id": "B5",
@@ -30501,7 +30715,8 @@
         }
       ],
       "origins": [
-        "kitaps"
+        "kitaps",
+        "entrepreneurship"
       ],
       "legacyKeys": [
         "playing-to-win-a-g-lafley-roger-l-martin"
@@ -30523,11 +30738,13 @@
       },
       "collectionIds": [
         "kitaps-B",
-        "kitaps-N"
+        "kitaps-N",
+        "entrepreneurship-curriculum"
       ],
       "groupIds": [
         "kitaps-B:liste",
-        "kitaps-N:cross"
+        "kitaps-N:cross",
+        "entrepreneurship-curriculum:strategy"
       ]
     },
     {
@@ -38304,7 +38521,8 @@
       ],
       "years": [],
       "categories": [
-        "communication"
+        "communication",
+        "enterprise"
       ],
       "memberships": [
         {
@@ -38312,9 +38530,20 @@
           "groupId": "kitaps-N:N.3 — Çalışanlar ve üst yönetimle iletişim",
           "source": "https://karacaismail.github.io/kitaps/",
           "note": "FBI rehine müzakerecisinin yöntemi. Üst yönetimle konuşurken en işe yarayanı — \"taktiksel empati\", etiketleme, kalibre edilmiş sorular."
+        },
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:sales",
+          "source": "https://www.penguinrandomhouse.com/books/316019/never-split-the-difference-by-chris-voss-with-tahl-raz/",
+          "note": "Zor görüşmeler için taktik repertuvar geliştirmek."
         }
       ],
-      "notes": [],
+      "notes": [
+        {
+          "text": "Zor görüşmeler için taktik repertuvar geliştirmek.",
+          "source": "Girişimcilik rotası"
+        }
+      ],
       "editions": [
         {
           "id": "N7",
@@ -38343,7 +38572,8 @@
         }
       ],
       "origins": [
-        "kitaps"
+        "kitaps",
+        "entrepreneurship"
       ],
       "legacyKeys": [
         "never-split-the-difference-chris-voss-tahl-raz"
@@ -38362,10 +38592,12 @@
         "checkedAt": "2026-09-28"
       },
       "collectionIds": [
-        "kitaps-N"
+        "kitaps-N",
+        "entrepreneurship-curriculum"
       ],
       "groupIds": [
-        "kitaps-N:N.3 — Çalışanlar ve üst yönetimle iletişim"
+        "kitaps-N:N.3 — Çalışanlar ve üst yönetimle iletişim",
+        "entrepreneurship-curriculum:sales"
       ]
     },
     {
@@ -38379,7 +38611,8 @@
       "years": [],
       "categories": [
         "communication",
-        "management"
+        "management",
+        "enterprise"
       ],
       "memberships": [
         {
@@ -38387,9 +38620,20 @@
           "groupId": "kitaps-N:N.3 — Çalışanlar ve üst yönetimle iletişim",
           "source": "https://karacaismail.github.io/kitaps/",
           "note": "Doğrudan geri bildirim ile kişisel ilgiyi aynı anda tutmak. Yıkıcı empati (söyleyememe) ile saldırgan samimiyet (kırıcı olma) arasındaki dar yol."
+        },
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:operations",
+          "source": "https://www.radicalcandor.com/books/radical-candor/",
+          "note": "Açık geri bildirim ve insan yönetimi geliştirmek."
         }
       ],
-      "notes": [],
+      "notes": [
+        {
+          "text": "Açık geri bildirim ve insan yönetimi geliştirmek.",
+          "source": "Girişimcilik rotası"
+        }
+      ],
       "editions": [
         {
           "id": "N8",
@@ -38418,7 +38662,8 @@
         }
       ],
       "origins": [
-        "kitaps"
+        "kitaps",
+        "entrepreneurship"
       ],
       "legacyKeys": [
         "radical-candor-kim-scott"
@@ -38449,10 +38694,12 @@
         "note": "Bu baskının çevirmen adı ikinci bir künye kaynağıyla henüz doğrulanmadı."
       },
       "collectionIds": [
-        "kitaps-N"
+        "kitaps-N",
+        "entrepreneurship-curriculum"
       ],
       "groupIds": [
-        "kitaps-N:N.3 — Çalışanlar ve üst yönetimle iletişim"
+        "kitaps-N:N.3 — Çalışanlar ve üst yönetimle iletişim",
+        "entrepreneurship-curriculum:operations"
       ]
     },
     {
@@ -41265,6 +41512,830 @@
       "groupIds": [
         "kitaps-L:liste"
       ]
+    },
+    {
+      "id": "momtest",
+      "title": "The Mom Test",
+      "titleTr": "",
+      "author": "Rob Fitzpatrick",
+      "aliases": [],
+      "years": [
+        2013
+      ],
+      "categories": [
+        "enterprise"
+      ],
+      "memberships": [
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:customer",
+          "source": "https://www.simonandschuster.net/books/The-Mom-Test/Rob-Fitzpatrick/9798893312560",
+          "note": "Müşteri görüşmelerinde övgü yerine davranış kanıtı toplamak."
+        }
+      ],
+      "notes": [
+        {
+          "text": "Müşteri görüşmelerinde övgü yerine davranış kanıtı toplamak.",
+          "source": "Girişimcilik rotası"
+        }
+      ],
+      "editions": [],
+      "origins": [
+        "entrepreneurship"
+      ],
+      "legacyKeys": [],
+      "tags": [],
+      "sourceIssue": {
+        "note": "Kapak görseli eser ve baskı kimliğiyle birlikte henüz yerel kataloğa alınmadı; doğrulanmış bibliyografik kayıt görünür tutuluyor."
+      },
+      "collectionIds": [
+        "entrepreneurship-curriculum"
+      ],
+      "groupIds": [
+        "entrepreneurship-curriculum:customer"
+      ]
+    },
+    {
+      "id": "competingagainstluck",
+      "title": "Competing Against Luck",
+      "titleTr": "İnovasyonda Ustalaşmak",
+      "author": "Clayton M. Christensen, Taddy Hall, Karen Dillon, David S. Duncan",
+      "aliases": [
+        "İnovasyonda Ustalaşmak"
+      ],
+      "years": [
+        2016
+      ],
+      "categories": [
+        "enterprise"
+      ],
+      "memberships": [
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:customer",
+          "source": "https://books.google.com/books/about/Competing_Against_Luck.html?id=zGd_CwAAQBAJ",
+          "note": "Müşterinin ürünü hangi iş için seçtiğini anlamak."
+        }
+      ],
+      "notes": [
+        {
+          "text": "Müşterinin ürünü hangi iş için seçtiğini anlamak.",
+          "source": "Girişimcilik rotası"
+        }
+      ],
+      "editions": [],
+      "origins": [
+        "entrepreneurship"
+      ],
+      "legacyKeys": [],
+      "tags": [],
+      "verifiedEdition": {
+        "title": "İnovasyonda Ustalaşmak",
+        "isbn": "9786052261873",
+        "publisher": "Optimist Kitap",
+        "translators": [
+          "Ümit Şensoy"
+        ],
+        "sourceUrl": "https://www.bkmkitap.com/inovasyonda-ustalasmak",
+        "sourceType": "retailer"
+      },
+      "sourceIssue": {
+        "note": "Kapak görseli eser ve baskı kimliğiyle birlikte henüz yerel kataloğa alınmadı; doğrulanmış bibliyografik kayıt görünür tutuluyor."
+      },
+      "collectionIds": [
+        "entrepreneurship-curriculum"
+      ],
+      "groupIds": [
+        "entrepreneurship-curriculum:customer"
+      ]
+    },
+    {
+      "id": "disciplinedentrepreneurship",
+      "title": "Disciplined Entrepreneurship",
+      "titleTr": "",
+      "author": "Bill Aulet",
+      "aliases": [],
+      "years": [
+        2013
+      ],
+      "categories": [
+        "enterprise"
+      ],
+      "memberships": [
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:customer",
+          "source": "https://www.wiley.com/en-us/Disciplined+Entrepreneurship%3A+24+Steps+to+a+Successful+Startup-p-9781118692288",
+          "note": "Problem, segment ve ürün kararlarını sistemli bir sürece bağlamak."
+        }
+      ],
+      "notes": [
+        {
+          "text": "Problem, segment ve ürün kararlarını sistemli bir sürece bağlamak.",
+          "source": "Girişimcilik rotası"
+        }
+      ],
+      "editions": [],
+      "origins": [
+        "entrepreneurship"
+      ],
+      "legacyKeys": [],
+      "tags": [],
+      "sourceIssue": {
+        "note": "Kapak görseli eser ve baskı kimliğiyle birlikte henüz yerel kataloğa alınmadı; doğrulanmış bibliyografik kayıt görünür tutuluyor."
+      },
+      "collectionIds": [
+        "entrepreneurship-curriculum"
+      ],
+      "groupIds": [
+        "entrepreneurship-curriculum:customer"
+      ]
+    },
+    {
+      "id": "businessmodelgeneration",
+      "title": "Business Model Generation",
+      "titleTr": "İş Modeli Üretimi",
+      "author": "Alexander Osterwalder, Yves Pigneur",
+      "aliases": [
+        "İş Modeli Üretimi"
+      ],
+      "years": [
+        2010
+      ],
+      "categories": [
+        "enterprise"
+      ],
+      "memberships": [
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:customer",
+          "source": "https://www.wiley.com/en-us/Business+Model+Generation-p-9780470876411",
+          "note": "İş modelinin parçalarını ve varsayımlarını görünür kılmak."
+        }
+      ],
+      "notes": [
+        {
+          "text": "İş modelinin parçalarını ve varsayımlarını görünür kılmak.",
+          "source": "Girişimcilik rotası"
+        }
+      ],
+      "editions": [],
+      "origins": [
+        "entrepreneurship"
+      ],
+      "legacyKeys": [],
+      "tags": [],
+      "verifiedEdition": {
+        "title": "İş Modeli Üretimi",
+        "isbn": "9786052202814",
+        "publisher": "Optimist Yayın Dağıtım",
+        "translators": [
+          "Levent Göktem"
+        ],
+        "sourceUrl": "https://www.scalakitapci.com/is-modeli-uretimi",
+        "sourceType": "retailer"
+      },
+      "sourceIssue": {
+        "note": "Kapak görseli eser ve baskı kimliğiyle birlikte henüz yerel kataloğa alınmadı; doğrulanmış bibliyografik kayıt görünür tutuluyor."
+      },
+      "collectionIds": [
+        "entrepreneurship-curriculum"
+      ],
+      "groupIds": [
+        "entrepreneurship-curriculum:customer"
+      ]
+    },
+    {
+      "id": "valuepropositiondesign",
+      "title": "Value Proposition Design",
+      "titleTr": "Müşteriniz Ne İster?",
+      "author": "Alexander Osterwalder, Yves Pigneur, Gregory Bernarda, Alan Smith",
+      "aliases": [
+        "Müşteriniz Ne İster?"
+      ],
+      "years": [
+        2014
+      ],
+      "categories": [
+        "enterprise"
+      ],
+      "memberships": [
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:customer",
+          "source": "https://www.strategyzer.com/library/value-proposition-design-2",
+          "note": "Değer önerisini müşteri işi, acısı ve kazanımıyla eşleştirmek."
+        }
+      ],
+      "notes": [
+        {
+          "text": "Değer önerisini müşteri işi, acısı ve kazanımıyla eşleştirmek.",
+          "source": "Girişimcilik rotası"
+        }
+      ],
+      "editions": [],
+      "origins": [
+        "entrepreneurship"
+      ],
+      "legacyKeys": [],
+      "tags": [],
+      "verifiedEdition": {
+        "title": "Müşteriniz Ne İster?",
+        "isbn": "9786050822649",
+        "publisher": "Timaş",
+        "translators": [
+          "Cem Özdemir"
+        ],
+        "sourceUrl": "https://timas.com.tr/musteriniz-ne-ister",
+        "sourceType": "publisher"
+      },
+      "sourceIssue": {
+        "note": "Kapak görseli eser ve baskı kimliğiyle birlikte henüz yerel kataloğa alınmadı; doğrulanmış bibliyografik kayıt görünür tutuluyor."
+      },
+      "collectionIds": [
+        "entrepreneurship-curriculum"
+      ],
+      "groupIds": [
+        "entrepreneurship-curriculum:customer"
+      ]
+    },
+    {
+      "id": "testingbusinessideas",
+      "title": "Testing Business Ideas",
+      "titleTr": "",
+      "author": "David J. Bland, Alexander Osterwalder",
+      "aliases": [],
+      "years": [
+        2019
+      ],
+      "categories": [
+        "enterprise"
+      ],
+      "memberships": [
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:customer",
+          "source": "https://www.strategyzer.com/library/testing-business-ideas-book",
+          "note": "En riskli varsayımları küçük deneylere çevirmek."
+        }
+      ],
+      "notes": [
+        {
+          "text": "En riskli varsayımları küçük deneylere çevirmek.",
+          "source": "Girişimcilik rotası"
+        }
+      ],
+      "editions": [],
+      "origins": [
+        "entrepreneurship"
+      ],
+      "legacyKeys": [],
+      "tags": [],
+      "sourceIssue": {
+        "note": "Kapak görseli eser ve baskı kimliğiyle birlikte henüz yerel kataloğa alınmadı; doğrulanmış bibliyografik kayıt görünür tutuluyor."
+      },
+      "collectionIds": [
+        "entrepreneurship-curriculum"
+      ],
+      "groupIds": [
+        "entrepreneurship-curriculum:customer"
+      ]
+    },
+    {
+      "id": "foundingsales",
+      "title": "Founding Sales",
+      "titleTr": "",
+      "author": "Pete Kazanjy",
+      "aliases": [],
+      "years": [],
+      "categories": [
+        "enterprise"
+      ],
+      "memberships": [
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:sales",
+          "source": "https://www.foundingsales.com/",
+          "note": "Kurucunun ilk tekrarlanabilir satış sürecini kurmak."
+        }
+      ],
+      "notes": [
+        {
+          "text": "Kurucunun ilk tekrarlanabilir satış sürecini kurmak.",
+          "source": "Girişimcilik rotası"
+        }
+      ],
+      "editions": [],
+      "origins": [
+        "entrepreneurship"
+      ],
+      "legacyKeys": [],
+      "tags": [],
+      "sourceIssue": {
+        "note": "Kapak görseli eser ve baskı kimliğiyle birlikte henüz yerel kataloğa alınmadı; doğrulanmış bibliyografik kayıt görünür tutuluyor."
+      },
+      "collectionIds": [
+        "entrepreneurship-curriculum"
+      ],
+      "groupIds": [
+        "entrepreneurship-curriculum:sales"
+      ]
+    },
+    {
+      "id": "obviouslyawesome",
+      "title": "Obviously Awesome",
+      "titleTr": "",
+      "author": "April Dunford",
+      "aliases": [],
+      "years": [
+        2019
+      ],
+      "categories": [
+        "enterprise"
+      ],
+      "memberships": [
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:sales",
+          "source": "https://www.aprildunford.com/books",
+          "note": "Ürünü doğru pazar bağlamında konumlandırmak."
+        }
+      ],
+      "notes": [
+        {
+          "text": "Ürünü doğru pazar bağlamında konumlandırmak.",
+          "source": "Girişimcilik rotası"
+        }
+      ],
+      "editions": [],
+      "origins": [
+        "entrepreneurship"
+      ],
+      "legacyKeys": [],
+      "tags": [],
+      "sourceIssue": {
+        "note": "Kapak görseli eser ve baskı kimliğiyle birlikte henüz yerel kataloğa alınmadı; doğrulanmış bibliyografik kayıt görünür tutuluyor."
+      },
+      "collectionIds": [
+        "entrepreneurship-curriculum"
+      ],
+      "groupIds": [
+        "entrepreneurship-curriculum:sales"
+      ]
+    },
+    {
+      "id": "monetizinginnovation",
+      "title": "Monetizing Innovation",
+      "titleTr": "",
+      "author": "Madhavan Ramanujam, Georg Tacke",
+      "aliases": [],
+      "years": [
+        2016
+      ],
+      "categories": [
+        "enterprise"
+      ],
+      "memberships": [
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:sales",
+          "source": "https://www.wiley.com/en-us/Monetizing+Innovation-p-9781119240860",
+          "note": "Ürünü ödeme isteği ve fiyat etrafında tasarlamak."
+        }
+      ],
+      "notes": [
+        {
+          "text": "Ürünü ödeme isteği ve fiyat etrafında tasarlamak.",
+          "source": "Girişimcilik rotası"
+        }
+      ],
+      "editions": [],
+      "origins": [
+        "entrepreneurship"
+      ],
+      "legacyKeys": [],
+      "tags": [],
+      "sourceIssue": {
+        "note": "Kapak görseli eser ve baskı kimliğiyle birlikte henüz yerel kataloğa alınmadı; doğrulanmış bibliyografik kayıt görünür tutuluyor."
+      },
+      "collectionIds": [
+        "entrepreneurship-curriculum"
+      ],
+      "groupIds": [
+        "entrepreneurship-curriculum:sales"
+      ]
+    },
+    {
+      "id": "negotiationgenius",
+      "title": "Negotiation Genius",
+      "titleTr": "Evet Dedirtme Sanatı",
+      "author": "Deepak Malhotra, Max H. Bazerman",
+      "aliases": [
+        "Evet Dedirtme Sanatı"
+      ],
+      "years": [
+        2007
+      ],
+      "categories": [
+        "enterprise"
+      ],
+      "memberships": [
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:sales",
+          "source": "https://www.penguinrandomhouse.com/books/106602/negotiation-genius-by-deepak-malhotra-and-max-bazerman/",
+          "note": "İş müzakeresinde hazırlık, alternatif ve değer yaratma yapısı kurmak."
+        }
+      ],
+      "notes": [
+        {
+          "text": "İş müzakeresinde hazırlık, alternatif ve değer yaratma yapısı kurmak.",
+          "source": "Girişimcilik rotası"
+        }
+      ],
+      "editions": [],
+      "origins": [
+        "entrepreneurship"
+      ],
+      "legacyKeys": [],
+      "tags": [],
+      "verifiedEdition": {
+        "title": "Evet Dedirtme Sanatı",
+        "isbn": "9786054629725",
+        "publisher": "Koridor Yayıncılık",
+        "translators": [
+          "Korkmaz Haktanır"
+        ],
+        "sourceUrl": "https://www.kitapvekahve.com/evet-dedirtme-sanati",
+        "sourceType": "retailer"
+      },
+      "sourceIssue": {
+        "note": "Kapak görseli eser ve baskı kimliğiyle birlikte henüz yerel kataloğa alınmadı; doğrulanmış bibliyografik kayıt görünür tutuluyor."
+      },
+      "collectionIds": [
+        "entrepreneurship-curriculum"
+      ],
+      "groupIds": [
+        "entrepreneurship-curriculum:sales"
+      ]
+    },
+    {
+      "id": "7powersthefoundationsofbusinessstrategy",
+      "title": "7 Powers: The Foundations of Business Strategy",
+      "titleTr": "",
+      "author": "Hamilton Helmer",
+      "aliases": [],
+      "years": [],
+      "categories": [
+        "enterprise"
+      ],
+      "memberships": [
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:strategy",
+          "source": "https://7powers.com/",
+          "note": "Kalıcı ekonomik avantajı sorgulamak."
+        }
+      ],
+      "notes": [
+        {
+          "text": "Kalıcı ekonomik avantajı sorgulamak.",
+          "source": "Girişimcilik rotası"
+        }
+      ],
+      "editions": [],
+      "origins": [
+        "entrepreneurship"
+      ],
+      "legacyKeys": [],
+      "tags": [],
+      "sourceIssue": {
+        "note": "Kapak görseli eser ve baskı kimliğiyle birlikte henüz yerel kataloğa alınmadı; doğrulanmış bibliyografik kayıt görünür tutuluyor."
+      },
+      "collectionIds": [
+        "entrepreneurship-curriculum"
+      ],
+      "groupIds": [
+        "entrepreneurship-curriculum:strategy"
+      ]
+    },
+    {
+      "id": "traction",
+      "title": "Traction",
+      "titleTr": "",
+      "author": "Gabriel Weinberg, Justin Mares",
+      "aliases": [],
+      "years": [
+        2014
+      ],
+      "categories": [
+        "enterprise"
+      ],
+      "memberships": [
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:strategy",
+          "source": "https://www.penguinrandomhouse.com/books/319121/traction-by-gabriel-weinberg-and-justin-mares/",
+          "note": "Müşteri edinme kanallarını sistemli test etmek."
+        }
+      ],
+      "notes": [
+        {
+          "text": "Müşteri edinme kanallarını sistemli test etmek.",
+          "source": "Girişimcilik rotası"
+        }
+      ],
+      "editions": [],
+      "origins": [
+        "entrepreneurship"
+      ],
+      "legacyKeys": [],
+      "tags": [],
+      "sourceIssue": {
+        "note": "Kapak görseli eser ve baskı kimliğiyle birlikte henüz yerel kataloğa alınmadı; doğrulanmış bibliyografik kayıt görünür tutuluyor."
+      },
+      "collectionIds": [
+        "entrepreneurship-curriculum"
+      ],
+      "groupIds": [
+        "entrepreneurship-curriculum:strategy"
+      ]
+    },
+    {
+      "id": "coldstartproblem",
+      "title": "The Cold Start Problem",
+      "titleTr": "",
+      "author": "Andrew Chen",
+      "aliases": [],
+      "years": [
+        2021
+      ],
+      "categories": [
+        "enterprise"
+      ],
+      "memberships": [
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:strategy",
+          "source": "https://a16z.com/books/the-cold-start-problem/",
+          "note": "Ağ etkili ürünlerde ilk ağı kurmak."
+        }
+      ],
+      "notes": [
+        {
+          "text": "Ağ etkili ürünlerde ilk ağı kurmak.",
+          "source": "Girişimcilik rotası"
+        }
+      ],
+      "editions": [],
+      "origins": [
+        "entrepreneurship"
+      ],
+      "legacyKeys": [],
+      "tags": [],
+      "sourceIssue": {
+        "note": "Kapak görseli eser ve baskı kimliğiyle birlikte henüz yerel kataloğa alınmadı; doğrulanmış bibliyografik kayıt görünür tutuluyor."
+      },
+      "collectionIds": [
+        "entrepreneurship-curriculum"
+      ],
+      "groupIds": [
+        "entrepreneurship-curriculum:strategy"
+      ]
+    },
+    {
+      "id": "greatceowithin",
+      "title": "The Great CEO Within",
+      "titleTr": "",
+      "author": "Matt Mochary",
+      "aliases": [],
+      "years": [
+        2019
+      ],
+      "categories": [
+        "enterprise"
+      ],
+      "memberships": [
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:operations",
+          "source": "https://mocharymethod.org/the-great-ceo-within/",
+          "note": "Delegasyon, karar ve CEO çalışma sistemi kurmak."
+        }
+      ],
+      "notes": [
+        {
+          "text": "Delegasyon, karar ve CEO çalışma sistemi kurmak.",
+          "source": "Girişimcilik rotası"
+        }
+      ],
+      "editions": [],
+      "origins": [
+        "entrepreneurship"
+      ],
+      "legacyKeys": [],
+      "tags": [],
+      "sourceIssue": {
+        "note": "Kapak görseli eser ve baskı kimliğiyle birlikte henüz yerel kataloğa alınmadı; doğrulanmış bibliyografik kayıt görünür tutuluyor."
+      },
+      "collectionIds": [
+        "entrepreneurship-curriculum"
+      ],
+      "groupIds": [
+        "entrepreneurship-curriculum:operations"
+      ]
+    },
+    {
+      "id": "whotheamethodforhiring",
+      "title": "Who: The A Method for Hiring",
+      "titleTr": "",
+      "author": "Geoff Smart, Randy Street",
+      "aliases": [],
+      "years": [
+        2008
+      ],
+      "categories": [
+        "enterprise"
+      ],
+      "memberships": [
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:operations",
+          "source": "https://whothebook.com/order/",
+          "note": "Rol tanımı ve işe almayı scorecard ile yapılandırmak."
+        }
+      ],
+      "notes": [
+        {
+          "text": "Rol tanımı ve işe almayı scorecard ile yapılandırmak.",
+          "source": "Girişimcilik rotası"
+        }
+      ],
+      "editions": [],
+      "origins": [
+        "entrepreneurship"
+      ],
+      "legacyKeys": [],
+      "tags": [],
+      "sourceIssue": {
+        "note": "Kapak görseli eser ve baskı kimliğiyle birlikte henüz yerel kataloğa alınmadı; doğrulanmış bibliyografik kayıt görünür tutuluyor."
+      },
+      "collectionIds": [
+        "entrepreneurship-curriculum"
+      ],
+      "groupIds": [
+        "entrepreneurship-curriculum:operations"
+      ]
+    },
+    {
+      "id": "profitfirst",
+      "title": "Profit First",
+      "titleTr": "Önce Kar",
+      "author": "Mike Michalowicz",
+      "aliases": [
+        "Önce Kar"
+      ],
+      "years": [
+        2017
+      ],
+      "categories": [
+        "enterprise"
+      ],
+      "memberships": [
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:capital",
+          "source": "https://www.penguinrandomhouse.com/books/549696/profit-first-by-mike-michalowicz/",
+          "note": "Davranışsal nakit disiplini kurmak."
+        }
+      ],
+      "notes": [
+        {
+          "text": "Davranışsal nakit disiplini kurmak.",
+          "source": "Girişimcilik rotası"
+        }
+      ],
+      "editions": [],
+      "origins": [
+        "entrepreneurship"
+      ],
+      "legacyKeys": [],
+      "tags": [],
+      "verifiedEdition": {
+        "title": "Önce Kar",
+        "isbn": "9786257232296",
+        "publisher": "Peta Kitap Yayıncılık",
+        "translators": [
+          "Gülfiza Balcı"
+        ],
+        "sourceUrl": "https://www.kitapyurdu.com/kitap/once-kar/612937.html?publisher_id=10230",
+        "sourceType": "retailer"
+      },
+      "sourceIssue": {
+        "note": "Kapak görseli eser ve baskı kimliğiyle birlikte henüz yerel kataloğa alınmadı; doğrulanmış bibliyografik kayıt görünür tutuluyor."
+      },
+      "collectionIds": [
+        "entrepreneurship-curriculum"
+      ],
+      "groupIds": [
+        "entrepreneurship-curriculum:capital"
+      ]
+    },
+    {
+      "id": "outsiderseightunconventionalceosandtheirradicallyrationalblueprintforsuccess",
+      "title": "The Outsiders: Eight Unconventional CEOs and Their Radically Rational Blueprint for Success",
+      "titleTr": "Aykırılar: Sekiz Sıra Dışı CEO ve Tamamen Rasyonel Başarı Modelleri",
+      "author": "William N. Thorndike Jr.",
+      "aliases": [
+        "Aykırılar: Sekiz Sıra Dışı CEO ve Tamamen Rasyonel Başarı Modelleri"
+      ],
+      "years": [
+        2012
+      ],
+      "categories": [
+        "enterprise"
+      ],
+      "memberships": [
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:capital",
+          "source": "https://store.hbr.org/product/the-outsiders-eight-unconventional-ceos-and-their-radically-rational-blueprint-for-success/10344",
+          "note": "CEO düzeyinde sermaye dağıtımını incelemek."
+        }
+      ],
+      "notes": [
+        {
+          "text": "CEO düzeyinde sermaye dağıtımını incelemek.",
+          "source": "Girişimcilik rotası"
+        }
+      ],
+      "editions": [],
+      "origins": [
+        "entrepreneurship"
+      ],
+      "legacyKeys": [],
+      "tags": [],
+      "verifiedEdition": {
+        "title": "Aykırılar: Sekiz Sıra Dışı CEO ve Tamamen Rasyonel Başarı Modelleri",
+        "isbn": "9786052998090",
+        "publisher": "Pegasus Yayınları",
+        "translators": [
+          "Nil Bosna"
+        ],
+        "sourceUrl": "https://pegasusyayinlari.com/kitap_detay.php?kitapid=15766668457",
+        "sourceType": "publisher"
+      },
+      "sourceIssue": {
+        "note": "Kapak görseli eser ve baskı kimliğiyle birlikte henüz yerel kataloğa alınmadı; doğrulanmış bibliyografik kayıt görünür tutuluyor."
+      },
+      "collectionIds": [
+        "entrepreneurship-curriculum"
+      ],
+      "groupIds": [
+        "entrepreneurship-curriculum:capital"
+      ]
+    },
+    {
+      "id": "thinkinginbets",
+      "title": "Thinking in Bets",
+      "titleTr": "",
+      "author": "Annie Duke",
+      "aliases": [],
+      "years": [
+        2018
+      ],
+      "categories": [
+        "enterprise"
+      ],
+      "memberships": [
+        {
+          "collectionId": "entrepreneurship-curriculum",
+          "groupId": "entrepreneurship-curriculum:capital",
+          "source": "https://www.penguinrandomhouse.com/books/552885/thinking-in-bets-by-annie-duke/",
+          "note": "Karar kalitesini sonucun şansından ayırmak."
+        }
+      ],
+      "notes": [
+        {
+          "text": "Karar kalitesini sonucun şansından ayırmak.",
+          "source": "Girişimcilik rotası"
+        }
+      ],
+      "editions": [],
+      "origins": [
+        "entrepreneurship"
+      ],
+      "legacyKeys": [],
+      "tags": [],
+      "sourceIssue": {
+        "note": "Kapak görseli eser ve baskı kimliğiyle birlikte henüz yerel kataloğa alınmadı; doğrulanmış bibliyografik kayıt görünür tutuluyor."
+      },
+      "collectionIds": [
+        "entrepreneurship-curriculum"
+      ],
+      "groupIds": [
+        "entrepreneurship-curriculum:capital"
+      ]
     }
   ],
   "collections": [
@@ -41810,6 +42881,25 @@
       "count": 1,
       "groupIds": [
         "kitaps-L:liste"
+      ]
+    },
+    {
+      "id": "entrepreneurship-curriculum",
+      "title": "Girişimcilik: Darboğaza Göre Okuma Rotası",
+      "short": "Girişimcilik rotası",
+      "description": "Müşteri keşfinden sermaye dağıtımına uzanan 35 kitap. Sabit bir müfredat yerine güncel işletme darboğazına göre kullanılır.",
+      "origin": "editorial-research",
+      "source": "https://github.com/karacaismail/kitaps/blob/main/reports/Giri%C5%9Fimcilik%20kitapl%C4%B1%C4%9F%C4%B1%20geni%C5%9Fletme.md",
+      "mark": "G",
+      "tag": "Editoryal rota",
+      "note": "Liste 100 kitaba doldurulmadı; yalnızca araştırmayla gerekçelendirilen eserler alındı.",
+      "count": 35,
+      "groupIds": [
+        "entrepreneurship-curriculum:customer",
+        "entrepreneurship-curriculum:sales",
+        "entrepreneurship-curriculum:strategy",
+        "entrepreneurship-curriculum:operations",
+        "entrepreneurship-curriculum:capital"
       ]
     }
   ],
@@ -42447,6 +43537,36 @@
       "collectionId": "kitaps-N",
       "title": "Notlarda ilişkilendirilen kitaplar",
       "count": 11
+    },
+    {
+      "id": "entrepreneurship-curriculum:customer",
+      "collectionId": "entrepreneurship-curriculum",
+      "title": "İşletme haritası, müşteri ve kanıt",
+      "count": 7
+    },
+    {
+      "id": "entrepreneurship-curriculum:sales",
+      "collectionId": "entrepreneurship-curriculum",
+      "title": "Satış, konumlandırma, fiyat ve müzakere",
+      "count": 6
+    },
+    {
+      "id": "entrepreneurship-curriculum:strategy",
+      "collectionId": "entrepreneurship-curriculum",
+      "title": "Strateji, avantaj, dağıtım ve büyüme",
+      "count": 8
+    },
+    {
+      "id": "entrepreneurship-curriculum:operations",
+      "collectionId": "entrepreneurship-curriculum",
+      "title": "Operasyon, liderlik ve ekip",
+      "count": 8
+    },
+    {
+      "id": "entrepreneurship-curriculum:capital",
+      "collectionId": "entrepreneurship-curriculum",
+      "title": "Finans, yatırım ve sermaye dağıtımı",
+      "count": 6
     }
   ],
   "categories": [
@@ -42463,7 +43583,7 @@
     {
       "id": "enterprise",
       "label": "Girişimcilik",
-      "count": 31
+      "count": 63
     },
     {
       "id": "marketing",
@@ -43457,7 +44577,42 @@
     "kitaps:R-168": "bigideasforcuriousminds",
     "kitaps:R:R-168": "bigideasforcuriousminds",
     "kitaps:R-169": "plastikdeniz",
-    "kitaps:R:R-169": "plastikdeniz"
+    "kitaps:R:R-169": "plastikdeniz",
+    "entrepreneurship:personalmbamastertheartofbusiness": "personalmbamastertheartofbusiness",
+    "entrepreneurship:momtest": "momtest",
+    "entrepreneurship:competingagainstluck": "competingagainstluck",
+    "entrepreneurship:disciplinedentrepreneurship": "disciplinedentrepreneurship",
+    "entrepreneurship:businessmodelgeneration": "businessmodelgeneration",
+    "entrepreneurship:valuepropositiondesign": "valuepropositiondesign",
+    "entrepreneurship:testingbusinessideas": "testingbusinessideas",
+    "entrepreneurship:foundingsales": "foundingsales",
+    "entrepreneurship:spinselling": "spinselling",
+    "entrepreneurship:obviouslyawesome": "obviouslyawesome",
+    "entrepreneurship:monetizinginnovation": "monetizinginnovation",
+    "entrepreneurship:negotiationgenius": "negotiationgenius",
+    "entrepreneurship:neversplitthedifference": "neversplitthedifference",
+    "entrepreneurship:goodstrategybadstrategy": "goodstrategybadstrategy",
+    "entrepreneurship:playingtowin": "playingtowin",
+    "entrepreneurship:7powersthefoundationsofbusinessstrategy": "7powersthefoundationsofbusinessstrategy",
+    "entrepreneurship:innovatorsdilemma": "innovatorsdilemma",
+    "entrepreneurship:traction": "traction",
+    "entrepreneurship:crossingthechasm": "crossingthechasm",
+    "entrepreneurship:coldstartproblem": "coldstartproblem",
+    "entrepreneurship:howbrandsgrow": "howbrandsgrow",
+    "entrepreneurship:goal": "goal",
+    "entrepreneurship:highoutputmanagement": "highoutputmanagement",
+    "entrepreneurship:greatceowithin": "greatceowithin",
+    "entrepreneurship:emythrevisited": "emythrevisited",
+    "entrepreneurship:foundersdilemmas": "foundersdilemmas",
+    "entrepreneurship:whotheamethodforhiring": "whotheamethodforhiring",
+    "entrepreneurship:radicalcandor": "radicalcandor",
+    "entrepreneurship:hardthingabouthardthings": "hardthingabouthardthings",
+    "entrepreneurship:financialintelligenceforentrepreneurs": "financialintelligenceforentrepreneurs",
+    "entrepreneurship:simplenumbersstraighttalkbigprofits": "simplenumbersstraighttalkbigprofits",
+    "entrepreneurship:profitfirst": "profitfirst",
+    "entrepreneurship:venturedeals": "venturedeals",
+    "entrepreneurship:outsiderseightunconventionalceosandtheirradicallyrationalblueprintforsuccess": "outsiderseightunconventionalceosandtheirradicallyrationalblueprintforsuccess",
+    "entrepreneurship:thinkinginbets": "thinkinginbets"
   },
   "sourceCounts": {
     "atlasEntries": 619,
