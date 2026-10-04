@@ -36,6 +36,8 @@
  --radius-sm:8px;
  --radius:12px;
  --radius-lg:18px;
+ /* Wide enough for "100 / sayfa" in every platform font (Linux fonts run wider than macOS ones). */
+ --page-size-control-width:168px;
 
  /* Marks drawn on covers: the priority badge and the reading ribbons. */
  --cover-mark-inset:8px;
@@ -407,7 +409,7 @@ main{padding-top:20px}
 .pagination-page-status{display:none}
 .pagination-progress{height:3px;overflow:hidden;border-radius:99px;background:var(--surface-3)}
 .pagination-progress span{display:block;height:100%;min-width:3px;border-radius:inherit;background:var(--accent);transition:width .2s ease}
-.page-size-select{width:138px;flex-shrink:0}
+.page-size-select{width:var(--page-size-control-width);flex-shrink:0}
 .page-size-select .mantine-Select-input{min-height:44px;padding-left:12px;font-weight:600}
 .page-size-dropdown{padding:6px!important}
 .page-size-option{min-height:44px;border-radius:var(--radius-sm)!important;color:var(--ink)!important}
