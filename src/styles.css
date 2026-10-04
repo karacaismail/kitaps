@@ -38,6 +38,10 @@
  --radius-lg:18px;
  /* The smallest hit area a control keeps, at any text size. */
  --touch-target:44px;
+ /* A medium button's side inset and the gap to its icon at the default text size. A button whose
+    label wraps keeps them as the text grows, so the extra width goes to the words. */
+ --button-inset:22px;
+ --button-icon-gap:10px;
 
  /* Marks drawn on covers: the priority badge and the reading ribbons. */
  --cover-mark-inset:8px;
@@ -577,10 +581,20 @@ main{padding-top:20px}
 .collections-accordion .mantine-Accordion-item{box-shadow:var(--shadow-sm)}
 .collections-accordion .mantine-Accordion-control{padding:14px 16px}
 .collections-accordion .mantine-Accordion-label{padding:0}
+/* The mark sits beside the title while that leaves the title at least 8em; with larger text
+   it moves above the title, so a word that fits the line is not broken. */
+.collection-summary{flex:1 1 8em}
 .collections-accordion .mantine-Accordion-content{padding:4px 16px 18px}
 .collections-accordion .mantine-ThemeIcon-root{border-radius:12px;background:var(--accent-soft);color:var(--accent-strong);font-family:var(--serif)}
+/* Button labels wrap; a word longer than its line breaks instead of widening the list past the
+   screen. The gap to the arrow keeps its default size as the text grows. */
+.collections-accordion .mantine-Button-label{white-space:normal;overflow-wrap:anywhere}
+.collections-accordion .mantine-Button-section[data-position=right]{margin-inline-start:var(--button-icon-gap)}
+/* The main button grows with its label. As a one-column grid it stretches Mantine's inner row to
+   the touch target, so a single line stays centred as before. Like the gap, its side insets keep
+   their default size (narrower by a third beside the arrow, as in Mantine). */
+.collection-books-button{display:grid;height:auto;min-height:var(--touch-target);padding-block:.5rem;padding-inline:var(--button-inset) calc(var(--button-inset) / 1.5)}
 .subset-button{height:auto;min-height:48px;padding:12px;text-align:left}
-.subset-button .mantine-Button-label{white-space:normal}
 
 /* ---------- Reading queue and record ---------- */
 .reading-queue{display:grid;gap:14px;margin:0;padding:0;list-style:none}

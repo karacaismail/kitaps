@@ -150,6 +150,124 @@ test('the catalog reflows at 320 px with 200% text', async ({ browser }) => {
   await context.close();
 });
 
+// The Kümeler tab with enlarged text. The wide font stands in for the Linux UI fonts on CI; where
+// Verdana is missing it falls back to the default sans, which is wide as well.
+test.describe('the Kümeler tab', () => {
+  const fonts = { 'system UI font': false, 'wide font': true };
+  const useFont = (page, wide) => page.evaluate(on => document.documentElement.toggleAttribute('data-wide-font', on), wide);
+  const WIDE_FONT = ':root[data-wide-font]{--sans:Verdana,sans-serif!important;--mantine-font-family:Verdana,sans-serif!important}';
+  // Mantine's button and accordion labels hide what runs past them, so text cut off there is not overflow.
+  const clipped = root => root.evaluate(element => {
+    const found = [];
+    const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+    for (let text = walker.nextNode(); text; text = walker.nextNode()) {
+      const range = document.createRange();
+      range.selectNodeContents(text);
+      const rects = [...range.getClientRects()].filter(rect => rect.width > 0);
+      for (let box = text.parentElement; box !== element.parentElement; box = box.parentElement) {
+        const style = getComputedStyle(box);
+        if (style.overflowX === 'visible' && style.overflowY === 'visible') continue;
+        const outer = box.getBoundingClientRect();
+        const left = outer.left + box.clientLeft, top = outer.top + box.clientTop;
+        if (rects.some(rect => rect.left < left - 1 || rect.right > left + box.clientWidth + 1 || rect.top < top - 1 || rect.bottom > top + box.clientHeight + 1)) {
+          found.push(text.data.trim());
+          break;
+        }
+      }
+    }
+    return found;
+  });
+  // Words broken across lines although they would fit on one: no wider than their closest `line` box,
+  // or than any line when none is given. Hyphens, dashes and slashes are ordinary break points.
+  const brokenWords = (texts, line) => texts.evaluateAll((elements, line) => elements.flatMap(element => {
+    const width = line ? element.closest(line).clientWidth : Infinity;
+    const found = [];
+    const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+    for (let text = walker.nextNode(); text; text = walker.nextNode()) {
+      for (const word of text.data.matchAll(/[^\s/\u2010-\u2014-]+/g)) {
+        const range = document.createRange();
+        range.setStart(text, word.index);
+        range.setEnd(text, word.index + word[0].length);
+        const rects = [...range.getClientRects()].filter(rect => rect.width > 0);
+        if (new Set(rects.map(rect => Math.round(rect.top))).size > 1 && rects.reduce((sum, rect) => sum + rect.width, 0) <= width) found.push(word[0]);
+      }
+    }
+    return found;
+  }), line);
+  const smallTargets = root => root.locator('button').evaluateAll(buttons => buttons
+    .filter(button => button.getClientRects().length)
+    .filter(button => Math.min(button.offsetWidth, button.offsetHeight) < 44)
+    .map(button => `${button.textContent.trim()} ${button.offsetWidth}×${button.offsetHeight}`));
+
+  // Each collection is opened in turn and checked in both fonts.
+  test('the collections reflow at 320 px with 200% text', async ({ browser }) => {
+    const context = await browser.newContext({ viewport: { width: 320, height: 900 } });
+    await isolate(context);
+    const page = await context.newPage();
+    await page.goto('./?view=collections');
+    const accordion = page.locator('.collections-accordion');
+    const items = accordion.locator('.mantine-Accordion-item');
+    await expect(items.first()).toBeVisible();
+    await page.addStyleTag({ content: LARGE_TEXT });
+    await page.addStyleTag({ content: WIDE_FONT });
+    for (const [font, wide] of Object.entries(fonts)) {
+      await useFont(page, wide);
+      expect(await pageFits(page), `${font}: horizontal overflow`).toBe(true);
+      expect(await spilling(accordion), font).toEqual([]);
+      expect(await clipped(accordion), font).toEqual([]);
+      // Once a title would have too little room beside its mark, the mark moves above it.
+      expect(await brokenWords(accordion.locator('.mantine-Accordion-control p'), '.mantine-Accordion-label'), font).toEqual([]);
+    }
+    for (let index = 0; index < await items.count(); index++) {
+      const item = items.nth(index);
+      const panel = item.locator('.mantine-Accordion-panel');
+      await item.locator('.mantine-Accordion-control').click();
+      // The panel has finished opening once Mantine drops its fixed height and hidden overflow.
+      await expect.poll(() => panel.evaluate(element => getComputedStyle(element).overflow), { intervals: [50] }).toBe('visible');
+      for (const [font, wide] of Object.entries(fonts)) {
+        await useFont(page, wide);
+        const name = `${font}, collection ${index + 1}`;
+        expect(await pageFits(page), `${name}: horizontal overflow`).toBe(true);
+        expect(await spilling(item), name).toEqual([]);
+        expect(await clipped(item), name).toEqual([]);
+        expect(await smallTargets(item), name).toEqual([]);
+        expect(await brokenWords(panel.locator('.mantine-Button-label'), '.mantine-Button-label'), name).toEqual([]);
+        // The main button keeps its default side insets, so even "kümedeki" stays whole.
+        expect(await brokenWords(item.getByRole('button', { name: 'Bu kümedeki kitaplar' }).locator('.mantine-Button-label')), name).toEqual([]);
+      }
+    }
+    await context.close();
+  });
+
+  // The mark moves above a title only when the title would have less than 8em beside it: never at
+  // 100% or 125% text on a 320 px phone, and at 200% text below 482 px.
+  test('collection titles keep whole words beside their mark up to 200% text', async ({ browser }) => {
+    const context = await browser.newContext({ viewport: { width: 320, height: 900 } });
+    await isolate(context);
+    const page = await context.newPage();
+    await page.goto('./?view=collections');
+    const accordion = page.locator('.collections-accordion');
+    await expect(accordion.locator('.mantine-Accordion-item').first()).toBeVisible();
+    await page.addStyleTag({ content: WIDE_FONT });
+    const markAbove = () => accordion.locator('.mantine-Accordion-label').first().evaluate(label => {
+      const [mark, title] = label.querySelector('.mantine-Group-root').children;
+      return title.getBoundingClientRect().top >= mark.getBoundingClientRect().bottom;
+    });
+    for (const [size, width, above] of [['100%', 320, false], ['125%', 320, false], ['200%', 481, true], ['200%', 482, false], ['200%', 483, false]]) {
+      await page.setViewportSize({ width, height: 900 });
+      await page.evaluate(value => { document.documentElement.style.fontSize = value; }, size);
+      for (const [font, wide] of Object.entries(fonts)) {
+        await useFont(page, wide);
+        const name = `${size} text, ${width} px, ${font}`;
+        expect(await markAbove(), name).toBe(above);
+        expect(await pageFits(page), `${name}: horizontal overflow`).toBe(true);
+        expect(await brokenWords(accordion.locator('.mantine-Accordion-control p'), '.mantine-Accordion-label'), name).toEqual([]);
+      }
+    }
+    await context.close();
+  });
+});
+
 // The page numbers replace the compact "Sayfa x / y" only when the bar has room for them at the current text size.
 // At the default size the bar switches at 400 and 640 px screens; that assumes the 8 px phone
 // gutter and overlay scrollbars, as in headless browsers.
