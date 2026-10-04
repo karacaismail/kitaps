@@ -24,6 +24,7 @@ import TranslationCriteria from './components/TranslationCriteria';
 import ReadingPriorityCard from './components/ReadingPriorityCard';
 import ReadingPrioritySummary from './components/ReadingPrioritySummary';
 import ReadingPriorityBadge from './components/ReadingPriorityBadge';
+import StateRibbons, { StateSummary } from './components/StateRibbons';
 import SyncMergeDialog from './components/SyncMergeDialog';
 import SourceBadge from './components/SourceBadge';
 import {download} from './download';
@@ -31,7 +32,7 @@ import {useGitHubStateSync} from './state/useGitHubStateSync';
 import { ReadingPriorityEngine, ReadingRankingViewModel } from './ranking/ReadingPriorityEngine.ts';
 import { PERSONAL_KEY, cleanPersonal, cleanReading, addToQueue, moveInQueue, todayLocal } from './reading';
 import {createBooksExport} from './catalogExport';
-import { STATE_LABELS, QUALITY_LABELS, ORIGIN_LABELS, emptyFilters, prepareBooks, filterBooks, sortBooks, toggleState, migrateStates, filterCount, decodeRoute, encodeRoute, normalize, booksForShelf } from './library';
+import { STATE_LABELS, QUALITY_LABELS, ORIGIN_LABELS, emptyFilters, prepareBooks, filterBooks, sortBooks, toggleState, migrateStates, filterCount, decodeRoute, encodeRoute, normalize, booksForShelf, DEFAULT_PAGE_SIZE } from './library';
 import './styles.css';
 
 const AccessibilityAudit=import.meta.env.DEV?React.lazy(()=>import('./components/AccessibilityAudit')):null;
@@ -99,21 +100,23 @@ function ActiveFilters({filters:f,onChange}) {
  if(f.yearMin!==''||f.yearMax!=='')chips.push({id:'years',label:`Yayın: ${f.yearMin||'…'}–${f.yearMax||'…'}`,remove:()=>onChange({...f,yearMin:'',yearMax:''})});
  return chips.length?<Group gap={8} className="active-filters" role="group" aria-label="Etkin filtreler">{chips.map(c=><Button key={c.id} variant="light" rightSection={<IconX size={17}/>} onClick={c.remove} aria-label={`${c.label} filtresini kaldır`}>{c.label}</Button>)}</Group>:null;
 }
-function BookCover({book:b,onOpen=null,detail=false}) {
+function BookCover({book:b,onOpen=null,detail=false,read=false}) {
  const [failed,setFailed]=useState(false);
  const cover=b.cover;
  const content=cover&&!failed?<img src={globalThis.__KITAP_COVERS__?.[cover.src]||`./${cover.src}`} alt={`${cover.title} — ${cover.publisher}, ${cover.language==='tr'?'Türkçe':'Uluslararası'} baskı kapağı`} width="240" height="360" loading={detail?'eager':'lazy'} decoding="async" onError={()=>setFailed(true)}/>:<span className="cover-placeholder" aria-hidden="true"><span className="cover-placeholder-title">{displayTitle(b)}</span><span className="cover-placeholder-author">{b.author}</span><span className="cover-placeholder-note"><IconBook2 size={18} stroke={1.5}/></span></span>;
- return detail?<div className="cover-stage cover-stage-detail">{content}</div>:<button className="cover-stage cover-open" onClick={()=>onOpen(b.id)} aria-label={`${displayTitle(b)} ayrıntılarını aç`}>{content}</button>;
+ const stage=`cover-stage${read?' is-read':''}`;
+ return detail?<div className={`${stage} cover-stage-detail`}>{content}</div>:<button className={`${stage} cover-open`} onClick={()=>onOpen(b.id)} aria-label={`${displayTitle(b)} ayrıntılarını aç`}>{content}</button>;
 }
 // A card names the Turkish publisher once a Turkish edition is known.
 const cardPublisher=b=>(['available','original'].includes(translationStatus(b).status)&&turkishEdition(b)?.publisher)||b.cover?.publisher||'';
 function BookCard({book:b,ranking,states,onOpen,onToggle,queue,onAdd,onQueue}) {
  const marks=states[b.id]||[],saved=marks.includes('onemli'),owned=marks.includes('alindi');
- const reading=marks.filter(s=>!['onemli','alindi'].includes(s)),publisher=cardPublisher(b),title=displayTitle(b);
+ const reading=marks.filter(s=>!['onemli','alindi','okundu'].includes(s)),publisher=cardPublisher(b),title=displayTitle(b);
  return <Card component="article" padding={0} className="book-card" data-book-id={b.id} onClick={e=>{if(!(e.target instanceof Element&&e.target.closest('button,a,input,select,textarea,[role="button"]')))onOpen(b.id)}}>
-  <div className="book-visual"><BookCover book={b} onOpen={onOpen}/><ReadingPriorityBadge ranking={ranking}/></div>
+  <div className="book-visual"><BookCover book={b} onOpen={onOpen} read={marks.includes('okundu')}/><div className="cover-marks"><ReadingPriorityBadge ranking={ranking}/><StateRibbons marks={marks}/></div></div>
   <div className="book-card-body">
    <Title order={3}><button className="title-button" onClick={()=>onOpen(b.id)}>{title}</button></Title>
+   <StateSummary marks={marks}/>
    <Text className="book-author">{b.author||'Yazar bilgisi kaynakta belirtilmemiş'}</Text>
    {b.childAge&&<Text className="book-age">{b.childAge} yaş</Text>}
    <div className="book-meta-row"><TranslationStatus book={b}/>{publisher&&<Text className="book-publisher">{publisher}</Text>}</div>
@@ -135,8 +138,8 @@ function BookDetail({book:b,ranking,onClose,onOpen,onBack,hasBack,states,onToggl
  return <BookSheet opened={!!b} onClose={onClose}>
   {b&&<Stack gap="xl" pb="xl" key={b.id}>
    <div ref={topRef} className="detail-top">{hasBack&&<Button variant="subtle" leftSection={<IconArrowLeft size={18}/>} onClick={onBack}>Önceki kitaba dön</Button>}</div>
-   <div className="detail-hero"><div className="detail-cover-block"><BookCover key={b.id} book={b} detail/></div>
-    <div className="detail-heading"><Title order={2}>{shownTitle}</Title><Text className="detail-author">{b.author||'Yazar bilgisi belirtilmemiş'}</Text>{originalTitle&&<Text className="detail-original">{originalTitle}</Text>}{b.years.length>0&&<Text className="detail-year">İlk yayın · {b.years.join(' / ')}</Text>}{b.childAge&&<Text className="detail-year">Önerilen yaş · {b.childAge}</Text>}<div className="detail-translation-status"><TranslationStatus book={b}/></div>
+   <div className="detail-hero"><div className="detail-cover-block"><BookCover key={b.id} book={b} detail read={(states[b.id]||[]).includes('okundu')}/><div className="cover-marks"><StateRibbons marks={states[b.id]||[]}/></div></div>
+    <div className="detail-heading"><Title order={2}>{shownTitle}</Title><StateSummary marks={states[b.id]||[]}/><Text className="detail-author">{b.author||'Yazar bilgisi belirtilmemiş'}</Text>{originalTitle&&<Text className="detail-original">{originalTitle}</Text>}{b.years.length>0&&<Text className="detail-year">İlk yayın · {b.years.join(' / ')}</Text>}{b.childAge&&<Text className="detail-year">Önerilen yaş · {b.childAge}</Text>}<div className="detail-translation-status"><TranslationStatus book={b}/></div>
      <Group gap={8} mt="md">{b.categories.map(id=><CategoryPill key={id} id={id} label={categoryMap[id].label} onNavigate={onCategory}/>)}</Group>
      {b.cover&&<div className="cover-caption"><Text c="dimmed">{b.cover.scope||(b.cover.language==='tr'?'Türkçe baskı kapağı':'Uluslararası baskı kapağı')}</Text><Anchor href={b.cover.sourceUrl} target="_blank" rel="noreferrer" className="source-link">Kapaktaki baskıyı incele <IconArrowUpRight size={17}/></Anchor></div>}
     </div>
@@ -238,7 +241,7 @@ function AtlasApp() {
  const activeTab=['owned','favorites'].includes(view)?'books':['books','queue','collections'].includes(view)?view:null;
  return <><a className="skip-link" href="#main-content" onClick={e=>{e.preventDefault();document.getElementById('main-content').focus()}}>İçeriğe geç</a>
   <Tabs className="main-section-tabs" value={activeTab} onChange={v=>v&&navigate({...route,view:v,book:null,page:1})}>
-    <header className="site-header"><div className="site-header-inner"><Group renderRoot={props=><a href="./" {...props}/>} className="brand-link" aria-label="Kitaplık · filtresiz ana sayfa" gap={6} wrap="nowrap" onClick={e=>{if(e.button===0&&!e.metaKey&&!e.ctrlKey&&!e.shiftKey&&!e.altKey){e.preventDefault();window.history.pushState(null,'',window.location.pathname);setRoute({view:'books',book:null,sort:'reading',filters:emptyFilters(),page:1,pageSize:24});setBookTrail([]);window.scrollTo({top:0,behavior:'instant'})}}}><ThemeIcon size={42} radius="md" color="brand"><IconBooks size={26} stroke={1.6}/></ThemeIcon><Text className="brand">Kitaplık</Text></Group><Tabs.List className="main-tabs" aria-label="Kitaplık bölümleri">{[{id:'books',name:'Kitaplar',icon:IconBook2},{id:'queue',name:'Sıram',icon:IconListNumbers},{id:'collections',name:'Kümeler',icon:IconLayersIntersect}].map(item=><Tabs.Tab key={item.id} value={item.id} leftSection={<item.icon size={19}/>}>{item.name}</Tabs.Tab>)}</Tabs.List><nav className="header-shortcuts" aria-label="Hızlı erişim"><Tooltip label="Kızım için"><ActionIcon className="header-children" size={48} variant={view==='books'&&filters.categories.length===1&&filters.categories[0]==='children'?'filled':'subtle'} aria-label="Kızım için" aria-current={view==='books'&&filters.categories.length===1&&filters.categories[0]==='children'?'page':undefined} onClick={()=>goCategory('children')}><GirlIcon size={29}/></ActionIcon></Tooltip><Tooltip label="Favoriler"><ActionIcon className="header-favorites" size={48} variant={view==='favorites'?'filled':'subtle'} aria-label="Favoriler" aria-current={view==='favorites'?'page':undefined} onClick={()=>{navigate({...route,view:'favorites',book:null,filters:emptyFilters(),page:1});window.scrollTo({top:0,behavior:'instant'})}}><IconHeart size={29} fill={view==='favorites'?'currentColor':'none'}/></ActionIcon></Tooltip><Tooltip label={`Kitaplığım · ${ownedCount} kitap`}><ActionIcon className="header-library" size={48} variant={view==='owned'?'filled':'subtle'} aria-label={`Kitaplığım · ${ownedCount} kitap`} aria-current={view==='owned'?'page':undefined} onClick={()=>{navigate({...route,view:'owned',book:null,filters:emptyFilters(),page:1});window.scrollTo({top:0,behavior:'instant'})}}><BookshelfIcon size={29}/></ActionIcon></Tooltip></nav><ThemeToggle/></div></header>
+    <header className="site-header"><div className="site-header-inner"><Group renderRoot={props=><a href="./" {...props}/>} className="brand-link" aria-label="Kitaplık · filtresiz ana sayfa" gap={6} wrap="nowrap" onClick={e=>{if(e.button===0&&!e.metaKey&&!e.ctrlKey&&!e.shiftKey&&!e.altKey){e.preventDefault();window.history.pushState(null,'',window.location.pathname);setRoute({view:'books',book:null,sort:'reading',filters:emptyFilters(),page:1,pageSize:DEFAULT_PAGE_SIZE});setBookTrail([]);window.scrollTo({top:0,behavior:'instant'})}}}><ThemeIcon size={42} radius="md" color="brand"><IconBooks size={26} stroke={1.6}/></ThemeIcon><Text className="brand">Kitaplık</Text></Group><Tabs.List className="main-tabs" aria-label="Kitaplık bölümleri">{[{id:'books',name:'Kitaplar',icon:IconBook2},{id:'queue',name:'Sıram',icon:IconListNumbers},{id:'collections',name:'Kümeler',icon:IconLayersIntersect}].map(item=><Tabs.Tab key={item.id} value={item.id} leftSection={<item.icon size={19}/>}>{item.name}</Tabs.Tab>)}</Tabs.List><nav className="header-shortcuts" aria-label="Hızlı erişim"><Tooltip label="Kızım için"><ActionIcon className="header-children" size={48} variant={view==='books'&&filters.categories.length===1&&filters.categories[0]==='children'?'filled':'subtle'} aria-label="Kızım için" aria-current={view==='books'&&filters.categories.length===1&&filters.categories[0]==='children'?'page':undefined} onClick={()=>goCategory('children')}><GirlIcon size={29}/></ActionIcon></Tooltip><Tooltip label="Favoriler"><ActionIcon className="header-favorites" size={48} variant={view==='favorites'?'filled':'subtle'} aria-label="Favoriler" aria-current={view==='favorites'?'page':undefined} onClick={()=>{navigate({...route,view:'favorites',book:null,filters:emptyFilters(),page:1});window.scrollTo({top:0,behavior:'instant'})}}><IconHeart size={29} fill={view==='favorites'?'currentColor':'none'}/></ActionIcon></Tooltip><Tooltip label={`Kitaplığım · ${ownedCount} kitap`}><ActionIcon className="header-library" size={48} variant={view==='owned'?'filled':'subtle'} aria-label={`Kitaplığım · ${ownedCount} kitap`} aria-current={view==='owned'?'page':undefined} onClick={()=>{navigate({...route,view:'owned',book:null,filters:emptyFilters(),page:1});window.scrollTo({top:0,behavior:'instant'})}}><BookshelfIcon size={29}/></ActionIcon></Tooltip></nav><ThemeToggle/></div></header>
   <Container size={1200} className="app-shell" px={{base:8,sm:24}}>
 
    <main id="main-content" tabIndex={-1}>

@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { bookSlug } from '../src/library.js';
+import { DEFAULT_PAGE_SIZE, bookSlug } from '../src/library.js';
 import { displayTitle,recommendedTranslation,translationStatus,turkishEdition } from '../src/translation.js';
 import { readingGuide } from '../src/recommendations.js';
 import { splitAuthors } from '../src/authors.js';
@@ -13,7 +13,7 @@ if(path.basename(outputRoot)!=='dist')throw new Error(`Static SEO output must be
 const catalogRoot=path.join(outputRoot,'catalog');
 const publicBase='https://karacaismail.github.io/kitaps/catalog/';
 const appBase='https://karacaismail.github.io/kitaps/';
-const pageSize=24;
+const pageSize=DEFAULT_PAGE_SIZE;
 const collator=new Intl.Collator('tr',{sensitivity:'base',numeric:true});
 const byTitle=[...catalog.books].sort((a,b)=>collator.compare(displayTitle(a),displayTitle(b))||collator.compare(a.author,b.author));
 const byId=Object.fromEntries(catalog.books.map(book=>[book.id,book]));

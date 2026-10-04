@@ -4,16 +4,16 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { emptyFilters,bookSlug } from '../src/library.js';
+import { DEFAULT_PAGE_SIZE,emptyFilters,bookSlug } from '../src/library.js';
 import { seoState } from '../src/seo.js';
 import { displayTitle } from '../src/translation.js';
 
 const root=new URL('../',import.meta.url);
 const catalog=JSON.parse(fs.readFileSync(new URL('src/catalog.json',root)));
-const route=overrides=>({view:'books',sort:'reading',book:null,page:1,pageSize:24,filters:emptyFilters(),...overrides});
+const route=overrides=>({view:'books',sort:'reading',book:null,page:1,pageSize:25,filters:emptyFilters(),...overrides});
 
 test('personalized reading order is noindex and points at the stable catalog',()=>{
- const state=seoState({route:route({page:5}),catalog,count:catalog.books.length,currentPage:5,totalPages:31,displayed:catalog.books.slice(96,120)});
+ const state=seoState({route:route({page:5}),catalog,count:catalog.books.length,currentPage:5,totalPages:31,displayed:catalog.books.slice(100,125)});
  assert.equal(state.robots,'noindex,follow');
  assert.equal(state.canonical,'https://karacaismail.github.io/kitaps/catalog/');
  assert.equal(state.prev,'');
@@ -22,13 +22,13 @@ test('personalized reading order is noindex and points at the stable catalog',()
 });
 
 test('title-sorted public catalog pages have stable canonicals and pagination',()=>{
- const state=seoState({route:route({sort:'title',page:5}),catalog,count:catalog.books.length,currentPage:5,totalPages:31,displayed:catalog.books.slice(96,120)});
+ const state=seoState({route:route({sort:'title',page:5}),catalog,count:catalog.books.length,currentPage:5,totalPages:31,displayed:catalog.books.slice(100,125)});
  assert.equal(state.robots,'index,follow');
  assert.match(state.title,/Sayfa 5/);
  assert.equal(state.canonical,'https://karacaismail.github.io/kitaps/catalog/page/5/');
  assert.equal(state.prev,'https://karacaismail.github.io/kitaps/catalog/page/4/');
  assert.equal(state.next,'https://karacaismail.github.io/kitaps/catalog/page/6/');
- assert.equal(state.structured.mainEntity.itemListElement.length,24);
+ assert.equal(state.structured.mainEntity.itemListElement.length,25);
 });
 
 test('search and personal result URLs stay out of the index',()=>{
@@ -59,6 +59,10 @@ test('build generator emits crawlable catalog and unique book HTML',()=>{
   assert.match(listing,/<h1>Tüm kitaplar<\/h1>/);
   assert.match(listing,/<meta name="robots" content="index,follow">/);
   assert.match(listing,/Başlığa göre kararlı katalog sırası/);
+  // Static listing pages follow the app's page size: no page is missing or left over.
+  const lastPage=Math.ceil(catalog.books.length/DEFAULT_PAGE_SIZE);
+  assert.ok(fs.existsSync(path.join(output,'catalog/page',String(lastPage),'index.html')),`page ${lastPage}`);
+  assert.equal(fs.existsSync(path.join(output,'catalog/page',String(lastPage+1))),false);
   assert.match(detail,new RegExp(`<h1>${displayTitle(book)}<\\/h1>`));
   assert.match(detail,new RegExp(`<link rel="canonical" href="https://karacaismail.github.io/kitaps/catalog/books/${bookSlug(book)}/">`));
  }finally{fs.rmSync(temporary,{recursive:true,force:true})}

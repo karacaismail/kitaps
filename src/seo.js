@@ -1,4 +1,4 @@
-import { bookSlug, emptyFilters, encodeRoute } from './library.js';
+import { DEFAULT_PAGE_SIZE, bookSlug, emptyFilters, encodeRoute } from './library.js';
 import { displayTitle } from './translation.js';
 
 const SITE_NAME='Kitaplık';
@@ -8,10 +8,10 @@ function publicListing(route) {
  const f=route.filters;
  const privateOrThin=f.query||f.states.length||f.authors.length||f.origins.length||f.awards.length||f.awardYears.length||f.qualities.length||f.hasEdition||f.shared||f.yearMin!==''||f.yearMax!==''||f.categoryMode==='all'||f.collectionMode==='all';
  const taxonomyCount=f.categories.length+f.collections.length+f.groups.length;
- return route.view==='books'&&route.sort==='title'&&(route.pageSize||24)===24&&!privateOrThin&&taxonomyCount<=1;
+ return route.view==='books'&&route.sort==='title'&&(route.pageSize||DEFAULT_PAGE_SIZE)===DEFAULT_PAGE_SIZE&&!privateOrThin&&taxonomyCount<=1;
 }
 
-const cleanRoute=(route,book=null)=>({filters:emptyFilters(),view:'books',sort:'reading',book,page:1,pageSize:24});
+const cleanRoute=(route,book=null)=>({filters:emptyFilters(),view:'books',sort:'reading',book,page:1,pageSize:DEFAULT_PAGE_SIZE});
 
 function siteBase() {
  const origin=globalThis.location?.origin||'https://karacaismail.github.io';
@@ -50,8 +50,8 @@ export function seoState({route,catalog,count,currentPage,totalPages,displayed})
  if(route.view==='owned')heading='Kitaplığım';
  if(route.view==='favorites')heading='Favorilerim';
  const title=book?`${displayTitle(book)} — ${book.author} | ${SITE_NAME}`:`${heading}${pageSuffix} | ${SITE_NAME}`;
- const start=count?((currentPage-1)*(route.pageSize||24))+1:0;
- const end=Math.min(currentPage*(route.pageSize||24),count);
+ const start=count?((currentPage-1)*(route.pageSize||DEFAULT_PAGE_SIZE))+1:0;
+ const end=Math.min(currentPage*(route.pageSize||DEFAULT_PAGE_SIZE),count);
  const description=book?`${displayTitle(book)}, ${book.author}. Türkçe baskı, çeviri, yayınevi, kaynak kümeleri ve okuma rotası bilgileri.`:`${heading}: ${count} kitap${count?`; ${start}–${end} arası eserler`:''}. Kaynakları ve baskı bilgileriyle insan odaklı okuma kataloğu.`;
  const canonicalQuery=encodeRoute(book?cleanRoute(route,book.id):cleanRoute(route),catalog);
  const href=query=>`${siteBase()}${query?'?'+query:''}`;

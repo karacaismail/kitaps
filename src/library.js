@@ -80,8 +80,13 @@ export function bookSlug(book){
  const readableTitle=asciiSlug(original)||asciiSlug(book.titleTr)||asciiSlug(book.id)||'book';
  return `${readableTitle}-by-${asciiSlug(book.author)||'unknown'}`.slice(0,200);
 }
+// Page sizes are multiples of 25; the first one is the default.
+export const PAGE_SIZES=[25,50,75,100];
+export const DEFAULT_PAGE_SIZE=PAGE_SIZES[0];
+// Links shared before the change still open on the page holding their first book.
+const LEGACY_PAGE_SIZES={12:25,24:25,48:50};
 export function decodeRoute(location, catalog) {
- const defaults={filters:emptyFilters(),view:'books',sort:'reading',book:null,page:1,pageSize:24};
+ const defaults={filters:emptyFilters(),view:'books',sort:'reading',book:null,page:1,pageSize:DEFAULT_PAGE_SIZE};
  const raw=location.replace(/^[#?]/,'');
  if(catalog.collections.some(c=>c.id===raw))return {...defaults,filters:{...emptyFilters(),collections:[raw]}};
  if(raw==='overview')return {...defaults,view:'collections'};
@@ -106,8 +111,10 @@ export function decodeRoute(location, catalog) {
   for(const [key,values] of Object.entries(known))if(values)f[key]=[...new Set(f[key])].filter(v=>values.includes(v));
   const selected=catalog.books.find(b=>b.id===p.get('book'))||catalog.books.find(b=>bookSlug(b)===p.get('book'));
   const view=p.get('view')==='library'?'owned':p.get('view');
-  const page=/^\d+$/.test(p.get('page')||'')?Math.max(1,Number(p.get('page'))):1;
-  const pageSize=[12,24,48].includes(Number(p.get('page-size')))?Number(p.get('page-size')):24;
+  const requestedPage=/^\d+$/.test(p.get('page')||'')?Math.max(1,Number(p.get('page'))):1;
+  const requestedSize=Number(p.get('page-size')),legacySize=LEGACY_PAGE_SIZES[requestedSize];
+  const pageSize=PAGE_SIZES.includes(requestedSize)?requestedSize:legacySize||DEFAULT_PAGE_SIZE;
+  const page=legacySize?Math.floor((requestedPage-1)*requestedSize/pageSize)+1:requestedPage;
   return {...defaults,view:['books','owned','favorites','queue','collections','notes'].includes(view)?view:'books',sort:['reading','title','author','shared','newest','saved'].includes(p.get('sort'))?p.get('sort'):'reading',book:selected?.id||null,page,pageSize};
  }catch{return defaults}
 }
@@ -124,7 +131,7 @@ export function encodeRoute(route,catalog) {
  if(f.yearMax!=='')p.set('year-to',f.yearMax);
  if(route.sort!=='reading')p.set('sort',route.sort);
  if((route.page||1)>1)p.set('page',String(Math.floor(route.page)));
- if((route.pageSize||24)!==24)p.set('page-size',String(route.pageSize));
+ if((route.pageSize||DEFAULT_PAGE_SIZE)!==DEFAULT_PAGE_SIZE)p.set('page-size',String(route.pageSize));
  if(route.book){const book=catalog?.books.find(b=>b.id===route.book);p.set('book',book?bookSlug(book):route.book)}
  return p.toString();
 }

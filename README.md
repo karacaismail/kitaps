@@ -10,10 +10,11 @@ Kitap kimliklerini, Türkçe baskıları, kitaplar arasındaki hazırlık ve eş
 - Üst menüde yalnız simgeler: Kızım için (çocuk kitapları), Favoriler (kalp) ve Kitaplığım (raf).
 - Kızım için: 13 yaşına kadar temel kütüphane. Yaş bantlarına (3–5, 5–7, 7–8, 8–10, 10–11, 11–12, 12–13) ve iki çekirdek seçkiye (Çekirdek 14 · 10 yaş öncesi, İlk altı · 10–13) göre gruplanır; her kitapta önerilen yaş, gerekiyorsa ebeveyn notu ve iki sitede doğrulanmış Türkçe baskı bulunur. Okuma rotaları: resimli kitaplardan ilk romanlara yaş rotası, 10 yaşında başlayan çocuk için ilk beş kitap ve 10–13 yaş için dört başlangıç yolu (okumaya isteksiz, macera, insan ilişkileri, felsefi sorular).
 - Çocuk kitapları okuma önceliğinde kendi aralarında sıralanır (çocuk kitapları arasında #1, #2 …) ve genel kataloğun ardından gelir.
+- Okundu ve satın alındı işaretleri kapakta şerit olarak görünür; okunmuş kitapların kapakları yarı yarıya gri tondadır. İşaretler hem kartta hem kitap sayfasında yer alır, puanı değiştirmez.
 - Varsayılan sıralama okuma önceliğidir. Her kitabın puanı beş katalog ölçütünden gelir. Detay sayfasının sonunda her ölçütün katkısı ve kanıtı görünür.
 - Satın alma, favori, okuma durumu, okuma kaydı ve kişisel sıra puanı değiştirmez. Kural [ADR 001](docs/ADR-001-reading-priority-and-state.md) içinde açıklanır.
 - Kitap detayında okuma amacı, gerekçeli önce/sonra/birlikte okuma önerileri, Türkçe baskı, yayınevi, çevirmen ve ISBN.
-- Sayfa, filtre, sıralama ve açık kitap okunabilir URL parametrelerinde tutulur; geri tuşu, yenileme ve paylaşılan bağlantı aynı görünümü açar.
+- Sayfa başına 25, 50, 75 veya 100 kitap gösterilir (varsayılan 25). Sayfa, filtre, sıralama ve açık kitap okunabilir URL parametrelerinde tutulur; geri tuşu, yenileme ve paylaşılan bağlantı aynı görünümü açar.
 - Altbilgide bütün kitapları JSON olarak indirme: kimlik, Türkçe ad, özgün ad, özgün yayınevi, yazarlar, önerilen çevirmenler, Türkiye yayınevi, Türkçe ISBN ve ilk yayın yılı.
 
 ## Cihazlar arası eşitleme

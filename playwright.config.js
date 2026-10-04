@@ -10,5 +10,12 @@ export default defineConfig({
   // A dedicated port, never reused: other local servers (e.g. a dev server on
   // 4173) must not stand in for the build under test.
   webServer: { command: 'npx vite preview --host 127.0.0.1 --port 4317 --strictPort', url: 'http://127.0.0.1:4317/', reuseExistingServer: false, timeout: 60_000 },
-  projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
+  projects: [
+    { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
+    // The cover marks (ribbons, grey covers) are layout-sensitive, so they are
+    // also checked in WebKit, Firefox and a phone browser.
+    { name: 'webkit', use: { ...devices['Desktop Safari'] }, testMatch: /reading-marks\.spec\.js/ },
+    { name: 'firefox', use: { ...devices['Desktop Firefox'] }, testMatch: /reading-marks\.spec\.js/ },
+    { name: 'mobile-safari', use: { ...devices['iPhone 13'] }, testMatch: /reading-marks\.spec\.js/ },
+  ],
 });

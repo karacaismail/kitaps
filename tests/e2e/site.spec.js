@@ -19,11 +19,17 @@ test('the shared state is read from GitHub in a real browser, without CORS error
 test('the catalog opens sorted by reading priority with the compact summary', async ({ page }) => {
   const errors = consoleErrors(page);
   await page.goto('./');
-  await expect(page.locator('.book-card')).toHaveCount(24);
+  await expect(page.locator('.book-card')).toHaveCount(25);
   const toggle = page.getByRole('button', { name: /Okuma önceliğine göre sıralı/ });
   await expect(toggle).toHaveAttribute('aria-expanded', 'false');
   await expect(page.locator('.header-children svg circle')).toHaveCount(3);
-  await expect(page.locator('.reading-priority-badge').first()).toContainText('#1');
+  const badge = page.locator('.reading-priority-badge').first();
+  await expect(badge).toContainText('#1');
+  // Only the score is set off by a divider; nothing is drawn before the rank.
+  await expect(badge.locator('.priority-rank')).toHaveCSS('border-left-width', '0px');
+  await expect(badge.locator('.priority-score')).toHaveCSS('border-left-width', '1px');
+  await page.getByRole('combobox', { name: 'Sayfa başına kitap' }).click();
+  await expect(page.getByRole('option')).toHaveText(['25 / sayfa', '50 / sayfa', '75 / sayfa', '100 / sayfa']);
   expect(errors).toEqual([]);
 });
 
@@ -40,6 +46,8 @@ test('a phone shows book titles on the first screen', async ({ browser }) => {
 });
 
 test('marking a book as purchased changes neither its score nor its explanation', async ({ page }) => {
+  // The live shared state could already mark this book; start from an empty one.
+  await page.context().route('https://raw.githubusercontent.com/karacaismail/kitaps-state/**', route => route.fulfill({ json: { schemaVersion: 2, updatedAt: '1970-01-01T00:00:00.000Z', books: {}, queue: null } }));
   await page.goto('./?book=good-to-great-by-jim-collins');
   const card = page.locator('.reading-priority-card');
   await expect(card).toBeVisible();
@@ -55,6 +63,34 @@ test('a Turkish original is not labelled as an unverified translation', async ({
   await expect(page.getByRole('heading', { name: 'Baskı bilgisi' })).toBeVisible();
   await expect(page.getByText(/Türkçe baskı doğrulanamadı/)).toHaveCount(0);
   await expect(page.getByText(/Özgün baskı · Amazon/)).toHaveCount(0);
+});
+
+test('the per-page control shows its whole label on a 320 px phone', async ({ browser }) => {
+  const context = await browser.newContext({ viewport: { width: 320, height: 720 } });
+  const page = await context.newPage();
+  await page.goto('./?page-size=100');
+  const control = page.getByRole('combobox', { name: 'Sayfa başına kitap' });
+  await expect(control).toHaveValue('100 / sayfa');
+  expect(await control.evaluate(element => element.scrollWidth <= element.clientWidth)).toBe(true);
+  await context.close();
+});
+
+test('the phone sheet grip shows its whole focus ring', async ({ browser }) => {
+  const context = await browser.newContext({ viewport: { width: 375, height: 812 }, isMobile: true, hasTouch: true });
+  const page = await context.newPage();
+  await page.goto('./?book=good-to-great-by-jim-collins');
+  const grip = page.locator('.sheet-grip');
+  await expect(grip).toBeVisible();
+  await page.keyboard.press('Shift');
+  await grip.focus();
+  // The ring must start inside the sheet, whose top edge clips anything above it.
+  const clear = await grip.evaluate(element => {
+    const style = getComputedStyle(element);
+    const ringTop = element.getBoundingClientRect().top - parseFloat(style.outlineOffset) - parseFloat(style.outlineWidth);
+    return element.matches(':focus-visible') && ringTop >= element.closest('.mantine-Drawer-content').getBoundingClientRect().top;
+  });
+  expect(clear).toBe(true);
+  await context.close();
 });
 
 test('page state lives in the URL and survives a reload', async ({ page }) => {

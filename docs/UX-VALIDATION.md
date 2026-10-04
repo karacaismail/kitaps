@@ -9,6 +9,7 @@ Son kontrol: 28 Eylül 2026. Kontrollerin çoğu otomatik testlere bağlıdır; 
 | Veri, sıralama ve eşitleme | `npm test` (node:test) | Katalog bütünlüğü, dışa aktarma, rotalar, sıralama motoru, GitHub durum deposu |
 | Bileşenler | `npm test` (Vitest + Testing Library, jsdom) | Baskı özeti, çeviri durumu, puan kartı ve özeti, kitap keşfi, eşitleme paneli, yeni cihaz penceresi, eşitleme kancası |
 | Tarayıcı | `npm run test:e2e` (Playwright, Chromium, derlenmiş site) | GitHub'dan gerçek okuma ve CORS, katalog açılışı, telefon ilk ekranı, satın almanın puanı değiştirmemesi, özgün Türkçe eser, URL'de sayfa durumu, axe taraması |
+| Kapak işaretleri | `npm run test:e2e` (Chromium, WebKit, Firefox ve iPhone 13 profili; ortak GitHub durumu boş bir kayıtla taklit edilir) | Okundu ve satın alındı şeritleri; kitap sayfasında, kartta ve okuma sırasında gri kapak; işaret kaldırılınca geri dönüş; ekran okuyucu metni; 320–1280 px arasında 16 genişlikte, %125 yazıyla ve WCAG metin aralığıyla rozetle çakışmama ve yatay taşma; klavye odağında şeritlerin kapağın içine çekilmesi; zorunlu renk modu (Chromium); iki temada axe |
 | Tip | `npm run typecheck` | Sıralama ve durum alanı sıkı TypeScript; JS/JSX görünümleri gevşek kurallarla |
 
 ## Görsel dil
@@ -20,11 +21,16 @@ Son kontrol: 28 Eylül 2026. Kontrollerin çoğu otomatik testlere bağlıdır; 
 
 ## Katalog ve kart düzeni
 
-- Kapak kartın asıl öğesidir: 2:3 oranlı alanda kitap gibi gölgelenir, küçük kaynak görselleri oranı bozulmadan alanı doldurur. Kapağın üstünde yalnız sıra ve puan rozeti vardır.
+- Kapak kartın asıl öğesidir: 2:3 oranlı alanda kitap gibi gölgelenir, küçük kaynak görselleri oranı bozulmadan alanı doldurur. Kapağın üstünde yalnız sıra ve puan rozeti ile kişisel okuma şeritleri vardır.
 - Kapağın altında sırasıyla kitap adı (en fazla iki satır), yazar, çocuk kitaplarında önerilen yaş, çeviri durumu ile Türkçe yayınevi ve kişisel düğmeler (kalp, çanta, sıra) yer alır. Düğmeler kapağı örtmez; fare kullanılan ekranlarda kart üzerine gelinince ya da düğme işaretliyse görünür, dokunmatik ekranlarda her zaman görünür.
+- Okundu ve satın alındı işaretleri kapağın sağ kenarına sarılan şeritlerdir; ikisi birlikteyse alt alta durur. Rozet ve şeritler kapağın üstünde aynı satırı paylaşır: satır ikisine yetmediğinde (dar kart, büyütülmüş yazı veya artırılmış metin aralığı) şeritler rozetin altına iner, hiçbir genişlikte üst üste binmez. Şerit kapağın kenarından 6 px taşar; altındaki kıvrım kapağın arkasına dönen parçayı gösterir. Kapak klavyeyle odaklandığında şeritler kapağın içine çekilir, odak çizgisini örtmez. Fareyle kartın üzerine gelindiğinde şeritler kapakla birlikte yükselir; azaltılmış hareket tercihinde yükselmez.
+- "Okundu" şeridi mürekkep rengindedir (açık temada koyu, koyu temada açık; 15,46:1 ve 16,05:1). "Satın alındı" şeridi kartın basılı çanta düğmesiyle aynı turkuazdır (6,36:1 ve 11,00:1). Şerit yazısı rozetle aynı 13 px'dir. Şeritler görsel işarettir ve ekran okuyucudan gizlenir; aynı bilgi kitap adından hemen sonra "Durum: Okundu, Satın alındı." olarak okunur. Zorunlu renk modunda şeritler çerçeveyle ayrılır.
+- Okunmuş kitabın kapağı kartta, kitap sayfasında, benzer kitaplarda ve okuma sırasında yarı yarıya gri tondadır. Kartta eskiden gösterilen "Okundu" rozeti şeritle tekrarlanmasın diye kaldırıldı.
 - Kapağı henüz doğrulanmamış kitaplarda boş bir simge yerine kitabın adını ve yazarını taşıyan sade bir kapak gösterilir.
 - Çeviri durumu bir simge ve kısa bir sözcükle verilir: doğrulanmış Türkçe baskı "Türkçe", kaynağıyla doğrulanmış yokluk "Türkçesi yok", henüz doğrulanamayan durum "Doğrulanmadı". Renk tek başına anlam taşımaz. Üzerine gelince kısa açıklama, tıklayınca kaynak ayrıntısı açılır. Özgün Türkçe eserlerde çeviri göstergesi yoktur.
 - Izgara telefonda 2, tablette 3, masaüstünde 4 ve geniş ekranda 5 sütundur.
+- Filtre seçeneklerinde gerçek onay kutusu gizlidir; klavye odağı seçeneğin tamamına aynı odak çizgisiyle çizilir.
+- Katalog sayfa başına 25 kitapla açılır; 25, 50, 75 ve 100 seçilebilir. Seçim URL'de `page-size` olarak saklanır; eski 12 ve 24'lük bağlantılar 25'e, 48'lik bağlantılar 50'ye döner ve aynı kitapların bulunduğu sayfayı açar. Artık var olmayan eski statik sayfa numaraları için `404.html` kataloğa yönlendiren bir sayfa gösterir.
 
 ## Mobil düzen ve etkileşim
 

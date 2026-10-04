@@ -2,6 +2,7 @@ import React,{useEffect,useState} from 'react';
 import { Button, Group, NumberInput, Pagination, Popover, Select, Text } from '@mantine/core';
 import { IconChevronDown } from '@tabler/icons-react';
 import { clampPage } from '../recommendations';
+import { PAGE_SIZES } from '../library';
 export default function CatalogPagination({page,total,count,pageSize,onChange,onPageSize,hrefForPage}) {
  const [jump,setJump]=useState(page);
  const [opened,setOpened]=useState(false);
@@ -13,7 +14,7 @@ export default function CatalogPagination({page,total,count,pageSize,onChange,on
  const previousProps=page>1?linkProps(page-1):{};
  const nextProps=page<total?linkProps(page+1):{};
  return <nav aria-label="Katalog sayfaları" className="catalog-pagination">
-  <div className="pagination-meta"><Text c="dimmed"><strong>{start}–{end}</strong><span> · {count} kitap içinde</span></Text><Text className="pagination-page-status" c="dimmed">Sayfa <strong>{page}</strong> / {total}</Text><Select className="page-size-select" classNames={{dropdown:'page-size-dropdown',option:'page-size-option'}} aria-label="Sayfa başına kitap" value={String(pageSize)} data={[{value:'12',label:'12 / sayfa'},{value:'24',label:'24 / sayfa'},{value:'48',label:'48 / sayfa'}]} onChange={value=>value&&onPageSize(Number(value))} allowDeselect={false} checkIconPosition="right" comboboxProps={{position:'top-end',offset:8,withinPortal:true,shadow:'md'}}/></div>
+  <div className="pagination-meta"><Text c="dimmed"><strong>{start}–{end}</strong><span> · {count} kitap içinde</span></Text><Text className="pagination-page-status" c="dimmed">Sayfa <strong>{page}</strong> / {total}</Text><Select className="page-size-select" classNames={{dropdown:'page-size-dropdown',option:'page-size-option'}} aria-label="Sayfa başına kitap" value={String(pageSize)} data={PAGE_SIZES.map(size=>({value:String(size),label:`${size} / sayfa`}))} onChange={value=>value&&onPageSize(Number(value))} allowDeselect={false} checkIconPosition="right" comboboxProps={{position:'top-end',offset:8,withinPortal:true,shadow:'md'}}/></div>
   <div className="pagination-progress" aria-hidden="true"><span style={{width:`${page/total*100}%`}}/></div>
   {total>1&&<div className="pagination-navigation"><Pagination.Root total={total} value={page} onChange={onChange} siblings={1} boundaries={1} size="lg" getItemProps={p=>({'aria-label':`${p}. sayfaya git`,'aria-current':p===page?'page':undefined})}>
    <Group gap={6} justify="center" className="pagination-controls"><Pagination.Previous aria-label="Önceki sayfa" rel={page>1?'prev':undefined} {...previousProps}/><div className="pagination-desktop"><Pagination.Items/></div><Pagination.Label className="pagination-mobile" formatLabel={({page,totalPages})=>`Sayfa ${page} / ${totalPages}`}/><Pagination.Next aria-label="Sonraki sayfa" rel={page<total?'next':undefined} {...nextProps}/></Group>

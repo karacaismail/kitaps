@@ -10,4 +10,5 @@ test('page-size dropdown uses the styled cross-platform Select',()=>{
  assert.match(pagination,/className="page-size-select"/);
  assert.match(pagination,/allowDeselect=\{false\}/);
  assert.match(pagination,/withinPortal:true/);
+ assert.match(pagination,/data=\{PAGE_SIZES\.map\(/);
 });
