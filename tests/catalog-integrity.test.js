@@ -14,6 +14,20 @@ test('every selected cover has a source, a local image and a valid ISBN when spe
   if(c.isbn)assert.ok(validIsbn(c.isbn),b.id);
  }
 });
+// The book page shows a cover's scope verbatim under the cover. The source files
+// are checked too, because a later cover can hide an English scope in the catalog.
+test('cover scopes are written in Turkish',()=>{
+ const covers=[
+  ...catalog.books.map(b=>[b.id,b.cover]),
+  ...read('../data/foundational-reading.json').groups.flatMap(g=>g.books.map(b=>['foundations: '+b.title,b.cover])),
+  ...Object.entries(read('../data/preparatory-reading-covers.json')),
+  ...Object.entries(read('../data/turkish-covers.json')),
+  ...Object.entries(read('../data/international-covers.json')),
+  ...read('../data/children-library.json').books.map(b=>['children: '+b.key,b.cover]),
+ ];
+ const english=covers.filter(([,c])=>/edition|cover/i.test(c?.scope??'')).map(([id,c])=>`${id}: ${c.scope}`);
+ assert.deepEqual(english,[]);
+});
 test('verified edition ISBNs pass their check digit and name their evidence source',()=>{
  for(const [id,e] of Object.entries(read('../data/edition-verification.json'))){
   if(e.isbn)assert.ok(validIsbn(e.isbn),id);

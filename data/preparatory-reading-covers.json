@@ -7,7 +7,7 @@
     "imageUrl": "https://d3g3ru9u2lc58p.cloudfront.net/fit-in/500x500/images/products/14/8a/elestirel-okuma1bd82d9a99d75084dc75a3d7b4ac3e99-148ae618b3909dd58b3d00eb137c612a.webp",
     "src": "covers/preparation-hazirlik-01.jpg",
     "language": "tr",
-    "scope": "Turkish edition cover",
+    "scope": "Türkçe baskı kapağı",
     "isbn": "9789754949162"
   },
   "hazirlik-02": {
@@ -18,7 +18,7 @@
     "imageUrl": "https://timas.com.tr/dusunmenin-alfabesi-sosyoloji-timas-yayinlari-yasin-ramazan-38315-12-K.jpg",
     "src": "covers/preparation-hazirlik-02.jpg",
     "language": "tr",
-    "scope": "Turkish edition cover",
+    "scope": "Türkçe baskı kapağı",
     "isbn": "9786050849271"
   },
   "hazirlik-03": {
@@ -29,7 +29,7 @@
     "imageUrl": "https://yayinlar.tubitak.gov.tr/2539-large_default/adim-adim-matematik.jpg",
     "src": "covers/preparation-hazirlik-03.jpg",
     "language": "tr",
-    "scope": "Turkish edition cover",
+    "scope": "Türkçe baskı kapağı",
     "isbn": "9786053125594"
   },
   "hazirlik-04": {
@@ -40,7 +40,7 @@
     "imageUrl": "https://www.remzi.com.tr/files/books/479/resim/orneklerle-kolay-ekonomi.jpg",
     "src": "covers/preparation-hazirlik-04.jpg",
     "language": "tr",
-    "scope": "Turkish edition cover",
+    "scope": "Türkçe baskı kapağı",
     "isbn": "9789751416117"
   },
   "hazirlik-05": {
@@ -51,7 +51,7 @@
     "imageUrl": "https://cdn.bkmkitap.com/genc-okurlar-icin-kisa-bir-dunya-tarihi-11532220-11-O.jpg",
     "src": "covers/preparation-hazirlik-05.jpg",
     "language": "tr",
-    "scope": "Turkish edition cover",
+    "scope": "Türkçe baskı kapağı",
     "isbn": "9789751017154"
   },
   "hazirlik-06": {
@@ -62,7 +62,7 @@
     "imageUrl": "https://cdn.kitapsec.com/image/urun/2022/07/13/1657708451.jpg",
     "src": "covers/preparation-hazirlik-06.jpg",
     "language": "tr",
-    "scope": "Turkish edition cover",
+    "scope": "Türkçe baskı kapağı",
     "isbn": "9786254496219"
   },
   "hazirlik-07": {
@@ -73,7 +73,7 @@
     "imageUrl": "https://www.homerbooks.com/idea/fx/44/myassets/products/360/9786055134228.jpg?revision=1768080976",
     "src": "covers/preparation-hazirlik-07.jpg",
     "language": "tr",
-    "scope": "Turkish edition cover",
+    "scope": "Türkçe baskı kapağı",
     "isbn": "9786055134228"
   },
   "hazirlik-08": {
@@ -84,7 +84,7 @@
     "imageUrl": "https://cdn.bkmkitap.com/bilimin-kisa-tarihi-13882470-39-O.jpg",
     "src": "covers/preparation-hazirlik-08.jpg",
     "language": "tr",
-    "scope": "Turkish edition cover",
+    "scope": "Türkçe baskı kapağı",
     "isbn": "9786051719719"
   },
   "hazirlik-09": {
@@ -95,7 +95,7 @@
     "imageUrl": "https://static.ticimax.cloud/cdn-cgi/image/width=-,quality=99/30373/uploads/urunresimleri/buyuk/aklinda-kalsin-basarili-ogrenme-bilimi-8d7d.jpg",
     "src": "covers/preparation-hazirlik-09.jpg",
     "language": "tr",
-    "scope": "Turkish edition cover",
+    "scope": "Türkçe baskı kapağı",
     "isbn": "9786056685828"
   },
   "hazirlik-10": {
@@ -106,7 +106,7 @@
     "imageUrl": "https://static.ticimax.cloud/cdn-cgi/image/width=-,quality=99/30373/uploads/urunresimleri/buyuk/ciplak-istatistik-37b1.jpg",
     "src": "covers/preparation-hazirlik-10.jpg",
     "language": "tr",
-    "scope": "Turkish edition cover",
+    "scope": "Türkçe baskı kapağı",
     "isbn": "9786058213258"
   }
 }
