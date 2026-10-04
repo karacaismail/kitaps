@@ -1,11 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { DEFAULT_PAGE_SIZE,PAGE_SIZES,emptyFilters,encodeRoute,decodeRoute,bookSlug } from '../src/library.js';
+import { DEFAULT_PAGE_SIZE,GRID_COLUMNS,PAGE_SIZES,emptyFilters,encodeRoute,decodeRoute,bookSlug } from '../src/library.js';
 import { displayTitle,translationStatus,turkishMeaning } from '../src/translation.js';
 const catalog=JSON.parse(fs.readFileSync(new URL('../src/catalog.json',import.meta.url)));
 test('readable English query parameters survive reload and retain legacy hashes',()=>{
- const route={view:'books',sort:'reading',book:null,page:1,pageSize:25,filters:{...emptyFilters(),categories:['strategy']}};
+ const route={view:'books',sort:'reading',book:null,page:1,pageSize:DEFAULT_PAGE_SIZE,filters:{...emptyFilters(),categories:['strategy']}};
  assert.equal(encodeRoute(route),'category=strategy');
  assert.deepEqual(decodeRoute('?category=strategy',catalog),route);
  assert.deepEqual(decodeRoute('#f=%7B%22categories%22%3A%5B%22strategy%22%5D%7D',catalog),route);
@@ -15,18 +15,21 @@ test('readable English query parameters survive reload and retain legacy hashes'
  assert.deepEqual(decodeRoute('?category=unknown&year-from=no',catalog).filters,emptyFilters());
 });
 test('pagination has durable readable URLs',()=>{
- const route={view:'books',sort:'reading',book:null,page:5,pageSize:50,filters:emptyFilters()};
- assert.equal(encodeRoute(route,catalog),'page=5&page-size=50');
- assert.deepEqual(decodeRoute('?page=5&page-size=50',catalog),route);
+ const route={view:'books',sort:'reading',book:null,page:5,pageSize:48,filters:emptyFilters()};
+ assert.equal(encodeRoute(route,catalog),'page=5&page-size=48');
+ assert.deepEqual(decodeRoute('?page=5&page-size=48',catalog),route);
  assert.equal(decodeRoute('?page=0&page-size=99',catalog).page,1);
- assert.equal(decodeRoute('?page=0&page-size=99',catalog).pageSize,25);
- assert.equal(encodeRoute({...route,page:1,pageSize:25},catalog),'');
+ assert.equal(decodeRoute('?page=0&page-size=99',catalog).pageSize,DEFAULT_PAGE_SIZE);
+ assert.equal(encodeRoute({...route,page:1,pageSize:DEFAULT_PAGE_SIZE},catalog),'');
 });
-test('page sizes are multiples of 25 and start at 25',()=>{
- assert.deepEqual(PAGE_SIZES,[25,50,75,100]);
- assert.equal(DEFAULT_PAGE_SIZE,25);
- // Links shared before the change open on the page that holds their first book.
- for(const [query,pageSize,page] of [['?page-size=12',25,1],['?page=3&page-size=24',25,2],['?page=5&page-size=48',50,4],['?page=2&page-size=12',25,1]]){
+test('page sizes are the owner’s multiples of 24 and every one fills the grid’s last row',()=>{
+ // Fixed by the owner (AGENTS.md); change them only on the owner's explicit instruction.
+ assert.deepEqual(PAGE_SIZES,[24,48,96,192,384]);
+ assert.equal(DEFAULT_PAGE_SIZE,24);
+ assert.deepEqual(GRID_COLUMNS,[2,3,4]);
+ for(const size of PAGE_SIZES)for(const columns of GRID_COLUMNS)assert.equal(size%columns,0,`${size} books in ${columns} columns`);
+ // Links shared before a change open on the page that holds their first book.
+ for(const [query,pageSize,page] of [['?page-size=12',24,1],['?page=2&page-size=12',24,1],['?page=3&page-size=25',24,3],['?page=5&page-size=50',48,5],['?page=2&page-size=75',96,1],['?page=4&page-size=100',96,4],['?page=3&page-size=24',24,3],['?page=5&page-size=48',48,5]]){
   const route=decodeRoute(query,catalog);
   assert.deepEqual([route.pageSize,route.page],[pageSize,page],query);
  }
@@ -56,7 +59,7 @@ test('unverified and unavailable works keep their original title while preservin
 
 test('the added-day filter lives in the URL and ignores unknown days',()=>{
  const day=catalog.books.find(b=>b.addedAt).addedAt;
- const route={view:'books',sort:'added',book:null,page:1,pageSize:25,filters:{...emptyFilters(),addedDates:[day]}};
+ const route={view:'books',sort:'added',book:null,page:1,pageSize:DEFAULT_PAGE_SIZE,filters:{...emptyFilters(),addedDates:[day]}};
  assert.equal(encodeRoute(route,catalog),`added=${day}&sort=added`);
  assert.deepEqual(decodeRoute(`?added=${day}&sort=added`,catalog),route);
  assert.deepEqual(decodeRoute('?added=1999-01-01',catalog).filters.addedDates,[]);

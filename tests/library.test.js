@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { prepareBooks, filterBooks, sortBooks, formatDay, emptyFilters, toggleState, migrateStates, decodeRoute, encodeRoute, plainTextMarkers, booksForShelf } from '../src/library.js';
+import { DEFAULT_PAGE_SIZE, prepareBooks, filterBooks, sortBooks, formatDay, emptyFilters, toggleState, migrateStates, decodeRoute, encodeRoute, plainTextMarkers, booksForShelf } from '../src/library.js';
 const catalog=JSON.parse(fs.readFileSync(new URL('../src/catalog.json',import.meta.url)));
 const books=prepareBooks(catalog.books);
 const filter=(f,states)=>filterBooks(books,{...emptyFilters(),...f},states);
@@ -76,7 +76,7 @@ test('reading states migrate across all edition keys; explicit cleared states st
  assert.equal(filter({states:['onemli']},{[b.id]:['onemli']}).length,1);
 });
 test('filters survive shareable URL and malformed routes recover',()=>{
- const route={view:'books',sort:'title',book:books[0].id,page:1,pageSize:25,filters:{...emptyFilters(),categories:['strategy','psychology'],categoryMode:'all',yearMin:1980,query:'İyi Strateji'}};
+ const route={view:'books',sort:'title',book:books[0].id,page:1,pageSize:DEFAULT_PAGE_SIZE,filters:{...emptyFilters(),categories:['strategy','psychology'],categoryMode:'all',yearMin:1980,query:'İyi Strateji'}};
  assert.deepEqual(decodeRoute('#'+encodeRoute(route),catalog),route);
  assert.equal(decodeRoute('#f=broken',catalog).filters.query,'');
 });
@@ -105,7 +105,7 @@ test('purchased works stay in catalog and appear in the library; favorites remai
  const restored={[b.id]:toggleState(states[b.id],'alindi')};
  assert.equal(booksForShelf(books,restored).length,books.length);
  assert.equal(booksForShelf(books,restored,'owned').length,0);
- const route={view:'owned',sort:'title',book:null,page:1,pageSize:25,filters:{...emptyFilters(),states:['okunuyor']}};
+ const route={view:'owned',sort:'title',book:null,page:1,pageSize:DEFAULT_PAGE_SIZE,filters:{...emptyFilters(),states:['okunuyor']}};
  assert.deepEqual(decodeRoute('#'+encodeRoute(route),catalog),route);
  assert.equal(filterBooks(owned,route.filters,states).length,1);
 });

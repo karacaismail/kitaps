@@ -19,7 +19,7 @@ test('the shared state is read from GitHub in a real browser, without CORS error
 test('the catalog opens sorted by reading priority with the compact summary', async ({ page }) => {
   const errors = consoleErrors(page);
   await page.goto('./');
-  await expect(page.locator('.book-card')).toHaveCount(25);
+  await expect(page.locator('.book-card')).toHaveCount(24);
   const toggle = page.getByRole('button', { name: /Okuma önceliğine göre sıralı/ });
   await expect(toggle).toHaveAttribute('aria-expanded', 'false');
   await expect(page.locator('.header-children svg circle')).toHaveCount(3);
@@ -29,7 +29,7 @@ test('the catalog opens sorted by reading priority with the compact summary', as
   await expect(badge.locator('.priority-rank')).toHaveCSS('border-left-width', '0px');
   await expect(badge.locator('.priority-score')).toHaveCSS('border-left-width', '1px');
   await page.getByRole('combobox', { name: 'Sayfa başına kitap' }).click();
-  await expect(page.getByRole('option')).toHaveText(['25 / sayfa', '50 / sayfa', '75 / sayfa', '100 / sayfa']);
+  await expect(page.getByRole('option')).toHaveText(['24 / sayfa', '48 / sayfa', '96 / sayfa', '192 / sayfa', '384 / sayfa']);
   expect(errors).toEqual([]);
 });
 
@@ -68,9 +68,9 @@ test('a Turkish original is not labelled as an unverified translation', async ({
 test('the per-page control shows its whole label on a 320 px phone', async ({ browser }) => {
   const context = await browser.newContext({ viewport: { width: 320, height: 720 } });
   const page = await context.newPage();
-  await page.goto('./?page-size=100');
+  await page.goto('./?page-size=384');
   const control = page.getByRole('combobox', { name: 'Sayfa başına kitap' });
-  await expect(control).toHaveValue('100 / sayfa');
+  await expect(control).toHaveValue('384 / sayfa');
   expect(await control.evaluate(element => element.scrollWidth <= element.clientWidth)).toBe(true);
   await context.close();
 });

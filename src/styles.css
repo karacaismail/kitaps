@@ -296,10 +296,13 @@ main{padding-top:20px}
 .age-bands .mantine-Button-root[data-variant=default]{background:var(--surface)}
 
 /* ---------- Book grid ---------- */
-.books-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 14px}
-@media (min-width:36em){.books-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 20px}}
-@media (min-width:56em){.books-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
-@media (min-width:72em){.books-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:36px 24px}}
+/* The owner's fixed rule (AGENTS.md): 2 columns on phones, 3 on tablets, 4 from desktop up and
+   never more. Every page size (24, 48, 96, 192, 384) divides by each count, so the last row is
+   always full. Change these only on the owner's explicit instruction. */
+.books-grid{--books-columns:2;display:grid;grid-template-columns:repeat(var(--books-columns),minmax(0,1fr));gap:26px 14px}
+@media (min-width:36em){.books-grid{--books-columns:3;gap:32px 20px}}
+@media (min-width:56em){.books-grid{--books-columns:4}}
+@media (min-width:72em){.books-grid{gap:36px 24px}}
 
 .book-card{display:flex;flex-direction:column;min-width:0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;overflow:visible;cursor:pointer}
 .book-card:hover .cover-stage img{transform:translateY(-3px);box-shadow:0 1px 1px rgb(31 27 23 / 10%),0 18px 30px -12px rgb(31 27 23 / 50%)}
@@ -642,7 +645,7 @@ main{padding-top:20px}
 @media print{
  .site-header,.main-tabs,.search-panel,.site-footer,.catalog-pagination,.reading-route,.priority-summary,.book-actions{display:none}
  body{background:#fff}
- .books-grid{grid-template-columns:repeat(3,1fr)}
+ .books-grid{--books-columns:3}
  .book-card{break-inside:avoid}
 }
 

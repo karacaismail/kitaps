@@ -10,10 +10,10 @@ import { displayTitle } from '../src/translation.js';
 
 const root=new URL('../',import.meta.url);
 const catalog=JSON.parse(fs.readFileSync(new URL('src/catalog.json',root)));
-const route=overrides=>({view:'books',sort:'reading',book:null,page:1,pageSize:25,filters:emptyFilters(),...overrides});
+const route=overrides=>({view:'books',sort:'reading',book:null,page:1,pageSize:DEFAULT_PAGE_SIZE,filters:emptyFilters(),...overrides});
 
 test('personalized reading order is noindex and points at the stable catalog',()=>{
- const state=seoState({route:route({page:5}),catalog,count:catalog.books.length,currentPage:5,totalPages:31,displayed:catalog.books.slice(100,125)});
+ const state=seoState({route:route({page:5}),catalog,count:catalog.books.length,currentPage:5,totalPages:31,displayed:catalog.books.slice(4*DEFAULT_PAGE_SIZE,5*DEFAULT_PAGE_SIZE)});
  assert.equal(state.robots,'noindex,follow');
  assert.equal(state.canonical,'https://karacaismail.github.io/kitaps/catalog/');
  assert.equal(state.prev,'');
@@ -22,13 +22,13 @@ test('personalized reading order is noindex and points at the stable catalog',()
 });
 
 test('title-sorted public catalog pages have stable canonicals and pagination',()=>{
- const state=seoState({route:route({sort:'title',page:5}),catalog,count:catalog.books.length,currentPage:5,totalPages:31,displayed:catalog.books.slice(100,125)});
+ const state=seoState({route:route({sort:'title',page:5}),catalog,count:catalog.books.length,currentPage:5,totalPages:31,displayed:catalog.books.slice(4*DEFAULT_PAGE_SIZE,5*DEFAULT_PAGE_SIZE)});
  assert.equal(state.robots,'index,follow');
  assert.match(state.title,/Sayfa 5/);
  assert.equal(state.canonical,'https://karacaismail.github.io/kitaps/catalog/page/5/');
  assert.equal(state.prev,'https://karacaismail.github.io/kitaps/catalog/page/4/');
  assert.equal(state.next,'https://karacaismail.github.io/kitaps/catalog/page/6/');
- assert.equal(state.structured.mainEntity.itemListElement.length,25);
+ assert.equal(state.structured.mainEntity.itemListElement.length,DEFAULT_PAGE_SIZE);
 });
 
 test('search and personal result URLs stay out of the index',()=>{

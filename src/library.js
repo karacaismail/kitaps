@@ -92,11 +92,14 @@ export function bookSlug(book){
  const readableTitle=asciiSlug(original)||asciiSlug(book.titleTr)||asciiSlug(book.id)||'book';
  return `${readableTitle}-by-${asciiSlug(book.author)||'unknown'}`.slice(0,200);
 }
-// Page sizes are multiples of 25; the first one is the default.
-export const PAGE_SIZES=[25,50,75,100];
+// The owner's fixed rule (AGENTS.md): page sizes are multiples of 24, so the 2-, 3- and
+// 4-column catalog grids always end on a full row. The first one is the default.
+export const PAGE_SIZES=[24,48,96,192,384];
 export const DEFAULT_PAGE_SIZE=PAGE_SIZES[0];
-// Links shared before the change still open on the page holding their first book.
-const LEGACY_PAGE_SIZES={12:25,24:25,48:50};
+// The column counts the catalog grid may use (styles.css --books-columns-*).
+export const GRID_COLUMNS=[2,3,4];
+// Links shared before a change still open on the page holding their first book.
+const LEGACY_PAGE_SIZES={12:24,25:24,50:48,75:96,100:96};
 export function decodeRoute(location, catalog) {
  const defaults={filters:emptyFilters(),view:'books',sort:'reading',book:null,page:1,pageSize:DEFAULT_PAGE_SIZE};
  const raw=location.replace(/^[#?]/,'');

@@ -6,7 +6,7 @@ Kitap kimliklerini, Türkçe baskıları, kitaplar arasındaki hazırlık ve eş
 
 ## Özellikler
 
-- Kapakların öne çıktığı raf düzeni: telefonda 2, masaüstünde 5 sütuna kadar. Açık ve koyu tema; başlıklarda Literata, arayüzde cihazın kendi yazı tipi. Telefonda ilk ekranda kitap kartları görünür.
+- Kapakların öne çıktığı raf düzeni: telefonda 2, tablette 3, masaüstünde 4 sütun; daha geniş ekranda da 4. Açık ve koyu tema; başlıklarda Literata, arayüzde cihazın kendi yazı tipi. Telefonda ilk ekranda kitap kartları görünür.
 - Üst menüde yalnız simgeler: Kızım için (çocuk kitapları), Favoriler (kalp) ve Kitaplığım (raf).
 - Kızım için: 13 yaşına kadar temel kütüphane. Yaş bantlarına (3–5, 5–7, 7–8, 8–10, 10–11, 11–12, 12–13) ve iki çekirdek seçkiye (Çekirdek 14 · 10 yaş öncesi, İlk altı · 10–13) göre gruplanır; her kitapta önerilen yaş, gerekiyorsa ebeveyn notu ve iki sitede doğrulanmış Türkçe baskı bulunur. Okuma rotaları: resimli kitaplardan ilk romanlara yaş rotası, 10 yaşında başlayan çocuk için ilk beş kitap ve 10–13 yaş için dört başlangıç yolu (okumaya isteksiz, macera, insan ilişkileri, felsefi sorular).
 - Çocuk kitapları okuma önceliğinde kendi aralarında sıralanır (çocuk kitapları arasında #1, #2 …) ve genel kataloğun ardından gelir.
@@ -15,7 +15,7 @@ Kitap kimliklerini, Türkçe baskıları, kitaplar arasındaki hazırlık ve eş
 - Varsayılan sıralama okuma önceliğidir. Her kitabın puanı beş katalog ölçütünden gelir. Detay sayfasının sonunda her ölçütün katkısı ve kanıtı görünür.
 - Satın alma, favori, okuma durumu, okuma kaydı ve kişisel sıra puanı değiştirmez. Kural [ADR 001](docs/ADR-001-reading-priority-and-state.md) içinde açıklanır.
 - Kitap detayında okuma amacı, gerekçeli önce/sonra/birlikte okuma önerileri, Türkçe baskı, yayınevi, çevirmen ve ISBN.
-- Sayfa başına 25, 50, 75 veya 100 kitap gösterilir (varsayılan 25). Sayfa, filtre, sıralama ve açık kitap okunabilir URL parametrelerinde tutulur; geri tuşu, yenileme ve paylaşılan bağlantı aynı görünümü açar.
+- Sayfa başına 24, 48, 96, 192 veya 384 kitap gösterilir (varsayılan 24). Her sayfa boyutu 2, 3 ve 4 sütuna tam bölünür; son satırda boşluk kalmaz. Sütun sayıları ve sayfa boyutları proje sahibinin kesin kuralıdır (bkz. `AGENTS.md`). Sayfa, filtre, sıralama ve açık kitap okunabilir URL parametrelerinde tutulur; geri tuşu, yenileme ve paylaşılan bağlantı aynı görünümü açar.
 - Altbilgide bütün kitapları JSON olarak indirme: kimlik, Türkçe ad, özgün ad, özgün yayınevi, yazarlar, önerilen çevirmenler, Türkiye yayınevi, Türkçe ISBN ve ilk yayın yılı.
 
 ## Cihazlar arası eşitleme
