@@ -210,8 +210,10 @@ test.describe('the Kümeler tab', () => {
     .filter(button => Math.min(button.offsetWidth, button.offsetHeight) < 44)
     .map(button => `${button.textContent.trim()} ${button.offsetWidth}×${button.offsetHeight}`));
 
-  // Each collection is opened in turn and checked in both fonts.
+  // Each collection is opened in turn and checked in both fonts. With 29 collections this is slow on
+  // CI's WebKit phone profile, hence the longer time limit.
   test('the collections reflow at 320 px with 200% text', async ({ browser }) => {
+    test.slow();
     const context = await browser.newContext({ viewport: { width: 320, height: 900 } });
     await isolate(context);
     const page = await context.newPage();
@@ -221,6 +223,9 @@ test.describe('the Kümeler tab', () => {
     await expect(items.first()).toBeVisible();
     await page.addStyleTag({ content: LARGE_TEXT });
     await page.addStyleTag({ content: WIDE_FONT });
+    // Mantine animates a panel's height for 200 ms and drops its fixed height when the transition
+    // ends. A 1 ms transition keeps those steps, so the panels open the same way, only faster.
+    await page.addStyleTag({ content: '.collections-accordion .mantine-Accordion-panel{transition-duration:1ms!important}' });
     for (const [font, wide] of Object.entries(fonts)) {
       await useFont(page, wide);
       expect(await pageFits(page), `${font}: horizontal overflow`).toBe(true);
@@ -231,10 +236,14 @@ test.describe('the Kümeler tab', () => {
     }
     for (let index = 0; index < await items.count(); index++) {
       const item = items.nth(index);
+      const control = item.locator('.mantine-Accordion-control');
       const panel = item.locator('.mantine-Accordion-panel');
-      await item.locator('.mantine-Accordion-control').click();
+      // Opened from the keyboard, so the sticky header, tall at 200%, never takes the pointer's click.
+      await control.focus();
+      await page.keyboard.press('Enter');
+      await expect(control).toHaveAttribute('aria-expanded', 'true');
       // The panel has finished opening once Mantine drops its fixed height and hidden overflow.
-      await expect.poll(() => panel.evaluate(element => getComputedStyle(element).overflow), { intervals: [50] }).toBe('visible');
+      await expect.poll(() => panel.evaluate(element => getComputedStyle(element).overflow), { intervals: [20] }).toBe('visible');
       for (const [font, wide] of Object.entries(fonts)) {
         await useFont(page, wide);
         const name = `${font}, collection ${index + 1}`;
