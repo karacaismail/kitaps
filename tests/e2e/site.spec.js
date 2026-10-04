@@ -136,9 +136,16 @@ test('the catalog reflows at 320 px with 200% text', async ({ browser }) => {
   expect(await onScreen(jump)).toBe(true);
   expect(await spilling(jump)).toEqual([]);
   await page.keyboard.press('Escape');
-  // The longest page size shows its whole label too.
-  await perPage.click();
-  await page.getByRole('option').last().click();
+  // The longest page size shows its whole label too. It is chosen with the keyboard: a pointer
+  // click can miss an option while the dropdown above the field is still being placed.
+  await perPage.focus();
+  await page.keyboard.press('ArrowDown');
+  const options = page.getByRole('option');
+  await expect(options.first()).toBeVisible();
+  const longest = (await options.last().textContent()).trim();
+  for (let step = await options.count(); step > 1; step--) await page.keyboard.press('ArrowDown');
+  await page.keyboard.press('Enter');
+  await expect(perPage).toHaveValue(longest);
   await expect(page).toHaveURL(/page-size=/);
   expect(await perPage.evaluate(element => element.scrollWidth <= element.clientWidth), await perPage.inputValue()).toBe(true);
   // A search without results keeps its button on the screen too.
@@ -311,7 +318,17 @@ test('the book sheet keeps its text inside its boxes at 320 px with 200% text', 
     await page.goto(`./?book=${book}`);
     const sheet = page.locator('.mantine-Drawer-content');
     await expect(sheet.locator('.reading-priority-card')).toBeVisible();
-    for (const control of await sheet.locator('.mantine-Accordion-control').all()) if (await control.getAttribute('aria-expanded') === 'false') await control.click();
+    // Open every section one at a time. One sits inside another's panel and shows only once that
+    // panel opens, and a click on a section that is still moving can be lost, so each click is
+    // repeated until its own section reports it is open.
+    const controls = sheet.locator('.mantine-Accordion-control');
+    for (let index = 0; index < await controls.count(); index++) {
+      const control = controls.nth(index);
+      await expect(async () => {
+        if (await control.getAttribute('aria-expanded') === 'false') await control.click({ timeout: 2_000 });
+        await expect(control).toHaveAttribute('aria-expanded', 'true', { timeout: 1_000 });
+      }).toPass({ timeout: 15_000 });
+    }
     await expect(sheet.locator('.mantine-Accordion-control[aria-expanded="false"]')).toHaveCount(0);
     await page.addStyleTag({ content: LARGE_TEXT });
     // The sheet scrolls on its own, so it is checked apart from the page.
