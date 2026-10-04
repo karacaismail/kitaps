@@ -6,6 +6,7 @@ import { defineConfig, devices } from '@playwright/test';
 // 4173) must not stand in for the build under test. E2E_PORT lets sessions in
 // separate worktrees run their suites side by side.
 const port = Number(process.env.E2E_PORT) || 4317;
+const layoutChecks = { testMatch: /(reading-marks|catalog-grid|site)\.spec\.js/, grep: /reading-marks|catalog-grid|200% text|room for them/ };
 
 export default defineConfig({
   testDir: 'tests/e2e',
@@ -15,10 +16,12 @@ export default defineConfig({
   webServer: { command: `npx vite preview --host 127.0.0.1 --port ${port} --strictPort`, url: `http://127.0.0.1:${port}/`, reuseExistingServer: false, timeout: 60_000 },
   projects: [
     { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
-    // The cover marks (ribbons, grey covers) and the owner's grid rule are
-    // layout-sensitive, so they are also checked in WebKit, Firefox and a phone browser.
-    { name: 'webkit', use: { ...devices['Desktop Safari'] }, testMatch: /(reading-marks|catalog-grid)\.spec\.js/ },
-    { name: 'firefox', use: { ...devices['Desktop Firefox'] }, testMatch: /(reading-marks|catalog-grid)\.spec\.js/ },
-    { name: 'mobile-safari', use: { ...devices['iPhone 13'] }, testMatch: /(reading-marks|catalog-grid)\.spec\.js/ },
+    // The cover marks (ribbons, grey covers), the owner's grid rule and reflow with enlarged
+    // text are layout-sensitive, so they are also checked in WebKit, Firefox and a phone
+    // browser. grep sees the file name, so whole specs and site.spec.js's reflow tests
+    // (titles with "200% text" or "room for them") are picked the same way.
+    { name: 'webkit', use: { ...devices['Desktop Safari'] }, ...layoutChecks },
+    { name: 'firefox', use: { ...devices['Desktop Firefox'] }, ...layoutChecks },
+    { name: 'mobile-safari', use: { ...devices['iPhone 13'] }, ...layoutChecks },
   ],
 });

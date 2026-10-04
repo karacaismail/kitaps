@@ -12,7 +12,7 @@ export function QueueButton({id,queue,onAdd,onQueue,fullWidth=false,iconOnly=fal
 }
 export default function ReadingPanel({book,record,states,onToggle,onChange,queue,onAdd,onQueue,storageError}) {
  const r={...emptyReading(),...record};const percent=progressPercent(r),errors=readingErrors(r);
- return <Paper withBorder p="lg" radius="lg" className="reading-panel">
+ return <Paper className="reading-panel">
   <Stack gap="lg">
    <div><Title order={3}>Benim okuma kaydım</Title><Text c="dimmed" mt="xs" aria-live="polite">{storageError?'Kayıt yapılamıyor. Notlar bölümünden yedek indir.':'Bu kayıtlar tarayıcıya kaydedilir ve GitHub eşitlemesi bağlıysa herkese açık kitaps-state deposuna gönderilir.'}</Text></div>
    <QueueButton id={book.id} queue={queue} onAdd={onAdd} onQueue={onQueue} fullWidth/>

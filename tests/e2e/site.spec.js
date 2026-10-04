@@ -2,12 +2,29 @@ import { test, expect } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 
 const axeSource = readFileSync(new URL('../../node_modules/axe-core/axe.min.js', import.meta.url), 'utf8');
+const EMPTY_STATE = { schemaVersion: 2, updatedAt: '1970-01-01T00:00:00.000Z', books: {}, queue: null };
+const LARGE_TEXT = 'html{font-size:200%}';
 const consoleErrors = page => {
   const errors = [];
   page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
   page.on('pageerror', error => errors.push(error.message));
   return errors;
 };
+// The live shared reading state must not decide what a test sees.
+const isolate = context => context.route('https://raw.githubusercontent.com/karacaismail/kitaps-state/**', route => route.fulfill({ json: EMPTY_STATE }));
+const pageFits = page => page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth);
+// The matches of `roots`, and every element inside them, whose content runs out of their own box.
+// Form fields are not judged by their own text: they scroll it, or in WebKit a date field may let it
+// run over (a known limit with wide fonts), so they are clipped while measuring. The cover marks
+// overhang the cover on purpose, so they are pulled in.
+const spilling = roots => roots.evaluateAll(elements => {
+  const pullIn = document.head.appendChild(Object.assign(document.createElement('style'), { textContent: '.cover-marks{right:0!important} input,textarea,select{overflow:hidden!important}' }));
+  const found = elements.flatMap(element => [element, ...element.querySelectorAll('*')])
+    .filter(node => !node.matches('input, textarea, select') && getComputedStyle(node).overflowX === 'visible' && node.clientWidth > 0 && node.scrollWidth > node.clientWidth + 1)
+    .map(node => `${node.className} "${node.textContent.trim().slice(0, 40)}"`);
+  pullIn.remove();
+  return found;
+});
 
 test('the shared state is read from GitHub in a real browser, without CORS errors', async ({ page }) => {
   const errors = consoleErrors(page);
@@ -72,6 +89,117 @@ test('the per-page control shows its whole label on a 320 px phone', async ({ br
   const control = page.getByRole('combobox', { name: 'Sayfa başına kitap' });
   await expect(control).toHaveValue('384 / sayfa');
   expect(await control.evaluate(element => element.scrollWidth <= element.clientWidth)).toBe(true);
+  await context.close();
+});
+
+// WCAG 1.4.4 and 1.4.10: with the root text doubled, a 320 px phone scrolls the catalog only vertically.
+test('the catalog reflows at 320 px with 200% text', async ({ browser }) => {
+  const context = await browser.newContext({ viewport: { width: 320, height: 900 } });
+  await isolate(context);
+  const page = await context.newPage();
+  await page.goto('./');
+  await expect(page.locator('.book-card')).toHaveCount(24);
+  await page.addStyleTag({ content: LARGE_TEXT });
+  expect(await pageFits(page), 'horizontal overflow').toBe(true);
+  expect(await spilling(page.locator('.catalog-pagination, .books-grid'))).toEqual([]);
+  expect(await page.locator('.main-tabs').evaluate(list => list.scrollWidth <= list.clientWidth), 'a section tab is out of view').toBe(true);
+  // The per-page control is as wide as its label, and every pagination control keeps a 44 px target.
+  const perPage = page.getByRole('combobox', { name: 'Sayfa başına kitap' });
+  expect(await perPage.evaluate(element => element.scrollWidth <= element.clientWidth)).toBe(true);
+  for (const control of await page.locator('.catalog-pagination :is(a, button, input):visible').all()) {
+    const box = await control.boundingBox();
+    expect(Math.min(box.width, box.height), await control.evaluate(element => element.getAttribute('aria-label') || element.textContent)).toBeGreaterThanOrEqual(44);
+  }
+  const onScreen = async locator => {
+    const box = await locator.boundingBox();
+    return box.x >= 0 && box.x + box.width <= 320;
+  };
+  // A tooltip wraps on the screen instead of running past it.
+  await page.locator('.book-card .reading-priority-badge').first().hover();
+  const tooltip = page.locator('.mantine-Tooltip-tooltip');
+  await expect(tooltip).toBeVisible();
+  expect(await onScreen(tooltip)).toBe(true);
+  expect(await pageFits(page), 'horizontal overflow with a tooltip').toBe(true);
+  await page.mouse.move(0, 0);
+  await expect(tooltip).toBeHidden();
+  // The purchase toast keeps its close button on the screen.
+  await page.locator('.book-card .cover-owned').first().click();
+  const toast = page.locator('.library-toast');
+  await expect(toast).toBeVisible();
+  expect(await onScreen(toast.getByRole('button', { name: 'Bildirimi kapat' }))).toBe(true);
+  expect(await spilling(toast)).toEqual([]);
+  await toast.getByRole('button', { name: 'Bildirimi kapat' }).click();
+  // The page jump opens inside the screen and wraps its field and button.
+  await page.getByRole('button', { name: 'Sayfaya git' }).click();
+  const jump = page.locator('.mantine-Popover-dropdown').filter({ has: page.locator('.pagination-jump') });
+  await expect(jump).toBeVisible();
+  expect(await onScreen(jump)).toBe(true);
+  expect(await spilling(jump)).toEqual([]);
+  await page.keyboard.press('Escape');
+  // The longest page size shows its whole label too.
+  await perPage.click();
+  await page.getByRole('option').last().click();
+  await expect(page).toHaveURL(/page-size=/);
+  expect(await perPage.evaluate(element => element.scrollWidth <= element.clientWidth), await perPage.inputValue()).toBe(true);
+  // A search without results keeps its button on the screen too.
+  await page.goto('./?q=zzzz');
+  await expect(page.locator('.empty-state')).toBeVisible();
+  await page.addStyleTag({ content: LARGE_TEXT });
+  expect(await pageFits(page), 'horizontal overflow without results').toBe(true);
+  expect(await spilling(page.locator('.empty-state'))).toEqual([]);
+  await context.close();
+});
+
+// The page numbers replace the compact "Sayfa x / y" only when the bar has room for them at the current text size.
+// At the default size the bar switches at 400 and 640 px screens; that assumes the 8 px phone
+// gutter and overlay scrollbars, as in headless browsers.
+test('page numbers appear only when the pagination has room for them', async ({ browser }) => {
+  const context = await browser.newContext({ viewport: { width: 400, height: 900 } });
+  await isolate(context);
+  const page = await context.newPage();
+  await page.goto('./');
+  const chevron = page.getByRole('button', { name: 'Sayfaya git' }).locator('.mantine-Button-section');
+  const numbers = page.locator('.pagination-desktop');
+  const compact = page.locator('.pagination-mobile');
+  await expect(chevron).toBeHidden();
+  await page.setViewportSize({ width: 401, height: 900 });
+  await expect(chevron).toBeVisible();
+  await page.setViewportSize({ width: 639, height: 900 });
+  await expect(compact).toBeVisible();
+  await expect(numbers).toBeHidden();
+  await page.setViewportSize({ width: 640, height: 900 });
+  await expect(numbers).toBeVisible();
+  await expect(compact).toBeHidden();
+  // With 150% text a 1280 px screen still has room for the page numbers.
+  await page.addStyleTag({ content: 'html{font-size:150%}' });
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await expect(numbers).toBeVisible();
+  expect(await pageFits(page), '1280 px, 150% text').toBe(true);
+  expect(await spilling(page.locator('.catalog-pagination')), '1280 px, 150% text').toEqual([]);
+  await page.addStyleTag({ content: LARGE_TEXT });
+  for (const width of [640, 768, 1280]) {
+    await page.setViewportSize({ width, height: 900 });
+    expect(await pageFits(page), `${width} px, 200% text`).toBe(true);
+    expect(await spilling(page.locator('.catalog-pagination')), `${width} px, 200% text`).toEqual([]);
+  }
+  await context.close();
+});
+
+test('the book sheet keeps its text inside its boxes at 320 px with 200% text', async ({ browser }) => {
+  const context = await browser.newContext({ viewport: { width: 320, height: 900 } });
+  await isolate(context);
+  const page = await context.newPage();
+  for (const book of ['good-to-great-by-jim-collins', 'fadis-by-gulten-dayioglu']) {
+    await page.goto(`./?book=${book}`);
+    const sheet = page.locator('.mantine-Drawer-content');
+    await expect(sheet.locator('.reading-priority-card')).toBeVisible();
+    for (const control of await sheet.locator('.mantine-Accordion-control').all()) if (await control.getAttribute('aria-expanded') === 'false') await control.click();
+    await expect(sheet.locator('.mantine-Accordion-control[aria-expanded="false"]')).toHaveCount(0);
+    await page.addStyleTag({ content: LARGE_TEXT });
+    // The sheet scrolls on its own, so it is checked apart from the page.
+    expect(await sheet.evaluate(element => element.scrollWidth <= element.clientWidth), `${book}: the sheet scrolls sideways`).toBe(true);
+    expect(await spilling(sheet.locator('.reading-priority-card, .detail-sections')), book).toEqual([]);
+  }
   await context.close();
 });
 
