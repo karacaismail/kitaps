@@ -1465,27 +1465,35 @@
       "status": "available",
       "stage1": {
         "decision": "available",
-        "reviewer": "claude-stage1-o-011",
-        "checkedAt": "2026-09-28",
+        "reviewer": "claude-stage1-s-003",
+        "checkedAt": "2026-10-04",
         "sources": [
           {
-            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=%C5%9Eiddetsiz+%C4%B0leti%C5%9Fim+Remzi",
-            "type": "retailer"
+            "url": "https://www.remzi.com.tr/kitap/siddetsiz-iletisim",
+            "type": "publisher"
           },
           {
-            "url": "https://www.idefix.com/Arama/?q=%C5%9Eiddetsiz+%C4%B0leti%C5%9Fim+Remzi",
-            "type": "retailer"
+            "url": "https://www.remzi.com.tr/files/books/1960/dosya/siddetsiz-iletisim-on-izleme.pdf",
+            "type": "publisher-preview"
           }
         ]
       },
       "stage2": {
         "decision": "available",
-        "reviewer": "claude-stage2-o-011",
-        "checkedAt": "2026-09-28",
+        "reviewer": "claude-stage2-s-003; çevirmen adı elle karara bağlandı: künyedeki tam ad (Gizem Alav Şapçı), kitapyurdu kısa adı (Gizem Alav) gösteriyor",
+        "checkedAt": "2026-10-04",
         "sources": [
           {
-            "url": "https://www.dr.com.tr/search?q=%C5%9Eiddetsiz%20%C4%B0leti%C5%9Fim%20Remzi",
+            "url": "https://www.kitapyurdu.com/kitap/siddetsiz-iletisim/253037.html",
             "type": "retailer"
+          },
+          {
+            "url": "https://www.dr.com.tr/search?q=9789751418869",
+            "type": "retailer"
+          },
+          {
+            "url": "https://books.google.com.tr/books?vid=ISBN9789751418869&redir_esc=y",
+            "type": "bibliographic"
           }
         ]
       },
@@ -1493,7 +1501,9 @@
         "title": "Şiddetsiz İletişim - Bir Yaşam Dili",
         "publisher": "Remzi Kitabevi",
         "isbn": "9789751418869",
-        "translators": []
+        "translators": [
+          "Gizem Alav Şapçı"
+        ]
       }
     },
     "kucukprens": {
@@ -5050,33 +5060,51 @@
       "status": "available",
       "stage1": {
         "decision": "available",
-        "reviewer": "claude-stage1-t-037",
-        "checkedAt": "2026-09-28",
+        "reviewer": "claude-stage1-s-003",
+        "checkedAt": "2026-10-04",
         "sources": [
           {
-            "url": "https://www.kitapyurdu.com/index.php?route=product/search&filter_name=Mor+İnek+Seth+Godin",
+            "url": "https://www.kitapyurdu.com/kitap/mor-inek/147044.html",
             "type": "retailer"
+          },
+          {
+            "url": "https://openlibrary.org/isbn/9786055755461.json",
+            "type": "bibliographic"
+          },
+          {
+            "url": "https://www.idefix.com/mor-inek-farklilasarak-isinizi-donusturun-p-193903",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.kitapyurdu.com/yazar/levent-goktem/44511.html",
+            "type": "retailer"
+          },
+          {
+            "url": "https://katalog.bilecik.edu.tr/bib/60108",
+            "type": "library-catalog"
           }
         ]
       },
       "stage2": {
         "decision": "available",
-        "reviewer": "claude-stage2-t-037",
-        "checkedAt": "2026-09-28",
+        "reviewer": "claude-stage2-s-003; yalnız ISBN kabul edildi, çevirmen doğrulanamadı",
+        "checkedAt": "2026-10-04",
         "sources": [
           {
-            "url": "https://www.idefix.com/Arama/?q=Mor+%C4%B0nek+Seth+Godin",
+            "url": "https://www.dr.com.tr/search?q=9786055755461",
             "type": "retailer"
+          },
+          {
+            "url": "https://books.google.com.tr/books?vid=ISBN9786055755461&redir_esc=y",
+            "type": "bibliographic"
           }
         ]
       },
       "edition": {
         "title": "Mor İnek",
         "publisher": "MediaCat Kitapları",
-        "isbn": "",
-        "translators": [],
-        "isbnUnavailable": true,
-        "year": 2020
+        "isbn": "9786055755461",
+        "translators": []
       }
     },
     "tippingpoint": {

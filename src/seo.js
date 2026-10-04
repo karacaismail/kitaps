@@ -6,7 +6,7 @@ const baseDescription=catalog=>`${catalog.books.length} kitap; araştırılmış
 
 function publicListing(route) {
  const f=route.filters;
- const privateOrThin=f.query||f.states.length||f.authors.length||f.origins.length||f.awards.length||f.awardYears.length||f.qualities.length||f.hasEdition||f.shared||f.yearMin!==''||f.yearMax!==''||f.categoryMode==='all'||f.collectionMode==='all';
+ const privateOrThin=f.query||f.states.length||f.authors.length||f.origins.length||f.awards.length||f.awardYears.length||f.qualities.length||f.addedDates.length||f.hasEdition||f.shared||f.yearMin!==''||f.yearMax!==''||f.categoryMode==='all'||f.collectionMode==='all';
  const taxonomyCount=f.categories.length+f.collections.length+f.groups.length;
  return route.view==='books'&&route.sort==='title'&&(route.pageSize||DEFAULT_PAGE_SIZE)===DEFAULT_PAGE_SIZE&&!privateOrThin&&taxonomyCount<=1;
 }

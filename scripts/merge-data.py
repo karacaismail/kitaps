@@ -1,6 +1,7 @@
 """Merge the three supplied datasets, preserving source records and memberships."""
 from pathlib import Path
 import json,re,unicodedata,hashlib
+from datetime import date
 from translation_availability import validate_manifest
 from bibliographic_facts import validate_facts
 ROOT=Path(__file__).resolve().parents[1]
@@ -248,6 +249,41 @@ if children:
   if item.get('cover') and (not item.get('existingId') or item.get('replaceEdition')):b['cover']=item['cover']
   if item.get('issue'):b['sourceIssue']={'note':item['issue']}
   if item.get('keepTitle'):b['titleTr']=item['titleTr']
+# Recommendations read from photographs of bookstore shelves: which visible books
+# suit the reader, and under which conditions. New Turkish editions are verified
+# on two websites. Priorities stay notes and group names; the engine scores these
+# books like every other, and look-alike warnings become notes on the real work.
+shelf=read('data/shelf-review.json') if (ROOT/'data/shelf-review.json').exists() else None
+shelf_links=[];shelf_purposes={}
+if shelf:
+ cid=shelf['id']
+ collections.append({k:shelf[k] for k in ('id','title','short','description','source','context')}|{'origin':'shelf','mark':'RAF','tag':'Raf taraması','note':shelf['note']})
+ for group in shelf['groups']:groups.append({'id':cid+':'+group['id'],'collectionId':cid,'title':group['title']})
+ for item in shelf['books']:
+  b=books[item['existingId']] if item.get('existingId') else getbook(item['title'],item['author'],'shelf',extraTitles=[item['titleTr']])
+  if 'shelf' not in b['origins']:b['origins'].append('shelf')
+  # A new recommendation must not silently merge into an unrelated catalog book.
+  assert item.get('existingId') or b['origins']==['shelf'],(item['key'],b['id'])
+  mapping['shelf:'+item['key']]=b['id']
+  if not item.get('existingId'):
+   b['titleTr']=item['titleTr'];b['originalLanguage']=item['originalLanguage']
+   if item['originalLanguage']!='tr':offer_original(b,item['title'],1)
+   if item.get('year') and item['year'] not in b['years']:b['years'].append(item['year'])
+   if item.get('edition'):
+    b['verifiedEdition']={k:v for k,v in item['edition'].items() if k=='translators' or v not in (None,'',[])}
+    if item['originalLanguage']=='tr':b['verifiedEdition']['originalLanguage']='tr'
+   if item.get('cover'):b['cover']=item['cover']
+   if item.get('issue'):b['sourceIssue']={'note':item['issue']}
+  addcat(b,*item.get('categories',[]))
+  if item.get('childAge'):b['childAge']=item['childAge']
+  if item.get('purpose'):shelf_purposes[b['id']]=item['purpose']
+  for placement in [{'id':item['group'],'reason':item['reason']},*item.get('extraGroups',[])]:
+   note(b,placement['reason'],shelf['short'])
+   member(b,cid,cid+':'+placement['id'],source=shelf['source'],note=placement['reason'])
+ for bid,text in shelf.get('lookAlikes',{}).items():
+  assert bid in books,bid
+  note(books[bid],text,shelf['short'])
+ shelf_links=shelf['links']
 # This source contains ten ordered recommendations. Two already exist in the
 # foundational collection, so membership is merged instead of duplicating the
 # work. The supplied order remains editorial metadata, never a fixed score.
@@ -303,6 +339,17 @@ for b in books.values():
  cover=b.get('cover') or {}
  turkish_titles=[b.get('titleTr',''),cover.get('title','') if cover.get('language')=='tr' else '']
  if not any(title and key(title)==key(candidate) for title in turkish_titles):b['originalTitle']=candidate
+# The day each book entered the library, inferred from git history by
+# scripts/infer-added-dates.py. A book without one is new: run that script and
+# merge again (tests/added-dates.test.js fails while any date is missing).
+added_dates=read('data/added-dates.json')['records'] if (ROOT/'data/added-dates.json').exists() else {}
+for bid,b in books.items():
+ if bid in added_dates:
+  added=added_dates[bid]['date']
+  assert re.fullmatch(r'\d{4}-\d{2}-\d{2}',added) and date.fromisoformat(added),(bid,added)
+  b['addedAt']=added
+undated=[bid for bid in books if bid not in added_dates]
+if undated:print(len(undated),'books have no added date; run scripts/infer-added-dates.py --write, then merge again:',', '.join(undated[:8]))
 for b in books.values():
  if not b['categories']:addcat(b,'management')
  b['collectionIds']=list(dict.fromkeys(m['collectionId'] for m in b['memberships']));b['groupIds']=list(dict.fromkeys(m['groupId'] for m in b['memberships']))
@@ -347,16 +394,39 @@ for preparation_id,target_titles,reason in preparation_links:
   target_id=candidates[0];target_override=readingGuides['overrides'].setdefault(target_id,{'before':[],'after':[]})
   if not any(item['id']==preparation_id for item in target_override['before']):target_override['before'].append({'id':preparation_id,'reason':reason})
   if not any(item['id']==target_id for item in source_override['after']):source_override['after'].append({'id':target_id,'reason':'Bu hazırlıkta çalışılan kavramları katalogdaki bu eser üzerinde uygulayabilirsin.'})
+# Shelf relations come from the review's own advice or from plain facts about the
+# books (same authors, same system, same subject). A sequence is a suggested
+# order, never a requirement; companions are read side by side.
+def shelf_book(reference):
+ bid=mapping.get('shelf:'+reference,reference)
+ assert bid in books,reference
+ return bid
+# A book keeps a reading purpose it already had.
+for bid,purpose in shelf_purposes.items():readingGuides['purposes'].setdefault(bid,purpose)
+for link in shelf_links:
+ if link['type']=='sequence':
+  first,then=shelf_book(link['first']),shelf_book(link['then'])
+  then_override=readingGuides['overrides'].setdefault(then,{'before':[],'after':[]})
+  first_override=readingGuides['overrides'].setdefault(first,{'before':[],'after':[]})
+  if not any(item['id']==first for item in then_override['before']):then_override['before'].append({'id':first,'reason':link['why']})
+  if not any(item['id']==then for item in first_override['after']):first_override['after'].append({'id':then,'reason':link['next']})
+ else:
+  assert link['type']=='companion',link
+  left,right=(shelf_book(reference) for reference in link['books'])
+  for one,other in ((left,right),(right,left)):
+   companions=readingGuides['overrides'].setdefault(one,{'before':[],'after':[]}).setdefault('companions',[])
+   if not any(item['id']==other for item in companions):companions.append({'id':other,'reason':link['reason']})
 MONTHS=['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık']
 def checked_dates():
  for edition in read('data/edition-verification.json').values():yield edition.get('checkedAt')
  for record in translation_records.values():yield from (record['stage1']['checkedAt'],record['stage2']['checkedAt'])
  for item in preparation['books']:yield item.get('dogrulamaTarihi')
  for record in fact_records.values():yield from (record['stage1']['checkedAt'],record['stage2']['checkedAt'])
+ if shelf:yield from (item['edition'].get('checkedAt') for item in shelf['books'] if item.get('edition'))
 # The catalog date follows its newest verified evidence, never the build clock.
 latest=max(value for value in checked_dates() if isinstance(value,str) and re.fullmatch(r'\d{4}-\d{2}-\d{2}',value))
 updated=f"{int(latest[8:10])} {MONTHS[int(latest[5:7])-1]} {latest[:4]}"
-result={'updated':updated,'readingGuides':readingGuides,'books':list(books.values()),'collections':collections,'groups':groups,'categories':[{'id':k,'label':v,'count':sum(k in b['categories'] for b in books.values())} for k,v in categoryNames.items()],'sourceTags':local['tags'],'mapping':mapping,'sourceCounts':{'atlasEntries':sum(len(g['books']) for c in atlas['collections'] for g in c['groups']),'localBooks':len(local['books']),'kitapsRecords':len(kitaps['books']),'foundationalBooks':sum(len(group['books']) for group in foundations['groups']),'preparationRecommendations':len(preparation['books']),'entrepreneurshipBooks':sum(len(group['books']) for group in entrepreneurship['groups']),'childrenLibraryBooks':len(children['books']) if children else 0}}
+result={'updated':updated,'readingGuides':readingGuides,'books':list(books.values()),'collections':collections,'groups':groups,'categories':[{'id':k,'label':v,'count':sum(k in b['categories'] for b in books.values())} for k,v in categoryNames.items()],'sourceTags':local['tags'],'mapping':mapping,'sourceCounts':{'atlasEntries':sum(len(g['books']) for c in atlas['collections'] for g in c['groups']),'localBooks':len(local['books']),'kitapsRecords':len(kitaps['books']),'foundationalBooks':sum(len(group['books']) for group in foundations['groups']),'preparationRecommendations':len(preparation['books']),'entrepreneurshipBooks':sum(len(group['books']) for group in entrepreneurship['groups']),'childrenLibraryBooks':len(children['books']) if children else 0,'shelfReviewBooks':len(shelf['books']) if shelf else 0}}
 (ROOT/'src/catalog.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
 print(len(books),'books',len(collections),'collections',len(groups),'groups')
 print('Edition records',sum(len(b['editions']) for b in books.values()))

@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ActionIcon, Button, Drawer, NumberInput, TextInput } from '@mantine/core';
 import { useReducedMotion } from '@mantine/hooks';
-import { IconArrowLeft, IconArrowRight, IconBooks, IconCalendar, IconCheck, IconChevronRight, IconListCheck, IconSearch, IconTags, IconUser, IconWriting } from '@tabler/icons-react';
-import { STATE_LABELS, QUALITY_LABELS, ORIGIN_LABELS, normalize } from '../library';
+import { IconArrowLeft, IconArrowRight, IconBooks, IconCalendar, IconCalendarPlus, IconCheck, IconChevronRight, IconListCheck, IconSearch, IconTags, IconUser, IconWriting } from '@tabler/icons-react';
+import { STATE_LABELS, QUALITY_LABELS, ORIGIN_LABELS, formatDay, normalize } from '../library';
 import './FilterSheet.css';
 
 const entries = object => Object.entries(object).map(([value, label]) => ({ value, label }));
@@ -14,6 +14,7 @@ const sections = [
  { id: 'collections', title: 'Kümeler', hint: 'Seçkiler ve okuma rotaları', icon: IconBooks },
  { id: 'editions', title: 'Baskı ve kaynak', hint: 'Künye bilgisi ve kaynaklar', icon: IconWriting },
  { id: 'years', title: 'Yıl ve ödül', hint: 'Yayın aralığı ve FT ödülleri', icon: IconCalendar },
+ { id: 'added', title: 'Eklenme tarihi', hint: 'Kitaplığa hangi gün eklendi', icon: IconCalendarPlus },
 ];
 
 function Choice({ checked, onChange, children }) {
@@ -46,7 +47,7 @@ function Choices({ title, options, value, onChange, searchable = false, compact 
  </fieldset>;
 }
 
-export default function FilterSheet({ opened, onClose, value: f, onChange, onReset, onApply, count, catalog, authors }) {
+export default function FilterSheet({ opened, onClose, value: f, onChange, onReset, onApply, count, catalog, authors, shelf = catalog.books }) {
  const [section, setSection] = useState(null);
  const [viewport, setViewport] = useState(null);
  const titleRef = useRef(null);
@@ -56,12 +57,16 @@ export default function FilterSheet({ opened, onClose, value: f, onChange, onRes
  const categoryOptions = catalog.categories.map(c => ({ value: c.id, label: c.label }));
  const collectionOptions = catalog.collections.map(c => ({ value: c.id, label: c.short }));
  const groupOptions = catalog.groups.filter(g => !f.collections.length || f.collections.includes(g.collectionId)).map(g => ({ value: g.id, label: `${catalog.collections.find(c => c.id === g.collectionId)?.short} · ${g.title}` }));
+ // Each day books entered the library, newest first, with how many of the books in this view arrived that day.
+ const addedCounts = shelf.reduce((counts, book) => book.addedAt ? { ...counts, [book.addedAt]: (counts[book.addedAt] || 0) + 1 } : counts, {});
+ const addedOptions = Object.keys(addedCounts).sort().reverse().map(day => ({ value: day, label: `${formatDay(day)} · ${addedCounts[day]} kitap` }));
  const labelFor = (options, values) => values.map(v => options.find(o => o.value === v)?.label || v);
  const selected = {
   categories: labelFor(categoryOptions, f.categories), states: f.states.map(s => STATE_LABELS[s]), authors: f.authors,
   collections: [...labelFor(collectionOptions, f.collections), ...f.groups.map(id => catalog.groups.find(g => g.id === id)?.title || id), ...(f.shared ? ['Birden fazla kümede'] : [])],
   editions: [...f.qualities.map(v => QUALITY_LABELS[v]), ...f.origins.map(v => ORIGIN_LABELS[v]), ...(f.hasEdition ? ['Künye bilgisi var'] : [])],
   years: [...f.awards, ...f.awardYears.map(y => `FT ${y}`), ...(f.yearMin !== '' || f.yearMax !== '' ? [`${f.yearMin || '…'}–${f.yearMax || '…'}`] : [])],
+  added: f.addedDates.map(formatDay),
  };
  const selectionCount = Object.values(selected).reduce((sum, values) => sum + values.length, 0);
  const invalidYears = f.yearMin !== '' && f.yearMax !== '' && Number(f.yearMin) > Number(f.yearMax);
@@ -129,6 +134,10 @@ export default function FilterSheet({ opened, onClose, value: f, onChange, onRes
       </div>{invalidYears && <p id="filter-year-error" className="filter-error" role="alert">En geç yıl, en erken yıldan küçük olamaz.</p>}<p className="filter-hint">Aralık seçildiğinde yayın yılı bilinmeyen kitaplar gösterilmez.</p></fieldset>
       <Choices title="FT ödülü" options={['Kazanan', 'Kısa liste', 'Uzun liste'].map(value => ({ value, label: value }))} value={f.awards} onChange={v => set('awards', v)} />
       <Choices title="FT ödül yılı" options={Array.from({ length: 22 }, (_, i) => ({ value: String(2026 - i), label: String(2026 - i) }))} value={f.awardYears} onChange={v => set('awardYears', v)} compact />
+     </>}
+     {section === 'added' && <>
+      <Choices title="Kitaplığa eklendiği gün" options={addedOptions} value={f.addedDates} onChange={v => set('addedDates', v)} />
+      <p className="filter-hint">Tarihler, kitabın kitaplık verisine girdiği ilk commit’ten çıkarıldı.</p>
      </>}
     </div>
    </Drawer.Body>

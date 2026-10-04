@@ -32,7 +32,7 @@ import {useGitHubStateSync} from './state/useGitHubStateSync';
 import { ReadingPriorityEngine, ReadingRankingViewModel } from './ranking/ReadingPriorityEngine.ts';
 import { PERSONAL_KEY, cleanPersonal, cleanReading, addToQueue, moveInQueue, todayLocal } from './reading';
 import {createBooksExport} from './catalogExport';
-import { STATE_LABELS, QUALITY_LABELS, ORIGIN_LABELS, emptyFilters, prepareBooks, filterBooks, sortBooks, toggleState, migrateStates, filterCount, decodeRoute, encodeRoute, normalize, booksForShelf, DEFAULT_PAGE_SIZE } from './library';
+import { STATE_LABELS, QUALITY_LABELS, ORIGIN_LABELS, emptyFilters, prepareBooks, filterBooks, sortBooks, toggleState, migrateStates, filterCount, decodeRoute, encodeRoute, normalize, booksForShelf, DEFAULT_PAGE_SIZE, formatDay } from './library';
 import './styles.css';
 
 const AccessibilityAudit=import.meta.env.DEV?React.lazy(()=>import('./components/AccessibilityAudit')):null;
@@ -93,7 +93,7 @@ function resultsTitle(filters,view){
 }
 function ActiveFilters({filters:f,onChange}) {
  const chips=[];
- const labels={categories:id=>categoryMap[id]?.label,collections:id=>collectionMap[id]?.short,groups:id=>groupMap[id]?.title,states:id=>STATE_LABELS[id],authors:id=>id,origins:id=>ORIGIN_LABELS[id],awards:id=>id,awardYears:id=>`FT ${id}`,qualities:id=>QUALITY_LABELS[id]};
+ const labels={categories:id=>categoryMap[id]?.label,collections:id=>collectionMap[id]?.short,groups:id=>groupMap[id]?.title,states:id=>STATE_LABELS[id],authors:id=>id,origins:id=>ORIGIN_LABELS[id],awards:id=>id,awardYears:id=>`FT ${id}`,qualities:id=>QUALITY_LABELS[id],addedDates:day=>`Eklenme · ${formatDay(day)}`};
  for(const [key,label] of Object.entries(labels))for(const value of f[key])chips.push({id:`${key}-${value}`,label:label(value)||value,remove:()=>onChange({...f,[key]:f[key].filter(v=>v!==value)})});
  if(f.hasEdition)chips.push({id:'edition',label:'Künye bilgisi var',remove:()=>onChange({...f,hasEdition:false})});
  if(f.shared)chips.push({id:'shared',label:'Birden fazla kümede',remove:()=>onChange({...f,shared:false})});
@@ -139,7 +139,7 @@ function BookDetail({book:b,ranking,onClose,onOpen,onBack,hasBack,states,onToggl
   {b&&<Stack gap="xl" pb="xl" key={b.id}>
    <div ref={topRef} className="detail-top">{hasBack&&<Button variant="subtle" leftSection={<IconArrowLeft size={18}/>} onClick={onBack}>Önceki kitaba dön</Button>}</div>
    <div className="detail-hero"><div className="detail-cover-block"><BookCover key={b.id} book={b} detail read={(states[b.id]||[]).includes('okundu')}/><div className="cover-marks"><StateRibbons marks={states[b.id]||[]}/></div></div>
-    <div className="detail-heading"><Title order={2}>{shownTitle}</Title><StateSummary marks={states[b.id]||[]}/><Text className="detail-author">{b.author||'Yazar bilgisi belirtilmemiş'}</Text>{originalTitle&&<Text className="detail-original">{originalTitle}</Text>}{b.years.length>0&&<Text className="detail-year">İlk yayın · {b.years.join(' / ')}</Text>}{b.childAge&&<Text className="detail-year">Önerilen yaş · {b.childAge}</Text>}<div className="detail-translation-status"><TranslationStatus book={b}/></div>
+    <div className="detail-heading"><Title order={2}>{shownTitle}</Title><StateSummary marks={states[b.id]||[]}/><Text className="detail-author">{b.author||'Yazar bilgisi belirtilmemiş'}</Text>{originalTitle&&<Text className="detail-original">{originalTitle}</Text>}{b.years.length>0&&<Text className="detail-year">İlk yayın · {b.years.join(' / ')}</Text>}{b.childAge&&<Text className="detail-year">Önerilen yaş · {b.childAge}</Text>}{formatDay(b.addedAt)&&<Text className="detail-year">Kitaplığa eklendi · {formatDay(b.addedAt)}</Text>}<div className="detail-translation-status"><TranslationStatus book={b}/></div>
      <Group gap={8} mt="md">{b.categories.map(id=><CategoryPill key={id} id={id} label={categoryMap[id].label} onNavigate={onCategory}/>)}</Group>
      {b.cover&&<div className="cover-caption"><Text c="dimmed">{b.cover.scope||(b.cover.language==='tr'?'Türkçe baskı kapağı':'Uluslararası baskı kapağı')}</Text><Anchor href={b.cover.sourceUrl} target="_blank" rel="noreferrer" className="source-link">Kapaktaki baskıyı incele <IconArrowUpRight size={17}/></Anchor></div>}
     </div>
@@ -252,7 +252,7 @@ function AtlasApp() {
      {['owned','favorites'].includes(view)&&<Title order={1} className="visually-hidden">{view==='owned'?'Kitaplığım':'Favorilerim'}</Title>}
      <div className="search-panel" role="search">
       <TextInput className="catalog-search" label={view==='owned'?'Kitaplığımda ara':view==='favorites'?'Favorilerimde ara':'Katalogda ara'} placeholder="Kitap, yazar, çevirmen…" leftSection={<IconSearch size={21}/>} rightSection={filters.query?<ActionIcon variant="subtle" aria-label="Aramayı temizle" onClick={()=>changeFilters({...filters,query:''})}><IconX size={20}/></ActionIcon>:null} value={filters.query} onChange={e=>changeFilters({...filters,query:e.currentTarget.value})}/>
-      <div className="search-tools"><Button variant="light" leftSection={<IconFilter size={20}/>} onClick={()=>{setTransfer(null);setDraft(filters);setOpened(true)}}>Filtreler{activeCount?` · ${activeCount}`:''}</Button><Select aria-label="Kitapları sırala" value={sort} onChange={v=>setRoute(r=>({...r,sort:v||'reading',page:1}))} data={[{value:'reading',label:'Okuma önceliği'},{value:'shared',label:'En çok kesişen'},{value:'title',label:'Kitap adı · A–Z'},{value:'author',label:'Yazar · A–Z'},{value:'newest',label:'Yayın yılı · yeni'},{value:'saved',label:'Favoriler önce'}]} allowDeselect={false}/></div>
+      <div className="search-tools"><Button variant="light" leftSection={<IconFilter size={20}/>} onClick={()=>{setTransfer(null);setDraft(filters);setOpened(true)}}>Filtreler{activeCount?` · ${activeCount}`:''}</Button><Select aria-label="Kitapları sırala" value={sort} onChange={v=>setRoute(r=>({...r,sort:v||'reading',page:1}))} data={[{value:'reading',label:'Okuma önceliği'},{value:'shared',label:'En çok kesişen'},{value:'title',label:'Kitap adı · A–Z'},{value:'author',label:'Yazar · A–Z'},{value:'newest',label:'Yayın yılı · yeni'},{value:'added',label:'Eklenme · yeni'},{value:'saved',label:'Favoriler önce'}]} allowDeselect={false}/></div>
       <ActiveFilters filters={filters} onChange={changeFilters}/>
      </div>
      {view==='books'&&!filterCount(filters)&&<SpotlightCard className="reading-route" spotlightColor="rgba(225,238,173,.13)"><div><Text fw={500}>Nereden başlamalı?</Text><Text>{collectionMap.core?.count} kitaplık çekirdek, düşünceden uygulamaya.</Text></div><Button variant="white" color="brand" rightSection={<IconArrowRight size={19}/>} onClick={()=>goCollection('core')}>Seçkiye git</Button></SpotlightCard>}
@@ -271,7 +271,7 @@ function AtlasApp() {
   </Tabs>
   <SyncMergeDialog sync={githubSync}/>
   <Modal opened={guideOpened} onClose={()=>setGuideOpened(false)} title="Çeviri seçme rehberi" size="lg" centered className="global-guide-modal"><TranslationCriteria/></Modal>
-  <FilterSheet opened={opened} onClose={()=>setOpened(false)} value={draft} onChange={setDraft} onReset={()=>setDraft({...emptyFilters(),query:filters.query})} onApply={()=>{changeFilters(draft);setOpened(false)}} count={draftCount} catalog={catalog} authors={authorOptions}/>
+  <FilterSheet opened={opened} onClose={()=>setOpened(false)} value={draft} onChange={setDraft} onReset={()=>setDraft({...emptyFilters(),query:filters.query})} onApply={()=>{changeFilters(draft);setOpened(false)}} count={draftCount} catalog={catalog} authors={authorOptions} shelf={shelfBooks}/>
   {!book&&transferNotice}
   <BookDetail feedback={transferNotice} ranking={readingRanking.byId[book]} onOpen={onOpen} onBack={previousBook} hasBack={bookTrail.length>0} book={byId[book]} onClose={closeBook} states={states} onToggle={onToggle} onCollection={goCollection} onCategory={goCategory} personal={personal} onReading={onReading} onAdd={onAdd} onQueue={onQueue} storageError={storageError||personalStorageError}/>
  </>;

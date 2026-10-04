@@ -23,10 +23,11 @@ export function exportBookRecord(book){
   turkiyeYayinevi:originalTurkish?text(edition?.publisher):hasTurkish?text(recommended?.publisher)||text(edition?.publisher):null,
   turkceIsbn:hasTurkish?text(edition?.isbn):null,
   ilkYayinYili:book.years?.length?Math.min(...book.years):null,
+  kitapligaEklenme:book.addedAt||null,
  };
 }
 
 export function createBooksExport(catalog,exportedAt=new Date().toISOString()){
  const books=catalog.books.map(exportBookRecord);
- return {schemaVersion:2,exportedAt,catalogUpdatedAt:catalog.updated,count:books.length,books};
+ return {schemaVersion:3,exportedAt,catalogUpdatedAt:catalog.updated,count:books.length,books};
 }

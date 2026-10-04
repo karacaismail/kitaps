@@ -93,6 +93,36 @@ test('the phone sheet grip shows its whole focus ring', async ({ browser }) => {
   await context.close();
 });
 
+test('books can be filtered by the day they were added to the library', async ({ page }) => {
+  const catalog = JSON.parse(readFileSync(new URL('../../src/catalog.json', import.meta.url), 'utf8'));
+  const latest = catalog.books.map(book => book.addedAt).sort().at(-1);
+  const count = catalog.books.filter(book => book.addedAt === latest).length;
+  const label = new Intl.DateTimeFormat('tr-TR', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${latest}T00:00:00Z`));
+  await page.goto(`./?added=${latest}`);
+  await expect(page.locator('.results-heading [role="status"]')).toHaveText(new RegExp(`^${count} eser\\b`));
+  await page.getByRole('button', { name: /^Filtreler/ }).click();
+  await page.getByRole('button', { name: /Eklenme tarihi/ }).click();
+  const option = page.getByRole('checkbox', { name: `${label} · ${count} kitap` });
+  await expect(option).toBeChecked();
+  // The hidden checkbox's keyboard focus is drawn on the whole option.
+  await page.keyboard.press('Shift');
+  await option.focus();
+  await expect(page.locator('.filter-choice').filter({ has: option })).toHaveCSS('outline-style', 'solid');
+  await page.addScriptTag({ content: axeSource });
+  const violations = await page.evaluate(async () => (await window.axe.run(document.querySelector('.filter-sheet .mantine-Drawer-content') || document, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'] } })).violations.map(item => item.id));
+  expect(violations).toEqual([]);
+  await page.keyboard.press('Escape');
+  // The active day shows above the results and can be removed there.
+  const chip = page.getByRole('button', { name: new RegExp(`Eklenme · ${label}`) });
+  await expect(chip).toBeVisible();
+  await chip.click();
+  await expect(page.locator('.results-heading [role="status"]')).toHaveText(new RegExp(`^${catalog.books.length} eser\\b`));
+  await expect(page).not.toHaveURL(/added=/);
+  const book = catalog.books.find(item => item.addedAt === latest);
+  await page.goto(`./?book=${book.id}`);
+  await expect(page.locator('.detail-heading')).toContainText(`Kitaplığa eklendi · ${label}`);
+});
+
 test('page state lives in the URL and survives a reload', async ({ page }) => {
   await page.goto('./?page=5');
   await expect(page.locator('.pagination-page-status')).toContainText('5');

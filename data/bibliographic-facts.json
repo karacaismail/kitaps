@@ -4001,44 +4001,59 @@
     },
     "atomichabits": {
       "firstPublicationYear": 2018,
+      "firstPublisher": "Avery",
       "originalLanguage": "en",
+      "originalTitle": "Atomic Habits",
       "stage1": {
-        "reviewer": "claude-stage1-o-011",
-        "checkedAt": "2026-09-28",
+        "reviewer": "claude-stage1-s-003",
+        "checkedAt": "2026-10-04",
         "sources": [
           {
             "url": "https://en.wikipedia.org/wiki/Atomic_Habits",
             "type": "bibliographic"
+          },
+          {
+            "url": "https://queenslibrary.org/book/Atomic-habits-:-tiny-changes,-remarkable-results-:-an-easy-&-prov/979758",
+            "type": "library-catalog"
           }
         ]
       },
       "stage2": {
-        "reviewer": "claude-stage2-o-011",
-        "checkedAt": "2026-09-28",
+        "reviewer": "claude-stage2-s-003",
+        "checkedAt": "2026-10-04",
         "sources": [
           {
-            "url": "https://archive.org/advancedsearch.php?q=title%3A%28Atomic+Habits%29+AND+creator%3A%28Clear%29&fl%5B%5D=title&fl%5B%5D=date&fl%5B%5D=publisher&output=json&rows=20",
-            "type": "library-catalog"
+            "url": "https://www.penguinrandomhouseretail.com/book/?isbn=9780735211292",
+            "type": "publisher"
+          },
+          {
+            "url": "https://jamesclear.com/introducing-atomic-habits",
+            "type": "author"
           }
         ]
       }
     },
     "nonviolentcommunication": {
+      "firstPublicationYear": 1999,
       "firstPublisher": "PuddleDancer Press",
       "originalLanguage": "en",
       "stage1": {
-        "reviewer": "claude-stage1-o-011",
-        "checkedAt": "2026-09-28",
+        "reviewer": "claude-stage1-o-011; claude-shelf-stage1",
+        "checkedAt": "2026-10-04",
         "sources": [
           {
             "url": "https://openlibrary.org/search.json?q=Nonviolent+Communication+Rosenberg&fields=title,first_publish_year,publisher,language,author_name",
+            "type": "library-catalog"
+          },
+          {
+            "url": "https://openlibrary.org/works/OL2018966W",
             "type": "library-catalog"
           }
         ]
       },
       "stage2": {
-        "reviewer": "claude-stage2-o-011",
-        "checkedAt": "2026-09-28",
+        "reviewer": "claude-stage2-o-011; claude-shelf-stage2",
+        "checkedAt": "2026-10-04",
         "sources": [
           {
             "url": "https://archive.org/advancedsearch.php?q=title%3A%28Nonviolent+Communication%29+AND+creator%3A%28Rosenberg%29&fl%5B%5D=title&fl%5B%5D=date&fl%5B%5D=publisher&output=json&rows=20",
@@ -4046,6 +4061,14 @@
           },
           {
             "url": "https://en.wikipedia.org/wiki/Nonviolent_Communication",
+            "type": "bibliographic"
+          },
+          {
+            "url": "https://lccn.loc.gov/98067231",
+            "type": "library-catalog"
+          },
+          {
+            "url": "https://en.wikipedia.org/wiki/Marshall_Rosenberg",
             "type": "bibliographic"
           }
         ]
@@ -18404,6 +18427,765 @@
           },
           {
             "url": "https://en.wikipedia.org/wiki/Steve_Blank",
+            "type": "bibliographic"
+          }
+        ]
+      }
+    },
+    "buildingasecondbrain": {
+      "firstPublicationYear": 2022,
+      "firstPublisher": "Atria Books",
+      "originalLanguage": "en",
+      "originalTitle": "Building a Second Brain",
+      "stage1": {
+        "reviewer": "claude-stage1-s-001",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://openlibrary.org/isbn/9781982167387.json",
+            "type": "bibliographic"
+          },
+          {
+            "url": "https://www.goodreads.com/work/editions/93886807-building-a-second-brain?page=1",
+            "type": "bibliographic"
+          }
+        ]
+      },
+      "stage2": {
+        "reviewer": "claude-stage2-s-001",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://books.google.com.tr/books?vid=ISBN9781982167387&redir_esc=y",
+            "type": "bibliographic"
+          },
+          {
+            "url": "https://www.abebooks.com/9781982167387/Building-Second-Brain-Proven-Method-1982167386/plp",
+            "type": "retailer"
+          },
+          {
+            "url": "https://austin.bibliocommons.com/v2/record/S67C2168864",
+            "type": "library-catalog"
+          },
+          {
+            "url": "https://starklibrary.bibliocommons.com/v2/record/S199C2309944",
+            "type": "library-catalog"
+          }
+        ]
+      }
+    },
+    "nevereatalone": {
+      "firstPublicationYear": 2005,
+      "firstPublisher": "Currency Doubleday",
+      "originalLanguage": "en",
+      "originalTitle": "Never Eat Alone",
+      "stage1": {
+        "reviewer": "claude-stage1-s-001",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://openlibrary.org/isbn/0385512058.json",
+            "type": "bibliographic"
+          },
+          {
+            "url": "https://en.wikipedia.org/wiki/Keith_Ferrazzi",
+            "type": "bibliographic"
+          },
+          {
+            "url": "https://www.goodreads.com/work/editions/81738-never-eat-alone-and-other-secrets-to-success-one-relationship-at-a-tim?page=2",
+            "type": "bibliographic"
+          }
+        ]
+      },
+      "stage2": {
+        "reviewer": "claude-stage2-s-001",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://books.google.com.tr/books?vid=ISBN0385512058&redir_esc=y",
+            "type": "bibliographic"
+          },
+          {
+            "url": "https://www.abebooks.co.uk/first-edition/Never-Eat-Alone-Secrets-Success-Relationship/30812278834/bd",
+            "type": "retailer"
+          }
+        ]
+      }
+    },
+    "magicwords": {
+      "firstPublicationYear": 2023,
+      "firstPublisher": "Harper Business",
+      "originalLanguage": "en",
+      "originalTitle": "Magic Words",
+      "stage1": {
+        "reviewer": "claude-stage1-s-001",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://openlibrary.org/search.json?q=magic+words+jonah+berger&fields=key,title,subtitle,first_publish_year,publisher,isbn,language&limit=5",
+            "type": "bibliographic"
+          },
+          {
+            "url": "https://kirkusreviews.com/book-reviews/jonah-berger/magic-words-what-to-say/print",
+            "type": "bibliographic"
+          }
+        ]
+      },
+      "stage2": {
+        "reviewer": "claude-stage2-s-001",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://tertulia.com/book/magic-words-jonah-berger/9780063204935",
+            "type": "retailer"
+          },
+          {
+            "url": "https://books.google.com.tr/books?vid=ISBN9780063204935&redir_esc=y",
+            "type": "bibliographic"
+          },
+          {
+            "url": "https://www.gsb.stanford.edu/alumni/news/books/magic-words",
+            "type": "official"
+          }
+        ]
+      }
+    },
+    "lavieinterieure": {
+      "firstPublicationYear": 2018,
+      "firstPublisher": "L'Iconoclaste",
+      "originalLanguage": "fr",
+      "originalTitle": "La vie intérieure",
+      "stage1": {
+        "reviewer": "claude-stage1-s-001",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://openlibrary.org/search.json?title=la+vie+int%C3%A9rieure&author=christophe+andr%C3%A9&fields=key,title,first_publish_year,publisher,isbn,language,publish_date&limit=5",
+            "type": "bibliographic"
+          },
+          {
+            "url": "https://www.allodocteurs.fr/bien-etre-psycho-psycho-christophe-andre-il-faut-prendre-le-temps-de-reflechir-sur-soi-meme-23952.html",
+            "type": "bibliographic"
+          }
+        ]
+      },
+      "stage2": {
+        "reviewer": "claude-stage2-s-001",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://www.radiofrance.com/les-editions/livre/la-vie-interieure",
+            "type": "publisher"
+          },
+          {
+            "url": "https://www.arbrealettres.com/livre/9791095438588-la-vie-interieure-christophe-andre/",
+            "type": "retailer"
+          },
+          {
+            "url": "https://www.christopheandre.com/livres/la-vie-interieure/",
+            "type": "author"
+          }
+        ]
+      }
+    },
+    "hbrs10mustreadsonmanagingyourself": {
+      "firstPublisher": "Harvard Business Review Press",
+      "originalLanguage": "en",
+      "originalTitle": "HBR's 10 Must Reads on Managing Yourself",
+      "stage1": {
+        "reviewer": "claude-stage1-s-001",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://store.hbr.org/product/hbr-s-10-must-reads-on-managing-yourself-with-bonus-article-how-will-you-measure-your-life-by-clayton-m-christensen/12572",
+            "type": "publisher"
+          },
+          {
+            "url": "https://openlibrary.org/isbn/9781422157992.json",
+            "type": "bibliographic"
+          }
+        ]
+      },
+      "stage2": {
+        "reviewer": "claude-stage2-s-001",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://books.google.com.tr/books?vid=ISBN9781422157992&redir_esc=y",
+            "type": "bibliographic"
+          },
+          {
+            "url": "https://hudsonbooksellers.com/book/9781422157992",
+            "type": "retailer"
+          }
+        ]
+      }
+    },
+    "sameasever": {
+      "firstPublicationYear": 2023,
+      "firstPublisher": "Portfolio",
+      "originalLanguage": "en",
+      "originalTitle": "Same as Ever",
+      "stage1": {
+        "reviewer": "claude-stage1-s-001",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://openlibrary.org/isbn/9780593332702.json",
+            "type": "bibliographic"
+          }
+        ]
+      },
+      "stage2": {
+        "reviewer": "claude-stage2-s-001",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://www.penguinrandomhouse.com/books/672339/same-as-ever-by-morgan-housel/",
+            "type": "publisher"
+          },
+          {
+            "url": "https://books.google.com.tr/books?vid=ISBN9780593332702&redir_esc=y",
+            "type": "bibliographic"
+          }
+        ]
+      }
+    },
+    "emotionallyintelligentleader": {
+      "firstPublicationYear": 2019,
+      "firstPublisher": "Harvard Business Review Press",
+      "originalLanguage": "en",
+      "originalTitle": "The Emotionally Intelligent Leader",
+      "stage1": {
+        "reviewer": "claude-stage1-s-001",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://openlibrary.org/isbn/9781633697331.json",
+            "type": "bibliographic"
+          }
+        ]
+      },
+      "stage2": {
+        "reviewer": "claude-stage2-s-001",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://books.google.com.tr/books?vid=ISBN9781633697331&redir_esc=y",
+            "type": "bibliographic"
+          }
+        ]
+      }
+    },
+    "tinyhabits": {
+      "firstPublicationYear": 2019,
+      "firstPublisher": "Houghton Mifflin Harcourt",
+      "originalLanguage": "en",
+      "originalTitle": "Tiny Habits",
+      "stage1": {
+        "reviewer": "claude-stage1-s-001",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://publishersweekly.com/9780358003328",
+            "type": "bibliographic"
+          },
+          {
+            "url": "https://openlibrary.org/isbn/9780358003328.json",
+            "type": "bibliographic"
+          },
+          {
+            "url": "https://en.wikipedia.org/wiki/B._J._Fogg",
+            "type": "bibliographic"
+          }
+        ]
+      },
+      "stage2": {
+        "reviewer": "claude-stage2-s-001",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://www.harvard.com/book/9780358003328",
+            "type": "retailer"
+          },
+          {
+            "url": "https://books.google.com.tr/books?vid=ISBN9780358003328&redir_esc=y",
+            "type": "bibliographic"
+          }
+        ]
+      }
+    },
+    "pursuitofperfect": {
+      "firstPublicationYear": 2009,
+      "firstPublisher": "McGraw-Hill",
+      "originalLanguage": "en",
+      "originalTitle": "The Pursuit of Perfect",
+      "stage1": {
+        "reviewer": "claude-stage1-s-001",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://openlibrary.org/isbn/9780071608824.json",
+            "type": "bibliographic"
+          }
+        ]
+      },
+      "stage2": {
+        "reviewer": "claude-stage2-s-001",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://books.google.com.tr/books?vid=ISBN9780071608824&redir_esc=y",
+            "type": "bibliographic"
+          },
+          {
+            "url": "https://www.abebooks.com/9780071608824/Pursuit-Perfect-Stop-Chasing-Perfection-0071608826/plp",
+            "type": "retailer"
+          }
+        ]
+      }
+    },
+    "deepwork": {
+      "firstPublicationYear": 2016,
+      "firstPublisher": "Grand Central Publishing",
+      "originalLanguage": "en",
+      "originalTitle": "Deep Work",
+      "stage1": {
+        "reviewer": "claude-stage1-s-001",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://openlibrary.org/isbn/9781455586691.json",
+            "type": "bibliographic"
+          }
+        ]
+      },
+      "stage2": {
+        "reviewer": "claude-stage2-s-001",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://www.hachettebookgroup.com/titles/cal-newport/deep-work/9781455586691/",
+            "type": "publisher"
+          },
+          {
+            "url": "https://books.google.com.tr/books?vid=ISBN9781455586691&redir_esc=y",
+            "type": "bibliographic"
+          }
+        ]
+      }
+    },
+    "influenceandpersuasion": {
+      "firstPublicationYear": 2017,
+      "firstPublisher": "Harvard Business Review Press",
+      "originalLanguage": "en",
+      "originalTitle": "Influence and Persuasion",
+      "stage1": {
+        "reviewer": "claude-stage1-s-002",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://store.hbr.org/product/influence-and-persuasion-hbr-emotional-intelligence-series/10165",
+            "type": "publisher"
+          }
+        ]
+      },
+      "stage2": {
+        "reviewer": "claude-stage2-s-002",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://openlibrary.org/search.json?q=influence+and+persuasion+harvard+business+review+emotional+intelligence&fields=key,title,subtitle,first_publish_year,publisher,publish_date,isbn,edition_count&limit=5",
+            "type": "bibliographic"
+          }
+        ]
+      }
+    },
+    "effectiveexecutiveinaction": {
+      "firstPublisher": "Collins",
+      "originalLanguage": "en",
+      "originalTitle": "The Effective Executive in Action",
+      "stage1": {
+        "reviewer": "claude-stage1-s-002",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://psnz.umt.edu.my/seal/Record/0000049042/Details",
+            "type": "library-catalog"
+          },
+          {
+            "url": "https://www.publishersweekly.com/9780060832629",
+            "type": "bibliographic"
+          }
+        ]
+      },
+      "stage2": {
+        "reviewer": "claude-stage2-s-002",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://openlibrary.org/isbn/9780060832629.json",
+            "type": "bibliographic"
+          },
+          {
+            "url": "https://books.google.com.tr/books/about/The_Effective_Executive_in_Action.html?id=NMMPAM7T8UkC&redir_esc=y",
+            "type": "bibliographic"
+          }
+        ]
+      }
+    },
+    "5typesofwealth": {
+      "firstPublicationYear": 2025,
+      "firstPublisher": "Ballantine Books",
+      "originalLanguage": "en",
+      "originalTitle": "The 5 Types of Wealth",
+      "stage1": {
+        "reviewer": "claude-stage1-s-002",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://www.penguinrandomhouse.com/books/731381/the-5-types-of-wealth-by-sahil-bloom/",
+            "type": "publisher"
+          }
+        ]
+      },
+      "stage2": {
+        "reviewer": "claude-stage2-s-002",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://openlibrary.org/isbn/9780593723180.json",
+            "type": "bibliographic"
+          },
+          {
+            "url": "https://www.goodreads.com/book/show/212806718-the-5-types-of-wealth",
+            "type": "bibliographic"
+          }
+        ]
+      }
+    },
+    "boundaries": {
+      "firstPublicationYear": 1992,
+      "firstPublisher": "Zondervan",
+      "originalLanguage": "en",
+      "originalTitle": "Boundaries",
+      "stage1": {
+        "reviewer": "claude-stage1-s-002",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://openlibrary.org/books/OL1704290M/Boundaries",
+            "type": "bibliographic"
+          },
+          {
+            "url": "https://search.worldcat.org/title/Boundaries-:-when-to-say-yes-when-to-say-no-to-take-control-of-your-life/oclc/25509623",
+            "type": "bibliographic"
+          }
+        ]
+      },
+      "stage2": {
+        "reviewer": "claude-stage2-s-002",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://www.abebooks.com/9780310585909/Boundaries-When-Say-Take-Control-0310585902/plp",
+            "type": "retailer"
+          },
+          {
+            "url": "https://en.wikipedia.org/wiki/Henry_Cloud",
+            "type": "bibliographic"
+          }
+        ]
+      }
+    },
+    "streetcoder": {
+      "firstPublicationYear": 2021,
+      "firstPublisher": "Manning Publications",
+      "originalLanguage": "en",
+      "originalTitle": "Street Coder",
+      "stage1": {
+        "reviewer": "claude-stage1-s-002",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://www.manning.com/books/street-coder",
+            "type": "publisher"
+          },
+          {
+            "url": "https://www.pearson.com/store/en-gb/p/street-coder/P200000007188/9781617298370",
+            "type": "retailer"
+          },
+          {
+            "url": "https://tr.wikipedia.org/wiki/Sedat_Kapano%C4%9Flu",
+            "type": "bibliographic"
+          }
+        ]
+      },
+      "stage2": {
+        "reviewer": "claude-stage2-s-002",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://openlibrary.org/isbn/9781617298370.json",
+            "type": "bibliographic"
+          },
+          {
+            "url": "https://www.abebooks.com/9781617298370/Street-Coder-rules-break-Kapanoglu-1617298379/plp",
+            "type": "retailer"
+          }
+        ]
+      }
+    },
+    "manualforwritersofresearchpapersthesesanddissertations": {
+      "originalLanguage": "en",
+      "originalTitle": "A Manual for Writers of Research Papers, Theses, and Dissertations",
+      "stage1": {
+        "reviewer": "claude-stage1-s-002",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://www.chicagomanualofstyle.org/turabian/about/history.html",
+            "type": "publisher"
+          },
+          {
+            "url": "https://en.wikipedia.org/wiki/A_Manual_for_Writers_of_Research_Papers,_Theses,_and_Dissertations",
+            "type": "bibliographic"
+          },
+          {
+            "url": "https://openlibrary.org/search.json?q=turabian+manual+for+writers&fields=key,title,first_publish_year,publisher,edition_count&limit=10",
+            "type": "bibliographic"
+          }
+        ]
+      },
+      "stage2": {
+        "reviewer": "claude-stage2-s-002",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://press.uchicago.edu/ucp/books/book/chicago/M/bo27847540.html",
+            "type": "publisher"
+          },
+          {
+            "url": "https://archive.org/details/manualforwriters0000tura_v2l5",
+            "type": "library-catalog"
+          }
+        ]
+      }
+    },
+    "machinethatchangedtheworld": {
+      "firstPublicationYear": 1990,
+      "firstPublisher": "Rawson Associates",
+      "originalLanguage": "en",
+      "originalTitle": "The Machine That Changed the World",
+      "stage1": {
+        "reviewer": "claude-stage1-s-002",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://openlibrary.org/works/OL3252235W/editions.json",
+            "type": "bibliographic"
+          },
+          {
+            "url": "https://openlibrary.org/search.json?q=the+machine+that+changed+the+world+womack&fields=key,title,first_publish_year,publisher,publish_year,edition_count&limit=5",
+            "type": "bibliographic"
+          }
+        ]
+      },
+      "stage2": {
+        "reviewer": "claude-stage2-s-002",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://archive.org/details/machinethatchang00woma",
+            "type": "library-catalog"
+          },
+          {
+            "url": "https://en.wikipedia.org/wiki/The_Machine_That_Changed_the_World_(book)",
+            "type": "bibliographic"
+          }
+        ]
+      }
+    },
+    "thankyouforarguing": {
+      "firstPublicationYear": 2007,
+      "firstPublisher": "Three Rivers Press",
+      "originalLanguage": "en",
+      "originalTitle": "Thank You for Arguing",
+      "stage1": {
+        "reviewer": "claude-stage1-s-002",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://openlibrary.org/works/OL3255662W/editions.json",
+            "type": "bibliographic"
+          },
+          {
+            "url": "https://openlibrary.org/search.json?q=thank+you+for+arguing+heinrichs&fields=key,title,subtitle,first_publish_year,publisher,publish_year,edition_count&limit=5",
+            "type": "bibliographic"
+          }
+        ]
+      },
+      "stage2": {
+        "reviewer": "claude-stage2-s-002",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://en.wikipedia.org/wiki/Thank_You_for_Arguing:_What_Aristotle,_Lincoln,_and_Homer_Simpson_Can_Teach_Us_About_the_Art_of_Persuasion",
+            "type": "bibliographic"
+          }
+        ]
+      }
+    },
+    "catwhotaughtzen": {
+      "firstPublicationYear": 2023,
+      "firstPublisher": "Michael Joseph",
+      "originalLanguage": "en",
+      "originalTitle": "The Cat Who Taught Zen",
+      "stage1": {
+        "reviewer": "claude-stage1-s-002",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://www.penguin.co.uk/books/454487/the-cat-who-taught-zen-by-norbury-james/9780241640159",
+            "type": "publisher"
+          }
+        ]
+      },
+      "stage2": {
+        "reviewer": "claude-stage2-s-002",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://www.goodreads.com/work/editions/144591121-the-cat-who-taught-zen",
+            "type": "bibliographic"
+          },
+          {
+            "url": "https://www.abebooks.com/9780063347618/Cat-Who-Taught-Zen-Norbury-006334761X/plp",
+            "type": "retailer"
+          }
+        ]
+      }
+    },
+    "iletisimcatismalariveempati": {
+      "firstPublicationYear": 1994,
+      "originalLanguage": "tr",
+      "originalTitle": "İletişim Çatışmaları ve Empati",
+      "stage1": {
+        "reviewer": "claude-stage1-s-003",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://www.remzi.com.tr/files/books/1437/dosya/empati-on-izleme.pdf",
+            "type": "publisher-preview"
+          },
+          {
+            "url": "https://www.remzi.com.tr/kitap/iletisim-catismalari-ve-empati",
+            "type": "publisher"
+          }
+        ]
+      },
+      "stage2": {
+        "reviewer": "claude-stage2-s-003",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://tr.wikipedia.org/wiki/%C3%9Cst%C3%BCn_D%C3%B6kmen",
+            "type": "bibliographic"
+          },
+          {
+            "url": "https://kutuphane.enerji.gov.tr/bib/2221",
+            "type": "library-catalog"
+          }
+        ]
+      }
+    },
+    "bananeoluyor": {
+      "firstPublicationYear": 2026,
+      "firstPublisher": "Kronik Kitap",
+      "originalLanguage": "tr",
+      "originalTitle": "Bana Ne Oluyor?",
+      "stage1": {
+        "reviewer": "claude-stage1-s-003",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://www.kronikkitap.com/bana-ne-oluyor",
+            "type": "publisher"
+          }
+        ]
+      },
+      "stage2": {
+        "reviewer": "claude-stage2-s-003",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://www.dr.com.tr/search?q=9786255835567",
+            "type": "retailer"
+          }
+        ]
+      }
+    },
+    "hayaliniyorganinagoreuzat": {
+      "originalLanguage": "tr",
+      "originalTitle": "Hayalini Yorganına Göre Uzat",
+      "stage1": {
+        "reviewer": "claude-stage1-s-003",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://www.remzi.com.tr/files/books/1751/dosya/hayalini-yorganina-gore-uzat-on-izleme.pdf",
+            "type": "publisher-preview"
+          },
+          {
+            "url": "https://www.remzi.com.tr/kitap/hayalini-yorganina-gore-uzat",
+            "type": "publisher"
+          }
+        ]
+      },
+      "stage2": {
+        "reviewer": "claude-stage2-s-003",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://catalog.khas.edu.tr/bib/81795",
+            "type": "library-catalog"
+          },
+          {
+            "url": "https://www.dr.com.tr/search?q=9786256228566",
+            "type": "retailer"
+          }
+        ]
+      }
+    },
+    "animalfarm": {
+      "firstPublicationYear": 1945,
+      "firstPublisher": "Secker & Warburg",
+      "originalLanguage": "en",
+      "originalTitle": "Animal Farm",
+      "stage1": {
+        "reviewer": "claude-stage1-s-003",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://en.wikipedia.org/wiki/Animal_Farm",
+            "type": "bibliographic"
+          },
+          {
+            "url": "https://www.penguin.co.uk/books/364892/animal-farm-by-george-orwell/9781787301078",
+            "type": "publisher"
+          }
+        ]
+      },
+      "stage2": {
+        "reviewer": "claude-stage2-s-003",
+        "checkedAt": "2026-10-04",
+        "sources": [
+          {
+            "url": "https://www.orwellfoundation.com/the-orwell-foundation/news-events/news-events/news/george-orwell-and-the-battle-for-animal-farm-new-film-marks-75th-anniversary-of-novels-publication/",
+            "type": "official"
+          },
+          {
+            "url": "https://openlibrary.org/search.json?title=animal+farm&author=orwell&fields=key,title,subtitle,first_publish_year,language&limit=3",
             "type": "bibliographic"
           }
         ]

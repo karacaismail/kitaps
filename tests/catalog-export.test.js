@@ -10,9 +10,9 @@ const TURKISH_ONLY=/[ğĞşŞıİ]/;
 
 test('catalog export contains every book with the requested bibliographic fields plus join keys',()=>{
  const result=createBooksExport(catalog,'2026-09-28T12:00:00.000Z');
- assert.equal(result.schemaVersion,2);
+ assert.equal(result.schemaVersion,3);
  assert.equal(result.count,catalog.books.length);
- assert.deepEqual(Object.keys(result.books[0]),['id','turkceAdi','orijinalAdi','orijinalYayinevi','orijinalYazarlar','onerilenCevirmenler','turkiyeYayinevi','turkceIsbn','ilkYayinYili']);
+ assert.deepEqual(Object.keys(result.books[0]),['id','turkceAdi','orijinalAdi','orijinalYayinevi','orijinalYazarlar','onerilenCevirmenler','turkiyeYayinevi','turkceIsbn','ilkYayinYili','kitapligaEklenme']);
  assert.deepEqual(result.books.map(book=>book.id),catalog.books.map(book=>book.id));
  assert.ok(result.books.every(book=>Array.isArray(book.orijinalYazarlar)&&Array.isArray(book.onerilenCevirmenler)));
  assert.doesNotMatch(JSON.stringify(result),/"searchText"/);
@@ -30,6 +30,8 @@ test('verified Turkish edition supplies its title, translators, publisher and IS
   turkiyeYayinevi:'Aura Kitapları',
   turkceIsbn:byId.competitivestrategy.verifiedEdition.isbn,
   ilkYayinYili:1980,
+  // First listed on the original Kitaps site.
+  kitapligaEklenme:'2026-09-02',
  });
 });
 
@@ -45,6 +47,7 @@ test('an international record without a verified translation keeps Turkish editi
   turkiyeYayinevi:null,
   turkceIsbn:null,
   ilkYayinYili:1989,
+  kitapligaEklenme:'2026-09-26',
  });
 });
 

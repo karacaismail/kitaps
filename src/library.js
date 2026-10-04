@@ -2,8 +2,16 @@ import { displayTitle } from './translation.js';
 
 export const STATE_LABELS = { onemli: 'Favori', alinacak: 'Alınacak', alindi: 'Satın alındı', okunuyor: 'Okunuyor', okundu: 'Okundu', araverildi: 'Ara verdim', birakildi: 'Bıraktım' };
 export const QUALITY_LABELS = { ok: 'Kaynakta doğrulanmış', warn: 'Baskı / çeviri uyarısı', unverified: 'Künye eksik', avoid: 'Kaçınılacak baskı notu' };
-export const ORIGIN_LABELS = { atlas: 'Kitap Atlası', local: 'Okuma Kümeleri', kitaps: 'Kitaps', entrepreneurship: 'Girişimcilik araştırması', foundations: 'Temel okumalar araştırması', preparation: 'Ön hazırlık araştırması', children: 'Çocuk kütüphanesi araştırması' };
-export const emptyFilters = () => ({ query: '', categories: [], collections: [], groups: [], states: [], authors: [], origins: [], awards: [], awardYears: [], qualities: [], categoryMode: 'any', collectionMode: 'any', hasEdition: false, shared: false, yearMin: '', yearMax: '' });
+export const ORIGIN_LABELS = { atlas: 'Kitap Atlası', local: 'Okuma Kümeleri', kitaps: 'Kitaps', entrepreneurship: 'Girişimcilik araştırması', foundations: 'Temel okumalar araştırması', preparation: 'Ön hazırlık araştırması', children: 'Çocuk kütüphanesi araştırması', shelf: 'Raf taraması değerlendirmesi' };
+export const emptyFilters = () => ({ query: '', categories: [], collections: [], groups: [], states: [], authors: [], origins: [], awards: [], awardYears: [], qualities: [], addedDates: [], categoryMode: 'any', collectionMode: 'any', hasEdition: false, shared: false, yearMin: '', yearMax: '' });
+// A day such as "2026-10-04" read as "4 Ekim 2026", independent of the reader's time zone.
+const dayFormat = new Intl.DateTimeFormat('tr-TR', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+export function formatDay(day) {
+ if (!/^\d{4}-\d{2}-\d{2}$/.test(day || '')) return '';
+ const date = new Date(`${day}T00:00:00Z`);
+ // A day that does not exist (2026-02-30) is not shown rather than shown wrong.
+ return !Number.isNaN(date.getTime()) && date.toISOString().slice(0, 10) === day ? dayFormat.format(date) : '';
+}
 export const normalize = value => String(value ?? '').toLocaleLowerCase('tr-TR').replace(/ı/g, 'i').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[’‘]/g, "'");
 export function prepareBooks(books) {
  return books.map(book => ({ ...book, searchText: normalize([book.title, book.titleTr, book.cover?.title, book.cover?.publisher, book.cover?.isbn, book.author, ...book.aliases, ...(book.verifiedEdition?.translators||[]), book.verifiedEdition?.publisher, book.verifiedEdition?.isbn, ...book.editions.flatMap(e => [e.translator,e.publisher,e.turkish,e.original]), ...book.notes.map(n=>n.text)].join(' ')) }));
@@ -20,6 +28,7 @@ export function filterBooks(books, filters, states = {}) {
   if (!matchesValues(states[b.id] || [], f.states)) return false;
   if (!matchesValues([b.author], f.authors)) return false;
   if (!matchesValues(b.origins, f.origins)) return false;
+  if (!matchesValues([b.addedAt], f.addedDates)) return false;
   if (!matchesValues(b.editions.flatMap(e => e.status || []), f.qualities)) return false;
   if (f.hasEdition && !b.verifiedEdition && !b.editions.some(e => e.translator || e.publisher)) return false;
   if (f.shared && b.collectionIds.length < 2) return false;
@@ -38,7 +47,10 @@ export function sortBooks(books, sort, states = {}, rankings = {}) {
   // themselves. Books with an equal priority share a rank and read
   // alphabetically by the title the reader sees, never by internal identifiers.
   const audience = id => rankings[id]?.audience === 'children' ? 1 : 0;
-  if (sort === 'reading') return audience(a.id)-audience(b.id)||(rankings[a.id]?.rank??Number.MAX_SAFE_INTEGER)-(rankings[b.id]?.rank??Number.MAX_SAFE_INTEGER)||tie();
+  const byReading = () => audience(a.id)-audience(b.id)||(rankings[a.id]?.rank??Number.MAX_SAFE_INTEGER)-(rankings[b.id]?.rank??Number.MAX_SAFE_INTEGER)||tie();
+  if (sort === 'reading') return byReading();
+  // Latest additions first; books added on the same day keep their reading order.
+  if (sort === 'added') return (b.addedAt||'').localeCompare(a.addedAt||'') || byReading();
   if (sort === 'shared') return b.collectionIds.length - a.collectionIds.length || tie();
   if (sort === 'author') return collator.compare(a.author,b.author) || tie();
   if (sort === 'newest') return Math.max(0,...b.years) - Math.max(0,...a.years) || tie();
@@ -70,7 +82,7 @@ export function migrateStates(books, own, legacy) {
 export function filterCount(f) {
  return Object.entries(f).reduce((n,[k,v])=>n + (k.endsWith('Mode') ? 0 : Array.isArray(v) ? v.length : v ? 1 : 0),0);
 }
-const routeFields={categories:'category',collections:'collection',groups:'group',states:'status',authors:'author',origins:'source',awards:'award',awardYears:'award-year',qualities:'edition-status'};
+const routeFields={categories:'category',collections:'collection',groups:'group',states:'status',authors:'author',origins:'source',awards:'award',awardYears:'award-year',qualities:'edition-status',addedDates:'added'};
 const englishValues={onemli:'important',alinacak:'wishlist',alindi:'purchased',okunuyor:'reading',araverildi:'paused',birakildi:'abandoned',okundu:'finished',Kazanan:'winner','Kısa liste':'shortlist','Uzun liste':'longlist'};
 const originalValues=Object.fromEntries(Object.entries(englishValues).map(([key,value])=>[value,key]));
 const englishBookTitles={'преступлениеинаказание':'Crime and Punishment','братьякарамазовы':'The Brothers Karamazov','запискиизподполья':'Notes from Underground','идиот':'The Idiot','воинаимир':'War and Peace','аннакаренина':'Anna Karenina','смертьиванаильича':'The Death of Ivan Ilyich','чемлюдиживы':'What Men Live By','шинель':'The Overcoat','нос':'The Nose'};
@@ -107,7 +119,7 @@ export function decodeRoute(location, catalog) {
   if(p.has('edition'))f.hasEdition=p.get('edition')==='known';
   if(p.has('shared'))f.shared=p.get('shared')==='true';
   for(const [key,param] of [['yearMin','year-from'],['yearMax','year-to']])if(p.has(param)&&p.get(param).trim()!==''&&Number.isFinite(Number(p.get(param))))f[key]=Number(p.get(param));
-  const known={categories:catalog.categories?.map(c=>c.id),collections:catalog.collections.map(c=>c.id),groups:catalog.groups?.map(g=>g.id),states:Object.keys(STATE_LABELS),qualities:Object.keys(QUALITY_LABELS),origins:Object.keys(ORIGIN_LABELS)};
+  const known={categories:catalog.categories?.map(c=>c.id),collections:catalog.collections.map(c=>c.id),groups:catalog.groups?.map(g=>g.id),states:Object.keys(STATE_LABELS),qualities:Object.keys(QUALITY_LABELS),origins:Object.keys(ORIGIN_LABELS),addedDates:[...new Set(catalog.books.map(b=>b.addedAt).filter(Boolean))]};
   for(const [key,values] of Object.entries(known))if(values)f[key]=[...new Set(f[key])].filter(v=>values.includes(v));
   const selected=catalog.books.find(b=>b.id===p.get('book'))||catalog.books.find(b=>bookSlug(b)===p.get('book'));
   const view=p.get('view')==='library'?'owned':p.get('view');
@@ -115,7 +127,7 @@ export function decodeRoute(location, catalog) {
   const requestedSize=Number(p.get('page-size')),legacySize=LEGACY_PAGE_SIZES[requestedSize];
   const pageSize=PAGE_SIZES.includes(requestedSize)?requestedSize:legacySize||DEFAULT_PAGE_SIZE;
   const page=legacySize?Math.floor((requestedPage-1)*requestedSize/pageSize)+1:requestedPage;
-  return {...defaults,view:['books','owned','favorites','queue','collections','notes'].includes(view)?view:'books',sort:['reading','title','author','shared','newest','saved'].includes(p.get('sort'))?p.get('sort'):'reading',book:selected?.id||null,page,pageSize};
+  return {...defaults,view:['books','owned','favorites','queue','collections','notes'].includes(view)?view:'books',sort:['reading','title','author','shared','newest','added','saved'].includes(p.get('sort'))?p.get('sort'):'reading',book:selected?.id||null,page,pageSize};
  }catch{return defaults}
 }
 export function encodeRoute(route,catalog) {

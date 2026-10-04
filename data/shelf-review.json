@@ -1,0 +1,1199 @@
+{
+ "id": "raf-degerlendirmesi",
+ "title": "Raf taramasından okuma önerileri",
+ "short": "Raf taraması",
+ "description": "Fotoğraflanan kitap raflarında okunabilen kitaplar arasından seçilenler: öncelikli okumalar, uzun vadeli bir okuma, belirli bir ihtiyaç doğduğunda alınacaklar ve 10 yaşındaki bir çocukla birlikte okunabilecekler.",
+ "source": "https://github.com/karacaismail/kitaps/blob/main/data/shelf-review.json",
+ "checkedAt": "2026-10-04",
+ "context": {
+  "purpose": "Fotoğraflanan raflardan kendin için ve 10 yaşındaki kızın için hangi kitapların alınacağına karar vermek.",
+  "criterion": "Günlük hayata ve işe uygulanabilirlik. Her kitaba “mutlaka okunmalı” denmedi: bazıları yalnızca belirli bir ihtiyaç doğduğunda öneriliyor. Yeniden taramada yönetim ve süreç kitaplarına daha çok ağırlık verildi.",
+  "verdict": "Satın alırken karışabilecekler: Viktor Frankl’ın Anlam Arayışı Üzerine (Pam Roy, Moira Hummel; Üçüncü Göz) Frankl’ın kendi kitabı İnsanın Anlam Arayışı değil, onun düşüncelerine eşlik eden ayrı bir kitap. Kapağında büyük harflerle Erich Fromm yazan Yaratmayan İnsan Yok Etmek İster (Destek Yayınları), Fromm’un bir eserinin çevirisi değil; Müthiş Psikoloji’nin Fromm üzerine hazırladığı kısa bir tanıtım. Etkili Yöneticilerin 7 Alışkanlığı, Etkili İnsanların 7 Alışkanlığı ile aynı kitap değil. Etkin Yönetici, Drucker’ın ana eseri değil, uygulama defteri. Paul Ekman’ın Ne Düşündüğünü Biliyorum kitabı kesin bir yalan yakalama yöntemi gibi okunmamalı; Ekman da tek bir işaretin yalanı kanıtlamadığını söylüyor."
+ },
+ "note": "Değerlendirmedeki tablo biçimli öncelik listeleri aktarılan metinde yer almadığı için yalnızca adıyla anılan kitaplar alındı. Öncelikler not ve alt küme olarak tutulur, puana eklenmez; puanlar diğer kitaplarla aynı motordan gelir. Yeni Türkçe baskılar iki ayrı sitede doğrulandı.",
+ "groups": [
+  {
+   "id": "oncelikli",
+   "title": "Öncelikli okumalar"
+  },
+  {
+   "id": "uzun-vadeli",
+   "title": "Uzun vadeli okuma"
+  },
+  {
+   "id": "ihtiyaca-gore",
+   "title": "Belirli bir ihtiyaç için"
+  },
+  {
+   "id": "kizim-icin",
+   "title": "Kızım için"
+  }
+ ],
+ "books": [
+  {
+   "key": "siddetsiz-iletisim",
+   "existingId": "nonviolentcommunication",
+   "group": "oncelikli",
+   "reason": "Raflardan yalnızca iki kitap alınacaksa ilk seçim: günlük hayata ve işe hemen uygulanabilecek bir iletişim yöntemi."
+  },
+  {
+   "key": "iknanin-psikolojisi",
+   "existingId": "influence",
+   "group": "oncelikli",
+   "reason": "İkna üzerine tek kitap alınacaksa ilk seçim ve konunun genel temeli. Sihirli Kelimeler ile Stratejik İkna’yı başlangıçta birlikte almak gerekmiyor."
+  },
+  {
+   "key": "iyi-isler-uygulamasi",
+   "existingId": "caseforgoodjobs",
+   "group": "oncelikli",
+   "purpose": "Çalışanlara iyi işler sunmanın bir maliyet değil, operasyon kararlarıyla birlikte müşteriye ve kârlılığa yarayan bir strateji olabileceğini görmek için oku.",
+   "reason": "Yeniden taramada iş ve yönetim için seçilen kitap. Amaç işletmeyi ve ekip yönetimini geliştirmekse Her Zamanki Gibi ile Mor İnek’in önüne geçiyor."
+  },
+  {
+   "key": "mor-inek",
+   "existingId": "purplecow",
+   "group": "oncelikli",
+   "purpose": "Sıradan bir ürünü daha çok reklamla öne çıkarmaya çalışmak yerine, kendisi konuşulacak kadar dikkat çekici bir ürün tasarlamak için oku.",
+   "reason": "İknanın Psikolojisi ile birlikte iki kitaplık seçimin ikincisi. Araştırmaları düzenli yazıya dönüştürmek öncelikse yerine Turabian’ın el kitabı alınabilir."
+  },
+  {
+   "key": "atomik-aliskanliklar",
+   "existingId": "atomichabits",
+   "group": "oncelikli",
+   "reason": "Önceki güçlü öneriler arasında kalıyor; alışkanlık kurmak için Küçük Alışkanlıklar ile aynı ihtiyaca yanıt verir."
+  },
+  {
+   "key": "hayvan-ciftligi",
+   "existingId": "animalfarm",
+   "group": "oncelikli",
+   "categories": [
+    "literature",
+    "politics"
+   ],
+   "reason": "Önceki güçlü öneriler arasında kalıyor.",
+   "extraGroups": [
+    {
+     "id": "kizim-icin",
+     "reason": "Çok değerli; ancak siyasi anlamları, şiddet ve ölüm sahneleri nedeniyle 12–13 yaş civarında, üzerine konuşarak okunması öneriliyor."
+    }
+   ]
+  },
+  {
+   "key": "hizli-ve-yavas-dusunme",
+   "existingId": "thinkingfastandslow",
+   "group": "uzun-vadeli",
+   "reason": "Değerli ama yoğun: daha fazla dikkat ayrılacak, uzun vadeli bir okuma. Okuma düzenini yeniden kurmak için ilk kitap olarak önerilmiyor."
+  },
+  {
+   "key": "markalar-nasil-buyur",
+   "existingId": "howbrandsgrow",
+   "group": "ihtiyaca-gore",
+   "reason": "Pazarlama bilgisini geliştirmek öncelikse Her Zamanki Gibi’nin yerine alınacak kitap; serinin birinci kitabıyla başlanmalı."
+  },
+  {
+   "key": "etkin-yoneticilik",
+   "existingId": "effectiveexecutive",
+   "group": "ihtiyaca-gore",
+   "reason": "Drucker’a ilk kez başlanacaksa önce bu ana eser okunmalı; rafta duran Etkin Yönetici, bunun uygulama defteridir ve ardından gelir. Ana eserin Türkçe baskısı şu anda kitapçılarda satışta bulunamadı."
+  },
+  {
+   "key": "ikinci-beyin",
+   "existingId": null,
+   "group": "oncelikli",
+   "reason": "Raflardan yalnızca iki kitap alınacaksa Şiddetsiz İletişim’in yanındaki ikinci seçim: günlük hayata ve işe uygulamak için.",
+   "title": "Building a Second Brain",
+   "titleTr": "İkinci Beyninizi Kurun",
+   "author": "Tiago Forte",
+   "originalLanguage": "en",
+   "year": 2022,
+   "categories": [
+    "productivity"
+   ],
+   "purpose": "Okuduğunu, not aldığını ve düşündüğünü güvenilir bir dış sistemde toplayıp işine dönüştürmek için oku.",
+   "edition": {
+    "title": "İkinci Beyninizi Kurun",
+    "isbn": "9786255587299",
+    "publisher": "Nepal Kitap",
+    "translators": [
+     "Zeynep Şebnem Suri"
+    ],
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/ikinci-beyninizi-kurun-dijital-yasaminizi-duzenleyip-yaraticiliginizi-artirmanin/729350.html",
+    "sourceType": "retailer",
+    "secondSourceUrl": "https://www.dr.com.tr/kitap/ikinci-beyninizi-kurun-dijital-yasaminizi-duzenleyip-yaraticiliginizi-artirmanin-kanitlanmis-yonte/basvuru/kisisel-gelisim/urunno=0002177033001",
+    "secondSourceType": "retailer",
+    "checkedAt": "2026-10-04",
+    "basis": "two-stage check",
+    "note": "Kitapyurdu ve D&R aynı ISBN'i (9786255587299), Nepal Kitap yayıncısını ve çevirmen olarak Zeynep Şebnem Suri'yi gösteriyor; iki sitede de sayfa sayısı 320. Kitapsepeti aynı ISBN ve yayıncıyı veriyor, kapakta da 'Çeviren: Zeynep Şebnem Suri' yazıyor. İkinci aşamada amazon.com.tr, dr.com.tr kaynaklarıyla bağımsız olarak doğrulandı."
+   },
+   "cover": {
+    "src": "covers/shelf-ikinci-beyin.jpg",
+    "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:12101410/wi:800/wh:86a38223e",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/ikinci-beyninizi-kurun-dijital-yasaminizi-duzenleyip-yaraticiliginizi-artirmanin/729350.html",
+    "sourceName": "kitapyurdu.com",
+    "title": "İkinci Beyninizi Kurun",
+    "author": "Tiago Forte",
+    "publisher": "Nepal Kitap",
+    "isbn": "9786255587299",
+    "language": "tr",
+    "checkedAt": "2026-10-04",
+    "scope": "Türkçe baskı kapağı"
+   }
+  },
+  {
+   "key": "asla-yalniz-yeme",
+   "existingId": null,
+   "group": "oncelikli",
+   "reason": "Kendi rafından tek kitap alınacaksa seçilen kitap. Şiddetsiz İletişim ve İkinci Beyninizi Kurun ile farklı ihtiyaçlara yanıt veren güçlü bir üçlü oluşturur.",
+   "title": "Never Eat Alone",
+   "titleTr": "Asla Yalnız Yeme",
+   "author": "Keith Ferrazzi, Tahl Raz",
+   "originalLanguage": "en",
+   "year": 2005,
+   "categories": [
+    "communication"
+   ],
+   "purpose": "İlişki ağını karşılıklı yardım üzerine kurmayı ve bu ilişkileri zaman içinde sürdürmeyi öğrenmek için oku.",
+   "edition": {
+    "title": "Asla Yalnız Yeme",
+    "isbn": "9789944383677",
+    "publisher": "MediaCat Kitapları",
+    "translators": [
+     "Levent Göktem"
+    ],
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/asla-yalniz-yeme-basariyla-basarisizlik-arasindaki-ince-cizgi-iliskinin-gucu/104760.html",
+    "sourceType": "retailer",
+    "secondSourceUrl": "https://www.istanbulkitapcisi.com/asla-yalniz-yeme",
+    "secondSourceType": "retailer",
+    "checkedAt": "2026-10-04",
+    "basis": "two-stage check",
+    "note": "Kitapyurdu ve İstanbul Kitapçısı aynı ISBN'i (9789944383677), MediaCat Kitapları yayıncısını ve Levent Göktem çevirisini gösteriyor; ikisinde de 336 sayfa. D&R aynı ISBN'i 'MediaCat Yayıncılık' adıyla ve 2008 ilk baskı yılıyla, idefix ise Levent Göktem çevirisini ve 'Never Eat Alone' orijinal adını veriyor. İkinci aşamada amazon.com.tr, dr.com.tr, idefix.com kaynaklarıyla bağımsız olarak doğrulandı."
+   },
+   "cover": {
+    "src": "covers/shelf-asla-yalniz-yeme.jpg",
+    "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:120279/wi:800/wh:14d0ae4ba",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/asla-yalniz-yeme-basariyla-basarisizlik-arasindaki-ince-cizgi-iliskinin-gucu/104760.html",
+    "sourceName": "kitapyurdu.com",
+    "title": "Asla Yalnız Yeme",
+    "author": "Keith Ferrazzi, Tahl Raz",
+    "publisher": "MediaCat Kitapları",
+    "isbn": "9789944383677",
+    "language": "tr",
+    "checkedAt": "2026-10-04",
+    "scope": "Türkçe baskı kapağı"
+   }
+  },
+  {
+   "key": "iletisim-catismalari-empati",
+   "existingId": null,
+   "group": "oncelikli",
+   "reason": "Yeni fotoğraflarla önceki önerilere güçlü biçimde eklenen kitap: iletişim sorunlarını günlük yaşamdan, edebiyattan ve kendi kültürümüzden örneklerle ele alır.",
+   "title": "İletişim Çatışmaları ve Empati",
+   "titleTr": "İletişim Çatışmaları ve Empati",
+   "author": "Üstün Dökmen",
+   "originalLanguage": "tr",
+   "year": 1994,
+   "categories": [
+    "communication",
+    "psychology"
+   ],
+   "purpose": "İletişim çatışmalarının nasıl doğduğunu ve empatinin onları nasıl çözebileceğini, gündelik hayattan ve edebiyattan örneklerle görmek için oku.",
+   "edition": {
+    "title": "İletişim Çatışmaları ve Empati",
+    "isbn": "9789751413215",
+    "publisher": "Remzi Kitabevi",
+    "translators": [],
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/iletisim-catismalari-ve-empati-sanatta-ve-gunluk-yasamda/122399.html",
+    "sourceType": "retailer",
+    "secondSourceUrl": "https://remzi.com.tr/kitap/iletisim-catismalari-ve-empati",
+    "secondSourceType": "publisher",
+    "checkedAt": "2026-10-04",
+    "basis": "two-stage check",
+    "note": "Kitapyurdu ve Remzi Kitabevi sitesi aynı ISBN'i (9789751413215 / 978-975-14-1321-5), aynı yayınevini ve 392 sayfayı gösteriyor. Remzi sitesinde güncel basım sayısı 68; Haziran 2023 tarihli önizleme PDF'inin künyesinde 66. basım yazıyor. İkinci aşamada kutuphane.enerji.gov.tr, tr.wikipedia.org kaynaklarıyla bağımsız olarak doğrulandı."
+   },
+   "cover": {
+    "src": "covers/shelf-iletisim-catismalari-empati.jpg",
+    "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:6930796/wi:800/wh:1488c28f1",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/iletisim-catismalari-ve-empati-sanatta-ve-gunluk-yasamda/122399.html",
+    "sourceName": "kitapyurdu.com",
+    "title": "İletişim Çatışmaları ve Empati",
+    "author": "Üstün Dökmen",
+    "publisher": "Remzi Kitabevi",
+    "isbn": "9789751413215",
+    "language": "tr",
+    "checkedAt": "2026-10-04",
+    "scope": "Türkçe baskı kapağı"
+   }
+  },
+  {
+   "key": "sihirli-kelimeler",
+   "existingId": null,
+   "group": "oncelikli",
+   "reason": "Yeniden taramada seçilen üç yeni kitaptan biri: iletişim için. Günlük yazılı ve sözlü iletişimde tercih edilecek ikna kitabı.",
+   "title": "Magic Words",
+   "titleTr": "Sihirli Kelimeler",
+   "author": "Jonah Berger",
+   "originalLanguage": "en",
+   "year": 2023,
+   "categories": [
+    "communication",
+    "psychology"
+   ],
+   "purpose": "Hangi kelimelerin ve kalıpların insanları harekete geçirdiğini araştırmalarla görüp günlük yazışmalarında ve konuşmalarında kullanmak için oku.",
+   "edition": {
+    "title": "Sihirli Kelimeler: İstediğinizi Elde Etmek İçin Ne Söylemelisiniz?",
+    "isbn": "9786256611214",
+    "publisher": "The Kitap",
+    "translators": [
+     "Selin Saraçoğlu Bayraklı"
+    ],
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/sihirli-kelimeler-istediginizi-elde-etmek-icin-ne-soylemelisiniz/675770.html",
+    "sourceType": "retailer",
+    "secondSourceUrl": "https://www.amazon.com.tr/dp/6256611217",
+    "secondSourceType": "retailer",
+    "checkedAt": "2026-10-04",
+    "basis": "two-stage check",
+    "note": "kitapyurdu ve amazon.com.tr aynı ISBN'i (9786256611214), yayınevini (The Kitap) ve çevirmeni (Selin Saraçoğlu Bayraklı) gösteriyor; kitapyurdu iç sayfa önizlemesindeki iç kapakta da 'Türkçesi: Selin Saraçoğlu Bayraklı' yazıyor. D&R aynı ISBN ve yayınevini doğruluyor, çevirmen alanı göstermiyor. İkinci aşamada amazon.com.tr, dr.com.tr, pandora.com.tr kaynaklarıyla bağımsız olarak doğrulandı."
+   },
+   "cover": {
+    "src": "covers/shelf-sihirli-kelimeler.jpg",
+    "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:12236028/wi:800/wh:f181ddbde",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/sihirli-kelimeler-istediginizi-elde-etmek-icin-ne-soylemelisiniz/675770.html",
+    "sourceName": "kitapyurdu.com",
+    "title": "Sihirli Kelimeler",
+    "author": "Jonah Berger",
+    "publisher": "The Kitap",
+    "isbn": "9786256611214",
+    "language": "tr",
+    "checkedAt": "2026-10-04",
+    "scope": "Türkçe baskı kapağı"
+   }
+  },
+  {
+   "key": "icsel-yasam",
+   "existingId": null,
+   "group": "oncelikli",
+   "reason": "Yeniden taramada seçilen üç yeni kitaptan biri: kişisel yaşam için. Süreç geliştirme öncelikse bunun yerine Dünyayı Değiştiren Makine seçilir.",
+   "title": "La vie intérieure",
+   "titleTr": "İçsel Yaşam",
+   "author": "Christophe André",
+   "originalLanguage": "fr",
+   "year": 2018,
+   "categories": [
+    "psychology"
+   ],
+   "purpose": "Düşüncelerden, anılardan ve duygulardan oluşan iç dünyanı fark etmek ve onu dinlemeye zaman ayırmak için oku.",
+   "edition": {
+    "title": "İçsel Yaşam",
+    "isbn": "9786052997918",
+    "publisher": "Pegasus Yayınları",
+    "translators": [
+     "Çiğdem Büyükataman Guetta"
+    ],
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/icsel-yasam/525227.html",
+    "sourceType": "retailer",
+    "secondSourceUrl": "https://pegasusyayinlari.com/kitap_detay.php?kitapid=15797916188",
+    "secondSourceType": "publisher",
+    "checkedAt": "2026-10-04",
+    "basis": "two-stage check",
+    "note": "Kitapyurdu ve D&R aynı ISBN'i (9786052997918), Pegasus yayıncısını, 184 sayfayı ve 2020 yılını gösteriyor. Çevirmen kitapyurdu'da 'Çiğdem Büyükataman', D&R'de 'Çiğdem Büyükataman Guetta' olarak yazılmış; bu aynı çevirmenin kısa ve tam ad biçimi görünüyor. bkmkitap ve kitapsepeti de ISBN'i ve yayıncıyı doğruluyor. İkinci aşamada amazon.fr, pegasusyayinlari.com, translationdirectory.com kaynaklarıyla bağımsız olarak doğrulandı."
+   },
+   "issue": "Raftaki kitap büyük olasılıkla Christophe André’nin İçsel Yaşam’ı. Hazrat Inayat Khan’ın tasavvuf metinleri de İç Yaşam adıyla yayımlanıyor; satın alırken yazar adına bak.",
+   "cover": {
+    "src": "covers/shelf-icsel-yasam.jpg",
+    "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:10497448/wi:800/wh:db1c6813b",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/icsel-yasam/525227.html",
+    "sourceName": "kitapyurdu.com",
+    "title": "İçsel Yaşam",
+    "author": "Christophe André",
+    "publisher": "Pegasus Yayınları",
+    "isbn": "9786052997918",
+    "language": "tr",
+    "checkedAt": "2026-10-04",
+    "scope": "Türkçe baskı kapağı"
+   }
+  },
+  {
+   "key": "hbr-kendinizi-yonetmek",
+   "existingId": null,
+   "group": "oncelikli",
+   "reason": "Her Zamanki Gibi ile birlikte iki kitaplık seçimin ilki ve Harvard serisinde başlanacak cilt. Serinin tamamını almak gerekmiyor: diğer ciltler o sırada çözülmek istenen soruna göre seçilmeli; kapaktaki “mutlaka okunmalı” ifadesi her cildin aynı ölçüde gerekli olduğu anlamına gelmiyor.",
+   "title": "HBR's 10 Must Reads on Managing Yourself",
+   "titleTr": "Kendinizi Yönetmek",
+   "author": "Harvard Business Review",
+   "originalLanguage": "en",
+   "year": 2010,
+   "categories": [
+    "productivity",
+    "management"
+   ],
+   "purpose": "Güçlü yönlerini, nasıl öğrendiğini ve nerede en iyi katkıyı verdiğini sorgulamak; zamanını ve enerjini buna göre yönetmek için oku.",
+   "edition": {
+    "title": "Kendinizi Yönetmek",
+    "isbn": "9786052202296",
+    "publisher": "Optimist Kitap",
+    "translators": [
+     "Melis İnan"
+    ],
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/kendinizi-yonetmek/307383.html",
+    "sourceType": "retailer",
+    "secondSourceUrl": "https://optimistkitap.com/kitap/kendinizi-yonetmek/",
+    "secondSourceType": "publisher",
+    "checkedAt": "2026-10-04",
+    "basis": "two-stage check",
+    "note": "kitapyurdu ve yayınevinin sitesi (optimistkitap.com) aynı ISBN'yi (9786052202296, yayınevinde 'Stok kodu' olarak), yayınevini (Optimist) ve çevirmeni (Melis İnan) gösteriyor. D&R de aynı barkodu, yayınevini ve çevirmeni veriyor, ayrıca 'Hazırlayan: Cemal Engin' bilgisini ve 10 makalenin listesini ekliyor; üç sitede de kitap satışta. İkinci aşamada amazon.com.tr, cimri.com, optimistkitap.com, rakitap.com kaynaklarıyla bağımsız olarak doğrulandı."
+   },
+   "cover": {
+    "src": "covers/shelf-hbr-kendinizi-yonetmek.jpg",
+    "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:94174/wi:800/wh:cc28f5ea6",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/kendinizi-yonetmek/307383.html",
+    "sourceName": "kitapyurdu.com",
+    "title": "Kendinizi Yönetmek",
+    "author": "Harvard Business Review",
+    "publisher": "Optimist Kitap",
+    "isbn": "9786052202296",
+    "language": "tr",
+    "checkedAt": "2026-10-04",
+    "scope": "Türkçe baskı kapağı"
+   }
+  },
+  {
+   "key": "her-zamanki-gibi",
+   "existingId": null,
+   "group": "oncelikli",
+   "reason": "Kendinizi Yönetmek ile birlikte iki kitaplık seçimin ikincisi. Pazarlama öncelikse yerine Markalar Nasıl Büyür?; amaç işletme ve ekip yönetimiyse İyi İşler Uygulaması önce gelir.",
+   "title": "Same as Ever",
+   "titleTr": "Her Zamanki Gibi",
+   "author": "Morgan Housel",
+   "originalLanguage": "en",
+   "year": 2023,
+   "categories": [
+    "psychology",
+    "economy"
+   ],
+   "purpose": "Risk, beklenti ve insan davranışında zamanla değişmeyen örüntüleri görmek; değişen dünyada neyin aynı kaldığını hesaba katarak karar vermek için oku.",
+   "edition": {
+    "title": "Her Zamanki Gibi",
+    "isbn": "9786256478886",
+    "publisher": "Scala Yayıncılık",
+    "translators": [
+     "Canan Feyyat"
+    ],
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/her-zamanki-gibi-degisen-dunyanin-hic-degismeyen-olgulari-uzerine-zamansiz-dersler/687472.html",
+    "sourceType": "retailer",
+    "secondSourceUrl": "https://www.scalakitapci.com/her-zamanki-gibi",
+    "secondSourceType": "publisher",
+    "checkedAt": "2026-10-04",
+    "basis": "two-stage check",
+    "note": "Kitapyurdu ve Amazon.com.tr aynı ISBN'i (9786256478886), Scala Yayıncılık'ı ve çevirmen olarak Canan Feyyat'ı gösteriyor; çevirmen adı kapakta da yazıyor. D&R ve Kitapsepeti ISBN ile yayınevini doğruluyor; İstanbul Kitapçısı ve Simurg Kitabevi çevirmeni de gösteriyor. İkinci aşamada amazon.co.uk, bkmkitap.com, scalakitapci.com kaynaklarıyla bağımsız olarak doğrulandı."
+   },
+   "cover": {
+    "src": "covers/shelf-her-zamanki-gibi.jpg",
+    "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:11913745/wi:800/wh:f546c2404",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/her-zamanki-gibi-degisen-dunyanin-hic-degismeyen-olgulari-uzerine-zamansiz-dersler/687472.html",
+    "sourceName": "kitapyurdu.com",
+    "title": "Her Zamanki Gibi",
+    "author": "Morgan Housel",
+    "publisher": "Scala Yayıncılık",
+    "isbn": "9786256478886",
+    "language": "tr",
+    "checkedAt": "2026-10-04",
+    "scope": "Türkçe baskı kapağı"
+   }
+  },
+  {
+   "key": "duygusal-zeka-liderlik",
+   "existingId": null,
+   "group": "oncelikli",
+   "reason": "Aynı raftaki dört kitaptan bugün alınacak olan.",
+   "title": "The Emotionally Intelligent Leader",
+   "titleTr": "Duygusal Zeka ve Liderlik",
+   "author": "Daniel Goleman",
+   "originalLanguage": "en",
+   "year": 2019,
+   "categories": [
+    "management",
+    "psychology"
+   ],
+   "purpose": "Duygusal zekânın liderlikteki ve iş sonuçlarındaki rolünü Goleman’ın üç kısa HBR makalesiyle görmek için oku.",
+   "edition": {
+    "title": "Duygusal Zeka ve Liderlik",
+    "isbn": "9786057665942",
+    "publisher": "Optimist Kitap",
+    "translators": [
+     "Levent Göktem",
+     "Ümit Şensoy",
+     "Melis İnan"
+    ],
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/duygusal-zeka-ve-liderlik/520220.html",
+    "sourceType": "retailer",
+    "secondSourceUrl": "https://optimistkitap.com/kitap/duygusal-zeka-ve-liderlik/",
+    "secondSourceType": "publisher",
+    "checkedAt": "2026-10-04",
+    "basis": "two-stage check",
+    "note": "Kitapyurdu ve Optimist aynı ISBN'i (9786057665942), Optimist yayınevini, 160 sayfayı ve aynı üç çevirmeni gösteriyor; Kitapyurdu çevirmenleri 'Ümit Şensoy, Levent Göktem, Melis İnan' sırasıyla yazıyor. D&R da aynı ISBN ve yayınevini gösteriyor, çevirmen yazmıyor. Yayınevi başlığı 'Duygusal Zekâ ve Liderlik', Kitapyurdu ve D&R 'Duygusal Zeka ve Liderlik' yazıyor. İkinci aşamada kitapsepeti.com, optimistkitap.com kaynaklarıyla bağımsız olarak doğrulandı."
+   },
+   "cover": {
+    "src": "covers/shelf-duygusal-zeka-liderlik.jpg",
+    "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:10175052/wi:800/wh:9f3341f95",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/duygusal-zeka-ve-liderlik/520220.html",
+    "sourceName": "kitapyurdu.com",
+    "title": "Duygusal Zeka ve Liderlik",
+    "author": "Daniel Goleman",
+    "publisher": "Optimist Kitap",
+    "isbn": "9786057665942",
+    "language": "tr",
+    "checkedAt": "2026-10-04",
+    "scope": "Türkçe baskı kapağı"
+   }
+  },
+  {
+   "key": "kucuk-aliskanliklar",
+   "existingId": null,
+   "group": "oncelikli",
+   "reason": "Atomik Alışkanlıklar ile birlikte anılan ve güçlü öneriler arasında kalan alışkanlık kitabı.",
+   "title": "Tiny Habits",
+   "titleTr": "Küçük Alışkanlıklar",
+   "author": "BJ Fogg",
+   "originalLanguage": "en",
+   "year": 2019,
+   "categories": [
+    "productivity",
+    "psychology"
+   ],
+   "purpose": "Yeni bir davranışı çok küçük bir adımla başlatıp var olan bir alışkanlığa bağlayarak kalıcı hale getirmek için oku.",
+   "edition": {
+    "title": "Küçük Alışkanlıklar: Her Şeyi Değiştiren Küçük Değişiklikler",
+    "isbn": "9786254101229",
+    "publisher": "Pegasus Yayınları",
+    "translators": [
+     "Sevinç Seyla Tezcan"
+    ],
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/kucuk-aliskanliklar/583502.html",
+    "sourceType": "retailer",
+    "secondSourceUrl": "https://www.dr.com.tr/kitap/kucuk-aliskanliklar-her-seyi-degistiren-kucuk-degisiklikler/basvuru/kisisel-gelisim/urunno=0002104818001",
+    "secondSourceType": "retailer",
+    "checkedAt": "2026-10-04",
+    "basis": "two-stage check",
+    "note": "kitapyurdu ve D&R aynı ISBN'i (9786254101229), yayınevini (Pegasus) ve çevirmeni (Sevinç Seyla Tezcan) gösteriyor; kitapyurdu ayrıca özgün adı 'Tiny Habits: The Small Changes That Change Everything' olarak veriyor. amazon.com.tr de ISBN'i ve Pegasus Yayınları'nı doğruluyor ama çevirmen yazmıyor. İkinci aşamada amazon.com.tr, pandora.com.tr, rakitap.com kaynaklarıyla bağımsız olarak doğrulandı."
+   },
+   "cover": {
+    "src": "covers/shelf-kucuk-aliskanliklar.jpg",
+    "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:11422757/wi:800/wh:0abbdb4fd",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/kucuk-aliskanliklar/583502.html",
+    "sourceName": "kitapyurdu.com",
+    "title": "Küçük Alışkanlıklar",
+    "author": "BJ Fogg",
+    "publisher": "Pegasus Yayınları",
+    "isbn": "9786254101229",
+    "language": "tr",
+    "checkedAt": "2026-10-04",
+    "scope": "Türkçe baskı kapağı"
+   }
+  },
+  {
+   "key": "mukemmelin-pesinde",
+   "existingId": null,
+   "group": "ihtiyaca-gore",
+   "reason": "Koşula bağlı bir seçenek: “tam istediğim gibi olmayacaksa başlamayayım” ya da “henüz yeterince iyi değil” düşüncesi işleri bitirmeni engelliyorsa önceliği yükselir. Herkes için zorunlu bir okuma değil.",
+   "title": "The Pursuit of Perfect",
+   "titleTr": "Mükemmelin Peşinde",
+   "author": "Tal Ben-Shahar",
+   "originalLanguage": "en",
+   "year": 2009,
+   "categories": [
+    "psychology"
+   ],
+   "purpose": "Mükemmeliyetçiliğin işleri bitirmeyi nasıl engellediğini görmek ve “yeterince iyi” ile yetinmeyi öğrenmek için oku.",
+   "edition": {
+    "title": "Mükemmelin Peşinde",
+    "isbn": "9786057272713",
+    "publisher": "Stabil Kitap",
+    "translators": [
+     "Neşe Mesutoğlu Kırım"
+    ],
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/mukemmelin-pesinde/641442.html",
+    "sourceType": "retailer",
+    "secondSourceUrl": "https://www.kitapstore.com/urun/639689/kitap/stabil-kitap/tal-ben-shahar/mukemmelin-pesinde/",
+    "secondSourceType": "retailer",
+    "checkedAt": "2026-10-04",
+    "basis": "two-stage check",
+    "note": "Kitapyurdu ve kitapstore.com aynı ISBN'i (9786057272713), Stabil Kitap yayıncısını, Neşe Mesutoğlu Kırım çevirisini ve 'The Pursuit of Perfect' orijinal adını gösteriyor; ikisinde de 272 sayfa. İstanbul Kitapçısı aynı ISBN, yayıncı ve çevirmeni doğruluyor; D&R, kitapsepeti ve bkmkitap ISBN ile yayıncıyı veriyor ama çevirmen göstermiyor. İkinci aşamada amazon.com.tr, dr.com.tr, kitapstore.com kaynaklarıyla bağımsız olarak doğrulandı."
+   },
+   "cover": {
+    "src": "covers/shelf-mukemmelin-pesinde.jpg",
+    "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:11674728/wi:800/wh:6d0c50945",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/mukemmelin-pesinde/641442.html",
+    "sourceName": "kitapyurdu.com",
+    "title": "Mükemmelin Peşinde",
+    "author": "Tal Ben-Shahar",
+    "publisher": "Stabil Kitap",
+    "isbn": "9786057272713",
+    "language": "tr",
+    "checkedAt": "2026-10-04",
+    "scope": "Türkçe baskı kapağı"
+   }
+  },
+  {
+   "key": "bana-ne-oluyor",
+   "existingId": null,
+   "group": "ihtiyaca-gore",
+   "reason": "Kendini anlamak için bu raftan seçilen kitap. İşi ve hedefleri sorgulamak öncelikse yerine Hayalini Yorganına Göre Uzat.",
+   "title": "Bana Ne Oluyor?",
+   "titleTr": "Bana Ne Oluyor?",
+   "author": "M. Hakan Türkçapar",
+   "originalLanguage": "tr",
+   "year": 2026,
+   "categories": [
+    "psychology"
+   ],
+   "purpose": "Mükemmeliyetçilik, erteleme ve suçluluk gibi kaygıların ardındaki değerleri görmek; iyi bir hayatı ertelemeden kurmanın yollarını düşünmek için oku.",
+   "edition": {
+    "title": "Bana Ne Oluyor?",
+    "isbn": "9786255835567",
+    "publisher": "Kronik Kitap",
+    "translators": [],
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/bana-ne-oluyor-iyi-ve-anlamli-bir-hayati-kurmanin-yollari/746790.html",
+    "sourceType": "retailer",
+    "secondSourceUrl": "https://www.dr.com.tr/kitap/bana-ne-oluyor-iyi-ve-anlamli-bir-hayati-kurmanin-yollari/m-hakan-turkcapar/basvuru/kisisel-gelisim/urunno=0002214217001",
+    "secondSourceType": "retailer",
+    "checkedAt": "2026-10-04",
+    "basis": "two-stage check",
+    "note": "Kitapyurdu ve D&R aynı ISBN'i (9786255835567), Kronik Kitap yayıncısını ve 272 sayfayı gösteriyor; iki sitede de çevirmen yok. Yayınevi sitesi de (kronikkitap.com) aynı ISBN'i, 'Basım Tarihi: Şubat 2026' ve 'Özgün Dili: Türkçe' bilgisini veriyor. İkinci aşamada dr.com.tr kaynaklarıyla bağımsız olarak doğrulandı."
+   },
+   "cover": {
+    "src": "covers/shelf-bana-ne-oluyor.jpg",
+    "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:12180643/wi:800/wh:b31ff63ca",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/bana-ne-oluyor-iyi-ve-anlamli-bir-hayati-kurmanin-yollari/746790.html",
+    "sourceName": "kitapyurdu.com",
+    "title": "Bana Ne Oluyor?",
+    "author": "M. Hakan Türkçapar",
+    "publisher": "Kronik Kitap",
+    "isbn": "9786255835567",
+    "language": "tr",
+    "checkedAt": "2026-10-04",
+    "scope": "Türkçe baskı kapağı"
+   }
+  },
+  {
+   "key": "hayalini-yorganina-gore-uzat",
+   "existingId": null,
+   "group": "ihtiyaca-gore",
+   "reason": "İşi ve hedefleri sorgulamak için bu raftan seçilen kitap. Kendini anlamak öncelikse yerine Bana Ne Oluyor?",
+   "title": "Hayalini Yorganına Göre Uzat",
+   "titleTr": "Hayalini Yorganına Göre Uzat",
+   "author": "Acar Baltaş",
+   "originalLanguage": "tr",
+   "year": 2007,
+   "categories": [
+    "psychology",
+    "productivity"
+   ],
+   "purpose": "Başarıyı yalnızca istemeye bağlayan anlayışı sorgulamak; enerjini gerçekten başarabileceğin alana yöneltmek için oku.",
+   "edition": {
+    "title": "Hayalini Yorganına Göre Uzat",
+    "isbn": "9786256228566",
+    "publisher": "Kronik Kitap",
+    "translators": [],
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/hayalini-yorganina-gore-uzat-basariyla-zehirlenmis-bir-toplumda-duymaniz-gerekenler/709405.html",
+    "sourceType": "retailer",
+    "secondSourceUrl": "https://catalog.khas.edu.tr/bib/81795",
+    "secondSourceType": "library-catalog",
+    "checkedAt": "2026-10-04",
+    "basis": "two-stage check",
+    "note": "Kitapyurdu ve D&R aynı ISBN'i (9786256228566), Kronik Kitap yayıncısını ve 224 sayfayı gösteriyor; iki sitede de çevirmen yok. Yayınevi sitesi de (kronikkitap.com) aynı ISBN'i, 'Basım Tarihi: Şubat 2025' ve 'Özgün Dili: Türkçe' bilgisini veriyor. İkinci aşamada catalog.khas.edu.tr, dr.com.tr kaynaklarıyla bağımsız olarak doğrulandı."
+   },
+   "cover": {
+    "src": "covers/shelf-hayalini-yorganina-gore-uzat.jpg",
+    "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:12016200/wi:800/wh:87630332b",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/hayalini-yorganina-gore-uzat-basariyla-zehirlenmis-bir-toplumda-duymaniz-gerekenler/709405.html",
+    "sourceName": "kitapyurdu.com",
+    "title": "Hayalini Yorganına Göre Uzat",
+    "author": "Acar Baltaş",
+    "publisher": "Kronik Kitap",
+    "isbn": "9786256228566",
+    "language": "tr",
+    "checkedAt": "2026-10-04",
+    "scope": "Türkçe baskı kapağı"
+   }
+  },
+  {
+   "key": "purdikkat",
+   "existingId": null,
+   "group": "ihtiyaca-gore",
+   "reason": "Çalışma düzenini değiştirmek isteyene.",
+   "title": "Deep Work",
+   "titleTr": "Pürdikkat",
+   "author": "Cal Newport",
+   "originalLanguage": "en",
+   "year": 2016,
+   "categories": [
+    "productivity"
+   ],
+   "purpose": "Dikkatin sürekli bölündüğü bir çalışma ortamında derin odaklanmayı geri kazanmak ve gününü buna göre düzenlemek için oku.",
+   "edition": {
+    "title": "Pürdikkat",
+    "isbn": "9786056669323",
+    "publisher": "Metropolis Yayıncılık",
+    "translators": [
+     "Onur Öztürk"
+    ],
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/purdikkat/432139.html",
+    "sourceType": "retailer",
+    "secondSourceUrl": "https://www.metropoliskitap.com/purdikkat",
+    "secondSourceType": "publisher",
+    "checkedAt": "2026-10-04",
+    "basis": "two-stage check",
+    "note": "Kitapyurdu ve D&R aynı ISBN'i (9786056669323), Metropolis yayınevini, çevirmen Onur Öztürk'ü ve 14 x 21 cm boyutu gösteriyor; D&R ayrıca orijinal adı 'Deep Work: Rules for Focused Success in a Distracted World', ilk baskı yılını 2017 olarak veriyor. Google Books aynı ISBN'i ve yayınevini 224 sayfa ile doğruluyor. İkinci aşamada amazon.com.tr, dr.com.tr, metropoliskitap.com kaynaklarıyla bağımsız olarak doğrulandı."
+   },
+   "issue": "Raftaki kitap büyük olasılıkla Cal Newport’un Pürdikkat’i. Nir Eyal’ın Indistractable kitabı da aynı adla Nova Kitap’tan yayımlanıyor; satın alırken yazar adına bak.",
+   "cover": {
+    "src": "covers/shelf-purdikkat.jpg",
+    "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:4286137/wi:800/wh:df91fc2b4",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/purdikkat/432139.html",
+    "sourceName": "kitapyurdu.com",
+    "title": "Pürdikkat",
+    "author": "Cal Newport",
+    "publisher": "Metropolis Yayıncılık",
+    "isbn": "9786056669323",
+    "language": "tr",
+    "checkedAt": "2026-10-04",
+    "scope": "Türkçe baskı kapağı"
+   }
+  },
+  {
+   "key": "hbr-etkileme-ikna",
+   "existingId": null,
+   "group": "ihtiyaca-gore",
+   "reason": "Kısa bölümlerle başlayıp okuduğunu işte denemek isteyene. HBR seçkileri farklı uzmanların kısa yazılarını toplar ama bütünlüklü bir kitap kadar derinleşmez; seriden yalnızca ihtiyaç duyulan bir iki cilt seçilmeli. İkna için tek kitap alınacaksa İknanın Psikolojisi.",
+   "title": "Influence and Persuasion",
+   "titleTr": "Etkileme ve İkna",
+   "author": "Harvard Business Review",
+   "originalLanguage": "en",
+   "year": 2017,
+   "categories": [
+    "communication",
+    "psychology"
+   ],
+   "purpose": "Etkinin söz kadar beden dili, güven ve hikâyeyle de kurulduğunu kısa ve uygulanabilir yazılarla görmek için oku.",
+   "edition": {
+    "title": "Etkileme ve İkna",
+    "isbn": "9786052261804",
+    "publisher": "Optimist Kitap",
+    "translators": [
+     "Başak Gündüz"
+    ],
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/etkileme-ve-ikna/490377.html",
+    "sourceType": "retailer",
+    "secondSourceUrl": "https://optimistkitap.com/kitap/etkileme-ve-ikna/",
+    "secondSourceType": "publisher",
+    "checkedAt": "2026-10-04",
+    "basis": "two-stage check",
+    "note": "Kitapyurdu, Optimist, D&R, kitapsepeti ve Google Books aynı ISBN'i (9786052261804) ve Optimist yayınevini gösteriyor; Kitapyurdu ile Optimist 136 sayfa ve Ocak 2019 (Kitapyurdu: 17.01.2019) bilgisini veriyor. Kitapyurdu, D&R ve kitapsepeti çevirmen göstermiyor; çevirmen Başak Gündüz aynı ISBN ile hem Optimist sayfasında hem Google Books kaydında (https://books.google.com.tr/books?vid=ISBN9786052261804&redir_esc=y) yazıyor. İkinci aşamada books.google.com.tr, dr.com.tr, goodreads.com kaynaklarıyla bağımsız olarak doğrulandı."
+   },
+   "cover": {
+    "src": "covers/shelf-hbr-etkileme-ikna.jpg",
+    "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:7872899/wi:800/wh:04d34033f",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/etkileme-ve-ikna/490377.html",
+    "sourceName": "kitapyurdu.com",
+    "title": "Etkileme ve İkna",
+    "author": "Harvard Business Review",
+    "publisher": "Optimist Kitap",
+    "isbn": "9786052261804",
+    "language": "tr",
+    "checkedAt": "2026-10-04",
+    "scope": "Türkçe baskı kapağı"
+   }
+  },
+  {
+   "key": "etkin-yonetici-rehber",
+   "existingId": null,
+   "group": "ihtiyaca-gore",
+   "reason": "Drucker ve Maciariello’nun sorular ve not alanları içeren uygulama defteri. Drucker’a ilk kez başlanacaksa önce ana eser Etkin Yöneticilik okunmalı.",
+   "title": "The Effective Executive in Action",
+   "titleTr": "Etkin Yönetici",
+   "author": "Peter F. Drucker, Joseph A. Maciariello",
+   "originalLanguage": "en",
+   "year": 2006,
+   "categories": [
+    "management",
+    "productivity"
+   ],
+   "purpose": "Drucker’ın etkinlik ilkelerini sorular üzerinden kendi işine uygulamak ve düşüncelerini kayda geçirmek için oku.",
+   "edition": {
+    "title": "Etkin Yönetici: Doğru Olanı Başarmak için Bir Rehber",
+    "isbn": "9786057081179",
+    "publisher": "Stabil Kitap",
+    "translators": [
+     "Esra Yüksel"
+    ],
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/etkin-yonetici-dogru-olani-basarmak-icin-bir-rehber/608558.html",
+    "sourceType": "retailer",
+    "secondSourceUrl": "https://books.google.com.tr/books?vid=ISBN9786057081179&redir_esc=y",
+    "secondSourceType": "bibliographic",
+    "checkedAt": "2026-10-04",
+    "basis": "two-stage check",
+    "note": "kitapyurdu ve Amazon.com.tr aynı ISBN'yi (9786057081179), yayınevini (Stabil Kitap) ve çevirmeni (Esra Yüksel) gösteriyor. D&R, Kitapsepeti ve Şehadet Kitap da ISBN ile yayınevini doğruluyor ancak çevirmen adı vermiyor. İkinci aşamada amazon.com.tr, books.google.com.tr, dr.com.tr kaynaklarıyla bağımsız olarak doğrulandı."
+   },
+   "issue": "Rafta Etkin Yönetici adıyla duran bu kitap Drucker’ın ana eseri Etkin Yöneticilik (The Effective Executive) değil, onun uygulama defteridir. Aynı defter daha önce Etkin Yöneticinin Seyir Defteri adıyla Optimist’ten de çıkmıştı.",
+   "cover": {
+    "src": "covers/shelf-etkin-yonetici-rehber.jpg",
+    "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:11522401/wi:800/wh:f9cd92f69",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/etkin-yonetici-dogru-olani-basarmak-icin-bir-rehber/608558.html",
+    "sourceName": "kitapyurdu.com",
+    "title": "Etkin Yönetici",
+    "author": "Peter F. Drucker, Joseph A. Maciariello",
+    "publisher": "Stabil Kitap",
+    "isbn": "9786057081179",
+    "language": "tr",
+    "checkedAt": "2026-10-04",
+    "scope": "Türkçe baskı kapağı"
+   }
+  },
+  {
+   "key": "zenginligin-5-turu",
+   "existingId": null,
+   "group": "ihtiyaca-gore",
+   "reason": "Zaman, ilişkiler, zihinsel yaşam, fiziksel sağlık ve para arasında öncelikleri düşünmek için okunabilir; ilk satın alma önceliği değil.",
+   "title": "The 5 Types of Wealth",
+   "titleTr": "Zenginliğin 5 Türü",
+   "author": "Sahil Bloom",
+   "originalLanguage": "en",
+   "year": 2025,
+   "categories": [
+    "productivity",
+    "finance"
+   ],
+   "purpose": "Zamanı, ilişkileri, zihinsel ve fiziksel sağlığı ve parayı birlikte tartarak kendi önceliklerini belirlemek için oku.",
+   "edition": {
+    "title": "Zenginliğin 5 Türü",
+    "isbn": "9786258733426",
+    "publisher": "Nepal Kitap",
+    "translators": [
+     "Ecenur Değirmenci"
+    ],
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/zenginligin-5-turu/740908.html",
+    "sourceType": "retailer",
+    "secondSourceUrl": "https://www.dr.com.tr/kitap/zenginligin-turu/sahil-bloom/basvuru/is-ekonomi-hukuk/ekonomi/urunno=0002204629001",
+    "secondSourceType": "retailer",
+    "checkedAt": "2026-10-04",
+    "basis": "two-stage check",
+    "note": "Kitapyurdu ve D&R aynı ISBN'i (9786258733426), Nepal Kitap yayınevini ve çevirmen olarak Ecenur Değirmenci'yi gösteriyor. sehadetkitap.com da aynı ISBN, yayınevi ve çevirmeni veriyor; kitap 456 sayfalık 1. baskı ve Aralık 2025 tarihli. İkinci aşamada dr.com.tr kaynaklarıyla bağımsız olarak doğrulandı."
+   },
+   "cover": {
+    "src": "covers/shelf-zenginligin-5-turu.jpg",
+    "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:12152083/wi:800/wh:8ad70f00f",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/zenginligin-5-turu/740908.html",
+    "sourceName": "kitapyurdu.com",
+    "title": "Zenginliğin 5 Türü",
+    "author": "Sahil Bloom",
+    "publisher": "Nepal Kitap",
+    "isbn": "9786258733426",
+    "language": "tr",
+    "checkedAt": "2026-10-04",
+    "scope": "Türkçe baskı kapağı"
+   }
+  },
+  {
+   "key": "sinirlar",
+   "existingId": null,
+   "group": "ihtiyaca-gore",
+   "reason": "Hayır deme ve sorumlulukları ayırma ihtiyacın varsa yararlı olabilir. Özgün kitap Hristiyan bir yayınevinden çıktı ve İncil’e dayanan bir yaklaşımı var; bunu bilerek seçilmeli.",
+   "title": "Boundaries",
+   "titleTr": "Sınırlar",
+   "author": "Henry Cloud, John Townsend",
+   "originalLanguage": "en",
+   "year": 1992,
+   "categories": [
+    "psychology",
+    "communication"
+   ],
+   "purpose": "Nerede evet, nerede hayır diyeceğini ayırmak; kendi sorumluluklarını başkalarınınkinden ayırmak için oku.",
+   "edition": {
+    "title": "Sınırlar",
+    "isbn": "9786056949524",
+    "publisher": "Diyojen Yayıncılık",
+    "translators": [
+     "İpek İbik"
+    ],
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/sinirlar-hayatinizi-kontrol-etmek-icin-ne-zaman-evet-nasil-hayir-demelisiniz/589173.html",
+    "sourceType": "retailer",
+    "secondSourceUrl": "https://www.diyojendukkan.com/urun/sinirlar",
+    "secondSourceType": "publisher",
+    "checkedAt": "2026-10-04",
+    "basis": "two-stage check",
+    "note": "Kitapyurdu ve Pandora, aynı ISBN (9786056949524) ve Diyojen Yayıncılık için 'Çevirmen' alanında İpek İbik'i gösteriyor; idefix'in tanıtım metni de çeviriyi İpek İbik'e veriyor. D&R'ın tanıtım metni ise çeviriyi Erdem Boz'a atfediyor; bu çelişki 'issues' alanında açıklandı. İkinci aşamada 1000kitap.com, diyojendukkan.com, kitapaski.com, turkyaybir.org.tr kaynaklarıyla bağımsız olarak doğrulandı."
+   },
+   "cover": {
+    "src": "covers/shelf-sinirlar.jpg",
+    "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:11439786/wi:800/wh:89f2cbe67",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/sinirlar-hayatinizi-kontrol-etmek-icin-ne-zaman-evet-nasil-hayir-demelisiniz/589173.html",
+    "sourceName": "kitapyurdu.com",
+    "title": "Sınırlar",
+    "author": "Henry Cloud, John Townsend",
+    "publisher": "Diyojen Yayıncılık",
+    "isbn": "9786056949524",
+    "language": "tr",
+    "checkedAt": "2026-10-04",
+    "scope": "Türkçe baskı kapağı"
+   }
+  },
+  {
+   "key": "sokak-kodcusu",
+   "existingId": null,
+   "group": "ihtiyaca-gore",
+   "reason": "Yazılım geliştirme pratiğini derinleştirmek için; yönetim veya girişimcilik için ilk kitap değil.",
+   "title": "Street Coder",
+   "titleTr": "Sokak Kodcusu",
+   "author": "Sedat Kapanoğlu",
+   "originalLanguage": "en",
+   "year": 2021,
+   "categories": [
+    "technology"
+   ],
+   "purpose": "Yazılım geliştirmede ezberlenmiş kuralların ne zaman ve nasıl bozulabileceğini, iş hayatından örneklerle görmek için oku.",
+   "edition": {
+    "title": "Sokak Kodcusu",
+    "isbn": "9786256377981",
+    "publisher": "Mundi",
+    "translators": [
+     "Serdar Cevher"
+    ],
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/sokak-kodcusu-kirilmasi-gereken-kurallar-ve-onlari-kirmanin-yollari/681619.html",
+    "sourceType": "retailer",
+    "secondSourceUrl": "https://www.amazon.com.tr/dp/6256377982",
+    "secondSourceType": "retailer",
+    "checkedAt": "2026-10-04",
+    "basis": "two-stage check",
+    "note": "Kitapyurdu ve Amazon.com.tr aynı ISBN'i (9786256377981) ve Mundi yayınevini gösteriyor; Amazon.com.tr Serdar Cevher'i 'Çevirmen' olarak listeliyor. Kitapyurdu'nda çevirmen alanı yok, ancak sayfadaki kapak görselinde 'Çeviri: Serdar Cevher' yazıyor; Goodreads de aynı ISBN, yayınevi ve çevirmen bilgisini veriyor. İkinci aşamada dr.com.tr, hafta.com.tr kaynaklarıyla bağımsız olarak doğrulandı."
+   },
+   "cover": {
+    "src": "covers/shelf-sokak-kodcusu.jpg",
+    "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:11886823/wi:800/wh:2b07d460c",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/sokak-kodcusu-kirilmasi-gereken-kurallar-ve-onlari-kirmanin-yollari/681619.html",
+    "sourceName": "kitapyurdu.com",
+    "title": "Sokak Kodcusu",
+    "author": "Sedat Kapanoğlu",
+    "publisher": "Mundi",
+    "isbn": "9786256377981",
+    "language": "tr",
+    "checkedAt": "2026-10-04",
+    "scope": "Türkçe baskı kapağı"
+   }
+  },
+  {
+   "key": "turabian",
+   "existingId": null,
+   "group": "ihtiyaca-gore",
+   "reason": "Araştırmaları düzenli yazıya dönüştürmek öncelikse Mor İnek’in yerine alınacak el kitabı.",
+   "title": "A Manual for Writers of Research Papers, Theses, and Dissertations",
+   "titleTr": "Araştırma Makaleleri Tezler ve Bitirme Tezleri Yazarları İçin El Kitabı",
+   "author": "Kate L. Turabian",
+   "originalLanguage": "en",
+   "year": 1937,
+   "categories": [
+    "science",
+    "communication"
+   ],
+   "purpose": "Bir araştırma sorusundan kanıta dayalı bir metne ulaşmak; kaynak göstermeyi ve Chicago atıf sistemini doğru uygulamak için oku.",
+   "edition": {
+    "title": "Araştırma Makaleleri Tezler ve Bitirme Tezleri Yazarları İçin El Kitabı",
+    "isbn": "9786256489530",
+    "publisher": "Eğitim Yayınevi",
+    "translators": [
+     "Hanife Gülhan Karsak (çeviri editörü)",
+     "İsmail Şan (çeviri editörü)"
+    ],
+    "sourceUrl": "https://www.dr.com.tr/kitap/arastirma-makaleleri-tezler-ve-bitirme-tezleri-yazarlari-icin-el-kitabi/egitim-ve-sinav-kitaplari/akademik-kitaplar/diger/urunno=0002075127001",
+    "sourceType": "retailer",
+    "secondSourceUrl": "https://www.egitimyayinevi.com/arastirma-makaleleri-tezler-ve-bitirme-tezleri-yazarlari-icin-el-kitabi",
+    "secondSourceType": "publisher",
+    "checkedAt": "2026-10-04",
+    "basis": "two-stage check",
+    "note": "D&R ve Eğitim Yayınevi sitesi aynı ISBN'i (9786256489530) ve yayınevini gösteriyor; D&R çevirmen olarak İsmail Şan'ı yazıyor, iki sitedeki kapak görselinde ise Doç. Dr. Hanife Gülhan Karsak ve Doç. Dr. İsmail Şan 'Çeviri Editörleri' olarak ve '9. Baskıdan Çeviri' ibaresiyle yer alıyor. Haliç Üniversitesi kütüphane kaydı da aynı ISBN, Eğitim Yayınevi ve 'çev. ed.: Hanife Gülhan Karsak; İsmail Şan' bilgisini veriyor; kitap kitapyurdu'nda bulunmadığı için birinci kaynak D&R. İkinci aşamada books.google.com.tr, dr.com.tr, personel.klu.edu.tr kaynaklarıyla bağımsız olarak doğrulandı."
+   },
+   "cover": {
+    "src": "covers/shelf-turabian.jpg",
+    "imageUrl": "https://i.dr.com.tr/cache/600x600-0/originals/0002075127001-1.jpg",
+    "sourceUrl": "https://www.dr.com.tr/kitap/arastirma-makaleleri-tezler-ve-bitirme-tezleri-yazarlari-icin-el-kitabi/egitim-ve-sinav-kitaplari/akademik-kitaplar/diger/urunno=0002075127001",
+    "sourceName": "dr.com.tr",
+    "title": "Araştırma Makaleleri Tezler ve Bitirme Tezleri Yazarları İçin El Kitabı",
+    "author": "Kate L. Turabian",
+    "publisher": "Eğitim Yayınevi",
+    "isbn": "9786256489530",
+    "language": "tr",
+    "checkedAt": "2026-10-04",
+    "scope": "Türkçe baskı kapağı"
+   }
+  },
+  {
+   "key": "dunyayi-degistiren-makine",
+   "existingId": null,
+   "group": "ihtiyaca-gore",
+   "reason": "Yeniden taramada önceki listelere girmesi gerektiği belirtilen kitap. Süreç geliştirme öncelikse İçsel Yaşam’ın yerine seçilir.",
+   "title": "The Machine That Changed the World",
+   "titleTr": "Dünyayı Değiştiren Makine",
+   "author": "James P. Womack, Daniel T. Jones, Daniel Roos",
+   "originalLanguage": "en",
+   "year": 1990,
+   "categories": [
+    "systems",
+    "management"
+   ],
+   "purpose": "Toyota’nın yalın üretimini seri üretimle karşılaştırarak bir süreci israftan arındırmanın mantığını görmek için oku.",
+   "edition": {
+    "title": "Dünyayı Değiştiren Makine",
+    "isbn": "9786057272720",
+    "publisher": "Stabil Kitap",
+    "translators": [
+     "Ayşe Belma Dehni"
+    ],
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/dunyayi-degistiren-makine/680622.html",
+    "sourceType": "retailer",
+    "secondSourceUrl": "https://www.amazon.com.tr/D%C3%BCnyay%C4%B1-De%C4%9Fi%C5%9Ftiren-Makine-Daniel-Womack/dp/6057272722",
+    "secondSourceType": "retailer",
+    "checkedAt": "2026-10-04",
+    "basis": "two-site check",
+    "note": "Kitapyurdu ve Amazon.com.tr'de ISBN 9786057272720, yayınevi Stabil Kitap ve çevirmen Ayşe Belma Dehni aynı; tamadres.com da aynı çevirmeni, D&R, kitapsepeti ve bkmkitap aynı ISBN ile yayınevini gösteriyor. Sayfa sayısı her yerde 376; yayın tarihi kitapyurdu'da 17.04.2024, Amazon.com.tr ve tamadres'te 1 Nisan 2024 (1. baskı)."
+   },
+   "cover": {
+    "src": "covers/shelf-dunyayi-degistiren-makine.jpg",
+    "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:11880755/wi:800/wh:9bc61fe43",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/dunyayi-degistiren-makine/680622.html",
+    "sourceName": "kitapyurdu.com",
+    "title": "Dünyayı Değiştiren Makine",
+    "author": "James P. Womack, Daniel T. Jones, Daniel Roos",
+    "publisher": "Stabil Kitap",
+    "isbn": "9786057272720",
+    "language": "tr",
+    "checkedAt": "2026-10-04",
+    "scope": "Türkçe baskı kapağı"
+   }
+  },
+  {
+   "key": "stratejik-ikna",
+   "existingId": null,
+   "group": "ihtiyaca-gore",
+   "reason": "Retorikte derinleşmek için. İknanın Psikolojisi ve Sihirli Kelimeler ile üçünü başlangıçta birlikte almak gerekmiyor.",
+   "title": "Thank You for Arguing",
+   "titleTr": "Stratejik İkna",
+   "author": "Jay Heinrichs",
+   "originalLanguage": "en",
+   "year": 2007,
+   "categories": [
+    "communication"
+   ],
+   "purpose": "Klasik retoriğin araçlarını gündelik tartışmalarda karşındakini ikna etmek için kullanmayı öğrenmek için oku.",
+   "edition": {
+    "title": "Stratejik İkna",
+    "isbn": "9786056913204",
+    "publisher": "Diyojen Yayıncılık",
+    "translators": [
+     "Handan Ünlü Haktanır"
+    ],
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/stratejik-ikna/589174.html",
+    "sourceType": "retailer",
+    "secondSourceUrl": "https://www.diyojendukkan.com/urun/stratejik-ikna",
+    "secondSourceType": "publisher",
+    "checkedAt": "2026-10-04",
+    "basis": "two-stage check",
+    "note": "kitapyurdu ve amazon.com.tr aynı ISBN'i (9786056913204) ve yayınevini (Diyojen Yayıncılık) gösteriyor; amazon.com.tr çevirmeni Handan Ünlü Haktanır olarak yazıyor, kitapyurdu'da çevirmen öznitelik tablosunda yok ama aynı ürünün iç sayfa önizlemesindeki Diyojen logolu iç kapakta 'Çeviren: Handan Ünlü Haktanır' yazıyor. D&R, kitapsepeti ve idefix de aynı ISBN'i ve Diyojen Yayıncılık'ı gösteriyor. İkinci aşamada diyojendukkan.com, hardcover.app kaynaklarıyla bağımsız olarak doğrulandı."
+   },
+   "cover": {
+    "src": "covers/shelf-stratejik-ikna.jpg",
+    "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:11439787/wi:800/wh:6a88768cf",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/stratejik-ikna/589174.html",
+    "sourceName": "kitapyurdu.com",
+    "title": "Stratejik İkna",
+    "author": "Jay Heinrichs",
+    "publisher": "Diyojen Yayıncılık",
+    "isbn": "9786056913204",
+    "language": "tr",
+    "checkedAt": "2026-10-04",
+    "scope": "Türkçe baskı kapağı"
+   }
+  },
+  {
+   "key": "zen-ogreten-kedi",
+   "existingId": null,
+   "group": "kizim-icin",
+   "reason": "Resimli, düşünmeye yönelten bir hikâye; birlikte okuyup konuşmak için. Zorunlu bir çocuk klasiği sayılmıyor ve Türkçe baskısı çocuk kitabı olarak değil, genel okur için yayımlanıyor.",
+   "title": "The Cat Who Taught Zen",
+   "titleTr": "Zen Öğreten Kedi",
+   "author": "James Norbury",
+   "originalLanguage": "en",
+   "year": 2023,
+   "categories": [
+    "children",
+    "philosophy"
+   ],
+   "purpose": "Resimli kısa hikâyelerle sabır, kabul ve şimdiye dikkat üzerine birlikte konuşmak için oku.",
+   "childAge": "10+",
+   "edition": {
+    "title": "Zen Öğreten Kedi",
+    "isbn": "9786254144127",
+    "publisher": "Epsilon Yayınevi",
+    "translators": [
+     "Aslı Tunç"
+    ],
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/zen-ogreten-kedi/726768.html",
+    "sourceType": "retailer",
+    "secondSourceUrl": "https://www.amazon.com.tr/Zen-%C3%96%C4%9Freten-Kedi-James-Norbury/dp/6254144123",
+    "secondSourceType": "retailer",
+    "checkedAt": "2026-10-04",
+    "basis": "two-stage check",
+    "note": "Kitapyurdu ve Amazon.com.tr aynı ISBN'i (9786254144127), Epsilon yayınevini (Amazon'da 'Epsilon Yayınları' adıyla) ve çevirmen olarak Aslı Tunç'u gösteriyor. D&R, Kitapsepeti ve BKM Kitap da ISBN ile yayınevini doğruluyor ama çevirmen alanı göstermiyor. İkinci aşamada dr.com.tr, kitapyurdu.com kaynaklarıyla bağımsız olarak doğrulandı."
+   },
+   "cover": {
+    "src": "covers/shelf-zen-ogreten-kedi.jpg",
+    "imageUrl": "https://img.kitapyurdu.com/v1/getImage/fn:12093442/wi:800/wh:1f08faf9e",
+    "sourceUrl": "https://www.kitapyurdu.com/kitap/zen-ogreten-kedi/726768.html",
+    "sourceName": "kitapyurdu.com",
+    "title": "Zen Öğreten Kedi",
+    "author": "James Norbury",
+    "publisher": "Epsilon Yayınevi",
+    "isbn": "9786254144127",
+    "language": "tr",
+    "checkedAt": "2026-10-04",
+    "scope": "Türkçe baskı kapağı"
+   }
+  }
+ ],
+ "lookAlikes": {
+  "7habitsofhighlyeffectivepeople": "Rafta görülen Etkili Yöneticilerin 7 Alışkanlığı (Nova Kitap) bu kitap değil: Covey’nin yönetimin temel konularına ayrılmış, 160 sayfalık ayrı bir kılavuzu."
+ },
+ "links": [
+  {
+   "type": "sequence",
+   "first": "effectiveexecutive",
+   "then": "etkin-yonetici-rehber",
+   "why": "Uygulama defteri bu ana eserin ilkelerini sorular ve not alanlarıyla çalıştırır; Drucker’a ilk kez başlanacaksa önce Etkin Yöneticilik okunmalı.",
+   "next": "Okuduğun ilkeleri sorular ve not alanlarıyla kendi işine uygulamak için."
+  },
+  {
+   "type": "sequence",
+   "first": "dunyayi-degistiren-makine",
+   "then": "leanthinking",
+   "why": "Aynı yazarların yalın üretimi tanıttığı ilk kitap: Toyota üzerine yapılan MIT araştırması, Yalın Düşünce’deki ilkelerin nereden geldiğini gösterir.",
+   "next": "Aynı yazarlar bu araştırmanın devamında yalın ilkeleri otomotivden bütün işletmeye taşır."
+  },
+  {
+   "type": "companion",
+   "books": [
+    "dunyayi-degistiren-makine",
+    "toyotaproductionsystem"
+   ],
+   "reason": "Ohno, Toyota üretim sistemini onu kuran kişi olarak içeriden anlatır; MIT araştırması aynı sistemi dışarıdan, fabrikaları karşılaştırarak inceler."
+  },
+  {
+   "type": "companion",
+   "books": [
+    "influence",
+    "sihirli-kelimeler"
+   ],
+   "reason": "Cialdini iknanın genel ilkelerini, Berger gündelik yazılı ve sözlü iletişimde kelime seçiminin etkisini ele alır; Berger kitabına Cialdini’nin de anlattığı “çünkü” deneyiyle başlar."
+  },
+  {
+   "type": "sequence",
+   "first": "influence",
+   "then": "stratejik-ikna",
+   "why": "İknanın genel temeli; retorikte derinleşmeden önce okunması öneriliyor.",
+   "next": "Retorikte derinleşmek için: klasik retoriğin araçlarını gündelik tartışmalara uygular."
+  },
+  {
+   "type": "companion",
+   "books": [
+    "atomichabits",
+    "kucuk-aliskanliklar"
+   ],
+   "reason": "İkisi de büyük değişimi küçük ve tekrarlanabilir adımlarla kurmayı önerir: Clear alışkanlık sistemini, Fogg davranış tasarımını anlatır."
+  },
+  {
+   "type": "companion",
+   "books": [
+    "influence",
+    "hbr-etkileme-ikna"
+   ],
+   "reason": "İkisi de etkileme ve ikna üzerine. HBR seçkisi Cialdini’nin ikna bilimi üzerine bir makalesini de içerir; İknanın Psikolojisi aynı ilkeleri bütünlüklü bir kitapta işler."
+  },
+  {
+   "type": "companion",
+   "books": [
+    "hbr-kendinizi-yonetmek",
+    "effectiveexecutive"
+   ],
+   "reason": "Seçkinin açılış yazısı Drucker’ın “Kendinizi Yönetmek” makalesi; Etkin Yöneticilik aynı yazarın insanın kendi etkinliğini yönetmesi üzerine ana eseri."
+  },
+  {
+   "type": "companion",
+   "books": [
+    "emotionalintelligence",
+    "duygusal-zeka-liderlik"
+   ],
+   "reason": "Aynı yazar: Duygusal Zekâ kavramı geniş biçimde tanıtır, bu kısa kitap onu liderliğe uygulayan üç HBR makalesini toplar."
+  },
+  {
+   "type": "companion",
+   "books": [
+    "nonviolentcommunication",
+    "iletisim-catismalari-empati"
+   ],
+   "reason": "İkisi de iletişim çatışmalarında empatiyi merkeze alır: Rosenberg dört adımlı bir konuşma yöntemi önerir; Dökmen empatiyi ve çatışmaları gündelik hayattan, edebiyattan ve kendi kültürümüzden örneklerle inceler."
+  },
+  {
+   "type": "companion",
+   "books": [
+    "mukemmelin-pesinde",
+    "giftsofimperfection"
+   ],
+   "reason": "İkisi de mükemmeliyetçiliğin bedelini ele alır ve kusursuzluk yerine “yeterince iyi” ile yaşamayı önerir."
+  },
+  {
+   "type": "companion",
+   "books": [
+    "mukemmelin-pesinde",
+    "bana-ne-oluyor"
+   ],
+   "reason": "İkisi de mükemmeliyetçiliğin insanı nasıl durdurduğunu ele alır: Ben-Shahar “yeterince iyi”yi savunur, Türkçapar mükemmeliyetçiliği erteleme ve suçlulukla birlikte inceler."
+  },
+  {
+   "type": "companion",
+   "books": [
+    "bana-ne-oluyor",
+    "hayalini-yorganina-gore-uzat"
+   ],
+   "reason": "İkisi de başarıya ve hedeflere bakışı sorgular: Türkçapar hedefleri anlamla karıştırmamayı, Baltaş enerjiyi gerçekten başarılabilecek alana yöneltmeyi önerir."
+  },
+  {
+   "type": "companion",
+   "books": [
+    "ikinci-beyin",
+    "gettingthingsdone"
+   ],
+   "reason": "İkisi de aklındakini güvenilir bir dış sisteme aktarmayı önerir: Allen işleri ve taahhütleri, Forte notları ve bilgiyi düzenler. Forte, Allen’ın yönteminden yararlandığını kendisi anlatır."
+  },
+  {
+   "type": "companion",
+   "books": [
+    "asla-yalniz-yeme",
+    "howtowinfriendsandinfluencepeople"
+   ],
+   "reason": "Ferrazzi kitabında Carnegie’ye ayrı bir bölüm ayırır ve onu sohbeti bir iş becerisi olarak öğreten ilk kişi sayar. İkisi de ilişki kurmayı ele alır: Carnegie gündelik ilişkilerde, Ferrazzi karşılıklı yardıma dayalı bir iş ağında."
+  },
+  {
+   "type": "companion",
+   "books": [
+    "animalfarm",
+    "nineteeneightyfour"
+   ],
+   "reason": "Orwell’in totaliter iktidar üzerine iki romanı: Hayvan Çiftliği alegoriyle, 1984 distopyayla anlatır."
+  },
+  {
+   "type": "companion",
+   "books": [
+    "turabian",
+    "onwritingwell"
+   ],
+   "reason": "Zinsser açık ve yalın düz yazıyı, Turabian bir araştırmanın kaynak gösterilerek düzenli bir metne dönüşmesini öğretir."
+  }
+ ]
+}

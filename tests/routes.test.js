@@ -54,3 +54,10 @@ test('unverified and unavailable works keep their original title while preservin
  assert.equal(turkishMeaning(available),'');
 });
 
+test('the added-day filter lives in the URL and ignores unknown days',()=>{
+ const day=catalog.books.find(b=>b.addedAt).addedAt;
+ const route={view:'books',sort:'added',book:null,page:1,pageSize:25,filters:{...emptyFilters(),addedDates:[day]}};
+ assert.equal(encodeRoute(route,catalog),`added=${day}&sort=added`);
+ assert.deepEqual(decodeRoute(`?added=${day}&sort=added`,catalog),route);
+ assert.deepEqual(decodeRoute('?added=1999-01-01',catalog).filters.addedDates,[]);
+});

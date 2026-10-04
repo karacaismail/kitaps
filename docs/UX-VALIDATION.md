@@ -29,6 +29,7 @@ Son kontrol: 28 Eylül 2026. Kontrollerin çoğu otomatik testlere bağlıdır; 
 - Kapağı henüz doğrulanmamış kitaplarda boş bir simge yerine kitabın adını ve yazarını taşıyan sade bir kapak gösterilir.
 - Çeviri durumu bir simge ve kısa bir sözcükle verilir: doğrulanmış Türkçe baskı "Türkçe", kaynağıyla doğrulanmış yokluk "Türkçesi yok", henüz doğrulanamayan durum "Doğrulanmadı". Renk tek başına anlam taşımaz. Üzerine gelince kısa açıklama, tıklayınca kaynak ayrıntısı açılır. Özgün Türkçe eserlerde çeviri göstergesi yoktur.
 - Izgara telefonda 2, tablette 3, masaüstünde 4 ve geniş ekranda 5 sütundur.
+- Filtrelerde "Eklenme tarihi" bölümü, kitapların kitaplığa girdiği günleri en yeniden eskiye ve o gün eklenen kitap sayısıyla listeler ("4 Ekim 2026 · 22 kitap"); sayılar o anki görünümün (katalog, Kitaplığım, Favoriler) kitaplarıdır. Seçili gün, sonuçların üstünde kaldırılabilir bir etiket olarak görünür. Kitap sayfasında aynı gün "Kitaplığa eklendi" satırında yazar.
 - Filtre seçeneklerinde gerçek onay kutusu gizlidir; klavye odağı seçeneğin tamamına aynı odak çizgisiyle çizilir.
 - Katalog sayfa başına 25 kitapla açılır; 25, 50, 75 ve 100 seçilebilir. Seçim URL'de `page-size` olarak saklanır; eski 12 ve 24'lük bağlantılar 25'e, 48'lik bağlantılar 50'ye döner ve aynı kitapların bulunduğu sayfayı açar. Artık var olmayan eski statik sayfa numaraları için `404.html` kataloğa yönlendiren bir sayfa gösterir.
 

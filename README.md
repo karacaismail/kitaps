@@ -2,7 +2,7 @@
 
 [Canlı site](https://karacaismail.github.io/kitaps/) · [JavaScript gerektirmeyen katalog](https://karacaismail.github.io/kitaps/catalog/)
 
-Kitap kimliklerini, Türkçe baskıları, kitaplar arasındaki hazırlık ve eşlik ilişkilerini ve açıklanabilir bir okuma önceliğini bir araya getiren okuma kataloğu. Eylül 2026 itibarıyla 898 eser, 28 küme, 136 alt küme ve 21 kategori içerir. Güncel sayılar sitede ve `src/catalog.json` içinde katalogdan hesaplanır.
+Kitap kimliklerini, Türkçe baskıları, kitaplar arasındaki hazırlık ve eşlik ilişkilerini ve açıklanabilir bir okuma önceliğini bir araya getiren okuma kataloğu. Ekim 2026 itibarıyla 920 eser, 29 küme, 140 alt küme ve 21 kategori içerir. Güncel sayılar sitede ve `src/catalog.json` içinde katalogdan hesaplanır.
 
 ## Özellikler
 
@@ -10,6 +10,7 @@ Kitap kimliklerini, Türkçe baskıları, kitaplar arasındaki hazırlık ve eş
 - Üst menüde yalnız simgeler: Kızım için (çocuk kitapları), Favoriler (kalp) ve Kitaplığım (raf).
 - Kızım için: 13 yaşına kadar temel kütüphane. Yaş bantlarına (3–5, 5–7, 7–8, 8–10, 10–11, 11–12, 12–13) ve iki çekirdek seçkiye (Çekirdek 14 · 10 yaş öncesi, İlk altı · 10–13) göre gruplanır; her kitapta önerilen yaş, gerekiyorsa ebeveyn notu ve iki sitede doğrulanmış Türkçe baskı bulunur. Okuma rotaları: resimli kitaplardan ilk romanlara yaş rotası, 10 yaşında başlayan çocuk için ilk beş kitap ve 10–13 yaş için dört başlangıç yolu (okumaya isteksiz, macera, insan ilişkileri, felsefi sorular).
 - Çocuk kitapları okuma önceliğinde kendi aralarında sıralanır (çocuk kitapları arasında #1, #2 …) ve genel kataloğun ardından gelir.
+- Her kitabın kitaplığa eklendiği gün vardır: kitap sayfasında görünür, filtrelerde "Eklenme tarihi" bölümünden seçilir (`?added=2026-10-04`), "Eklenme · yeni" sıralaması son eklenenleri öne alır ve JSON dışa aktarmada `kitapligaEklenme` alanındadır.
 - Okundu ve satın alındı işaretleri kapakta şerit olarak görünür; okunmuş kitapların kapakları yarı yarıya gri tondadır. İşaretler hem kartta hem kitap sayfasında yer alır, puanı değiştirmez.
 - Varsayılan sıralama okuma önceliğidir. Her kitabın puanı beş katalog ölçütünden gelir. Detay sayfasının sonunda her ölçütün katkısı ve kanıtı görünür.
 - Satın alma, favori, okuma durumu, okuma kaydı ve kişisel sıra puanı değiştirmez. Kural [ADR 001](docs/ADR-001-reading-priority-and-state.md) içinde açıklanır.
@@ -34,6 +35,8 @@ Anahtar tarayıcıda saklanır. `karacaismail.github.io` altındaki bütün Page
 - İki aşamalı araştırma kayıtları `data/translation-availability.json` (Türkçe baskı) ve `data/bibliographic-facts.json` (özgün ad, dil, ilk yayın yılı ve yayınevi) dosyalarındadır. İkinci inceleme, birinci aşamanın kullanmadığı sitelerden kanıt gösterir; doğrulayıcılar `scripts/translation_availability.py` ve `scripts/bibliographic_facts.py` içindedir.
 - Baskı künyeleri `data/edition-verification.json` ve `data/translator-research.json` içinde kaynaklarıyla tutulur. Künye doğrulaması çeviri kalitesi karşılaştırması değildir.
 - Çocuk kütüphanesi `data/children-library.json` içindedir: ebeveynin seçtiği kitaplar, BookTrust, TIME, School Library Journal, Scholastic ve MEB 100 Temel Eser listeleriyle karşılaştırıldı. Her Türkçe baskı ISBN, yayınevi ve çevirmen üzerinden iki ayrı sitede doğrulandı; doğrulanamayanlarda kitap sayfası gerekçeyi gösterir. Dış listeler (IBBY Türkiye onur listesi dahil) tek bir araştırma adımında birlikte incelendiği için okuma önceliğinde tek seçki sayılır.
+- Eklenme günleri `data/added-dates.json` içindedir ve git geçmişinden çıkarılır: ilk Kitaps sitesinin commit'leri (2 Eylül 2026), Kitap Atlası çalışma kopyasının commit'leri (26 Eylül 2026) ve bu depo. Bir kitabın günü, kitabı kimliği, ilk Kitaps anahtarı veya atlas anahtarıyla içeren ilk commit'in tarihidir; başlık benzerliği kullanılmaz. Henüz commit edilmemiş kitaplar çalışma günü tarihini alır.
+- Raf taraması değerlendirmesi `data/shelf-review.json` içindedir: fotoğraflanan kitap raflarından yapılan okuma önerileri, öncelik ve koşul notlarıyla. Yeni Türkçe baskılar iki ayrı sitede doğrulandı. Benzer adlı ya da karışabilecek kitaplar kümenin notunda ve ilgili kitabın sayfasında belirtilir. Öncelikler not olarak kalır, puana eklenmez.
 - Eseri veya baskısı belirsiz kayıtlarda kapak yerine açıklama gösterilir. Yanlış eserle eşleşen kapaklar `data/rejected-cover-matches.json` içinde gerekçesiyle korunur.
 - [Kontrol kapsamı ve bilinen sınırlar](docs/UX-VALIDATION.md) · [Bağımsız denetim raporu](docs/BAGIMSIZ-DENETIM-RAPORU.md)
 
@@ -51,6 +54,14 @@ npm run typecheck   # TypeScript alanı sıkı, JS/JSX görünümleri gevşek ku
 npm run build       # parçalı site + statik SEO sayfaları (dist/)
 npm run test:e2e    # dist üzerinde Playwright; önce npm run build
 npm run export      # kapakları gömülü tek dosya: ../kitaps.html ve ../kitaplik-tum-veri.json
+```
+
+Kataloğa kitap eklendiğinde önce kataloğu üret, sonra eklenme günlerini güncelle ve kataloğu yeniden üret. Betik daha önce kaydedilmiş bir günü yalnız daha erken bir günle değiştirir; `--rebuild` bütün günleri git geçmişinden yeniden çıkarır:
+
+```sh
+npm run data
+python3 scripts/infer-added-dates.py --atlas ../kitapsxsil --write
+npm run data
 ```
 
 GitHub Actions her gönderimde testleri, tip kontrolünü, derlemeyi ve tarayıcı testlerini çalıştırır; hepsi geçerse GitHub Pages'a yayınlar.

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { prepareBooks, filterBooks, emptyFilters, toggleState, migrateStates, decodeRoute, encodeRoute, plainTextMarkers, booksForShelf } from '../src/library.js';
+import { prepareBooks, filterBooks, sortBooks, formatDay, emptyFilters, toggleState, migrateStates, decodeRoute, encodeRoute, plainTextMarkers, booksForShelf } from '../src/library.js';
 const catalog=JSON.parse(fs.readFileSync(new URL('../src/catalog.json',import.meta.url)));
 const books=prepareBooks(catalog.books);
 const filter=(f,states)=>filterBooks(books,{...emptyFilters(),...f},states);
@@ -110,3 +110,22 @@ test('purchased works stay in catalog and appear in the library; favorites remai
  assert.equal(filterBooks(owned,route.filters,states).length,1);
 });
 
+test('books can be filtered by the day they were added and sorted by the latest additions',()=>{
+ const day=books.find(b=>b.addedAt)?.addedAt;
+ const added=filterBooks(books,{...emptyFilters(),addedDates:[day]});
+ assert.ok(added.length>0);
+ assert.ok(added.every(b=>b.addedAt===day));
+ assert.equal(filterBooks(books,{...emptyFilters(),addedDates:['1999-01-01']}).length,0);
+ const sorted=sortBooks(books,'added');
+ for(let index=1;index<sorted.length;index++)assert.ok(sorted[index-1].addedAt>=sorted[index].addedAt,sorted[index].id);
+ assert.equal(formatDay('2026-10-04'),'4 Ekim 2026');
+ assert.equal(formatDay('not a day'),'');
+});
+
+test('the latest additions come first, a day keeps reading order and undated books go last',()=>{
+ const book=(id,addedAt)=>({id,addedAt,title:id,titleTr:id,author:'',years:[],categories:[],collectionIds:[]});
+ const rankings={a:{rank:3,audience:'general'},b:{rank:1,audience:'general'},c:{rank:2,audience:'general'}};
+ const order=sortBooks([book('a','2026-10-04'),book('u',undefined),book('b','2026-10-04'),book('c','2026-09-02')],'added',{},rankings).map(b=>b.id);
+ assert.deepEqual(order,['b','a','c','u']);
+ assert.equal(formatDay('2026-02-30'),'');
+});
