@@ -22,10 +22,14 @@ Kitap kimliklerini, Türkçe baskıları, kitaplar arasındaki hazırlık ve eş
 
 Kişisel kayıtlar önce tarayıcıda tutulur, ardından herkese açık [`karacaismail/kitaps-state`](https://github.com/karacaismail/kitaps-state) deposundaki `state.json` dosyasıyla eşitlenir. Bu kayıtlar ve GitHub geçmişi herkes tarafından görülebilir.
 
-- Anahtarsız cihazlar ortak durumu salt okunur olarak görür (en fazla beş dakika gecikmeyle).
-- Yazmak için Notlar sayfasındaki eşitleme bölümünden ince ayarlı (fine-grained) bir GitHub anahtarı bağlanır. Anahtar yalnız `kitaps-state` deposunda Contents: Read and write izni taşımalı ve süreli olmalıdır. Klasik ve OAuth anahtarları kabul edilmez.
-- Değişiklikler ilk değişiklikten en az 120 saniye sonra tek güncellemeyle gönderilir.
-- Bir cihaz ilk kez bağlandığında, ortak kayıttan farklı olan yerel kayıtlar için önce yedek alınır ve hangisinin kalacağı sorulur.
+- **Bağlantı:** Bir cihazdaki işaret ancak o cihaz bağlıysa diğer cihazlara ulaşır. Bağlı olmayan cihazda bekleyen değişiklik varsa sayfanın başında uyarı ve "Bu cihazı bağla" düğmesi çıkar. Aynı pencere altbilgideki "Cihaz eşitleme" ile de açılır.
+- **Anahtar:** Bağlamak için ince ayarlı (fine-grained) bir GitHub anahtarı girilir.
+  - Anahtar yalnız `kitaps-state` deposunda Contents: Read and write izni taşımalı ve süreli olmalıdır.
+  - Kaydetmeden önce yazma izni GitHub'da denenir; yazamayan anahtar kaydedilmez.
+  - Klasik ve OAuth anahtarları kabul edilmez.
+- **Okuma:** Anahtarsız cihazlar ortak durumu salt okunur görür. Sayfa açılırken ve sayfaya dönülünce taze kopya istenir; arada CDN kopyası en fazla beş dakika gecikebilir.
+- **Gönderim:** Bağlı cihaz değişiklikleri tek güncellemeyle gönderir: sayfadan ayrılırken ya da ilk değişiklikten 120 saniye sonra. Bağlanınca, o cihazda bekleyen değişiklikler hemen gönderilir.
+- Bir cihaz bağlandığında, bağlı değilken yaptığı değişiklikler ortak kayıtla karşılaştırılır. Aynı kitabı bu arada başka bir cihaz farklı kaydettiyse önce yedek alınır ve hangisinin kalacağı sorulur.
 
 Anahtar tarayıcıda saklanır. `karacaismail.github.io` altındaki bütün Pages siteleri aynı tarayıcı alanını paylaştığı için anahtarın yetkisi tek depo ve tek izinle sınırlı tutulmalıdır.
 

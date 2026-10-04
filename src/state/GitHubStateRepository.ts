@@ -12,7 +12,7 @@ import {
   type StorageLike,
 } from './types.ts';
 
-export type GitHubStateErrorCode = 'unauthorized' | 'not-found' | 'conflict' | 'network' | 'invalid-data' | 'storage' | 'rate-limited' | 'token-type';
+export type GitHubStateErrorCode = 'unauthorized' | 'not-found' | 'conflict' | 'network' | 'invalid-data' | 'storage' | 'rate-limited' | 'token-type' | 'read-only';
 
 export class GitHubStateRepositoryError extends Error {
   readonly code: GitHubStateErrorCode;
@@ -37,6 +37,22 @@ export const GITHUB_REQUEST_HEADERS = ['Accept', 'X-GitHub-Api-Version', 'Author
 /** Fine-grained personal access tokens can be limited to one repository and
  * one permission. Classic and OAuth tokens cannot, so they are refused. */
 export const FINE_GRAINED_TOKEN = /^github_pat_[A-Za-z0-9_]{30,}$/;
+
+/** Anonymous devices may ask the API for a fresh copy at most this often, per
+ * page. GitHub allows 60 anonymous requests an hour per network address. */
+export const ANONYMOUS_FRESH_READ_INTERVAL_MS = 60_000;
+
+/** A request that hangs (a network change while a phone resumes, say) gives up
+ * after this long, so it cannot hold every later write behind it. */
+export const REQUEST_TIMEOUT_MS = 20_000;
+
+/** Browsers cap the bodies of in-flight keepalive requests at 64 KiB. */
+const KEEPALIVE_BODY_LIMIT = 60_000;
+
+export interface SaveOptions {
+  /** The page is being hidden: once sent, the write must outlive the page. */
+  keepalive?: boolean;
+}
 
 interface GitHubContentsResponse {
   sha: string;
@@ -89,6 +105,9 @@ export class GitHubStateRepository {
   private readonly maxConflictRetries: number;
   private lastMutationTime = 0;
   private cached?: { etag: string; file: RemoteFile };
+  /** The newest file this device has read or written in this session. */
+  private newest?: StateDocument;
+  private nextAnonymousApiRead = 0;
 
   constructor(options: GitHubStateRepositoryOptions = {}) {
     this.owner = options.owner ?? 'karacaismail';
@@ -130,7 +149,10 @@ export class GitHubStateRepository {
   }
 
   /** Checks the token with GitHub before a caller stores it. A token that
-   * reports classic OAuth scopes is refused even if its prefix looks right. */
+   * reports classic OAuth scopes is refused even if its prefix looks right.
+   * The repository is public, so any token can read it; the token must also
+   * prove it can write. Creating an unreferenced blob needs the same Contents
+   * write permission as a save, but changes no branch and makes no commit. */
   async validateToken(token: string): Promise<void> {
     const clean = token.trim();
     GitHubStateRepository.assertFineGrainedToken(clean);
@@ -138,13 +160,26 @@ export class GitHubStateRepository {
     if (!response.ok) throw this.errorForResponse(response);
     if (header(response, 'X-OAuth-Scopes').trim()) throw new GitHubStateRepositoryError('token-type', 'The token carries classic OAuth scopes.');
     await this.parseContents(response);
+    const probe = await this.request(this.blobsUrl(), { method: 'POST', headers: this.headers(clean), body: JSON.stringify({ content: 'Kitaplık yazma denetimi', encoding: 'utf-8' }) });
+    if (probe.ok) return;
+    const error = this.errorForResponse(probe);
+    if (error.code === 'unauthorized' || error.code === 'not-found') throw new GitHubStateRepositoryError('read-only', 'The token cannot write to the state repository.', probe.status);
+    throw error;
   }
 
   /** The shared file. With a token the API is read directly (fresh, and
-   * conditional requests keep the rate limit intact); anonymous devices read
-   * the CDN copy, which has no API rate limit and lags by up to five minutes. */
-  async load(): Promise<StateDocument> {
-    return (this.hasToken() ? await this.readApi(true) : await this.readRaw()).document;
+   * conditional requests keep the rate limit intact). Anonymous devices read
+   * the CDN copy, which has no API rate limit but lags by up to five minutes;
+   * when freshness matters (opening the page, coming back to it) they ask the
+   * API first, at most once a minute, and fall back to the CDN when GitHub
+   * refuses. A copy older than one already seen never replaces it. */
+  async load(options: { fresh?: boolean } = {}): Promise<StateDocument> {
+    return this.keepNewest((await this.readCurrent(options.fresh === true)).document);
+  }
+
+  /** This device's unsent edits, oldest first. */
+  pendingMutations(): PendingStateMutation[] {
+    return structuredClone(this.readPending().mutations);
   }
 
   async loadWithPending(remote?: StateDocument): Promise<StateDocument> {
@@ -202,10 +237,10 @@ export class GitHubStateRepository {
     return store.mutations.length ? store.since : null;
   }
 
-  async flushPending(): Promise<StateDocument> {
+  async flushPending(options: SaveOptions = {}): Promise<StateDocument> {
     const snapshot = this.readPending().mutations;
     if (!snapshot.length) return this.load();
-    const saved = await this.save(snapshot);
+    const saved = await this.save(snapshot, options);
     const completed = new Set(snapshot.map(item => item.id));
     const remaining = this.readPending().mutations.filter(item => !completed.has(item.id));
     if (remaining.length) {
@@ -217,32 +252,67 @@ export class GitHubStateRepository {
     return applyPendingMutations(saved, remaining);
   }
 
-  async save(mutations: readonly PendingStateMutation[]): Promise<StateDocument> {
+  async save(mutations: readonly PendingStateMutation[], options: SaveOptions = {}): Promise<StateDocument> {
     for (const mutation of mutations) assertPendingMutation(mutation);
     const token = this.readStorage(GITHUB_STATE_TOKEN_KEY)?.trim();
     if (!token) throw new GitHubStateRepositoryError('unauthorized', 'A GitHub token is required to save state.', 401);
 
-    for (let attempt = 0; attempt <= this.maxConflictRetries; attempt += 1) {
-      // A write always starts from the current file; an unchanged ETag (304)
-      // proves the cached sha is still current without spending rate limit.
-      const remote = await this.readApi(true, true);
+    // The file and sha from the last read or write usually still match GitHub,
+    // so the first attempt writes on top of them in a single request, which
+    // matters when a phone is about to suspend the page. A file another device
+    // changed answers 409/422, and the next attempt starts from a fresh read.
+    let remote: RemoteFile | undefined = this.cached?.file.sha ? structuredClone(this.cached.file) : undefined;
+    const attempts = this.maxConflictRetries + (remote ? 2 : 1);
+    for (let attempt = 0; attempt < attempts; attempt += 1) {
+      remote ??= await this.readApi(true, true);
       const merged = publicStateDocument(applyPendingMutations(remote.document, mutations));
-      const response = await this.request(this.contentsUrl(), {
-        method: 'PUT',
-        headers: this.headers(token),
-        body: JSON.stringify({
-          message: 'Update Kitaplık state',
-          content: encodeBase64(`${JSON.stringify(merged, null, 2)}\n`),
-          branch: this.branch,
-          ...(remote.sha ? { sha: remote.sha } : {}),
-        }),
+      // The file's own time always moves forward, so any copy from before this
+      // write is recognisably older (see keepNewest).
+      merged.updatedAt = new Date(Math.max(Date.parse(merged.updatedAt), Date.parse(remote.document.updatedAt) + 1, this.clock().getTime())).toISOString();
+      const body = JSON.stringify({
+        message: 'Update Kitaplık state',
+        content: encodeBase64(`${JSON.stringify(merged, null, 2)}\n`),
+        branch: this.branch,
+        ...(remote.sha ? { sha: remote.sha } : {}),
       });
-      if ((response.status === 409 || response.status === 422) && attempt < this.maxConflictRetries) continue;
+      const response = await this.request(this.contentsUrl(), { method: 'PUT', headers: this.headers(token), body, keepalive: options.keepalive === true && body.length < KEEPALIVE_BODY_LIMIT });
+      if ((response.status === 409 || response.status === 422) && attempt < attempts - 1) {
+        this.cached = undefined;
+        remote = undefined;
+        continue;
+      }
       if (!response.ok) throw this.errorForResponse(response);
-      this.cached = undefined;
+      const written = await response.json().catch(() => null) as { content?: { sha?: unknown } } | null;
+      const sha = typeof written?.content?.sha === 'string' ? written.content.sha : undefined;
+      // No ETag: the next read is unconditional, but the next write can start here.
+      this.cached = sha ? { etag: '', file: { document: structuredClone(merged), sha } } : undefined;
+      this.newest = structuredClone(merged);
       return merged;
     }
     throw new GitHubStateRepositoryError('conflict', 'GitHub state changed during save. Reload and try again.', 409);
+  }
+
+  private async readCurrent(fresh: boolean): Promise<RemoteFile> {
+    if (this.hasToken()) return this.readApi(true);
+    const now = this.clock().getTime();
+    if (fresh && now >= this.nextAnonymousApiRead) {
+      this.nextAnonymousApiRead = now + ANONYMOUS_FRESH_READ_INTERVAL_MS;
+      try {
+        return await this.readApi(true);
+      } catch (error) {
+        // The CDN copy stays the anonymous baseline; the API only makes it fresher.
+        if (error instanceof GitHubStateRepositoryError && error.retryAt) this.nextAnonymousApiRead = Math.max(this.nextAnonymousApiRead, error.retryAt);
+      }
+    }
+    return this.readRaw();
+  }
+
+  /** The CDN can serve a copy older than a file this device has already read
+   * or written; an older copy never replaces a newer one. */
+  private keepNewest(document: StateDocument): StateDocument {
+    if (this.newest && Date.parse(document.updatedAt) < Date.parse(this.newest.updatedAt)) return structuredClone(this.newest);
+    this.newest = structuredClone(document);
+    return document;
   }
 
   private async readApi(conditional: boolean, allowMissing = false): Promise<RemoteFile> {
@@ -352,6 +422,10 @@ export class GitHubStateRepository {
     return `https://api.github.com/repos/${encodeURIComponent(this.owner)}/${encodeURIComponent(this.repository)}/contents/${this.path.split('/').map(encodeURIComponent).join('/')}`;
   }
 
+  private blobsUrl(): string {
+    return `https://api.github.com/repos/${encodeURIComponent(this.owner)}/${encodeURIComponent(this.repository)}/git/blobs`;
+  }
+
   private rawUrl(): string {
     return `https://raw.githubusercontent.com/${encodeURIComponent(this.owner)}/${encodeURIComponent(this.repository)}/${encodeURIComponent(this.branch)}/${this.path.split('/').map(encodeURIComponent).join('/')}`;
   }
@@ -366,8 +440,9 @@ export class GitHubStateRepository {
   }
 
   private async request(url: string, init: RequestInit): Promise<Response> {
+    const signal = typeof AbortSignal !== 'undefined' && typeof AbortSignal.timeout === 'function' ? AbortSignal.timeout(REQUEST_TIMEOUT_MS) : undefined;
     try {
-      return await this.fetcher(url, { ...init, cache: 'no-store' });
+      return await this.fetcher(url, { ...init, cache: 'no-store', ...(signal ? { signal } : {}) });
     } catch (error) {
       throw new GitHubStateRepositoryError('network', 'GitHub state request failed.', undefined, { cause: error });
     }
@@ -375,7 +450,8 @@ export class GitHubStateRepository {
 
   private errorForResponse(response: Response): GitHubStateRepositoryError {
     const remaining = header(response, 'X-RateLimit-Remaining');
-    if (response.status === 429 || (response.status === 403 && remaining === '0')) {
+    // A secondary rate limit is a 403 with Retry-After while the primary quota remains.
+    if (response.status === 429 || (response.status === 403 && (remaining === '0' || header(response, 'Retry-After') !== ''))) {
       const reset = Number(header(response, 'X-RateLimit-Reset'));
       const retryAfter = Number(header(response, 'Retry-After'));
       const retryAt = Number.isFinite(reset) && reset > 0 ? reset * 1000 : Number.isFinite(retryAfter) && retryAfter > 0 ? Date.now() + retryAfter * 1000 : Date.now() + 60_000;

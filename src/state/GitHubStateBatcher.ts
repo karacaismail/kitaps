@@ -76,6 +76,8 @@ export class GitHubStateBatcher {
   }
 
   private setFlushTimer(delayMs: number): void {
+    // Only one timer may exist; a replaced handle could no longer be cancelled.
+    this.cancel();
     this.timer = this.scheduleTimer(() => {
       this.timer = undefined;
       void this.flush().then(() => { this.retryAttempt = 0; }).catch(() => {

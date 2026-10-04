@@ -51,20 +51,43 @@ Kaynak veride hiçbir kitaba doğrudan puan yazılmaz.
 
 `karacaismail/kitaps-state` ikinci ve zorunlu uzak durum deposudur. Proje ve kullanıcı durumu bilinçli olarak herkese açıktır. Favoriler, sahiplik ve okuma durumları, okuma sırası, tarihler, sayfa ilerlemesi ve okuma notları `state.json` içinde tutulur ve GitHub geçmişinde görünür.
 
-- **Okuma:** Anahtarsız cihazlar dosyayı `raw.githubusercontent.com` üzerinden, özel başlık göndermeden okur. Bu basit bir CORS isteğidir, API sınırına takılmaz ve en fazla beş dakika gecikebilir. Anahtarlı cihazlar API'yi `If-None-Match` ile koşullu okur.
+- **Okuma:** Anahtarlı cihazlar API'yi `If-None-Match` ile koşullu okur.
+- **Anahtarsız okuma:** Anahtarsız cihazlar periyodik okumada dosyayı `raw.githubusercontent.com` üzerinden, özel başlık göndermeden okur. Bu basit bir CORS isteğidir ve API sınırına takılmaz. Ancak CDN kopyası en fazla beş dakika gecikebilir; sorgu parametresi bu önbelleği aşmaz (5 Ekim 2026'da denendi).
+- **Taze okuma:** Sayfa açılırken ve sayfaya en az 30 saniye sonra dönülünce anahtarsız cihaz önce API'yi dener. Bu deneme her sayfada en çok dakikada bir yapılır, çünkü GitHub ağ adresi başına saatte 60 anonim istek tanır; aynı ağdaki sekmeler ve cihazlar bu payı paylaşır. API yanıt vermezse ya da sınır doluysa CDN kopyası kullanılır.
+- **Eski kopya:** Her yazım dosyanın `updatedAt` zamanını önceki dosyanınkinden kesin olarak ileri taşır. Böylece cihazın bu oturumda gördüğü ya da yazdığı dosyadan eski bir kopya her zaman tanınır ve onun yerine geçmez; geride kalan bir CDN kopyası yeni bir işareti geri almaz.
 - **İstek başlıkları:** Yalnızca `Accept`, `X-GitHub-Api-Version`, `Authorization` ve `If-None-Match`. GitHub'ın CORS ön kontrolü başka özel başlıkları (ör. `Cache-Control`) reddeder; test bu listeyi GitHub'ın canlı yanıtıyla karşılaştırır.
 - **Birleştirme:** Her kitap kaydı alan bazında (`states`, `reading`) düzenlenme zamanı taşır. Gönderilmemiş bir yerel değişiklik, o alanı ondan sonra düzenleyen başka bir cihazın değerini ezmez; dokunmadığı alanları hiç değiştirmez.
 - **Okuma sırası:** Tek bir kayıt olarak (`queue`) tutulur ve bütün olarak son yazan kazanır.
-- **Toplu gönderim:** Yerel kuyruk ilk değişikliğin zamanını saklar. Gönderim bu zamandan en az 120 saniye sonra yapılır. Kısa bir ziyarette yapılan değişiklik, süre dolmuşsa bir sonraki açılışta gönderilir. "Şimdi gönder" düğmesi ve hata sonrası 15, 30 ve 60 saniyelik yeniden denemeler bu kuralın bilinçli istisnalarıdır.
+- **Toplu gönderim:** Yerel kuyruk ilk değişikliğin zamanını saklar. Gönderim bu zamandan en az 120 saniye sonra yapılır. Bu kuralın bilinçli istisnaları:
+  - "Şimdi gönder" düğmesi.
+  - Hata sonrası 15, 30 ve 60 saniyelik yeniden denemeler.
+  - Bir cihaz bağlandığında, o cihazda bekleyen değişikliklerin hemen gönderilmesi.
+  - Sayfadan ayrılırken (`visibilitychange` ile gizlenme, `pagehide`) gönderim. Telefon, okur başka uygulamaya geçtiği anda sayfayı askıya aldığından, aksi halde değişiklik bir sonraki ziyarete kalırdı. 4 Ekim 2026'da bildirilen "telefonda işaretledim, bilgisayarda göremiyorum" sorununun bir nedeni buydu.
+- **Tek yazım:** Gizlenme, zamanlayıcı ve düğme aynı anda gönderim isterse tek bir yazım hepsine hizmet eder. O yazım sürerken yapılan bir değişiklik, hemen ardından kendi yazımını alır.
+- **Tek istek:** Yazım, son okunan ya da yazılan dosyanın sha'sı üzerine tek istekle yapılır; sayfa gizlenirken gönderilen yazım `keepalive` taşır (gövde 60 KB'den küçükse). Dosyayı bu arada başka bir cihaz değiştirdiyse GitHub 409/422 döner ve yazım taze okumadan yeniden başlar. Her istek 20 saniyede zaman aşımına uğrar.
 - **İstek sınırı:** GitHub sınırı aşıldığında istemci sıfırlanma zamanına kadar bekler.
 - **Yeni cihaz:** Bir cihaz ilk kez eşitlendiğinde yalnız kendisinde olan kayıtları ortak dosyaya ekler. Aynı kitap için iki taraf farklıysa önce yerel yedek alır ve okura hangisinin kalacağını sorar.
+- **Bağlanma:** Bir cihaz anahtarla bağlandığında, bağlı değilken yaptığı ve gönderemediği değişiklikler ortak dosyayla karşılaştırılır. Ortak dosya aynı alan için başka bir değer tutuyorsa (başka bir cihaz bu arada kaydetmiş), önce yerel yedek alınır ve okura hangisinin kalacağı sorulur. Alan bazında son yazan kazanır kuralı aksi halde bir tarafı sessizce silerdi. Okur karar verene kadar hiçbir şey gönderilmez; karardan sonra sonuç hemen gönderilir.
 - **Şema 1:** Kitap başına sıra konumu taşıyan eski dosyalar okunurken şema 2'ye çevrilir.
 
 ### Yazma anahtarı
 
 - Yalnızca ince ayarlı (fine-grained) kişisel erişim anahtarı (`github_pat_`) kabul edilir. Klasik ve OAuth anahtarları istek gönderilmeden reddedilir. GitHub'ın yanıtında klasik kapsam (`X-OAuth-Scopes`) görünen anahtar da kaydedilmez.
 - Anahtar oluşturma bağlantısı sahibi, Contents yazma iznini ve 90 günlük süreyi önceden doldurur; depo seçimi (yalnız `kitaps-state`) arayüzde adım adım belirtilir.
+- **Yazma denetimi:** Depo herkese açık olduğundan her geçerli anahtar dosyayı okuyabilir; okuma, yazma izni olduğunu kanıtlamaz.
+  - Kaydetmeden önce anahtarla `POST /repos/karacaismail/kitaps-state/git/blobs` ile küçük, hep aynı içerikte bir blob oluşturulur. Bu istek kaydetmeyle aynı Contents yazma iznini ister, ama hiçbir dalı değiştirmez ve commit oluşturmaz.
+  - Bu denetim Git nesnelerine yazma iznini kanıtlar; `main` dalına doğrudan commit'i engelleyen bir kural (yalnız PR ile birleştirme) olsaydı denetim geçer ama kayıtlar reddedilirdi. `kitaps-state` deposunda böyle bir kural yoktur.
+  - İkincil istek sınırı (`Retry-After` ile 403) yazamayan anahtar sayılmaz, istek sınırı olarak bildirilir.
+  - Yazamayan anahtar ("Bu anahtar kitaps-state deposuna yazamıyor") kaydedilmez. Önceki sürüm yalnız okumayı denetlediği için yazamayan bir anahtarı "doğrulandı" diye kabul edebiliyordu.
 - Anahtar tarayıcının `localStorage` alanında tutulur ve istek gövdesine yazılmaz. `karacaismail.github.io` altındaki bütün Pages siteleri aynı kaynağı paylaştığından, bu alan o sitelerdeki betiklerce okunabilir. Bu yüzden anahtarın yetkisi tek depo ve tek izinle sınırlandırılır. Tam yalıtım için uygulama ayrı bir kaynağa (özel alan adı) taşınmalıdır.
+
+### Görünürlük
+
+- **Uyarı:** Bağlı olmayan bir cihazda bekleyen değişiklik varsa, sayfanın başında "Bu cihazdaki işaretler yalnız burada" uyarısı ve "Bu cihazı bağla" düğmesi görünür. Bağlı bir cihazın son yazımı reddedildiyse "Değişiklikler GitHub'a gönderilemedi" görünür; okuma hatası bu uyarıyı açmaz. Uyarı her zaman sayfada bulunan bir canlı bölgeden duyurulur; uyarının kendisi canlı bölge değildir.
+  - Önceki sürümde bu durum yalnız Notlar sayfasındaki panelde yazıyordu. Telefondan işaretlenen kitaplar bu yüzden hiçbir zaman GitHub'a ulaşmadı: `kitaps-state` deposunda 4 Ekim 2026'ya kadar yalnız ilk kurulum commit'i vardı.
+- **Bağlantı penceresi:** "Bu cihazı bağla" ve altbilgideki "Cihaz eşitleme" aynı bağlantı penceresini açar.
+- **Gizleme:** Uyarı o ziyaret için gizlenebilir; odak ana içeriğe geçer. Daha fazla değişiklik birikince, nedeni değişince ya da sorun giderilip yeniden ortaya çıkınca uyarı yeniden görünür.
+- **Odak:** Bağlantı penceresi kapanınca odak onu açan düğmeye döner. O düğme bağlanmayla kaybolduysa odak ana içeriğe geçer. Başarılı bağlantıdan sonra odak pencerenin durum satırına geçer.
 
 ## Sonuçlar
 

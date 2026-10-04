@@ -1,4 +1,4 @@
-import { MAX_QUEUE_LENGTH, type ReadingProgress, type ReadingState, type StateDocument } from './types.ts';
+import { BOOK_FIELDS, MAX_QUEUE_LENGTH, type PendingStateMutation, type ReadingProgress, type ReadingState, type StateDocument } from './types.ts';
 
 export interface PublicBookView {
   states: ReadingState[];
@@ -49,4 +49,42 @@ export function planFirstSync(local: Map<string, PublicBookView>, localQueue: re
     ? 'none'
     : remote.queue.length ? 'conflict' : 'local-only';
   return {localOnly, conflicts, queue};
+}
+
+export interface ConnectPlan {
+  /** Books this device changed while it could not send, which the shared file now holds differently. */
+  conflicts: string[];
+  queueConflict: boolean;
+}
+
+/** A device being connected may hold edits made while it could not send them,
+ * and meanwhile another device may have saved a different value for the same
+ * field. Field-level last-writer-wins would silently drop one side, so these
+ * books go to the reader instead. Only the device's own unsent edits count:
+ * values it merely read from the shared file earlier are not its claims, and a
+ * field the shared file never set cannot be lost. */
+export function planConnect(pending: readonly PendingStateMutation[], remote: StateDocument): ConnectPlan {
+  const conflicts: string[] = [];
+  let queueConflict = false;
+  const sortedStates = (states?: readonly string[]) => canonical([...(states ?? [])].sort());
+  for (const mutation of pending) {
+    if (mutation.kind === 'queue') {
+      queueConflict = Boolean(remote.queue?.value.length) && canonical(mutation.value) !== canonical(remote.queue!.value);
+      continue;
+    }
+    const record = remote.books[mutation.bookId];
+    if (!record) continue;
+    // A null value means another device cleared the book: an empty value, not a missing one.
+    const shared = record.value;
+    const local = mutation.value;
+    const fields = local === null ? BOOK_FIELDS : BOOK_FIELDS.filter(field => field in local);
+    const differs = fields.some(field => {
+      if (shared !== null && !(field in shared)) return false;
+      return field === 'states'
+        ? sortedStates(local?.states) !== sortedStates(shared?.states)
+        : canonical(local?.reading ?? null) !== canonical(shared?.reading ?? null);
+    });
+    if (differs) conflicts.push(mutation.bookId);
+  }
+  return {conflicts, queueConflict};
 }

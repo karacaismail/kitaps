@@ -10,8 +10,12 @@ const consoleErrors = page => {
   page.on('pageerror', error => errors.push(error.message));
   return errors;
 };
-// The live shared reading state must not decide what a test sees.
-const isolate = context => context.route('https://raw.githubusercontent.com/karacaismail/kitaps-state/**', route => route.fulfill({ json: EMPTY_STATE }));
+// The live shared reading state must not decide what a test sees. Pages read it from the
+// CDN and, on opening, from the API; both answer with an empty state here.
+const isolate = context => Promise.all([
+  context.route('https://raw.githubusercontent.com/karacaismail/kitaps-state/**', route => route.fulfill({ json: EMPTY_STATE })),
+  context.route('https://api.github.com/repos/karacaismail/kitaps-state/**', route => route.fulfill({ status: 404, json: { message: 'Not Found' } })),
+]);
 const pageFits = page => page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth);
 // The matches of `roots`, and every element inside them, whose content runs out of their own box.
 // Form fields are not judged by their own text: they scroll it, or in WebKit a date field may let it
@@ -64,7 +68,7 @@ test('a phone shows book titles on the first screen', async ({ browser }) => {
 
 test('marking a book as purchased changes neither its score nor its explanation', async ({ page }) => {
   // The live shared state could already mark this book; start from an empty one.
-  await page.context().route('https://raw.githubusercontent.com/karacaismail/kitaps-state/**', route => route.fulfill({ json: { schemaVersion: 2, updatedAt: '1970-01-01T00:00:00.000Z', books: {}, queue: null } }));
+  await isolate(page.context());
   await page.goto('./?book=good-to-great-by-jim-collins');
   const card = page.locator('.reading-priority-card');
   await expect(card).toBeVisible();

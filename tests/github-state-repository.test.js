@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {FINE_GRAINED_TOKEN,GITHUB_REQUEST_HEADERS,GitHubStateBatcher,GitHubStateRepository,GitHubStateRepositoryError,MIN_GITHUB_SYNC_DELAY_MS,applyPendingMutations,assertStateDocument,emptyStateDocument,planFirstSync,projectPublicState,upgradeStateDocument} from '../src/state/index.ts';
+import {FINE_GRAINED_TOKEN,GITHUB_REQUEST_HEADERS,GitHubStateBatcher,GitHubStateRepository,GitHubStateRepositoryError,MIN_GITHUB_SYNC_DELAY_MS,applyPendingMutations,assertStateDocument,emptyStateDocument,planConnect,planFirstSync,projectPublicState,upgradeStateDocument} from '../src/state/index.ts';
 
 // Copied from GitHub's live preflight response (Access-Control-Allow-Headers).
 const GITHUB_CORS_ALLOWED=['authorization','content-type','if-match','if-modified-since','if-none-match','if-unmodified-since','accept-encoding','x-github-otp','x-requested-with','user-agent','graphql-features','x-github-next-global-id','x-github-api-version','x-fetch-nonce','copilot-integration-id','dd-client-token','x-client-application'];
@@ -278,4 +278,126 @@ test('generated mutation times remain monotonic when the device clock moves back
  const first=repository.queueBookState('a',{states:['onemli']});
  const second=repository.queueBookState('b',{states:['alindi']});
  assert.ok(Date.parse(second.updatedAt)>Date.parse(first.updatedAt));
+});
+
+test('a token must prove it can write before it is stored, without committing anything',async()=>{
+ // The state repository is public, so any token reads it; only a write proves the right permission.
+ const requests=[];
+ const writable=new GitHubStateRepository({storage:storage(),fetch:async(url,init)=>{requests.push({url,init});return init.method==='POST'?new Response('{"sha":"e69de29"}',{status:201}):contents(emptyStateDocument());}});
+ await writable.validateToken(TOKEN);
+ const probe=requests.find(item=>item.init.method==='POST');
+ assert.equal(probe.url,'https://api.github.com/repos/karacaismail/kitaps-state/git/blobs');
+ // Non-empty content: GitHub's documented case, and the same blob (sha) every time.
+ assert.deepEqual(JSON.parse(probe.init.body),{content:'Kitaplık yazma denetimi',encoding:'utf-8'});
+ assert.equal(probe.init.headers.Authorization,`Bearer ${TOKEN}`);
+ assertCorsSafe(probe.init,probe.url);
+ assert.equal(requests.some(item=>item.init.method==='PUT'),false,'validation never writes the state file');
+ // A secondary rate limit (403 with Retry-After while quota remains) is not a read-only key.
+ for(const [status,headers,code] of [[403,{},'read-only'],[404,{},'read-only'],[403,{'X-RateLimit-Remaining':'0','X-RateLimit-Reset':'4102444800'},'rate-limited'],[403,{'X-RateLimit-Remaining':'4990','Retry-After':'60'},'rate-limited']]){
+  const repository=new GitHubStateRepository({storage:storage(),fetch:async(url,init)=>init.method==='POST'?new Response('{"message":"Resource not accessible by personal access token"}',{status,headers}):contents(emptyStateDocument())});
+  await assert.rejects(()=>repository.validateToken(TOKEN),error=>error.code===code,`${status} ${JSON.stringify(headers)}`);
+  assert.equal(repository.hasToken(),false);
+ }
+});
+
+test('an anonymous device asks the API for a fresh copy when it matters, at most once a minute, and keeps the CDN as fallback',async()=>{
+ const remote=document({a:record(5,{states:['alindi']})},timestamp(5));
+ const requests=[];let now=Date.parse(timestamp(10));
+ const repository=new GitHubStateRepository({storage:storage(),clock:()=>new Date(now),fetch:async(url,init)=>{requests.push({url,init});return url.startsWith('https://raw.')?raw(remote):contents(remote,'sha',{ETag:'"v1"'});}});
+ assert.deepEqual(await repository.load({fresh:true}),remote);
+ assert.match(requests.at(-1).url,/^https:\/\/api\.github\.com\/repos\/karacaismail\/kitaps-state\/contents\/state\.json/);
+ assert.equal(requests.at(-1).init.headers.Authorization,undefined,'an anonymous device sends no token');
+ assertCorsSafe(requests.at(-1).init,'anonymous API read');
+ await repository.load({fresh:true});
+ assert.match(requests.at(-1).url,/^https:\/\/raw\.githubusercontent\.com\//,'a second fresh read within a minute uses the CDN');
+ now+=60_000;
+ await repository.load();
+ assert.match(requests.at(-1).url,/^https:\/\/raw\.githubusercontent\.com\//,'periodic reads stay on the CDN');
+ await repository.load({fresh:true});
+ assert.match(requests.at(-1).url,/^https:\/\/api\.github\.com\//);
+ // GitHub's anonymous limit: the CDN answers instead, and the API rests until the reset time.
+ const limitedRequests=[];
+ const limited=new GitHubStateRepository({storage:storage(),clock:()=>new Date(now),fetch:async url=>{limitedRequests.push(url);return url.startsWith('https://raw.')?raw(remote):new Response('{}',{status:403,headers:{'X-RateLimit-Remaining':'0','X-RateLimit-Reset':String(Math.floor(now/1000)+3600)}});}});
+ assert.deepEqual(await limited.load({fresh:true}),remote);
+ now+=120_000;
+ await limited.load({fresh:true});
+ assert.deepEqual(limitedRequests.map(url=>url.startsWith('https://raw.')?'cdn':'api'),['api','cdn','cdn']);
+});
+
+test('an older CDN copy never replaces a newer file this device has already seen',async()=>{
+ const newer=document({a:record(9,{states:['alindi']})},timestamp(9));
+ let served=newer;
+ const repository=new GitHubStateRepository({storage:storage(),fetch:async()=>raw(served)});
+ assert.deepEqual(await repository.load(),newer);
+ served=document({},timestamp(1));
+ assert.deepEqual(await repository.load(),newer,'a stale CDN edge does not undo a mark');
+ const newest=document({a:record(9,{states:['alindi']}),b:record(12,{states:['okundu']})},timestamp(12));
+ served=newest;
+ assert.deepEqual(await repository.load(),newest);
+});
+
+test('a write starts from the last file it knows in one request, and the file’s time always moves forward',async()=>{
+ const remote=document({a:record(1,{states:['onemli']})},timestamp(30));
+ const requests=[];let current=remote,sha='sha-1';
+ const repository=new GitHubStateRepository({storage:withToken(),clock:()=>new Date(timestamp(5)),fetch:async(url,init)=>{
+  requests.push({method:init.method||'GET',init});
+  if(init.method==='PUT'){const body=JSON.parse(init.body);if(body.sha!==sha)return new Response('{}',{status:409});current=JSON.parse(Buffer.from(body.content,'base64').toString('utf8'));sha=`sha-${requests.length}`;return new Response(JSON.stringify({content:{sha}}),{status:200});}
+  return contents(current,sha,{ETag:`"${sha}"`});
+ }});
+ await repository.load();
+ repository.queueBookState('b',{states:['alindi']});
+ const saved=await repository.flushPending({keepalive:true});
+ assert.deepEqual(requests.map(item=>item.method),['GET','PUT'],'the write reuses the file just read');
+ assert.equal(requests[1].init.keepalive,true,'a write sent while the page hides outlives the page');
+ assert.ok(requests.every(item=>item.init.signal),'every request has a timeout');
+ // The device clock is behind the file, yet the new file is still newer than the old one.
+ assert.ok(Date.parse(saved.updatedAt)>Date.parse(remote.updatedAt));
+ repository.queueBookState('c',{states:['okundu']});
+ await repository.flushPending();
+ assert.deepEqual(requests.slice(2).map(item=>item.method),['PUT'],'the next write starts from the file it wrote');
+ // Another device writes: the remembered sha is refused, and the write starts again from a fresh read.
+ current=document({...current.books,d:record(40,{states:['onemli']})},timestamp(40));sha='sha-other';
+ repository.queueBookState('e',{states:['alindi']});
+ const merged=await repository.flushPending();
+ assert.deepEqual(requests.slice(3).map(item=>item.method),['PUT','GET','PUT']);
+ assert.deepEqual(Object.keys(merged.books).sort(),['a','b','c','d','e']);
+ assert.equal(requests.at(-1).init.keepalive,false);
+});
+
+test('connecting a device asks only about its own unsent edits that the shared file holds differently',()=>{
+ const shared=document({
+  bought:record(5,{states:['alindi']}),
+  same:record(5,{states:['onemli']}),
+  notesOnly:record(5,{reading:{why:'Başka cihazın notu'}}),
+  cleared:record(5,null),
+ },timestamp(5),{updatedAt:timestamp(5),value:['same']});
+ const edit=(bookId,value)=>({id:`${bookId}-1`,kind:'book',bookId,updatedAt:timestamp(1),value});
+ const plan=planConnect([
+  edit('bought',{states:['okunuyor']}),   // another device bought it meanwhile: ask
+  edit('same',{states:['onemli']}),       // both sides agree: send
+  edit('notesOnly',{states:['okundu']}),  // the shared file never set its states: merge field by field
+  edit('cleared',{states:['alindi']}),    // another device cleared it: ask
+  edit('fresh',{states:['alindi']}),      // the shared file has no record: send
+  {id:'queue-1',kind:'queue',updatedAt:timestamp(2),value:['fresh']},
+ ],shared);
+ assert.deepEqual(plan,{conflicts:['bought','cleared'],queueConflict:true});
+ assert.deepEqual(planConnect([edit('bought',{states:['alindi']})],shared),{conflicts:[],queueConflict:false});
+});
+
+test('the batcher never leaves a timer it cannot cancel',async()=>{
+ const timers=new Map();let next=0;
+ const setTimeout=callback=>{const id=++next;timers.set(id,callback);return id;};
+ const clearTimeout=id=>{timers.delete(id);};
+ const repository=new GitHubStateRepository({storage:withToken(),fetch:async()=>contents(emptyStateDocument())});
+ repository.queueBookState('a',{states:['onemli']});
+ let failFlush;
+ const batcher=new GitHubStateBatcher(repository,()=>new Promise((_,reject)=>{failFlush=reject;}),{setTimeout,clearTimeout,retryDelaysMs:[15_000]});
+ batcher.schedule();
+ const [[id,fire]]=timers;timers.delete(id);fire();
+ batcher.schedule(); // another path schedules while the batcher's own write runs
+ failFlush(new Error('offline'));
+ await new Promise(resolve=>setImmediate(resolve));
+ assert.equal(timers.size,1,'the retry replaced the waiting timer instead of orphaning it');
+ batcher.cancel();
+ assert.equal(timers.size,0);
 });

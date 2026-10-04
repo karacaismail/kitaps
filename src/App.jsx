@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Accordion, ActionIcon, Alert, Anchor, Badge, Box, Button, Card, Container, Group, MantineProvider, Modal, Paper, Select, Stack, Text, TextInput, Tabs, ThemeIcon, Title, Tooltip, createTheme, localStorageColorSchemeManager } from '@mantine/core';
+import { Accordion, ActionIcon, Alert, Anchor, Badge, Box, Button, Card, Container, Group, MantineProvider, Modal, Paper, Select, Stack, Text, TextInput, Tabs, ThemeIcon, Title, Tooltip, createTheme, defaultVariantColorsResolver, localStorageColorSchemeManager } from '@mantine/core';
 import { IconLink, IconArrowLeft, IconArrowRight, IconArrowUpRight, IconBook2, IconShoppingBagCheck, IconBooks, IconCheck, IconChevronRight, IconDownload, IconFilter, IconHeart, IconLayersIntersect, IconListNumbers, IconSearch, IconX } from '@tabler/icons-react';
 import '@mantine/core/styles.css';
 import '@fontsource-variable/literata/wght.css';
@@ -26,6 +26,8 @@ import ReadingPrioritySummary from './components/ReadingPrioritySummary';
 import ReadingPriorityBadge from './components/ReadingPriorityBadge';
 import StateRibbons, { StateSummary } from './components/StateRibbons';
 import SyncMergeDialog from './components/SyncMergeDialog';
+import SyncNotice from './components/SyncNotice';
+import GitHubSyncPanel from './components/GitHubSyncPanel';
 import SourceBadge from './components/SourceBadge';
 import {download} from './download';
 import {useGitHubStateSync} from './state/useGitHubStateSync';
@@ -41,6 +43,9 @@ const NotesPage=React.lazy(()=>import('./components/NotesPage'));
 const theme = createTheme({
  fontFamily:'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif', primaryColor:'brand', primaryShade:{light:7,dark:3}, defaultRadius:'md', cursorType:'pointer', autoContrast:true,
  // Brick red: shade 7 carries white text in the light scheme, shade 3 dark text in the dark one.
+ // Mantine picks filled text once, from the light shade, so the dark scheme kept white text on
+ // the light brick (2.3:1); the accent ink is the checked pair for the accent in both schemes.
+ variantColorResolver:input=>{const colors=defaultVariantColorsResolver(input);return input.variant==='filled'&&input.color==='brand'?{...colors,color:'var(--accent-ink)'}:colors},
  colors:{brand:['#fcf1ec','#f6e4da','#eec7b2','#ef9a70','#e07f52','#c9612f','#b04d24','#9a3f1e','#7a3014','#5c230e']},
  fontSizes:{xs:'1rem',sm:'1rem',md:'1rem',lg:'1.125rem',xl:'1.25rem'},
  headings:{fontFamily:'"Literata Variable", Georgia, serif',fontWeight:'600',sizes:{h1:{fontSize:'2.25rem',lineHeight:'1.15'},h2:{fontSize:'1.75rem',lineHeight:'1.2'},h3:{fontSize:'1.25rem',lineHeight:'1.3'},h4:{fontSize:'1.0625rem',lineHeight:'1.35'}}},
@@ -191,6 +196,7 @@ function AtlasApp() {
  const [copied,setCopied]=useState(false);
  const [transfer,setTransfer]=useState(null);
  const [guideOpened,setGuideOpened]=useState(false);
+ const [syncOpened,setSyncOpened]=useState(false);
  const transferOrigin=useRef(null);
  const dismissTransfer=useCallback(()=>{
   const restoreFocus=document.activeElement?.closest('.library-toast');
@@ -236,6 +242,11 @@ function AtlasApp() {
  const goCollection=(id,gid)=>{navigate({...route,view:'books',book:null,page:1,filters:{...emptyFilters(),collections:[id],groups:gid?[gid]:[]}});window.scrollTo({top:0,behavior:'instant'})};
  const goCategory=id=>{const next={...route,view:'books',book:null,page:1,filters:{...emptyFilters(),categories:[id]}};window.history.pushState(null,'',window.location.pathname+'?'+encodeRoute(next,catalog));setRoute(next);window.scrollTo({top:0,behavior:'instant'})};
  const changePage=p=>{navigate({...route,page:p,book:null});resultsRef.current?.scrollIntoView({behavior:'instant',block:'start'})};
+ // The library toast sits above dialogs, so it closes before the connect dialog opens over it.
+ const syncOpener=useRef(null);
+ const openSync=event=>{syncOpener.current=event?.currentTarget??document.activeElement;setTransfer(null);setSyncOpened(true)};
+ // Connecting removes the notice whose button opened the dialog; focus then goes to the main content.
+ const syncClosed=()=>{const opener=syncOpener.current;(opener?.isConnected?opener:document.getElementById('main-content'))?.focus({preventScroll:true})};
  const copyLink=async()=>{try{await navigator.clipboard.writeText(window.location.href);setCopied(true);setTimeout(()=>setCopied(false),2000)}catch{setCopied(false)}};
  const transferNotice=<div className="library-toast-region" role="status" aria-live="polite" aria-atomic="true">{transfer&&<LibraryToast key={`${transfer.id}-${transfer.owned}`} book={byId[transfer.id]} owned={transfer.owned} onClose={dismissTransfer} onUndo={()=>{setStates(prev=>({...prev,[transfer.id]:toggleState(prev[transfer.id],'alindi')}));dismissTransfer()}}/>}</div>;
  const activeTab=['owned','favorites'].includes(view)?'books':['books','queue','collections'].includes(view)?view:null;
@@ -247,6 +258,7 @@ function AtlasApp() {
    <main id="main-content" tabIndex={-1}>
 
     {(storageError||personalStorageError)&&<Alert color="orange" mb="lg">Bu tarayıcı kişisel kayıtlarını kalıcı olarak saklayamıyor. Notlar bölümünden yedeğini indirebilirsin.</Alert>}
+    {view!=='notes'&&<SyncNotice sync={githubSync} onOpen={openSync}/>}
     <Tabs.Panel value="books">
     {['books','owned','favorites'].includes(view)&&<>
      {['owned','favorites'].includes(view)&&<Title order={1} className="visually-hidden">{view==='owned'?'Kitaplığım':'Favorilerim'}</Title>}
@@ -266,11 +278,12 @@ function AtlasApp() {
     <Tabs.Panel value="collections">{view==='collections'&&<><Title order={1} className="visually-hidden">Kitap kümeleri</Title><Collections onCollection={goCollection} onGroup={goCollection} states={states}/></>}</Tabs.Panel>
     {view==='notes'&&<section aria-labelledby="notes-heading"><Title id="notes-heading" order={1} className="visually-hidden">Kaynaklar ve notlar</Title><React.Suspense fallback={<Text c="dimmed" role="status">Notlar yükleniyor…</Text>}><NotesPage states={states} setStates={setStates} personal={personal} setPersonal={setPersonal} sync={githubSync}/></React.Suspense></section>}
    </main>
-   <footer className="site-footer"><div className="footer-meta"><Text fw={600}>Kitaplık</Text><Text>Yaratılış · 27 Eylül 2026</Text><Text>Güncelleme · {catalog.updated}</Text></div><div className="footer-links"><Button variant="subtle" leftSection={<IconDownload size={18}/>} onClick={exportAllBooks}>Kitapları JSON indir</Button><Button variant="subtle" onClick={()=>setGuideOpened(true)}>Çeviri rehberi</Button><Button variant="subtle" onClick={()=>{navigate({...route,view:'notes',book:null,page:1});window.scrollTo({top:0,behavior:'instant'})}}>Notlar</Button></div></footer>
+   <footer className="site-footer"><div className="footer-meta"><Text fw={600}>Kitaplık</Text><Text>Yaratılış · 27 Eylül 2026</Text><Text>Güncelleme · {catalog.updated}</Text></div><div className="footer-links"><Button variant="subtle" leftSection={<IconDownload size={18}/>} onClick={exportAllBooks}>Kitapları JSON indir</Button><Button variant="subtle" onClick={()=>setGuideOpened(true)}>Çeviri rehberi</Button><Button variant="subtle" onClick={openSync}>Cihaz eşitleme</Button><Button variant="subtle" onClick={()=>{navigate({...route,view:'notes',book:null,page:1});window.scrollTo({top:0,behavior:'instant'})}}>Notlar</Button></div></footer>
   </Container>
   </Tabs>
   <SyncMergeDialog sync={githubSync}/>
-  <Modal opened={guideOpened} onClose={()=>setGuideOpened(false)} title="Çeviri seçme rehberi" size="lg" centered className="global-guide-modal"><TranslationCriteria/></Modal>
+  <Modal opened={syncOpened} onClose={()=>setSyncOpened(false)} returnFocus={false} onExitTransitionEnd={syncClosed} title="Cihazlar arası eşitleme" size="lg" centered className="sync-modal" closeButtonProps={{'aria-label':'Kapat'}}><GitHubSyncPanel sync={githubSync} framed={false}/></Modal>
+  <Modal opened={guideOpened} onClose={()=>setGuideOpened(false)} title="Çeviri seçme rehberi" size="lg" centered className="global-guide-modal" closeButtonProps={{'aria-label':'Kapat'}}><TranslationCriteria/></Modal>
   <FilterSheet opened={opened} onClose={()=>setOpened(false)} value={draft} onChange={setDraft} onReset={()=>setDraft({...emptyFilters(),query:filters.query})} onApply={()=>{changeFilters(draft);setOpened(false)}} count={draftCount} catalog={catalog} authors={authorOptions} shelf={shelfBooks}/>
   {!book&&transferNotice}
   <BookDetail feedback={transferNotice} ranking={readingRanking.byId[book]} onOpen={onOpen} onBack={previousBook} hasBack={bookTrail.length>0} book={byId[book]} onClose={closeBook} states={states} onToggle={onToggle} onCollection={goCollection} onCategory={goCategory} personal={personal} onReading={onReading} onAdd={onAdd} onQueue={onQueue} storageError={storageError||personalStorageError}/>
