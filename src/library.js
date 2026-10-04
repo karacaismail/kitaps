@@ -96,7 +96,7 @@ export function bookSlug(book){
 // 4-column catalog grids always end on a full row. The first one is the default.
 export const PAGE_SIZES=[24,48,96,192,384];
 export const DEFAULT_PAGE_SIZE=PAGE_SIZES[0];
-// The column counts the catalog grid may use (styles.css --books-columns-*).
+// The column counts the catalog grid may use (styles.css sets them through --books-columns).
 export const GRID_COLUMNS=[2,3,4];
 // Links shared before a change still open on the page holding their first book.
 const LEGACY_PAGE_SIZES={12:24,25:24,50:48,75:96,100:96};

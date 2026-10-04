@@ -15,7 +15,7 @@ Kitap kimliklerini, Türkçe baskıları, kitaplar arasındaki hazırlık ve eş
 - Varsayılan sıralama okuma önceliğidir. Her kitabın puanı beş katalog ölçütünden gelir. Detay sayfasının sonunda her ölçütün katkısı ve kanıtı görünür.
 - Satın alma, favori, okuma durumu, okuma kaydı ve kişisel sıra puanı değiştirmez. Kural [ADR 001](docs/ADR-001-reading-priority-and-state.md) içinde açıklanır.
 - Kitap detayında okuma amacı, gerekçeli önce/sonra/birlikte okuma önerileri, Türkçe baskı, yayınevi, çevirmen ve ISBN.
-- Sayfa başına 24, 48, 96, 192 veya 384 kitap gösterilir (varsayılan 24). Her sayfa boyutu 2, 3 ve 4 sütuna tam bölünür; son satırda boşluk kalmaz. Sütun sayıları ve sayfa boyutları proje sahibinin kesin kuralıdır (bkz. `AGENTS.md`). Sayfa, filtre, sıralama ve açık kitap okunabilir URL parametrelerinde tutulur; geri tuşu, yenileme ve paylaşılan bağlantı aynı görünümü açar.
+- Sayfa başına 24, 48, 96, 192 veya 384 kitap gösterilir (varsayılan 24). Her sayfa boyutu 2, 3 ve 4 sütuna tam bölünür; dolu bir sayfanın son satırında boşluk kalmaz. Sütun sayıları ve sayfa boyutları proje sahibinin kesin kuralıdır (bkz. `AGENTS.md`). Sayfa, filtre, sıralama ve açık kitap okunabilir URL parametrelerinde tutulur; geri tuşu, yenileme ve paylaşılan bağlantı aynı görünümü açar.
 - Altbilgide bütün kitapları JSON olarak indirme: kimlik, Türkçe ad, özgün ad, özgün yayınevi, yazarlar, önerilen çevirmenler, Türkiye yayınevi, Türkçe ISBN ve ilk yayın yılı.
 
 ## Cihazlar arası eşitleme

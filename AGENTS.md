@@ -5,14 +5,19 @@
 Bu kurallar yalnızca proje sahibinin açık talimatıyla değişir. Hiçbir ajan bunları tasarım, erişilebilirlik ya da "iyileştirme" gerekçesiyle kendi kararıyla değiştiremez. Değişiklik gerektiğini düşünüyorsan önce sor.
 
 1. **Sayfa boyutları:** 24, 48, 96, 192 ve 384 (`src/library.js`, `PAGE_SIZES`). Varsayılan 24'tür. 25, 50, 75 ve 100 gibi 24'ün katı olmayan sayılar kullanılmaz.
-2. **Katalog ızgarası (`.books-grid`):** Telefonda 2, tablette 3, masaüstünde ve daha geniş ekranlarda 4 sütun gösterilir; 5 ve üzeri yoktur. Sütun sayısını `src/styles.css` içindeki `--books-columns` belirler. İzin verilen değerler `src/library.js` içindeki `GRID_COLUMNS` listesindedir. Sütun sayısını tarayıcıya bırakan `auto-fill` ve `auto-fit` kullanılmaz.
-3. **Dolu son satır:** Her sayfa boyutu her sütun sayısına tam bölünür; dolu bir sayfanın son satırında boşluk kalmaz.
+2. **Katalog ızgarası (`.books-grid`):** Telefonda 2, tablette 3, masaüstünde ve daha geniş ekranlarda 4 sütun gösterilir; 5 ve üzeri yoktur.
+   - Eşikler em cinsindendir ve tarayıcının varsayılan yazı boyutunu izler. 16 px'lik varsayılanla 576 px (36em) altında 2, 576–895 px arasında 3, 896 px (56em) ve üstünde 4 sütun görünür. Varsayılan yazı büyütülürse eşikler de büyür; 20 px'de 4 sütun 1120 px'de başlar.
+   - Yatay tutulan bir telefon genişliğine göre 2, 3 ya da 4 sütun gösterir: 568 px genişlikte 2, 844 px'de 3, 932 px'de 4.
+   - Sütun sayısını `src/styles.css` içindeki `--books-columns` belirler. İzin verilen değerler `src/library.js` içindeki `GRID_COLUMNS` listesindedir.
+   - Sütun sayısını tarayıcıya bırakan düzenler kullanılmaz: `auto-fill`, `auto-fit`, `grid` ve `grid-template` kısaltmaları, çok sütunlu metin düzeni (`columns`).
+3. **Dolu son satır:** Her sayfa boyutu her sütun sayısına tam bölünür; dolu bir sayfanın son satırında boşluk kalmaz. Sonuçların son sayfası daha az kitap içerebilir.
 
 Bu kuralları koruyan testler:
 
-- `tests/routes.test.js`
-- `tests/catalog-grid.test.js`
-- `tests/e2e/catalog-grid.spec.js` (Chromium, WebKit, Firefox ve iPhone görünümü)
+- `tests/routes.test.js`: sayfa boyutları, varsayılan ve eski bağlantılar
+- `tests/catalog-grid.test.js`: stil dosyasının sütun sayısını yalnız `--books-columns` ile verdiği
+- `tests/e2e/catalog-grid.spec.js`: 320–2560 px arasında 15 genişlikte gerçek sütun sayısı ve dolu son satır (Chromium, WebKit, Firefox ve iPhone görünümü)
+- `tests/e2e/site.spec.js`: ilk sayfadaki 24 kitap ve beş sayfa boyutu seçeneği
 
 Bu testleri kuralı gevşetmek için değiştirme.
 
@@ -20,7 +25,7 @@ Bu testleri kuralı gevşetmek için değiştirme.
 
 - `npm test`: node:test ve Vitest
 - `npm run typecheck`
-- `npm run build`: üretim çıktısını `dist/` klasörüne yazar
+- `npm run build`: üretim çıktısını `dist/` klasörüne yazar. Önce `npm run seo` çalışır ve Git'te izlenen `public/sitemap.xml` dosyasını yeniden üretir; sayfa sayısı değişirse bu dosya da commit'e girer.
 - `npm run test:e2e`: önce build gerekir. Paralel worktree'lerde başka bir port kullan, örneğin `E2E_PORT=4517 npm run test:e2e`.
 - Veri değiştiğinde `npm run data` çalıştır (bkz. README).
 
@@ -41,7 +46,7 @@ Okuma durumları, sahiplik, favoriler ve okuma sırası herkese açık `karacais
 
 ## Arayüz
 
-- **Tokenlar:** Renk, boşluk, köşe yarıçapı ve odak `src/styles.css` başındaki tokenlarla yönetilir. Bileşenlerde sabit değer yazılmaz.
+- **Tokenlar:** Renk, köşe yarıçapı, gölge, odak ve kapak işaretleri `src/styles.css` başındaki tokenlarla yönetilir. Boşlukların bir kısmı henüz sabit piksel değeridir; yeni değerleri token olarak ekle.
 - **Açılır listeler:** Mantine Select kullanılır; yerel `<select>` kullanılmaz.
 - **Odak:** Tek ve görünür bir `:focus-visible` halkası korunur.
 - **Kabul:** 320 px'den başlar. Ayrıntılar `docs/UX-VALIDATION.md` içindedir.

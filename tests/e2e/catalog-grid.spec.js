@@ -22,3 +22,16 @@ test('the catalog grid keeps the owner’s column counts and a full last row at 
     expect(layout, `${width}px wide`).toEqual({ tracks: columns, columns, lastRow: columns });
   }
 });
+
+test('a larger page of 48 books also ends on a full row', async ({ page }) => {
+  await page.goto('./?page-size=48');
+  await expect(page.locator('.books-grid > .book-card')).toHaveCount(48);
+  for (const width of [390, 768, 1280]) {
+    await page.setViewportSize({ width, height: 900 });
+    const lastRow = await page.locator('.books-grid').evaluate(grid => {
+      const tops = [...grid.children].map(card => Math.round(card.getBoundingClientRect().top));
+      return { columns: getComputedStyle(grid).gridTemplateColumns.split(' ').filter(Boolean).length, cards: tops.filter(top => top === Math.max(...tops)).length };
+    });
+    expect(lastRow.cards, `${width}px wide`).toBe(lastRow.columns);
+  }
+});
