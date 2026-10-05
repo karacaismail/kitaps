@@ -5,9 +5,9 @@
 Bu kurallar yalnızca proje sahibinin açık talimatıyla değişir. Hiçbir ajan bunları tasarım, erişilebilirlik ya da "iyileştirme" gerekçesiyle kendi kararıyla değiştiremez. Değişiklik gerektiğini düşünüyorsan önce sor.
 
 1. **Sayfa boyutları:** 24, 48, 96, 192 ve 384 (`src/library.js`, `PAGE_SIZES`). Varsayılan 24'tür. 25, 50, 75 ve 100 gibi 24'ün katı olmayan sayılar kullanılmaz.
-2. **Katalog ızgarası (`.books-grid`):** Telefonda 2, tablette 3, masaüstünde ve daha geniş ekranlarda 4 sütun gösterilir; 5 ve üzeri yoktur.
+2. **Katalog ızgarası (`.books-grid`):** Telefonda 2 (dik de yatay da), tablette 3, masaüstünde ve daha geniş ekranlarda 4 sütun gösterilir; 5 ve üzeri yoktur.
    - Eşikler em cinsindendir ve tarayıcının varsayılan yazı boyutunu izler. 16 px'lik varsayılanla 576 px (36em) altında 2, 576–895 px arasında 3, 896 px (56em) ve üstünde 4 sütun görünür. Varsayılan yazı büyütülürse eşikler de büyür; 20 px'de 4 sütun 1120 px'de başlar.
-   - Yatay tutulan bir telefon genişliğine göre 2, 3 ya da 4 sütun gösterir: 568 px genişlikte 2, 844 px'de 3, 932 px'de 4.
+   - Yatay tutulan telefon da 2 sütun gösterir (proje sahibinin 5 Ekim 2026 kararı). Telefon, kısa kenarıyla tanınır: yatay görünümde yükseklik 31em (496 px) ve altında, genişlik 960 px'in altında. Tabletler ve dizüstüler bundan uzundur; kısa bir masaüstü penceresi de 960 px ve üstünde genişliğiyle dışarıda kalır.
    - Sütun sayısını `src/styles.css` içindeki `--books-columns` belirler. İzin verilen değerler `src/library.js` içindeki `GRID_COLUMNS` listesindedir.
    - Sütun sayısını tarayıcıya bırakan düzenler kullanılmaz: `auto-fill`, `auto-fit`, `grid` ve `grid-template` kısaltmaları, çok sütunlu metin düzeni (`columns`).
 3. **Dolu son satır:** Her sayfa boyutu her sütun sayısına tam bölünür; dolu bir sayfanın son satırında boşluk kalmaz. Sonuçların son sayfası daha az kitap içerebilir.
@@ -16,7 +16,7 @@ Bu kuralları koruyan testler:
 
 - `tests/routes.test.js`: sayfa boyutları, varsayılan ve eski bağlantılar
 - `tests/catalog-grid.test.js`: stil dosyasının sütun sayısını yalnız `--books-columns` ile verdiği
-- `tests/e2e/catalog-grid.spec.js`: 320–2560 px arasında 15 genişlikte gerçek sütun sayısı ve dolu son satır (Chromium, WebKit, Firefox ve iPhone görünümü)
+- `tests/e2e/catalog-grid.spec.js`: 320–2560 px arasında 15 genişlikte gerçek sütun sayısı, dolu son satır ve yatay telefonda 2 sütun (Chromium, WebKit, Firefox ve iPhone görünümü)
 - `tests/e2e/site.spec.js`: ilk sayfadaki 24 kitap ve beş sayfa boyutu seçeneği
 
 Bu testleri kuralı gevşetmek için değiştirme.
