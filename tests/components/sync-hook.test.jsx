@@ -18,7 +18,11 @@ function github(remote, { blob = 201, puts = [] } = {}) {
   const server = { calls, current: () => remote, set(next) { remote = next; }, hold() { let open; const gate = new Promise(resolve => { open = resolve; }); release = { gate, open }; return () => open(); } };
   server.fetch = vi.fn(async (url, init = {}) => {
     calls.push({ url, method: init.method || 'GET', init });
-    if (url.startsWith('https://raw.')) return new Response(JSON.stringify(remote));
+    if (url.startsWith('https://raw.')) {
+      // The CDN can lag behind the API: `rawDoc` stands for its older copy.
+      if (server.rawDelay) await new Promise(resolve => setTimeout(resolve, server.rawDelay));
+      return new Response(JSON.stringify(server.rawDoc ?? remote));
+    }
     // A slow API read lets timers fire while a comparison waits for GitHub.
     if (server.readDelay && !init.method) await new Promise(resolve => setTimeout(resolve, server.readDelay));
     if (url.endsWith('/git/blobs')) return new Response('{}', { status: blob });
@@ -230,6 +234,64 @@ describe('useGitHubStateSync getting changes off the device', () => {
     await waitFor(() => expect(putsOf(server)).toHaveLength(1));
     expect(result.current.sync.mergePrompt).toBeNull();
     expect(server.current().books.a.value.states).toEqual(['onemli', 'alindi']);
+  });
+
+  it('a comparison never relies on a CDN copy read before the key was stored', async () => {
+    const server = github(remoteDocument({}));
+    vi.stubGlobal('fetch', server.fetch);
+    const { result } = renderHook(() => useHarness({}, { queue: [], reading: {} }));
+    await waitFor(() => expect(result.current.sync.status).toBe('ready'));
+    act(() => result.current.setStates({ a: ['okunuyor'] }));
+    await waitFor(() => expect(result.current.sync.pending).toBe(1));
+    // The phone buys book a; the CDN still serves the file from before.
+    server.rawDoc = remoteDocument({});
+    server.set(remoteDocument({ a: { updatedAt: '2026-10-04T09:00:00.000Z', value: { states: ['alindi'] }, stamps: { states: '2026-10-04T09:00:00.000Z' } } }));
+    server.rawDelay = 80;
+    // A refresh without the key (a CDN read, as the second fresh read within a minute is) is under way.
+    act(() => { void result.current.sync.load(); });
+    await act(() => result.current.sync.saveToken(TOKEN));
+    await waitFor(() => expect(result.current.sync.mergePrompt?.reason).toBe('connect'));
+    expect(putsOf(server)).toHaveLength(0);
+  });
+
+  it('a field this device never set does not travel, so another device’s note survives', async () => {
+    // Book a was marked on this device before it ever synced; the shared file was empty.
+    const server = github(remoteDocument({}));
+    vi.stubGlobal('fetch', server.fetch);
+    localStorage.removeItem('kitapatlasi:github-state:migrated:v1');
+    const { result } = renderHook(() => useHarness({ a: ['onemli'] }, { queue: [], reading: {} }));
+    await waitFor(() => expect(result.current.sync.status).not.toBe('loading'));
+    expect(pending().find(item => item.bookId === 'a').value).toEqual({ states: ['onemli'] });
+    // Meanwhile the phone writes a note on the same book.
+    const at = '2026-10-04T09:00:00.000Z';
+    server.set(remoteDocument({ a: { updatedAt: at, value: { reading: { why: 'Telefondaki not' } }, stamps: { reading: at } } }));
+    await act(() => result.current.sync.saveToken(TOKEN));
+    await waitFor(() => expect(putsOf(server)).toHaveLength(1));
+    expect(result.current.sync.mergePrompt).toBeNull();
+    expect(server.current().books.a.value).toEqual({ states: ['onemli'], reading: { why: 'Telefondaki not' } });
+  });
+
+  it('a book decided at the first sync is not asked about again when the device connects', async () => {
+    localStorage.removeItem('kitapatlasi:github-state:migrated:v1');
+    const at = '2026-10-04T09:00:00.000Z';
+    const server = github(remoteDocument({ a: { updatedAt: at, value: { states: ['alindi'] }, stamps: { states: at } } }));
+    vi.stubGlobal('fetch', server.fetch);
+    const { result } = renderHook(() => useHarness({ a: ['onemli'] }, { queue: [], reading: {} }));
+    await waitFor(() => expect(result.current.sync.mergePrompt?.reason).toBe('first-sync'));
+    await act(() => result.current.sync.resolveMerge('device'));
+    await act(() => result.current.sync.saveToken(TOKEN));
+    await waitFor(() => expect(putsOf(server)).toHaveLength(1));
+    expect(result.current.sync.mergePrompt).toBeNull();
+    expect(server.current().books.a.value.states).toEqual(['onemli']);
+  });
+
+  it('a failed read while a connect waits for its comparison says so in the notice', async () => {
+    localStorage.setItem('kitapatlasi:github-state:token:v1', TOKEN);
+    localStorage.setItem('kitapatlasi:github-state:connect-review:v1', '1');
+    localStorage.setItem('kitapatlasi:github-state:pending:v2', JSON.stringify({ since: '2026-09-28T08:00:00.000Z', mutations: [{ id: 'x', kind: 'book', bookId: 'a', updatedAt: '2026-09-28T08:00:00.000Z', value: { states: ['okunuyor'] } }] }));
+    vi.stubGlobal('fetch', vi.fn(async () => { throw new TypeError('offline'); }));
+    const { result } = renderHook(() => useHarness({}, { queue: [], reading: {} }));
+    await waitFor(() => expect(result.current.sync.writeError).toMatch(/karşılaştırılamadı/));
   });
 
   it('a change made while a write is under way gets its own write right after it', async () => {

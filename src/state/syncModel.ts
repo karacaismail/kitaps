@@ -52,9 +52,11 @@ export function planFirstSync(local: Map<string, PublicBookView>, localQueue: re
 }
 
 /** When a field of a shared record was last set; undefined when it never was. A
- * cleared record (null value) counts as setting both fields to empty. */
+ * cleared record (null value) counts as setting both fields to empty. Like merge.ts,
+ * a record with field stamps answers from them alone: its unstamped field predates
+ * stamps, and any edit may overwrite it. */
 export const fieldStamp = (record: BookStateRecord, field: BookField): string | undefined =>
-  record.stamps?.[field] ?? (record.value === null || (record.value && field in record.value) ? record.updatedAt : undefined);
+  record.stamps ? record.stamps[field] : record.value === null || (record.value && field in record.value) ? record.updatedAt : undefined;
 
 const newer = (stamp: string, base: string | undefined): boolean => !base || Date.parse(stamp) > Date.parse(base);
 

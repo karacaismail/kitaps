@@ -17,13 +17,15 @@ export default function SyncMergeDialog({sync}){
   setBusy(true);
   try{await sync.resolveMerge(choice)}finally{setBusy(false)}
   requestAnimationFrame(()=>{
+   // A further question (a connect right after a first-sync choice) keeps the focus.
+   if(document.querySelector('.sync-merge-dialog'))return;
    const target=document.querySelector('.sync-modal [role="status"]')??document.getElementById('main-content');
    if(target instanceof HTMLElement)target.focus({preventScroll:true});
   });
  };
  const backup=readSyncBackup();
  const parts=[prompt.conflicts.length?`${prompt.conflicts.length} kitabın kaydı`:'',prompt.queueConflict?'okuma sıran':''].filter(Boolean).join(' ve ');
- return <Modal opened onClose={()=>undefined} withCloseButton={false} closeOnClickOutside={false} closeOnEscape={false} centered title="Bu cihazdaki kayıtlar farklı">
+ return <Modal opened onClose={()=>undefined} withCloseButton={false} closeOnClickOutside={false} closeOnEscape={false} centered className="sync-merge-dialog" title="Bu cihazdaki kayıtlar farklı">
   <Stack gap="md">
    <Text>{prompt.reason==='connect'
     ?`Bu cihaz bağlı değilken ${parts} değişti; bu arada başka bir cihaz aynı kayıtları farklı kaydetti. Hangisinin kalacağını seç. Seçim yalnız bu kayıtları etkiler; bu cihazın öteki değişiklikleri seçimden sonra gönderilir.`

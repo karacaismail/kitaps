@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {FINE_GRAINED_TOKEN,GITHUB_REQUEST_HEADERS,GitHubStateBatcher,GitHubStateRepository,GitHubStateRepositoryError,MIN_GITHUB_SYNC_DELAY_MS,applyPendingMutations,assertStateDocument,emptyStateDocument,planConnect,planFirstSync,projectPublicState,upgradeStateDocument} from '../src/state/index.ts';
+import {FINE_GRAINED_TOKEN,GITHUB_REQUEST_HEADERS,GitHubStateBatcher,GitHubStateRepository,GitHubStateRepositoryError,MIN_GITHUB_SYNC_DELAY_MS,applyPendingMutations,assertStateDocument,emptyStateDocument,fieldStamp,planConnect,planFirstSync,projectPublicState,upgradeStateDocument} from '../src/state/index.ts';
 
 // Copied from GitHub's live preflight response (Access-Control-Allow-Headers).
 const GITHUB_CORS_ALLOWED=['authorization','content-type','if-match','if-modified-since','if-none-match','if-unmodified-since','accept-encoding','x-github-otp','x-requested-with','user-agent','graphql-features','x-github-next-global-id','x-github-api-version','x-fetch-nonce','copilot-integration-id','dd-client-token','x-client-application'];
@@ -418,8 +418,11 @@ test('bases keep the stamps an unsent edit was based on, and re-queued edits kee
  const local=storage();
  const repository=new GitHubStateRepository({storage:local,clock:()=>new Date(timestamp(20)),fetch:async()=>raw(emptyStateDocument())});
  repository.queueBookState('edited',{states:['okunuyor']});
- repository.recordBases(document({edited:record(5,{states:['onemli']},{states:timestamp(5)}),seen:record(6,{states:['alindi'],reading:{why:'not'}},{states:timestamp(6),reading:timestamp(6)})},timestamp(6)));
- assert.deepEqual(repository.readBases().books,{seen:{states:timestamp(6),reading:timestamp(6)}},'the edited book keeps no newer base than its edit');
+ const file=document({edited:record(5,{states:['onemli'],reading:{why:'not'}},{states:timestamp(5),reading:timestamp(5)}),seen:record(6,{states:['alindi'],reading:{why:'not'}},{states:timestamp(6),reading:timestamp(6)})},timestamp(6));
+ repository.recordBases(file);
+ assert.deepEqual(repository.readBases().books,{edited:{reading:timestamp(5)},seen:{states:timestamp(6),reading:timestamp(6)}},'only the edited field keeps its older base');
+ repository.recordBases(file,{forceBooks:['edited']});
+ assert.deepEqual(repository.readBases().books.edited,{states:timestamp(5),reading:timestamp(5)},'a decided book takes the file it was decided against');
  const before=repository.pendingMutations()[0];
  repository.requeuePendingFor(['edited'],false);
  const after=repository.pendingMutations()[0];
@@ -427,4 +430,14 @@ test('bases keep the stamps an unsent edit was based on, and re-queued edits kee
  assert.ok(Date.parse(after.updatedAt)>Date.parse(before.updatedAt),'kept edits are stamped anew so they win');
  repository.beginConnectReview();assert.equal(repository.hasConnectReviewPending(),true);
  repository.clearConnectReview();assert.equal(repository.hasConnectReviewPending(),false);
+});
+
+test('a partly stamped legacy record answers from its stamps alone, like the merge',()=>{
+ const partly={updatedAt:timestamp(9),value:{states:['onemli'],reading:{why:'eski not'}},stamps:{states:timestamp(9)}};
+ assert.equal(fieldStamp(partly,'states'),timestamp(9));
+ assert.equal(fieldStamp(partly,'reading'),undefined,'an unstamped field predates stamps; any edit may overwrite it');
+ const legacy={updatedAt:timestamp(4),value:{states:['onemli']}};
+ assert.equal(fieldStamp(legacy,'states'),timestamp(4));
+ assert.equal(fieldStamp(legacy,'reading'),undefined);
+ assert.equal(fieldStamp({updatedAt:timestamp(3),value:null},'reading'),timestamp(3));
 });

@@ -12,6 +12,9 @@ const readingPayload=(personal,id)=>{
  return Object.keys(reading).length?reading:null;
 };
 const publicPayload=(id,states,personal)=>({states:states[id]||[],reading:readingPayload(personal,id)});
+// Only the fields a view holds: an empty field this device never set must not travel as a
+// value, or it would overwrite another device's note or marks.
+const setFields=view=>({...(view.states.length?{states:view.states}:{}),...(view.reading?{reading:view.reading}:{})});
 const signature=value=>JSON.stringify(value);
 const emptySignature=signature({states:[],reading:null});
 const modelSnapshot=(bookIds,states,personal)=>new Map(bookIds.map(id=>[id,publicPayload(id,states,personal)]));
@@ -23,6 +26,7 @@ const RETURN_REFRESH_MS=30_000;
 
 const clock=ms=>new Date(ms).toLocaleTimeString('tr-TR',{hour:'2-digit',minute:'2-digit'});
 const readMessage=error=>error?.code==='rate-limited'?`GitHub istek sınırına ulaşıldı; ${clock(error.retryAt)} sonrasında yeniden denenecek.`:error?.code==='not-found'?'Durum deposu henüz hazırlanmadı.':error?.code==='invalid-data'?'GitHub durum dosyası güvenli biçimde okunamadı.':'GitHub durumu okunamadı.';
+const REVIEW_FAILED='Bu cihazın kayıtları GitHub’dakiyle karşılaştırılamadı; sayfaya dönünce yeniden denenecek. O zamana kadar hiçbir şey gönderilmez.';
 const writeMessage=error=>error?.code==='unauthorized'?'GitHub anahtarı reddetti: süresi dolmuş ya da kitaps-state için yazma izni kaldırılmış olabilir. Anahtarı kaldırıp yeni bir anahtarla bu cihazı yeniden bağla.':error?.code==='storage'?'Tarayıcının yerel eşitleme alanına yazılamadı.':error?.code==='rate-limited'?`GitHub istek sınırına ulaşıldı; değişiklikler kuyrukta, ${clock(error.retryAt)} sonrasında gönderilecek.`:'Eşitleme tamamlanamadı; değişiklikler cihazda kuyrukta ve otomatik olarak yeniden denenecek.';
 
 /** The copy of this device's records taken before a first sync decision. */
@@ -92,6 +96,8 @@ export function useGitHubStateSync({bookIds,states,setStates,personal,setPersona
   loading.current=true;
   const run=(async()=>{
    const baseline=modelSnapshot(bookIds,latest.current.states,latest.current.personal),baselineQueue=queueSignature(latest.current.personal);
+   // A read that started without the key may be the CDN copy, up to five minutes old.
+   const authenticated=repository.hasToken();
    if(!silent)setSync(value=>({...value,status:'loading',message:'GitHub durumu okunuyor.'}));
    try{
     const remoteDocument=await repository.load({fresh});
@@ -101,8 +107,10 @@ export function useGitHubStateSync({bookIds,states,setStates,personal,setPersona
      // A device that has never synced adds what only it knows. Where both sides
      // disagree, nothing is overwritten until the reader decides.
      const plan=planFirstSync(baseline,latest.current.personal.queue,projectPublicState(remoteDocument,bookIds));
-     for(const id of plan.localOnly){const view=baseline.get(id);repository.queueBookState(id,{states:view.states,reading:view.reading});}
+     for(const id of plan.localOnly)repository.queueBookState(id,setFields(baseline.get(id)));
      if(plan.queue==='local-only')repository.queueQueueState(latest.current.personal.queue);
+     // These were compared with the file as it is now; a later connect asks only about what changes after.
+     repository.recordBases(remoteDocument,{skipBooks:plan.conflicts,skipQueue:plan.queue==='conflict',forceBooks:plan.localOnly,forceQueue:plan.queue==='local-only'});
      if(plan.conflicts.length||plan.queue==='conflict'){
       backupBeforeChoice();
       skip={books:new Set(plan.conflicts),queue:plan.queue==='conflict'};
@@ -112,10 +120,14 @@ export function useGitHubStateSync({bookIds,states,setStates,personal,setPersona
     }
     const document=await repository.loadWithPending(remoteDocument);
     applyDocument(document,baseline,baselineQueue,skip);hydrated.current=true;
-    repository.recordBases(remoteDocument,skip.books,skip.queue);
+    // A book edited while this read was under way keeps its old base: its edit is not yet queued.
+    const now=modelSnapshot(bookIds,latest.current.states,latest.current.personal);
+    const editing=[...now].filter(([id,view])=>signature(view)!==signature(baseline.get(id))).map(([id])=>id);
+    repository.recordBases(remoteDocument,{skipBooks:[...skip.books,...editing],skipQueue:skip.queue||queueSignature(latest.current.personal)!==baselineQueue});
     // A connected device that has not yet compared its unsent edits does so now,
-    // also after a reload or a failed first attempt.
-    if(reviewPending()&&repository.hasToken()&&!firstSyncRemote.current){await reviewLatest.current(remoteDocument);return;}
+    // also after a reload or a failed first attempt. Only a read made with the key
+    // is fresh enough to compare against; otherwise the comparison reads again.
+    if(reviewPending()&&repository.hasToken()&&!firstSyncRemote.current){await reviewLatest.current(authenticated?remoteDocument:undefined);return;}
     const pending=repository.getPendingCount();
     if(repository.hasToken()&&pending)batcher.current?.schedule();
     setSync(value=>({...value,status:pending?'queued':'ready',message:pending?(value.hasToken?'Değişiklikler cihazda; ilk değişiklikten iki dakika sonra toplu gönderilecek.':'Değişiklikler cihazda kuyrukta; GitHub’a göndermek için bu cihazı bağla.'):(value.hasToken?'GitHub durumu güncel.':'GitHub durumu salt okunur olarak güncel.'),pending}));
@@ -124,7 +136,9 @@ export function useGitHubStateSync({bookIds,states,setStates,personal,setPersona
     if(!hydrated.current)for(const [id,value] of baseline)known.current.set(id,value);
     if(knownQueue.current===null)knownQueue.current=baselineQueue;
     hydrated.current=true;
-    setSync(value=>({...value,status:'error',message:readMessage(error),pending:pendingCount()}));
+    // While a connect still waits for its comparison, the notice says why nothing is sent.
+    const waiting=reviewPending()&&repository.hasToken()?REVIEW_FAILED:null;
+    setSync(value=>({...value,status:'error',message:waiting??readMessage(error),writeError:waiting??value.writeError,pending:pendingCount()}));
    }finally{loading.current=false;}
   })();
   refreshing.current=run;
@@ -136,19 +150,22 @@ export function useGitHubStateSync({bookIds,states,setStates,personal,setPersona
  // A newly connected device compares its unsent edits with the shared file before it
  // sends anything. Where another device saved a different value meanwhile, the reader
  // decides through the merge dialog (after a backup); everything else is sent at once.
- const reviewConnection=useCallback(async remoteDocument=>{
+ const reviewing=useRef(null);
+ const reviewConnection=useCallback(remoteDocument=>{
+  if(reviewing.current)return reviewing.current;
+  const run=(async()=>{
   if(firstSyncRemote.current||!reviewPending())return;
   const baseline=modelSnapshot(bookIds,latest.current.states,latest.current.personal),baselineQueue=queueSignature(latest.current.personal);
   let remote=remoteDocument;
   if(!remote){
    try{remote=await repository.load({fresh:true});lastRefresh.current=Date.now();}
    catch{
-    const message='Bu cihazın kayıtları GitHub’dakiyle karşılaştırılamadı; sayfaya dönünce yeniden denenecek. O zamana kadar hiçbir şey gönderilmez.';
-    setSync(value=>({...value,status:'error',message,writeError:message,pending:pendingCount()}));
+    setSync(value=>({...value,status:'error',message:REVIEW_FAILED,writeError:REVIEW_FAILED,pending:pendingCount()}));
     return;
    }
   }
-  if(firstSyncRemote.current)return;
+  // The key may have been removed, or another review may have finished, while this one read.
+  if(firstSyncRemote.current||!reviewPending()||!repository.hasToken())return;
   const catalogIds=new Set(bookIds);
   const plan=planConnect(repository.pendingMutations().filter(item=>item.kind==='queue'||catalogIds.has(item.bookId)),remote,repository.readBases());
   if(plan.conflicts.length||plan.queueConflict){
@@ -168,6 +185,11 @@ export function useGitHubStateSync({bookIds,states,setStates,personal,setPersona
   }
   applyDocument(await repository.loadWithPending(remote),baseline,baselineQueue,blocked.current);
   setSync(value=>({...value,status:'ready',writeError:null,pending:0,message:'Bu cihaz bağlandı; değişiklikleri artık GitHub’a gönderilecek.'}));
+  })();
+  reviewing.current=run;
+  const settle=()=>{if(reviewing.current===run)reviewing.current=null};
+  run.then(settle,settle);
+  return run;
  },[applyDocument,bookIds,repository]);
  reviewLatest.current=reviewConnection;
 
@@ -180,14 +202,15 @@ export function useGitHubStateSync({bookIds,states,setStates,personal,setPersona
     repository.requeuePendingFor(decision.books,decision.queue);
    }else{
     const snapshot=modelSnapshot(bookIds,latest.current.states,latest.current.personal);
-    for(const id of decision.books){const view=snapshot.get(id);if(!view)continue;repository.queueBookState(id,{states:view.states,reading:view.reading});}
+    for(const id of decision.books){const view=snapshot.get(id);if(view&&(view.states.length||view.reading))repository.queueBookState(id,setFields(view));}
     if(decision.queue)repository.queueQueueState(latest.current.personal.queue);
    }
   }
   blocked.current=noSkip();firstSyncRemote.current=null;mergeReason.current=null;repository.markInitialMigrationComplete();setMergePrompt(null);
   if(choice!=='device')repository.discardPendingFor(decision.books,decision.queue);
   applyDocument(await repository.loadWithPending(remote));
-  repository.recordBases(remote);
+  // The decided books were compared with this file; a later connect asks only about what changes after.
+  repository.recordBases(remote,{forceBooks:decision.books,forceQueue:decision.queue});
   if(reason==='connect')repository.clearConnectReview();
   // A first-sync choice made while connecting: the rest of this device's edits are compared next.
   else if(reviewPending()&&repository.hasToken()){await reviewLatest.current();return;}
@@ -216,7 +239,7 @@ export function useGitHubStateSync({bookIds,states,setStates,personal,setPersona
    setSync(value=>({...value,status:'saving',message:'Değişiklikler GitHub’a yazılıyor.'}));
    try{
     const document=await repository.flushPending({keepalive});applyDocument(document,baseline,baselineQueue,blocked.current);
-    repository.recordBases(document,blocked.current.books,blocked.current.queue);
+    repository.recordBases(document,{skipBooks:blocked.current.books,skipQueue:blocked.current.queue});
     lastRefresh.current=Date.now();
     setSync(value=>({...value,status:'ready',message:'GitHub ile eşitlendi.',writeError:null,pending:repository.getPendingCount()}));return document;
    }catch(error){
@@ -245,10 +268,11 @@ export function useGitHubStateSync({bookIds,states,setStates,personal,setPersona
   setSync(value=>({...value,status:'loading',message:'GitHub anahtarı doğrulanıyor.'}));
   try{
    await repository.validateToken(token);
+   // The review marker goes down before the key: from here on nothing is sent until the
+   // comparison has run, whatever asks to send (the batcher, leaving the page, a reload).
+   repository.beginConnectReview();
+   try{repository.setToken(token)}catch(error){try{repository.clearConnectReview()}catch{/* Nothing more to undo. */}throw error;}
   }catch(error){setSync(value=>({...value,status:'error',hasToken:tokenPresent(),message:error.code==='read-only'?'Bu anahtar kitaps-state deposuna yazamıyor. Anahtarın Repository access bölümünde kitaps-state seçili, Contents izni Read and write olmalı; anahtar kaydedilmedi.':error.code==='token-type'?'Yalnız ince ayarlı (fine-grained) ve yalnız karacaismail/kitaps-state deposuna yetkili bir anahtar kabul edilir; anahtar kaydedilmedi.':error.code==='storage'?'Anahtar bu tarayıcıya kaydedilemedi.':error.code==='rate-limited'?readMessage(error):'GitHub anahtarı doğrulanamadı; anahtar kaydedilmedi.'}));throw error;}
-  // The review marker goes down before the key: from here on nothing is sent until the
-  // comparison has run, whatever asks to send (the batcher, leaving the page, a reload).
-  repository.beginConnectReview();repository.setToken(token);
   setSync(value=>({...value,status:'loading',hasToken:true,writeError:null,message:'Anahtar doğrulandı; bu cihazın kayıtları GitHub’dakiyle karşılaştırılıyor.'}));
   if(!repository.hasCompletedInitialMigration()&&!firstSyncRemote.current)await refresh(true,true);
   else if(loading.current)await refreshing.current;
@@ -282,8 +306,10 @@ export function useGitHubStateSync({bookIds,states,setStates,personal,setPersona
     if(previous&&signature(previous)===current)continue;
     if(!previous&&current===emptySignature){known.current.set(id,payload);continue;}
     const patch={};
-    if(!previous||signature(previous.states||[])!==signature(payload.states))patch.states=payload.states;
-    if(!previous||signature(previous.reading??null)!==signature(payload.reading))patch.reading=payload.reading;
+    // A book never seen before is compared with the empty value, so only fields this device set travel.
+    const before=previous??{states:[],reading:null};
+    if(signature(before.states||[])!==signature(payload.states))patch.states=payload.states;
+    if(signature(before.reading??null)!==signature(payload.reading))patch.reading=payload.reading;
     batcher.current.queueBookState(id,patch,undefined,false);known.current.set(id,payload);
    }
    const queue=queueSignature(personal);
@@ -293,7 +319,7 @@ export function useGitHubStateSync({bookIds,states,setStates,personal,setPersona
    // re-rendering the app on every pass.
    setSync(value=>{
     if(!pending)return value.pending===0?value:{...value,pending};
-    const message=value.hasToken?'Değişiklikler cihazda; ilk değişiklikten iki dakika sonra toplu gönderilecek.':'Değişiklikler cihazda kuyrukta; GitHub’a göndermek için bu cihazı bağla.';
+    const message=value.hasToken?(reviewPending()?'Değişiklikler cihazda; bu cihazın kayıtları GitHub’dakiyle karşılaştırıldıktan sonra gönderilecek.':'Değişiklikler cihazda; ilk değişiklikten iki dakika sonra toplu gönderilecek.'):'Değişiklikler cihazda kuyrukta; GitHub’a göndermek için bu cihazı bağla.';
     return value.status==='queued'&&value.pending===pending&&value.message===message?value:{...value,status:'queued',message,pending};
    });
    if(sync.hasToken&&pending)batcher.current.schedule();else batcher.current.cancel();

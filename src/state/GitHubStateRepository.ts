@@ -8,6 +8,7 @@ import {
   GITHUB_STATE_PENDING_KEY,
   GITHUB_STATE_TOKEN_KEY,
   LEGACY_GITHUB_STATE_PENDING_KEY,
+  type BookField,
   type BookStatePayload,
   type StateBases,
   type GitHubStateRepositoryOptions,
@@ -172,22 +173,30 @@ export class GitHubStateRepository {
     return { books: {} };
   }
 
-  /** Records what this device now shows from the shared file. Books and the queue
-   * with unsent edits keep the stamps their edits were based on. */
-  recordBases(document: StateDocument, skipBooks: Iterable<string> = [], skipQueue = false): void {
+  /** Records what this device now shows from the shared file. A field an unsent
+   * edit carries keeps the stamp that edit was based on; the book's other field and
+   * every other book move on. `forceBooks`/`forceQueue` record the file as it was
+   * when the reader decided about those books, even though their edits are unsent. */
+  recordBases(document: StateDocument, options: { skipBooks?: Iterable<string>; skipQueue?: boolean; forceBooks?: Iterable<string>; forceQueue?: boolean } = {}): void {
     const bases = this.readBases();
     const pending = this.readPending().mutations;
-    const held = new Set([...skipBooks, ...pending.flatMap(item => item.kind === 'book' ? [item.bookId] : [])]);
+    const skip = new Set(options.skipBooks ?? []);
+    const force = new Set(options.forceBooks ?? []);
+    const held = new Map<string, Set<BookField>>();
+    for (const item of pending) if (item.kind === 'book') held.set(item.bookId, new Set(item.value === null ? BOOK_FIELDS : BOOK_FIELDS.filter(field => field in item.value!)));
     for (const [bookId, record] of Object.entries(document.books)) {
-      if (held.has(bookId)) continue;
-      const stamps: Partial<Record<(typeof BOOK_FIELDS)[number], string>> = {};
+      if (skip.has(bookId)) continue;
+      const keep = force.has(bookId) ? new Set<BookField>() : held.get(bookId) ?? new Set<BookField>();
+      const stamps = { ...(bases.books[bookId] ?? {}) };
       for (const field of BOOK_FIELDS) {
+        if (keep.has(field)) continue;
         const stamp = fieldStamp(record, field);
-        if (stamp) stamps[field] = stamp;
+        if (stamp) stamps[field] = stamp; else delete stamps[field];
       }
       bases.books[bookId] = stamps;
     }
-    if (!skipQueue && document.queue && !pending.some(item => item.kind === 'queue')) bases.queue = document.queue.updatedAt;
+    const queueHeld = pending.some(item => item.kind === 'queue') && !options.forceQueue;
+    if (!options.skipQueue && !queueHeld && document.queue) bases.queue = document.queue.updatedAt;
     try { this.writeStorage(GITHUB_STATE_BASE_KEY, JSON.stringify(bases)); } catch { /* Without bases, the next connect asks more often. */ }
   }
 

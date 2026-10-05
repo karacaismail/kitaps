@@ -70,6 +70,10 @@ Kaynak veride hiçbir kitaba doğrudan puan yazılmaz.
 - **Bağlanma:** Bir cihaz anahtarla bağlandığında, bağlı değilken yaptığı ve gönderemediği değişiklikler ortak dosyayla karşılaştırılır.
   - Karşılaştırma bitene kadar hiçbir şey gönderilmez. Bunu kalıcı bir işaret sağlar: zamanlayıcı, sayfadan ayrılma ya da yeniden yükleme karşılaştırmayı atlayamaz. Okuma başarısız olursa işaret kalır, uyarı görünür ve karşılaştırma sayfaya dönünce yeniden denenir.
   - Cihaz, ortak dosyadan aldığı her alanın zamanını (`kitapatlasi:github-state:base:v1`) saklar. Bir alan yalnızca başka bir cihaz onu bu cihazın son gördüğünden sonra kaydettiyse (ya da bu cihaz hiç görmediyse) ve değerler farklıysa sorulur. Cihazın kendi okuyup değiştirdiği değer soru değildir.
+  - Gönderilmemiş bir değişiklik yalnız taşıdığı alanın zamanını eski haliyle tutar; kitabın öteki alanı ilerler. İlk eşitlemede ya da bir seçimde karara bağlanan kitaplar, karar anındaki dosyayı temel alır; aynı soru bağlanınca yeniden sorulmaz. Okuma sürerken düzenlenen kitabın temeli o okumayla ilerlemez.
+  - Karşılaştırma yalnız anahtarla yapılmış (taze) bir okumaya dayanır. Anahtar kaydedilmeden başlamış bir okuma CDN kopyası olabileceğinden karşılaştırma kendi okumasını yapar. Aynı anda tek karşılaştırma çalışır; anahtar bu sırada kaldırılırsa karşılaştırma bir şey göndermez.
+  - Yalnız bu cihazda olan kayıtlar ve yeni kitaplar yalnız gerçekten taşıdıkları alanlarla kuyruğa girer; boş bir alan başka cihazın notunu ya da işaretlerini silmez.
+  - Alan zamanı (`stamps`) taşıyan bir kayıtta zamanı olmayan alan, birleştirme kuralındaki gibi zamansız sayılır.
   - Soru sorulmadan önce yerel kayıtların ve gönderilmemiş değişikliklerin yedeği alınır.
   - "Bu cihazdakini kullan", yalnızca bu cihazın değiştirdiği alanları yeniden zaman damgalar; bu cihazın dokunmadığı alanlar (ör. başka cihazın notu) korunur. "GitHub'dakini kullan" bu kitapların gönderilmemiş değişikliklerini bırakır.
   - Alan bazında son yazan kazanır kuralı aksi halde bir tarafı sessizce silerdi. Karardan sonra sonuç hemen gönderilir.
