@@ -42,6 +42,13 @@ Anahtar tarayıcıda saklanır. `karacaismail.github.io` altındaki bütün Page
 - Eklenme günleri `data/added-dates.json` içindedir ve git geçmişinden çıkarılır: ilk Kitaps sitesinin commit'leri (2 Eylül 2026), Kitap Atlası çalışma kopyasının commit'leri (26 Eylül 2026) ve bu depo. Bir kitabın günü, kitabı kimliği, ilk Kitaps anahtarı veya atlas anahtarıyla içeren ilk commit'in tarihidir; başlık benzerliği kullanılmaz. Henüz commit edilmemiş kitaplar çalışma günü tarihini alır.
 - Raf taraması değerlendirmesi `data/shelf-review.json` içindedir: fotoğraflanan kitap raflarından yapılan okuma önerileri, öncelik ve koşul notlarıyla. Yeni Türkçe baskılar iki ayrı sitede doğrulandı. Benzer adlı ya da karışabilecek kitaplar kümenin notunda ve ilgili kitabın sayfasında belirtilir. Öncelikler not olarak kalır, puana eklenmez.
 - Eseri veya baskısı belirsiz kayıtlarda kapak yerine açıklama gösterilir. Yanlış eserle eşleşen kapaklar `data/rejected-cover-matches.json` içinde gerekçesiyle korunur.
+- Her kapağın iki kopyası vardır: `public/covers/` (en çok 720 px, 2x masaüstü ekranları) ve `public/covers/sm/` (en çok 400 px, telefonlar ve küçük kapaklar). Tarayıcı `srcset` ile gösterilen boyuta ve ekran yoğunluğuna uyanı indirir.
+- `scripts/upgrade-covers.py`, her kapağın gerçek çözünürlüğünü ölçer (mağazanın büyüttüğü pikselleri saymaz).
+  - Aynı kapağın daha keskin bir kopyasını sırasıyla şuralarda arar: kaydedilen görselin büyük ya da özgün boyutu, ardından ISBN ile D&R, Amazon ve Open Library.
+  - Bir kopya yalnız görsel benzerlik ve oran denetiminden geçerse kullanılır; böylece başka bir baskının kapağı girmez.
+  - "kitapyurdu.com" damgalı bir görsel yalnız zaten damgalı bir kapağın yerine geçer; temiz bir kopya bulunursa o seçilir.
+  - Her kapağın kaynağı ve kararı `data/cover-upgrades.json` dosyasındadır. Gözle reddedilen eşleşmeler ve yanlış kapak düzeltmeleri betikte gerekçesiyle yazılıdır.
+  - Yeniden çalıştırmak için: `python3 scripts/upgrade-covers.py --cache <depo dışında bir klasör> --write`.
 - [Kontrol kapsamı ve bilinen sınırlar](docs/UX-VALIDATION.md) · [Bağımsız denetim raporu](docs/BAGIMSIZ-DENETIM-RAPORU.md)
 
 ## Arama motorları
