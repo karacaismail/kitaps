@@ -1,30 +1,37 @@
 #!/usr/bin/env python3
-"""Replace soft cover images with sharper copies of the same cover.
+"""Make covers sharper without changing which printing they show.
 
 Book cards are up to 270 CSS px wide on desktop (four columns), so a sharp
 cover needs about 540 real pixels on a 2x screen. Many covers were saved
 smaller, and some that look large were upscaled by the shop that served
-them. This script measures each cover's real resolution, looks for sharper
-copies of the same image and keeps one only when:
+them. This script measures each cover's real resolution (upscaled pixels do
+not count) and replaces it only with a larger copy of the same image from
+the same source: the recorded image URL at a larger size or as the original
+upload (FT, Porchlight, Open Library, Kitapyurdu and similar).
 
-  * it shows the same cover (perceptual hash and proportions match the
-    cover already chosen for that edition, so no other edition sneaks in);
-  * it really holds more detail (upscaled pixels are not counted).
-
-Sources, in order: the recorded image URL at a larger size or as the
-original, then the edition's ISBN on D&R (Turkish editions), Amazon, Open
-Library and Google Books.
+It never takes an image from another site. A shop listing the same ISBN
+often shows another printing (another print-run badge, series header or
+quote), and the cover is evidence of the catalog's edition: the book page
+links to the page the cover came from. A cover from elsewhere is used only
+after a person compared both at full size; such cases are listed in
+REPLACE with the reason, and their source is written into the cover's data
+record so the evidence link shows the same image.
 
 Every cover then gets two files:
-  public/covers/<name>     up to 720 px wide (desktop, 2x screens)
+  public/covers/<name>     up to 720 px wide (2x desktop screens)
   public/covers/sm/<name>  up to 400 px wide (phones and thumbnails; srcset picks it)
 
-What happened to each cover, with the source of every replacement, is
-written to data/cover-upgrades.json.
+What happened to each cover, with the URL of every larger copy, is merged
+into data/cover-upgrades.json.
 
 Usage:
-  python3 scripts/upgrade-covers.py --cache <dir> [--limit N] [--only id,...] [--write]
-Without --write, nothing in public/ or data/ changes.
+  python3 scripts/upgrade-covers.py --cache <dir> [--base-rev REV] [--only id,...] [--force] [--write]
+
+--base-rev reads each cover's original image from that git revision (use it
+after covers were replaced, so measurements start from the originals).
+Without it the files on disk are the starting point, and covers already in
+data/cover-upgrades.json are skipped unless --force is given.
+Without --write nothing in public/ or data/ changes.
 """
 from __future__ import annotations
 
@@ -34,10 +41,13 @@ import datetime as dt
 import hashlib
 import io
 import json
+import os
 import pathlib
 import re
+import subprocess
 import threading
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 
@@ -46,18 +56,20 @@ from PIL import Image, ImageOps
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PUBLIC = ROOT / 'public'
+REPORT = ROOT / 'data' / 'cover-upgrades.json'
 LARGE, SMALL = 720, 400
 # Real detail is assumed where halving the image loses at least this much (mean
 # absolute grey-level difference). True-resolution covers lose 1.4 to 10;
 # upscaled ones 0.2 to 0.8.
 DETAIL = 1.2
-# 64-bit difference hash: the same cover at another size stays within a few bits.
-SAME_COVER_BITS = 10
-# Kitapyurdu stamps "kitapyurdu.com" across the lower cover at every size. Such a copy
-# replaces only a cover that already carries the stamp, and a clean copy wins over it.
+# 64-bit difference hash: a larger copy of the same image stays within a few bits.
+SAME_IMAGE_BITS = 6
+USER_AGENT = 'KitaplikCoverCheck/1.0 (+https://github.com/karacaismail/kitaps)'
+# Kitapyurdu stamps "kitapyurdu.com" across the lower cover at every size.
 WATERMARKED = ('img.kitapyurdu.com',)
-# Matches the hash accepts but a person rejected on sight: another printing's cover.
-# Covers a person found wrong on sight, with the right image for the same ISBN.
+
+# Covers a person compared at full size and found wrong, with the right image of the
+# same edition. The cover's data record names this source too (see the module docstring).
 REPLACE = {
     'marketing': {
         'source': 'Amazon',
@@ -65,59 +77,64 @@ REPLACE = {
         'reason': 'The previous image was a text page from inside the book; this is the cover of the same edition (ISBN 9781500619213).',
     },
 }
-KEEP = {
-    'goal': 'The sharper copy is the revised edition ("Gözden geçirilmiş yeni baskı"); the catalog shows the 40th-anniversary printing.',
-    'pollyanna': 'The sharper copy has a different series header (Modern Klasikler Dizisi).',
-}
-UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Safari/605.1.15'
-_host_locks: dict[str, threading.BoundedSemaphore] = {}
-_host_last: dict[str, float] = {}
+
 _lock = threading.Lock()
+_host_slots: dict[str, threading.BoundedSemaphore] = {}
+_host_next: dict[str, float] = {}
 
 
-def host_gate(url: str) -> threading.BoundedSemaphore:
-    host = urllib.parse.urlparse(url).netloc
-    with _lock:
-        return _host_locks.setdefault(host, threading.BoundedSemaphore(2))
-
-
-def fetch(url: str, cache: pathlib.Path, binary: bool = True) -> bytes | None:
-    """GET with a disk cache and at most two requests at a time per host, spaced out."""
+def fetch(url: str, cache: pathlib.Path) -> bytes | None:
+    """GET with a disk cache. Only answers that will not change (2xx, 404) are
+    cached; timeouts, rate limits and server errors are retried on the next run.
+    At most two requests per host at a time, started at least 0.6 s apart."""
     key = cache / hashlib.sha1(url.encode()).hexdigest()
     if key.exists():
-        data = key.read_bytes()
-        return data or None
+        return key.read_bytes() or None
     host = urllib.parse.urlparse(url).netloc
-    with host_gate(url):
+    with _lock:
+        slots = _host_slots.setdefault(host, threading.BoundedSemaphore(2))
+    with slots:
         with _lock:
-            wait = _host_last.get(host, 0) + 0.6 - time.monotonic()
-        if wait > 0:
-            time.sleep(wait)
-        with _lock:
-            _host_last[host] = time.monotonic()
-        started = time.monotonic()
+            start = max(time.monotonic(), _host_next.get(host, 0.0))
+            _host_next[host] = start + 0.6
+        time.sleep(max(0.0, start - time.monotonic()))
+        began = time.monotonic()
+        status: int | str
         try:
-            request = urllib.request.Request(url, headers={'User-Agent': UA, 'Accept': 'image/avif,image/webp,image/*,*/*;q=0.8' if binary else 'text/html,*/*'})
+            request = urllib.request.Request(url, headers={'User-Agent': USER_AGENT, 'Accept': 'image/avif,image/webp,image/*,*/*;q=0.8'})
             with urllib.request.urlopen(request, timeout=15) as response:
-                data = response.read()
-            outcome = 'ok'
+                data, status = response.read(), response.status
+        except urllib.error.HTTPError as error:
+            data, status = b'', error.code
         except Exception as error:
-            data = b''
-            outcome = type(error).__name__ + ':' + str(getattr(error, 'code', ''))
-    key.write_bytes(data)
+            data, status = b'', type(error).__name__
+    lasting = (isinstance(status, int) and 200 <= status < 300) or status == 404
+    if lasting:
+        temporary = key.with_suffix('.part')
+        temporary.write_bytes(data)
+        os.replace(temporary, key)
     with _lock, open(cache / 'requests.log', 'a') as log:
-        log.write(f'{host}\t{outcome}\t{time.monotonic() - started:.1f}s\t{len(data)}\t{url}\n')
+        log.write(f'{host}\t{status}\t{time.monotonic() - began:.1f}s\t{len(data)}\t{url}\n')
     return data or None
 
 
+def flatten(image: Image.Image) -> Image.Image:
+    """RGB on white, so transparent areas do not turn black in a JPEG."""
+    if image.mode in ('RGBA', 'LA') or (image.mode == 'P' and 'transparency' in image.info):
+        image = image.convert('RGBA')
+        background = Image.new('RGB', image.size, 'white')
+        background.paste(image, mask=image.split()[-1])
+        return background
+    return image.convert('RGB')
+
+
 def open_image(data: bytes | None) -> Image.Image | None:
-    if not data or len(data) < 1500:  # placeholders (Amazon's 1x1 GIF, empty answers)
+    if not data or len(data) < 1500:  # placeholders and empty answers
         return None
     try:
         image = Image.open(io.BytesIO(data))
         image.load()
-        image = ImageOps.exif_transpose(image)
-        return image.convert('RGB') if image.mode not in ('RGB', 'L') else image
+        return flatten(ImageOps.exif_transpose(image))
     except Exception:
         return None
 
@@ -131,16 +148,18 @@ def loss(image: Image.Image, scale: float) -> float:
 
 def effective_width(image: Image.Image) -> int:
     """The width up to which the image holds real detail: the largest size at
-    which it still behaves like a true-resolution picture."""
+    which it still behaves like a true-resolution picture. When no size
+    qualifies (a plain, low-contrast cover), the full width is assumed, so a
+    cover is never shrunk on a guess."""
     w, h = image.size
-    for scale in (1.0, 0.85, 0.7, 0.6, 0.5, 0.42, 0.35, 0.3, 0.25, 0.2):
+    for scale in (1.0, 0.85, 0.7, 0.6, 0.5, 0.42, 0.35, 0.3, 0.25):
         width = round(w * scale)
         if width < 100:
             break
         test = image if scale == 1.0 else image.resize((width, max(8, round(h * scale))), Image.LANCZOS)
         if loss(test, 0.5) >= DETAIL:
             return width
-    return max(1, round(w * 0.2))
+    return w
 
 
 def dhash(image: Image.Image) -> int:
@@ -149,41 +168,19 @@ def dhash(image: Image.Image) -> int:
     return int(''.join('1' if bit else '0' for bit in bits), 2)
 
 
-def trim(image: Image.Image) -> Image.Image:
-    """Drops a plain border (white or black padding some shops add) before comparing."""
-    grey = np.asarray(image.convert('L'), dtype=np.int16)
-    for background in (grey[0, 0], 255, 0):
-        mask = np.abs(grey - background) > 18
-        if mask.any():
-            rows, cols = np.where(mask.any(axis=1))[0], np.where(mask.any(axis=0))[0]
-            box = (cols[0], rows[0], cols[-1] + 1, rows[-1] + 1)
-            if (box[2] - box[0]) * (box[3] - box[1]) >= 0.5 * grey.size:
-                return image.crop(box)
-    return image
+def same_image(reference: Image.Image, candidate: Image.Image) -> tuple[bool, int]:
+    """A larger copy of the same upload: same proportions, nearly the same hash."""
+    gap = abs(reference.height / reference.width - candidate.height / candidate.width) / (reference.height / reference.width)
+    distance = bin(dhash(reference) ^ dhash(candidate)).count('1')
+    return distance <= SAME_IMAGE_BITS and gap <= 0.03, distance
 
 
-def same_cover(reference: Image.Image, candidate: Image.Image) -> tuple[bool, int, float]:
-    a, b = trim(reference), trim(candidate)
-    ratio_a, ratio_b = a.height / a.width, b.height / b.width
-    ratio_gap = abs(ratio_a - ratio_b) / ratio_a
-    distance = bin(dhash(a) ^ dhash(b)).count('1')
-    return distance <= SAME_COVER_BITS and ratio_gap <= 0.08, distance, round(ratio_gap, 3)
-
-
-def isbn10(isbn13: str) -> str | None:
-    if not re.fullmatch(r'978\d{10}', isbn13 or ''):
-        return None
-    core = isbn13[3:12]
-    check = (11 - sum((10 - i) * int(d) for i, d in enumerate(core)) % 11) % 11
-    return core + ('X' if check == 10 else str(check))
-
-
-def upgrades_of(url: str) -> list[str]:
-    """Larger or original versions of an image URL, by host."""
+def larger_copies(url: str) -> list[str]:
+    """Larger or original versions of the same image at the same source."""
     if not url:
         return []
     out: list[str] = []
-    for marker in ('/image/v2/images/raw/', '/v3/image/raw/'):  # ft.com image service: use the original
+    for marker in ('/image/v2/images/raw/', '/v3/image/raw/'):  # ft.com image service: the original upload
         if marker in url:
             out.append(urllib.parse.unquote(url.split(marker, 1)[1].split('?', 1)[0]))
     if 'covers.openlibrary.org' in url:
@@ -213,38 +210,6 @@ def upgrades_of(url: str) -> list[str]:
     return [candidate for candidate in dict.fromkeys(out) if candidate != url]
 
 
-def dr_by_isbn(isbn: str, cache: pathlib.Path) -> list[str]:
-    """D&R's search page lists the edition with its uploaded original image."""
-    html = fetch(f'https://www.dr.com.tr/search?q={isbn}', cache, binary=False)
-    if not html:
-        return []
-    files = re.findall(r'i\.dr\.com\.tr/cache/500x400-0/originals/([\w.-]+)', html.decode('utf-8', 'ignore'))
-    return [f'https://i.dr.com.tr/originals/{name}' for name in list(dict.fromkeys(files))[:3]]
-
-
-def google_books(isbn: str, cache: pathlib.Path) -> list[str]:
-    data = fetch(f'https://www.googleapis.com/books/v1/volumes?q=isbn:{isbn}', cache, binary=False)
-    try:
-        items = json.loads(data or b'{}').get('items') or []
-    except ValueError:
-        return []
-    return [f'https://books.google.com/books/content?id={item["id"]}&printsec=frontcover&img=1&zoom=1&fife=w1600' for item in items[:2] if item.get('id')]
-
-
-def candidates(cover: dict, cache: pathlib.Path) -> list[tuple[str, str]]:
-    found = [('kaynak, büyük boyut', url) for url in upgrades_of(cover.get('imageUrl') or '')]
-    isbn = re.sub(r'[^0-9X]', '', cover.get('isbn') or '')
-    if isbn:
-        if cover.get('language') == 'tr' or isbn.startswith(('978605', '978975', '978625', '978994')):
-            found += [('D&R', url) for url in dr_by_isbn(isbn, cache)]
-        ten = isbn10(isbn) if len(isbn) == 13 else (isbn if len(isbn) == 10 else None)
-        if ten:
-            found.append(('Amazon', f'https://m.media-amazon.com/images/P/{ten}.01._SCLZZZZZZZ_.jpg'))
-        found.append(('Open Library', f'https://covers.openlibrary.org/b/isbn/{isbn}-L.jpg?default=false'))
-        found += [('Google Books', url) for url in google_books(isbn, cache)]
-    return found
-
-
 def save(image: Image.Image, path: pathlib.Path, width: int) -> None:
     if image.width > width:
         image = image.resize((width, round(image.height * width / image.width)), Image.LANCZOS)
@@ -253,85 +218,83 @@ def save(image: Image.Image, path: pathlib.Path, width: int) -> None:
     if suffix == '.png':
         image.save(path, 'PNG', optimize=True)
     elif suffix == '.webp':
-        image.convert('RGB').save(path, 'WEBP', quality=84, method=6)
+        image.save(path, 'WEBP', quality=84, method=6)
     else:
-        image.convert('RGB').save(path, 'JPEG', quality=84, optimize=True, progressive=True)
+        image.save(path, 'JPEG', quality=84, optimize=True, progressive=True)
 
 
-def watermarked(url: str) -> bool:
-    return urllib.parse.urlparse(url or '').netloc in WATERMARKED
+def original(src: str, base_rev: str | None) -> tuple[Image.Image, bytes, str]:
+    """The cover as it was before any upgrade: from git when a base revision is
+    given (a cover converted from PNG to JPEG is found under its old name).
+    Returns the image, its bytes and the file name it had."""
+    name, data = src, b''
+    if base_rev:
+        for candidate in (src, re.sub(r'\.jpg$', '.png', src)):
+            shown = subprocess.run(['git', 'show', f'{base_rev}:public/{candidate}'], cwd=ROOT, capture_output=True)
+            if shown.returncode == 0:
+                name, data = candidate, shown.stdout
+                break
+    if not data:
+        data = (PUBLIC / src).read_bytes()
+    image = Image.open(io.BytesIO(data))
+    image.load()
+    return flatten(ImageOps.exif_transpose(image)), data, name
 
 
-def process(src: str, cover: dict, cache: pathlib.Path, write: bool, target: int) -> dict:
-    current = Image.open(PUBLIC / src)
-    current.load()
-    current = current.convert('RGB')
+def process(src: str, cover: dict, cache: pathlib.Path, write: bool, target: int, base_rev: str | None) -> dict:
+    current, current_bytes, old_name = original(src, base_rev)
     eff0 = effective_width(current)
-    stamped = watermarked(cover.get('imageUrl'))
+    stamped = urllib.parse.urlparse(cover.get('imageUrl') or '').netloc in WATERMARKED
     entry: dict = {'from': {'width': current.width, 'effective': eff0, **({'watermark': True} if stamped else {})}}
     best = None
-    if cover.get('bookId') in REPLACE:
-        fix = REPLACE[cover['bookId']]
+    fix = REPLACE.get(cover.get('bookId'))
+    if fix:
         image = open_image(fetch(fix['url'], cache))
         if image is None:
             raise RuntimeError(f"{cover['bookId']}: the reviewed replacement could not be downloaded")
-        best = (fix['source'], fix['url'], effective_width(image), image, None, 0, False)
+        best = (fix['source'], fix['url'], effective_width(image), image, None)
         entry['reason'] = fix['reason']
-    elif cover.get('bookId') in KEEP:
-        entry['status'] = 'kept-by-review'
-        entry['reason'] = KEEP[cover['bookId']]
-    elif eff0 < target or stamped:
-        for source, url in candidates(cover, cache):
+    elif eff0 < target:
+        for url in larger_copies(cover.get('imageUrl') or ''):
             image = open_image(fetch(url, cache))
             if image is None:
                 continue
-            same, distance, ratio_gap = same_cover(current, image)
+            same, distance = same_image(current, image)
             if not same:
-                entry.setdefault('rejected', []).append({'source': source, 'url': url, 'distance': distance, 'ratioGap': ratio_gap})
+                entry.setdefault('rejected', []).append({'url': url, 'distance': distance})
                 continue
             eff = effective_width(image)
-            stamp = watermarked(url)
-            if stamp and not stamped:
-                continue  # never put a stamp on a clean cover
-            sharper = eff >= max(round(eff0 * 1.25), eff0 + 60)
-            cleaner = stamped and not stamp and eff >= round(eff0 * 0.9)
-            score = eff * (0.75 if stamp else 1.0)
-            if (sharper or cleaner) and (best is None or score > best[5]):
-                best = (source, url, eff, image, distance, score, stamp)
+            if eff >= max(round(eff0 * 1.2), eff0 + 40) and (best is None or eff > best[2]):
+                best = ('kaynağın büyük kopyası', url, eff, image, distance)
     if best:
-        source, url, eff, image, distance, _, stamp = best
-        # Pixels beyond the real detail only add bytes.
-        if image.width > eff:
+        source, url, eff, image, distance = best
+        if image.width > eff:  # pixels beyond the real detail only add bytes
             image = image.resize((eff, round(image.height * eff / image.width)), Image.LANCZOS)
-        entry.update(status='replaced-by-review' if distance is None else 'upgraded', to={'width': min(eff, LARGE), 'effective': eff, 'source': source, 'url': url, **({} if distance is None else {'hashDistance': distance}), **({'watermark': True} if stamp else {})})
+        entry.update(
+            status='replaced-by-review' if distance is None else 'upgraded',
+            to={'width': min(image.width, LARGE), 'effective': eff, 'source': source, 'url': url, **({} if distance is None else {'hashDistance': distance})},
+        )
         chosen = image
     else:
-        entry.setdefault('status', 'kept' if eff0 >= target else 'kept-no-sharper-copy')
-        chosen = current if current.width <= eff0 else current.resize((eff0, round(current.height * eff0 / current.width)), Image.LANCZOS)
+        entry['status'] = 'kept' if eff0 >= target else 'kept-no-larger-copy'
+        chosen = current
     if write:
-        # A kept cover wider than the large size is only trimmed to it: same picture, fewer bytes.
-        if best or current.width > LARGE:
-            save(chosen if best else current, PUBLIC / src, LARGE)
-        save(chosen, PUBLIC / 'covers' / 'sm' / pathlib.Path(src).name, SMALL)
+        large, small = PUBLIC / src, PUBLIC / 'covers' / 'sm' / pathlib.Path(src).name
+        if best or current.width > LARGE or old_name != src:
+            save(chosen, large, LARGE)  # resized, or converted to the file's format
+        elif base_rev:
+            large.write_bytes(current_bytes)  # a kept cover goes back to its original bytes
+        save(chosen, small, SMALL)
     return entry
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument('--cache', required=True, help='download cache directory (kept outside the repository)')
-    parser.add_argument('--write', action='store_true', help='write images and data/cover-upgrades.json')
-    parser.add_argument('--limit', type=int, default=0)
-    parser.add_argument('--only', default='', help='comma-separated book ids')
-    parser.add_argument('--target', type=int, default=540, help='real width a cover should reach (default 540)')
-    parser.add_argument('--workers', type=int, default=8)
-    parser.add_argument('--report', default='', help='also write the full report (with rejected candidates) here')
-    args = parser.parse_args()
-    cache = pathlib.Path(args.cache)
-    cache.mkdir(parents=True, exist_ok=True)
-
-    catalog = json.loads((ROOT / 'src/catalog.json').read_text())
+def cover_records() -> dict[str, dict]:
+    """Each cover file's data record (image URL, source). A cover rejected for
+    another work (rejected-cover-matches.json) lends it nothing."""
     records: dict[str, dict] = {}
     for path in sorted((ROOT / 'data').glob('*.json')):
+        if path.name in ('rejected-cover-matches.json', 'cover-upgrades.json'):
+            continue
         try:
             data = json.loads(path.read_text())
         except ValueError:
@@ -342,46 +305,60 @@ def main() -> None:
             if isinstance(node, dict):
                 if isinstance(node.get('src'), str) and node['src'].startswith('covers/'):
                     records.setdefault(node['src'], {}).update({k: v for k, v in node.items() if v})
-                stack.extend(node.values())
+                stack.extend(value for key, value in node.items() if key != 'rejectedCover')
             elif isinstance(node, list):
                 stack.extend(node)
+    return records
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument('--cache', required=True, help='download cache directory (kept outside the repository)')
+    parser.add_argument('--write', action='store_true', help='write images and merge data/cover-upgrades.json')
+    parser.add_argument('--base-rev', default='', help='git revision holding the original covers')
+    parser.add_argument('--only', default='', help='comma-separated book ids')
+    parser.add_argument('--force', action='store_true', help='also redo covers already in the report')
+    parser.add_argument('--target', type=int, default=540, help='real width a cover should reach (default 540)')
+    parser.add_argument('--workers', type=int, default=8)
+    args = parser.parse_args()
+    cache = pathlib.Path(args.cache)
+    cache.mkdir(parents=True, exist_ok=True)
+
+    previous = json.loads(REPORT.read_text())['covers'] if REPORT.exists() else {}
+    records = cover_records()
+    catalog = json.loads((ROOT / 'src/catalog.json').read_text())
     covers: dict[str, dict] = {}
     for book in catalog['books']:
         cover = book.get('cover')
         if cover and cover.get('src') and (not args.only or book['id'] in args.only.split(',')):
             covers.setdefault(cover['src'], {**records.get(cover['src'], {}), **cover, 'bookId': book['id']})
-    items = sorted(covers.items())
-    if args.limit:
-        items = items[:args.limit]
+    todo = {src: cover for src, cover in covers.items() if args.force or args.base_rev or src not in previous}
 
     report: dict[str, dict] = {}
     with futures.ThreadPoolExecutor(max_workers=args.workers) as pool:
-        jobs = {pool.submit(process, src, cover, cache, args.write, args.target): src for src, cover in items}
+        jobs = {pool.submit(process, src, cover, cache, args.write, args.target, args.base_rev or None): src for src, cover in sorted(todo.items())}
         for done, job in enumerate(futures.as_completed(jobs), 1):
             src = jobs[job]
             try:
                 report[src] = {'bookId': covers[src]['bookId'], **job.result()}
-            except Exception as error:  # keep going; the cover stays as it is
+            except Exception as error:  # the cover stays as it is
                 report[src] = {'bookId': covers[src]['bookId'], 'status': 'error', 'error': str(error)[:200]}
-            if done % 50 == 0:
-                print(f'{done}/{len(items)}', flush=True)
+            if done % 100 == 0:
+                print(f'{done}/{len(todo)}', flush=True)
 
     counts: dict[str, int] = {}
     for entry in report.values():
         counts[entry['status']] = counts.get(entry['status'], 0) + 1
     print(json.dumps(counts, ensure_ascii=False))
-    if args.report:
-        pathlib.Path(args.report).write_text(json.dumps(report, ensure_ascii=False, indent=1))
     if args.write:
-        out = {
-            'note': 'Each cover\'s real resolution, and the sharper copy of the same cover that replaced it, if any. Written by scripts/upgrade-covers.py.',
+        merged = {src: entry for src, entry in previous.items() if src in covers and not args.base_rev}
+        merged.update({src: {k: v for k, v in entry.items() if k != 'rejected'} for src, entry in report.items()})
+        REPORT.write_text(json.dumps({
+            'note': 'Each cover\'s real resolution and, where one existed, the larger copy of the same image from the same source that replaced it. Written by scripts/upgrade-covers.py.',
             'checkedAt': dt.date.today().isoformat(),
             'target': args.target,
-            'covers': {src: {k: v for k, v in entry.items() if k != 'rejected'} for src, entry in sorted(report.items())},
-        }
-        (ROOT / 'data' / 'cover-upgrades.json').write_text(json.dumps(out, ensure_ascii=False, indent=1) + '\n')
-    else:
-        print(json.dumps(dict(list(sorted(report.items()))[:5]), ensure_ascii=False, indent=1)[:3000])
+            'covers': dict(sorted(merged.items())),
+        }, ensure_ascii=False, indent=1) + '\n')
 
 
 if __name__ == '__main__':

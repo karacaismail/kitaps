@@ -39,6 +39,8 @@ test('every cover has a large copy and a small copy for phones and thumbnails', 
   assert.ok(smallWidth <= 400, `${src}: small copy is ${smallWidth} px`);
   assert.ok(largeWidth <= 720, `${src}: large copy is ${largeWidth} px`);
   assert.ok(smallWidth <= largeWidth, `${src}: small copy wider than the large one`);
+  // The small copy is never shrunk below what the cover has, up to its own 400 px.
+  assert.ok(smallWidth >= Math.min(largeWidth, 400), `${src}: small copy is only ${smallWidth} px of ${largeWidth}`);
  }
 });
 
@@ -50,17 +52,17 @@ test('a cover replaced after review says why', () => {
  }
 });
 
-test('every replaced cover records where its sharper copy came from', () => {
+test('every sharper cover is a larger copy of the same image from its own source', () => {
+ // Another site's image of the same ISBN often shows another printing, so only the
+ // recorded source's own larger copy is used (scripts/upgrade-covers.py).
  const upgraded = Object.entries(upgrades.covers).filter(([, entry]) => entry.status === 'upgraded');
  assert.ok(upgraded.length > 0);
  for (const [src, entry] of upgraded) {
   assert.ok(covers.includes(src), src);
   // Some FT originals are served only over plain http (an S3 website endpoint); the file itself is local.
   assert.match(entry.to.url, /^https?:\/\//, src);
-  assert.ok(entry.to.hashDistance <= 10, `${src}: not shown to be the same cover`);
-  // Either sharper, or a clean copy of a cover that carried a shop's stamp, at least as sharp within 10%.
-  const cleaner = entry.from.watermark && !entry.to.watermark && entry.to.effective >= entry.from.effective * 0.9;
-  assert.ok(entry.to.effective > entry.from.effective || cleaner, `${src}: neither sharper nor cleaner than before`);
-  assert.ok(!entry.to.watermark || entry.from.watermark, `${src}: a stamp was put on a clean cover`);
+  assert.ok(entry.to.hashDistance <= 6, `${src}: not shown to be the same image`);
+  assert.ok(entry.to.effective > entry.from.effective, `${src}: not sharper than before`);
+  assert.equal(entry.to.source, 'kaynağın büyük kopyası', src);
  }
 });

@@ -94,7 +94,7 @@ function renderBook(book) {
  const links=(items,label)=>items.length?`<h2>${label}</h2><ul>${items.map(link=>`<li><a href="${escapeHtml(bookUrl(byId[link.id]))}">${escapeHtml(displayTitle(byId[link.id]))}</a> — ${escapeHtml(link.reason)}</li>`).join('')}</ul>`:'';
  const topics=categories.length?`<p>Konular: ${categories.map(item=>`<a href="${publicBase}category/${encodeURIComponent(item.id)}/">${escapeHtml(item.label)}</a>`).join(', ')}</p>`:'';
  const collections=book.collectionIds.length?`<p>Kaynak kümeleri: ${book.collectionIds.map(id=>collectionMap[id]).filter(Boolean).map(item=>`<a href="${publicBase}collection/${encodeURIComponent(item.id)}/">${escapeHtml(item.title)}</a>`).join(', ')}</p>`:'';
- const cover=book.cover?`<img src="${escapeHtml(image)}" alt="${escapeHtml(`${book.cover.title} — ${book.cover.publisher||''} baskı kapağı`)}" width="160" height="240" loading="lazy">`:'';
+ const cover=book.cover?`<img src="${escapeHtml(`${appBase}${book.cover.src.replace(/^covers\//,'covers/sm/')}`)}" alt="${escapeHtml(`${book.cover.title} — ${book.cover.publisher||''} baskı kapağı`)}" width="160" height="240" loading="lazy">`:'';
  const body=`<header><a href="${publicBase}">Kitaplık</a><h1>${escapeHtml(shown)}</h1><p>${escapeHtml(book.author)}</p></header><main>${cover}<ul>${facts}</ul><h2>Ne için okumalı?</h2><p>${escapeHtml(guide.purpose)}</p>${links(guide.before,'Önce okunabilecekler')}${links(guide.after,'Sonra okunabilecekler')}${links(guide.companions,'Birlikte okunabilecekler')}${topics}${collections}<p class="actions"><a href="${escapeHtml(interactiveFor({book}))}">Kitabı etkileşimli katalogda aç</a></p></main>`;
  write(`books/${slug}/`,documentShell({title,description,canonical,type:'book',structured,body,image}));
 }

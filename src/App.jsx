@@ -108,9 +108,10 @@ function ActiveFilters({filters:f,onChange}) {
 }
 // Every cover comes in two sizes: covers/sm/ (400 px wide) and covers/ (up to 720 px). The
 // browser picks by the size the cover is shown at and the screen's density, so a phone does not
-// download what only a 2x desktop screen needs. The sizes follow the layouts in styles.css.
+// download what only a 2x desktop screen needs. A card is a column of the grid in styles.css:
+// the page padding (8 px, 24 px from 48em) and the column gaps (12, 20, 24 px) come off first.
 const COVER_SIZES={
- card:'(orientation: landscape) and (max-height: 31em) and (max-width: 59.99em) 50vw, (min-width: 75em) 270px, (min-width: 56em) 25vw, (min-width: 36em) 33vw, 50vw',
+ card:'(orientation: landscape) and (max-height: 31em) and (max-width: 64.99em) calc(50vw - 34px), (min-width: 75em) 270px, (min-width: 56em) calc(25vw - 30px), (min-width: 36em) calc(33.4vw - 30px), calc(50vw - 14px)',
  detail:'(min-width: 48em) 200px, 112px',
  thumb:'96px',
 };

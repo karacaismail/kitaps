@@ -23,10 +23,11 @@ test('the catalog grid keeps the owner’s column counts and a full last row at 
   }
 });
 
-// A phone held sideways stays at 2 columns; a short desktop window or a tablet does not.
-const SIDEWAYS = [[568, 320, 2], [667, 375, 2], [844, 390, 2], [932, 430, 2], [1024, 768, 4], [1180, 820, 4], [1280, 480, 4], [768, 1024, 3]];
+// A phone held sideways stays at 2 columns, up to a tall flip phone's width; a tablet, an upright
+// screen or a window wider than 1040 px does not. The edges of the rule are checked on both sides.
+const SIDEWAYS = [[568, 320, 2], [667, 375, 2], [844, 390, 2], [932, 430, 2], [1005, 411, 2], [1039, 496, 2], [1041, 496, 4], [1039, 497, 4], [1024, 768, 4], [1180, 820, 4], [1280, 480, 4], [768, 1024, 3]];
 
-test('a phone held sideways keeps 2 columns, tablets and short desktop windows do not', async ({ page }) => {
+test('a phone held sideways keeps 2 columns, tablets and wide windows do not', async ({ page }) => {
   await page.goto('./');
   await expect(page.locator('.books-grid > .book-card')).toHaveCount(24);
   for (const [width, height, columns] of SIDEWAYS) {

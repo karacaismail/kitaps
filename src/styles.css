@@ -328,9 +328,10 @@ main{padding-top:20px}
 @media (min-width:36em){.books-grid{--books-columns:3;gap:32px 20px}}
 @media (min-width:56em){.books-grid{--books-columns:4}}
 @media (min-width:72em){.books-grid{gap:36px 24px}}
-/* A phone held sideways keeps 2 columns (the owner's rule): its width reaches tablet sizes, but
-   its short side, the height, stays phone-sized. Tablets and laptops are taller than 31em. */
-@media (orientation:landscape) and (max-height:31em) and (max-width:59.99em){.books-grid{--books-columns:2}}
+/* A phone held sideways keeps 2 columns (the owner's rule): its width reaches tablet sizes (up to
+   about 1005 px on tall flip phones), but its short side, the height, stays phone-sized. Tablets
+   and laptops are taller than 31em; a short desktop window wider than 1040 px keeps 4 columns. */
+@media (orientation:landscape) and (max-height:31em) and (max-width:64.99em){.books-grid{--books-columns:2}}
 
 .book-card{display:flex;flex-direction:column;min-width:0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;overflow:visible;cursor:pointer}
 .book-card:hover .cover-stage img{transform:translateY(-3px);box-shadow:0 1px 1px rgb(31 27 23 / 10%),0 18px 30px -12px rgb(31 27 23 / 50%)}

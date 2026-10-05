@@ -43,12 +43,12 @@ Anahtar tarayıcıda saklanır. `karacaismail.github.io` altındaki bütün Page
 - Raf taraması değerlendirmesi `data/shelf-review.json` içindedir: fotoğraflanan kitap raflarından yapılan okuma önerileri, öncelik ve koşul notlarıyla. Yeni Türkçe baskılar iki ayrı sitede doğrulandı. Benzer adlı ya da karışabilecek kitaplar kümenin notunda ve ilgili kitabın sayfasında belirtilir. Öncelikler not olarak kalır, puana eklenmez.
 - Eseri veya baskısı belirsiz kayıtlarda kapak yerine açıklama gösterilir. Yanlış eserle eşleşen kapaklar `data/rejected-cover-matches.json` içinde gerekçesiyle korunur.
 - Her kapağın iki kopyası vardır: `public/covers/` (en çok 720 px, 2x masaüstü ekranları) ve `public/covers/sm/` (en çok 400 px, telefonlar ve küçük kapaklar). Tarayıcı `srcset` ile gösterilen boyuta ve ekran yoğunluğuna uyanı indirir.
-- `scripts/upgrade-covers.py`, her kapağın gerçek çözünürlüğünü ölçer (mağazanın büyüttüğü pikselleri saymaz).
-  - Aynı kapağın daha keskin bir kopyasını sırasıyla şuralarda arar: kaydedilen görselin büyük ya da özgün boyutu, ardından ISBN ile D&R, Amazon ve Open Library.
-  - Bir kopya yalnız görsel benzerlik ve oran denetiminden geçerse kullanılır; böylece başka bir baskının kapağı girmez.
-  - "kitapyurdu.com" damgalı bir görsel yalnız zaten damgalı bir kapağın yerine geçer; temiz bir kopya bulunursa o seçilir.
-  - Her kapağın kaynağı ve kararı `data/cover-upgrades.json` dosyasındadır. Gözle reddedilen eşleşmeler ve yanlış kapak düzeltmeleri betikte gerekçesiyle yazılıdır.
-  - Yeniden çalıştırmak için: `python3 scripts/upgrade-covers.py --cache <depo dışında bir klasör> --write`.
+- `scripts/upgrade-covers.py`, her kapağın gerçek çözünürlüğünü ölçer; mağazanın büyüttüğü pikselleri saymaz.
+  - Bir kapak yalnız aynı kaynaktaki aynı görselin daha büyük ya da özgün kopyasıyla değişir; kopya, oran ve görsel benzerlik denetiminden geçmelidir.
+  - Başka bir siteden aynı ISBN'in görseli alınmaz. Bu görseller çoğu zaman başka bir basımı gösterir (baskı rozeti, seri başlığı, alıntı farkı), kapak ise katalogdaki baskının kanıtıdır.
+  - Gözle karşılaştırılıp düzeltilen kapaklar betikte gerekçesiyle yazılıdır; veri kayıtları da gösterilen görselin kaynağını adlandırır.
+  - Her kapağın kararı ve büyük kopyasının adresi `data/cover-upgrades.json` dosyasındadır.
+  - Yeniden çalıştırmak için: `python3 scripts/upgrade-covers.py --cache <depo dışında bir klasör> --write`. Kayıtlı kapaklar `--force` verilmedikçe yeniden işlenmez.
 - [Kontrol kapsamı ve bilinen sınırlar](docs/UX-VALIDATION.md) · [Bağımsız denetim raporu](docs/BAGIMSIZ-DENETIM-RAPORU.md)
 
 ## Arama motorları
