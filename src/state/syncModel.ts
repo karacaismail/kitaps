@@ -1,4 +1,4 @@
-import { BOOK_FIELDS, MAX_QUEUE_LENGTH, type PendingStateMutation, type ReadingProgress, type ReadingState, type StateDocument } from './types.ts';
+import { BOOK_FIELDS, MAX_QUEUE_LENGTH, type BookField, type BookStateRecord, type PendingStateMutation, type ReadingProgress, type ReadingState, type StateBases, type StateDocument } from './types.ts';
 
 export interface PublicBookView {
   states: ReadingState[];
@@ -51,8 +51,15 @@ export function planFirstSync(local: Map<string, PublicBookView>, localQueue: re
   return {localOnly, conflicts, queue};
 }
 
+/** When a field of a shared record was last set; undefined when it never was. A
+ * cleared record (null value) counts as setting both fields to empty. */
+export const fieldStamp = (record: BookStateRecord, field: BookField): string | undefined =>
+  record.stamps?.[field] ?? (record.value === null || (record.value && field in record.value) ? record.updatedAt : undefined);
+
+const newer = (stamp: string, base: string | undefined): boolean => !base || Date.parse(stamp) > Date.parse(base);
+
 export interface ConnectPlan {
-  /** Books this device changed while it could not send, which the shared file now holds differently. */
+  /** Books this device changed while it could not send, which another device saved differently meanwhile. */
   conflicts: string[];
   queueConflict: boolean;
 }
@@ -60,29 +67,32 @@ export interface ConnectPlan {
 /** A device being connected may hold edits made while it could not send them,
  * and meanwhile another device may have saved a different value for the same
  * field. Field-level last-writer-wins would silently drop one side, so these
- * books go to the reader instead. Only the device's own unsent edits count:
- * values it merely read from the shared file earlier are not its claims, and a
- * field the shared file never set cannot be lost. */
-export function planConnect(pending: readonly PendingStateMutation[], remote: StateDocument): ConnectPlan {
+ * books go to the reader instead.
+ *
+ * A field counts only when the shared file set it after this device last took
+ * it over (`bases`), or when this device never saw it, and the values differ.
+ * Editing a value this device itself read is not a conflict, and a field the
+ * shared file never set cannot be lost. */
+export function planConnect(pending: readonly PendingStateMutation[], remote: StateDocument, bases: StateBases = {books: {}}): ConnectPlan {
   const conflicts: string[] = [];
   let queueConflict = false;
   const sortedStates = (states?: readonly string[]) => canonical([...(states ?? [])].sort());
   for (const mutation of pending) {
     if (mutation.kind === 'queue') {
-      queueConflict = Boolean(remote.queue?.value.length) && canonical(mutation.value) !== canonical(remote.queue!.value);
+      const shared = remote.queue;
+      queueConflict = Boolean(shared) && newer(shared!.updatedAt, bases.queue) && canonical(mutation.value) !== canonical(shared!.value);
       continue;
     }
     const record = remote.books[mutation.bookId];
     if (!record) continue;
-    // A null value means another device cleared the book: an empty value, not a missing one.
-    const shared = record.value;
     const local = mutation.value;
     const fields = local === null ? BOOK_FIELDS : BOOK_FIELDS.filter(field => field in local);
     const differs = fields.some(field => {
-      if (shared !== null && !(field in shared)) return false;
+      const stamp = fieldStamp(record, field);
+      if (!stamp || !newer(stamp, bases.books[mutation.bookId]?.[field])) return false;
       return field === 'states'
-        ? sortedStates(local?.states) !== sortedStates(shared?.states)
-        : canonical(local?.reading ?? null) !== canonical(shared?.reading ?? null);
+        ? sortedStates(local?.states) !== sortedStates(record.value?.states)
+        : canonical(local?.reading ?? null) !== canonical(record.value?.reading ?? null);
     });
     if (differs) conflicts.push(mutation.bookId);
   }

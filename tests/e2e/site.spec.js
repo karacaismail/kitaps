@@ -14,7 +14,7 @@ const consoleErrors = page => {
 // CDN and, on opening, from the API; both answer with an empty state here.
 const isolate = context => Promise.all([
   context.route('https://raw.githubusercontent.com/karacaismail/kitaps-state/**', route => route.fulfill({ json: EMPTY_STATE })),
-  context.route('https://api.github.com/repos/karacaismail/kitaps-state/**', route => route.fulfill({ status: 404, json: { message: 'Not Found' } })),
+  context.route('https://api.github.com/repos/karacaismail/kitaps-state/**', route => route.fulfill({ json: { sha: 'empty', encoding: 'base64', content: Buffer.from(JSON.stringify(EMPTY_STATE)).toString('base64') } })),
 ]);
 const pageFits = page => page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth);
 // The matches of `roots`, and every element inside them, whose content runs out of their own box.
@@ -39,6 +39,8 @@ test('the shared state is read from GitHub in a real browser, without CORS error
 
 test('the catalog opens sorted by reading priority with the compact summary', async ({ page }) => {
   const errors = consoleErrors(page);
+  // GitHub's anonymous request limit must not decide whether the console stays clean.
+  await isolate(page.context());
   await page.goto('./');
   await expect(page.locator('.book-card')).toHaveCount(24);
   const toggle = page.getByRole('button', { name: /Okuma önceliğine göre sıralı/ });

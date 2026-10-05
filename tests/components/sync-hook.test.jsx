@@ -15,10 +15,12 @@ const TOKEN = 'github_pat_TEST_ONLY_not_a_real_token_for_unit_tests';
 function github(remote, { blob = 201, puts = [] } = {}) {
   const calls = [];
   let release = null;
-  const server = { calls, current: () => remote, hold() { let open; const gate = new Promise(resolve => { open = resolve; }); release = { gate, open }; return () => open(); } };
+  const server = { calls, current: () => remote, set(next) { remote = next; }, hold() { let open; const gate = new Promise(resolve => { open = resolve; }); release = { gate, open }; return () => open(); } };
   server.fetch = vi.fn(async (url, init = {}) => {
     calls.push({ url, method: init.method || 'GET', init });
     if (url.startsWith('https://raw.')) return new Response(JSON.stringify(remote));
+    // A slow API read lets timers fire while a comparison waits for GitHub.
+    if (server.readDelay && !init.method) await new Promise(resolve => setTimeout(resolve, server.readDelay));
     if (url.endsWith('/git/blobs')) return new Response('{}', { status: blob });
     if (init.method === 'PUT') {
       if (release) { const { gate } = release; release = null; await gate; }
@@ -52,7 +54,7 @@ describe('useGitHubStateSync on a device that has never synced', () => {
   it('adds device-only records, and asks before touching a record both sides changed', async () => {
     vi.stubGlobal('fetch', github(remoteDocument({ a: record({ states: ['okundu'] }) })).fetch);
     const { result } = renderHook(() => useHarness({ a: ['onemli'], b: ['alindi'] }, { queue: ['b'], reading: {} }));
-    await waitFor(() => expect(result.current.sync.mergePrompt).toEqual({ conflicts: ['a'], queueConflict: false }));
+    await waitFor(() => expect(result.current.sync.mergePrompt).toEqual({ conflicts: ['a'], queueConflict: false, reason: 'first-sync' }));
     expect(result.current.states.a).toEqual(['onemli']);
     expect(pending().map(item => item.kind === 'queue' ? 'queue' : item.bookId).sort()).toEqual(['b', 'queue']);
     expect(readSyncBackup().states).toEqual({ a: ['onemli'], b: ['alindi'] });
@@ -69,7 +71,7 @@ describe('useGitHubStateSync on a device that has never synced', () => {
   it('keeps this device’s value and queues it when the reader chooses so', async () => {
     vi.stubGlobal('fetch', github(remoteDocument({ a: record({ states: ['okundu'] }) }, { updatedAt: '2026-09-28T10:00:00.000Z', value: ['c'] })).fetch);
     const { result } = renderHook(() => useHarness({ a: ['onemli'] }, { queue: ['a'], reading: {} }));
-    await waitFor(() => expect(result.current.sync.mergePrompt).toEqual({ conflicts: ['a'], queueConflict: true }));
+    await waitFor(() => expect(result.current.sync.mergePrompt).toEqual({ conflicts: ['a'], queueConflict: true, reason: 'first-sync' }));
     await act(() => result.current.sync.resolveMerge('device'));
     expect(result.current.states.a).toEqual(['onemli']);
     expect(result.current.personal.queue).toEqual(['a']);
@@ -136,17 +138,19 @@ describe('useGitHubStateSync getting changes off the device', () => {
   });
 
   it('connecting asks before replacing a book another device saved meanwhile, then sends the choice at once', async () => {
-    // The phone bought the book while this device, not yet connected, marked it as being read.
-    const server = github(remoteDocument({ a: { updatedAt: '2026-09-28T09:00:00.000Z', value: { states: ['alindi'] }, stamps: { states: '2026-09-28T09:00:00.000Z' } } }));
+    const server = github(remoteDocument({}));
     vi.stubGlobal('fetch', server.fetch);
     const { result } = renderHook(() => useHarness({}, { queue: [], reading: {} }));
     await waitFor(() => expect(result.current.sync.status).toBe('ready'));
     act(() => result.current.setStates({ a: ['okunuyor'], b: ['onemli'] }));
     await waitFor(() => expect(result.current.sync.pending).toBe(2));
+    // Meanwhile the phone, already connected, buys book a.
+    server.set(remoteDocument({ a: { updatedAt: '2026-10-04T09:00:00.000Z', value: { states: ['alindi'] }, stamps: { states: '2026-10-04T09:00:00.000Z' } } }));
     await act(() => result.current.sync.saveToken(TOKEN));
-    await waitFor(() => expect(result.current.sync.mergePrompt).toEqual({ conflicts: ['a'], queueConflict: false }));
+    await waitFor(() => expect(result.current.sync.mergePrompt).toEqual({ conflicts: ['a'], queueConflict: false, reason: 'connect' }));
     expect(putsOf(server)).toHaveLength(0);
     expect(readSyncBackup().states.a).toEqual(['okunuyor']);
+    expect(readSyncBackup().pending.map(item => item.bookId).sort()).toEqual(['a', 'b']);
     // Hiding the page while the reader decides sends nothing.
     act(hidePage);
     await new Promise(resolve => setTimeout(resolve, 20));
@@ -156,6 +160,76 @@ describe('useGitHubStateSync getting changes off the device', () => {
     expect(server.current().books.a.value.states).toEqual(['alindi']);
     expect(server.current().books.b.value.states).toEqual(['onemli']);
     expect(result.current.states.a).toEqual(['alindi']);
+    expect(localStorage.getItem('kitapatlasi:github-state:connect-review:v1')).toBeNull();
+  });
+
+  it('a change older than the two-minute window still waits for the comparison', async () => {
+    // Marks made days ago on a device that was never connected: the batcher would send them at once.
+    const old = '2026-09-28T08:00:00.000Z';
+    localStorage.setItem('kitapatlasi:github-state:pending:v2', JSON.stringify({ since: old, mutations: [{ id: `${old}:a`, kind: 'book', bookId: 'a', updatedAt: old, value: { states: ['okunuyor'] } }] }));
+    const server = github(remoteDocument({ a: { updatedAt: '2026-10-04T09:00:00.000Z', value: { states: ['alindi'] }, stamps: { states: '2026-10-04T09:00:00.000Z' } } }));
+    vi.stubGlobal('fetch', server.fetch);
+    const { result } = renderHook(() => useHarness({}, { queue: [], reading: {} }));
+    await waitFor(() => expect(result.current.sync.status).not.toBe('loading'));
+    server.readDelay = 80;
+    // Not awaited inside act: React commits as a browser would, so the batcher can fire
+    // while the comparison still waits for GitHub.
+    let connecting;
+    act(() => { connecting = result.current.sync.saveToken(TOKEN); });
+    await waitFor(() => expect(result.current.sync.mergePrompt?.reason).toBe('connect'));
+    await act(() => connecting);
+    await new Promise(resolve => setTimeout(resolve, 200));
+    expect(putsOf(server)).toHaveLength(0);
+  });
+
+  it('a reload during the comparison brings the question back, and a failed read sends nothing', async () => {
+    localStorage.setItem('kitapatlasi:github-state:token:v1', TOKEN);
+    localStorage.setItem('kitapatlasi:github-state:connect-review:v1', '1');
+    const old = '2026-09-28T08:00:00.000Z';
+    localStorage.setItem('kitapatlasi:github-state:pending:v2', JSON.stringify({ since: old, mutations: [{ id: `${old}:a`, kind: 'book', bookId: 'a', updatedAt: old, value: { states: ['okunuyor'] } }] }));
+    const failing = vi.fn(async () => { throw new TypeError('offline'); });
+    vi.stubGlobal('fetch', failing);
+    const first = renderHook(() => useHarness({}, { queue: [], reading: {} }));
+    await waitFor(() => expect(first.result.current.sync.status).toBe('error'));
+    await act(async () => { await first.result.current.sync.flush(); });
+    expect(failing.mock.calls.some(([, init]) => init?.method === 'PUT')).toBe(false);
+    first.unmount();
+    const server = github(remoteDocument({ a: { updatedAt: '2026-10-04T09:00:00.000Z', value: { states: ['alindi'] }, stamps: { states: '2026-10-04T09:00:00.000Z' } } }));
+    vi.stubGlobal('fetch', server.fetch);
+    const second = renderHook(() => useHarness({}, { queue: [], reading: {} }));
+    await waitFor(() => expect(second.result.current.sync.mergePrompt?.reason).toBe('connect'));
+    expect(putsOf(server)).toHaveLength(0);
+  });
+
+  it('keeping this device’s edit changes only the field it edited', async () => {
+    const server = github(remoteDocument({}));
+    vi.stubGlobal('fetch', server.fetch);
+    const { result } = renderHook(() => useHarness({}, { queue: [], reading: {} }));
+    await waitFor(() => expect(result.current.sync.status).toBe('ready'));
+    act(() => result.current.setStates({ a: ['okunuyor'] }));
+    await waitFor(() => expect(result.current.sync.pending).toBe(1));
+    // The phone buys the book and writes a note on it.
+    const at = '2026-10-04T09:00:00.000Z';
+    server.set(remoteDocument({ a: { updatedAt: at, value: { states: ['alindi'], reading: { why: 'Telefondaki not' } }, stamps: { states: at, reading: at } } }));
+    await act(() => result.current.sync.saveToken(TOKEN));
+    await waitFor(() => expect(result.current.sync.mergePrompt?.reason).toBe('connect'));
+    await act(() => result.current.sync.resolveMerge('device'));
+    await waitFor(() => expect(putsOf(server)).toHaveLength(1));
+    expect(server.current().books.a.value).toEqual({ states: ['okunuyor'], reading: { why: 'Telefondaki not' } });
+  });
+
+  it('editing a value this device itself read is not a conflict', async () => {
+    const at = '2026-10-04T09:00:00.000Z';
+    const server = github(remoteDocument({ a: { updatedAt: at, value: { states: ['onemli'] }, stamps: { states: at } } }));
+    vi.stubGlobal('fetch', server.fetch);
+    const { result } = renderHook(() => useHarness({}, { queue: [], reading: {} }));
+    await waitFor(() => expect(result.current.states.a).toEqual(['onemli']));
+    act(() => result.current.setStates({ a: ['onemli', 'alindi'] }));
+    await waitFor(() => expect(result.current.sync.pending).toBe(1));
+    await act(() => result.current.sync.saveToken(TOKEN));
+    await waitFor(() => expect(putsOf(server)).toHaveLength(1));
+    expect(result.current.sync.mergePrompt).toBeNull();
+    expect(server.current().books.a.value.states).toEqual(['onemli', 'alindi']);
   });
 
   it('a change made while a write is under way gets its own write right after it', async () => {

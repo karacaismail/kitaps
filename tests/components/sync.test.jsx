@@ -53,6 +53,12 @@ describe('SyncMergeDialog', () => {
     expect(screen.queryByRole('dialog')).toBeNull();
   });
 
+  it('explains a connect-time difference in its own words', async () => {
+    renderWithTheme(<SyncMergeDialog sync={sync({ mergePrompt: { conflicts: ['a'], queueConflict: false, reason: 'connect' } })}/>);
+    expect(await screen.findByText(/Bu cihaz bağlı değilken 1 kitabın kaydı değişti; bu arada başka bir cihaz/)).toBeTruthy();
+    expect(screen.queryByText(/ortak kayda eklendi/)).toBeNull();
+  });
+
   it('lets the reader keep either side and passes the choice on', async () => {
     const value = sync({ mergePrompt: { conflicts: ['a', 'b'], queueConflict: true } });
     renderWithTheme(<SyncMergeDialog sync={value}/>);

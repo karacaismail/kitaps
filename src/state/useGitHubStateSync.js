@@ -78,54 +78,119 @@ export function useGitHubStateSync({bookIds,states,setStates,personal,setPersona
   });
  },[bookIds,setPersonal,setStates]);
 
- const refresh=useCallback(async(silent=false,fresh=false)=>{
-  if(loading.current||Date.now()<backoffUntil.current)return;
+ const refreshing=useRef(null);
+ const reviewLatest=useRef(async(_remote)=>undefined);
+ // Why the merge dialog is open: 'first-sync' (a device's first read) or 'connect'.
+ const mergeReason=useRef(null);
+ const reviewPending=()=>{try{return repository.hasConnectReviewPending()}catch{return false}};
+ const backupBeforeChoice=()=>{try{localStorage.setItem(GITHUB_STATE_BACKUP_KEY,JSON.stringify({version:1,createdAt:new Date().toISOString(),states:latest.current.states,...latest.current.personal,pending:repository.pendingMutations()}))}catch{/* The dialog still offers both choices. */}};
+
+ const refresh=useCallback((silent=false,fresh=false)=>{
+  // A second caller (a connect, say) waits for the read under way instead of skipping it.
+  if(loading.current)return refreshing.current;
+  if(Date.now()<backoffUntil.current)return Promise.resolve();
   loading.current=true;
-  const baseline=modelSnapshot(bookIds,latest.current.states,latest.current.personal),baselineQueue=queueSignature(latest.current.personal);
-  if(!silent)setSync(value=>({...value,status:'loading',message:'GitHub durumu okunuyor.'}));
-  try{
-   const remoteDocument=await repository.load({fresh});
-   lastRefresh.current=Date.now();
-   let skip=blocked.current;
-   if(!repository.hasCompletedInitialMigration()&&!firstSyncRemote.current){
-    // A device that has never synced adds what only it knows. Where both sides
-    // disagree, nothing is overwritten until the reader decides.
-    const plan=planFirstSync(baseline,latest.current.personal.queue,projectPublicState(remoteDocument,bookIds));
-    for(const id of plan.localOnly){const view=baseline.get(id);repository.queueBookState(id,{states:view.states,reading:view.reading});}
-    if(plan.queue==='local-only')repository.queueQueueState(latest.current.personal.queue);
-    if(plan.conflicts.length||plan.queue==='conflict'){
-     try{localStorage.setItem(GITHUB_STATE_BACKUP_KEY,JSON.stringify({version:1,createdAt:new Date().toISOString(),states:latest.current.states,...latest.current.personal}))}catch{/* The dialog still offers both choices. */}
-     skip={books:new Set(plan.conflicts),queue:plan.queue==='conflict'};
-     blocked.current=skip;firstSyncRemote.current=remoteDocument;
-     setMergePrompt({conflicts:plan.conflicts,queueConflict:plan.queue==='conflict'});
-    }else repository.markInitialMigrationComplete();
-   }
-   const document=await repository.loadWithPending(remoteDocument);
-   applyDocument(document,baseline,baselineQueue,skip);hydrated.current=true;
-   const pending=repository.getPendingCount();
-   if(repository.hasToken()&&pending)batcher.current?.schedule();
-   setSync(value=>({...value,status:pending?'queued':'ready',message:pending?(value.hasToken?'Değişiklikler cihazda; ilk değişiklikten iki dakika sonra toplu gönderilecek.':'Değişiklikler cihazda kuyrukta; GitHub’a göndermek için bu cihazı bağla.'):(value.hasToken?'GitHub durumu güncel.':'GitHub durumu salt okunur olarak güncel.'),pending}));
-  }catch(error){
-   if(error.code==='rate-limited')backoffUntil.current=error.retryAt;
-   if(!hydrated.current)for(const [id,value] of baseline)known.current.set(id,value);
-   if(knownQueue.current===null)knownQueue.current=baselineQueue;
-   hydrated.current=true;
-   setSync(value=>({...value,status:'error',message:readMessage(error),pending:pendingCount()}));
-  }finally{loading.current=false;}
+  const run=(async()=>{
+   const baseline=modelSnapshot(bookIds,latest.current.states,latest.current.personal),baselineQueue=queueSignature(latest.current.personal);
+   if(!silent)setSync(value=>({...value,status:'loading',message:'GitHub durumu okunuyor.'}));
+   try{
+    const remoteDocument=await repository.load({fresh});
+    lastRefresh.current=Date.now();
+    let skip=blocked.current;
+    if(!repository.hasCompletedInitialMigration()&&!firstSyncRemote.current){
+     // A device that has never synced adds what only it knows. Where both sides
+     // disagree, nothing is overwritten until the reader decides.
+     const plan=planFirstSync(baseline,latest.current.personal.queue,projectPublicState(remoteDocument,bookIds));
+     for(const id of plan.localOnly){const view=baseline.get(id);repository.queueBookState(id,{states:view.states,reading:view.reading});}
+     if(plan.queue==='local-only')repository.queueQueueState(latest.current.personal.queue);
+     if(plan.conflicts.length||plan.queue==='conflict'){
+      backupBeforeChoice();
+      skip={books:new Set(plan.conflicts),queue:plan.queue==='conflict'};
+      blocked.current=skip;firstSyncRemote.current=remoteDocument;mergeReason.current='first-sync';
+      setMergePrompt({conflicts:plan.conflicts,queueConflict:plan.queue==='conflict',reason:'first-sync'});
+     }else repository.markInitialMigrationComplete();
+    }
+    const document=await repository.loadWithPending(remoteDocument);
+    applyDocument(document,baseline,baselineQueue,skip);hydrated.current=true;
+    repository.recordBases(remoteDocument,skip.books,skip.queue);
+    // A connected device that has not yet compared its unsent edits does so now,
+    // also after a reload or a failed first attempt.
+    if(reviewPending()&&repository.hasToken()&&!firstSyncRemote.current){await reviewLatest.current(remoteDocument);return;}
+    const pending=repository.getPendingCount();
+    if(repository.hasToken()&&pending)batcher.current?.schedule();
+    setSync(value=>({...value,status:pending?'queued':'ready',message:pending?(value.hasToken?'Değişiklikler cihazda; ilk değişiklikten iki dakika sonra toplu gönderilecek.':'Değişiklikler cihazda kuyrukta; GitHub’a göndermek için bu cihazı bağla.'):(value.hasToken?'GitHub durumu güncel.':'GitHub durumu salt okunur olarak güncel.'),pending}));
+   }catch(error){
+    if(error.code==='rate-limited')backoffUntil.current=error.retryAt;
+    if(!hydrated.current)for(const [id,value] of baseline)known.current.set(id,value);
+    if(knownQueue.current===null)knownQueue.current=baselineQueue;
+    hydrated.current=true;
+    setSync(value=>({...value,status:'error',message:readMessage(error),pending:pendingCount()}));
+   }finally{loading.current=false;}
+  })();
+  refreshing.current=run;
+  return run;
  },[applyDocument,bookIds,repository]);
  // Opening the page and the reader's own refresh ask for a fresh copy.
  const load=useCallback(()=>refresh(false,true),[refresh]);
 
+ // A newly connected device compares its unsent edits with the shared file before it
+ // sends anything. Where another device saved a different value meanwhile, the reader
+ // decides through the merge dialog (after a backup); everything else is sent at once.
+ const reviewConnection=useCallback(async remoteDocument=>{
+  if(firstSyncRemote.current||!reviewPending())return;
+  const baseline=modelSnapshot(bookIds,latest.current.states,latest.current.personal),baselineQueue=queueSignature(latest.current.personal);
+  let remote=remoteDocument;
+  if(!remote){
+   try{remote=await repository.load({fresh:true});lastRefresh.current=Date.now();}
+   catch{
+    const message='Bu cihazın kayıtları GitHub’dakiyle karşılaştırılamadı; sayfaya dönünce yeniden denenecek. O zamana kadar hiçbir şey gönderilmez.';
+    setSync(value=>({...value,status:'error',message,writeError:message,pending:pendingCount()}));
+    return;
+   }
+  }
+  if(firstSyncRemote.current)return;
+  const catalogIds=new Set(bookIds);
+  const plan=planConnect(repository.pendingMutations().filter(item=>item.kind==='queue'||catalogIds.has(item.bookId)),remote,repository.readBases());
+  if(plan.conflicts.length||plan.queueConflict){
+   backupBeforeChoice();
+   blocked.current={books:new Set(plan.conflicts),queue:plan.queueConflict};firstSyncRemote.current=remote;mergeReason.current='connect';
+   applyDocument(await repository.loadWithPending(remote),baseline,baselineQueue,blocked.current);
+   setMergePrompt({conflicts:plan.conflicts,queueConflict:plan.queueConflict,reason:'connect'});
+   setSync(value=>({...value,status:'queued',writeError:null,pending:pendingCount(),message:'Bu cihazdaki bazı kayıtları başka bir cihaz farklı kaydetmiş; seçimini yapınca gönderilecek.'}));
+   return;
+  }
+  repository.clearConnectReview();
+  const pending=repository.getPendingCount();
+  if(pending){
+   setSync(value=>({...value,status:'saving',writeError:null,pending,message:`Bu cihazda bekleyen ${pending} değişiklik şimdi gönderiliyor.`}));
+   await flushLatest.current().catch(()=>undefined);
+   return;
+  }
+  applyDocument(await repository.loadWithPending(remote),baseline,baselineQueue,blocked.current);
+  setSync(value=>({...value,status:'ready',writeError:null,pending:0,message:'Bu cihaz bağlandı; değişiklikleri artık GitHub’a gönderilecek.'}));
+ },[applyDocument,bookIds,repository]);
+ reviewLatest.current=reviewConnection;
+
  const resolveMerge=useCallback(async choice=>{
   const remote=firstSyncRemote.current;if(!remote)return;
-  const decision=blocked.current;
+  const decision=blocked.current,reason=mergeReason.current;
   if(choice==='device'){
-   const snapshot=modelSnapshot(bookIds,latest.current.states,latest.current.personal);
-   for(const id of decision.books){const view=snapshot.get(id);repository.queueBookState(id,{states:view.states,reading:view.reading});known.current.set(id,view);}
-   if(decision.queue){repository.queueQueueState(latest.current.personal.queue);knownQueue.current=queueSignature(latest.current.personal);}
+   if(reason==='connect'){
+    // Exactly the fields this device changed win; fields it never touched keep the shared value.
+    repository.requeuePendingFor(decision.books,decision.queue);
+   }else{
+    const snapshot=modelSnapshot(bookIds,latest.current.states,latest.current.personal);
+    for(const id of decision.books){const view=snapshot.get(id);if(!view)continue;repository.queueBookState(id,{states:view.states,reading:view.reading});}
+    if(decision.queue)repository.queueQueueState(latest.current.personal.queue);
+   }
   }
-  blocked.current=noSkip();firstSyncRemote.current=null;repository.markInitialMigrationComplete();setMergePrompt(null);
-  if(choice!=='device'){repository.discardPendingFor(decision.books,decision.queue);applyDocument(await repository.loadWithPending(remote));}
+  blocked.current=noSkip();firstSyncRemote.current=null;mergeReason.current=null;repository.markInitialMigrationComplete();setMergePrompt(null);
+  if(choice!=='device')repository.discardPendingFor(decision.books,decision.queue);
+  applyDocument(await repository.loadWithPending(remote));
+  repository.recordBases(remote);
+  if(reason==='connect')repository.clearConnectReview();
+  // A first-sync choice made while connecting: the rest of this device's edits are compared next.
+  else if(reviewPending()&&repository.hasToken()){await reviewLatest.current();return;}
   const pending=repository.getPendingCount();
   if(repository.hasToken()&&pending){
    // The reader has just decided, so the result is sent now rather than after the window.
@@ -138,9 +203,10 @@ export function useGitHubStateSync({bookIds,states,setStates,personal,setPersona
 
  const flushing=useRef(null),flushAgain=useRef(false);
  const flush=useCallback(({fromBatcher=false,keepalive=false}={})=>{
-  // While the reader chooses between this device and the shared file, nothing is sent:
-  // a write now could send a value that "GitHub’dakini kullan" can no longer discard.
-  if(firstSyncRemote.current)return Promise.resolve(undefined);
+  // While the reader chooses between this device and the shared file, or a newly
+  // connected device has not yet compared its edits, nothing is sent: a write now
+  // could send a value that the choice can no longer undo.
+  if(firstSyncRemote.current||reviewPending())return Promise.resolve(undefined);
   // Leaving the page, the batcher and "Şimdi gönder" can ask at once; one write serves
   // them all, and a change made while it ran gets one more write right after it.
   if(flushing.current){flushAgain.current=true;return flushing.current;}
@@ -150,6 +216,7 @@ export function useGitHubStateSync({bookIds,states,setStates,personal,setPersona
    setSync(value=>({...value,status:'saving',message:'Değişiklikler GitHub’a yazılıyor.'}));
    try{
     const document=await repository.flushPending({keepalive});applyDocument(document,baseline,baselineQueue,blocked.current);
+    repository.recordBases(document,blocked.current.books,blocked.current.queue);
     lastRefresh.current=Date.now();
     setSync(value=>({...value,status:'ready',message:'GitHub ile eşitlendi.',writeError:null,pending:repository.getPendingCount()}));return document;
    }catch(error){
@@ -161,57 +228,33 @@ export function useGitHubStateSync({bookIds,states,setStates,personal,setPersona
    }
   })();
   flushing.current=run;
-  const settle=()=>{
+  const settle=succeeded=>{
    if(flushing.current!==run)return;
    flushing.current=null;
-   if(!flushAgain.current)return;
-   flushAgain.current=false;
-   if(tokenPresent()&&pendingCount())void flushLatest.current({keepalive}).catch(()=>undefined);
+   const again=flushAgain.current;flushAgain.current=false;
+   // Not after a failure: the batcher's retries and GitHub's requested wait apply then.
+   if(again&&succeeded&&Date.now()>=backoffUntil.current&&tokenPresent()&&pendingCount())void flushLatest.current({keepalive}).catch(()=>undefined);
   };
-  run.then(settle,settle);
+  run.then(()=>settle(true),()=>settle(false));
   return run;
  },[applyDocument,bookIds,repository]);
  flushLatest.current=flush;
  if(!batcher.current)batcher.current=new GitHubStateBatcher(repository,()=>flushLatest.current({fromBatcher:true}));
 
- // A device being connected may hold changes made while it could not send them, and
- // another device may have saved the same books since. Those go to the reader through
- // the merge dialog (with a backup first); everything else is sent at once.
- const connectDevice=useCallback(async()=>{
-  if(!repository.hasCompletedInitialMigration()&&!firstSyncRemote.current)await refresh(true,true);
-  if(firstSyncRemote.current)return;
-  const baseline=modelSnapshot(bookIds,latest.current.states,latest.current.personal),baselineQueue=queueSignature(latest.current.personal);
-  let remote;
-  try{remote=await repository.load({fresh:true});lastRefresh.current=Date.now();}
-  catch(error){setSync(value=>({...value,status:'error',message:readMessage(error),pending:pendingCount()}));return;}
-  const plan=planConnect(repository.pendingMutations(),remote);
-  if(plan.conflicts.length||plan.queueConflict){
-   try{localStorage.setItem(GITHUB_STATE_BACKUP_KEY,JSON.stringify({version:1,createdAt:new Date().toISOString(),states:latest.current.states,...latest.current.personal}))}catch{/* The dialog still offers both choices. */}
-   blocked.current={books:new Set(plan.conflicts),queue:plan.queueConflict};firstSyncRemote.current=remote;
-   applyDocument(await repository.loadWithPending(remote),baseline,baselineQueue,blocked.current);
-   setMergePrompt({conflicts:plan.conflicts,queueConflict:plan.queueConflict});
-   setSync(value=>({...value,status:'queued',pending:pendingCount(),message:'Bu cihazdaki bazı kayıtlar GitHub’dakinden farklı; seçimini yapınca gönderilecek.'}));
-   return;
-  }
-  const pending=repository.getPendingCount();
-  if(pending){
-   setSync(value=>({...value,status:'saving',pending,message:`Anahtar doğrulandı; bu cihazda bekleyen ${pending} değişiklik şimdi gönderiliyor.`}));
-   await flushLatest.current().catch(()=>undefined);
-   return;
-  }
-  applyDocument(await repository.loadWithPending(remote),baseline,baselineQueue,blocked.current);
-  setSync(value=>({...value,status:'ready',pending:0,message:'Anahtar doğrulandı; bu cihazın değişiklikleri artık GitHub’a gönderilecek.'}));
- },[applyDocument,bookIds,refresh,repository]);
-
  const saveToken=useCallback(async token=>{
   setSync(value=>({...value,status:'loading',message:'GitHub anahtarı doğrulanıyor.'}));
   try{
-   await repository.validateToken(token);repository.setToken(token);
+   await repository.validateToken(token);
   }catch(error){setSync(value=>({...value,status:'error',hasToken:tokenPresent(),message:error.code==='read-only'?'Bu anahtar kitaps-state deposuna yazamıyor. Anahtarın Repository access bölümünde kitaps-state seçili, Contents izni Read and write olmalı; anahtar kaydedilmedi.':error.code==='token-type'?'Yalnız ince ayarlı (fine-grained) ve yalnız karacaismail/kitaps-state deposuna yetkili bir anahtar kabul edilir; anahtar kaydedilmedi.':error.code==='storage'?'Anahtar bu tarayıcıya kaydedilemedi.':error.code==='rate-limited'?readMessage(error):'GitHub anahtarı doğrulanamadı; anahtar kaydedilmedi.'}));throw error;}
+  // The review marker goes down before the key: from here on nothing is sent until the
+  // comparison has run, whatever asks to send (the batcher, leaving the page, a reload).
+  repository.beginConnectReview();repository.setToken(token);
   setSync(value=>({...value,status:'loading',hasToken:true,writeError:null,message:'Anahtar doğrulandı; bu cihazın kayıtları GitHub’dakiyle karşılaştırılıyor.'}));
-  await connectDevice();
- },[connectDevice,repository]);
- const clearToken=useCallback(()=>{try{repository.clearToken();batcher.current?.cancel();setSync(value=>({...value,status:'ready',hasToken:false,writeError:null,message:'Yazma anahtarı bu cihazdan kaldırıldı; GitHub durumu salt okunur.'}));}catch{setSync(value=>({...value,status:'error',message:'Anahtar tarayıcıdan kaldırılamadı.'}));}},[repository]);
+  if(!repository.hasCompletedInitialMigration()&&!firstSyncRemote.current)await refresh(true,true);
+  else if(loading.current)await refreshing.current;
+  await reviewConnection();
+ },[refresh,reviewConnection,repository]);
+ const clearToken=useCallback(()=>{try{repository.clearToken();repository.clearConnectReview();batcher.current?.cancel();setSync(value=>({...value,status:'ready',hasToken:false,writeError:null,message:'Yazma anahtarı bu cihazdan kaldırıldı; GitHub durumu salt okunur.'}));}catch{setSync(value=>({...value,status:'error',message:'Anahtar tarayıcıdan kaldırılamadı.'}));}},[repository]);
 
  useEffect(()=>{void load()},[load]);
  useEffect(()=>{

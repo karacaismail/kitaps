@@ -6,6 +6,10 @@ export const GITHUB_STATE_PENDING_KEY = 'kitapatlasi:github-state:pending:v2';
 export const LEGACY_GITHUB_STATE_PENDING_KEY = 'kitapatlasi:github-state:pending:v1';
 export const GITHUB_STATE_MIGRATION_KEY = 'kitapatlasi:github-state:migrated:v1';
 export const GITHUB_STATE_BACKUP_KEY = 'kitapatlasi:github-state:pre-sync-backup:v1';
+/** Field stamps of the shared file as this device last took them over. */
+export const GITHUB_STATE_BASE_KEY = 'kitapatlasi:github-state:base:v1';
+/** Set while a newly connected device has not yet compared its unsent edits with the shared file. */
+export const GITHUB_STATE_CONNECT_REVIEW_KEY = 'kitapatlasi:github-state:connect-review:v1';
 
 export type ReadingState = 'onemli' | 'alinacak' | 'alindi' | 'okunuyor' | 'araverildi' | 'birakildi' | 'okundu';
 
@@ -72,4 +76,10 @@ export interface GitHubStateRepositoryOptions {
   fetch?: typeof globalThis.fetch;
   clock?: () => Date;
   maxConflictRetries?: number;
+}
+
+/** What this device last saw of the shared file: per book the stamp of each field, and the queue's stamp. */
+export interface StateBases {
+  books: Record<string, Partial<Record<BookField, string>>>;
+  queue?: string;
 }

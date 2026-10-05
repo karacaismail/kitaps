@@ -4,17 +4,30 @@ import {IconDownload} from '@tabler/icons-react';
 import {download} from '../download';
 import {readSyncBackup} from '../state/useGitHubStateSync';
 
-/** Shown once per device when its records differ from the shared file. */
+/** Shown when this device's records differ from the shared file: on a device's first
+ * read ('first-sync'), or when a device that worked unconnected is connected and another
+ * device saved the same records meanwhile ('connect'). */
 export default function SyncMergeDialog({sync}){
  const [busy,setBusy]=useState(false);
  const prompt=sync.mergePrompt;
  if(!prompt)return null;
- const choose=async choice=>{setBusy(true);try{await sync.resolveMerge(choice)}finally{setBusy(false)}};
+ // The dialog disappears with the choice, and the button that had focus with it: focus moves
+ // to the connect dialog's status when that is open, otherwise to the main content.
+ const choose=async choice=>{
+  setBusy(true);
+  try{await sync.resolveMerge(choice)}finally{setBusy(false)}
+  requestAnimationFrame(()=>{
+   const target=document.querySelector('.sync-modal [role="status"]')??document.getElementById('main-content');
+   if(target instanceof HTMLElement)target.focus({preventScroll:true});
+  });
+ };
  const backup=readSyncBackup();
  const parts=[prompt.conflicts.length?`${prompt.conflicts.length} kitabın kaydı`:'',prompt.queueConflict?'okuma sıran':''].filter(Boolean).join(' ve ');
  return <Modal opened onClose={()=>undefined} withCloseButton={false} closeOnClickOutside={false} closeOnEscape={false} centered title="Bu cihazdaki kayıtlar farklı">
   <Stack gap="md">
-   <Text>Bu cihazda {parts}, GitHub’daki ortak kayıttan farklı. Hangisinin kalacağını seç; seçim yalnız bu farklı kayıtları etkiler, yalnız bu cihazda olan kayıtlar zaten ortak kayda eklendi.</Text>
+   <Text>{prompt.reason==='connect'
+    ?`Bu cihaz bağlı değilken ${parts} değişti; bu arada başka bir cihaz aynı kayıtları farklı kaydetti. Hangisinin kalacağını seç. Seçim yalnız bu kayıtları etkiler; bu cihazın öteki değişiklikleri seçimden sonra gönderilir.`
+    :`Bu cihazda ${parts}, GitHub’daki ortak kayıttan farklı. Hangisinin kalacağını seç; seçim yalnız bu farklı kayıtları etkiler. Yalnız bu cihazda olan kayıtlar ayrıca ortak kayda eklenir.`}</Text>
    {backup&&<Text c="dimmed">Seçimden önce bu cihazdaki kayıtların yedeği alındı.</Text>}
    <Group>
     <Button loading={busy} onClick={()=>void choose('device')}>Bu cihazdakini kullan</Button>

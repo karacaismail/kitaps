@@ -401,3 +401,30 @@ test('the batcher never leaves a timer it cannot cancel',async()=>{
  batcher.cancel();
  assert.equal(timers.size,0);
 });
+
+test('connecting compares against what this device last saw of each field',()=>{
+ const shared=document({read:record(5,{states:['onemli']},{states:timestamp(5)}),changed:record(9,{states:['alindi']},{states:timestamp(9)})},timestamp(9),{updatedAt:timestamp(9),value:['read']});
+ const edit=(bookId,value)=>({id:`${bookId}-1`,kind:'book',bookId,updatedAt:timestamp(7),value});
+ // This device saw 'read' at 5 and 'changed' at 3; another device saved 'changed' again at 9.
+ const bases={books:{read:{states:timestamp(5)},changed:{states:timestamp(3)}},queue:timestamp(9)};
+ const plan=planConnect([edit('read',{states:['onemli','alindi']}),edit('changed',{states:['okunuyor']}),{id:'q',kind:'queue',updatedAt:timestamp(8),value:['changed','read']}],shared,bases);
+ assert.deepEqual(plan,{conflicts:['changed'],queueConflict:false});
+ // A queue another device emptied after this device last saw it is a difference too.
+ const emptied=document({},timestamp(9),{updatedAt:timestamp(9),value:[]});
+ assert.equal(planConnect([{id:'q',kind:'queue',updatedAt:timestamp(8),value:['read']}],emptied,{books:{},queue:timestamp(4)}).queueConflict,true);
+});
+
+test('bases keep the stamps an unsent edit was based on, and re-queued edits keep only their fields',()=>{
+ const local=storage();
+ const repository=new GitHubStateRepository({storage:local,clock:()=>new Date(timestamp(20)),fetch:async()=>raw(emptyStateDocument())});
+ repository.queueBookState('edited',{states:['okunuyor']});
+ repository.recordBases(document({edited:record(5,{states:['onemli']},{states:timestamp(5)}),seen:record(6,{states:['alindi'],reading:{why:'not'}},{states:timestamp(6),reading:timestamp(6)})},timestamp(6)));
+ assert.deepEqual(repository.readBases().books,{seen:{states:timestamp(6),reading:timestamp(6)}},'the edited book keeps no newer base than its edit');
+ const before=repository.pendingMutations()[0];
+ repository.requeuePendingFor(['edited'],false);
+ const after=repository.pendingMutations()[0];
+ assert.deepEqual(after.value,{states:['okunuyor']});
+ assert.ok(Date.parse(after.updatedAt)>Date.parse(before.updatedAt),'kept edits are stamped anew so they win');
+ repository.beginConnectReview();assert.equal(repository.hasConnectReviewPending(),true);
+ repository.clearConnectReview();assert.equal(repository.hasConnectReviewPending(),false);
+});

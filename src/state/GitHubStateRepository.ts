@@ -1,10 +1,15 @@
+import { fieldStamp } from './syncModel.ts';
 import { applyPendingMutations, assertBookStatePayload, assertPendingMutation, assertQueue, assertStateDocument, emptyStateDocument, publicStateDocument, publicStatePayload, upgradeStateDocument } from './merge.ts';
 import {
+  BOOK_FIELDS,
+  GITHUB_STATE_BASE_KEY,
+  GITHUB_STATE_CONNECT_REVIEW_KEY,
   GITHUB_STATE_MIGRATION_KEY,
   GITHUB_STATE_PENDING_KEY,
   GITHUB_STATE_TOKEN_KEY,
   LEGACY_GITHUB_STATE_PENDING_KEY,
   type BookStatePayload,
+  type StateBases,
   type GitHubStateRepositoryOptions,
   type PendingStateMutation,
   type PendingStore,
@@ -141,6 +146,59 @@ export class GitHubStateRepository {
 
   markInitialMigrationComplete(): void {
     this.writeStorage(GITHUB_STATE_MIGRATION_KEY, '1');
+  }
+
+  /** Until the review clears, nothing this device holds is sent: a newly connected
+   * device first compares its unsent edits with the shared file. The marker
+   * survives a reload, so the comparison is never skipped. */
+  beginConnectReview(): void {
+    this.writeStorage(GITHUB_STATE_CONNECT_REVIEW_KEY, '1');
+  }
+
+  hasConnectReviewPending(): boolean {
+    return this.readStorage(GITHUB_STATE_CONNECT_REVIEW_KEY) === '1';
+  }
+
+  clearConnectReview(): void {
+    this.removeStorage(GITHUB_STATE_CONNECT_REVIEW_KEY);
+  }
+
+  /** The shared file's field stamps as this device last took them over. */
+  readBases(): StateBases {
+    try {
+      const value = JSON.parse(this.readStorage(GITHUB_STATE_BASE_KEY) ?? 'null') as StateBases | null;
+      if (value && typeof value === 'object' && value.books && typeof value.books === 'object') return value;
+    } catch { /* A damaged record is rebuilt from the next read. */ }
+    return { books: {} };
+  }
+
+  /** Records what this device now shows from the shared file. Books and the queue
+   * with unsent edits keep the stamps their edits were based on. */
+  recordBases(document: StateDocument, skipBooks: Iterable<string> = [], skipQueue = false): void {
+    const bases = this.readBases();
+    const pending = this.readPending().mutations;
+    const held = new Set([...skipBooks, ...pending.flatMap(item => item.kind === 'book' ? [item.bookId] : [])]);
+    for (const [bookId, record] of Object.entries(document.books)) {
+      if (held.has(bookId)) continue;
+      const stamps: Partial<Record<(typeof BOOK_FIELDS)[number], string>> = {};
+      for (const field of BOOK_FIELDS) {
+        const stamp = fieldStamp(record, field);
+        if (stamp) stamps[field] = stamp;
+      }
+      bases.books[bookId] = stamps;
+    }
+    if (!skipQueue && document.queue && !pending.some(item => item.kind === 'queue')) bases.queue = document.queue.updatedAt;
+    try { this.writeStorage(GITHUB_STATE_BASE_KEY, JSON.stringify(bases)); } catch { /* Without bases, the next connect asks more often. */ }
+  }
+
+  /** The reader kept this device's unsent edits over another device's: they are
+   * stamped anew, so they win for exactly the fields they carry. */
+  requeuePendingFor(bookIds: Iterable<string>, includeQueue: boolean): void {
+    const ids = new Set(bookIds);
+    for (const mutation of this.readPending().mutations) {
+      if (mutation.kind === 'book' && ids.has(mutation.bookId)) this.queueBookState(mutation.bookId, mutation.value);
+      else if (mutation.kind === 'queue' && includeQueue) this.queueQueueState(mutation.value);
+    }
   }
 
   static assertFineGrainedToken(token: string): void {

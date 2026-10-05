@@ -67,7 +67,12 @@ Kaynak veride hiçbir kitaba doğrudan puan yazılmaz.
 - **Tek istek:** Yazım, son okunan ya da yazılan dosyanın sha'sı üzerine tek istekle yapılır; sayfa gizlenirken gönderilen yazım `keepalive` taşır (gövde 60 KB'den küçükse). Dosyayı bu arada başka bir cihaz değiştirdiyse GitHub 409/422 döner ve yazım taze okumadan yeniden başlar. Her istek 20 saniyede zaman aşımına uğrar.
 - **İstek sınırı:** GitHub sınırı aşıldığında istemci sıfırlanma zamanına kadar bekler.
 - **Yeni cihaz:** Bir cihaz ilk kez eşitlendiğinde yalnız kendisinde olan kayıtları ortak dosyaya ekler. Aynı kitap için iki taraf farklıysa önce yerel yedek alır ve okura hangisinin kalacağını sorar.
-- **Bağlanma:** Bir cihaz anahtarla bağlandığında, bağlı değilken yaptığı ve gönderemediği değişiklikler ortak dosyayla karşılaştırılır. Ortak dosya aynı alan için başka bir değer tutuyorsa (başka bir cihaz bu arada kaydetmiş), önce yerel yedek alınır ve okura hangisinin kalacağı sorulur. Alan bazında son yazan kazanır kuralı aksi halde bir tarafı sessizce silerdi. Okur karar verene kadar hiçbir şey gönderilmez; karardan sonra sonuç hemen gönderilir.
+- **Bağlanma:** Bir cihaz anahtarla bağlandığında, bağlı değilken yaptığı ve gönderemediği değişiklikler ortak dosyayla karşılaştırılır.
+  - Karşılaştırma bitene kadar hiçbir şey gönderilmez. Bunu kalıcı bir işaret sağlar: zamanlayıcı, sayfadan ayrılma ya da yeniden yükleme karşılaştırmayı atlayamaz. Okuma başarısız olursa işaret kalır, uyarı görünür ve karşılaştırma sayfaya dönünce yeniden denenir.
+  - Cihaz, ortak dosyadan aldığı her alanın zamanını (`kitapatlasi:github-state:base:v1`) saklar. Bir alan yalnızca başka bir cihaz onu bu cihazın son gördüğünden sonra kaydettiyse (ya da bu cihaz hiç görmediyse) ve değerler farklıysa sorulur. Cihazın kendi okuyup değiştirdiği değer soru değildir.
+  - Soru sorulmadan önce yerel kayıtların ve gönderilmemiş değişikliklerin yedeği alınır.
+  - "Bu cihazdakini kullan", yalnızca bu cihazın değiştirdiği alanları yeniden zaman damgalar; bu cihazın dokunmadığı alanlar (ör. başka cihazın notu) korunur. "GitHub'dakini kullan" bu kitapların gönderilmemiş değişikliklerini bırakır.
+  - Alan bazında son yazan kazanır kuralı aksi halde bir tarafı sessizce silerdi. Karardan sonra sonuç hemen gönderilir.
 - **Şema 1:** Kitap başına sıra konumu taşıyan eski dosyalar okunurken şema 2'ye çevrilir.
 
 ### Yazma anahtarı
