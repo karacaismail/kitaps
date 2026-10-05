@@ -47,6 +47,7 @@ Okuma durumları, sahiplik, favoriler ve okuma sırası herkese açık `karacais
 ## Arayüz
 
 - **Tokenlar:** Renk, köşe yarıçapı, gölge, odak ve kapak işaretleri `src/styles.css` başındaki tokenlarla yönetilir. Boşlukların bir kısmı henüz sabit piksel değeridir; yeni değerleri token olarak ekle.
-- **Açılır listeler:** Mantine Select kullanılır; yerel `<select>` kullanılmaz.
+- **Açılır listeler:** Mantine Select kullanılır; değeri uzun olabilen seçiciler (sıralama, önerilerin konusu) aynı Combobox üzerine kurulu `WrappingSelect` ile değeri alt satıra alır. Yerel `<select>` kullanılmaz.
 - **Odak:** Tek ve görünür bir `:focus-visible` halkası korunur.
 - **Kabul:** 320 px'den başlar. Ayrıntılar `docs/UX-VALIDATION.md` içindedir.
+- **Büyük yazı:** 320 px'te %200 yazı da kabul ölçütüdür. Yazıyla büyümemesi gereken iç boşluklar `--inset-compact` ve `--edge-compact`, başlık ile denetimlerinin satırı `--reflow-title-min` tokenını kullanır. em cinsinden kapsayıcı sorgularını test ederken büyük yazıyı sayfa açılmadan uygula: Chromium (153) açık bir sayfada kök yazı boyutu değişince bu sorguları her zaman yeniden hesaplamaz. Kullanıcı yazı boyutunu sayfa açıkken değiştirirse kitap ayrıntısı ve bildirim, sayfa yenilenene ya da pencere boyutu değişene kadar eski düzende kalabilir.

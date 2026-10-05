@@ -29,7 +29,7 @@ export default function LibraryToast({ book, owned, onClose, onUndo }) {
   onFocusCapture={() => setFocused(true)} onBlurCapture={e => { if (!e.currentTarget.contains(e.relatedTarget)) setFocused(false); }}>
   <span className="library-toast-icon" aria-hidden="true">{owned ? <IconShoppingBagCheck size={28} /> : <IconBooks size={28} />}</span>
   <div className="library-toast-message">
-   <strong>{owned ? 'Kütüphanene eklendi' : 'Kütüphanenden çıkarıldı'}</strong>
+   <strong>{owned ? 'Kitaplığa eklendi' : 'Kitaplıktan çıkarıldı'}</strong>
    <p>{displayTitle(book)}</p>
   </div>
   <ActionIcon className="library-toast-close" variant="subtle" aria-label="Bildirimi kapat" onClick={onClose}><IconX size={22} /></ActionIcon>

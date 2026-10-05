@@ -42,6 +42,14 @@
     label wraps keeps them as the text grows, so the extra width goes to the words. */
  --button-inset:22px;
  --button-icon-gap:10px;
+ /* Large text on a narrow screen. A title keeps at least this width beside its controls;
+    when it would get narrower, the controls move below it, this far under the title. */
+ --reflow-title-min:8rem;
+ --reflow-row-gap:8px;
+ /* A surface that is narrow for its text size (the book sheet, the purchase toast) keeps
+    these instead of insets that grow with the text: inner padding, and the gap to the screen edge. */
+ --inset-compact:12px;
+ --edge-compact:8px;
 
  /* Marks drawn on covers: the priority badge and the reading ribbons. */
  --cover-mark-inset:8px;
@@ -187,6 +195,10 @@ main{outline:none;min-height:55vh}
 .mantine-Checkbox-body,.mantine-Switch-body{min-height:44px;align-items:center}
 .mantine-Checkbox-label,.mantine-Switch-label{padding-block:8px}
 .mantine-Checkbox-input:not(:checked),.mantine-Switch-track:not([data-checked]){border-color:var(--control-line)}
+/* WrappingSelect: a value longer than its field continues on the next line instead of being cut off. */
+.wrapping-select{min-width:0}
+.wrapping-select .mantine-Input-input{display:flex;align-items:center;text-align:start}
+.wrapping-select-value{min-width:0;overflow-wrap:anywhere}
 .mantine-Combobox-option{min-height:44px;padding:10px 12px;border-radius:var(--radius-sm)}
 .mantine-Combobox-dropdown,.mantine-Popover-dropdown{max-width:calc(100vw - 24px);border:1px solid var(--line-strong);border-radius:var(--radius);background:var(--surface);color:var(--ink);box-shadow:var(--shadow-md)}
 /* One line as long as it fits on the screen; with very large text it wraps instead of running off the edge. */
@@ -250,7 +262,7 @@ main{padding-top:20px}
 .catalog-search .mantine-Input-section[data-position=left]{width:48px;color:var(--muted)}
 .search-tools{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px}
 .search-tools .mantine-Button-root{min-height:52px;padding-inline:16px;border-radius:14px}
-.search-tools .mantine-Select-input{min-height:52px;border-radius:14px;font-weight:500}
+.search-tools .mantine-Input-input{min-height:52px;border-radius:14px;font-weight:500}
 .active-filters{grid-column:1/-1}
 .active-filters .mantine-Button-root{height:auto;min-height:40px;padding:.4rem .75rem;border-radius:999px;font-weight:600}
 .active-filters .mantine-Button-label{white-space:normal;text-align:left}
@@ -260,15 +272,17 @@ main{padding-top:20px}
 }
 @media (max-width:22em){.search-tools{grid-template-columns:1fr}.search-tools .mantine-Button-section{display:none}}
 
-/* Start-here banner (React Bits SpotlightCard). */
-.reading-route.card-spotlight{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:18px;padding:18px 22px;border:0;border-radius:var(--radius-lg);background:var(--hero);color:var(--hero-ink);box-shadow:var(--shadow-md)}
+/* Start-here banner (React Bits SpotlightCard). The button sits beside the text and moves
+   below it, at its own width, when the text would get narrower than --reflow-title-min. */
+.reading-route.card-spotlight{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--reflow-row-gap) 16px;margin-top:18px;padding:18px 22px;border:0;border-radius:var(--radius-lg);background:var(--hero);color:var(--hero-ink);box-shadow:var(--shadow-md)}
 .reading-route>*{position:relative;z-index:1}
+.reading-route.card-spotlight>div{flex:999 1 var(--reflow-title-min);min-width:0}
 .reading-route .mantine-Text-root:first-child{font-family:var(--serif);font-size:1.25rem;font-weight:600;line-height:1.3;color:var(--hero-ink)}
 .reading-route .mantine-Text-root+.mantine-Text-root{margin-top:2px;color:var(--hero-muted)}
-.reading-route .mantine-Button-root{flex-shrink:0;background:var(--hero-ink);color:#2a211b;border:0}
+.reading-route .mantine-Button-root{flex:none;background:var(--hero-ink);color:#2a211b;border:0}
 .reading-route .mantine-Button-root:hover{background:#fff}
 @media (max-width:39.99em){
- .reading-route.card-spotlight{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;padding:14px 16px}
+ .reading-route.card-spotlight{column-gap:12px;padding:14px 16px}
  .reading-route .mantine-Text-root:first-child{font-size:1.0625rem}
  .reading-route .mantine-Text-root+.mantine-Text-root{font-size:.9375rem;line-height:1.4}
  .reading-route .mantine-Button-root{padding-inline:14px}
@@ -285,8 +299,12 @@ main{padding-top:20px}
 .priority-summary-toggle[aria-expanded=true] .priority-summary-chevron{transform:rotate(180deg)}
 .priority-summary-detail{max-width:70ch;padding:4px 10px 8px 34px;color:var(--muted)}
 
-.results-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:24px 0 18px;scroll-margin-top:110px}
-.results-heading>div:first-child{min-width:0}
+/* The clear and copy-link controls sit beside the title and move below it, on the left, when
+   the title would get narrower than --reflow-title-min. */
+.results-heading{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:var(--reflow-row-gap) 12px;margin:24px 0 18px;scroll-margin-top:110px}
+/* The column grows to keep the controls at the end of the row, while its one grid track keeps the
+   title and the count, and the title's focus outline, only as wide as their text. */
+.results-heading>div:first-child{display:grid;grid-template-columns:minmax(0,max-content);flex:1 1 var(--reflow-title-min);min-width:0}
 .results-heading>div:last-child{flex-shrink:0}
 .results-heading h1,.results-heading h2{margin:0 0 2px;font-size:clamp(1.625rem,1.25rem + 1.3vw,2.25rem);line-height:1.15;letter-spacing:-.02em}
 .results-heading .mantine-Group-root{gap:2px}
@@ -579,6 +597,22 @@ main{padding-top:20px}
  .reading-priority-card .mantine-Badge-root{min-height:28px;text-align:center}
 }
 
+/* The compact book sheet: when the sheet is narrow for its text size (narrower than 16em; on a
+   320 px phone from just over 125% text), its gutter, panel and field paddings stop growing with
+   the text, and its sections drop their card frame for a divider, so that content such as a date
+   field keeps the width it needs. The query is in em, which follows the root text size; at the
+   default size it matches no screen. */
+.detail-drawer .mantine-Drawer-content{container:sheet/inline-size}
+@container sheet (width < 16em){
+ .detail-drawer .mantine-Drawer-body{padding-inline:var(--inset-compact)}
+ .detail-content .mantine-Paper-root:not(.reading-panel){padding:var(--inset-compact)!important}
+ .detail-content .mantine-Accordion-item{border-width:1px 0 0;border-color:var(--line);border-radius:0;background:none;box-shadow:none}
+ /* The end inset leaves room for the chevron while it turns. */
+ .detail-content .mantine-Accordion-control{padding-inline:0 var(--inset-compact)}
+ .detail-content .mantine-Accordion-content{padding-inline:0}
+ .detail-content .mantine-Input-wrapper{--input-padding:var(--inset-compact)}
+}
+
 /* ---------- Collections ---------- */
 .collections-accordion{display:grid;gap:10px}
 .collections-accordion .mantine-Accordion-item{box-shadow:var(--shadow-sm)}
@@ -618,7 +652,9 @@ main{padding-top:20px}
 .reading-panel .mantine-InputWrapper-description{margin-bottom:.5rem}
 .reading-panel input[type=date]{width:100%;min-width:0;max-width:100%}
 .reading-panel input[type=date]::-webkit-date-and-time-value{min-height:1.5rem;text-align:left}
-@media (min-width:40em){.reading-fields{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* Two fields to a row once the book sheet has room for them at its text size: 640 px of sheet at the
+   default size, as before, while large text keeps one field to a row and each date whole. */
+@container sheet (width >= 40em){.reading-fields{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 /* ---------- Notes, sources and sync ---------- */
 .markdown{line-height:1.7;overflow-wrap:anywhere}
@@ -682,6 +718,19 @@ main{padding-top:20px}
 .library-toast-close{margin-top:-6px;color:var(--muted)}
 .library-toast-undo{grid-column:2/-1;justify-self:start;min-height:var(--touch-target);padding-inline:16px;border-radius:var(--radius)}
 @keyframes toast-enter{from{opacity:0;translate:0 8px}to{opacity:1;translate:0 0}}
+/* When the message column would be too narrow for the title's words (large text on a phone),
+   the icon and the close button keep the top row and the message takes the full width below.
+   The query is in em, which follows the root text size; on a 320 px phone it matches from about
+   118% text, or from about 106% while the book sheet, whose gutter narrows the region, is open.
+   At the default size it matches no phone. */
+.library-toast-region{container:toast/inline-size}
+@container toast (width < 17em){
+ .library-toast{grid-template-areas:"icon . close" "message message message" "undo undo undo";row-gap:var(--reflow-row-gap);width:calc(100% - 2 * var(--edge-compact));padding:var(--inset-compact)}
+ .library-toast-icon{grid-area:icon}
+ .library-toast-message{grid-area:message}
+ .library-toast-close{grid-area:close;margin-top:0}
+ .library-toast-undo{grid-area:undo}
+}
 
 /* ---------- Footer ---------- */
 .site-footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-top:56px;padding:22px 0 max(22px,env(safe-area-inset-bottom));border-top:1px solid var(--line);color:var(--muted)}
@@ -715,7 +764,7 @@ main{padding-top:20px}
  .search-panel{gap:8px}
  .catalog-search .mantine-Input-input{min-height:48px;font-size:1rem}
  .search-tools{gap:8px}
- .search-tools .mantine-Button-root,.search-tools .mantine-Select-input{min-height:48px}
+ .search-tools .mantine-Button-root,.search-tools .mantine-Input-input{min-height:48px}
  .reading-route.card-spotlight{margin-top:12px;padding:10px 12px 10px 16px;border-radius:14px}
  .reading-route .mantine-Text-root+.mantine-Text-root{display:none}
  .priority-summary{margin-top:6px}

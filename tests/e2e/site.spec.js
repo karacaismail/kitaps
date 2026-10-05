@@ -29,6 +29,50 @@ const spilling = roots => roots.evaluateAll(elements => {
   pullIn.remove();
   return found;
 });
+// Large-text checks run in the platform font and in a wide one: Ubuntu CI draws the interface in
+// DejaVu Sans, which runs much wider than macOS's font, and Verdana stands in for it. WIDE_FONT
+// is added once; useFont switches it on and off.
+const fonts = { 'system UI font': false, 'wide font': true };
+const useFont = (page, wide) => page.evaluate(on => document.documentElement.toggleAttribute('data-wide-font', on), wide);
+const WIDE_FONT = ':root[data-wide-font]{--sans:Verdana,sans-serif!important;--mantine-font-family:Verdana,sans-serif!important}';
+// Mantine's button and accordion labels hide what runs past them, so text cut off there is not overflow.
+const clipped = root => root.evaluate(element => {
+  const found = [];
+  const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+  for (let text = walker.nextNode(); text; text = walker.nextNode()) {
+    const range = document.createRange();
+    range.selectNodeContents(text);
+    const rects = [...range.getClientRects()].filter(rect => rect.width > 0);
+    for (let box = text.parentElement; box !== element.parentElement; box = box.parentElement) {
+      const style = getComputedStyle(box);
+      if (style.overflowX === 'visible' && style.overflowY === 'visible') continue;
+      const outer = box.getBoundingClientRect();
+      const left = outer.left + box.clientLeft, top = outer.top + box.clientTop;
+      if (rects.some(rect => rect.left < left - 1 || rect.right > left + box.clientWidth + 1 || rect.top < top - 1 || rect.bottom > top + box.clientHeight + 1)) {
+        found.push(text.data.trim());
+        break;
+      }
+    }
+  }
+  return found;
+});
+// Words broken across lines although they would fit on one: no wider than their closest `line` box,
+// or than any line when none is given. Hyphens, dashes and slashes are ordinary break points.
+const brokenWords = (texts, line) => texts.evaluateAll((elements, line) => elements.flatMap(element => {
+  const width = line ? element.closest(line).clientWidth : Infinity;
+  const found = [];
+  const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+  for (let text = walker.nextNode(); text; text = walker.nextNode()) {
+    for (const word of text.data.matchAll(/[^\s/\u2010-\u2014-]+/g)) {
+      const range = document.createRange();
+      range.setStart(text, word.index);
+      range.setEnd(text, word.index + word[0].length);
+      const rects = [...range.getClientRects()].filter(rect => rect.width > 0);
+      if (new Set(rects.map(rect => Math.round(rect.top))).size > 1 && rects.reduce((sum, rect) => sum + rect.width, 0) <= width) found.push(word[0]);
+    }
+  }
+  return found;
+}), line);
 
 test('the shared state is read from GitHub in a real browser, without CORS errors', async ({ page }) => {
   const errors = consoleErrors(page);
@@ -166,47 +210,6 @@ test('the catalog reflows at 320 px with 200% text', async ({ browser }) => {
 // The Kümeler tab with enlarged text. The wide font stands in for the Linux UI fonts on CI; where
 // Verdana is missing it falls back to the default sans, which is wide as well.
 test.describe('the Kümeler tab', () => {
-  const fonts = { 'system UI font': false, 'wide font': true };
-  const useFont = (page, wide) => page.evaluate(on => document.documentElement.toggleAttribute('data-wide-font', on), wide);
-  const WIDE_FONT = ':root[data-wide-font]{--sans:Verdana,sans-serif!important;--mantine-font-family:Verdana,sans-serif!important}';
-  // Mantine's button and accordion labels hide what runs past them, so text cut off there is not overflow.
-  const clipped = root => root.evaluate(element => {
-    const found = [];
-    const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
-    for (let text = walker.nextNode(); text; text = walker.nextNode()) {
-      const range = document.createRange();
-      range.selectNodeContents(text);
-      const rects = [...range.getClientRects()].filter(rect => rect.width > 0);
-      for (let box = text.parentElement; box !== element.parentElement; box = box.parentElement) {
-        const style = getComputedStyle(box);
-        if (style.overflowX === 'visible' && style.overflowY === 'visible') continue;
-        const outer = box.getBoundingClientRect();
-        const left = outer.left + box.clientLeft, top = outer.top + box.clientTop;
-        if (rects.some(rect => rect.left < left - 1 || rect.right > left + box.clientWidth + 1 || rect.top < top - 1 || rect.bottom > top + box.clientHeight + 1)) {
-          found.push(text.data.trim());
-          break;
-        }
-      }
-    }
-    return found;
-  });
-  // Words broken across lines although they would fit on one: no wider than their closest `line` box,
-  // or than any line when none is given. Hyphens, dashes and slashes are ordinary break points.
-  const brokenWords = (texts, line) => texts.evaluateAll((elements, line) => elements.flatMap(element => {
-    const width = line ? element.closest(line).clientWidth : Infinity;
-    const found = [];
-    const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
-    for (let text = walker.nextNode(); text; text = walker.nextNode()) {
-      for (const word of text.data.matchAll(/[^\s/\u2010-\u2014-]+/g)) {
-        const range = document.createRange();
-        range.setStart(text, word.index);
-        range.setEnd(text, word.index + word[0].length);
-        const rects = [...range.getClientRects()].filter(rect => rect.width > 0);
-        if (new Set(rects.map(rect => Math.round(rect.top))).size > 1 && rects.reduce((sum, rect) => sum + rect.width, 0) <= width) found.push(word[0]);
-      }
-    }
-    return found;
-  }), line);
   const smallTargets = root => root.locator('button').evaluateAll(buttons => buttons
     .filter(button => button.getClientRects().length)
     .filter(button => Math.min(button.offsetWidth, button.offsetHeight) < 44)
@@ -349,6 +352,263 @@ test('the book sheet keeps its text inside its boxes at 320 px with 200% text', 
     // The sheet scrolls on its own, so it is checked apart from the page.
     expect(await sheet.evaluate(element => element.scrollWidth <= element.clientWidth), `${book}: the sheet scrolls sideways`).toBe(true);
     expect(await spilling(sheet.locator('.reading-priority-card, .detail-sections')), book).toEqual([]);
+  }
+  await context.close();
+});
+
+// LARGE_TEXT, with WIDE_FONT ready, in place before the page first renders, as with a browser's own
+// font size setting. The toast and the book sheet switch layout with em container queries, and
+// Chromium does not always re-evaluate those when the root size of an open page changes.
+const enlargeTextFromStart = context => context.addInitScript(text => {
+  const add = () => document.documentElement.append(Object.assign(document.createElement('style'), { textContent: text }));
+  if (document.documentElement) add();
+  else new MutationObserver((_, observer) => { if (document.documentElement) { observer.disconnect(); add(); } }).observe(document, { childList: true });
+}, LARGE_TEXT.replace('html', 'html:root') + WIDE_FONT);
+// Waits for the fonts and for running transitions, such as an accordion opening and its chevron turning.
+const settled = page => page.evaluate(() => document.fonts.ready.then(() => Promise.all(document.getAnimations()
+  .filter(animation => animation.effect?.getComputedTiming().iterations !== Infinity)
+  .map(animation => animation.finished.catch(() => {})))));
+const onScreen = async locator => {
+  const box = await locator.boundingBox();
+  const { width, height } = locator.page().viewportSize();
+  return box.x >= 0 && box.x + box.width <= width && box.y >= 0 && box.y + box.height <= height;
+};
+// A field shows its whole value: its text does not run past its box.
+const showsWholeValue = locator => locator.evaluate(element => element.scrollWidth <= element.clientWidth + 1);
+// The value a select shows, whether its field is an input or a button.
+const shownValue = locator => locator.evaluate(element => (element.value || element.textContent).trim());
+
+test('long select values wrap instead of being cut off at 320 px with 200% text', async ({ browser }) => {
+  const context = await browser.newContext({ viewport: { width: 320, height: 900 } });
+  await isolate(context);
+  const page = await context.newPage();
+  await page.goto('./');
+  await expect(page.locator('.book-card').first()).toBeVisible();
+  await page.addStyleTag({ content: LARGE_TEXT + WIDE_FONT });
+  await settled(page);
+  const sort = page.getByRole('combobox', { name: 'Kitapları sırala' });
+  for (const [font, wide] of Object.entries(fonts)) {
+    await useFont(page, wide);
+    expect(await showsWholeValue(sort), `${font}: the sort value is cut off`).toBe(true);
+    expect(await clipped(sort), font).toEqual([]);
+    expect(await shownValue(sort), font).toBe('Okuma önceliği');
+  }
+  // One focus indicator, on the field itself.
+  await page.getByRole('button', { name: /^Filtreler/ }).focus();
+  await page.keyboard.press('Tab');
+  await expect(sort).toBeFocused();
+  await expect(sort).toHaveCSS('outline-style', 'none');
+  await expect(sort).toHaveCSS('box-shadow', /3px/);
+  // The keyboard opens the options, moves through them and picks one; Space opens, Escape closes.
+  await page.keyboard.press('ArrowDown');
+  await expect(sort).toHaveAttribute('aria-expanded', 'true');
+  await expect(page.getByRole('option', { selected: true })).toHaveText('Okuma önceliği');
+  await page.keyboard.press('ArrowDown');
+  await page.keyboard.press('Enter');
+  await expect(sort).toHaveText('En çok kesişen');
+  await expect(sort).toHaveAttribute('aria-expanded', 'false');
+  await expect(page).toHaveURL(/sort=shared/);
+  await page.keyboard.press('Space');
+  await expect(sort).toHaveAttribute('aria-expanded', 'true');
+  await page.keyboard.press('Escape');
+  await expect(sort).toHaveAttribute('aria-expanded', 'false');
+  // The pointer: a click opens the list, a second click closes it, and an option picks its value.
+  await sort.click();
+  await expect(sort).toHaveAttribute('aria-expanded', 'true');
+  await sort.click();
+  await expect(sort).toHaveAttribute('aria-expanded', 'false');
+  await sort.click();
+  await page.getByRole('option', { name: 'Okuma önceliği' }).click();
+  await expect(sort).toHaveText('Okuma önceliği');
+  await expect(sort).toHaveAttribute('aria-expanded', 'false');
+  await expect(sort).toBeFocused();
+  expect(await pageFits(page)).toBe(true);
+  // The related-books select in the book sheet shows the whole label of its chosen option.
+  await page.goto('./?book=good-to-great-by-jim-collins');
+  const related = page.getByRole('combobox', { name: 'Önerilerin konusu veya kümesi' });
+  await expect(related).toBeVisible();
+  await page.addStyleTag({ content: LARGE_TEXT + WIDE_FONT });
+  await settled(page);
+  for (const [font, wide] of Object.entries(fonts)) {
+    await useFont(page, wide);
+    expect(await showsWholeValue(related), `${font}: the related-books value is cut off`).toBe(true);
+    expect(await clipped(related), font).toEqual([]);
+  }
+  await related.focus();
+  await page.keyboard.press('ArrowDown');
+  const chosen = (await page.getByRole('option', { selected: true }).textContent()).trim();
+  await page.keyboard.press('Escape');
+  await expect(related).toHaveAttribute('aria-expanded', 'false');
+  expect(await shownValue(related)).toBe(chosen);
+  await context.close();
+});
+
+// Eight widths, two date states and two fonts make this slow on CI's WebKit, hence the longer time limit.
+test('the reading dates and the edition source fit the book sheet at every width with 200% text', async ({ browser }) => {
+  test.slow();
+  const context = await browser.newContext({ viewport: { width: 320, height: 900 } });
+  await isolate(context);
+  await enlargeTextFromStart(context);
+  const page = await context.newPage();
+  await page.goto('./?book=good-to-great-by-jim-collins');
+  const sheet = page.locator('.mantine-Drawer-content');
+  await expect(sheet.locator('.reading-priority-card')).toBeVisible();
+  // Opened from the keyboard, so the sheet's sticky header, tall at 200%, never takes the click.
+  const open = async () => {
+    for (const name of ['Okuma kaydım ve kişisel notlarım', 'Baskının kaynakları ve kontrol notları']) {
+      const control = sheet.getByRole('button', { name });
+      if (await control.getAttribute('aria-expanded') === 'true') continue;
+      await control.focus();
+      await page.keyboard.press('Enter');
+      await expect(control).toHaveAttribute('aria-expanded', 'true');
+    }
+    await settled(page);
+  };
+  const dates = sheet.locator('.reading-fields input[type=date]');
+  // A date field cuts its date off when it is narrower than its natural width.
+  const cutOff = () => dates.evaluateAll(inputs => inputs.filter(input => {
+    const natural = Object.assign(input.cloneNode(), { tabIndex: -1 });
+    natural.style.cssText = 'position:absolute;visibility:hidden;width:auto!important;min-width:0!important;max-width:none!important';
+    input.after(natural);
+    const needed = natural.getBoundingClientRect().width;
+    natural.remove();
+    return needed > input.getBoundingClientRect().width + 0.5;
+  }).map(input => input.labels[0]?.textContent));
+  for (const width of [320, 360, 375, 390, 640, 667, 768, 1280]) {
+    await page.setViewportSize({ width, height: 900 });
+    await open();
+    await expect(dates).toHaveCount(2);
+    for (const value of ['', '2026-10-04']) {
+      for (const input of await dates.all()) await input.fill(value);
+      for (const [font, wide] of Object.entries(fonts)) {
+        await useFont(page, wide);
+        const state = `${width} px, ${font}, ${value ? 'filled' : 'empty'}`;
+        expect(await cutOff(), state).toEqual([]);
+        // Only a date's width differs between the two states, so the rest of the sheet is checked once.
+        if (!value) continue;
+        expect(await spilling(sheet.locator('.edition-guide, .discovery-panel, .detail-actions')), state).toEqual([]);
+        expect(await sheet.evaluate(element => element.scrollWidth <= element.clientWidth), `${state}: the sheet scrolls sideways`).toBe(true);
+      }
+    }
+  }
+  await expect(sheet.locator('.edition-guide .source-link').first()).toBeVisible();
+  await context.close();
+});
+
+test('titles keep whole words and move their controls below them at 320 px with 200% text', async ({ browser }) => {
+  const context = await browser.newContext({ viewport: { width: 320, height: 900 } });
+  await isolate(context);
+  const page = await context.newPage();
+  const views = [
+    { path: './', box: '.reading-route', title: '.reading-route .mantine-Text-root:first-child', text: '.reading-route.card-spotlight>div', controls: '.reading-route .mantine-Button-root' },
+    { path: './?q=zzzz', box: '.results-heading', title: '.results-heading h1', text: '.results-heading>div:first-child', controls: '.results-heading>div:last-child' },
+  ];
+  for (const { path, box, title, text, controls } of views) {
+    await page.goto(path);
+    await expect(page.locator(controls)).toBeVisible();
+    await settled(page);
+    // At the default size the controls stay beside the title.
+    const beside = await page.locator(controls).boundingBox();
+    const column = await page.locator(text).boundingBox();
+    expect(beside.y < column.y + column.height && beside.x >= column.x + column.width, `${path}: the controls left the title's row at 100%`).toBe(true);
+    await page.addStyleTag({ content: LARGE_TEXT + WIDE_FONT });
+    await settled(page);
+    for (const [font, wide] of Object.entries(fonts)) {
+      await useFont(page, wide);
+      expect(await brokenWords(page.locator(title), box), `${path}, ${font}`).toEqual([]);
+      const below = await page.locator(controls).boundingBox();
+      const textBox = await page.locator(text).boundingBox();
+      expect(below.y >= textBox.y + textBox.height - 1, `${path}, ${font}: the controls stayed beside the title`).toBe(true);
+      expect(below.x >= 0 && below.x + below.width <= 320, `${path}, ${font}: the controls run off the screen`).toBe(true);
+      expect(await spilling(page.locator(box)), `${path}, ${font}`).toEqual([]);
+      expect(await pageFits(page), `${path}, ${font}`).toBe(true);
+    }
+  }
+  await context.close();
+});
+
+test('the purchase toast keeps its title words whole at 320 px with 200% text', async ({ browser }) => {
+  // The message column is at least as wide as the title's longest word, as drawn.
+  const roomForWords = title => title.evaluate(element => {
+    const text = element.firstChild;
+    const widest = Math.max(...[...text.data.matchAll(/\S+/g)].map(word => {
+      const range = document.createRange();
+      range.setStart(text, word.index);
+      range.setEnd(text, word.index + word[0].length);
+      return [...range.getClientRects()].reduce((sum, rect) => sum + rect.width, 0);
+    }));
+    return widest <= element.closest('.library-toast-message').clientWidth + 0.5;
+  });
+  // At the default size the icon and the close button sit beside the title.
+  const plain = await browser.newContext({ viewport: { width: 320, height: 900 } });
+  await isolate(plain);
+  const page = await plain.newPage();
+  await page.goto('./');
+  await page.locator('.book-card .cover-owned').first().click();
+  const plainToast = page.locator('.library-toast');
+  await expect(plainToast).toBeVisible();
+  const [icon, heading, close] = await Promise.all([plainToast.locator('.library-toast-icon'), plainToast.locator('strong'), plainToast.getByRole('button', { name: 'Bildirimi kapat' })].map(locator => locator.boundingBox()));
+  expect(heading.x >= icon.x + icon.width && close.x >= heading.x + heading.width && close.y < heading.y + heading.height, 'the toast left its row layout at 100%').toBe(true);
+  await plain.close();
+  const context = await browser.newContext({ viewport: { width: 320, height: 900 } });
+  await isolate(context);
+  await enlargeTextFromStart(context);
+  const large = await context.newPage();
+  await large.goto('./');
+  const owned = large.locator('.book-card .cover-owned').first();
+  const toast = large.locator('.library-toast');
+  for (const text of ['Kitaplığa eklendi', 'Kitaplıktan çıkarıldı']) {
+    // Pressed from the keyboard, so the site header, tall at 200%, never takes the click.
+    await owned.focus();
+    await large.keyboard.press('Enter');
+    await expect(toast).toBeVisible();
+    // Focus inside the toast keeps it from closing itself while it is measured.
+    await toast.getByRole('button', { name: 'Geri al' }).focus();
+    await settled(large);
+    for (const [font, wide] of Object.entries(fonts)) {
+      await useFont(large, wide);
+      expect(await roomForWords(toast.locator('strong')), `${font}: the message column is narrower than a word of the title`).toBe(true);
+      expect(await brokenWords(toast.locator('strong'), '.library-toast-message'), `${font}: ${text}`).toEqual([]);
+      expect(await spilling(toast), `${font}: ${text}`).toEqual([]);
+      for (const name of ['Bildirimi kapat', 'Geri al']) expect(await onScreen(toast.getByRole('button', { name })), `${font}: ${name}`).toBe(true);
+    }
+    await expect(toast.locator('strong')).toHaveText(text);
+    await toast.getByRole('button', { name: 'Bildirimi kapat' }).click();
+    await expect(toast).toBeHidden();
+  }
+  await context.close();
+});
+
+// The compact book sheet starts below 16em of sheet width and the stacked toast below 17em of
+// screen width: 512 and 544 px with 200% text.
+test('the sheet and the toast turn compact just below their limits with 200% text', async ({ browser }) => {
+  const context = await browser.newContext({ viewport: { width: 513, height: 900 } });
+  await isolate(context);
+  await enlargeTextFromStart(context);
+  const page = await context.newPage();
+  await page.goto('./?book=good-to-great-by-jim-collins');
+  const section = page.locator('.detail-sections .mantine-Accordion-item').first();
+  await expect(section).toBeVisible();
+  for (const [width, compact] of [[513, false], [512, false], [511, true]]) {
+    await page.setViewportSize({ width, height: 900 });
+    // A compact section has no card frame, only its top divider.
+    await expect.poll(() => section.evaluate(element => getComputedStyle(element).borderLeftWidth === '0px'), `${width} px`).toBe(compact);
+  }
+  await page.goto('./');
+  await page.setViewportSize({ width: 545, height: 900 });
+  const owned = page.locator('.book-card .cover-owned').first();
+  await owned.focus();
+  await page.keyboard.press('Enter');
+  const toast = page.locator('.library-toast');
+  await expect(toast).toBeVisible();
+  await toast.getByRole('button', { name: 'Geri al' }).focus();
+  for (const [width, stacked] of [[545, false], [544, false], [543, true]]) {
+    await page.setViewportSize({ width, height: 900 });
+    // Stacked, the title starts below the icon instead of beside it.
+    await expect.poll(async () => {
+      const [icon, title] = await Promise.all([toast.locator('.library-toast-icon').boundingBox(), toast.locator('strong').boundingBox()]);
+      return title.y >= icon.y + icon.height;
+    }, `${width} px`).toBe(stacked);
   }
   await context.close();
 });

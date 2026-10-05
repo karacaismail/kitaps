@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Accordion, ActionIcon, Alert, Anchor, Badge, Box, Button, Card, Container, Group, MantineProvider, Modal, Paper, Select, Stack, Text, TextInput, Tabs, ThemeIcon, Title, Tooltip, createTheme, defaultVariantColorsResolver, localStorageColorSchemeManager } from '@mantine/core';
+import { Accordion, ActionIcon, Alert, Anchor, Badge, Box, Button, Card, Container, Group, MantineProvider, Modal, Paper, Stack, Text, TextInput, Tabs, ThemeIcon, Title, Tooltip, createTheme, defaultVariantColorsResolver, localStorageColorSchemeManager } from '@mantine/core';
 import { IconLink, IconArrowLeft, IconArrowRight, IconArrowUpRight, IconBook2, IconShoppingBagCheck, IconBooks, IconCheck, IconChevronRight, IconDownload, IconFilter, IconHeart, IconLayersIntersect, IconListNumbers, IconSearch, IconX } from '@tabler/icons-react';
 import '@mantine/core/styles.css';
 import '@fontsource-variable/literata/wght.css';
@@ -20,6 +20,7 @@ import EditionSummary from './components/EditionSummary';
 import BookSheet from './components/BookSheet';
 import FilterSheet from './components/FilterSheet';
 import LibraryToast from './components/LibraryToast';
+import WrappingSelect from './components/WrappingSelect';
 import TranslationCriteria from './components/TranslationCriteria';
 import ReadingPriorityCard from './components/ReadingPriorityCard';
 import ReadingPrioritySummary from './components/ReadingPrioritySummary';
@@ -154,7 +155,7 @@ function BookDetail({book:b,ranking,onClose,onOpen,onBack,hasBack,states,onToggl
  const originalTitle=b&&translationStatus(b).status==='available'&&b.originalTitle&&b.originalTitle!==shownTitle?b.originalTitle:'';
  useEffect(()=>{if(b)topRef.current?.scrollIntoView({block:'start',behavior:'instant'})},[b?.id]);
  return <BookSheet opened={!!b} onClose={onClose}>
-  {b&&<Stack gap="xl" pb="xl" key={b.id}>
+  {b&&<Stack gap="xl" pb="xl" key={b.id} className="detail-content">
    <div ref={topRef} className="detail-top">{hasBack&&<Button variant="subtle" leftSection={<IconArrowLeft size={18}/>} onClick={onBack}>Önceki kitaba dön</Button>}</div>
    <div className="detail-hero"><div className="detail-cover-block"><BookCover key={b.id} book={b} detail read={(states[b.id]||[]).includes('okundu')}/><div className="cover-marks"><StateRibbons marks={states[b.id]||[]}/></div></div>
     <div className="detail-heading"><Title order={2}>{shownTitle}</Title><StateSummary marks={states[b.id]||[]}/><Text className="detail-author">{b.author||'Yazar bilgisi belirtilmemiş'}</Text>{originalTitle&&<Text className="detail-original">{originalTitle}</Text>}{b.years.length>0&&<Text className="detail-year">İlk yayın · {b.years.join(' / ')}</Text>}{b.childAge&&<Text className="detail-year">Önerilen yaş · {b.childAge}</Text>}{formatDay(b.addedAt)&&<Text className="detail-year">Kitaplığa eklendi · {formatDay(b.addedAt)}</Text>}<div className="detail-translation-status"><TranslationStatus book={b}/></div>
@@ -277,7 +278,7 @@ function AtlasApp() {
      {['owned','favorites'].includes(view)&&<Title order={1} className="visually-hidden">{view==='owned'?'Kitaplığım':'Favorilerim'}</Title>}
      <div className="search-panel" role="search">
       <TextInput className="catalog-search" label={view==='owned'?'Kitaplığımda ara':view==='favorites'?'Favorilerimde ara':'Katalogda ara'} placeholder="Kitap, yazar, çevirmen…" leftSection={<IconSearch size={21}/>} rightSectionWidth={44} rightSection={filters.query?<ActionIcon variant="subtle" aria-label="Aramayı temizle" onClick={()=>changeFilters({...filters,query:''})}><IconX size={20}/></ActionIcon>:null} value={filters.query} onChange={e=>changeFilters({...filters,query:e.currentTarget.value})}/>
-      <div className="search-tools"><Button variant="light" leftSection={<IconFilter size={20}/>} onClick={()=>{setTransfer(null);setDraft(filters);setOpened(true)}}>Filtreler{activeCount?` · ${activeCount}`:''}</Button><Select aria-label="Kitapları sırala" value={sort} onChange={v=>setRoute(r=>({...r,sort:v||'reading',page:1}))} data={[{value:'reading',label:'Okuma önceliği'},{value:'shared',label:'En çok kesişen'},{value:'title',label:'Kitap adı · A–Z'},{value:'author',label:'Yazar · A–Z'},{value:'newest',label:'Yayın yılı · yeni'},{value:'added',label:'Eklenme · yeni'},{value:'saved',label:'Favoriler önce'}]} allowDeselect={false}/></div>
+      <div className="search-tools"><Button variant="light" leftSection={<IconFilter size={20}/>} onClick={()=>{setTransfer(null);setDraft(filters);setOpened(true)}}>Filtreler{activeCount?` · ${activeCount}`:''}</Button><WrappingSelect aria-label="Kitapları sırala" value={sort} onChange={v=>setRoute(r=>({...r,sort:v||'reading',page:1}))} data={[{value:'reading',label:'Okuma önceliği'},{value:'shared',label:'En çok kesişen'},{value:'title',label:'Kitap adı · A–Z'},{value:'author',label:'Yazar · A–Z'},{value:'newest',label:'Yayın yılı · yeni'},{value:'added',label:'Eklenme · yeni'},{value:'saved',label:'Favoriler önce'}]}/></div>
       <ActiveFilters filters={filters} onChange={changeFilters}/>
      </div>
      {view==='books'&&!filterCount(filters)&&<SpotlightCard className="reading-route" spotlightColor="rgba(225,238,173,.13)"><div><Text fw={500}>Nereden başlamalı?</Text><Text>{collectionMap.core?.count} kitaplık çekirdek, düşünceden uygulamaya.</Text></div><Button variant="white" color="brand" rightSection={<IconArrowRight size={19}/>} onClick={()=>goCollection('core')}>Seçkiye git</Button></SpotlightCard>}

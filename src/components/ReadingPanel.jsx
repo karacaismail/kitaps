@@ -12,12 +12,14 @@ export function QueueButton({id,queue,onAdd,onQueue,fullWidth=false,iconOnly=fal
 }
 export default function ReadingPanel({book,record,states,onToggle,onChange,queue,onAdd,onQueue,storageError}) {
  const r={...emptyReading(),...record};const percent=progressPercent(r),errors=readingErrors(r);
+ // A four-digit year: without a max, Chromium sizes the date field for six-digit years.
+ const lastDay='9999-12-31';
  return <Paper className="reading-panel">
   <Stack gap="lg">
    <div><Title order={3}>Benim okuma kaydım</Title><Text c="dimmed" mt="xs" aria-live="polite">{storageError?'Kayıt yapılamıyor. Notlar bölümünden yedek indir.':'Bu kayıtlar tarayıcıya kaydedilir ve GitHub eşitlemesi bağlıysa herkese açık kitaps-state deposuna gönderilir.'}</Text></div>
    <QueueButton id={book.id} queue={queue} onAdd={onAdd} onQueue={onQueue} fullWidth/>
    <div><Text fw={500} mb="sm">Okuma durumu</Text><Group gap={8}>{['okunuyor','araverildi','birakildi','okundu'].map(key=><Button key={key} variant={states.includes(key)?'filled':'light'} aria-pressed={states.includes(key)} onClick={()=>onToggle(book.id,key)}>{STATE_LABELS[key]}</Button>)}</Group></div>
-   <div className="reading-fields"><TextInput type="date" label="Başlama tarihi" value={r.startedAt} onChange={e=>onChange(book.id,{startedAt:e.currentTarget.value})} onInput={e=>onChange(book.id,{startedAt:e.currentTarget.value})}/><TextInput type="date" label="Bitiş tarihi" value={r.finishedAt} error={errors.dates} onChange={e=>onChange(book.id,{finishedAt:e.currentTarget.value})} onInput={e=>onChange(book.id,{finishedAt:e.currentTarget.value})}/></div>
+   <div className="reading-fields"><TextInput type="date" max={lastDay} label="Başlama tarihi" value={r.startedAt} onChange={e=>onChange(book.id,{startedAt:e.currentTarget.value})} onInput={e=>onChange(book.id,{startedAt:e.currentTarget.value})}/><TextInput type="date" max={lastDay} label="Bitiş tarihi" value={r.finishedAt} error={errors.dates} onChange={e=>onChange(book.id,{finishedAt:e.currentTarget.value})} onInput={e=>onChange(book.id,{finishedAt:e.currentTarget.value})}/></div>
    <div className="reading-fields"><NumberInput label="Kaldığım sayfa" min={0} max={999999} allowDecimal={false} hideControls size="md" placeholder="Henüz başlamadım" value={r.page} onChange={page=>onChange(book.id,{page})}/><NumberInput label="Toplam sayfa" min={1} max={999999} allowDecimal={false} hideControls size="md" placeholder="Baskına göre" value={r.totalPages} error={errors.pages} onChange={totalPages=>onChange(book.id,{totalPages})}/></div>
    {percent!==null&&!errors.pages&&<div><Group justify="space-between" mb="xs"><Text>{r.page} / {r.totalPages} sayfa</Text><Text fw={500}>%{percent}</Text></Group><Progress value={percent} size="md" radius="xl" aria-label="Okuma ilerlemesi"/></div>}
    <Textarea label="Neden okuyorum?" description="Bu kitaptan ne öğrenmek veya neyi anlamak istiyorum?" placeholder="Bu kitabı seçme nedenim…" autosize minRows={3} value={r.why} onChange={e=>onChange(book.id,{why:e.currentTarget.value})}/>

@@ -1,7 +1,8 @@
 import React,{useState} from 'react';
-import { Accordion, Anchor, Badge, Button, Group, Paper, Select, Stack, Text, Title } from '@mantine/core';
+import { Accordion, Anchor, Badge, Button, Group, Paper, Stack, Text, Title } from '@mantine/core';
 import { readingGuide, relatedBooks } from '../recommendations';
 import { displayTitle,turkishMeaning } from '../translation';
+import WrappingSelect from './WrappingSelect';
 
 function RelatedCard({book,reason='',onOpen,BookCover,states}) {
  const marks=states[book.id]||[];
@@ -34,7 +35,7 @@ export default function BookDiscovery({book,catalog,states,onOpen,onCategory,onC
    {guide.companions.length>0&&<Accordion.Item value="companions"><Accordion.Control>Birlikte veya karşılaştırmalı oku · {guide.companions.length}</Accordion.Control><Accordion.Panel><Stack gap="md">{guide.companions.map(linked)}</Stack></Accordion.Panel></Accordion.Item>}
   </Accordion>
   <div><Title order={3}>{heading}</Title><Text mt="sm" c="dimmed">Ortak konu ve küme üyeliklerine göre seçildi. Kitaplığındaki eserler de burada görünür.</Text></div>
-  <Select label="Önerilerin konusu veya kümesi" data={options} value={scope} allowDeselect={false} onChange={v=>{if(v){setScope(v);setVisible(4)}}}/>
+  <WrappingSelect label="Önerilerin konusu veya kümesi" data={options} value={scope} onChange={v=>{setScope(v);setVisible(4)}}/>
   <Text role="status" c="dimmed">{matches.length} başka kitap{matches.length?` · İlk ${Math.min(visible,matches.length)} kitap`:''}</Text>
   <div className="related-grid">{matches.slice(0,visible).map(b=><RelatedCard key={b.id} book={b} onOpen={onOpen} BookCover={BookCover} states={states}/>)}</div>
   {!matches.length&&<Text>Bu seçimde keşfedilecek başka kitap kalmadı.</Text>}
